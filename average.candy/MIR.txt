@@ -1,0 +1,570 @@
+# MIR for module Examples:average
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# anonymous:$generated::needs
+$49 = { $2 $3 $4 $1 ->
+  $5 = anonymous:$generated::needs
+  $6 = builtinEquals
+  $7 = Nothing
+  $8 = True
+  $9 = False
+  $10 = call $6 with $2 $8 $5
+  $11 = builtinIfElse
+  # anonymous:$generated::needs:isConditionTrue:then
+  $14 = { $12 ->
+    $13 = $8
+  }
+  # anonymous:$generated::needs:isConditionTrue:else
+  $17 = { $15 ->
+    $16 = call $6 with $2 $9 $5
+  }
+  $18 = call $11 with $10 $14 $17 $5
+  $19 = builtinIfElse
+  # anonymous:$generated::needs:isConditionBool:then
+  $22 = { $20 ->
+    $21 = $7
+  }
+  # anonymous:$generated::needs:isConditionBool:else
+  $26 = { $23 ->
+    $24 = "The `condition` must be either `True` or `False`."
+    $25 = panicking because $24 ($1 is at fault)
+  }
+  $27 = call $19 with $18 $22 $26 $5
+  $28 = builtinTypeOf
+  $29 = call $28 with $3 $1
+  $30 = Text
+  $31 = call $6 with $29 $30 $1
+  $32 = builtinIfElse
+  # anonymous:$generated::needs:isReasonText:then
+  $35 = { $33 ->
+    $34 = $7
+  }
+  # anonymous:$generated::needs:isReasonText:else
+  $39 = { $36 ->
+    $37 = "The `reason` must be a text."
+    $38 = panicking because $37 ($1 is at fault)
+  }
+  $40 = call $32 with $31 $35 $39 $5
+  $41 = builtinIfElse
+  # anonymous:$generated::needs:condition:then
+  $44 = { $42 ->
+    $43 = $7
+  }
+  # anonymous:$generated::needs:condition:else
+  $47 = { $45 ->
+    $46 = panicking because $3 ($4 is at fault)
+  }
+  $48 = call $41 with $2 $44 $47 $5
+}
+$50 = Examples:average:
+# Examples:average:use
+$54 = { $52 $51 ->
+  $53 = use $52 (relative to Examples:average; $50 is responsible)
+}
+$55 = $54
+$56 = builtinTextConcatenate
+$57 = builtinTypeOf
+$58 = Text
+$59 = builtinEquals
+$60 = builtinIfElse
+$61 = builtinToDebugText
+$62 = "Core"
+$63 = Examples:average:8
+$64 = call $55 with $62 $63
+$65 = Examples:average:9
+$66 = Match
+$67 = NoMatch
+$68 = Struct
+$69 = builtinTypeOf
+$70 = call $69 with $64 $65
+$71 = builtinEquals
+$72 = call $71 with $68 $70 $65
+$73 = builtinIfElse
+# Examples:average:9:equals:then
+$230 = { $74 ->
+  $75 = builtinStructHasKey
+  $76 = builtinStructGet
+  $77 = Int
+  $78 = call $75 with $64 $77 $65
+  $79 = builtinIfElse
+  # Examples:average:9:hasKey:then
+  $83 = { $80 ->
+    $81 = call $76 with $64 $77 $65
+    $82 = ($66, $81)
+  }
+  # Examples:average:9:hasKey:else
+  $97 = { $84 ->
+    $85 = builtinToDebugText
+    $86 = call $85 with $77 $65
+    $87 = call $85 with $64 $65
+    $88 = "Struct doesn't contain key `"
+    $89 = "`: `"
+    $90 = "`."
+    $91 = builtinTextConcatenate
+    $92 = call $91 with $88 $86 $65
+    $93 = call $91 with $92 $89 $65
+    $94 = call $91 with $93 $87 $65
+    $95 = call $91 with $94 $90 $65
+    $96 = ($67, $95)
+  }
+  $98 = call $79 with $78 $83 $97 $65
+  $99 = builtinListGet
+  $100 = 0
+  $101 = call $99 with $98 $100 $65
+  $102 = builtinEquals
+  $103 = Match
+  $104 = call $102 with $101 $103 $65
+  $105 = builtinIfElse
+  # Examples:average:9:isMatch:then
+  $225 = { $106 ->
+    $107 = builtinListGet
+    $108 = 1
+    $109 = call $107 with $98 $108 $65
+    $110 = Iterable
+    $111 = call $75 with $64 $110 $65
+    $112 = builtinIfElse
+    # Examples:average:9:hasKey:then
+    $116 = { $113 ->
+      $114 = call $76 with $64 $110 $65
+      $115 = ($66, $114)
+    }
+    # Examples:average:9:hasKey:else
+    $130 = { $117 ->
+      $118 = builtinToDebugText
+      $119 = call $118 with $110 $65
+      $120 = call $118 with $64 $65
+      $121 = "Struct doesn't contain key `"
+      $122 = "`: `"
+      $123 = "`."
+      $124 = builtinTextConcatenate
+      $125 = call $124 with $121 $119 $65
+      $126 = call $124 with $125 $122 $65
+      $127 = call $124 with $126 $120 $65
+      $128 = call $124 with $127 $123 $65
+      $129 = ($67, $128)
+    }
+    $131 = call $112 with $111 $116 $130 $65
+    $132 = builtinListGet
+    $133 = 0
+    $134 = call $132 with $131 $133 $65
+    $135 = builtinEquals
+    $136 = Match
+    $137 = call $135 with $134 $136 $65
+    $138 = builtinIfElse
+    # Examples:average:9:isMatch:then
+    $220 = { $139 ->
+      $140 = builtinListGet
+      $141 = 1
+      $142 = call $140 with $131 $141 $65
+      $143 = List
+      $144 = call $75 with $64 $143 $65
+      $145 = builtinIfElse
+      # Examples:average:9:hasKey:then
+      $149 = { $146 ->
+        $147 = call $76 with $64 $143 $65
+        $148 = ($66, $147)
+      }
+      # Examples:average:9:hasKey:else
+      $163 = { $150 ->
+        $151 = builtinToDebugText
+        $152 = call $151 with $143 $65
+        $153 = call $151 with $64 $65
+        $154 = "Struct doesn't contain key `"
+        $155 = "`: `"
+        $156 = "`."
+        $157 = builtinTextConcatenate
+        $158 = call $157 with $154 $152 $65
+        $159 = call $157 with $158 $155 $65
+        $160 = call $157 with $159 $153 $65
+        $161 = call $157 with $160 $156 $65
+        $162 = ($67, $161)
+      }
+      $164 = call $145 with $144 $149 $163 $65
+      $165 = builtinListGet
+      $166 = 0
+      $167 = call $165 with $164 $166 $65
+      $168 = builtinEquals
+      $169 = Match
+      $170 = call $168 with $167 $169 $65
+      $171 = builtinIfElse
+      # Examples:average:9:isMatch:then
+      $215 = { $172 ->
+        $173 = builtinListGet
+        $174 = 1
+        $175 = call $173 with $164 $174 $65
+        $176 = Result
+        $177 = call $75 with $64 $176 $65
+        $178 = builtinIfElse
+        # Examples:average:9:hasKey:then
+        $182 = { $179 ->
+          $180 = call $76 with $64 $176 $65
+          $181 = ($66, $180)
+        }
+        # Examples:average:9:hasKey:else
+        $196 = { $183 ->
+          $184 = builtinToDebugText
+          $185 = call $184 with $176 $65
+          $186 = call $184 with $64 $65
+          $187 = "Struct doesn't contain key `"
+          $188 = "`: `"
+          $189 = "`."
+          $190 = builtinTextConcatenate
+          $191 = call $190 with $187 $185 $65
+          $192 = call $190 with $191 $188 $65
+          $193 = call $190 with $192 $186 $65
+          $194 = call $190 with $193 $189 $65
+          $195 = ($67, $194)
+        }
+        $197 = call $178 with $177 $182 $196 $65
+        $198 = builtinListGet
+        $199 = 0
+        $200 = call $198 with $197 $199 $65
+        $201 = builtinEquals
+        $202 = Match
+        $203 = call $201 with $200 $202 $65
+        $204 = builtinIfElse
+        # Examples:average:9:isMatch:then
+        $210 = { $205 ->
+          $206 = builtinListGet
+          $207 = 1
+          $208 = call $206 with $197 $207 $65
+          $209 = ($66, $109, $142, $175, $208)
+        }
+        # Examples:average:9:isMatch:else
+        $213 = { $211 ->
+          $212 = $197
+        }
+        $214 = call $204 with $203 $210 $213 $65
+      }
+      # Examples:average:9:isMatch:else
+      $218 = { $216 ->
+        $217 = $164
+      }
+      $219 = call $171 with $170 $215 $218 $65
+    }
+    # Examples:average:9:isMatch:else
+    $223 = { $221 ->
+      $222 = $131
+    }
+    $224 = call $138 with $137 $220 $223 $65
+  }
+  # Examples:average:9:isMatch:else
+  $228 = { $226 ->
+    $227 = $98
+  }
+  $229 = call $105 with $104 $225 $228 $65
+}
+# Examples:average:9:equals:else
+$244 = { $231 ->
+  $232 = builtinToDebugText
+  $233 = call $232 with $68 $65
+  $234 = call $232 with $70 $65
+  $235 = "Expected a "
+  $236 = ", got `"
+  $237 = "`."
+  $238 = builtinTextConcatenate
+  $239 = call $238 with $235 $233 $65
+  $240 = call $238 with $239 $236 $65
+  $241 = call $238 with $240 $234 $65
+  $242 = call $238 with $241 $237 $65
+  $243 = ($67, $242)
+}
+$245 = call $73 with $72 $230 $244 $65
+$246 = Nothing
+$247 = builtinListGet
+$248 = 0
+$249 = call $247 with $245 $248 $65
+$250 = builtinEquals
+$251 = Match
+$252 = call $250 with $249 $251 $65
+$253 = builtinIfElse
+# Examples:average:9:isMatch:then
+$256 = { $254 ->
+  $255 = $246
+}
+# Examples:average:9:isMatch:else
+$262 = { $257 ->
+  $258 = builtinListGet
+  $259 = 1
+  $260 = call $258 with $245 $259 $65
+  $261 = panicking because $260 ($65 is at fault)
+}
+$263 = call $253 with $252 $256 $262 $65
+$264 = builtinListGet
+$265 = 1
+$266 = Examples:average:int
+$267 = call $264 with $245 $265 $266
+$268 = builtinListGet
+$269 = 2
+$270 = Examples:average:iterable
+$271 = call $268 with $245 $269 $270
+$272 = builtinListGet
+$273 = 3
+$274 = Examples:average:list
+$275 = call $272 with $245 $273 $274
+$276 = builtinListGet
+$277 = 4
+$278 = Examples:average:result
+$279 = call $276 with $245 $277 $278
+$280 = Nothing
+$281 = $267
+$282 = Examples:average:12
+$283 = Match
+$284 = NoMatch
+$285 = Struct
+$286 = builtinTypeOf
+$287 = call $286 with $281 $282
+$288 = builtinEquals
+$289 = call $288 with $285 $287 $282
+$290 = builtinIfElse
+# Examples:average:12:equals:then
+$333 = { $291 ->
+  $292 = builtinStructHasKey
+  $293 = builtinStructGet
+  $294 = DivideTruncating
+  $295 = call $292 with $281 $294 $282
+  $296 = builtinIfElse
+  # Examples:average:12:hasKey:then
+  $300 = { $297 ->
+    $298 = call $293 with $281 $294 $282
+    $299 = ($283, $298)
+  }
+  # Examples:average:12:hasKey:else
+  $314 = { $301 ->
+    $302 = builtinToDebugText
+    $303 = call $302 with $294 $282
+    $304 = call $302 with $281 $282
+    $305 = "Struct doesn't contain key `"
+    $306 = "`: `"
+    $307 = "`."
+    $308 = builtinTextConcatenate
+    $309 = call $308 with $305 $303 $282
+    $310 = call $308 with $309 $306 $282
+    $311 = call $308 with $310 $304 $282
+    $312 = call $308 with $311 $307 $282
+    $313 = ($284, $312)
+  }
+  $315 = call $296 with $295 $300 $314 $282
+  $316 = builtinListGet
+  $317 = 0
+  $318 = call $316 with $315 $317 $282
+  $319 = builtinEquals
+  $320 = Match
+  $321 = call $319 with $318 $320 $282
+  $322 = builtinIfElse
+  # Examples:average:12:isMatch:then
+  $328 = { $323 ->
+    $324 = builtinListGet
+    $325 = 1
+    $326 = call $324 with $315 $325 $282
+    $327 = ($283, $326)
+  }
+  # Examples:average:12:isMatch:else
+  $331 = { $329 ->
+    $330 = $315
+  }
+  $332 = call $322 with $321 $328 $331 $282
+}
+# Examples:average:12:equals:else
+$347 = { $334 ->
+  $335 = builtinToDebugText
+  $336 = call $335 with $285 $282
+  $337 = call $335 with $287 $282
+  $338 = "Expected a "
+  $339 = ", got `"
+  $340 = "`."
+  $341 = builtinTextConcatenate
+  $342 = call $341 with $338 $336 $282
+  $343 = call $341 with $342 $339 $282
+  $344 = call $341 with $343 $337 $282
+  $345 = call $341 with $344 $340 $282
+  $346 = ($284, $345)
+}
+$348 = call $290 with $289 $333 $347 $282
+$349 = Nothing
+$350 = builtinListGet
+$351 = 0
+$352 = call $350 with $348 $351 $282
+$353 = builtinEquals
+$354 = Match
+$355 = call $353 with $352 $354 $282
+$356 = builtinIfElse
+# Examples:average:12:isMatch:then
+$359 = { $357 ->
+  $358 = $349
+}
+# Examples:average:12:isMatch:else
+$365 = { $360 ->
+  $361 = builtinListGet
+  $362 = 1
+  $363 = call $361 with $348 $362 $282
+  $364 = panicking because $363 ($282 is at fault)
+}
+$366 = call $356 with $355 $359 $365 $282
+$367 = builtinListGet
+$368 = 1
+$369 = Examples:average:divideTruncating
+$370 = call $367 with $348 $368 $369
+$371 = Nothing
+# Examples:average:average
+$514 = { $373 $372 ->
+  $374 = "Builtins"
+  $375 = Examples:average:average:1
+  $376 = call $54 with $374 $375
+  $377 = builtinStructGet
+  $378 = StructGet
+  $379 = Examples:average:average:4
+  $380 = call $377 with $376 $378 $379
+  $381 = $275
+  $382 = Is
+  $383 = Examples:average:average:7
+  $384 = call $380 with $381 $382 $383
+  $385 = $373
+  $386 = Examples:average:average:9
+  $387 = call $384 with $385 $386
+  $388 = "`list.is a` was not satisfied"
+  $389 = Examples:average:average:11
+  $390 = call $49 with $387 $388 $372 $389
+  $391 = $373
+  $392 = "Builtins"
+  $393 = Examples:average:average:14
+  $394 = call $54 with $392 $393
+  $395 = builtinStructGet
+  $396 = StructGet
+  $397 = Examples:average:average:17
+  $398 = call $395 with $394 $396 $397
+  $399 = $275
+  $400 = IsEmpty
+  $401 = Examples:average:average:20
+  $402 = call $398 with $399 $400 $401
+  $403 = Examples:average:average:21
+  $404 = call $402 with $391 $403
+  $405 = "Builtins"
+  $406 = Examples:average:average:23
+  $407 = call $54 with $405 $406
+  $408 = builtinStructGet
+  $409 = StructGet
+  $410 = Examples:average:average:26
+  $411 = call $408 with $407 $409 $410
+  $412 = Examples:average:average:27
+  $413 = "`bool` is not in scope."
+  $414 = panicking because $413 ($412 is at fault)
+  $415 = Not
+  $416 = Examples:average:average:29
+  $417 = call $411 with $414 $415 $416
+  $418 = Examples:average:average:30
+  $419 = call $417 with $404 $418
+  $420 = "`a | list.isEmpty | bool.not` was not satisfied"
+  $421 = Examples:average:average:32
+  $422 = call $49 with $419 $420 $372 $421
+  $423 = $373
+  $424 = "Builtins"
+  $425 = Examples:average:average:35
+  $426 = call $54 with $424 $425
+  $427 = builtinStructGet
+  $428 = StructGet
+  $429 = Examples:average:average:38
+  $430 = call $427 with $426 $428 $429
+  $431 = $271
+  $432 = FromList
+  $433 = Examples:average:average:41
+  $434 = call $430 with $431 $432 $433
+  $435 = Examples:average:average:42
+  $436 = call $434 with $423 $435
+  $437 = "Builtins"
+  $438 = Examples:average:average:44
+  $439 = call $54 with $437 $438
+  $440 = builtinStructGet
+  $441 = StructGet
+  $442 = Examples:average:average:47
+  $443 = call $440 with $439 $441 $442
+  $444 = $271
+  $445 = All
+  $446 = Examples:average:average:50
+  $447 = call $443 with $444 $445 $446
+  # Examples:average:average:51
+  $464 = { $449 $448 ->
+    $450 = "Builtins"
+    $451 = Examples:average:average:51:1
+    $452 = call $54 with $450 $451
+    $453 = builtinStructGet
+    $454 = StructGet
+    $455 = Examples:average:average:51:4
+    $456 = call $453 with $452 $454 $455
+    $457 = $267
+    $458 = Is
+    $459 = Examples:average:average:51:7
+    $460 = call $456 with $457 $458 $459
+    $461 = $449
+    $462 = Examples:average:average:51:9
+    $463 = call $460 with $461 $462
+  }
+  $465 = Examples:average:average:52
+  $466 = call $447 with $436 $464 $465
+  $467 = "`a | iterable.fromList | iterable.all { a -> int.is a }` was not satisfied"
+  $468 = Examples:average:average:54
+  $469 = call $49 with $466 $467 $372 $468
+  $470 = $370
+  $471 = $373
+  $472 = "Builtins"
+  $473 = Examples:average:average:58
+  $474 = call $54 with $472 $473
+  $475 = builtinStructGet
+  $476 = StructGet
+  $477 = Examples:average:average:61
+  $478 = call $475 with $474 $476 $477
+  $479 = $271
+  $480 = FromList
+  $481 = Examples:average:average:64
+  $482 = call $478 with $479 $480 $481
+  $483 = Examples:average:average:65
+  $484 = call $482 with $471 $483
+  $485 = "Builtins"
+  $486 = Examples:average:average:67
+  $487 = call $54 with $485 $486
+  $488 = builtinStructGet
+  $489 = StructGet
+  $490 = Examples:average:average:70
+  $491 = call $488 with $487 $489 $490
+  $492 = $271
+  $493 = Sum
+  $494 = Examples:average:average:73
+  $495 = call $491 with $492 $493 $494
+  $496 = Examples:average:average:74
+  $497 = call $495 with $484 $496
+  $498 = $373
+  $499 = "Builtins"
+  $500 = Examples:average:average:77
+  $501 = call $54 with $499 $500
+  $502 = builtinStructGet
+  $503 = StructGet
+  $504 = Examples:average:average:80
+  $505 = call $502 with $501 $503 $504
+  $506 = $275
+  $507 = Length
+  $508 = Examples:average:average:83
+  $509 = call $505 with $506 $507 $508
+  $510 = Examples:average:average:84
+  $511 = call $509 with $498 $510
+  $512 = Examples:average:average:85
+  $513 = call $470 with $497 $511 $512
+}
+$515 = $514
+# Examples:average:main
+$525 = { $517 $516 ->
+  $518 = $515
+  $519 = 1
+  $520 = 2
+  $521 = 3
+  $522 = ($519, $520, $521)
+  $523 = Examples:average:main:5
+  $524 = call $518 with $522 $523
+}
+$526 = $525
+$527 = Main
+$528 = [$527: $526]
