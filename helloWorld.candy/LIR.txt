@@ -1,0 +1,200 @@
+# LIR for module Examples:helloWorld
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# Constants
+%0 = Builtins::structGet:12
+%1 = Builtins::structGet:14
+%2 = Builtins::structGet:21
+%3 = Builtins::structGet:3
+%4 = Builtins::structGet:5
+%5 = Builtins::typeIs:13
+%6 = Builtins::typeIs:19
+%7 = Builtins::typeIs:25
+%8 = Examples:helloWorld:0:15
+%9 = Examples:helloWorld:0:7
+%10 = anonymous:$generated::needs
+%11 = builtinEquals
+%12 = builtinIfElse
+%13 = builtinStructGet
+%14 = builtinStructHasKey
+%15 = builtinTypeOf
+%16 = False
+%17 = Main
+%18 = Nothing
+%19 = Stdout
+%20 = Struct
+%21 = Text
+%22 = True
+%23 = "Hello, world!"
+%24 = "The `condition` must be either `True` or `False`."
+%25 = "The `reason` must be a text."
+%26 = "`struct | typeIs Struct` was not satisfied"
+%27 = "`struct | ✨.structHasKey key` was not satisfied"
+%28 = "`type | ✨.typeOf | ✨.equals Tag` was not satisfied"
+%29 = { body_0 }
+%30 = { body_1 }
+%31 = { body_6 }
+%32 = { body_7 }
+%33 = [%17: %32]
+
+# Bodies
+body_0 $0 (+ responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:case-0:matched, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched, anonymous:$generated::needs:isConditionTrue:then
+  # Captured IDs: none
+  $2 = %22
+  $3 = drop $0
+  $4 = $2
+body_1 $0 (+ responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+  # Captured IDs: none
+  $2 = %18
+  $3 = drop $0
+  $4 = $2
+body_2 $1 (+ responsible $2) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionTrue:else
+  # Captured IDs: $0
+  $3 = %11
+  $4 = dup $0
+  $5 = %16
+  $6 = %10
+  $7 = call $3 with $0 $5 $6
+  $8 = drop $1
+  $9 = drop $0
+  $10 = $7
+body_3 $1 (+ responsible $2) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionBool:else
+  # Captured IDs: $0
+  $3 = %24
+  $4 = dup $0
+  $5 = panicking because $3, $0 is at fault
+  $6 = drop $1
+  $7 = drop $0
+  $8 = $5
+body_4 $1 (+ responsible $2) =
+  # Original HIR IDs: anonymous:$generated::needs:isReasonText:else
+  # Captured IDs: $0
+  $3 = %25
+  $4 = dup $0
+  $5 = panicking because $3, $0 is at fault
+  $6 = drop $1
+  $7 = drop $0
+  $8 = $5
+body_5 $2 (+ responsible $3) =
+  # Original HIR IDs: anonymous:$generated::needs:condition:else
+  # Captured IDs: $0, $1
+  $4 = dup $0
+  $5 = dup $1
+  $6 = panicking because $0, $1 is at fault
+  $7 = drop $2
+  $8 = drop $1
+  $9 = drop $0
+  $10 = $6
+body_6 $0 $1 $2 $3 (+ responsible $4) =
+  # Original HIR IDs: anonymous:$generated::needs
+  # Captured IDs: none
+  $5 = %11
+  $6 = dup $0
+  $7 = %22
+  $8 = %10
+  $9 = call $5 with $0 $7 $8
+  $10 = { body_2 capturing $0 }
+  $11 = %12
+  $12 = dup $9
+  $13 = %29
+  $14 = dup $10
+  $15 = call $11 with $9 $13 $10 $8
+  $16 = { body_3 capturing $3 }
+  $17 = dup $15
+  $18 = %30
+  $19 = dup $16
+  $20 = call $11 with $15 $18 $16 $8
+  $21 = %15
+  $22 = dup $1
+  $23 = dup $3
+  $24 = call $21 with $1 $3
+  $25 = dup $24
+  $26 = %21
+  $27 = dup $3
+  $28 = call $5 with $24 $26 $3
+  $29 = { body_4 capturing $3 }
+  $30 = dup $28
+  $31 = dup $29
+  $32 = call $11 with $28 $18 $29 $8
+  $33 = { body_5 capturing $1, $2 }
+  $34 = dup $0
+  $35 = dup $33
+  $36 = call $11 with $0 $18 $33 $8
+  $37 = drop $33
+  $38 = drop $32
+  $39 = drop $29
+  $40 = drop $28
+  $41 = drop $24
+  $42 = drop $20
+  $43 = drop $16
+  $44 = drop $15
+  $45 = drop $10
+  $46 = drop $9
+  $47 = drop $3
+  $48 = drop $2
+  $49 = drop $1
+  $50 = drop $0
+  $51 = $36
+body_7 $0 $1 (+ responsible $2) =
+  # Original HIR IDs: Examples:helloWorld:0
+  # Captured IDs: none
+  $3 = %31
+  $4 = %22
+  $5 = %28
+  $6 = %3
+  $7 = %5
+  $8 = call $3 with $4 $5 $6 $7
+  $9 = %15
+  $10 = dup $0
+  $11 = %6
+  $12 = call $9 with $0 $11
+  $13 = %11
+  $14 = dup $12
+  $15 = %20
+  $16 = %7
+  $17 = call $13 with $12 $15 $16
+  $18 = dup $17
+  $19 = %26
+  $20 = %9
+  $21 = %4
+  $22 = call $3 with $17 $19 $20 $21
+  $23 = %14
+  $24 = dup $0
+  $25 = %19
+  $26 = %0
+  $27 = call $23 with $0 $25 $26
+  $28 = dup $27
+  $29 = %27
+  $30 = %1
+  $31 = call $3 with $27 $29 $20 $30
+  $32 = %13
+  $33 = dup $0
+  $34 = %2
+  $35 = call $32 with $0 $25 $34
+  $36 = dup $35
+  $37 = %23
+  $38 = %8
+  $39 = call $35 with $37 $38
+  $40 = drop $35
+  $41 = drop $31
+  $42 = drop $27
+  $43 = drop $22
+  $44 = drop $17
+  $45 = drop $12
+  $46 = drop $8
+  $47 = drop $1
+  $48 = drop $0
+  $49 = $39
+body_8 (responsible $0) =
+  # Original HIR IDs: Examples:helloWorld:
+  # Captured IDs: none
+  $1 = %33

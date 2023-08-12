@@ -1,0 +1,263 @@
+# LIR for module Examples:
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# Constants
+%0 = Builtins::intAdd:11
+%1 = Builtins::intAdd:18
+%2 = Builtins::intAdd:3
+%3 = Builtins::intAdd:5
+%4 = Builtins::intAdd:9
+%5 = Builtins::print:5
+%6 = Builtins::structGet:14
+%7 = Builtins::structGet:3
+%8 = Builtins::structGet:5
+%9 = Builtins::toDebugText:5
+%10 = Builtins::typeIs:13
+%11 = Builtins::typeIs:19
+%12 = Builtins::typeIs:25
+%13 = Examples::11:10
+%14 = Examples::11:21
+%15 = Examples::11:30
+%16 = Examples::11:8
+%17 = anonymous:$generated::needs
+%18 = builtinEquals
+%19 = builtinIfElse
+%20 = builtinIntAdd
+%21 = builtinPrint
+%22 = builtinToDebugText
+%23 = builtinTypeOf
+%24 = False
+%25 = Int
+%26 = Main
+%27 = Nothing
+%28 = Text
+%29 = True
+%30 = 1
+%31 = 2
+%32 = "The `condition` must be either `True` or `False`."
+%33 = "The `reason` must be a text."
+%34 = "`a | typeIs Int` was not satisfied"
+%35 = "`b | typeIs Int` was not satisfied"
+%36 = "`struct | typeIs Struct` was not satisfied"
+%37 = "`struct | ✨.structHasKey key` was not satisfied"
+%38 = "`type | ✨.typeOf | ✨.equals Tag` was not satisfied"
+%39 = { body_0 }
+%40 = { body_1 }
+%41 = { body_6 }
+%42 = { body_7 }
+%43 = { body_8 }
+%44 = [%26: %43]
+
+# Bodies
+body_0 $0 (+ responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:case-0:matched, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched, anonymous:$generated::needs:isConditionTrue:then
+  # Captured IDs: none
+  $2 = %29
+  $3 = drop $0
+  $4 = $2
+body_1 $0 (+ responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+  # Captured IDs: none
+  $2 = %27
+  $3 = drop $0
+  $4 = $2
+body_2 $1 (+ responsible $2) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionTrue:else
+  # Captured IDs: $0
+  $3 = %18
+  $4 = dup $0
+  $5 = %24
+  $6 = %17
+  $7 = call $3 with $0 $5 $6
+  $8 = drop $1
+  $9 = drop $0
+  $10 = $7
+body_3 $1 (+ responsible $2) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionBool:else
+  # Captured IDs: $0
+  $3 = %32
+  $4 = dup $0
+  $5 = panicking because $3, $0 is at fault
+  $6 = drop $1
+  $7 = drop $0
+  $8 = $5
+body_4 $1 (+ responsible $2) =
+  # Original HIR IDs: anonymous:$generated::needs:isReasonText:else
+  # Captured IDs: $0
+  $3 = %33
+  $4 = dup $0
+  $5 = panicking because $3, $0 is at fault
+  $6 = drop $1
+  $7 = drop $0
+  $8 = $5
+body_5 $2 (+ responsible $3) =
+  # Original HIR IDs: anonymous:$generated::needs:condition:else
+  # Captured IDs: $0, $1
+  $4 = dup $0
+  $5 = dup $1
+  $6 = panicking because $0, $1 is at fault
+  $7 = drop $2
+  $8 = drop $1
+  $9 = drop $0
+  $10 = $6
+body_6 $0 $1 $2 $3 (+ responsible $4) =
+  # Original HIR IDs: anonymous:$generated::needs
+  # Captured IDs: none
+  $5 = %18
+  $6 = dup $0
+  $7 = %29
+  $8 = %17
+  $9 = call $5 with $0 $7 $8
+  $10 = { body_2 capturing $0 }
+  $11 = %19
+  $12 = dup $9
+  $13 = %39
+  $14 = dup $10
+  $15 = call $11 with $9 $13 $10 $8
+  $16 = { body_3 capturing $3 }
+  $17 = dup $15
+  $18 = %40
+  $19 = dup $16
+  $20 = call $11 with $15 $18 $16 $8
+  $21 = %23
+  $22 = dup $1
+  $23 = dup $3
+  $24 = call $21 with $1 $3
+  $25 = dup $24
+  $26 = %28
+  $27 = dup $3
+  $28 = call $5 with $24 $26 $3
+  $29 = { body_4 capturing $3 }
+  $30 = dup $28
+  $31 = dup $29
+  $32 = call $11 with $28 $18 $29 $8
+  $33 = { body_5 capturing $1, $2 }
+  $34 = dup $0
+  $35 = dup $33
+  $36 = call $11 with $0 $18 $33 $8
+  $37 = drop $33
+  $38 = drop $32
+  $39 = drop $29
+  $40 = drop $28
+  $41 = drop $24
+  $42 = drop $20
+  $43 = drop $16
+  $44 = drop $15
+  $45 = drop $10
+  $46 = drop $9
+  $47 = drop $3
+  $48 = drop $2
+  $49 = drop $1
+  $50 = drop $0
+  $51 = $36
+body_7 $0 $1 $2 (+ responsible $3) =
+  # Original HIR IDs: Builtins::intAdd
+  # Captured IDs: none
+  $4 = %41
+  $5 = %29
+  $6 = %38
+  $7 = %2
+  $8 = %10
+  $9 = call $4 with $5 $6 $7 $8
+  $10 = %23
+  $11 = dup $0
+  $12 = %11
+  $13 = call $10 with $0 $12
+  $14 = %18
+  $15 = dup $13
+  $16 = %25
+  $17 = %12
+  $18 = call $14 with $13 $16 $17
+  $19 = dup $18
+  $20 = %34
+  $21 = dup $2
+  $22 = %3
+  $23 = call $4 with $18 $20 $2 $22
+  $24 = %4
+  $25 = call $4 with $5 $6 $24 $8
+  $26 = dup $1
+  $27 = call $10 with $1 $12
+  $28 = dup $27
+  $29 = call $14 with $27 $16 $17
+  $30 = dup $29
+  $31 = %35
+  $32 = dup $2
+  $33 = %0
+  $34 = call $4 with $29 $31 $2 $33
+  $35 = %20
+  $36 = dup $0
+  $37 = dup $1
+  $38 = %1
+  $39 = call $35 with $0 $1 $38
+  $40 = drop $34
+  $41 = drop $29
+  $42 = drop $27
+  $43 = drop $25
+  $44 = drop $23
+  $45 = drop $18
+  $46 = drop $13
+  $47 = drop $9
+  $48 = drop $2
+  $49 = drop $1
+  $50 = drop $0
+  $51 = $39
+body_8 $0 $1 (+ responsible $2) =
+  # Original HIR IDs: Examples::11
+  # Captured IDs: none
+  $3 = %41
+  $4 = %29
+  $5 = %38
+  $6 = %7
+  $7 = %10
+  $8 = call $3 with $4 $5 $6 $7
+  $9 = %36
+  $10 = %16
+  $11 = %8
+  $12 = call $3 with $4 $9 $10 $11
+  $13 = %37
+  $14 = %6
+  $15 = call $3 with $4 $13 $10 $14
+  $16 = %42
+  $17 = %30
+  $18 = %31
+  $19 = %13
+  $20 = call $16 with $17 $18 $19
+  $21 = call $3 with $4 $5 $6 $7
+  $22 = %14
+  $23 = call $3 with $4 $9 $22 $11
+  $24 = call $3 with $4 $13 $22 $14
+  $25 = %22
+  $26 = dup $20
+  $27 = %9
+  $28 = call $25 with $20 $27
+  $29 = call $3 with $4 $5 $6 $7
+  $30 = %15
+  $31 = call $3 with $4 $9 $30 $11
+  $32 = call $3 with $4 $13 $30 $14
+  $33 = %21
+  $34 = dup $28
+  $35 = %5
+  $36 = call $33 with $28 $35
+  $37 = drop $32
+  $38 = drop $31
+  $39 = drop $29
+  $40 = drop $28
+  $41 = drop $24
+  $42 = drop $23
+  $43 = drop $21
+  $44 = drop $20
+  $45 = drop $15
+  $46 = drop $12
+  $47 = drop $8
+  $48 = drop $1
+  $49 = drop $0
+  $50 = $36
+body_9 (responsible $0) =
+  # Original HIR IDs: Examples::
+  # Captured IDs: none
+  $1 = %44

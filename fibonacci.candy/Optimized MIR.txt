@@ -1,0 +1,360 @@
+# Optimized MIR for module Examples:fibonacci
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+$1 = Builtins::equals:6
+$2 = Builtins::getArgumentCount:11
+$3 = Builtins::getArgumentCount:3
+$4 = Builtins::getArgumentCount:5
+$5 = Builtins::ifElse:1
+$6 = Builtins::ifElse:10
+$7 = Builtins::ifElse:12
+$8 = Builtins::ifElse:15
+$9 = Builtins::ifElse:20
+$10 = Builtins::ifElse:24
+$11 = Builtins::ifElse:26
+$12 = Builtins::ifElse:29
+$13 = Builtins::ifElse:34
+$14 = Builtins::ifElse:42
+$15 = Builtins::ifElse:6
+$16 = Builtins::intAdd:11
+$17 = Builtins::intAdd:18
+$18 = Builtins::intAdd:3
+$19 = Builtins::intAdd:5
+$20 = Builtins::intAdd:9
+$21 = Builtins::intCompareTo:11
+$22 = Builtins::intCompareTo:18
+$23 = Builtins::intCompareTo:3
+$24 = Builtins::intCompareTo:5
+$25 = Builtins::intCompareTo:9
+$26 = Builtins::intSubtract:11
+$27 = Builtins::intSubtract:18
+$28 = Builtins::intSubtract:3
+$29 = Builtins::intSubtract:5
+$30 = Builtins::intSubtract:9
+$31 = Builtins::structGet:14
+$32 = Builtins::structGet:3
+$33 = Builtins::structGet:5
+$34 = Builtins::typeIs:13
+$35 = Builtins::typeIs:19
+$36 = Builtins::typeIs:25
+$37 = Examples:fibonacci:compareTo:10
+$38 = Examples:fibonacci:compareTo:8
+$39 = Examples:fibonacci:fibonacci:2:11
+$40 = Examples:fibonacci:fibonacci:2:13:11
+$41 = Examples:fibonacci:fibonacci:2:13:12
+$42 = Examples:fibonacci:fibonacci:2:13:20
+$43 = Examples:fibonacci:fibonacci:2:13:30
+$44 = Examples:fibonacci:fibonacci:2:13:32
+$45 = Examples:fibonacci:fibonacci:2:13:33
+$46 = Examples:fibonacci:fibonacci:2:13:34
+$47 = Examples:fibonacci:fibonacci:2:13:9
+$48 = Examples:fibonacci:fibonacci:2:14
+$49 = Examples:fibonacci:fibonacci:2:7
+$50 = Examples:fibonacci:isLessThan:7
+$51 = Examples:fibonacci:recursive:0:0:3
+$52 = Examples:fibonacci:recursive:0:6
+$53 = Examples:fibonacci:recursive:6
+$54 = anonymous:$generated::needs
+$55 = builtinEquals
+$56 = builtinGetArgumentCount
+$57 = builtinIfElse
+$58 = builtinIntAdd
+$59 = builtinIntCompareTo
+$60 = builtinIntSubtract
+$61 = builtinListGet
+$62 = builtinTagGetValue
+$63 = builtinTagHasValue
+$64 = builtinTagWithoutValue
+$65 = builtinTextConcatenate
+$66 = builtinToDebugText
+$67 = builtinTypeOf
+$68 = False
+$69 = Function
+$70 = Int
+$71 = Less
+$72 = Main
+$73 = Match
+$74 = NoMatch
+$75 = Nothing
+$76 = Tag
+$77 = Text
+$78 = True
+$79 = 0
+$80 = 1
+$81 = 2
+$82 = 15
+$83 = "."
+$84 = "Expected False, got "
+$85 = "Expected True, got "
+$86 = "Expected a Tag, got `"
+$87 = "Expected tag to not have a value, but it has one: `"
+$88 = "The `condition` must be either `True` or `False`."
+$89 = "The `reason` must be a text."
+$90 = "`."
+$91 = "`a | typeIs Int` was not satisfied"
+$92 = "`b | typeIs Int` was not satisfied"
+$93 = "`conditionIsBool` was not satisfied"
+$94 = "`else | getArgumentCount | equals 0` was not satisfied"
+$95 = "`else | typeIs Function` was not satisfied"
+$96 = "`function | typeIs Function` was not satisfied"
+$97 = "`minuend | typeIs Int` was not satisfied"
+$98 = "`struct | typeIs Struct` was not satisfied"
+$99 = "`struct | ✨.structHasKey key` was not satisfied"
+$100 = "`subtrahend | typeIs Int` was not satisfied"
+$101 = "`then | getArgumentCount | equals 0` was not satisfied"
+$102 = "`then | typeIs Function` was not satisfied"
+$103 = "`type | ✨.typeOf | ✨.equals Tag` was not satisfied"
+# Builtins::ifElse:1:case-0:matched, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched, anonymous:$generated::needs:isConditionTrue:then
+$104 = { $105 ->
+  $106 = $78
+}
+# anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+$107 = { $108 ->
+  $109 = $75
+}
+# anonymous:$generated::needs
+$110 = { $111 $112 $113 $114 ->
+  $115 = call $55 with $111 $78 $54
+  # anonymous:$generated::needs:isConditionTrue:else
+  $116 = { $117 ->
+    $118 = call $55 with $111 $68 $54
+  }
+  $119 = call $57 with $115 $104 $116 $54
+  # anonymous:$generated::needs:isConditionBool:else
+  $120 = { $121 ->
+    $122 = panicking because $88 ($114 is at fault)
+  }
+  $123 = call $57 with $119 $107 $120 $54
+  $124 = call $67 with $112 $114
+  $125 = call $55 with $124 $77 $114
+  # anonymous:$generated::needs:isReasonText:else
+  $126 = { $127 ->
+    $128 = panicking because $89 ($114 is at fault)
+  }
+  $129 = call $57 with $125 $107 $126 $54
+  # anonymous:$generated::needs:condition:else
+  $130 = { $131 ->
+    $132 = panicking because $112 ($113 is at fault)
+  }
+  $133 = call $57 with $111 $107 $130 $54
+}
+$134 = ($73,)
+# Builtins::ifElse:1:equals:then, Builtins::isLessThanOrEqualTo:19:equals:then, Builtins::isNonNegative:13:equals:then, Builtins::not:1:equals:then
+$135 = { $136 ->
+  $137 = $134
+}
+# Builtins::ifElse
+$138 = { $139 $140 $141 $142 ->
+  $143 = call $67 with $139 $5
+  $144 = call $55 with $76 $143 $5
+  # Builtins::ifElse:1:equals:then
+  $145 = { $146 ->
+    $147 = call $64 with $139 $5
+    $148 = call $55 with $78 $147 $5
+    # Builtins::ifElse:1:equals:then
+    $149 = { $150 ->
+      $151 = call $63 with $139 $5
+      $152 = call $55 with $68 $151 $5
+      # Builtins::ifElse:1:equals:else
+      $153 = { $154 ->
+        $155 = call $66 with $151 $5
+        $156 = call $62 with $139 $5
+        $157 = call $66 with $156 $5
+        $158 = call $65 with $87 $157 $5
+        $159 = call $65 with $158 $90 $5
+        $160 = ($74, $159)
+      }
+      $161 = call $57 with $152 $135 $153 $5
+    }
+    # Builtins::ifElse:1:equals:else
+    $162 = { $163 ->
+      $164 = call $66 with $147 $5
+      $165 = call $65 with $85 $164 $5
+      $166 = call $65 with $165 $83 $5
+      $167 = ($74, $166)
+    }
+    $168 = call $57 with $148 $149 $162 $5
+  }
+  # Builtins::ifElse:1:equals:else
+  $169 = { $170 ->
+    $171 = call $66 with $143 $5
+    $172 = call $65 with $86 $171 $5
+    $173 = call $65 with $172 $90 $5
+    $174 = ($74, $173)
+  }
+  $175 = call $57 with $144 $145 $169 $5
+  $176 = call $61 with $175 $79 $5
+  $177 = call $55 with $176 $73 $5
+  # Builtins::ifElse:1:isMatch:then
+  $178 = { $179 ->
+    $180 = $175
+  }
+  # Builtins::ifElse:1:isMatch:else
+  $181 = { $182 ->
+    $183 = call $67 with $139 $5
+    $184 = call $55 with $76 $183 $5
+    # Builtins::ifElse:1:equals:then
+    $185 = { $186 ->
+      $187 = call $64 with $139 $5
+      $188 = call $55 with $68 $187 $5
+      # Builtins::ifElse:1:equals:then
+      $189 = { $190 ->
+        $191 = call $63 with $139 $5
+        $192 = call $55 with $68 $191 $5
+        # Builtins::ifElse:1:equals:else
+        $193 = { $194 ->
+          $195 = call $66 with $191 $5
+          $196 = call $62 with $139 $5
+          $197 = call $66 with $196 $5
+          $198 = call $65 with $87 $197 $5
+          $199 = call $65 with $198 $90 $5
+          $200 = ($74, $199)
+        }
+        $201 = call $57 with $192 $135 $193 $5
+      }
+      # Builtins::ifElse:1:equals:else
+      $202 = { $203 ->
+        $204 = call $66 with $187 $5
+        $205 = call $65 with $84 $204 $5
+        $206 = call $65 with $205 $83 $5
+        $207 = ($74, $206)
+      }
+      $208 = call $57 with $188 $189 $202 $5
+    }
+    # Builtins::ifElse:1:equals:else
+    $209 = { $210 ->
+      $211 = call $66 with $183 $5
+      $212 = call $65 with $86 $211 $5
+      $213 = call $65 with $212 $90 $5
+      $214 = ($74, $213)
+    }
+    $215 = call $57 with $184 $185 $209 $5
+  }
+  $216 = call $57 with $177 $178 $181 $5
+  $217 = call $61 with $216 $79 $5
+  $218 = call $55 with $217 $73 $5
+  # Builtins::ifElse:1:case-0:didNotMatch
+  $219 = { $220 ->
+    $221 = call $61 with $216 $80 $5
+    $222 = $68
+  }
+  $223 = call $57 with $218 $104 $219 $5
+  $224 = call $110 with $223 $93 $142 $15
+  $225 = call $110 with $78 $103 $6 $34
+  $226 = call $67 with $140 $35
+  $227 = call $55 with $226 $69 $36
+  $228 = call $110 with $227 $102 $142 $7
+  $229 = call $110 with $78 $103 $3 $34
+  $230 = call $67 with $140 $35
+  $231 = call $55 with $230 $69 $36
+  $232 = call $110 with $231 $96 $8 $4
+  $233 = call $56 with $140 $2
+  $234 = call $55 with $233 $79 $1
+  $235 = call $110 with $234 $101 $142 $9
+  $236 = call $110 with $78 $103 $10 $34
+  $237 = call $67 with $141 $35
+  $238 = call $55 with $237 $69 $36
+  $239 = call $110 with $238 $95 $142 $11
+  $240 = call $110 with $78 $103 $3 $34
+  $241 = call $67 with $141 $35
+  $242 = call $55 with $241 $69 $36
+  $243 = call $110 with $242 $96 $12 $4
+  $244 = call $56 with $141 $2
+  $245 = call $55 with $244 $79 $1
+  $246 = call $110 with $245 $94 $142 $13
+  $247 = call $57 with $139 $140 $141 $14
+}
+# Builtins::intAdd
+$248 = { $249 $250 $251 ->
+  $252 = call $110 with $78 $103 $18 $34
+  $253 = call $67 with $249 $35
+  $254 = call $55 with $253 $70 $36
+  $255 = call $110 with $254 $91 $251 $19
+  $256 = call $110 with $78 $103 $20 $34
+  $257 = call $67 with $250 $35
+  $258 = call $55 with $257 $70 $36
+  $259 = call $110 with $258 $92 $251 $16
+  $260 = call $58 with $249 $250 $17
+}
+# Builtins::intCompareTo
+$261 = { $262 $263 $264 ->
+  $265 = call $110 with $78 $103 $23 $34
+  $266 = call $67 with $262 $35
+  $267 = call $55 with $266 $70 $36
+  $268 = call $110 with $267 $91 $264 $24
+  $269 = call $110 with $78 $103 $25 $34
+  $270 = call $67 with $263 $35
+  $271 = call $55 with $270 $70 $36
+  $272 = call $110 with $271 $92 $264 $21
+  $273 = call $59 with $262 $263 $22
+}
+# Builtins::intSubtract
+$274 = { $275 $276 $277 ->
+  $278 = call $110 with $78 $103 $28 $34
+  $279 = call $67 with $275 $35
+  $280 = call $55 with $279 $70 $36
+  $281 = call $110 with $280 $97 $277 $29
+  $282 = call $110 with $78 $103 $30 $34
+  $283 = call $67 with $276 $35
+  $284 = call $55 with $283 $70 $36
+  $285 = call $110 with $284 $100 $277 $26
+  $286 = call $60 with $275 $276 $27
+}
+# Examples:fibonacci:isLessThan
+$287 = { $288 $289 $290 ->
+  $291 = call $110 with $78 $103 $32 $34
+  $292 = call $110 with $78 $98 $50 $33
+  $293 = call $110 with $78 $99 $50 $31
+  $294 = call $110 with $78 $103 $32 $34
+  $295 = call $110 with $78 $98 $38 $33
+  $296 = call $110 with $78 $99 $38 $31
+  $297 = call $261 with $288 $289 $37
+  $298 = call $55 with $297 $71 $1
+}
+# Examples:fibonacci:fibonacci:2
+$299 = { $300 $301 $302 ->
+  $303 = call $110 with $78 $103 $32 $34
+  $304 = call $110 with $78 $98 $49 $33
+  $305 = call $110 with $78 $99 $49 $31
+  $306 = call $287 with $301 $81 $39
+  # Examples:fibonacci:fibonacci:2:12
+  $307 = { $308 ->
+    $309 = $301
+  }
+  # Examples:fibonacci:fibonacci:2:13
+  $310 = { $311 ->
+    $312 = call $110 with $78 $103 $32 $34
+    $313 = call $110 with $78 $98 $47 $33
+    $314 = call $110 with $78 $99 $47 $31
+    $315 = call $274 with $301 $80 $40
+    $316 = call $300 with $315 $41
+    $317 = call $110 with $78 $103 $32 $34
+    $318 = call $110 with $78 $98 $42 $33
+    $319 = call $110 with $78 $99 $42 $31
+    $320 = call $110 with $78 $103 $32 $34
+    $321 = call $110 with $78 $98 $43 $33
+    $322 = call $110 with $78 $99 $43 $31
+    $323 = call $274 with $301 $81 $44
+    $324 = call $300 with $323 $45
+    $325 = call $248 with $316 $324 $46
+  }
+  $326 = call $138 with $306 $307 $310 $48
+}
+# Examples:fibonacci:recursive:0
+$327 = { $328 $329 $330 ->
+  # Examples:fibonacci:recursive:0:0
+  $331 = { $332 $333 ->
+    $334 = call $328 with $328 $332 $51
+  }
+  $335 = call $299 with $331 $329 $52
+}
+# Examples:fibonacci:main
+$336 = { $337 $338 ->
+  $339 = call $327 with $327 $82 $53
+}
+$340 = [$72: $336]
