@@ -1,0 +1,83 @@
+# Optimized MIR for module Examples:helloWorld
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+$1 = Builtins::structGet:12
+$2 = Builtins::structGet:14
+$3 = Builtins::structGet:21
+$4 = Builtins::structGet:3
+$5 = Builtins::structGet:5
+$6 = Builtins::typeIs:13
+$7 = Builtins::typeIs:19
+$8 = Builtins::typeIs:25
+$9 = Examples:helloWorld:0:15
+$10 = Examples:helloWorld:0:7
+$11 = anonymous:$generated::needs
+$12 = builtinEquals
+$13 = builtinIfElse
+$14 = builtinStructGet
+$15 = builtinStructHasKey
+$16 = builtinTypeOf
+$17 = False
+$18 = Main
+$19 = Nothing
+$20 = Stdout
+$21 = Struct
+$22 = Text
+$23 = True
+$24 = "Hello, world!"
+$25 = "The `condition` must be either `True` or `False`."
+$26 = "The `reason` must be a text."
+$27 = "`struct | typeIs Struct` was not satisfied"
+$28 = "`struct | ✨.structHasKey key` was not satisfied"
+$29 = "`type | ✨.typeOf | ✨.equals Tag` was not satisfied"
+# Builtins::ifElse:1:case-0:matched, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched, anonymous:$generated::needs:isConditionTrue:then
+$30 = { $31 ->
+  $32 = $23
+}
+# anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+$33 = { $34 ->
+  $35 = $19
+}
+# anonymous:$generated::needs
+$36 = { $37 $38 $39 $40 ->
+  $41 = call $12 with $37 $23 $11
+  # anonymous:$generated::needs:isConditionTrue:else
+  $42 = { $43 ->
+    $44 = call $12 with $37 $17 $11
+  }
+  $45 = call $13 with $41 $30 $42 $11
+  # anonymous:$generated::needs:isConditionBool:else
+  $46 = { $47 ->
+    $48 = panicking because $25 ($40 is at fault)
+  }
+  $49 = call $13 with $45 $33 $46 $11
+  $50 = call $16 with $38 $40
+  $51 = call $12 with $50 $22 $40
+  # anonymous:$generated::needs:isReasonText:else
+  $52 = { $53 ->
+    $54 = panicking because $26 ($40 is at fault)
+  }
+  $55 = call $13 with $51 $33 $52 $11
+  # anonymous:$generated::needs:condition:else
+  $56 = { $57 ->
+    $58 = panicking because $38 ($39 is at fault)
+  }
+  $59 = call $13 with $37 $33 $56 $11
+}
+# Examples:helloWorld:0
+$60 = { $61 $62 ->
+  $63 = call $36 with $23 $29 $4 $6
+  $64 = call $16 with $61 $7
+  $65 = call $12 with $64 $21 $8
+  $66 = call $36 with $65 $27 $10 $5
+  $67 = call $15 with $61 $20 $1
+  $68 = call $36 with $67 $28 $10 $2
+  $69 = call $14 with $61 $20 $3
+  $70 = call $69 with $24 $9
+}
+$71 = [$18: $60]
