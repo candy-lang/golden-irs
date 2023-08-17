@@ -1,0 +1,3 @@
+# RCST for module Examples:
+Cst { data: (), kind: Error { unparsable_input: "# Run or benchmark by navigating into this folder and then running one of these commands:\n# `cargo build --release -- run`\n# `cargo build --release && time target/release/candy run`\n\nbuiltins = use \"Builtins\"\n# echo = use \".echo\"\n# fibonacci = use \".fibonacci\"\n\nmain := { environment ->\n  # print message = environment.stdout message\n\n  result = 1 | builtins.intAdd 2\n  result | builtins.toDebugText | builtins.print\n}", error: UnparsedRest } }
+Cst { data: (), kind: Newline("\n") }

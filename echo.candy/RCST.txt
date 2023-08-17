@@ -1,0 +1,3 @@
+# RCST for module Examples:echo
+Cst { data: (), kind: Error { unparsable_input: "# Echoes whatever you send to it on stdin.\n\n[function, text] = use \"Core\"\n\nmain := { environment ->\n  print message = environment.stdout message\n  read = environment.stdin\n\n  print \"Hello, world!\"\n  foo = function.run read\n  print \"Echo:\"\n  print foo\n}", error: UnparsedRest } }
+Cst { data: (), kind: Newline("\n") }

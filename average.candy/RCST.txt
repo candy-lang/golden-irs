@@ -1,0 +1,3 @@
+# RCST for module Examples:average
+Cst { data: (), kind: Error { unparsable_input: "[bool, int, iterable, list, result] = use \"Core\"\n[divideTruncating] = int\n\naverage a =\n  needs (list.is a)\n  needs (a | list.isEmpty | bool.not)\n  needs (a | iterable.fromList | iterable.all { a -> int.is a })\n  divideTruncating (a | iterable.fromList | iterable.sum) (a | list.length)\n\nmain environment := average (1, 2, 3)", error: UnparsedRest } }
+Cst { data: (), kind: Newline("\n") }

@@ -1,0 +1,20 @@
+# LIR for module Examples:minimal
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# Constants
+%0 = Examples:minimal:0
+%1 = "The parser couldn't parse this rest."
+%2 = []
+
+# Bodies
+body_0 (responsible $0) =
+  # Original HIR IDs: Examples:minimal:
+  # Captured IDs: none
+  $1 = %1
+  $2 = %0
+  $3 = panicking because $1 ($2 is at fault)
