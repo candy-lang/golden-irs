@@ -1,0 +1,2791 @@
+# Optimized MIR for module Examples:sqrt
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+$1 = Builtins::equals:6
+$2 = Builtins::fitsInRustU128:10
+$3 = Builtins::fitsInRustU128:17
+$4 = Builtins::fitsInRustU128:5
+$5 = Builtins::fitsInRustU128:8
+$6 = Builtins::functionRun:11
+$7 = Builtins::functionRun:16
+$8 = Builtins::functionRun:22
+$9 = Builtins::functionRun:5
+$10 = Builtins::getArgumentCount:11
+$11 = Builtins::getArgumentCount:5
+$12 = Builtins::ifElse:1
+$13 = Builtins::ifElse:12
+$14 = Builtins::ifElse:15
+$15 = Builtins::ifElse:20
+$16 = Builtins::ifElse:26
+$17 = Builtins::ifElse:29
+$18 = Builtins::ifElse:34
+$19 = Builtins::ifElse:42
+$20 = Builtins::ifElse:6
+$21 = Builtins::intAdd:11
+$22 = Builtins::intAdd:18
+$23 = Builtins::intAdd:5
+$24 = Builtins::intBitwiseAnd:18
+$25 = Builtins::intBitwiseAnd:5
+$26 = Builtins::intCompareTo:11
+$27 = Builtins::intCompareTo:18
+$28 = Builtins::intCompareTo:5
+$29 = Builtins::intDivideTruncating:11
+$30 = Builtins::intDivideTruncating:17
+$31 = Builtins::intDivideTruncating:25
+$32 = Builtins::intDivideTruncating:32
+$33 = Builtins::intDivideTruncating:5
+$34 = Builtins::intMultiply:11
+$35 = Builtins::intMultiply:18
+$36 = Builtins::intMultiply:5
+$37 = Builtins::intRemainder:11
+$38 = Builtins::intRemainder:17
+$39 = Builtins::intRemainder:25
+$40 = Builtins::intRemainder:32
+$41 = Builtins::intRemainder:5
+$42 = Builtins::intShiftRight:11
+$43 = Builtins::intShiftRight:14
+$44 = Builtins::intShiftRight:23
+$45 = Builtins::intShiftRight:24
+$46 = Builtins::intShiftRight:26:0
+$47 = Builtins::intShiftRight:27
+$48 = Builtins::intShiftRight:29
+$49 = Builtins::intShiftRight:30
+$50 = Builtins::intShiftRight:31
+$51 = Builtins::intShiftRight:34
+$52 = Builtins::intShiftRight:42
+$53 = Builtins::intShiftRight:49
+$54 = Builtins::intShiftRight:5
+$55 = Builtins::intSubtract:11
+$56 = Builtins::intSubtract:18
+$57 = Builtins::intSubtract:5
+$58 = Builtins::isLessThanOrEqualTo:11
+$59 = Builtins::isLessThanOrEqualTo:18
+$60 = Builtins::isLessThanOrEqualTo:19
+$61 = Builtins::isLessThanOrEqualTo:5
+$62 = Builtins::isNonNegative:12
+$63 = Builtins::isNonNegative:13
+$64 = Builtins::isNonNegative:5
+$65 = Builtins::not:1
+$66 = Builtins::not:1:4
+$67 = Builtins::print:5
+$68 = Builtins::structGet:12
+$69 = Builtins::structGet:14
+$70 = Builtins::structGet:21
+$71 = Builtins::structGet:5
+$72 = Builtins::tagGetValue:11
+$73 = Builtins::tagGetValue:13
+$74 = Builtins::tagGetValue:19
+$75 = Builtins::tagGetValue:5
+$76 = Builtins::textGetRange:11
+$77 = Builtins::textGetRange:14
+$78 = Builtins::textGetRange:16
+$79 = Builtins::textGetRange:24
+$80 = Builtins::textGetRange:25
+$81 = Builtins::textGetRange:27
+$82 = Builtins::textGetRange:33
+$83 = Builtins::textGetRange:36
+$84 = Builtins::textGetRange:38
+$85 = Builtins::textGetRange:46
+$86 = Builtins::textGetRange:47
+$87 = Builtins::textGetRange:49
+$88 = Builtins::textGetRange:5
+$89 = Builtins::textGetRange:53
+$90 = Builtins::textGetRange:55
+$91 = Builtins::textGetRange:63
+$92 = Builtins::textLength:11
+$93 = Builtins::textLength:5
+$94 = Builtins::textStartsWith:11
+$95 = Builtins::textStartsWith:18
+$96 = Builtins::textStartsWith:5
+$97 = Builtins::toDebugText:5
+$98 = Builtins::typeIs:19
+$99 = Builtins::typeIs:25
+$100 = Builtins::typeOf:5
+$101 = Core:bool:implies:12
+$102 = Core:bool:implies:15
+$103 = Core:bool:implies:2
+$104 = Core:bool:implies:4
+$105 = Core:bool:implies:7
+$106 = Core:bool:implies:9
+$107 = Core:bool:is:1
+$108 = Core:bool:lazyAnd:14
+$109 = Core:bool:lazyAnd:16
+$110 = Core:bool:lazyAnd:18
+$111 = Core:bool:lazyAnd:18:14
+$112 = Core:bool:lazyAnd:18:22
+$113 = Core:bool:lazyAnd:18:9
+$114 = Core:bool:lazyAnd:2
+$115 = Core:bool:lazyAnd:4
+$116 = Core:bool:lazyOr:14
+$117 = Core:bool:lazyOr:16
+$118 = Core:bool:lazyOr:18
+$119 = Core:bool:lazyOr:18:10
+$120 = Core:bool:lazyOr:18:15
+$121 = Core:bool:lazyOr:18:23
+$122 = Core:bool:lazyOr:2
+$123 = Core:bool:lazyOr:4
+$124 = Core:bool:not:2
+$125 = Core:bool:not:4
+$126 = Core:bool:not:6
+$127 = Core:bool:or:13
+$128 = Core:bool:or:2
+$129 = Core:bool:or:4
+$130 = Core:bool:or:7
+$131 = Core:bool:or:9
+$132 = Core:check:check:11
+$133 = Core:check:check:20
+$134 = Core:check:check:9
+$135 = Core:controlFlow:recursive:17
+$136 = Core:controlFlow:recursive:18:0:3
+$137 = Core:controlFlow:recursive:18:6
+$138 = Core:controlFlow:recursive:24
+$139 = Core:controlFlow:recursive:9
+$140 = Core:fixedDecimal:absolute:11
+$141 = Core:fixedDecimal:absolute:2
+$142 = Core:fixedDecimal:absolute:4
+$143 = Core:fixedDecimal:absolute:8
+$144 = Core:fixedDecimal:absolute:9:2
+$145 = Core:fixedDecimal:add:13
+$146 = Core:fixedDecimal:add:14
+$147 = Core:fixedDecimal:add:2
+$148 = Core:fixedDecimal:add:27
+$149 = Core:fixedDecimal:add:29
+$150 = Core:fixedDecimal:add:4
+$151 = Core:fixedDecimal:add:7
+$152 = Core:fixedDecimal:add:9
+$153 = Core:fixedDecimal:add:targetScale
+$154 = Core:fixedDecimal:add:valueA
+$155 = Core:fixedDecimal:add:valueB
+$156 = Core:fixedDecimal:approxEquals:12
+$157 = Core:fixedDecimal:approxEquals:14
+$158 = Core:fixedDecimal:approxEquals:17
+$159 = Core:fixedDecimal:approxEquals:19
+$160 = Core:fixedDecimal:approxEquals:2
+$161 = Core:fixedDecimal:approxEquals:23
+$162 = Core:fixedDecimal:approxEquals:25
+$163 = Core:fixedDecimal:approxEquals:28
+$164 = Core:fixedDecimal:approxEquals:4
+$165 = Core:fixedDecimal:approxEquals:7
+$166 = Core:fixedDecimal:approxEquals:9
+$167 = Core:fixedDecimal:comparableMinorUnits:2
+$168 = Core:fixedDecimal:comparableMinorUnits:20
+$169 = Core:fixedDecimal:comparableMinorUnits:23
+$170 = Core:fixedDecimal:comparableMinorUnits:24
+$171 = Core:fixedDecimal:comparableMinorUnits:31
+$172 = Core:fixedDecimal:comparableMinorUnits:36
+$173 = Core:fixedDecimal:comparableMinorUnits:4
+$174 = Core:fixedDecimal:comparableMinorUnits:7
+$175 = Core:fixedDecimal:comparableMinorUnits:9
+$176 = Core:fixedDecimal:compareTo:13
+$177 = Core:fixedDecimal:compareTo:14
+$178 = Core:fixedDecimal:compareTo:2
+$179 = Core:fixedDecimal:compareTo:26
+$180 = Core:fixedDecimal:compareTo:4
+$181 = Core:fixedDecimal:compareTo:46
+$182 = Core:fixedDecimal:compareTo:47
+$183 = Core:fixedDecimal:compareTo:7
+$184 = Core:fixedDecimal:compareTo:9
+$185 = Core:fixedDecimal:compareTo:valueA#1
+$186 = Core:fixedDecimal:compareTo:valueB#1
+$187 = Core:fixedDecimal:divideTruncatingAtScale:14
+$188 = Core:fixedDecimal:divideTruncatingAtScale:17
+$189 = Core:fixedDecimal:divideTruncatingAtScale:2
+$190 = Core:fixedDecimal:divideTruncatingAtScale:29
+$191 = Core:fixedDecimal:divideTruncatingAtScale:37
+$192 = Core:fixedDecimal:divideTruncatingAtScale:4
+$193 = Core:fixedDecimal:divideTruncatingAtScale:41
+$194 = Core:fixedDecimal:divideTruncatingAtScale:42
+$195 = Core:fixedDecimal:divideTruncatingAtScale:56
+$196 = Core:fixedDecimal:divideTruncatingAtScale:57
+$197 = Core:fixedDecimal:divideTruncatingAtScale:67
+$198 = Core:fixedDecimal:divideTruncatingAtScale:69
+$199 = Core:fixedDecimal:divideTruncatingAtScale:7
+$200 = Core:fixedDecimal:divideTruncatingAtScale:9
+$201 = Core:fixedDecimal:divideTruncatingAtScale:valueA
+$202 = Core:fixedDecimal:divideTruncatingAtScale:valueB
+$203 = Core:fixedDecimal:floorToInt:18
+$204 = Core:fixedDecimal:floorToInt:2
+$205 = Core:fixedDecimal:floorToInt:20
+$206 = Core:fixedDecimal:floorToInt:21
+$207 = Core:fixedDecimal:floorToInt:4
+$208 = Core:fixedDecimal:floorToInt:7
+$209 = Core:fixedDecimal:fromInt:15
+$210 = Core:fixedDecimal:fromIntScaled:11
+$211 = Core:fixedDecimal:fromIntScaled:16
+$212 = Core:fixedDecimal:is:1
+$213 = Core:fixedDecimal:is:1:19
+$214 = Core:fixedDecimal:is:1:minorUnits
+$215 = Core:fixedDecimal:is:1:scale
+$216 = Core:fixedDecimal:isGreaterThan:14
+$217 = Core:fixedDecimal:isGreaterThan:2
+$218 = Core:fixedDecimal:isGreaterThan:4
+$219 = Core:fixedDecimal:isGreaterThan:7
+$220 = Core:fixedDecimal:isGreaterThan:9
+$221 = Core:fixedDecimal:isLessThanOrEqualTo:13
+$222 = Core:fixedDecimal:isLessThanOrEqualTo:2
+$223 = Core:fixedDecimal:isLessThanOrEqualTo:22
+$224 = Core:fixedDecimal:isLessThanOrEqualTo:4
+$225 = Core:fixedDecimal:isLessThanOrEqualTo:7
+$226 = Core:fixedDecimal:isLessThanOrEqualTo:9
+$227 = Core:fixedDecimal:isNegative:17
+$228 = Core:fixedDecimal:isNegative:2
+$229 = Core:fixedDecimal:isNegative:4
+$230 = Core:fixedDecimal:isNegative:7
+$231 = Core:fixedDecimal:isNonNegative:16
+$232 = Core:fixedDecimal:isNonNegative:2
+$233 = Core:fixedDecimal:isNonNegative:4
+$234 = Core:fixedDecimal:isNonNegative:7
+$235 = Core:fixedDecimal:isScale:18:9
+$236 = Core:fixedDecimal:isScale:19
+$237 = Core:fixedDecimal:minorUnits:19
+$238 = Core:fixedDecimal:minorUnits:2
+$239 = Core:fixedDecimal:minorUnits:21
+$240 = Core:fixedDecimal:minorUnits:4
+$241 = Core:fixedDecimal:negate:17
+$242 = Core:fixedDecimal:negate:2
+$243 = Core:fixedDecimal:negate:20
+$244 = Core:fixedDecimal:negate:21
+$245 = Core:fixedDecimal:negate:4
+$246 = Core:fixedDecimal:negate:8
+$247 = Core:fixedDecimal:rescaledMinorUnits:13
+$248 = Core:fixedDecimal:rescaledMinorUnits:2
+$249 = Core:fixedDecimal:rescaledMinorUnits:23
+$250 = Core:fixedDecimal:rescaledMinorUnits:24:14
+$251 = Core:fixedDecimal:rescaledMinorUnits:24:2
+$252 = Core:fixedDecimal:rescaledMinorUnits:24:24
+$253 = Core:fixedDecimal:rescaledMinorUnits:24:25
+$254 = Core:fixedDecimal:rescaledMinorUnits:24:26
+$255 = Core:fixedDecimal:rescaledMinorUnits:25:2
+$256 = Core:fixedDecimal:rescaledMinorUnits:25:23
+$257 = Core:fixedDecimal:rescaledMinorUnits:25:24
+$258 = Core:fixedDecimal:rescaledMinorUnits:25:25
+$259 = Core:fixedDecimal:rescaledMinorUnits:25:26
+$260 = Core:fixedDecimal:rescaledMinorUnits:26
+$261 = Core:fixedDecimal:rescaledMinorUnits:4
+$262 = Core:fixedDecimal:rescaledMinorUnits:9
+$263 = Core:fixedDecimal:scale:19
+$264 = Core:fixedDecimal:scale:2
+$265 = Core:fixedDecimal:scale:21
+$266 = Core:fixedDecimal:scale:4
+$267 = Core:fixedDecimal:scaleFactor:15
+$268 = Core:fixedDecimal:scaleFactor:4
+$269 = Core:fixedDecimal:subtract:13
+$270 = Core:fixedDecimal:subtract:14
+$271 = Core:fixedDecimal:subtract:2
+$272 = Core:fixedDecimal:subtract:27
+$273 = Core:fixedDecimal:subtract:29
+$274 = Core:fixedDecimal:subtract:4
+$275 = Core:fixedDecimal:subtract:7
+$276 = Core:fixedDecimal:subtract:9
+$277 = Core:fixedDecimal:subtract:targetScale
+$278 = Core:fixedDecimal:subtract:valueA
+$279 = Core:fixedDecimal:subtract:valueB
+$280 = Core:fixedDecimal:toText:11:19
+$281 = Core:fixedDecimal:toText:11:2
+$282 = Core:fixedDecimal:toText:11:32
+$283 = Core:fixedDecimal:toText:11:33:10
+$284 = Core:fixedDecimal:toText:11:33:28
+$285 = Core:fixedDecimal:toText:11:34:10
+$286 = Core:fixedDecimal:toText:11:34:28
+$287 = Core:fixedDecimal:toText:11:35
+$288 = Core:fixedDecimal:toText:11:4
+$289 = Core:fixedDecimal:toText:11:9
+$290 = Core:fixedDecimal:toText:12
+$291 = Core:fixedDecimal:toText:2
+$292 = Core:fixedDecimal:toText:22
+$293 = Core:fixedDecimal:toText:23
+$294 = Core:fixedDecimal:toText:25:0
+$295 = Core:fixedDecimal:toText:26
+$296 = Core:fixedDecimal:toText:29
+$297 = Core:fixedDecimal:toText:30
+$298 = Core:fixedDecimal:toText:32:0
+$299 = Core:fixedDecimal:toText:33
+$300 = Core:fixedDecimal:toText:34
+$301 = Core:fixedDecimal:toText:35
+$302 = Core:fixedDecimal:toText:4
+$303 = Core:fixedDecimal:toText:7
+$304 = Core:function:is0:11:3
+$305 = Core:function:is0:13
+$306 = Core:function:is2:11:3
+$307 = Core:function:is2:13
+$308 = Core:function:run:14
+$309 = Core:function:run:2
+$310 = Core:function:run:4
+$311 = Core:int:compareTo:20
+$312 = Core:int:compareTo:4
+$313 = Core:int:compareTo:40
+$314 = Core:int:compareTo:41
+$315 = Core:int:compareTo:9
+$316 = Core:int:isEven:4
+$317 = Core:int:isEven:8
+$318 = Core:int:isGreaterThan:13
+$319 = Core:int:isGreaterThan:4
+$320 = Core:int:isGreaterThan:9
+$321 = Core:int:isGreaterThanOrEqualTo:13
+$322 = Core:int:isGreaterThanOrEqualTo:22
+$323 = Core:int:isGreaterThanOrEqualTo:4
+$324 = Core:int:isGreaterThanOrEqualTo:9
+$325 = Core:int:isLessThan:13
+$326 = Core:int:isLessThan:4
+$327 = Core:int:isLessThan:9
+$328 = Core:int:isNegative:4
+$329 = Core:int:isNegative:8
+$330 = Core:int:isNonNegative:16
+$331 = Core:int:isNonNegative:4
+$332 = Core:int:isNonNegative:7
+$333 = Core:int:max:14
+$334 = Core:int:max:17
+$335 = Core:int:max:4
+$336 = Core:int:max:9
+$337 = Core:int:negate:4
+$338 = Core:int:negate:8
+$339 = Core:int:pow:12
+$340 = Core:int:pow:14
+$341 = Core:int:pow:21:1
+$342 = Core:int:pow:21:4
+$343 = Core:int:pow:21:4:4
+$344 = Core:int:pow:21:4:5:10
+$345 = Core:int:pow:21:4:5:12
+$346 = Core:int:pow:21:4:5:5
+$347 = Core:int:pow:21:4:6:12
+$348 = Core:int:pow:21:4:6:15
+$349 = Core:int:pow:21:4:6:17
+$350 = Core:int:pow:21:4:6:18
+$351 = Core:int:pow:21:4:6:7
+$352 = Core:int:pow:21:4:7
+$353 = Core:int:pow:21:base
+$354 = Core:int:pow:21:exponent
+$355 = Core:int:pow:22
+$356 = Core:int:pow:4
+$357 = Core:int:pow:9
+$358 = Core:text:removePrefix:14
+$359 = Core:text:removePrefix:15:4
+$360 = Core:text:removePrefix:15:7
+$361 = Core:text:removePrefix:15:8
+$362 = Core:text:removePrefix:17
+$363 = Core:text:removePrefix:4
+$364 = Core:text:removePrefix:9
+$365 = Examples:sqrt:main:15
+$366 = Examples:sqrt:main:49
+$367 = Examples:sqrt:main:50
+$368 = Examples:sqrt:main:51
+$369 = Examples:sqrt:main:53:0
+$370 = Examples:sqrt:main:54
+$371 = Examples:sqrt:main:57
+$372 = Examples:sqrt:sqrt:11
+$373 = Examples:sqrt:sqrt:21
+$374 = Examples:sqrt:sqrt:23
+$375 = Examples:sqrt:sqrt:35
+$376 = Examples:sqrt:sqrt:45
+$377 = Examples:sqrt:sqrt:47
+$378 = Examples:sqrt:sqrt:58
+$379 = Examples:sqrt:sqrt:82
+$380 = Examples:sqrt:sqrt:83:28
+$381 = Examples:sqrt:sqrt:83:29
+$382 = Examples:sqrt:sqrt:83:41
+$383 = Examples:sqrt:sqrt:83:56
+$384 = Examples:sqrt:sqrt:83:58:2
+$385 = Examples:sqrt:sqrt:83:59
+$386 = Examples:sqrt:sqrt:84
+$387 = Examples:sqrt:sqrt:9
+$388 = anonymous:$generated::needs
+$389 = builtinEquals
+$390 = builtinGetArgumentCount
+$391 = builtinIfElse
+$392 = builtinIntAdd
+$393 = builtinIntBitwiseAnd
+$394 = builtinIntCompareTo
+$395 = builtinIntDivideTruncating
+$396 = builtinIntMultiply
+$397 = builtinIntRemainder
+$398 = builtinIntShiftRight
+$399 = builtinIntSubtract
+$400 = builtinListGet
+$401 = builtinPrint
+$402 = builtinStructGet
+$403 = builtinStructHasKey
+$404 = builtinTagGetValue
+$405 = builtinTagHasValue
+$406 = builtinTagWithoutValue
+$407 = builtinTextConcatenate
+$408 = builtinTextGetRange
+$409 = builtinTextLength
+$410 = builtinTextStartsWith
+$411 = builtinToDebugText
+$412 = builtinTypeOf
+$413 = Base
+$414 = Equal
+$415 = Exponent
+$416 = False
+$417 = FixedDecimal
+$418 = Function
+$419 = Greater
+$420 = Int
+$421 = Less
+$422 = Main
+$423 = Match
+$424 = MinorUnits
+$425 = NoMatch
+$426 = Nothing
+$427 = Scale
+$428 = Sqrt
+$429 = Struct
+$430 = Tag
+$431 = TargetScale
+$432 = Text
+$433 = True
+$434 = ValueA
+$435 = ValueB
+$436 = 0
+$437 = 1
+$438 = 2
+$439 = 3
+$440 = 10
+$441 = 65
+$442 = 340282366920938463463374607431768211455
+$443 = "-1"
+$444 = "."
+$445 = ". You might want to call `shiftLeft` instead."
+$446 = "1"
+$447 = "A check didn't succeed."
+$448 = "Expected Equal, got "
+$449 = "Expected False, got "
+$450 = "Expected FixedDecimal, got "
+$451 = "Expected Greater, got "
+$452 = "Expected Less, got "
+$453 = "Expected True, got "
+$454 = "Expected `0`, got `"
+$455 = "Expected a Struct, got `"
+$456 = "Expected a Tag, got `"
+$457 = "Expected tag to have a value, but it doesn't have any."
+$458 = "Expected tag to not have a value, but it has one: `"
+$459 = "No case matched the given expression."
+$460 = "Shifts by that much are not yet supported."
+$461 = "Struct doesn't contain key `Base`: `"
+$462 = "Struct doesn't contain key `Exponent`: `"
+$463 = "Struct doesn't contain key `MinorUnits`: `"
+$464 = "Struct doesn't contain key `Scale`: `"
+$465 = "Struct doesn't contain key `TargetScale`: `"
+$466 = "Struct doesn't contain key `ValueA`: `"
+$467 = "Struct doesn't contain key `ValueB`: `"
+$468 = "The `body` should take the recursive function and the argument."
+$469 = "The `condition` must be either `True` or `False`."
+$470 = "The `reason` must be a text."
+$471 = "The root of 2 is "
+$472 = "The shift `amount` is negative: "
+$473 = "You can't divide by zero."
+$474 = "`."
+$475 = "`False` was not satisfied"
+$476 = "`a | typeIs Int` was not satisfied"
+$477 = "`amount | typeIs Int` was not satisfied"
+$478 = "`b | typeIs Int` was not satisfied"
+$479 = "`b` didn't return a bool."
+$480 = "`bool.is condition` was not satisfied"
+$481 = "`conditionIsBool` was not satisfied"
+$482 = "`dividend | typeIs Int` was not satisfied"
+$483 = "`divisor | typeIs Int` was not satisfied"
+$484 = "`else | getArgumentCount | equals 0` was not satisfied"
+$485 = "`else | typeIs Function` was not satisfied"
+$486 = "`endExclusive | isLessThanOrEqualTo (text | ✨.textLength)` was not satisfied"
+$487 = "`endExclusive | isNonNegative` was not satisfied"
+$488 = "`endExclusive | typeIs Int` was not satisfied"
+$489 = "`factorA | typeIs Int` was not satisfied"
+$490 = "`factorB | typeIs Int` was not satisfied"
+$491 = "`fixedDecimal.is x` was not satisfied"
+$492 = "`fixedDecimal.isNonNegative x` was not satisfied"
+$493 = "`function | typeIs Function` was not satisfied"
+$494 = "`function | ✨.getArgumentCount | equals 0` was not satisfied"
+$495 = "`function.is0 b` was not satisfied"
+$496 = "`int | typeIs Int` was not satisfied"
+$497 = "`int.is minorUnits` was not satisfied"
+$498 = "`int.is precision` was not satisfied"
+$499 = "`int.isNonNegative precision` was not satisfied"
+$500 = "`is a` was not satisfied"
+$501 = "`is b` was not satisfied"
+$502 = "`is base` was not satisfied"
+$503 = "`is delta` was not satisfied"
+$504 = "`is dividend` was not satisfied"
+$505 = "`is divisor` was not satisfied"
+$506 = "`is exponent` was not satisfied"
+$507 = "`is minuend` was not satisfied"
+$508 = "`is prefix` was not satisfied"
+$509 = "`is subtrahend` was not satisfied"
+$510 = "`is summandA` was not satisfied"
+$511 = "`is summandB` was not satisfied"
+$512 = "`is text` was not satisfied"
+$513 = "`is valueA` was not satisfied"
+$514 = "`is valueB` was not satisfied"
+$515 = "`is value` was not satisfied"
+$516 = "`is0 body` was not satisfied"
+$517 = "`isNonNegative delta` was not satisfied"
+$518 = "`isNonNegative exponent` was not satisfied"
+$519 = "`isScale scale` was not satisfied"
+$520 = "`isScale targetScale` was not satisfied"
+$521 = "`minuend | typeIs Int` was not satisfied"
+$522 = "`prefix | typeIs Text` was not satisfied"
+$523 = "`startInclusive | isLessThanOrEqualTo (text | ✨.textLength)` was not satisfied"
+$524 = "`startInclusive | isLessThanOrEqualTo endExclusive` was not satisfied"
+$525 = "`startInclusive | isNonNegative` was not satisfied"
+$526 = "`startInclusive | typeIs Int` was not satisfied"
+$527 = "`struct | typeIs Struct` was not satisfied"
+$528 = "`struct | ✨.structHasKey key` was not satisfied"
+$529 = "`subtrahend | typeIs Int` was not satisfied"
+$530 = "`tag | typeIs Tag` was not satisfied"
+$531 = "`tag | ✨.tagHasValue` was not satisfied"
+$532 = "`text | typeIs Text` was not satisfied"
+$533 = "`then | getArgumentCount | equals 0` was not satisfied"
+$534 = "`then | typeIs Function` was not satisfied"
+$535 = "`value | isNonNegative` was not satisfied"
+$536 = "`value | typeIs Int` was not satisfied"
+# Builtins::ifElse:1:case-0:matched, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched, Core:bool:is:1:case-0:matched, Core:bool:lazyOr:18:case-0:matched, Core:bool:not:6:case-1:matched, anonymous:$generated::needs:isConditionTrue:then
+$537 = { $538 ->
+  $539 = $433
+}
+# Core::20:isMatch:then, Core::31:isMatch:then, Core::42:isMatch:then, Core::108:isMatch:then, Core::163:isMatch:then, Core::174:isMatch:then, Core:bool:9:isMatch:then, Core:check:20:isMatch:then, Core:controlFlow:if:27, Core:controlFlow:31:isMatch:then, Core:controlFlow:53:isMatch:then, Core:fixedDecimal:add:14:isMatch:then, Core:fixedDecimal:compareTo:14:isMatch:then, Core:fixedDecimal:divideTruncating:37:isMatch:then, Core:fixedDecimal:divideTruncatingAtScale:42:isMatch:then, Core:fixedDecimal:subtract:14:isMatch:then, Core:fixedDecimal:20:isMatch:then, Core:fixedDecimal:31:isMatch:then, Core:fixedDecimal:42:isMatch:then, Core:fixedDecimal:53:isMatch:then, Core:fixedDecimal:108:isMatch:then, Core:function:20:isMatch:then, Core:int:pow:21:1:isMatch:then, Core:int:31:isMatch:then, Core:int:42:isMatch:then, Core:int:53:isMatch:then, Core:iterable:fromList:18:1:isMatch:then, Core:iterable:generateWithState:14:0:11:1:isMatch:then, Core:iterable:map:19:11:1:isMatch:then, Core:iterable:reduceLeft:38:1:isMatch:then, Core:iterable:take:33:1:isMatch:then, Core:iterable:takeWhile:2:11:1:isMatch:then, Core:iterable:withIndex:11:1:isMatch:then, Core:iterable:withIndex:11:14:1:isMatch:then, Core:iterable:20:isMatch:then, Core:iterable:31:isMatch:then, Core:iterable:88:11:1:isMatch:then, Core:iterable:91:2:11:1:isMatch:then, Core:iterable:94:6:21, Core:list:generate:60:1:isMatch:then, Core:list:31:isMatch:then, Core:list:42:isMatch:then, Core:result:20:isMatch:then, Core:result:31:isMatch:then, Core:struct:20:isMatch:then, Core:tag:31:isMatch:then, Core:text:31:isMatch:then, Core:text:42:isMatch:then, Core:type:20:isMatch:then, Examples:sqrt:20:isMatch:then, anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+$540 = { $541 ->
+  $542 = $426
+}
+# anonymous:$generated::needs
+$543 = { $544 $545 $546 $547 ->
+  $548 = call $389 with $544 $433 $388
+  # anonymous:$generated::needs:isConditionTrue:else
+  $549 = { $550 ->
+    $551 = call $389 with $544 $416 $388
+  }
+  $552 = call $391 with $548 $537 $549 $388
+  # anonymous:$generated::needs:isConditionBool:else
+  $553 = { $554 ->
+    $555 = panicking because $469 ($547 is at fault)
+  }
+  $556 = call $391 with $552 $540 $553 $388
+  $557 = call $412 with $545 $547
+  $558 = call $389 with $557 $432 $547
+  # anonymous:$generated::needs:isReasonText:else
+  $559 = { $560 ->
+    $561 = panicking because $470 ($547 is at fault)
+  }
+  $562 = call $391 with $558 $540 $559 $388
+  # anonymous:$generated::needs:condition:else
+  $563 = { $564 ->
+    $565 = panicking because $545 ($546 is at fault)
+  }
+  $566 = call $391 with $544 $540 $563 $388
+}
+$567 = ($423,)
+# Builtins::ifElse:1:equals:then, Builtins::isLessThanOrEqualTo:19:equals:then, Builtins::isNonNegative:13:equals:then, Builtins::not:1:equals:then, Core:bool:is:1:equals:then, Core:bool:lazyAnd:18:equals:then, Core:bool:lazyOr:18:equals:then, Core:bool:not:6:equals:then, Core:int:pow:21:4:equals:then
+$568 = { $569 ->
+  $570 = $567
+}
+# Builtins::isLessThanOrEqualTo:19:case-1:matched, Builtins::isNonNegative:13:case-1:matched, Builtins::not:1:case-0:matched, Core:bool:lazyAnd:18:case-1:matched, Core:bool:not:6:case-0:matched, Core:function:is0:12, Core:function:is1:12, Core:function:is2:12, Core:function:is3:12, Core:function:is4:12, Core:function:is5:12, Core:list:isValidIndex:21, Core:list:isValidInsertIndex:21
+$571 = { $572 ->
+  $573 = $416
+}
+# Builtins::not
+$574 = { $575 $576 ->
+  $577 = call $412 with $575 $65
+  $578 = call $389 with $430 $577 $65
+  # Builtins::not:1:equals:then
+  $579 = { $580 ->
+    $581 = call $406 with $575 $65
+    $582 = call $389 with $433 $581 $65
+    # Builtins::not:1:equals:then
+    $583 = { $584 ->
+      $585 = call $405 with $575 $65
+      $586 = call $389 with $416 $585 $65
+      # Builtins::not:1:equals:else
+      $587 = { $588 ->
+        $589 = call $411 with $585 $65
+        $590 = call $404 with $575 $65
+        $591 = call $411 with $590 $65
+        $592 = call $407 with $458 $591 $65
+        $593 = call $407 with $592 $474 $65
+        $594 = ($425, $593)
+      }
+      $595 = call $391 with $586 $568 $587 $65
+    }
+    # Builtins::not:1:equals:else
+    $596 = { $597 ->
+      $598 = call $411 with $581 $65
+      $599 = call $407 with $453 $598 $65
+      $600 = call $407 with $599 $444 $65
+      $601 = ($425, $600)
+    }
+    $602 = call $391 with $582 $583 $596 $65
+  }
+  # Builtins::not:1:equals:else
+  $603 = { $604 ->
+    $605 = call $411 with $577 $65
+    $606 = call $407 with $456 $605 $65
+    $607 = call $407 with $606 $474 $65
+    $608 = ($425, $607)
+  }
+  $609 = call $391 with $578 $579 $603 $65
+  $610 = call $400 with $609 $436 $65
+  $611 = call $389 with $610 $423 $65
+  # Builtins::not:1:case-0:didNotMatch
+  $612 = { $613 ->
+    $614 = call $400 with $609 $437 $65
+    $615 = call $412 with $575 $65
+    $616 = call $389 with $430 $615 $65
+    # Builtins::not:1:equals:then
+    $617 = { $618 ->
+      $619 = call $406 with $575 $65
+      $620 = call $389 with $416 $619 $65
+      # Builtins::not:1:equals:then
+      $621 = { $622 ->
+        $623 = call $405 with $575 $65
+        $624 = call $389 with $416 $623 $65
+        # Builtins::not:1:equals:else
+        $625 = { $626 ->
+          $627 = call $411 with $623 $65
+          $628 = call $404 with $575 $65
+          $629 = call $411 with $628 $65
+          $630 = call $407 with $458 $629 $65
+          $631 = call $407 with $630 $474 $65
+          $632 = ($425, $631)
+        }
+        $633 = call $391 with $624 $568 $625 $65
+      }
+      # Builtins::not:1:equals:else
+      $634 = { $635 ->
+        $636 = call $411 with $619 $65
+        $637 = call $407 with $449 $636 $65
+        $638 = call $407 with $637 $444 $65
+        $639 = ($425, $638)
+      }
+      $640 = call $391 with $620 $621 $634 $65
+    }
+    # Builtins::not:1:equals:else
+    $641 = { $642 ->
+      $643 = call $411 with $615 $65
+      $644 = call $407 with $456 $643 $65
+      $645 = call $407 with $644 $474 $65
+      $646 = ($425, $645)
+    }
+    $647 = call $391 with $616 $617 $641 $65
+    $648 = call $400 with $647 $436 $65
+    $649 = call $389 with $648 $423 $65
+    # Builtins::not:1:case-1:didNotMatch
+    $650 = { $651 ->
+      $652 = call $400 with $647 $437 $65
+      $653 = call $543 with $416 $475 $576 $66
+    }
+    $654 = call $391 with $649 $537 $650 $65
+  }
+  $655 = call $391 with $611 $571 $612 $65
+}
+# Builtins::isNonNegative
+$656 = { $657 $658 ->
+  $659 = call $412 with $657 $98
+  $660 = call $389 with $659 $420 $99
+  $661 = call $543 with $660 $496 $658 $64
+  $662 = call $394 with $657 $436 $62
+  # Builtins::isNonNegative:13:equals:then
+  $663 = { $664 ->
+    $665 = call $406 with $662 $63
+    $666 = call $389 with $419 $665 $63
+    # Builtins::isNonNegative:13:equals:then
+    $667 = { $668 ->
+      $669 = call $405 with $662 $63
+      $670 = call $389 with $416 $669 $63
+      # Builtins::isNonNegative:13:equals:else
+      $671 = { $672 ->
+        $673 = call $411 with $669 $63
+        $674 = call $404 with $662 $63
+        $675 = call $411 with $674 $63
+        $676 = call $407 with $458 $675 $63
+        $677 = call $407 with $676 $474 $63
+        $678 = ($425, $677)
+      }
+      $679 = call $391 with $670 $568 $671 $63
+    }
+    # Builtins::isNonNegative:13:equals:else
+    $680 = { $681 ->
+      $682 = call $411 with $665 $63
+      $683 = call $407 with $451 $682 $63
+      $684 = call $407 with $683 $444 $63
+      $685 = ($425, $684)
+    }
+    $686 = call $391 with $666 $667 $680 $63
+  }
+  $687 = call $663 with $63
+  $688 = call $400 with $687 $436 $63
+  $689 = call $389 with $688 $423 $63
+  # Builtins::isNonNegative:13:isMatch:then
+  $690 = { $691 ->
+    $692 = $687
+  }
+  # Builtins::isNonNegative:13:isMatch:else
+  $693 = { $694 ->
+    # Builtins::isNonNegative:13:equals:then
+    $695 = { $696 ->
+      $697 = call $406 with $662 $63
+      $698 = call $389 with $414 $697 $63
+      # Builtins::isNonNegative:13:equals:then
+      $699 = { $700 ->
+        $701 = call $405 with $662 $63
+        $702 = call $389 with $416 $701 $63
+        # Builtins::isNonNegative:13:equals:else
+        $703 = { $704 ->
+          $705 = call $411 with $701 $63
+          $706 = call $404 with $662 $63
+          $707 = call $411 with $706 $63
+          $708 = call $407 with $458 $707 $63
+          $709 = call $407 with $708 $474 $63
+          $710 = ($425, $709)
+        }
+        $711 = call $391 with $702 $568 $703 $63
+      }
+      # Builtins::isNonNegative:13:equals:else
+      $712 = { $713 ->
+        $714 = call $411 with $697 $63
+        $715 = call $407 with $448 $714 $63
+        $716 = call $407 with $715 $444 $63
+        $717 = ($425, $716)
+      }
+      $718 = call $391 with $698 $699 $712 $63
+    }
+    $719 = call $695 with $63
+  }
+  $720 = call $391 with $689 $690 $693 $63
+  $721 = call $400 with $720 $436 $63
+  $722 = call $389 with $721 $423 $63
+  # Builtins::isNonNegative:13:case-0:didNotMatch
+  $723 = { $724 ->
+    $725 = call $400 with $720 $437 $63
+    # Builtins::isNonNegative:13:equals:then
+    $726 = { $727 ->
+      $728 = call $406 with $662 $63
+      $729 = call $389 with $421 $728 $63
+      # Builtins::isNonNegative:13:equals:then
+      $730 = { $731 ->
+        $732 = call $405 with $662 $63
+        $733 = call $389 with $416 $732 $63
+        # Builtins::isNonNegative:13:equals:else
+        $734 = { $735 ->
+          $736 = call $411 with $732 $63
+          $737 = call $404 with $662 $63
+          $738 = call $411 with $737 $63
+          $739 = call $407 with $458 $738 $63
+          $740 = call $407 with $739 $474 $63
+          $741 = ($425, $740)
+        }
+        $742 = call $391 with $733 $568 $734 $63
+      }
+      # Builtins::isNonNegative:13:equals:else
+      $743 = { $744 ->
+        $745 = call $411 with $728 $63
+        $746 = call $407 with $452 $745 $63
+        $747 = call $407 with $746 $444 $63
+        $748 = ($425, $747)
+      }
+      $749 = call $391 with $729 $730 $743 $63
+    }
+    $750 = call $726 with $63
+    $751 = call $400 with $750 $436 $63
+    $752 = call $389 with $751 $423 $63
+    # Builtins::isNonNegative:13:case-1:didNotMatch
+    $753 = { $754 ->
+      $755 = call $400 with $750 $437 $63
+      $756 = panicking because $459 ($63 is at fault)
+    }
+    $757 = call $391 with $752 $571 $753 $63
+  }
+  $758 = call $391 with $722 $537 $723 $63
+}
+# Builtins::isLessThanOrEqualTo
+$759 = { $760 $761 $762 ->
+  $763 = call $412 with $760 $98
+  $764 = call $389 with $763 $420 $99
+  $765 = call $543 with $764 $476 $762 $61
+  $766 = call $412 with $761 $98
+  $767 = call $389 with $766 $420 $99
+  $768 = call $543 with $767 $478 $762 $58
+  $769 = call $394 with $760 $761 $59
+  # Builtins::isLessThanOrEqualTo:19:equals:then
+  $770 = { $771 ->
+    $772 = call $406 with $769 $60
+    $773 = call $389 with $421 $772 $60
+    # Builtins::isLessThanOrEqualTo:19:equals:then
+    $774 = { $775 ->
+      $776 = call $405 with $769 $60
+      $777 = call $389 with $416 $776 $60
+      # Builtins::isLessThanOrEqualTo:19:equals:else
+      $778 = { $779 ->
+        $780 = call $411 with $776 $60
+        $781 = call $404 with $769 $60
+        $782 = call $411 with $781 $60
+        $783 = call $407 with $458 $782 $60
+        $784 = call $407 with $783 $474 $60
+        $785 = ($425, $784)
+      }
+      $786 = call $391 with $777 $568 $778 $60
+    }
+    # Builtins::isLessThanOrEqualTo:19:equals:else
+    $787 = { $788 ->
+      $789 = call $411 with $772 $60
+      $790 = call $407 with $452 $789 $60
+      $791 = call $407 with $790 $444 $60
+      $792 = ($425, $791)
+    }
+    $793 = call $391 with $773 $774 $787 $60
+  }
+  $794 = call $770 with $60
+  $795 = call $400 with $794 $436 $60
+  $796 = call $389 with $795 $423 $60
+  # Builtins::isLessThanOrEqualTo:19:isMatch:then
+  $797 = { $798 ->
+    $799 = $794
+  }
+  # Builtins::isLessThanOrEqualTo:19:isMatch:else
+  $800 = { $801 ->
+    # Builtins::isLessThanOrEqualTo:19:equals:then
+    $802 = { $803 ->
+      $804 = call $406 with $769 $60
+      $805 = call $389 with $414 $804 $60
+      # Builtins::isLessThanOrEqualTo:19:equals:then
+      $806 = { $807 ->
+        $808 = call $405 with $769 $60
+        $809 = call $389 with $416 $808 $60
+        # Builtins::isLessThanOrEqualTo:19:equals:else
+        $810 = { $811 ->
+          $812 = call $411 with $808 $60
+          $813 = call $404 with $769 $60
+          $814 = call $411 with $813 $60
+          $815 = call $407 with $458 $814 $60
+          $816 = call $407 with $815 $474 $60
+          $817 = ($425, $816)
+        }
+        $818 = call $391 with $809 $568 $810 $60
+      }
+      # Builtins::isLessThanOrEqualTo:19:equals:else
+      $819 = { $820 ->
+        $821 = call $411 with $804 $60
+        $822 = call $407 with $448 $821 $60
+        $823 = call $407 with $822 $444 $60
+        $824 = ($425, $823)
+      }
+      $825 = call $391 with $805 $806 $819 $60
+    }
+    $826 = call $802 with $60
+  }
+  $827 = call $391 with $796 $797 $800 $60
+  $828 = call $400 with $827 $436 $60
+  $829 = call $389 with $828 $423 $60
+  # Builtins::isLessThanOrEqualTo:19:case-0:didNotMatch
+  $830 = { $831 ->
+    $832 = call $400 with $827 $437 $60
+    # Builtins::isLessThanOrEqualTo:19:equals:then
+    $833 = { $834 ->
+      $835 = call $406 with $769 $60
+      $836 = call $389 with $419 $835 $60
+      # Builtins::isLessThanOrEqualTo:19:equals:then
+      $837 = { $838 ->
+        $839 = call $405 with $769 $60
+        $840 = call $389 with $416 $839 $60
+        # Builtins::isLessThanOrEqualTo:19:equals:else
+        $841 = { $842 ->
+          $843 = call $411 with $839 $60
+          $844 = call $404 with $769 $60
+          $845 = call $411 with $844 $60
+          $846 = call $407 with $458 $845 $60
+          $847 = call $407 with $846 $474 $60
+          $848 = ($425, $847)
+        }
+        $849 = call $391 with $840 $568 $841 $60
+      }
+      # Builtins::isLessThanOrEqualTo:19:equals:else
+      $850 = { $851 ->
+        $852 = call $411 with $835 $60
+        $853 = call $407 with $451 $852 $60
+        $854 = call $407 with $853 $444 $60
+        $855 = ($425, $854)
+      }
+      $856 = call $391 with $836 $837 $850 $60
+    }
+    $857 = call $833 with $60
+    $858 = call $400 with $857 $436 $60
+    $859 = call $389 with $858 $423 $60
+    # Builtins::isLessThanOrEqualTo:19:case-1:didNotMatch
+    $860 = { $861 ->
+      $862 = call $400 with $857 $437 $60
+      $863 = panicking because $459 ($60 is at fault)
+    }
+    $864 = call $391 with $859 $571 $860 $60
+  }
+  $865 = call $391 with $829 $537 $830 $60
+}
+# Builtins::ifElse
+$866 = { $867 $868 $869 $870 ->
+  $871 = call $412 with $867 $12
+  $872 = call $389 with $430 $871 $12
+  # Builtins::ifElse:1:equals:then
+  $873 = { $874 ->
+    $875 = call $406 with $867 $12
+    $876 = call $389 with $433 $875 $12
+    # Builtins::ifElse:1:equals:then
+    $877 = { $878 ->
+      $879 = call $405 with $867 $12
+      $880 = call $389 with $416 $879 $12
+      # Builtins::ifElse:1:equals:else
+      $881 = { $882 ->
+        $883 = call $411 with $879 $12
+        $884 = call $404 with $867 $12
+        $885 = call $411 with $884 $12
+        $886 = call $407 with $458 $885 $12
+        $887 = call $407 with $886 $474 $12
+        $888 = ($425, $887)
+      }
+      $889 = call $391 with $880 $568 $881 $12
+    }
+    # Builtins::ifElse:1:equals:else
+    $890 = { $891 ->
+      $892 = call $411 with $875 $12
+      $893 = call $407 with $453 $892 $12
+      $894 = call $407 with $893 $444 $12
+      $895 = ($425, $894)
+    }
+    $896 = call $391 with $876 $877 $890 $12
+  }
+  # Builtins::ifElse:1:equals:else
+  $897 = { $898 ->
+    $899 = call $411 with $871 $12
+    $900 = call $407 with $456 $899 $12
+    $901 = call $407 with $900 $474 $12
+    $902 = ($425, $901)
+  }
+  $903 = call $391 with $872 $873 $897 $12
+  $904 = call $400 with $903 $436 $12
+  $905 = call $389 with $904 $423 $12
+  # Builtins::ifElse:1:isMatch:then
+  $906 = { $907 ->
+    $908 = $903
+  }
+  # Builtins::ifElse:1:isMatch:else
+  $909 = { $910 ->
+    $911 = call $412 with $867 $12
+    $912 = call $389 with $430 $911 $12
+    # Builtins::ifElse:1:equals:then
+    $913 = { $914 ->
+      $915 = call $406 with $867 $12
+      $916 = call $389 with $416 $915 $12
+      # Builtins::ifElse:1:equals:then
+      $917 = { $918 ->
+        $919 = call $405 with $867 $12
+        $920 = call $389 with $416 $919 $12
+        # Builtins::ifElse:1:equals:else
+        $921 = { $922 ->
+          $923 = call $411 with $919 $12
+          $924 = call $404 with $867 $12
+          $925 = call $411 with $924 $12
+          $926 = call $407 with $458 $925 $12
+          $927 = call $407 with $926 $474 $12
+          $928 = ($425, $927)
+        }
+        $929 = call $391 with $920 $568 $921 $12
+      }
+      # Builtins::ifElse:1:equals:else
+      $930 = { $931 ->
+        $932 = call $411 with $915 $12
+        $933 = call $407 with $449 $932 $12
+        $934 = call $407 with $933 $444 $12
+        $935 = ($425, $934)
+      }
+      $936 = call $391 with $916 $917 $930 $12
+    }
+    # Builtins::ifElse:1:equals:else
+    $937 = { $938 ->
+      $939 = call $411 with $911 $12
+      $940 = call $407 with $456 $939 $12
+      $941 = call $407 with $940 $474 $12
+      $942 = ($425, $941)
+    }
+    $943 = call $391 with $912 $913 $937 $12
+  }
+  $944 = call $391 with $905 $906 $909 $12
+  $945 = call $400 with $944 $436 $12
+  $946 = call $389 with $945 $423 $12
+  # Builtins::ifElse:1:case-0:didNotMatch
+  $947 = { $948 ->
+    $949 = call $400 with $944 $437 $12
+    $950 = $416
+  }
+  $951 = call $391 with $946 $537 $947 $12
+  $952 = call $543 with $951 $481 $870 $20
+  $953 = call $412 with $868 $98
+  $954 = call $389 with $953 $418 $99
+  $955 = call $543 with $954 $534 $870 $13
+  $956 = call $412 with $868 $98
+  $957 = call $389 with $956 $418 $99
+  $958 = call $543 with $957 $493 $14 $11
+  $959 = call $390 with $868 $10
+  $960 = call $389 with $959 $436 $1
+  $961 = call $543 with $960 $533 $870 $15
+  $962 = call $412 with $869 $98
+  $963 = call $389 with $962 $418 $99
+  $964 = call $543 with $963 $485 $870 $16
+  $965 = call $412 with $869 $98
+  $966 = call $389 with $965 $418 $99
+  $967 = call $543 with $966 $493 $17 $11
+  $968 = call $390 with $869 $10
+  $969 = call $389 with $968 $436 $1
+  $970 = call $543 with $969 $484 $870 $18
+  $971 = call $391 with $867 $868 $869 $19
+}
+# Builtins::intDivideTruncating
+$972 = { $973 $974 $975 ->
+  $976 = call $412 with $973 $98
+  $977 = call $389 with $976 $420 $99
+  $978 = call $543 with $977 $482 $975 $33
+  $979 = call $412 with $974 $98
+  $980 = call $389 with $979 $420 $99
+  $981 = call $543 with $980 $483 $975 $29
+  $982 = call $389 with $974 $436 $1
+  $983 = call $574 with $982 $30
+  $984 = call $543 with $983 $473 $975 $31
+  $985 = call $395 with $973 $974 $32
+}
+# Builtins::intRemainder
+$986 = { $987 $988 $989 ->
+  $990 = call $412 with $987 $98
+  $991 = call $389 with $990 $420 $99
+  $992 = call $543 with $991 $482 $989 $41
+  $993 = call $412 with $988 $98
+  $994 = call $389 with $993 $420 $99
+  $995 = call $543 with $994 $483 $989 $37
+  $996 = call $389 with $988 $436 $1
+  $997 = call $574 with $996 $38
+  $998 = call $543 with $997 $473 $989 $39
+  $999 = call $397 with $987 $988 $40
+}
+# Builtins::intShiftRight
+$1000 = { $1001 $1002 $1003 ->
+  $1004 = call $412 with $1001 $98
+  $1005 = call $389 with $1004 $420 $99
+  $1006 = call $543 with $1005 $536 $1003 $54
+  $1007 = call $412 with $1002 $98
+  $1008 = call $389 with $1007 $420 $99
+  $1009 = call $543 with $1008 $477 $1003 $42
+  $1010 = call $656 with $1002 $43
+  $1011 = call $412 with $1002 $44
+  $1012 = call $389 with $1011 $432 $45
+  # Builtins::intShiftRight:25
+  $1013 = { $1014 ->
+    $1015 = $1002
+  }
+  # Builtins::intShiftRight:26
+  $1016 = { $1017 ->
+    $1018 = call $411 with $1002 $46
+  }
+  $1019 = call $391 with $1012 $1013 $1016 $47
+  $1020 = call $407 with $472 $1019 $48
+  $1021 = call $407 with $1020 $445 $49
+  $1022 = call $543 with $1010 $1021 $1003 $50
+  $1023 = call $412 with $1002 $98
+  $1024 = call $389 with $1023 $420 $99
+  $1025 = call $543 with $1024 $536 $51 $4
+  $1026 = call $656 with $1002 $5
+  $1027 = call $543 with $1026 $535 $51 $2
+  $1028 = call $759 with $1002 $442 $3
+  $1029 = call $543 with $1028 $460 $1003 $52
+  $1030 = call $398 with $1001 $1002 $53
+}
+# Builtins::textGetRange
+$1031 = { $1032 $1033 $1034 $1035 ->
+  $1036 = call $412 with $1032 $98
+  $1037 = call $389 with $1036 $432 $99
+  $1038 = call $543 with $1037 $532 $1035 $88
+  $1039 = call $412 with $1033 $98
+  $1040 = call $389 with $1039 $420 $99
+  $1041 = call $543 with $1040 $526 $1035 $76
+  $1042 = call $656 with $1033 $77
+  $1043 = call $543 with $1042 $525 $1035 $78
+  $1044 = call $409 with $1032 $79
+  $1045 = call $759 with $1033 $1044 $80
+  $1046 = call $543 with $1045 $523 $1035 $81
+  $1047 = call $412 with $1034 $98
+  $1048 = call $389 with $1047 $420 $99
+  $1049 = call $543 with $1048 $488 $1035 $82
+  $1050 = call $656 with $1034 $83
+  $1051 = call $543 with $1050 $487 $1035 $84
+  $1052 = call $409 with $1032 $85
+  $1053 = call $759 with $1034 $1052 $86
+  $1054 = call $543 with $1053 $486 $1035 $87
+  $1055 = call $759 with $1033 $1034 $89
+  $1056 = call $543 with $1055 $524 $1035 $90
+  $1057 = call $408 with $1032 $1033 $1034 $91
+}
+# Core:function:is0
+$1058 = { $1059 $1060 ->
+  $1061 = call $412 with $1059 $100
+  $1062 = call $389 with $1061 $418 $1
+  # Core:function:is0:11
+  $1063 = { $1064 ->
+    $1065 = call $412 with $1059 $98
+    $1066 = call $389 with $1065 $418 $99
+    $1067 = call $543 with $1066 $493 $304 $11
+    $1068 = call $390 with $1059 $10
+    $1069 = call $389 with $1068 $436 $1
+  }
+  $1070 = call $866 with $1062 $1063 $571 $305
+}
+# Core:function:run
+$1071 = { $1072 $1073 ->
+  $1074 = call $1058 with $1072 $309
+  $1075 = call $543 with $1074 $516 $1073 $310
+  $1076 = call $412 with $1072 $98
+  $1077 = call $389 with $1076 $418 $99
+  $1078 = call $543 with $1077 $493 $308 $9
+  $1079 = call $390 with $1072 $6
+  $1080 = call $389 with $1079 $436 $1
+  $1081 = call $543 with $1080 $494 $308 $7
+  $1082 = call $1072 with $8
+}
+# Core:bool:is
+$1083 = { $1084 $1085 ->
+  $1086 = call $412 with $1084 $107
+  $1087 = call $389 with $430 $1086 $107
+  # Core:bool:is:1:equals:then
+  $1088 = { $1089 ->
+    $1090 = call $406 with $1084 $107
+    $1091 = call $389 with $433 $1090 $107
+    # Core:bool:is:1:equals:then
+    $1092 = { $1093 ->
+      $1094 = call $405 with $1084 $107
+      $1095 = call $389 with $416 $1094 $107
+      # Core:bool:is:1:equals:else
+      $1096 = { $1097 ->
+        $1098 = call $411 with $1094 $107
+        $1099 = call $404 with $1084 $107
+        $1100 = call $411 with $1099 $107
+        $1101 = call $407 with $458 $1100 $107
+        $1102 = call $407 with $1101 $474 $107
+        $1103 = ($425, $1102)
+      }
+      $1104 = call $391 with $1095 $568 $1096 $107
+    }
+    # Core:bool:is:1:equals:else
+    $1105 = { $1106 ->
+      $1107 = call $411 with $1090 $107
+      $1108 = call $407 with $453 $1107 $107
+      $1109 = call $407 with $1108 $444 $107
+      $1110 = ($425, $1109)
+    }
+    $1111 = call $391 with $1091 $1092 $1105 $107
+  }
+  # Core:bool:is:1:equals:else
+  $1112 = { $1113 ->
+    $1114 = call $411 with $1086 $107
+    $1115 = call $407 with $456 $1114 $107
+    $1116 = call $407 with $1115 $474 $107
+    $1117 = ($425, $1116)
+  }
+  $1118 = call $391 with $1087 $1088 $1112 $107
+  $1119 = call $400 with $1118 $436 $107
+  $1120 = call $389 with $1119 $423 $107
+  # Core:bool:is:1:isMatch:then
+  $1121 = { $1122 ->
+    $1123 = $1118
+  }
+  # Core:bool:is:1:isMatch:else
+  $1124 = { $1125 ->
+    $1126 = call $412 with $1084 $107
+    $1127 = call $389 with $430 $1126 $107
+    # Core:bool:is:1:equals:then
+    $1128 = { $1129 ->
+      $1130 = call $406 with $1084 $107
+      $1131 = call $389 with $416 $1130 $107
+      # Core:bool:is:1:equals:then
+      $1132 = { $1133 ->
+        $1134 = call $405 with $1084 $107
+        $1135 = call $389 with $416 $1134 $107
+        # Core:bool:is:1:equals:else
+        $1136 = { $1137 ->
+          $1138 = call $411 with $1134 $107
+          $1139 = call $404 with $1084 $107
+          $1140 = call $411 with $1139 $107
+          $1141 = call $407 with $458 $1140 $107
+          $1142 = call $407 with $1141 $474 $107
+          $1143 = ($425, $1142)
+        }
+        $1144 = call $391 with $1135 $568 $1136 $107
+      }
+      # Core:bool:is:1:equals:else
+      $1145 = { $1146 ->
+        $1147 = call $411 with $1130 $107
+        $1148 = call $407 with $449 $1147 $107
+        $1149 = call $407 with $1148 $444 $107
+        $1150 = ($425, $1149)
+      }
+      $1151 = call $391 with $1131 $1132 $1145 $107
+    }
+    # Core:bool:is:1:equals:else
+    $1152 = { $1153 ->
+      $1154 = call $411 with $1126 $107
+      $1155 = call $407 with $456 $1154 $107
+      $1156 = call $407 with $1155 $474 $107
+      $1157 = ($425, $1156)
+    }
+    $1158 = call $391 with $1127 $1128 $1152 $107
+  }
+  $1159 = call $391 with $1120 $1121 $1124 $107
+  $1160 = call $400 with $1159 $436 $107
+  $1161 = call $389 with $1160 $423 $107
+  # Core:bool:is:1:case-0:didNotMatch
+  $1162 = { $1163 ->
+    $1164 = call $400 with $1159 $437 $107
+    $1165 = $416
+  }
+  $1166 = call $391 with $1161 $537 $1162 $107
+}
+# Core:bool:not
+$1167 = { $1168 $1169 ->
+  $1170 = call $1083 with $1168 $124
+  $1171 = call $543 with $1170 $515 $1169 $125
+  $1172 = call $412 with $1168 $126
+  $1173 = call $389 with $430 $1172 $126
+  # Core:bool:not:6:equals:then
+  $1174 = { $1175 ->
+    $1176 = call $406 with $1168 $126
+    $1177 = call $389 with $433 $1176 $126
+    # Core:bool:not:6:equals:then
+    $1178 = { $1179 ->
+      $1180 = call $405 with $1168 $126
+      $1181 = call $389 with $416 $1180 $126
+      # Core:bool:not:6:equals:else
+      $1182 = { $1183 ->
+        $1184 = call $411 with $1180 $126
+        $1185 = call $404 with $1168 $126
+        $1186 = call $411 with $1185 $126
+        $1187 = call $407 with $458 $1186 $126
+        $1188 = call $407 with $1187 $474 $126
+        $1189 = ($425, $1188)
+      }
+      $1190 = call $391 with $1181 $568 $1182 $126
+    }
+    # Core:bool:not:6:equals:else
+    $1191 = { $1192 ->
+      $1193 = call $411 with $1176 $126
+      $1194 = call $407 with $453 $1193 $126
+      $1195 = call $407 with $1194 $444 $126
+      $1196 = ($425, $1195)
+    }
+    $1197 = call $391 with $1177 $1178 $1191 $126
+  }
+  # Core:bool:not:6:equals:else
+  $1198 = { $1199 ->
+    $1200 = call $411 with $1172 $126
+    $1201 = call $407 with $456 $1200 $126
+    $1202 = call $407 with $1201 $474 $126
+    $1203 = ($425, $1202)
+  }
+  $1204 = call $391 with $1173 $1174 $1198 $126
+  $1205 = call $400 with $1204 $436 $126
+  $1206 = call $389 with $1205 $423 $126
+  # Core:bool:not:6:case-0:didNotMatch
+  $1207 = { $1208 ->
+    $1209 = call $400 with $1204 $437 $126
+    $1210 = call $412 with $1168 $126
+    $1211 = call $389 with $430 $1210 $126
+    # Core:bool:not:6:equals:then
+    $1212 = { $1213 ->
+      $1214 = call $406 with $1168 $126
+      $1215 = call $389 with $416 $1214 $126
+      # Core:bool:not:6:equals:then
+      $1216 = { $1217 ->
+        $1218 = call $405 with $1168 $126
+        $1219 = call $389 with $416 $1218 $126
+        # Core:bool:not:6:equals:else
+        $1220 = { $1221 ->
+          $1222 = call $411 with $1218 $126
+          $1223 = call $404 with $1168 $126
+          $1224 = call $411 with $1223 $126
+          $1225 = call $407 with $458 $1224 $126
+          $1226 = call $407 with $1225 $474 $126
+          $1227 = ($425, $1226)
+        }
+        $1228 = call $391 with $1219 $568 $1220 $126
+      }
+      # Core:bool:not:6:equals:else
+      $1229 = { $1230 ->
+        $1231 = call $411 with $1214 $126
+        $1232 = call $407 with $449 $1231 $126
+        $1233 = call $407 with $1232 $444 $126
+        $1234 = ($425, $1233)
+      }
+      $1235 = call $391 with $1215 $1216 $1229 $126
+    }
+    # Core:bool:not:6:equals:else
+    $1236 = { $1237 ->
+      $1238 = call $411 with $1210 $126
+      $1239 = call $407 with $456 $1238 $126
+      $1240 = call $407 with $1239 $474 $126
+      $1241 = ($425, $1240)
+    }
+    $1242 = call $391 with $1211 $1212 $1236 $126
+    $1243 = call $400 with $1242 $436 $126
+    $1244 = call $389 with $1243 $423 $126
+    # Core:bool:not:6:case-1:didNotMatch
+    $1245 = { $1246 ->
+      $1247 = call $400 with $1242 $437 $126
+      $1248 = panicking because $459 ($126 is at fault)
+    }
+    $1249 = call $391 with $1244 $537 $1245 $126
+  }
+  $1250 = call $391 with $1206 $571 $1207 $126
+}
+# Core:bool:lazyAnd
+$1251 = { $1252 $1253 $1254 ->
+  $1255 = call $1083 with $1252 $114
+  $1256 = call $543 with $1255 $500 $1254 $115
+  $1257 = call $1058 with $1253 $108
+  $1258 = call $543 with $1257 $495 $1254 $109
+  $1259 = call $412 with $1252 $110
+  $1260 = call $389 with $430 $1259 $110
+  # Core:bool:lazyAnd:18:equals:then
+  $1261 = { $1262 ->
+    $1263 = call $406 with $1252 $110
+    $1264 = call $389 with $433 $1263 $110
+    # Core:bool:lazyAnd:18:equals:then
+    $1265 = { $1266 ->
+      $1267 = call $405 with $1252 $110
+      $1268 = call $389 with $416 $1267 $110
+      # Core:bool:lazyAnd:18:equals:else
+      $1269 = { $1270 ->
+        $1271 = call $411 with $1267 $110
+        $1272 = call $404 with $1252 $110
+        $1273 = call $411 with $1272 $110
+        $1274 = call $407 with $458 $1273 $110
+        $1275 = call $407 with $1274 $474 $110
+        $1276 = ($425, $1275)
+      }
+      $1277 = call $391 with $1268 $568 $1269 $110
+    }
+    # Core:bool:lazyAnd:18:equals:else
+    $1278 = { $1279 ->
+      $1280 = call $411 with $1263 $110
+      $1281 = call $407 with $453 $1280 $110
+      $1282 = call $407 with $1281 $444 $110
+      $1283 = ($425, $1282)
+    }
+    $1284 = call $391 with $1264 $1265 $1278 $110
+  }
+  # Core:bool:lazyAnd:18:equals:else
+  $1285 = { $1286 ->
+    $1287 = call $411 with $1259 $110
+    $1288 = call $407 with $456 $1287 $110
+    $1289 = call $407 with $1288 $474 $110
+    $1290 = ($425, $1289)
+  }
+  $1291 = call $391 with $1260 $1261 $1285 $110
+  $1292 = call $400 with $1291 $436 $110
+  $1293 = call $389 with $1292 $423 $110
+  # Core:bool:lazyAnd:18:case-0:matched
+  $1294 = { $1295 ->
+    $1296 = call $1071 with $1253 $113
+    $1297 = $1296
+    $1298 = call $1083 with $1296 $111
+    $1299 = call $543 with $1298 $479 $1254 $112
+    $1300 = $1297
+  }
+  # Core:bool:lazyAnd:18:case-0:didNotMatch
+  $1301 = { $1302 ->
+    $1303 = call $400 with $1291 $437 $110
+    $1304 = call $412 with $1252 $110
+    $1305 = call $389 with $430 $1304 $110
+    # Core:bool:lazyAnd:18:equals:then
+    $1306 = { $1307 ->
+      $1308 = call $406 with $1252 $110
+      $1309 = call $389 with $416 $1308 $110
+      # Core:bool:lazyAnd:18:equals:then
+      $1310 = { $1311 ->
+        $1312 = call $405 with $1252 $110
+        $1313 = call $389 with $416 $1312 $110
+        # Core:bool:lazyAnd:18:equals:else
+        $1314 = { $1315 ->
+          $1316 = call $411 with $1312 $110
+          $1317 = call $404 with $1252 $110
+          $1318 = call $411 with $1317 $110
+          $1319 = call $407 with $458 $1318 $110
+          $1320 = call $407 with $1319 $474 $110
+          $1321 = ($425, $1320)
+        }
+        $1322 = call $391 with $1313 $568 $1314 $110
+      }
+      # Core:bool:lazyAnd:18:equals:else
+      $1323 = { $1324 ->
+        $1325 = call $411 with $1308 $110
+        $1326 = call $407 with $449 $1325 $110
+        $1327 = call $407 with $1326 $444 $110
+        $1328 = ($425, $1327)
+      }
+      $1329 = call $391 with $1309 $1310 $1323 $110
+    }
+    # Core:bool:lazyAnd:18:equals:else
+    $1330 = { $1331 ->
+      $1332 = call $411 with $1304 $110
+      $1333 = call $407 with $456 $1332 $110
+      $1334 = call $407 with $1333 $474 $110
+      $1335 = ($425, $1334)
+    }
+    $1336 = call $391 with $1305 $1306 $1330 $110
+    $1337 = call $400 with $1336 $436 $110
+    $1338 = call $389 with $1337 $423 $110
+    # Core:bool:lazyAnd:18:case-1:didNotMatch
+    $1339 = { $1340 ->
+      $1341 = call $400 with $1336 $437 $110
+      $1342 = panicking because $459 ($110 is at fault)
+    }
+    $1343 = call $391 with $1338 $571 $1339 $110
+  }
+  $1344 = call $391 with $1293 $1294 $1301 $110
+}
+# Core:bool:lazyOr
+$1345 = { $1346 $1347 $1348 ->
+  $1349 = call $1083 with $1346 $122
+  $1350 = call $543 with $1349 $500 $1348 $123
+  $1351 = call $1058 with $1347 $116
+  $1352 = call $543 with $1351 $495 $1348 $117
+  $1353 = call $412 with $1346 $118
+  $1354 = call $389 with $430 $1353 $118
+  # Core:bool:lazyOr:18:equals:then
+  $1355 = { $1356 ->
+    $1357 = call $406 with $1346 $118
+    $1358 = call $389 with $433 $1357 $118
+    # Core:bool:lazyOr:18:equals:then
+    $1359 = { $1360 ->
+      $1361 = call $405 with $1346 $118
+      $1362 = call $389 with $416 $1361 $118
+      # Core:bool:lazyOr:18:equals:else
+      $1363 = { $1364 ->
+        $1365 = call $411 with $1361 $118
+        $1366 = call $404 with $1346 $118
+        $1367 = call $411 with $1366 $118
+        $1368 = call $407 with $458 $1367 $118
+        $1369 = call $407 with $1368 $474 $118
+        $1370 = ($425, $1369)
+      }
+      $1371 = call $391 with $1362 $568 $1363 $118
+    }
+    # Core:bool:lazyOr:18:equals:else
+    $1372 = { $1373 ->
+      $1374 = call $411 with $1357 $118
+      $1375 = call $407 with $453 $1374 $118
+      $1376 = call $407 with $1375 $444 $118
+      $1377 = ($425, $1376)
+    }
+    $1378 = call $391 with $1358 $1359 $1372 $118
+  }
+  # Core:bool:lazyOr:18:equals:else
+  $1379 = { $1380 ->
+    $1381 = call $411 with $1353 $118
+    $1382 = call $407 with $456 $1381 $118
+    $1383 = call $407 with $1382 $474 $118
+    $1384 = ($425, $1383)
+  }
+  $1385 = call $391 with $1354 $1355 $1379 $118
+  $1386 = call $400 with $1385 $436 $118
+  $1387 = call $389 with $1386 $423 $118
+  # Core:bool:lazyOr:18:case-0:didNotMatch
+  $1388 = { $1389 ->
+    $1390 = call $400 with $1385 $437 $118
+    $1391 = call $412 with $1346 $118
+    $1392 = call $389 with $430 $1391 $118
+    # Core:bool:lazyOr:18:equals:then
+    $1393 = { $1394 ->
+      $1395 = call $406 with $1346 $118
+      $1396 = call $389 with $416 $1395 $118
+      # Core:bool:lazyOr:18:equals:then
+      $1397 = { $1398 ->
+        $1399 = call $405 with $1346 $118
+        $1400 = call $389 with $416 $1399 $118
+        # Core:bool:lazyOr:18:equals:else
+        $1401 = { $1402 ->
+          $1403 = call $411 with $1399 $118
+          $1404 = call $404 with $1346 $118
+          $1405 = call $411 with $1404 $118
+          $1406 = call $407 with $458 $1405 $118
+          $1407 = call $407 with $1406 $474 $118
+          $1408 = ($425, $1407)
+        }
+        $1409 = call $391 with $1400 $568 $1401 $118
+      }
+      # Core:bool:lazyOr:18:equals:else
+      $1410 = { $1411 ->
+        $1412 = call $411 with $1395 $118
+        $1413 = call $407 with $449 $1412 $118
+        $1414 = call $407 with $1413 $444 $118
+        $1415 = ($425, $1414)
+      }
+      $1416 = call $391 with $1396 $1397 $1410 $118
+    }
+    # Core:bool:lazyOr:18:equals:else
+    $1417 = { $1418 ->
+      $1419 = call $411 with $1391 $118
+      $1420 = call $407 with $456 $1419 $118
+      $1421 = call $407 with $1420 $474 $118
+      $1422 = ($425, $1421)
+    }
+    $1423 = call $391 with $1392 $1393 $1417 $118
+    $1424 = call $400 with $1423 $436 $118
+    $1425 = call $389 with $1424 $423 $118
+    # Core:bool:lazyOr:18:case-1:matched
+    $1426 = { $1427 ->
+      $1428 = call $1071 with $1347 $119
+      $1429 = $1428
+      $1430 = call $1083 with $1428 $120
+      $1431 = call $543 with $1430 $479 $1348 $121
+      $1432 = $1429
+    }
+    # Core:bool:lazyOr:18:case-1:didNotMatch
+    $1433 = { $1434 ->
+      $1435 = call $400 with $1423 $437 $118
+      $1436 = panicking because $459 ($118 is at fault)
+    }
+    $1437 = call $391 with $1425 $1426 $1433 $118
+  }
+  $1438 = call $391 with $1387 $537 $1388 $118
+}
+# Core:bool:implies
+$1439 = { $1440 $1441 $1442 ->
+  $1443 = call $1083 with $1440 $103
+  $1444 = call $543 with $1443 $500 $1442 $104
+  $1445 = call $1083 with $1441 $105
+  $1446 = call $543 with $1445 $501 $1442 $106
+  $1447 = call $1167 with $1440 $101
+  $1448 = call $1083 with $1447 $128
+  $1449 = call $543 with $1448 $500 $102 $129
+  $1450 = call $1083 with $1441 $130
+  $1451 = call $543 with $1450 $501 $102 $131
+  # Core:bool:or:12
+  $1452 = { $1453 ->
+    $1454 = $1441
+  }
+  $1455 = call $1345 with $1447 $1452 $127
+}
+# Core:function:is2
+$1456 = { $1457 $1458 ->
+  $1459 = call $412 with $1457 $100
+  $1460 = call $389 with $1459 $418 $1
+  # Core:function:is2:11
+  $1461 = { $1462 ->
+    $1463 = call $412 with $1457 $98
+    $1464 = call $389 with $1463 $418 $99
+    $1465 = call $543 with $1464 $493 $306 $11
+    $1466 = call $390 with $1457 $10
+    $1467 = call $389 with $1466 $438 $1
+  }
+  $1468 = call $866 with $1460 $1461 $571 $307
+}
+# Core:int:compareTo
+$1469 = { $1470 $1471 $1472 ->
+  $1473 = call $412 with $1470 $100
+  $1474 = call $389 with $1473 $420 $1
+  $1475 = call $543 with $1474 $513 $1472 $312
+  $1476 = call $412 with $1471 $100
+  $1477 = call $389 with $1476 $420 $1
+  $1478 = call $543 with $1477 $514 $1472 $315
+  $1479 = call $412 with $1470 $98
+  $1480 = call $389 with $1479 $420 $99
+  $1481 = call $543 with $1480 $476 $311 $28
+  $1482 = call $412 with $1471 $98
+  $1483 = call $389 with $1482 $420 $99
+  $1484 = call $543 with $1483 $478 $311 $26
+  $1485 = call $394 with $1470 $1471 $27
+  $1486 = $1485
+  $1487 = call $389 with $1485 $414 $1
+  $1488 = call $389 with $1470 $1471 $1
+  $1489 = call $1439 with $1487 $1488 $313
+  $1490 = call $1083 with $1489 $134
+  $1491 = call $543 with $1490 $480 $314 $132
+  $1492 = call $543 with $1489 $447 $314 $133
+  $1493 = $1486
+}
+# Core:int:isLessThan
+$1494 = { $1495 $1496 $1497 ->
+  $1498 = call $412 with $1495 $100
+  $1499 = call $389 with $1498 $420 $1
+  $1500 = call $543 with $1499 $513 $1497 $326
+  $1501 = call $412 with $1496 $100
+  $1502 = call $389 with $1501 $420 $1
+  $1503 = call $543 with $1502 $514 $1497 $327
+  $1504 = call $1469 with $1495 $1496 $325
+  $1505 = call $389 with $1504 $421 $1
+}
+# Core:int:isGreaterThan
+$1506 = { $1507 $1508 $1509 ->
+  $1510 = call $412 with $1507 $100
+  $1511 = call $389 with $1510 $420 $1
+  $1512 = call $543 with $1511 $513 $1509 $319
+  $1513 = call $412 with $1508 $100
+  $1514 = call $389 with $1513 $420 $1
+  $1515 = call $543 with $1514 $514 $1509 $320
+  $1516 = call $1469 with $1507 $1508 $318
+  $1517 = call $389 with $1516 $419 $1
+}
+# Core:int:isGreaterThanOrEqualTo
+$1518 = { $1519 $1520 $1521 ->
+  $1522 = call $412 with $1519 $100
+  $1523 = call $389 with $1522 $420 $1
+  $1524 = call $543 with $1523 $513 $1521 $323
+  $1525 = call $412 with $1520 $100
+  $1526 = call $389 with $1525 $420 $1
+  $1527 = call $543 with $1526 $514 $1521 $324
+  $1528 = call $1494 with $1519 $1520 $321
+  $1529 = call $1167 with $1528 $322
+}
+# Core:int:isNonNegative
+$1530 = { $1531 $1532 ->
+  $1533 = call $412 with $1531 $100
+  $1534 = call $389 with $1533 $420 $1
+  $1535 = call $543 with $1534 $515 $1532 $331
+  $1536 = call $412 with $1531 $100
+  $1537 = call $389 with $1536 $420 $1
+  $1538 = call $543 with $1537 $515 $332 $328
+  $1539 = call $1494 with $1531 $436 $329
+  $1540 = call $1167 with $1539 $330
+}
+# Core:int:isEven
+$1541 = { $1542 $1543 ->
+  $1544 = call $412 with $1542 $100
+  $1545 = call $389 with $1544 $420 $1
+  $1546 = call $543 with $1545 $515 $1543 $316
+  $1547 = call $412 with $1542 $98
+  $1548 = call $389 with $1547 $420 $99
+  $1549 = call $543 with $1548 $476 $317 $25
+  $1550 = call $393 with $1542 $437 $24
+  $1551 = call $389 with $1550 $436 $1
+}
+# Core:int:max
+$1552 = { $1553 $1554 $1555 ->
+  $1556 = call $412 with $1553 $100
+  $1557 = call $389 with $1556 $420 $1
+  $1558 = call $543 with $1557 $513 $1555 $335
+  $1559 = call $412 with $1554 $100
+  $1560 = call $389 with $1559 $420 $1
+  $1561 = call $543 with $1560 $514 $1555 $336
+  $1562 = call $1518 with $1553 $1554 $333
+  # Core:int:max:15
+  $1563 = { $1564 ->
+    $1565 = $1553
+  }
+  # Core:int:max:16
+  $1566 = { $1567 ->
+    $1568 = $1554
+  }
+  $1569 = call $866 with $1562 $1563 $1566 $334
+}
+# Core:int:pow:21:4:case-0:matched
+$1570 = { $1571 ->
+  $1572 = $437
+}
+# Core:int:pow:21
+$1573 = { $1574 $1575 $1576 ->
+  $1577 = call $412 with $1575 $341
+  $1578 = call $389 with $429 $1577 $341
+  # Core:int:pow:21:1:equals:then
+  $1579 = { $1580 ->
+    $1581 = call $403 with $1575 $413 $341
+    # Core:int:pow:21:1:hasKey:then
+    $1582 = { $1583 ->
+      $1584 = call $402 with $1575 $413 $341
+      $1585 = ($423, $1584)
+    }
+    # Core:int:pow:21:1:hasKey:else
+    $1586 = { $1587 ->
+      $1588 = call $411 with $1575 $341
+      $1589 = call $407 with $461 $1588 $341
+      $1590 = call $407 with $1589 $474 $341
+      $1591 = ($425, $1590)
+    }
+    $1592 = call $391 with $1581 $1582 $1586 $341
+    $1593 = call $400 with $1592 $436 $341
+    $1594 = call $389 with $1593 $423 $341
+    # Core:int:pow:21:1:isMatch:then
+    $1595 = { $1596 ->
+      $1597 = call $400 with $1592 $437 $341
+      $1598 = call $403 with $1575 $415 $341
+      # Core:int:pow:21:1:hasKey:then
+      $1599 = { $1600 ->
+        $1601 = call $402 with $1575 $415 $341
+        $1602 = ($423, $1601)
+      }
+      # Core:int:pow:21:1:hasKey:else
+      $1603 = { $1604 ->
+        $1605 = call $411 with $1575 $341
+        $1606 = call $407 with $462 $1605 $341
+        $1607 = call $407 with $1606 $474 $341
+        $1608 = ($425, $1607)
+      }
+      $1609 = call $391 with $1598 $1599 $1603 $341
+      $1610 = call $400 with $1609 $436 $341
+      $1611 = call $389 with $1610 $423 $341
+      # Core:int:pow:21:1:isMatch:then
+      $1612 = { $1613 ->
+        $1614 = call $400 with $1609 $437 $341
+        $1615 = ($423, $1597, $1614)
+      }
+      # Core:int:pow:21:1:isMatch:else
+      $1616 = { $1617 ->
+        $1618 = $1609
+      }
+      $1619 = call $391 with $1611 $1612 $1616 $341
+    }
+    # Core:int:pow:21:1:isMatch:else
+    $1620 = { $1621 ->
+      $1622 = $1592
+    }
+    $1623 = call $391 with $1594 $1595 $1620 $341
+  }
+  # Core:int:pow:21:1:equals:else
+  $1624 = { $1625 ->
+    $1626 = call $411 with $1577 $341
+    $1627 = call $407 with $455 $1626 $341
+    $1628 = call $407 with $1627 $474 $341
+    $1629 = ($425, $1628)
+  }
+  $1630 = call $391 with $1578 $1579 $1624 $341
+  $1631 = call $400 with $1630 $436 $341
+  $1632 = call $389 with $1631 $423 $341
+  # Core:int:pow:21:1:isMatch:else
+  $1633 = { $1634 ->
+    $1635 = call $400 with $1630 $437 $341
+    $1636 = panicking because $1635 ($341 is at fault)
+  }
+  $1637 = call $391 with $1632 $540 $1633 $341
+  $1638 = call $400 with $1630 $437 $353
+  $1639 = call $400 with $1630 $438 $354
+  $1640 = call $389 with $436 $1639 $342
+  # Core:int:pow:21:4:equals:else
+  $1641 = { $1642 ->
+    $1643 = call $411 with $1639 $342
+    $1644 = call $407 with $454 $1643 $342
+    $1645 = call $407 with $1644 $474 $342
+    $1646 = ($425, $1645)
+  }
+  $1647 = call $391 with $1640 $568 $1641 $342
+  $1648 = call $400 with $1647 $436 $342
+  $1649 = call $389 with $1648 $423 $342
+  # Core:int:pow:21:4:case-0:didNotMatch
+  $1650 = { $1651 ->
+    $1652 = call $400 with $1647 $437 $342
+    # Core:int:pow:21:4:case-1:matched
+    $1653 = { $1654 ->
+      $1655 = call $1541 with $1639 $343
+      # Core:int:pow:21:4:5
+      $1656 = { $1657 ->
+        $1658 = call $412 with $1638 $98
+        $1659 = call $389 with $1658 $420 $99
+        $1660 = call $543 with $1659 $489 $346 $36
+        $1661 = call $412 with $1638 $98
+        $1662 = call $389 with $1661 $420 $99
+        $1663 = call $543 with $1662 $490 $346 $34
+        $1664 = call $396 with $1638 $1638 $35
+        $1665 = call $1000 with $1639 $437 $344
+        $1666 = [$415: $1665, $413: $1664]
+        $1667 = call $1574 with $1666 $345
+      }
+      # Core:int:pow:21:4:6
+      $1668 = { $1669 ->
+        $1670 = call $412 with $1638 $98
+        $1671 = call $389 with $1670 $420 $99
+        $1672 = call $543 with $1671 $489 $351 $36
+        $1673 = call $412 with $1638 $98
+        $1674 = call $389 with $1673 $420 $99
+        $1675 = call $543 with $1674 $490 $351 $34
+        $1676 = call $396 with $1638 $1638 $35
+        $1677 = call $412 with $1639 $98
+        $1678 = call $389 with $1677 $420 $99
+        $1679 = call $543 with $1678 $521 $347 $57
+        $1680 = call $399 with $1639 $437 $56
+        $1681 = call $1000 with $1680 $437 $348
+        $1682 = [$413: $1676, $415: $1681]
+        $1683 = call $1574 with $1682 $349
+        $1684 = call $412 with $1638 $98
+        $1685 = call $389 with $1684 $420 $99
+        $1686 = call $543 with $1685 $489 $350 $36
+        $1687 = call $412 with $1683 $98
+        $1688 = call $389 with $1687 $420 $99
+        $1689 = call $543 with $1688 $490 $350 $34
+        $1690 = call $396 with $1638 $1683 $35
+      }
+      $1691 = call $866 with $1655 $1656 $1668 $352
+    }
+    $1692 = call $1653 with $342
+  }
+  $1693 = call $391 with $1649 $1570 $1650 $342
+}
+# Core:controlFlow:recursive:18
+$1694 = { $1695 $1696 $1697 ->
+  # Core:controlFlow:recursive:18:0
+  $1698 = { $1699 $1700 ->
+    $1701 = call $1695 with $1695 $1699 $136
+  }
+  $1702 = call $1573 with $1698 $1696 $137
+}
+# Core:int:pow
+$1703 = { $1704 $1705 $1706 ->
+  $1707 = call $412 with $1704 $100
+  $1708 = call $389 with $1707 $420 $1
+  $1709 = call $543 with $1708 $502 $1706 $356
+  $1710 = call $412 with $1705 $100
+  $1711 = call $389 with $1710 $420 $1
+  $1712 = call $543 with $1711 $506 $1706 $357
+  $1713 = call $1530 with $1705 $339
+  $1714 = call $543 with $1713 $518 $1706 $340
+  $1715 = [$415: $1705, $413: $1704]
+  $1716 = call $1456 with $1573 $139
+  $1717 = call $543 with $1716 $468 $355 $135
+  $1718 = call $1694 with $1694 $1715 $138
+}
+# Core:text:removePrefix
+$1719 = { $1720 $1721 $1722 ->
+  $1723 = call $412 with $1720 $100
+  $1724 = call $389 with $1723 $432 $1
+  $1725 = call $543 with $1724 $512 $1722 $363
+  $1726 = call $412 with $1721 $100
+  $1727 = call $389 with $1726 $432 $1
+  $1728 = call $543 with $1727 $508 $1722 $364
+  $1729 = call $412 with $1720 $98
+  $1730 = call $389 with $1729 $432 $99
+  $1731 = call $543 with $1730 $532 $358 $96
+  $1732 = call $412 with $1721 $98
+  $1733 = call $389 with $1732 $432 $99
+  $1734 = call $543 with $1733 $522 $358 $94
+  $1735 = call $410 with $1720 $1721 $95
+  # Core:text:removePrefix:15
+  $1736 = { $1737 ->
+    $1738 = call $412 with $1721 $98
+    $1739 = call $389 with $1738 $432 $99
+    $1740 = call $543 with $1739 $532 $359 $93
+    $1741 = call $409 with $1721 $92
+    $1742 = call $412 with $1720 $98
+    $1743 = call $389 with $1742 $432 $99
+    $1744 = call $543 with $1743 $532 $360 $93
+    $1745 = call $409 with $1720 $92
+    $1746 = call $1031 with $1720 $1741 $1745 $361
+  }
+  # Core:text:removePrefix:16
+  $1747 = { $1748 ->
+    $1749 = $1720
+  }
+  $1750 = call $866 with $1735 $1736 $1747 $362
+}
+$1751 = ($425, $457)
+# Core:fixedDecimal:is
+$1752 = { $1753 $1754 ->
+  $1755 = call $412 with $1753 $212
+  $1756 = call $389 with $430 $1755 $212
+  # Core:fixedDecimal:is:1:equals:then
+  $1757 = { $1758 ->
+    $1759 = call $406 with $1753 $212
+    $1760 = call $389 with $417 $1759 $212
+    # Core:fixedDecimal:is:1:equals:then
+    $1761 = { $1762 ->
+      $1763 = call $405 with $1753 $212
+      $1764 = call $389 with $433 $1763 $212
+      # Core:fixedDecimal:is:1:equals:then
+      $1765 = { $1766 ->
+        $1767 = call $404 with $1753 $212
+        $1768 = call $412 with $1767 $212
+        $1769 = call $389 with $429 $1768 $212
+        # Core:fixedDecimal:is:1:equals:then
+        $1770 = { $1771 ->
+          $1772 = call $403 with $1767 $424 $212
+          # Core:fixedDecimal:is:1:hasKey:then
+          $1773 = { $1774 ->
+            $1775 = call $402 with $1767 $424 $212
+            $1776 = ($423, $1775)
+          }
+          # Core:fixedDecimal:is:1:hasKey:else
+          $1777 = { $1778 ->
+            $1779 = call $411 with $1767 $212
+            $1780 = call $407 with $463 $1779 $212
+            $1781 = call $407 with $1780 $474 $212
+            $1782 = ($425, $1781)
+          }
+          $1783 = call $391 with $1772 $1773 $1777 $212
+          $1784 = call $400 with $1783 $436 $212
+          $1785 = call $389 with $1784 $423 $212
+          # Core:fixedDecimal:is:1:isMatch:then
+          $1786 = { $1787 ->
+            $1788 = call $400 with $1783 $437 $212
+            $1789 = call $403 with $1767 $427 $212
+            # Core:fixedDecimal:is:1:hasKey:then
+            $1790 = { $1791 ->
+              $1792 = call $402 with $1767 $427 $212
+              $1793 = ($423, $1792)
+            }
+            # Core:fixedDecimal:is:1:hasKey:else
+            $1794 = { $1795 ->
+              $1796 = call $411 with $1767 $212
+              $1797 = call $407 with $464 $1796 $212
+              $1798 = call $407 with $1797 $474 $212
+              $1799 = ($425, $1798)
+            }
+            $1800 = call $391 with $1789 $1790 $1794 $212
+            $1801 = call $400 with $1800 $436 $212
+            $1802 = call $389 with $1801 $423 $212
+            # Core:fixedDecimal:is:1:isMatch:then
+            $1803 = { $1804 ->
+              $1805 = call $400 with $1800 $437 $212
+              $1806 = ($423, $1788, $1805)
+            }
+            # Core:fixedDecimal:is:1:isMatch:else
+            $1807 = { $1808 ->
+              $1809 = $1800
+            }
+            $1810 = call $391 with $1802 $1803 $1807 $212
+          }
+          # Core:fixedDecimal:is:1:isMatch:else
+          $1811 = { $1812 ->
+            $1813 = $1783
+          }
+          $1814 = call $391 with $1785 $1786 $1811 $212
+        }
+        # Core:fixedDecimal:is:1:equals:else
+        $1815 = { $1816 ->
+          $1817 = call $411 with $1768 $212
+          $1818 = call $407 with $455 $1817 $212
+          $1819 = call $407 with $1818 $474 $212
+          $1820 = ($425, $1819)
+        }
+        $1821 = call $391 with $1769 $1770 $1815 $212
+      }
+      # Core:fixedDecimal:is:1:equals:else
+      $1822 = { $1823 ->
+        $1824 = call $411 with $1763 $212
+        $1825 = $1751
+      }
+      $1826 = call $391 with $1764 $1765 $1822 $212
+    }
+    # Core:fixedDecimal:is:1:equals:else
+    $1827 = { $1828 ->
+      $1829 = call $411 with $1759 $212
+      $1830 = call $407 with $450 $1829 $212
+      $1831 = call $407 with $1830 $444 $212
+      $1832 = ($425, $1831)
+    }
+    $1833 = call $391 with $1760 $1761 $1827 $212
+  }
+  # Core:fixedDecimal:is:1:equals:else
+  $1834 = { $1835 ->
+    $1836 = call $411 with $1755 $212
+    $1837 = call $407 with $456 $1836 $212
+    $1838 = call $407 with $1837 $474 $212
+    $1839 = ($425, $1838)
+  }
+  $1840 = call $391 with $1756 $1757 $1834 $212
+  $1841 = call $400 with $1840 $436 $212
+  $1842 = call $389 with $1841 $423 $212
+  # Core:fixedDecimal:is:1:case-0:matched
+  $1843 = { $1844 ->
+    $1845 = call $400 with $1840 $437 $214
+    $1846 = call $400 with $1840 $438 $215
+    $1847 = call $412 with $1845 $100
+    $1848 = call $389 with $1847 $420 $1
+    # Core:fixedDecimal:is:1:18
+    $1849 = { $1850 ->
+      $1851 = call $412 with $1846 $100
+      $1852 = call $389 with $1851 $420 $1
+      # Core:fixedDecimal:isScale:18
+      $1853 = { $1854 ->
+        $1855 = call $1530 with $1846 $235
+      }
+      $1856 = call $1251 with $1852 $1853 $236
+    }
+    $1857 = call $1251 with $1848 $1849 $213
+  }
+  # Core:fixedDecimal:is:1:case-0:didNotMatch
+  $1858 = { $1859 ->
+    $1860 = call $400 with $1840 $437 $212
+    $1861 = $416
+  }
+  $1862 = call $391 with $1842 $1843 $1858 $212
+}
+# Core:fixedDecimal:minorUnits
+$1863 = { $1864 $1865 ->
+  $1866 = call $1752 with $1864 $238
+  $1867 = call $543 with $1866 $500 $1865 $240
+  $1868 = call $412 with $1864 $98
+  $1869 = call $389 with $1868 $430 $99
+  $1870 = call $543 with $1869 $530 $237 $75
+  $1871 = call $405 with $1864 $72
+  $1872 = call $543 with $1871 $531 $237 $73
+  $1873 = call $404 with $1864 $74
+  $1874 = call $412 with $1873 $98
+  $1875 = call $389 with $1874 $429 $99
+  $1876 = call $543 with $1875 $527 $239 $71
+  $1877 = call $403 with $1873 $424 $68
+  $1878 = call $543 with $1877 $528 $239 $69
+  $1879 = call $402 with $1873 $424 $70
+}
+# Core:fixedDecimal:scale
+$1880 = { $1881 $1882 ->
+  $1883 = call $1752 with $1881 $264
+  $1884 = call $543 with $1883 $500 $1882 $266
+  $1885 = call $412 with $1881 $98
+  $1886 = call $389 with $1885 $430 $99
+  $1887 = call $543 with $1886 $530 $263 $75
+  $1888 = call $405 with $1881 $72
+  $1889 = call $543 with $1888 $531 $263 $73
+  $1890 = call $404 with $1881 $74
+  $1891 = call $412 with $1890 $98
+  $1892 = call $389 with $1891 $429 $99
+  $1893 = call $543 with $1892 $527 $265 $71
+  $1894 = call $403 with $1890 $427 $68
+  $1895 = call $543 with $1894 $528 $265 $69
+  $1896 = call $402 with $1890 $427 $70
+}
+# Core:fixedDecimal:fromIntScaled
+$1897 = { $1898 $1899 $1900 ->
+  $1901 = call $412 with $1898 $100
+  $1902 = call $389 with $1901 $420 $1
+  $1903 = call $543 with $1902 $497 $1900 $210
+  $1904 = call $412 with $1899 $100
+  $1905 = call $389 with $1904 $420 $1
+  # Core:fixedDecimal:isScale:18
+  $1906 = { $1907 ->
+    $1908 = call $1530 with $1899 $235
+  }
+  $1909 = call $1251 with $1905 $1906 $236
+  $1910 = call $543 with $1909 $519 $1900 $211
+  $1911 = [$427: $1899, $424: $1898]
+  $1912 = FixedDecimal $1911
+}
+# Core:fixedDecimal:floorToInt
+$1913 = { $1914 $1915 ->
+  $1916 = call $1752 with $1914 $204
+  $1917 = call $543 with $1916 $500 $1915 $207
+  $1918 = call $1863 with $1914 $208
+  $1919 = call $1880 with $1914 $203
+  $1920 = call $412 with $1919 $100
+  $1921 = call $389 with $1920 $420 $1
+  # Core:fixedDecimal:isScale:18
+  $1922 = { $1923 ->
+    $1924 = call $1530 with $1919 $235
+  }
+  $1925 = call $1251 with $1921 $1922 $236
+  $1926 = call $543 with $1925 $519 $205 $268
+  $1927 = call $1703 with $440 $1919 $267
+  $1928 = call $972 with $1918 $1927 $206
+}
+# Core:fixedDecimal:rescaledMinorUnits
+$1929 = { $1930 $1931 $1932 ->
+  $1933 = call $1752 with $1930 $248
+  $1934 = call $543 with $1933 $500 $1932 $261
+  $1935 = call $412 with $1931 $100
+  $1936 = call $389 with $1935 $420 $1
+  # Core:fixedDecimal:isScale:18
+  $1937 = { $1938 ->
+    $1939 = call $1530 with $1931 $235
+  }
+  $1940 = call $1251 with $1936 $1937 $236
+  $1941 = call $543 with $1940 $520 $1932 $262
+  $1942 = call $1880 with $1930 $247
+  $1943 = call $1506 with $1942 $1931 $249
+  # Core:fixedDecimal:rescaledMinorUnits:24
+  $1944 = { $1945 ->
+    $1946 = call $1863 with $1930 $251
+    $1947 = call $1880 with $1930 $250
+    $1948 = call $412 with $1947 $98
+    $1949 = call $389 with $1948 $420 $99
+    $1950 = call $543 with $1949 $521 $252 $57
+    $1951 = call $412 with $1931 $98
+    $1952 = call $389 with $1951 $420 $99
+    $1953 = call $543 with $1952 $529 $252 $55
+    $1954 = call $399 with $1947 $1931 $56
+    # Core:fixedDecimal:isScale:18
+    $1955 = { $1956 ->
+      $1957 = call $1530 with $1954 $235
+    }
+    $1958 = call $1251 with $433 $1955 $236
+    $1959 = call $543 with $1958 $519 $253 $268
+    $1960 = call $1703 with $440 $1954 $267
+    $1961 = call $972 with $1946 $1960 $254
+  }
+  # Core:fixedDecimal:rescaledMinorUnits:25
+  $1962 = { $1963 ->
+    $1964 = call $1863 with $1930 $255
+    $1965 = call $1880 with $1930 $256
+    $1966 = call $412 with $1931 $98
+    $1967 = call $389 with $1966 $420 $99
+    $1968 = call $543 with $1967 $521 $257 $57
+    $1969 = call $412 with $1965 $98
+    $1970 = call $389 with $1969 $420 $99
+    $1971 = call $543 with $1970 $529 $257 $55
+    $1972 = call $399 with $1931 $1965 $56
+    # Core:fixedDecimal:isScale:18
+    $1973 = { $1974 ->
+      $1975 = call $1530 with $1972 $235
+    }
+    $1976 = call $1251 with $433 $1973 $236
+    $1977 = call $543 with $1976 $519 $258 $268
+    $1978 = call $1703 with $440 $1972 $267
+    $1979 = call $412 with $1964 $98
+    $1980 = call $389 with $1979 $420 $99
+    $1981 = call $543 with $1980 $489 $259 $36
+    $1982 = call $412 with $1978 $98
+    $1983 = call $389 with $1982 $420 $99
+    $1984 = call $543 with $1983 $490 $259 $34
+    $1985 = call $396 with $1964 $1978 $35
+  }
+  $1986 = call $866 with $1943 $1944 $1962 $260
+}
+# Core:fixedDecimal:comparableMinorUnits
+$1987 = { $1988 $1989 $1990 ->
+  $1991 = call $1752 with $1988 $167
+  $1992 = call $543 with $1991 $513 $1990 $173
+  $1993 = call $1752 with $1989 $174
+  $1994 = call $543 with $1993 $514 $1990 $175
+  $1995 = call $1880 with $1988 $168
+  $1996 = call $1880 with $1989 $169
+  $1997 = call $1552 with $1995 $1996 $170
+  $1998 = call $1929 with $1988 $1997 $171
+  $1999 = call $1929 with $1989 $1997 $172
+  $2000 = [$434: $1998, $435: $1999, $431: $1997]
+}
+# Core:fixedDecimal:add
+$2001 = { $2002 $2003 $2004 ->
+  $2005 = call $1752 with $2002 $147
+  $2006 = call $543 with $2005 $510 $2004 $150
+  $2007 = call $1752 with $2003 $151
+  $2008 = call $543 with $2007 $511 $2004 $152
+  $2009 = call $1987 with $2002 $2003 $145
+  $2010 = call $412 with $2009 $146
+  $2011 = call $389 with $429 $2010 $146
+  # Core:fixedDecimal:add:14:equals:then
+  $2012 = { $2013 ->
+    $2014 = call $403 with $2009 $434 $146
+    # Core:fixedDecimal:add:14:hasKey:then
+    $2015 = { $2016 ->
+      $2017 = call $402 with $2009 $434 $146
+      $2018 = ($423, $2017)
+    }
+    # Core:fixedDecimal:add:14:hasKey:else
+    $2019 = { $2020 ->
+      $2021 = call $411 with $2009 $146
+      $2022 = call $407 with $466 $2021 $146
+      $2023 = call $407 with $2022 $474 $146
+      $2024 = ($425, $2023)
+    }
+    $2025 = call $391 with $2014 $2015 $2019 $146
+    $2026 = call $400 with $2025 $436 $146
+    $2027 = call $389 with $2026 $423 $146
+    # Core:fixedDecimal:add:14:isMatch:then
+    $2028 = { $2029 ->
+      $2030 = call $400 with $2025 $437 $146
+      $2031 = call $403 with $2009 $435 $146
+      # Core:fixedDecimal:add:14:hasKey:then
+      $2032 = { $2033 ->
+        $2034 = call $402 with $2009 $435 $146
+        $2035 = ($423, $2034)
+      }
+      # Core:fixedDecimal:add:14:hasKey:else
+      $2036 = { $2037 ->
+        $2038 = call $411 with $2009 $146
+        $2039 = call $407 with $467 $2038 $146
+        $2040 = call $407 with $2039 $474 $146
+        $2041 = ($425, $2040)
+      }
+      $2042 = call $391 with $2031 $2032 $2036 $146
+      $2043 = call $400 with $2042 $436 $146
+      $2044 = call $389 with $2043 $423 $146
+      # Core:fixedDecimal:add:14:isMatch:then
+      $2045 = { $2046 ->
+        $2047 = call $400 with $2042 $437 $146
+        $2048 = call $403 with $2009 $431 $146
+        # Core:fixedDecimal:add:14:hasKey:then
+        $2049 = { $2050 ->
+          $2051 = call $402 with $2009 $431 $146
+          $2052 = ($423, $2051)
+        }
+        # Core:fixedDecimal:add:14:hasKey:else
+        $2053 = { $2054 ->
+          $2055 = call $411 with $2009 $146
+          $2056 = call $407 with $465 $2055 $146
+          $2057 = call $407 with $2056 $474 $146
+          $2058 = ($425, $2057)
+        }
+        $2059 = call $391 with $2048 $2049 $2053 $146
+        $2060 = call $400 with $2059 $436 $146
+        $2061 = call $389 with $2060 $423 $146
+        # Core:fixedDecimal:add:14:isMatch:then
+        $2062 = { $2063 ->
+          $2064 = call $400 with $2059 $437 $146
+          $2065 = ($423, $2030, $2047, $2064)
+        }
+        # Core:fixedDecimal:add:14:isMatch:else
+        $2066 = { $2067 ->
+          $2068 = $2059
+        }
+        $2069 = call $391 with $2061 $2062 $2066 $146
+      }
+      # Core:fixedDecimal:add:14:isMatch:else
+      $2070 = { $2071 ->
+        $2072 = $2042
+      }
+      $2073 = call $391 with $2044 $2045 $2070 $146
+    }
+    # Core:fixedDecimal:add:14:isMatch:else
+    $2074 = { $2075 ->
+      $2076 = $2025
+    }
+    $2077 = call $391 with $2027 $2028 $2074 $146
+  }
+  # Core:fixedDecimal:add:14:equals:else
+  $2078 = { $2079 ->
+    $2080 = call $411 with $2010 $146
+    $2081 = call $407 with $455 $2080 $146
+    $2082 = call $407 with $2081 $474 $146
+    $2083 = ($425, $2082)
+  }
+  $2084 = call $391 with $2011 $2012 $2078 $146
+  $2085 = call $400 with $2084 $436 $146
+  $2086 = call $389 with $2085 $423 $146
+  # Core:fixedDecimal:add:14:isMatch:else
+  $2087 = { $2088 ->
+    $2089 = call $400 with $2084 $437 $146
+    $2090 = panicking because $2089 ($146 is at fault)
+  }
+  $2091 = call $391 with $2086 $540 $2087 $146
+  $2092 = call $400 with $2084 $437 $154
+  $2093 = call $400 with $2084 $438 $155
+  $2094 = call $400 with $2084 $439 $153
+  $2095 = call $412 with $2092 $98
+  $2096 = call $389 with $2095 $420 $99
+  $2097 = call $543 with $2096 $476 $148 $23
+  $2098 = call $412 with $2093 $98
+  $2099 = call $389 with $2098 $420 $99
+  $2100 = call $543 with $2099 $478 $148 $21
+  $2101 = call $392 with $2092 $2093 $22
+  $2102 = call $1897 with $2101 $2094 $149
+}
+# Core:fixedDecimal:subtract
+$2103 = { $2104 $2105 $2106 ->
+  $2107 = call $1752 with $2104 $271
+  $2108 = call $543 with $2107 $507 $2106 $274
+  $2109 = call $1752 with $2105 $275
+  $2110 = call $543 with $2109 $509 $2106 $276
+  $2111 = call $1987 with $2104 $2105 $269
+  $2112 = call $412 with $2111 $270
+  $2113 = call $389 with $429 $2112 $270
+  # Core:fixedDecimal:subtract:14:equals:then
+  $2114 = { $2115 ->
+    $2116 = call $403 with $2111 $434 $270
+    # Core:fixedDecimal:subtract:14:hasKey:then
+    $2117 = { $2118 ->
+      $2119 = call $402 with $2111 $434 $270
+      $2120 = ($423, $2119)
+    }
+    # Core:fixedDecimal:subtract:14:hasKey:else
+    $2121 = { $2122 ->
+      $2123 = call $411 with $2111 $270
+      $2124 = call $407 with $466 $2123 $270
+      $2125 = call $407 with $2124 $474 $270
+      $2126 = ($425, $2125)
+    }
+    $2127 = call $391 with $2116 $2117 $2121 $270
+    $2128 = call $400 with $2127 $436 $270
+    $2129 = call $389 with $2128 $423 $270
+    # Core:fixedDecimal:subtract:14:isMatch:then
+    $2130 = { $2131 ->
+      $2132 = call $400 with $2127 $437 $270
+      $2133 = call $403 with $2111 $435 $270
+      # Core:fixedDecimal:subtract:14:hasKey:then
+      $2134 = { $2135 ->
+        $2136 = call $402 with $2111 $435 $270
+        $2137 = ($423, $2136)
+      }
+      # Core:fixedDecimal:subtract:14:hasKey:else
+      $2138 = { $2139 ->
+        $2140 = call $411 with $2111 $270
+        $2141 = call $407 with $467 $2140 $270
+        $2142 = call $407 with $2141 $474 $270
+        $2143 = ($425, $2142)
+      }
+      $2144 = call $391 with $2133 $2134 $2138 $270
+      $2145 = call $400 with $2144 $436 $270
+      $2146 = call $389 with $2145 $423 $270
+      # Core:fixedDecimal:subtract:14:isMatch:then
+      $2147 = { $2148 ->
+        $2149 = call $400 with $2144 $437 $270
+        $2150 = call $403 with $2111 $431 $270
+        # Core:fixedDecimal:subtract:14:hasKey:then
+        $2151 = { $2152 ->
+          $2153 = call $402 with $2111 $431 $270
+          $2154 = ($423, $2153)
+        }
+        # Core:fixedDecimal:subtract:14:hasKey:else
+        $2155 = { $2156 ->
+          $2157 = call $411 with $2111 $270
+          $2158 = call $407 with $465 $2157 $270
+          $2159 = call $407 with $2158 $474 $270
+          $2160 = ($425, $2159)
+        }
+        $2161 = call $391 with $2150 $2151 $2155 $270
+        $2162 = call $400 with $2161 $436 $270
+        $2163 = call $389 with $2162 $423 $270
+        # Core:fixedDecimal:subtract:14:isMatch:then
+        $2164 = { $2165 ->
+          $2166 = call $400 with $2161 $437 $270
+          $2167 = ($423, $2132, $2149, $2166)
+        }
+        # Core:fixedDecimal:subtract:14:isMatch:else
+        $2168 = { $2169 ->
+          $2170 = $2161
+        }
+        $2171 = call $391 with $2163 $2164 $2168 $270
+      }
+      # Core:fixedDecimal:subtract:14:isMatch:else
+      $2172 = { $2173 ->
+        $2174 = $2144
+      }
+      $2175 = call $391 with $2146 $2147 $2172 $270
+    }
+    # Core:fixedDecimal:subtract:14:isMatch:else
+    $2176 = { $2177 ->
+      $2178 = $2127
+    }
+    $2179 = call $391 with $2129 $2130 $2176 $270
+  }
+  # Core:fixedDecimal:subtract:14:equals:else
+  $2180 = { $2181 ->
+    $2182 = call $411 with $2112 $270
+    $2183 = call $407 with $455 $2182 $270
+    $2184 = call $407 with $2183 $474 $270
+    $2185 = ($425, $2184)
+  }
+  $2186 = call $391 with $2113 $2114 $2180 $270
+  $2187 = call $400 with $2186 $436 $270
+  $2188 = call $389 with $2187 $423 $270
+  # Core:fixedDecimal:subtract:14:isMatch:else
+  $2189 = { $2190 ->
+    $2191 = call $400 with $2186 $437 $270
+    $2192 = panicking because $2191 ($270 is at fault)
+  }
+  $2193 = call $391 with $2188 $540 $2189 $270
+  $2194 = call $400 with $2186 $437 $278
+  $2195 = call $400 with $2186 $438 $279
+  $2196 = call $400 with $2186 $439 $277
+  $2197 = call $412 with $2194 $98
+  $2198 = call $389 with $2197 $420 $99
+  $2199 = call $543 with $2198 $521 $272 $57
+  $2200 = call $412 with $2195 $98
+  $2201 = call $389 with $2200 $420 $99
+  $2202 = call $543 with $2201 $529 $272 $55
+  $2203 = call $399 with $2194 $2195 $56
+  $2204 = call $1897 with $2203 $2196 $273
+}
+# Core:fixedDecimal:negate
+$2205 = { $2206 $2207 ->
+  $2208 = call $1752 with $2206 $242
+  $2209 = call $543 with $2208 $515 $2207 $245
+  $2210 = call $1863 with $2206 $246
+  $2211 = call $412 with $2210 $100
+  $2212 = call $389 with $2211 $420 $1
+  $2213 = call $543 with $2212 $515 $241 $337
+  $2214 = call $412 with $2210 $98
+  $2215 = call $389 with $2214 $420 $99
+  $2216 = call $543 with $2215 $529 $338 $55
+  $2217 = call $399 with $436 $2210 $56
+  $2218 = call $1880 with $2206 $243
+  $2219 = call $1897 with $2217 $2218 $244
+}
+# Core:fixedDecimal:divideTruncatingAtScale
+$2220 = { $2221 $2222 $2223 $2224 ->
+  $2225 = call $1752 with $2221 $189
+  $2226 = call $543 with $2225 $504 $2224 $192
+  $2227 = call $1752 with $2222 $199
+  $2228 = call $543 with $2227 $505 $2224 $200
+  $2229 = call $412 with $2223 $100
+  $2230 = call $389 with $2229 $420 $1
+  # Core:fixedDecimal:isScale:18
+  $2231 = { $2232 ->
+    $2233 = call $1530 with $2223 $235
+  }
+  $2234 = call $1251 with $2230 $2231 $236
+  $2235 = call $543 with $2234 $520 $2224 $187
+  $2236 = call $1863 with $2222 $188
+  $2237 = call $389 with $2236 $436 $1
+  $2238 = call $1167 with $2237 $190
+  $2239 = call $543 with $2238 $473 $2224 $191
+  $2240 = call $1987 with $2221 $2222 $193
+  $2241 = call $412 with $2240 $194
+  $2242 = call $389 with $429 $2241 $194
+  # Core:fixedDecimal:divideTruncatingAtScale:42:equals:then
+  $2243 = { $2244 ->
+    $2245 = call $403 with $2240 $434 $194
+    # Core:fixedDecimal:divideTruncatingAtScale:42:hasKey:then
+    $2246 = { $2247 ->
+      $2248 = call $402 with $2240 $434 $194
+      $2249 = ($423, $2248)
+    }
+    # Core:fixedDecimal:divideTruncatingAtScale:42:hasKey:else
+    $2250 = { $2251 ->
+      $2252 = call $411 with $2240 $194
+      $2253 = call $407 with $466 $2252 $194
+      $2254 = call $407 with $2253 $474 $194
+      $2255 = ($425, $2254)
+    }
+    $2256 = call $391 with $2245 $2246 $2250 $194
+    $2257 = call $400 with $2256 $436 $194
+    $2258 = call $389 with $2257 $423 $194
+    # Core:fixedDecimal:divideTruncatingAtScale:42:isMatch:then
+    $2259 = { $2260 ->
+      $2261 = call $400 with $2256 $437 $194
+      $2262 = call $403 with $2240 $435 $194
+      # Core:fixedDecimal:divideTruncatingAtScale:42:hasKey:then
+      $2263 = { $2264 ->
+        $2265 = call $402 with $2240 $435 $194
+        $2266 = ($423, $2265)
+      }
+      # Core:fixedDecimal:divideTruncatingAtScale:42:hasKey:else
+      $2267 = { $2268 ->
+        $2269 = call $411 with $2240 $194
+        $2270 = call $407 with $467 $2269 $194
+        $2271 = call $407 with $2270 $474 $194
+        $2272 = ($425, $2271)
+      }
+      $2273 = call $391 with $2262 $2263 $2267 $194
+      $2274 = call $400 with $2273 $436 $194
+      $2275 = call $389 with $2274 $423 $194
+      # Core:fixedDecimal:divideTruncatingAtScale:42:isMatch:then
+      $2276 = { $2277 ->
+        $2278 = call $400 with $2273 $437 $194
+        $2279 = ($423, $2261, $2278)
+      }
+      # Core:fixedDecimal:divideTruncatingAtScale:42:isMatch:else
+      $2280 = { $2281 ->
+        $2282 = $2273
+      }
+      $2283 = call $391 with $2275 $2276 $2280 $194
+    }
+    # Core:fixedDecimal:divideTruncatingAtScale:42:isMatch:else
+    $2284 = { $2285 ->
+      $2286 = $2256
+    }
+    $2287 = call $391 with $2258 $2259 $2284 $194
+  }
+  # Core:fixedDecimal:divideTruncatingAtScale:42:equals:else
+  $2288 = { $2289 ->
+    $2290 = call $411 with $2241 $194
+    $2291 = call $407 with $455 $2290 $194
+    $2292 = call $407 with $2291 $474 $194
+    $2293 = ($425, $2292)
+  }
+  $2294 = call $391 with $2242 $2243 $2288 $194
+  $2295 = call $400 with $2294 $436 $194
+  $2296 = call $389 with $2295 $423 $194
+  # Core:fixedDecimal:divideTruncatingAtScale:42:isMatch:else
+  $2297 = { $2298 ->
+    $2299 = call $400 with $2294 $437 $194
+    $2300 = panicking because $2299 ($194 is at fault)
+  }
+  $2301 = call $391 with $2296 $540 $2297 $194
+  $2302 = call $400 with $2294 $437 $201
+  $2303 = call $400 with $2294 $438 $202
+  $2304 = call $412 with $2223 $100
+  $2305 = call $389 with $2304 $420 $1
+  $2306 = call $1251 with $2305 $2231 $236
+  $2307 = call $543 with $2306 $519 $195 $268
+  $2308 = call $1703 with $440 $2223 $267
+  $2309 = call $412 with $2302 $98
+  $2310 = call $389 with $2309 $420 $99
+  $2311 = call $543 with $2310 $489 $196 $36
+  $2312 = call $412 with $2308 $98
+  $2313 = call $389 with $2312 $420 $99
+  $2314 = call $543 with $2313 $490 $196 $34
+  $2315 = call $396 with $2302 $2308 $35
+  $2316 = call $972 with $2315 $2303 $197
+  $2317 = call $1897 with $2316 $2223 $198
+}
+# Core:fixedDecimal:compareTo
+$2318 = { $2319 $2320 $2321 ->
+  $2322 = call $1752 with $2319 $178
+  $2323 = call $543 with $2322 $513 $2321 $180
+  $2324 = call $1752 with $2320 $183
+  $2325 = call $543 with $2324 $514 $2321 $184
+  $2326 = call $1987 with $2319 $2320 $176
+  $2327 = call $412 with $2326 $177
+  $2328 = call $389 with $429 $2327 $177
+  # Core:fixedDecimal:compareTo:14:equals:then
+  $2329 = { $2330 ->
+    $2331 = call $403 with $2326 $434 $177
+    # Core:fixedDecimal:compareTo:14:hasKey:then
+    $2332 = { $2333 ->
+      $2334 = call $402 with $2326 $434 $177
+      $2335 = ($423, $2334)
+    }
+    # Core:fixedDecimal:compareTo:14:hasKey:else
+    $2336 = { $2337 ->
+      $2338 = call $411 with $2326 $177
+      $2339 = call $407 with $466 $2338 $177
+      $2340 = call $407 with $2339 $474 $177
+      $2341 = ($425, $2340)
+    }
+    $2342 = call $391 with $2331 $2332 $2336 $177
+    $2343 = call $400 with $2342 $436 $177
+    $2344 = call $389 with $2343 $423 $177
+    # Core:fixedDecimal:compareTo:14:isMatch:then
+    $2345 = { $2346 ->
+      $2347 = call $400 with $2342 $437 $177
+      $2348 = call $403 with $2326 $435 $177
+      # Core:fixedDecimal:compareTo:14:hasKey:then
+      $2349 = { $2350 ->
+        $2351 = call $402 with $2326 $435 $177
+        $2352 = ($423, $2351)
+      }
+      # Core:fixedDecimal:compareTo:14:hasKey:else
+      $2353 = { $2354 ->
+        $2355 = call $411 with $2326 $177
+        $2356 = call $407 with $467 $2355 $177
+        $2357 = call $407 with $2356 $474 $177
+        $2358 = ($425, $2357)
+      }
+      $2359 = call $391 with $2348 $2349 $2353 $177
+      $2360 = call $400 with $2359 $436 $177
+      $2361 = call $389 with $2360 $423 $177
+      # Core:fixedDecimal:compareTo:14:isMatch:then
+      $2362 = { $2363 ->
+        $2364 = call $400 with $2359 $437 $177
+        $2365 = ($423, $2347, $2364)
+      }
+      # Core:fixedDecimal:compareTo:14:isMatch:else
+      $2366 = { $2367 ->
+        $2368 = $2359
+      }
+      $2369 = call $391 with $2361 $2362 $2366 $177
+    }
+    # Core:fixedDecimal:compareTo:14:isMatch:else
+    $2370 = { $2371 ->
+      $2372 = $2342
+    }
+    $2373 = call $391 with $2344 $2345 $2370 $177
+  }
+  # Core:fixedDecimal:compareTo:14:equals:else
+  $2374 = { $2375 ->
+    $2376 = call $411 with $2327 $177
+    $2377 = call $407 with $455 $2376 $177
+    $2378 = call $407 with $2377 $474 $177
+    $2379 = ($425, $2378)
+  }
+  $2380 = call $391 with $2328 $2329 $2374 $177
+  $2381 = call $400 with $2380 $436 $177
+  $2382 = call $389 with $2381 $423 $177
+  # Core:fixedDecimal:compareTo:14:isMatch:else
+  $2383 = { $2384 ->
+    $2385 = call $400 with $2380 $437 $177
+    $2386 = panicking because $2385 ($177 is at fault)
+  }
+  $2387 = call $391 with $2382 $540 $2383 $177
+  $2388 = call $400 with $2380 $437 $185
+  $2389 = call $400 with $2380 $438 $186
+  $2390 = call $1469 with $2388 $2389 $179
+  $2391 = $2390
+  $2392 = call $389 with $2390 $414 $1
+  $2393 = call $389 with $2388 $2389 $1
+  $2394 = call $1439 with $2392 $2393 $181
+  $2395 = call $1083 with $2394 $134
+  $2396 = call $543 with $2395 $480 $182 $132
+  $2397 = call $543 with $2394 $447 $182 $133
+  $2398 = $2391
+}
+# Core:fixedDecimal:isLessThanOrEqualTo
+$2399 = { $2400 $2401 $2402 ->
+  $2403 = call $1752 with $2400 $222
+  $2404 = call $543 with $2403 $513 $2402 $224
+  $2405 = call $1752 with $2401 $225
+  $2406 = call $543 with $2405 $514 $2402 $226
+  $2407 = call $1752 with $2400 $217
+  $2408 = call $543 with $2407 $513 $221 $218
+  $2409 = call $1752 with $2401 $219
+  $2410 = call $543 with $2409 $514 $221 $220
+  $2411 = call $2318 with $2400 $2401 $216
+  $2412 = call $389 with $2411 $419 $1
+  $2413 = call $1167 with $2412 $223
+}
+# Core:fixedDecimal:absolute
+$2414 = { $2415 $2416 ->
+  $2417 = call $1752 with $2415 $141
+  $2418 = call $543 with $2417 $515 $2416 $142
+  $2419 = call $1752 with $2415 $228
+  $2420 = call $543 with $2419 $515 $143 $229
+  $2421 = call $1863 with $2415 $230
+  $2422 = call $1494 with $2421 $436 $227
+  # Core:fixedDecimal:absolute:9
+  $2423 = { $2424 ->
+    $2425 = call $2205 with $2415 $144
+  }
+  # Core:fixedDecimal:absolute:10
+  $2426 = { $2427 ->
+    $2428 = $2415
+  }
+  $2429 = call $866 with $2422 $2423 $2426 $140
+}
+# Core:fixedDecimal:approxEquals
+$2430 = { $2431 $2432 $2433 $2434 ->
+  $2435 = call $1752 with $2431 $160
+  $2436 = call $543 with $2435 $500 $2434 $164
+  $2437 = call $1752 with $2432 $165
+  $2438 = call $543 with $2437 $501 $2434 $166
+  $2439 = call $1752 with $2433 $156
+  $2440 = call $543 with $2439 $503 $2434 $157
+  $2441 = call $1752 with $2433 $232
+  $2442 = call $543 with $2441 $515 $158 $233
+  $2443 = call $1752 with $2433 $228
+  $2444 = call $543 with $2443 $515 $234 $229
+  $2445 = call $1863 with $2433 $230
+  $2446 = call $1494 with $2445 $436 $227
+  $2447 = call $1167 with $2446 $231
+  $2448 = call $543 with $2447 $517 $2434 $159
+  $2449 = call $2103 with $2431 $2432 $161
+  $2450 = call $2414 with $2449 $162
+  $2451 = call $2399 with $2450 $2433 $163
+}
+# Core:fixedDecimal:toText
+$2452 = { $2453 $2454 ->
+  $2455 = call $1752 with $2453 $291
+  $2456 = call $543 with $2455 $500 $2454 $302
+  $2457 = call $1913 with $2453 $303
+  # Core:fixedDecimal:toText:11
+  $2458 = { $2459 ->
+    $2460 = call $1880 with $2453 $281
+    $2461 = call $412 with $2460 $100
+    $2462 = call $389 with $2461 $420 $1
+    # Core:fixedDecimal:isScale:18
+    $2463 = { $2464 ->
+      $2465 = call $1530 with $2460 $235
+    }
+    $2466 = call $1251 with $2462 $2463 $236
+    $2467 = call $543 with $2466 $519 $288 $268
+    $2468 = call $1703 with $440 $2460 $267
+    $2469 = call $1863 with $2453 $289
+    $2470 = call $986 with $2469 $2468 $280
+    $2471 = call $1530 with $2470 $282
+    # Core:fixedDecimal:toText:11:33
+    $2472 = { $2473 ->
+      $2474 = call $412 with $2470 $98
+      $2475 = call $389 with $2474 $420 $99
+      $2476 = call $543 with $2475 $476 $283 $23
+      $2477 = call $412 with $2468 $98
+      $2478 = call $389 with $2477 $420 $99
+      $2479 = call $543 with $2478 $478 $283 $21
+      $2480 = call $392 with $2470 $2468 $22
+      $2481 = call $411 with $2480 $97
+      $2482 = call $1719 with $2481 $446 $284
+    }
+    # Core:fixedDecimal:toText:11:34
+    $2483 = { $2484 ->
+      $2485 = call $412 with $2470 $98
+      $2486 = call $389 with $2485 $420 $99
+      $2487 = call $543 with $2486 $521 $285 $57
+      $2488 = call $412 with $2468 $98
+      $2489 = call $389 with $2488 $420 $99
+      $2490 = call $543 with $2489 $529 $285 $55
+      $2491 = call $399 with $2470 $2468 $56
+      $2492 = call $411 with $2491 $97
+      $2493 = call $1719 with $2492 $443 $286
+    }
+    $2494 = call $866 with $2471 $2472 $2483 $287
+  }
+  $2495 = call $1071 with $2458 $290
+  $2496 = call $412 with $2457 $292
+  $2497 = call $389 with $2496 $432 $293
+  # Core:fixedDecimal:toText:24
+  $2498 = { $2499 ->
+    $2500 = $2457
+  }
+  # Core:fixedDecimal:toText:25
+  $2501 = { $2502 ->
+    $2503 = call $411 with $2457 $294
+  }
+  $2504 = call $391 with $2497 $2498 $2501 $295
+  $2505 = call $412 with $2495 $296
+  $2506 = call $389 with $2505 $432 $297
+  # Core:fixedDecimal:toText:31
+  $2507 = { $2508 ->
+    $2509 = $2495
+  }
+  # Core:fixedDecimal:toText:32
+  $2510 = { $2511 ->
+    $2512 = call $411 with $2495 $298
+  }
+  $2513 = call $391 with $2506 $2507 $2510 $299
+  $2514 = call $407 with $2504 $444 $300
+  $2515 = call $407 with $2514 $2513 $301
+}
+# Examples:sqrt:sqrt
+$2516 = { $2517 $2518 $2519 ->
+  $2520 = call $1752 with $2517 $387
+  $2521 = call $543 with $2520 $491 $2519 $372
+  $2522 = call $1752 with $2517 $232
+  $2523 = call $543 with $2522 $515 $373 $233
+  $2524 = call $1752 with $2517 $228
+  $2525 = call $543 with $2524 $515 $234 $229
+  $2526 = call $1863 with $2517 $230
+  $2527 = call $1494 with $2526 $436 $227
+  $2528 = call $1167 with $2527 $231
+  $2529 = call $543 with $2528 $492 $2519 $374
+  $2530 = call $412 with $2518 $100
+  $2531 = call $389 with $2530 $420 $1
+  $2532 = call $543 with $2531 $498 $2519 $375
+  $2533 = call $1530 with $2518 $376
+  $2534 = call $543 with $2533 $499 $2519 $377
+  $2535 = call $1897 with $440 $2518 $378
+  $2536 = call $1897 with $438 $436 $209
+  $2537 = call $2220 with $2517 $2536 $2518 $379
+  # Examples:sqrt:sqrt:83
+  $2538 = { $2539 $2540 $2541 ->
+    $2542 = call $2220 with $2517 $2540 $2518 $380
+    $2543 = call $2001 with $2540 $2542 $381
+    $2544 = call $1897 with $438 $436 $209
+    $2545 = call $2220 with $2543 $2544 $2518 $382
+    $2546 = call $2430 with $2540 $2545 $2535 $383
+    # Examples:sqrt:sqrt:83:57
+    $2547 = { $2548 ->
+      $2549 = $2540
+    }
+    # Examples:sqrt:sqrt:83:58
+    $2550 = { $2551 ->
+      $2552 = call $2539 with $2545 $384
+    }
+    $2553 = call $866 with $2546 $2547 $2550 $385
+  }
+  $2554 = call $1456 with $2538 $139
+  $2555 = call $543 with $2554 $468 $386 $135
+  # Core:controlFlow:recursive:18
+  $2556 = { $2557 $2558 $2559 ->
+    # Core:controlFlow:recursive:18:0
+    $2560 = { $2561 $2562 ->
+      $2563 = call $2557 with $2557 $2561 $136
+    }
+    $2564 = call $2538 with $2560 $2558 $137
+  }
+  $2565 = call $2556 with $2556 $2537 $138
+}
+# Examples:sqrt:main
+$2566 = { $2567 $2568 ->
+  $2569 = call $1897 with $438 $436 $209
+  $2570 = call $2516 with $2569 $441 $365
+  $2571 = call $2452 with $2570 $366
+  $2572 = call $412 with $2571 $367
+  $2573 = call $389 with $2572 $432 $368
+  # Examples:sqrt:main:52
+  $2574 = { $2575 ->
+    $2576 = $2571
+  }
+  # Examples:sqrt:main:53
+  $2577 = { $2578 ->
+    $2579 = call $411 with $2571 $369
+  }
+  $2580 = call $391 with $2573 $2574 $2577 $370
+  $2581 = call $407 with $471 $2580 $371
+  $2582 = call $401 with $2581 $67
+}
+$2583 = [$428: $2516, $422: $2566]
