@@ -1,0 +1,31 @@
+# LIR for module Examples:
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# Constants
+%0 = Builtins::print:5
+%1 = builtinPrint
+%2 = Main
+%3 = "3"
+%4 = { body_0 }
+%5 = [%2: %4]
+
+# Bodies
+body_0 $0 $1 (+ responsible $2) =
+  # Original HIR IDs: Examples::11
+  # Captured IDs: none
+  $3 = %1
+  $4 = %3
+  $5 = %0
+  $6 = call $3 with $4 $5
+  $7 = drop $1
+  $8 = drop $0
+  $9 = $6
+body_1 (responsible $0) =
+  # Original HIR IDs: Examples::
+  # Captured IDs: none
+  $1 = %5
