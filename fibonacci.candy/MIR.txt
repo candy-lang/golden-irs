@@ -1,0 +1,664 @@
+# MIR for module Examples:fibonacci
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# anonymous:$generated::needs
+$49 = { $2 $3 $4 (+ responsible $1) ->
+  $5 = anonymous:$generated::needs
+  $6 = builtinEquals
+  $7 = Nothing
+  $8 = True
+  $9 = False
+  $10 = call $6 with $2 $8 ($5 is responsible)
+  $11 = builtinIfElse
+  # anonymous:$generated::needs:isConditionTrue:then
+  $14 = { (responsible $12) ->
+    $13 = $8
+  }
+  # anonymous:$generated::needs:isConditionTrue:else
+  $17 = { (responsible $15) ->
+    $16 = call $6 with $2 $9 ($5 is responsible)
+  }
+  $18 = call $11 with $10 $14 $17 ($5 is responsible)
+  $19 = builtinIfElse
+  # anonymous:$generated::needs:isConditionBool:then
+  $22 = { (responsible $20) ->
+    $21 = $7
+  }
+  # anonymous:$generated::needs:isConditionBool:else
+  $26 = { (responsible $23) ->
+    $24 = "The `condition` must be either `True` or `False`."
+    $25 = panicking because $24 ($1 is at fault)
+  }
+  $27 = call $19 with $18 $22 $26 ($5 is responsible)
+  $28 = builtinTypeOf
+  $29 = call $28 with $3 ($1 is responsible)
+  $30 = Text
+  $31 = call $6 with $29 $30 ($1 is responsible)
+  $32 = builtinIfElse
+  # anonymous:$generated::needs:isReasonText:then
+  $35 = { (responsible $33) ->
+    $34 = $7
+  }
+  # anonymous:$generated::needs:isReasonText:else
+  $39 = { (responsible $36) ->
+    $37 = "The `reason` must be a text."
+    $38 = panicking because $37 ($1 is at fault)
+  }
+  $40 = call $32 with $31 $35 $39 ($5 is responsible)
+  $41 = builtinIfElse
+  # anonymous:$generated::needs:condition:then
+  $44 = { (responsible $42) ->
+    $43 = $7
+  }
+  # anonymous:$generated::needs:condition:else
+  $47 = { (responsible $45) ->
+    $46 = panicking because $3 ($4 is at fault)
+  }
+  $48 = call $41 with $2 $44 $47 ($5 is responsible)
+}
+$50 = Examples:fibonacci:
+# Examples:fibonacci:use
+$54 = { $52 (+ responsible $51) ->
+  $53 = use $52 (relative to Examples:fibonacci; $50 is responsible)
+}
+$55 = $54
+$56 = builtinTextConcatenate
+$57 = builtinTypeOf
+$58 = Text
+$59 = builtinEquals
+$60 = builtinIfElse
+$61 = builtinToDebugText
+$62 = "Builtins"
+$63 = Examples:fibonacci:8
+$64 = call $55 with $62 ($63 is responsible)
+$65 = Examples:fibonacci:9
+$66 = $64
+$67 = $66
+$68 = Nothing
+$69 = $54
+$70 = builtinTextConcatenate
+$71 = builtinTypeOf
+$72 = Text
+$73 = builtinEquals
+$74 = builtinIfElse
+$75 = builtinToDebugText
+$76 = "Core"
+$77 = Examples:fibonacci:19
+$78 = call $69 with $76 ($77 is responsible)
+$79 = Examples:fibonacci:20
+$80 = Match
+$81 = NoMatch
+$82 = Struct
+$83 = builtinTypeOf
+$84 = call $83 with $78 ($79 is responsible)
+$85 = builtinEquals
+$86 = call $85 with $82 $84 ($79 is responsible)
+$87 = builtinIfElse
+# Examples:fibonacci:20:equals:then
+$206 = { (responsible $88) ->
+  $89 = builtinStructHasKey
+  $90 = builtinStructGet
+  $91 = Int
+  $92 = call $89 with $78 $91 ($79 is responsible)
+  $93 = builtinIfElse
+  # Examples:fibonacci:20:hasKey:then
+  $97 = { (responsible $94) ->
+    $95 = call $90 with $78 $91 ($79 is responsible)
+    $96 = ($80, $95)
+  }
+  # Examples:fibonacci:20:hasKey:else
+  $111 = { (responsible $98) ->
+    $99 = builtinToDebugText
+    $100 = call $99 with $91 ($79 is responsible)
+    $101 = call $99 with $78 ($79 is responsible)
+    $102 = "Struct doesn't contain key `"
+    $103 = "`: `"
+    $104 = "`."
+    $105 = builtinTextConcatenate
+    $106 = call $105 with $102 $100 ($79 is responsible)
+    $107 = call $105 with $106 $103 ($79 is responsible)
+    $108 = call $105 with $107 $101 ($79 is responsible)
+    $109 = call $105 with $108 $104 ($79 is responsible)
+    $110 = ($81, $109)
+  }
+  $112 = call $93 with $92 $97 $111 ($79 is responsible)
+  $113 = builtinListGet
+  $114 = 0
+  $115 = call $113 with $112 $114 ($79 is responsible)
+  $116 = builtinEquals
+  $117 = Match
+  $118 = call $116 with $115 $117 ($79 is responsible)
+  $119 = builtinIfElse
+  # Examples:fibonacci:20:isMatch:then
+  $201 = { (responsible $120) ->
+    $121 = builtinListGet
+    $122 = 1
+    $123 = call $121 with $112 $122 ($79 is responsible)
+    $124 = Result
+    $125 = call $89 with $78 $124 ($79 is responsible)
+    $126 = builtinIfElse
+    # Examples:fibonacci:20:hasKey:then
+    $130 = { (responsible $127) ->
+      $128 = call $90 with $78 $124 ($79 is responsible)
+      $129 = ($80, $128)
+    }
+    # Examples:fibonacci:20:hasKey:else
+    $144 = { (responsible $131) ->
+      $132 = builtinToDebugText
+      $133 = call $132 with $124 ($79 is responsible)
+      $134 = call $132 with $78 ($79 is responsible)
+      $135 = "Struct doesn't contain key `"
+      $136 = "`: `"
+      $137 = "`."
+      $138 = builtinTextConcatenate
+      $139 = call $138 with $135 $133 ($79 is responsible)
+      $140 = call $138 with $139 $136 ($79 is responsible)
+      $141 = call $138 with $140 $134 ($79 is responsible)
+      $142 = call $138 with $141 $137 ($79 is responsible)
+      $143 = ($81, $142)
+    }
+    $145 = call $126 with $125 $130 $144 ($79 is responsible)
+    $146 = builtinListGet
+    $147 = 0
+    $148 = call $146 with $145 $147 ($79 is responsible)
+    $149 = builtinEquals
+    $150 = Match
+    $151 = call $149 with $148 $150 ($79 is responsible)
+    $152 = builtinIfElse
+    # Examples:fibonacci:20:isMatch:then
+    $196 = { (responsible $153) ->
+      $154 = builtinListGet
+      $155 = 1
+      $156 = call $154 with $145 $155 ($79 is responsible)
+      $157 = ToDebugText
+      $158 = call $89 with $78 $157 ($79 is responsible)
+      $159 = builtinIfElse
+      # Examples:fibonacci:20:hasKey:then
+      $163 = { (responsible $160) ->
+        $161 = call $90 with $78 $157 ($79 is responsible)
+        $162 = ($80, $161)
+      }
+      # Examples:fibonacci:20:hasKey:else
+      $177 = { (responsible $164) ->
+        $165 = builtinToDebugText
+        $166 = call $165 with $157 ($79 is responsible)
+        $167 = call $165 with $78 ($79 is responsible)
+        $168 = "Struct doesn't contain key `"
+        $169 = "`: `"
+        $170 = "`."
+        $171 = builtinTextConcatenate
+        $172 = call $171 with $168 $166 ($79 is responsible)
+        $173 = call $171 with $172 $169 ($79 is responsible)
+        $174 = call $171 with $173 $167 ($79 is responsible)
+        $175 = call $171 with $174 $170 ($79 is responsible)
+        $176 = ($81, $175)
+      }
+      $178 = call $159 with $158 $163 $177 ($79 is responsible)
+      $179 = builtinListGet
+      $180 = 0
+      $181 = call $179 with $178 $180 ($79 is responsible)
+      $182 = builtinEquals
+      $183 = Match
+      $184 = call $182 with $181 $183 ($79 is responsible)
+      $185 = builtinIfElse
+      # Examples:fibonacci:20:isMatch:then
+      $191 = { (responsible $186) ->
+        $187 = builtinListGet
+        $188 = 1
+        $189 = call $187 with $178 $188 ($79 is responsible)
+        $190 = ($80, $123, $156, $189)
+      }
+      # Examples:fibonacci:20:isMatch:else
+      $194 = { (responsible $192) ->
+        $193 = $178
+      }
+      $195 = call $185 with $184 $191 $194 ($79 is responsible)
+    }
+    # Examples:fibonacci:20:isMatch:else
+    $199 = { (responsible $197) ->
+      $198 = $145
+    }
+    $200 = call $152 with $151 $196 $199 ($79 is responsible)
+  }
+  # Examples:fibonacci:20:isMatch:else
+  $204 = { (responsible $202) ->
+    $203 = $112
+  }
+  $205 = call $119 with $118 $201 $204 ($79 is responsible)
+}
+# Examples:fibonacci:20:equals:else
+$220 = { (responsible $207) ->
+  $208 = builtinToDebugText
+  $209 = call $208 with $82 ($79 is responsible)
+  $210 = call $208 with $84 ($79 is responsible)
+  $211 = "Expected a "
+  $212 = ", got `"
+  $213 = "`."
+  $214 = builtinTextConcatenate
+  $215 = call $214 with $211 $209 ($79 is responsible)
+  $216 = call $214 with $215 $212 ($79 is responsible)
+  $217 = call $214 with $216 $210 ($79 is responsible)
+  $218 = call $214 with $217 $213 ($79 is responsible)
+  $219 = ($81, $218)
+}
+$221 = call $87 with $86 $206 $220 ($79 is responsible)
+$222 = Nothing
+$223 = builtinListGet
+$224 = 0
+$225 = call $223 with $221 $224 ($79 is responsible)
+$226 = builtinEquals
+$227 = Match
+$228 = call $226 with $225 $227 ($79 is responsible)
+$229 = builtinIfElse
+# Examples:fibonacci:20:isMatch:then
+$232 = { (responsible $230) ->
+  $231 = $222
+}
+# Examples:fibonacci:20:isMatch:else
+$238 = { (responsible $233) ->
+  $234 = builtinListGet
+  $235 = 1
+  $236 = call $234 with $221 $235 ($79 is responsible)
+  $237 = panicking because $236 ($79 is at fault)
+}
+$239 = call $229 with $228 $232 $238 ($79 is responsible)
+$240 = builtinListGet
+$241 = 1
+$242 = Examples:fibonacci:int
+$243 = call $240 with $221 $241 ($242 is responsible)
+$244 = builtinListGet
+$245 = 2
+$246 = Examples:fibonacci:result
+$247 = call $244 with $221 $245 ($246 is responsible)
+$248 = builtinListGet
+$249 = 3
+$250 = Examples:fibonacci:toDebugText
+$251 = call $248 with $221 $249 ($250 is responsible)
+$252 = Nothing
+# Examples:fibonacci:recursive
+$286 = { $254 $255 (+ responsible $253) ->
+  # Examples:fibonacci:recursive:0
+  $276 = { $257 $258 (+ responsible $256) ->
+    # Examples:fibonacci:recursive:0:0
+    $266 = { $260 (+ responsible $259) ->
+      $261 = $257
+      $262 = $257
+      $263 = $260
+      $264 = Examples:fibonacci:recursive:0:0:3
+      $265 = call $261 with $262 $263 ($264 is responsible)
+    }
+    $267 = Examples:fibonacci:recursive:0:1
+    $268 = $266
+    $269 = $268
+    $270 = Nothing
+    $271 = $255
+    $272 = $269
+    $273 = $258
+    $274 = Examples:fibonacci:recursive:0:6
+    $275 = call $271 with $272 $273 ($274 is responsible)
+  }
+  $277 = Examples:fibonacci:recursive:1
+  $278 = $276
+  $279 = $278
+  $280 = Nothing
+  $281 = $279
+  $282 = $279
+  $283 = $254
+  $284 = Examples:fibonacci:recursive:6
+  $285 = call $281 with $282 $283 ($284 is responsible)
+}
+$287 = $286
+# Examples:fibonacci:compareTo
+$311 = { $289 $290 (+ responsible $288) ->
+  $291 = $289
+  $292 = "Builtins"
+  $293 = Examples:fibonacci:compareTo:2
+  $294 = call $54 with $292 ($293 is responsible)
+  $295 = builtinStructGet
+  $296 = StructGet
+  $297 = Examples:fibonacci:compareTo:5
+  $298 = call $295 with $294 $296 ($297 is responsible)
+  $299 = $67
+  $300 = IntCompareTo
+  $301 = Examples:fibonacci:compareTo:8
+  $302 = call $298 with $299 $300 ($301 is responsible)
+  $303 = $290
+  $304 = Examples:fibonacci:compareTo:10
+  $305 = call $302 with $291 $303 ($304 is responsible)
+  $306 = Examples:fibonacci:compareTo:11
+  $307 = $305
+  $308 = $307
+  $309 = Nothing
+  $310 = $308
+}
+$312 = $311
+# Examples:fibonacci:isLessThan
+$335 = { $314 $315 (+ responsible $313) ->
+  $316 = "Builtins"
+  $317 = Examples:fibonacci:isLessThan:1
+  $318 = call $54 with $316 ($317 is responsible)
+  $319 = builtinStructGet
+  $320 = StructGet
+  $321 = Examples:fibonacci:isLessThan:4
+  $322 = call $319 with $318 $320 ($321 is responsible)
+  $323 = $67
+  $324 = Equals
+  $325 = Examples:fibonacci:isLessThan:7
+  $326 = call $322 with $323 $324 ($325 is responsible)
+  $327 = $312
+  $328 = $314
+  $329 = $315
+  $330 = Examples:fibonacci:isLessThan:11
+  $331 = call $327 with $328 $329 ($330 is responsible)
+  $332 = Less
+  $333 = Examples:fibonacci:isLessThan:13
+  $334 = call $326 with $331 $332 ($333 is responsible)
+}
+$336 = $335
+# Examples:fibonacci:fibonacci
+$419 = { $338 (+ responsible $337) ->
+  $339 = $287
+  $340 = $338
+  # Examples:fibonacci:fibonacci:2
+  $416 = { $342 $343 (+ responsible $341) ->
+    $344 = "Builtins"
+    $345 = Examples:fibonacci:fibonacci:2:1
+    $346 = call $54 with $344 ($345 is responsible)
+    $347 = builtinStructGet
+    $348 = StructGet
+    $349 = Examples:fibonacci:fibonacci:2:4
+    $350 = call $347 with $346 $348 ($349 is responsible)
+    $351 = $67
+    $352 = IfElse
+    $353 = Examples:fibonacci:fibonacci:2:7
+    $354 = call $350 with $351 $352 ($353 is responsible)
+    $355 = $343
+    $356 = $336
+    $357 = 2
+    $358 = Examples:fibonacci:fibonacci:2:11
+    $359 = call $356 with $355 $357 ($358 is responsible)
+    # Examples:fibonacci:fibonacci:2:12
+    $362 = { (responsible $360) ->
+      $361 = $343
+    }
+    # Examples:fibonacci:fibonacci:2:13
+    $413 = { (responsible $363) ->
+      $364 = $342
+      $365 = $343
+      $366 = "Builtins"
+      $367 = Examples:fibonacci:fibonacci:2:13:3
+      $368 = call $54 with $366 ($367 is responsible)
+      $369 = builtinStructGet
+      $370 = StructGet
+      $371 = Examples:fibonacci:fibonacci:2:13:6
+      $372 = call $369 with $368 $370 ($371 is responsible)
+      $373 = $67
+      $374 = IntSubtract
+      $375 = Examples:fibonacci:fibonacci:2:13:9
+      $376 = call $372 with $373 $374 ($375 is responsible)
+      $377 = 1
+      $378 = Examples:fibonacci:fibonacci:2:13:11
+      $379 = call $376 with $365 $377 ($378 is responsible)
+      $380 = Examples:fibonacci:fibonacci:2:13:12
+      $381 = call $364 with $379 ($380 is responsible)
+      $382 = "Builtins"
+      $383 = Examples:fibonacci:fibonacci:2:13:14
+      $384 = call $54 with $382 ($383 is responsible)
+      $385 = builtinStructGet
+      $386 = StructGet
+      $387 = Examples:fibonacci:fibonacci:2:13:17
+      $388 = call $385 with $384 $386 ($387 is responsible)
+      $389 = $67
+      $390 = IntAdd
+      $391 = Examples:fibonacci:fibonacci:2:13:20
+      $392 = call $388 with $389 $390 ($391 is responsible)
+      $393 = $342
+      $394 = $343
+      $395 = "Builtins"
+      $396 = Examples:fibonacci:fibonacci:2:13:24
+      $397 = call $54 with $395 ($396 is responsible)
+      $398 = builtinStructGet
+      $399 = StructGet
+      $400 = Examples:fibonacci:fibonacci:2:13:27
+      $401 = call $398 with $397 $399 ($400 is responsible)
+      $402 = $67
+      $403 = IntSubtract
+      $404 = Examples:fibonacci:fibonacci:2:13:30
+      $405 = call $401 with $402 $403 ($404 is responsible)
+      $406 = 2
+      $407 = Examples:fibonacci:fibonacci:2:13:32
+      $408 = call $405 with $394 $406 ($407 is responsible)
+      $409 = Examples:fibonacci:fibonacci:2:13:33
+      $410 = call $393 with $408 ($409 is responsible)
+      $411 = Examples:fibonacci:fibonacci:2:13:34
+      $412 = call $392 with $381 $410 ($411 is responsible)
+    }
+    $414 = Examples:fibonacci:fibonacci:2:14
+    $415 = call $354 with $359 $362 $413 ($414 is responsible)
+  }
+  $417 = Examples:fibonacci:fibonacci:3
+  $418 = call $339 with $340 $416 ($417 is responsible)
+}
+$420 = $419
+# Examples:fibonacci:22
+$621 = { $422 (+ responsible $421) ->
+  $423 = Examples:fibonacci:22:0
+  $424 = "`foo` is not in scope."
+  $425 = panicking because $424 ($423 is at fault)
+  $426 = Examples:fibonacci:22:1
+  $427 = $425
+  $428 = $427
+  $429 = Nothing
+  $430 = "Builtins"
+  $431 = Examples:fibonacci:22:4
+  $432 = call $54 with $430 ($431 is responsible)
+  $433 = builtinStructGet
+  $434 = StructGet
+  $435 = Examples:fibonacci:22:7
+  $436 = call $433 with $432 $434 ($435 is responsible)
+  $437 = $422
+  $438 = Arguments
+  $439 = Examples:fibonacci:22:10
+  $440 = call $436 with $437 $438 ($439 is responsible)
+  $441 = Examples:fibonacci:22:11
+  $442 = Match
+  $443 = NoMatch
+  $444 = List
+  $445 = builtinTypeOf
+  $446 = call $445 with $440 ($441 is responsible)
+  $447 = builtinEquals
+  $448 = call $447 with $444 $446 ($441 is responsible)
+  $449 = builtinIfElse
+  # Examples:fibonacci:22:11:equals:then
+  $492 = { (responsible $450) ->
+    $451 = 1
+    $452 = builtinListLength
+    $453 = call $452 with $440 ($441 is responsible)
+    $454 = builtinEquals
+    $455 = call $454 with $451 $453 ($441 is responsible)
+    $456 = builtinIfElse
+    # Examples:fibonacci:22:11:equals:then
+    $479 = { (responsible $457) ->
+      $458 = builtinListGet
+      $459 = 0
+      $460 = call $458 with $440 $459 ($441 is responsible)
+      $461 = ($442, $460)
+      $462 = builtinListGet
+      $463 = 0
+      $464 = call $462 with $461 $463 ($441 is responsible)
+      $465 = builtinEquals
+      $466 = Match
+      $467 = call $465 with $464 $466 ($441 is responsible)
+      $468 = builtinIfElse
+      # Examples:fibonacci:22:11:isMatch:then
+      $474 = { (responsible $469) ->
+        $470 = builtinListGet
+        $471 = 1
+        $472 = call $470 with $461 $471 ($441 is responsible)
+        $473 = ($442, $472)
+      }
+      # Examples:fibonacci:22:11:isMatch:else
+      $477 = { (responsible $475) ->
+        $476 = $461
+      }
+      $478 = call $468 with $467 $474 $477 ($441 is responsible)
+    }
+    # Examples:fibonacci:22:11:equals:else
+    $490 = { (responsible $480) ->
+      $481 = builtinToDebugText
+      $482 = call $481 with $451 ($441 is responsible)
+      $483 = call $481 with $453 ($441 is responsible)
+      $484 = "Expected 1 item, got "
+      $485 = "."
+      $486 = builtinTextConcatenate
+      $487 = call $486 with $484 $483 ($441 is responsible)
+      $488 = call $486 with $487 $485 ($441 is responsible)
+      $489 = ($443, $488)
+    }
+    $491 = call $456 with $455 $479 $490 ($441 is responsible)
+  }
+  # Examples:fibonacci:22:11:equals:else
+  $506 = { (responsible $493) ->
+    $494 = builtinToDebugText
+    $495 = call $494 with $444 ($441 is responsible)
+    $496 = call $494 with $446 ($441 is responsible)
+    $497 = "Expected a "
+    $498 = ", got `"
+    $499 = "`."
+    $500 = builtinTextConcatenate
+    $501 = call $500 with $497 $495 ($441 is responsible)
+    $502 = call $500 with $501 $498 ($441 is responsible)
+    $503 = call $500 with $502 $496 ($441 is responsible)
+    $504 = call $500 with $503 $499 ($441 is responsible)
+    $505 = ($443, $504)
+  }
+  $507 = call $449 with $448 $492 $506 ($441 is responsible)
+  $508 = builtinListGet
+  $509 = 0
+  $510 = call $508 with $507 $509 ($441 is responsible)
+  $511 = builtinEquals
+  $512 = Match
+  $513 = call $511 with $510 $512 ($441 is responsible)
+  $514 = builtinIfElse
+  # Examples:fibonacci:22:11:case-0:matched
+  $570 = { (responsible $515) ->
+    $516 = builtinListGet
+    $517 = 1
+    $518 = Examples:fibonacci:22:11:n
+    $519 = call $516 with $507 $517 ($518 is responsible)
+    $520 = $519
+    $521 = "Builtins"
+    $522 = Examples:fibonacci:22:11:2
+    $523 = call $54 with $521 ($522 is responsible)
+    $524 = builtinStructGet
+    $525 = StructGet
+    $526 = Examples:fibonacci:22:11:5
+    $527 = call $524 with $523 $525 ($526 is responsible)
+    $528 = $243
+    $529 = Parse
+    $530 = Examples:fibonacci:22:11:8
+    $531 = call $527 with $528 $529 ($530 is responsible)
+    $532 = Examples:fibonacci:22:11:9
+    $533 = call $531 with $520 ($532 is responsible)
+    $534 = "Builtins"
+    $535 = Examples:fibonacci:22:11:11
+    $536 = call $54 with $534 ($535 is responsible)
+    $537 = builtinStructGet
+    $538 = StructGet
+    $539 = Examples:fibonacci:22:11:14
+    $540 = call $537 with $536 $538 ($539 is responsible)
+    $541 = $247
+    $542 = Map
+    $543 = Examples:fibonacci:22:11:17
+    $544 = call $540 with $541 $542 ($543 is responsible)
+    # Examples:fibonacci:22:11:18
+    $554 = { $546 (+ responsible $545) ->
+      $547 = $420
+      $548 = $546
+      $549 = Examples:fibonacci:22:11:18:2
+      $550 = call $547 with $548 ($549 is responsible)
+      $551 = $251
+      $552 = Examples:fibonacci:22:11:18:4
+      $553 = call $551 with $550 ($552 is responsible)
+    }
+    $555 = Examples:fibonacci:22:11:19
+    $556 = call $544 with $533 $554 ($555 is responsible)
+    $557 = "Builtins"
+    $558 = Examples:fibonacci:22:11:21
+    $559 = call $54 with $557 ($558 is responsible)
+    $560 = builtinStructGet
+    $561 = StructGet
+    $562 = Examples:fibonacci:22:11:24
+    $563 = call $560 with $559 $561 ($562 is responsible)
+    $564 = $247
+    $565 = GetValue
+    $566 = Examples:fibonacci:22:11:27
+    $567 = call $563 with $564 $565 ($566 is responsible)
+    $568 = Examples:fibonacci:22:11:28
+    $569 = call $567 with $556 ($568 is responsible)
+  }
+  # Examples:fibonacci:22:11:case-0:didNotMatch
+  $606 = { (responsible $571) ->
+    $572 = builtinListGet
+    $573 = 1
+    $574 = call $572 with $507 $573 ($441 is responsible)
+    $575 = Match
+    $576 = NoMatch
+    $577 = ($575, $440)
+    $578 = builtinListGet
+    $579 = 0
+    $580 = call $578 with $577 $579 ($441 is responsible)
+    $581 = builtinEquals
+    $582 = Match
+    $583 = call $581 with $580 $582 ($441 is responsible)
+    $584 = builtinIfElse
+    # Examples:fibonacci:22:11:case-1:matched
+    $597 = { (responsible $585) ->
+      $586 = builtinListGet
+      $587 = 1
+      $588 = Examples:fibonacci:22:11:_
+      $589 = call $586 with $577 $587 ($588 is responsible)
+      $590 = builtinTextConcatenate
+      $591 = builtinTypeOf
+      $592 = Text
+      $593 = builtinEquals
+      $594 = builtinIfElse
+      $595 = builtinToDebugText
+      $596 = "Usage: `cargo run -- run fibonacci.candy -- <number>`"
+    }
+    # Examples:fibonacci:22:11:case-1:didNotMatch
+    $604 = { (responsible $598) ->
+      $599 = builtinListGet
+      $600 = 1
+      $601 = call $599 with $577 $600 ($441 is responsible)
+      $602 = "No case matched the given expression."
+      $603 = panicking because $602 ($441 is at fault)
+    }
+    $605 = call $584 with $583 $597 $604 ($441 is responsible)
+  }
+  $607 = call $514 with $513 $570 $606 ($441 is responsible)
+  $608 = "Builtins"
+  $609 = Examples:fibonacci:22:13
+  $610 = call $54 with $608 ($609 is responsible)
+  $611 = builtinStructGet
+  $612 = StructGet
+  $613 = Examples:fibonacci:22:16
+  $614 = call $611 with $610 $612 ($613 is responsible)
+  $615 = $422
+  $616 = Stdout
+  $617 = Examples:fibonacci:22:19
+  $618 = call $614 with $615 $616 ($617 is responsible)
+  $619 = Examples:fibonacci:22:20
+  $620 = call $618 with $607 ($619 is responsible)
+}
+$622 = Examples:fibonacci:23
+$623 = $621
+$624 = $623
+$625 = Nothing
+$626 = Main
+$627 = [$626: $624]
