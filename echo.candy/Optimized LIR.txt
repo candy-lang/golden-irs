@@ -1,0 +1,572 @@
+# LIR for module Examples:echo
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# Constants
+%0 = Builtins::equals:6
+%1 = Builtins::functionRun:11
+%2 = Builtins::functionRun:16
+%3 = Builtins::functionRun:22
+%4 = Builtins::functionRun:5
+%5 = Builtins::getArgumentCount:11
+%6 = Builtins::getArgumentCount:5
+%7 = Builtins::ifElse:1
+%8 = Builtins::ifElse:12
+%9 = Builtins::ifElse:15
+%10 = Builtins::ifElse:20
+%11 = Builtins::ifElse:26
+%12 = Builtins::ifElse:29
+%13 = Builtins::ifElse:34
+%14 = Builtins::ifElse:42
+%15 = Builtins::ifElse:6
+%16 = Builtins::structGet:12
+%17 = Builtins::structGet:14
+%18 = Builtins::structGet:21
+%19 = Builtins::structGet:5
+%20 = Builtins::typeIs:19
+%21 = Builtins::typeIs:25
+%22 = Builtins::typeOf:5
+%23 = Core:function:is0:11:3
+%24 = Core:function:is0:13
+%25 = Core:function:run:14
+%26 = Core:function:run:2
+%27 = Core:function:run:4
+%28 = Examples:echo:11:28
+%29 = Examples:echo:11:7
+%30 = Examples:echo:11:print:7
+%31 = Examples:echo:11:print:9
+%32 = anonymous:$generated::needs
+%33 = builtinEquals
+%34 = builtinGetArgumentCount
+%35 = builtinIfElse
+%36 = builtinListGet
+%37 = builtinStructGet
+%38 = builtinStructHasKey
+%39 = builtinTagGetValue
+%40 = builtinTagHasValue
+%41 = builtinTagWithoutValue
+%42 = builtinTextConcatenate
+%43 = builtinToDebugText
+%44 = builtinTypeOf
+%45 = False
+%46 = Function
+%47 = Main
+%48 = Match
+%49 = NoMatch
+%50 = Nothing
+%51 = Stdin
+%52 = Stdout
+%53 = Struct
+%54 = Tag
+%55 = Text
+%56 = True
+%57 = 0
+%58 = 1
+%59 = "."
+%60 = "Echo:"
+%61 = "Expected False, got "
+%62 = "Expected True, got "
+%63 = "Expected a Tag, got `"
+%64 = "Expected tag to not have a value, but it has one: `"
+%65 = "Hello, world!"
+%66 = "The `condition` must be either `True` or `False`."
+%67 = "The `reason` must be a text."
+%68 = "`."
+%69 = "`conditionIsBool` was not satisfied"
+%70 = "`else | getArgumentCount | equals 0` was not satisfied"
+%71 = "`else | typeIs Function` was not satisfied"
+%72 = "`function | typeIs Function` was not satisfied"
+%73 = "`function | ✨.getArgumentCount | equals 0` was not satisfied"
+%74 = "`is0 body` was not satisfied"
+%75 = "`struct | typeIs Struct` was not satisfied"
+%76 = "`struct | ✨.structHasKey key` was not satisfied"
+%77 = "`then | getArgumentCount | equals 0` was not satisfied"
+%78 = "`then | typeIs Function` was not satisfied"
+%79 = { body_0 }
+%80 = { body_1 }
+%81 = { body_6 }
+%82 = (%48,)
+%83 = { body_7 }
+%84 = { body_8 }
+%85 = { body_22 }
+%86 = { body_24 }
+%87 = { body_25 }
+%88 = { body_26 }
+%89 = [%47: %88]
+
+# Bodies
+body_0 (responsible $0) =
+  # Original HIR IDs: Builtins::ifElse:1:case-0:matched, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched, Core:bool:is:1:case-0:matched, Core:bool:lazyOr:18:case-0:matched, Core:bool:not:6:case-1:matched, anonymous:$generated::needs:isConditionTrue:then
+  # Captured IDs: none
+  $1 = %56
+body_1 (responsible $0) =
+  # Original HIR IDs: Core::20:isMatch:then, Core::31:isMatch:then, Core::42:isMatch:then, Core::108:isMatch:then, Core::163:isMatch:then, Core::174:isMatch:then, Core:bool:9:isMatch:then, Core:check:20:isMatch:then, Core:controlFlow:if:27, Core:controlFlow:31:isMatch:then, Core:controlFlow:53:isMatch:then, Core:fixedDecimal:add:14:isMatch:then, Core:fixedDecimal:compareTo:14:isMatch:then, Core:fixedDecimal:divideTruncating:37:isMatch:then, Core:fixedDecimal:divideTruncatingAtScale:42:isMatch:then, Core:fixedDecimal:subtract:14:isMatch:then, Core:fixedDecimal:20:isMatch:then, Core:fixedDecimal:31:isMatch:then, Core:fixedDecimal:42:isMatch:then, Core:fixedDecimal:53:isMatch:then, Core:fixedDecimal:108:isMatch:then, Core:function:20:isMatch:then, Core:int:pow:21:1:isMatch:then, Core:int:31:isMatch:then, Core:int:42:isMatch:then, Core:int:53:isMatch:then, Core:iterable:fromList:18:1:isMatch:then, Core:iterable:generateWithState:14:0:11:1:isMatch:then, Core:iterable:map:19:11:1:isMatch:then, Core:iterable:reduceLeft:38:1:isMatch:then, Core:iterable:take:33:1:isMatch:then, Core:iterable:takeWhile:2:11:1:isMatch:then, Core:iterable:withIndex:11:1:isMatch:then, Core:iterable:withIndex:11:14:1:isMatch:then, Core:iterable:20:isMatch:then, Core:iterable:31:isMatch:then, Core:iterable:88:11:1:isMatch:then, Core:iterable:91:2:11:1:isMatch:then, Core:iterable:94:6:21, Core:list:generate:60:1:isMatch:then, Core:list:31:isMatch:then, Core:list:42:isMatch:then, Core:result:20:isMatch:then, Core:result:31:isMatch:then, Core:struct:20:isMatch:then, Core:tag:31:isMatch:then, Core:text:31:isMatch:then, Core:text:42:isMatch:then, Core:type:20:isMatch:then, Examples:echo:9:isMatch:then, anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+  # Captured IDs: none
+  $1 = %50
+body_2 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionTrue:else
+  # Captured IDs: $0
+  $2 = %33
+  $3 = %45
+  $4 = %32
+  $5 = call $2 with $0 $3 ($4 is responsible)
+  $6 = $5
+body_3 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionBool:else
+  # Captured IDs: $0
+  $2 = %66
+  $3 = panicking because $2 ($0 is at fault)
+  $4 = $3
+body_4 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isReasonText:else
+  # Captured IDs: $0
+  $2 = %67
+  $3 = panicking because $2 ($0 is at fault)
+  $4 = $3
+body_5 (responsible $2) =
+  # Original HIR IDs: anonymous:$generated::needs:condition:else
+  # Captured IDs: $0, $1
+  $3 = panicking because $0 ($1 is at fault)
+  $4 = $3
+body_6 $0 $1 $2 (+ responsible $3) =
+  # Original HIR IDs: anonymous:$generated::needs
+  # Captured IDs: none
+  $4 = dup $0 by 1
+  $5 = %33
+  $6 = %56
+  $7 = %32
+  $8 = call $5 with $0 $6 ($7 is responsible)
+  $9 = { body_2 capturing $0 }
+  $10 = %35
+  $11 = %79
+  $12 = call $10 with $8 $11 $9 ($7 is responsible)
+  $13 = { body_3 capturing $3 }
+  $14 = %80
+  $15 = call $10 with $12 $14 $13 ($7 is responsible)
+  $16 = %44
+  $17 = call $16 with $1 ($3 is responsible)
+  $18 = %55
+  $19 = call $5 with $17 $18 ($3 is responsible)
+  $20 = { body_4 capturing $3 }
+  $21 = call $10 with $19 $14 $20 ($7 is responsible)
+  $22 = { body_5 capturing $1, $2 }
+  $23 = call $10 with $0 $14 $22 ($7 is responsible)
+  $24 = $23
+  $25 = drop $2
+  $26 = drop $19
+  $27 = drop $29
+body_7 (responsible $0) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:then, Builtins::isLessThanOrEqualTo:19:equals:then, Builtins::isNonNegative:13:equals:then, Builtins::not:1:equals:then, Core:bool:is:1:equals:then, Core:bool:lazyAnd:18:equals:then, Core:bool:lazyOr:18:equals:then, Core:bool:not:6:equals:then, Core:int:pow:21:4:equals:then, Core:list:first:6:equals:then, Core:list:single:6:equals:then
+  # Captured IDs: none
+  $1 = %82
+body_8 (responsible $0) =
+  # Original HIR IDs: Builtins::isLessThanOrEqualTo:19:case-1:matched, Builtins::isNonNegative:13:case-1:matched, Builtins::not:1:case-0:matched, Core:bool:lazyAnd:18:case-1:matched, Core:bool:not:6:case-0:matched, Core:function:is0:12, Core:function:is1:12, Core:function:is2:12, Core:function:is3:12, Core:function:is4:12, Core:function:is5:12, Core:list:isValidIndex:21, Core:list:isValidInsertIndex:21
+  # Captured IDs: none
+  $1 = %45
+body_9 (responsible $2) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:else
+  # Captured IDs: $0, $1
+  $3 = %43
+  $4 = %7
+  $5 = call $3 with $1 ($4 is responsible)
+  $6 = %39
+  $7 = call $6 with $0 ($4 is responsible)
+  $8 = call $3 with $7 ($4 is responsible)
+  $9 = %42
+  $10 = %64
+  $11 = call $9 with $10 $8 ($4 is responsible)
+  $12 = %68
+  $13 = call $9 with $11 $12 ($4 is responsible)
+  $14 = %49
+  $15 = ($14, $13)
+  $16 = $15
+  $17 = drop $6
+body_10 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:then
+  # Captured IDs: $0
+  $2 = %40
+  $3 = %7
+  $4 = call $2 with $0 ($3 is responsible)
+  $5 = %33
+  $6 = %45
+  $7 = call $5 with $6 $4 ($3 is responsible)
+  $8 = { body_9 capturing $0, $4 }
+  $9 = %35
+  $10 = %83
+  $11 = call $9 with $7 $10 $8 ($3 is responsible)
+  $12 = $11
+body_11 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:else
+  # Captured IDs: $0
+  $2 = %43
+  $3 = %7
+  $4 = call $2 with $0 ($3 is responsible)
+  $5 = %42
+  $6 = %62
+  $7 = call $5 with $6 $4 ($3 is responsible)
+  $8 = %59
+  $9 = call $5 with $7 $8 ($3 is responsible)
+  $10 = %49
+  $11 = ($10, $9)
+  $12 = $11
+body_12 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:then
+  # Captured IDs: $0
+  $2 = %41
+  $3 = %7
+  $4 = call $2 with $0 ($3 is responsible)
+  $5 = %33
+  $6 = %56
+  $7 = call $5 with $6 $4 ($3 is responsible)
+  $8 = { body_10 capturing $0 }
+  $9 = { body_11 capturing $4 }
+  $10 = %35
+  $11 = call $10 with $7 $8 $9 ($3 is responsible)
+  $12 = $11
+body_13 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:else
+  # Captured IDs: $0
+  $2 = %43
+  $3 = %7
+  $4 = call $2 with $0 ($3 is responsible)
+  $5 = %42
+  $6 = %63
+  $7 = call $5 with $6 $4 ($3 is responsible)
+  $8 = %68
+  $9 = call $5 with $7 $8 ($3 is responsible)
+  $10 = %49
+  $11 = ($10, $9)
+  $12 = $11
+body_14 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:isMatch:then
+  # Captured IDs: $0
+  $2 = $0
+  $3 = $2
+body_15 (responsible $2) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:else
+  # Captured IDs: $0, $1
+  $3 = %43
+  $4 = %7
+  $5 = call $3 with $1 ($4 is responsible)
+  $6 = %39
+  $7 = call $6 with $0 ($4 is responsible)
+  $8 = call $3 with $7 ($4 is responsible)
+  $9 = %42
+  $10 = %64
+  $11 = call $9 with $10 $8 ($4 is responsible)
+  $12 = %68
+  $13 = call $9 with $11 $12 ($4 is responsible)
+  $14 = %49
+  $15 = ($14, $13)
+  $16 = $15
+  $17 = drop $6
+body_16 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:then
+  # Captured IDs: $0
+  $2 = %40
+  $3 = %7
+  $4 = call $2 with $0 ($3 is responsible)
+  $5 = %33
+  $6 = %45
+  $7 = call $5 with $6 $4 ($3 is responsible)
+  $8 = { body_15 capturing $0, $4 }
+  $9 = %35
+  $10 = %83
+  $11 = call $9 with $7 $10 $8 ($3 is responsible)
+  $12 = $11
+body_17 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:else
+  # Captured IDs: $0
+  $2 = %43
+  $3 = %7
+  $4 = call $2 with $0 ($3 is responsible)
+  $5 = %42
+  $6 = %61
+  $7 = call $5 with $6 $4 ($3 is responsible)
+  $8 = %59
+  $9 = call $5 with $7 $8 ($3 is responsible)
+  $10 = %49
+  $11 = ($10, $9)
+  $12 = $11
+body_18 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:then
+  # Captured IDs: $0
+  $2 = %41
+  $3 = %7
+  $4 = call $2 with $0 ($3 is responsible)
+  $5 = %33
+  $6 = %45
+  $7 = call $5 with $6 $4 ($3 is responsible)
+  $8 = { body_16 capturing $0 }
+  $9 = { body_17 capturing $4 }
+  $10 = %35
+  $11 = call $10 with $7 $8 $9 ($3 is responsible)
+  $12 = $11
+body_19 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:else
+  # Captured IDs: $0
+  $2 = %43
+  $3 = %7
+  $4 = call $2 with $0 ($3 is responsible)
+  $5 = %42
+  $6 = %63
+  $7 = call $5 with $6 $4 ($3 is responsible)
+  $8 = %68
+  $9 = call $5 with $7 $8 ($3 is responsible)
+  $10 = %49
+  $11 = ($10, $9)
+  $12 = $11
+body_20 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:isMatch:else
+  # Captured IDs: $0
+  $2 = %44
+  $3 = %7
+  $4 = call $2 with $0 ($3 is responsible)
+  $5 = %33
+  $6 = %54
+  $7 = call $5 with $6 $4 ($3 is responsible)
+  $8 = { body_18 capturing $0 }
+  $9 = { body_19 capturing $4 }
+  $10 = %35
+  $11 = call $10 with $7 $8 $9 ($3 is responsible)
+  $12 = $11
+body_21 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:case-0:didNotMatch
+  # Captured IDs: $0
+  $2 = %36
+  $3 = %58
+  $4 = %7
+  $5 = call $2 with $0 $3 ($4 is responsible)
+  $6 = %45
+  $7 = $6
+  $8 = drop $6
+body_22 $0 $1 $2 (+ responsible $3) =
+  # Original HIR IDs: Builtins::ifElse
+  # Captured IDs: none
+  $4 = dup $0 by 1
+  $5 = dup $1 by 3
+  $6 = dup $2 by 3
+  $7 = %44
+  $8 = %7
+  $9 = call $7 with $0 ($8 is responsible)
+  $10 = %33
+  $11 = %54
+  $12 = call $10 with $11 $9 ($8 is responsible)
+  $13 = { body_12 capturing $0 }
+  $14 = { body_13 capturing $9 }
+  $15 = %35
+  $16 = call $15 with $12 $13 $14 ($8 is responsible)
+  $17 = %36
+  $18 = %57
+  $19 = call $17 with $16 $18 ($8 is responsible)
+  $20 = %48
+  $21 = call $10 with $19 $20 ($8 is responsible)
+  $22 = { body_14 capturing $16 }
+  $23 = { body_20 capturing $0 }
+  $24 = call $15 with $21 $22 $23 ($8 is responsible)
+  $25 = call $17 with $24 $18 ($8 is responsible)
+  $26 = call $10 with $25 $20 ($8 is responsible)
+  $27 = { body_21 capturing $24 }
+  $28 = %79
+  $29 = call $15 with $26 $28 $27 ($8 is responsible)
+  $30 = %81
+  $31 = %69
+  $32 = %15
+  $33 = call $30 with $29 $31 $3 ($32 is responsible)
+  $34 = %20
+  $35 = call $7 with $1 ($34 is responsible)
+  $36 = %46
+  $37 = %21
+  $38 = call $10 with $35 $36 ($37 is responsible)
+  $39 = %78
+  $40 = %8
+  $41 = call $30 with $38 $39 $3 ($40 is responsible)
+  $42 = call $7 with $1 ($34 is responsible)
+  $43 = call $10 with $42 $36 ($37 is responsible)
+  $44 = %72
+  $45 = %9
+  $46 = %6
+  $47 = call $30 with $43 $44 $45 ($46 is responsible)
+  $48 = %34
+  $49 = %5
+  $50 = call $48 with $1 ($49 is responsible)
+  $51 = %0
+  $52 = call $10 with $50 $18 ($51 is responsible)
+  $53 = %77
+  $54 = %10
+  $55 = call $30 with $52 $53 $3 ($54 is responsible)
+  $56 = call $7 with $2 ($34 is responsible)
+  $57 = call $10 with $56 $36 ($37 is responsible)
+  $58 = %71
+  $59 = %11
+  $60 = call $30 with $57 $58 $3 ($59 is responsible)
+  $61 = call $7 with $2 ($34 is responsible)
+  $62 = call $10 with $61 $36 ($37 is responsible)
+  $63 = %12
+  $64 = call $30 with $62 $44 $63 ($46 is responsible)
+  $65 = call $48 with $2 ($49 is responsible)
+  $66 = call $10 with $65 $18 ($51 is responsible)
+  $67 = %70
+  $68 = %13
+  $69 = call $30 with $66 $67 $3 ($68 is responsible)
+  $70 = %14
+  $71 = call $15 with $0 $1 $2 ($70 is responsible)
+  $72 = $71
+  $73 = drop $45
+  $74 = drop $56
+  $75 = drop $65
+  $76 = drop $76
+  $77 = drop $84
+  $78 = drop $91
+  $79 = drop $99
+body_23 (responsible $1) =
+  # Original HIR IDs: Core:function:is0:11
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %44
+  $4 = %20
+  $5 = call $3 with $0 ($4 is responsible)
+  $6 = %33
+  $7 = %46
+  $8 = %21
+  $9 = call $6 with $5 $7 ($8 is responsible)
+  $10 = %81
+  $11 = %72
+  $12 = %23
+  $13 = %6
+  $14 = call $10 with $9 $11 $12 ($13 is responsible)
+  $15 = %34
+  $16 = %5
+  $17 = call $15 with $0 ($16 is responsible)
+  $18 = %57
+  $19 = %0
+  $20 = call $6 with $17 $18 ($19 is responsible)
+  $21 = $20
+  $22 = drop $16
+body_24 $0 (+ responsible $1) =
+  # Original HIR IDs: Core:function:is0
+  # Captured IDs: none
+  $2 = %44
+  $3 = %22
+  $4 = call $2 with $0 ($3 is responsible)
+  $5 = %33
+  $6 = %46
+  $7 = %0
+  $8 = call $5 with $4 $6 ($7 is responsible)
+  $9 = { body_23 capturing $0 }
+  $10 = %85
+  $11 = %84
+  $12 = %24
+  $13 = call $10 with $8 $9 $11 ($12 is responsible)
+  $14 = $13
+body_25 $0 (+ responsible $1) =
+  # Original HIR IDs: Core:function:run
+  # Captured IDs: none
+  $2 = dup $0 by 3
+  $3 = %86
+  $4 = %26
+  $5 = call $3 with $0 ($4 is responsible)
+  $6 = %81
+  $7 = %74
+  $8 = %27
+  $9 = call $6 with $5 $7 $1 ($8 is responsible)
+  $10 = %44
+  $11 = %20
+  $12 = call $10 with $0 ($11 is responsible)
+  $13 = %33
+  $14 = %46
+  $15 = %21
+  $16 = call $13 with $12 $14 ($15 is responsible)
+  $17 = %72
+  $18 = %25
+  $19 = %4
+  $20 = call $6 with $16 $17 $18 ($19 is responsible)
+  $21 = %34
+  $22 = %1
+  $23 = call $21 with $0 ($22 is responsible)
+  $24 = %57
+  $25 = %0
+  $26 = call $13 with $23 $24 ($25 is responsible)
+  $27 = %73
+  $28 = %2
+  $29 = call $6 with $26 $27 $18 ($28 is responsible)
+  $30 = %3
+  $31 = call $0 with no arguments ($30 is responsible)
+  $32 = $31
+  $33 = drop $10
+  $34 = drop $24
+  $35 = drop $36
+body_26 $0 (+ responsible $1) =
+  # Original HIR IDs: Examples:echo:11
+  # Captured IDs: none
+  $2 = dup $0 by 11
+  $3 = %44
+  $4 = %20
+  $5 = call $3 with $0 ($4 is responsible)
+  $6 = %33
+  $7 = %53
+  $8 = %21
+  $9 = call $6 with $5 $7 ($8 is responsible)
+  $10 = %81
+  $11 = %75
+  $12 = %29
+  $13 = %19
+  $14 = call $10 with $9 $11 $12 ($13 is responsible)
+  $15 = %38
+  $16 = %51
+  $17 = %16
+  $18 = call $15 with $0 $16 ($17 is responsible)
+  $19 = %76
+  $20 = %17
+  $21 = call $10 with $18 $19 $12 ($20 is responsible)
+  $22 = %37
+  $23 = %18
+  $24 = call $22 with $0 $16 ($23 is responsible)
+  $25 = call $3 with $0 ($4 is responsible)
+  $26 = call $6 with $25 $7 ($8 is responsible)
+  $27 = %30
+  $28 = call $10 with $26 $11 $27 ($13 is responsible)
+  $29 = %52
+  $30 = call $15 with $0 $29 ($17 is responsible)
+  $31 = call $10 with $30 $19 $27 ($20 is responsible)
+  $32 = call $22 with $0 $29 ($23 is responsible)
+  $33 = %65
+  $34 = %31
+  $35 = call $32 with $33 ($34 is responsible)
+  $36 = %87
+  $37 = %28
+  $38 = call $36 with $24 ($37 is responsible)
+  $39 = call $3 with $0 ($4 is responsible)
+  $40 = call $6 with $39 $7 ($8 is responsible)
+  $41 = call $10 with $40 $11 $27 ($13 is responsible)
+  $42 = call $15 with $0 $29 ($17 is responsible)
+  $43 = call $10 with $42 $19 $27 ($20 is responsible)
+  $44 = call $22 with $0 $29 ($23 is responsible)
+  $45 = %60
+  $46 = call $44 with $45 ($34 is responsible)
+  $47 = call $3 with $0 ($4 is responsible)
+  $48 = call $6 with $47 $7 ($8 is responsible)
+  $49 = call $10 with $48 $11 $27 ($13 is responsible)
+  $50 = call $15 with $0 $29 ($17 is responsible)
+  $51 = call $10 with $50 $19 $27 ($20 is responsible)
+  $52 = call $22 with $0 $29 ($23 is responsible)
+  $53 = call $52 with $38 ($34 is responsible)
+  $54 = $53
+  $55 = drop $16
+  $56 = drop $25
+  $57 = drop $36
+  $58 = drop $41
+  $59 = drop $47
+  $60 = drop $57
+  $61 = drop $61
+  $62 = drop $66
+  $63 = drop $72
+  $64 = drop $76
+body_27 (responsible $0) =
+  # Original HIR IDs: Examples:echo:
+  # Captured IDs: none
+  $1 = %89
