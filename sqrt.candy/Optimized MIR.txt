@@ -1,0 +1,2807 @@
+# Optimized MIR for module Examples:sqrt
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+$1 = Builtins::equals:6
+$2 = Builtins::fitsInRustU128:10
+$3 = Builtins::fitsInRustU128:16
+$4 = Builtins::fitsInRustU128:5
+$5 = Builtins::fitsInRustU128:8
+$6 = Builtins::functionRun:11
+$7 = Builtins::functionRun:16
+$8 = Builtins::functionRun:22
+$9 = Builtins::functionRun:5
+$10 = Builtins::getArgumentCount:11
+$11 = Builtins::getArgumentCount:5
+$12 = Builtins::ifElse:1
+$13 = Builtins::ifElse:11
+$14 = Builtins::ifElse:14
+$15 = Builtins::ifElse:19
+$16 = Builtins::ifElse:25
+$17 = Builtins::ifElse:28
+$18 = Builtins::ifElse:33
+$19 = Builtins::ifElse:41
+$20 = Builtins::ifElse:5
+$21 = Builtins::intAdd:11
+$22 = Builtins::intAdd:18
+$23 = Builtins::intAdd:5
+$24 = Builtins::intBitwiseAnd:18
+$25 = Builtins::intBitwiseAnd:5
+$26 = Builtins::intCompareTo:11
+$27 = Builtins::intCompareTo:18
+$28 = Builtins::intCompareTo:5
+$29 = Builtins::intDivideTruncating:11
+$30 = Builtins::intDivideTruncating:17
+$31 = Builtins::intDivideTruncating:25
+$32 = Builtins::intDivideTruncating:32
+$33 = Builtins::intDivideTruncating:5
+$34 = Builtins::intMultiply:11
+$35 = Builtins::intMultiply:18
+$36 = Builtins::intMultiply:5
+$37 = Builtins::intRemainder:11
+$38 = Builtins::intRemainder:17
+$39 = Builtins::intRemainder:25
+$40 = Builtins::intRemainder:32
+$41 = Builtins::intRemainder:5
+$42 = Builtins::intShiftRight:11
+$43 = Builtins::intShiftRight:14
+$44 = Builtins::intShiftRight:23
+$45 = Builtins::intShiftRight:24
+$46 = Builtins::intShiftRight:26:0
+$47 = Builtins::intShiftRight:27
+$48 = Builtins::intShiftRight:29
+$49 = Builtins::intShiftRight:30
+$50 = Builtins::intShiftRight:31
+$51 = Builtins::intShiftRight:34
+$52 = Builtins::intShiftRight:42
+$53 = Builtins::intShiftRight:49
+$54 = Builtins::intShiftRight:5
+$55 = Builtins::intSubtract:11
+$56 = Builtins::intSubtract:18
+$57 = Builtins::intSubtract:5
+$58 = Builtins::isLessThanOrEqualTo:11
+$59 = Builtins::isLessThanOrEqualTo:18
+$60 = Builtins::isLessThanOrEqualTo:19
+$61 = Builtins::isLessThanOrEqualTo:5
+$62 = Builtins::isNonNegative:12
+$63 = Builtins::isNonNegative:13
+$64 = Builtins::isNonNegative:5
+$65 = Builtins::not:1
+$66 = Builtins::print:5
+$67 = Builtins::structGet:12
+$68 = Builtins::structGet:14
+$69 = Builtins::structGet:21
+$70 = Builtins::structGet:5
+$71 = Builtins::tagGetValue:11
+$72 = Builtins::tagGetValue:13
+$73 = Builtins::tagGetValue:19
+$74 = Builtins::tagGetValue:5
+$75 = Builtins::textGetRange:11
+$76 = Builtins::textGetRange:14
+$77 = Builtins::textGetRange:16
+$78 = Builtins::textGetRange:24
+$79 = Builtins::textGetRange:25
+$80 = Builtins::textGetRange:27
+$81 = Builtins::textGetRange:33
+$82 = Builtins::textGetRange:36
+$83 = Builtins::textGetRange:38
+$84 = Builtins::textGetRange:46
+$85 = Builtins::textGetRange:47
+$86 = Builtins::textGetRange:49
+$87 = Builtins::textGetRange:5
+$88 = Builtins::textGetRange:53
+$89 = Builtins::textGetRange:55
+$90 = Builtins::textGetRange:63
+$91 = Builtins::textLength:11
+$92 = Builtins::textLength:5
+$93 = Builtins::textStartsWith:11
+$94 = Builtins::textStartsWith:18
+$95 = Builtins::textStartsWith:5
+$96 = Builtins::toDebugText:5
+$97 = Builtins::typeIs:19
+$98 = Builtins::typeIs:25
+$99 = Builtins::typeOf:5
+$100 = Core:bool:implies:12
+$101 = Core:bool:implies:15
+$102 = Core:bool:implies:2
+$103 = Core:bool:implies:4
+$104 = Core:bool:implies:7
+$105 = Core:bool:implies:9
+$106 = Core:bool:is:1
+$107 = Core:bool:lazyAnd:14
+$108 = Core:bool:lazyAnd:16
+$109 = Core:bool:lazyAnd:18
+$110 = Core:bool:lazyAnd:18:13
+$111 = Core:bool:lazyAnd:18:21
+$112 = Core:bool:lazyAnd:18:9
+$113 = Core:bool:lazyAnd:2
+$114 = Core:bool:lazyAnd:4
+$115 = Core:bool:lazyOr:14
+$116 = Core:bool:lazyOr:16
+$117 = Core:bool:lazyOr:18
+$118 = Core:bool:lazyOr:18:10
+$119 = Core:bool:lazyOr:18:14
+$120 = Core:bool:lazyOr:18:22
+$121 = Core:bool:lazyOr:2
+$122 = Core:bool:lazyOr:4
+$123 = Core:bool:not:2
+$124 = Core:bool:not:4
+$125 = Core:bool:not:6
+$126 = Core:bool:or:13
+$127 = Core:bool:or:2
+$128 = Core:bool:or:4
+$129 = Core:bool:or:7
+$130 = Core:bool:or:9
+$131 = Core:check:check:11
+$132 = Core:check:check:20
+$133 = Core:check:check:9
+$134 = Core:controlFlow:recursive:17
+$135 = Core:controlFlow:recursive:18:0:3
+$136 = Core:controlFlow:recursive:18:5
+$137 = Core:controlFlow:recursive:23
+$138 = Core:controlFlow:recursive:9
+$139 = Core:fixedDecimal:absolute:11
+$140 = Core:fixedDecimal:absolute:2
+$141 = Core:fixedDecimal:absolute:4
+$142 = Core:fixedDecimal:absolute:8
+$143 = Core:fixedDecimal:absolute:9:2
+$144 = Core:fixedDecimal:add:13
+$145 = Core:fixedDecimal:add:14
+$146 = Core:fixedDecimal:add:2
+$147 = Core:fixedDecimal:add:27
+$148 = Core:fixedDecimal:add:29
+$149 = Core:fixedDecimal:add:4
+$150 = Core:fixedDecimal:add:7
+$151 = Core:fixedDecimal:add:9
+$152 = Core:fixedDecimal:add:targetScale
+$153 = Core:fixedDecimal:add:valueA
+$154 = Core:fixedDecimal:add:valueB
+$155 = Core:fixedDecimal:approxEquals:12
+$156 = Core:fixedDecimal:approxEquals:14
+$157 = Core:fixedDecimal:approxEquals:17
+$158 = Core:fixedDecimal:approxEquals:19
+$159 = Core:fixedDecimal:approxEquals:2
+$160 = Core:fixedDecimal:approxEquals:23
+$161 = Core:fixedDecimal:approxEquals:25
+$162 = Core:fixedDecimal:approxEquals:28
+$163 = Core:fixedDecimal:approxEquals:4
+$164 = Core:fixedDecimal:approxEquals:7
+$165 = Core:fixedDecimal:approxEquals:9
+$166 = Core:fixedDecimal:comparableMinorUnits:2
+$167 = Core:fixedDecimal:comparableMinorUnits:20
+$168 = Core:fixedDecimal:comparableMinorUnits:23
+$169 = Core:fixedDecimal:comparableMinorUnits:24
+$170 = Core:fixedDecimal:comparableMinorUnits:30
+$171 = Core:fixedDecimal:comparableMinorUnits:35
+$172 = Core:fixedDecimal:comparableMinorUnits:4
+$173 = Core:fixedDecimal:comparableMinorUnits:7
+$174 = Core:fixedDecimal:comparableMinorUnits:9
+$175 = Core:fixedDecimal:compareTo:13
+$176 = Core:fixedDecimal:compareTo:14
+$177 = Core:fixedDecimal:compareTo:2
+$178 = Core:fixedDecimal:compareTo:26
+$179 = Core:fixedDecimal:compareTo:4
+$180 = Core:fixedDecimal:compareTo:45
+$181 = Core:fixedDecimal:compareTo:46
+$182 = Core:fixedDecimal:compareTo:7
+$183 = Core:fixedDecimal:compareTo:9
+$184 = Core:fixedDecimal:compareTo:valueA#1
+$185 = Core:fixedDecimal:compareTo:valueB#1
+$186 = Core:fixedDecimal:divideTruncatingAtScale:14
+$187 = Core:fixedDecimal:divideTruncatingAtScale:17
+$188 = Core:fixedDecimal:divideTruncatingAtScale:2
+$189 = Core:fixedDecimal:divideTruncatingAtScale:29
+$190 = Core:fixedDecimal:divideTruncatingAtScale:37
+$191 = Core:fixedDecimal:divideTruncatingAtScale:4
+$192 = Core:fixedDecimal:divideTruncatingAtScale:41
+$193 = Core:fixedDecimal:divideTruncatingAtScale:42
+$194 = Core:fixedDecimal:divideTruncatingAtScale:56
+$195 = Core:fixedDecimal:divideTruncatingAtScale:57
+$196 = Core:fixedDecimal:divideTruncatingAtScale:67
+$197 = Core:fixedDecimal:divideTruncatingAtScale:69
+$198 = Core:fixedDecimal:divideTruncatingAtScale:7
+$199 = Core:fixedDecimal:divideTruncatingAtScale:9
+$200 = Core:fixedDecimal:divideTruncatingAtScale:valueA
+$201 = Core:fixedDecimal:divideTruncatingAtScale:valueB
+$202 = Core:fixedDecimal:floorToInt:18
+$203 = Core:fixedDecimal:floorToInt:2
+$204 = Core:fixedDecimal:floorToInt:20
+$205 = Core:fixedDecimal:floorToInt:21
+$206 = Core:fixedDecimal:floorToInt:4
+$207 = Core:fixedDecimal:floorToInt:7
+$208 = Core:fixedDecimal:fromInt:15
+$209 = Core:fixedDecimal:fromIntScaled:11
+$210 = Core:fixedDecimal:fromIntScaled:16
+$211 = Core:fixedDecimal:is:1
+$212 = Core:fixedDecimal:is:1:19
+$213 = Core:fixedDecimal:is:1:minorUnits
+$214 = Core:fixedDecimal:is:1:scale
+$215 = Core:fixedDecimal:isGreaterThan:14
+$216 = Core:fixedDecimal:isGreaterThan:2
+$217 = Core:fixedDecimal:isGreaterThan:4
+$218 = Core:fixedDecimal:isGreaterThan:7
+$219 = Core:fixedDecimal:isGreaterThan:9
+$220 = Core:fixedDecimal:isLessThanOrEqualTo:13
+$221 = Core:fixedDecimal:isLessThanOrEqualTo:2
+$222 = Core:fixedDecimal:isLessThanOrEqualTo:22
+$223 = Core:fixedDecimal:isLessThanOrEqualTo:4
+$224 = Core:fixedDecimal:isLessThanOrEqualTo:7
+$225 = Core:fixedDecimal:isLessThanOrEqualTo:9
+$226 = Core:fixedDecimal:isNegative:17
+$227 = Core:fixedDecimal:isNegative:2
+$228 = Core:fixedDecimal:isNegative:4
+$229 = Core:fixedDecimal:isNegative:7
+$230 = Core:fixedDecimal:isNonNegative:16
+$231 = Core:fixedDecimal:isNonNegative:2
+$232 = Core:fixedDecimal:isNonNegative:4
+$233 = Core:fixedDecimal:isNonNegative:7
+$234 = Core:fixedDecimal:isScale:18:9
+$235 = Core:fixedDecimal:isScale:19
+$236 = Core:fixedDecimal:minorUnits:19
+$237 = Core:fixedDecimal:minorUnits:2
+$238 = Core:fixedDecimal:minorUnits:21
+$239 = Core:fixedDecimal:minorUnits:4
+$240 = Core:fixedDecimal:negate:17
+$241 = Core:fixedDecimal:negate:2
+$242 = Core:fixedDecimal:negate:20
+$243 = Core:fixedDecimal:negate:21
+$244 = Core:fixedDecimal:negate:4
+$245 = Core:fixedDecimal:negate:8
+$246 = Core:fixedDecimal:rescaledMinorUnits:13
+$247 = Core:fixedDecimal:rescaledMinorUnits:2
+$248 = Core:fixedDecimal:rescaledMinorUnits:23
+$249 = Core:fixedDecimal:rescaledMinorUnits:24:14
+$250 = Core:fixedDecimal:rescaledMinorUnits:24:2
+$251 = Core:fixedDecimal:rescaledMinorUnits:24:24
+$252 = Core:fixedDecimal:rescaledMinorUnits:24:25
+$253 = Core:fixedDecimal:rescaledMinorUnits:24:26
+$254 = Core:fixedDecimal:rescaledMinorUnits:25:2
+$255 = Core:fixedDecimal:rescaledMinorUnits:25:23
+$256 = Core:fixedDecimal:rescaledMinorUnits:25:24
+$257 = Core:fixedDecimal:rescaledMinorUnits:25:25
+$258 = Core:fixedDecimal:rescaledMinorUnits:25:26
+$259 = Core:fixedDecimal:rescaledMinorUnits:26
+$260 = Core:fixedDecimal:rescaledMinorUnits:4
+$261 = Core:fixedDecimal:rescaledMinorUnits:9
+$262 = Core:fixedDecimal:scale:19
+$263 = Core:fixedDecimal:scale:2
+$264 = Core:fixedDecimal:scale:21
+$265 = Core:fixedDecimal:scale:4
+$266 = Core:fixedDecimal:scaleFactor:15
+$267 = Core:fixedDecimal:scaleFactor:4
+$268 = Core:fixedDecimal:subtract:13
+$269 = Core:fixedDecimal:subtract:14
+$270 = Core:fixedDecimal:subtract:2
+$271 = Core:fixedDecimal:subtract:27
+$272 = Core:fixedDecimal:subtract:29
+$273 = Core:fixedDecimal:subtract:4
+$274 = Core:fixedDecimal:subtract:7
+$275 = Core:fixedDecimal:subtract:9
+$276 = Core:fixedDecimal:subtract:targetScale
+$277 = Core:fixedDecimal:subtract:valueA
+$278 = Core:fixedDecimal:subtract:valueB
+$279 = Core:fixedDecimal:toText:10:18
+$280 = Core:fixedDecimal:toText:10:2
+$281 = Core:fixedDecimal:toText:10:30
+$282 = Core:fixedDecimal:toText:10:31:10
+$283 = Core:fixedDecimal:toText:10:31:28
+$284 = Core:fixedDecimal:toText:10:32:10
+$285 = Core:fixedDecimal:toText:10:32:28
+$286 = Core:fixedDecimal:toText:10:33
+$287 = Core:fixedDecimal:toText:10:4
+$288 = Core:fixedDecimal:toText:10:8
+$289 = Core:fixedDecimal:toText:11
+$290 = Core:fixedDecimal:toText:2
+$291 = Core:fixedDecimal:toText:20
+$292 = Core:fixedDecimal:toText:21
+$293 = Core:fixedDecimal:toText:23:0
+$294 = Core:fixedDecimal:toText:24
+$295 = Core:fixedDecimal:toText:27
+$296 = Core:fixedDecimal:toText:28
+$297 = Core:fixedDecimal:toText:30:0
+$298 = Core:fixedDecimal:toText:31
+$299 = Core:fixedDecimal:toText:32
+$300 = Core:fixedDecimal:toText:33
+$301 = Core:fixedDecimal:toText:4
+$302 = Core:fixedDecimal:toText:7
+$303 = Core:function:is0:11:3
+$304 = Core:function:is0:13
+$305 = Core:function:is2:11:3
+$306 = Core:function:is2:13
+$307 = Core:function:run:14
+$308 = Core:function:run:2
+$309 = Core:function:run:4
+$310 = Core:int:compareTo:20
+$311 = Core:int:compareTo:39
+$312 = Core:int:compareTo:4
+$313 = Core:int:compareTo:40
+$314 = Core:int:compareTo:9
+$315 = Core:int:isEven:4
+$316 = Core:int:isEven:8
+$317 = Core:int:isGreaterThan:13
+$318 = Core:int:isGreaterThan:4
+$319 = Core:int:isGreaterThan:9
+$320 = Core:int:isGreaterThanOrEqualTo:13
+$321 = Core:int:isGreaterThanOrEqualTo:22
+$322 = Core:int:isGreaterThanOrEqualTo:4
+$323 = Core:int:isGreaterThanOrEqualTo:9
+$324 = Core:int:isLessThan:13
+$325 = Core:int:isLessThan:4
+$326 = Core:int:isLessThan:9
+$327 = Core:int:isNegative:4
+$328 = Core:int:isNegative:8
+$329 = Core:int:isNonNegative:16
+$330 = Core:int:isNonNegative:4
+$331 = Core:int:isNonNegative:7
+$332 = Core:int:max:14
+$333 = Core:int:max:17
+$334 = Core:int:max:4
+$335 = Core:int:max:9
+$336 = Core:int:negate:4
+$337 = Core:int:negate:8
+$338 = Core:int:pow:12
+$339 = Core:int:pow:14
+$340 = Core:int:pow:21:1
+$341 = Core:int:pow:21:4
+$342 = Core:int:pow:21:4:4
+$343 = Core:int:pow:21:4:5:10
+$344 = Core:int:pow:21:4:5:12
+$345 = Core:int:pow:21:4:5:5
+$346 = Core:int:pow:21:4:6:12
+$347 = Core:int:pow:21:4:6:15
+$348 = Core:int:pow:21:4:6:17
+$349 = Core:int:pow:21:4:6:18
+$350 = Core:int:pow:21:4:6:7
+$351 = Core:int:pow:21:4:7
+$352 = Core:int:pow:21:base
+$353 = Core:int:pow:21:exponent
+$354 = Core:int:pow:22
+$355 = Core:int:pow:4
+$356 = Core:int:pow:9
+$357 = Core:text:removePrefix:14
+$358 = Core:text:removePrefix:15:4
+$359 = Core:text:removePrefix:15:7
+$360 = Core:text:removePrefix:15:8
+$361 = Core:text:removePrefix:17
+$362 = Core:text:removePrefix:4
+$363 = Core:text:removePrefix:9
+$364 = Examples:sqrt:main:14
+$365 = Examples:sqrt:main:47
+$366 = Examples:sqrt:main:48
+$367 = Examples:sqrt:main:49
+$368 = Examples:sqrt:main:51:0
+$369 = Examples:sqrt:main:52
+$370 = Examples:sqrt:main:55
+$371 = Examples:sqrt:sqrt:11
+$372 = Examples:sqrt:sqrt:21
+$373 = Examples:sqrt:sqrt:23
+$374 = Examples:sqrt:sqrt:35
+$375 = Examples:sqrt:sqrt:45
+$376 = Examples:sqrt:sqrt:47
+$377 = Examples:sqrt:sqrt:58
+$378 = Examples:sqrt:sqrt:81
+$379 = Examples:sqrt:sqrt:82:28
+$380 = Examples:sqrt:sqrt:82:29
+$381 = Examples:sqrt:sqrt:82:41
+$382 = Examples:sqrt:sqrt:82:55
+$383 = Examples:sqrt:sqrt:82:57:2
+$384 = Examples:sqrt:sqrt:82:58
+$385 = Examples:sqrt:sqrt:83
+$386 = Examples:sqrt:sqrt:9
+$387 = anonymous:$generated::needs
+$388 = builtinEquals
+$389 = builtinGetArgumentCount
+$390 = builtinIfElse
+$391 = builtinIntAdd
+$392 = builtinIntBitwiseAnd
+$393 = builtinIntCompareTo
+$394 = builtinIntDivideTruncating
+$395 = builtinIntMultiply
+$396 = builtinIntRemainder
+$397 = builtinIntShiftRight
+$398 = builtinIntSubtract
+$399 = builtinListGet
+$400 = builtinPrint
+$401 = builtinStructGet
+$402 = builtinStructHasKey
+$403 = builtinTagGetValue
+$404 = builtinTagHasValue
+$405 = builtinTagWithoutValue
+$406 = builtinTextConcatenate
+$407 = builtinTextGetRange
+$408 = builtinTextLength
+$409 = builtinTextStartsWith
+$410 = builtinToDebugText
+$411 = builtinTypeOf
+$412 = Base
+$413 = Equal
+$414 = Exponent
+$415 = False
+$416 = FixedDecimal
+$417 = Function
+$418 = Greater
+$419 = Int
+$420 = Less
+$421 = Main
+$422 = Match
+$423 = MinorUnits
+$424 = NoMatch
+$425 = Nothing
+$426 = Scale
+$427 = Sqrt
+$428 = Struct
+$429 = Tag
+$430 = TargetScale
+$431 = Text
+$432 = True
+$433 = ValueA
+$434 = ValueB
+$435 = 0
+$436 = 1
+$437 = 2
+$438 = 3
+$439 = 10
+$440 = 65
+$441 = 340282366920938463463374607431768211455
+$442 = "-1"
+$443 = "."
+$444 = ". You might want to call `shiftLeft` instead."
+$445 = "1"
+$446 = "A check didn't succeed."
+$447 = "Expected Equal, got "
+$448 = "Expected False, got "
+$449 = "Expected FixedDecimal, got "
+$450 = "Expected Greater, got "
+$451 = "Expected Less, got "
+$452 = "Expected True, got "
+$453 = "Expected `0`, got `"
+$454 = "Expected a Struct, got `"
+$455 = "Expected a Tag, got `"
+$456 = "Expected tag to have a value, but it doesn't have any."
+$457 = "Expected tag to not have a value, but it has one: `"
+$458 = "No case matched the given expression."
+$459 = "Shifts by that much are not yet supported."
+$460 = "Struct doesn't contain key `Base`: `"
+$461 = "Struct doesn't contain key `Exponent`: `"
+$462 = "Struct doesn't contain key `MinorUnits`: `"
+$463 = "Struct doesn't contain key `Scale`: `"
+$464 = "Struct doesn't contain key `TargetScale`: `"
+$465 = "Struct doesn't contain key `ValueA`: `"
+$466 = "Struct doesn't contain key `ValueB`: `"
+$467 = "The `body` should take the recursive function and the argument."
+$468 = "The `condition` must be either `True` or `False`."
+$469 = "The `reason` must be a text."
+$470 = "The root of 2 is "
+$471 = "The shift `amount` is negative: "
+$472 = "You can't divide by zero."
+$473 = "`."
+$474 = "`False` was not satisfied"
+$475 = "`a | typeIs Int` was not satisfied"
+$476 = "`amount | typeIs Int` was not satisfied"
+$477 = "`b | typeIs Int` was not satisfied"
+$478 = "`b` didn't return a bool."
+$479 = "`bool.is condition` was not satisfied"
+$480 = "`conditionIsBool` was not satisfied"
+$481 = "`dividend | typeIs Int` was not satisfied"
+$482 = "`divisor | typeIs Int` was not satisfied"
+$483 = "`else | getArgumentCount | equals 0` was not satisfied"
+$484 = "`else | typeIs Function` was not satisfied"
+$485 = "`endExclusive | isLessThanOrEqualTo (text | ✨.textLength)` was not satisfied"
+$486 = "`endExclusive | isNonNegative` was not satisfied"
+$487 = "`endExclusive | typeIs Int` was not satisfied"
+$488 = "`factorA | typeIs Int` was not satisfied"
+$489 = "`factorB | typeIs Int` was not satisfied"
+$490 = "`fixedDecimal.is x` was not satisfied"
+$491 = "`fixedDecimal.isNonNegative x` was not satisfied"
+$492 = "`function | typeIs Function` was not satisfied"
+$493 = "`function | ✨.getArgumentCount | equals 0` was not satisfied"
+$494 = "`function.is0 b` was not satisfied"
+$495 = "`int | typeIs Int` was not satisfied"
+$496 = "`int.is minorUnits` was not satisfied"
+$497 = "`int.is precision` was not satisfied"
+$498 = "`int.isNonNegative precision` was not satisfied"
+$499 = "`is a` was not satisfied"
+$500 = "`is b` was not satisfied"
+$501 = "`is base` was not satisfied"
+$502 = "`is delta` was not satisfied"
+$503 = "`is dividend` was not satisfied"
+$504 = "`is divisor` was not satisfied"
+$505 = "`is exponent` was not satisfied"
+$506 = "`is minuend` was not satisfied"
+$507 = "`is prefix` was not satisfied"
+$508 = "`is subtrahend` was not satisfied"
+$509 = "`is summandA` was not satisfied"
+$510 = "`is summandB` was not satisfied"
+$511 = "`is text` was not satisfied"
+$512 = "`is valueA` was not satisfied"
+$513 = "`is valueB` was not satisfied"
+$514 = "`is value` was not satisfied"
+$515 = "`is0 body` was not satisfied"
+$516 = "`isNonNegative delta` was not satisfied"
+$517 = "`isNonNegative exponent` was not satisfied"
+$518 = "`isScale scale` was not satisfied"
+$519 = "`isScale targetScale` was not satisfied"
+$520 = "`minuend | typeIs Int` was not satisfied"
+$521 = "`prefix | typeIs Text` was not satisfied"
+$522 = "`startInclusive | isLessThanOrEqualTo (text | ✨.textLength)` was not satisfied"
+$523 = "`startInclusive | isLessThanOrEqualTo endExclusive` was not satisfied"
+$524 = "`startInclusive | isNonNegative` was not satisfied"
+$525 = "`startInclusive | typeIs Int` was not satisfied"
+$526 = "`struct | typeIs Struct` was not satisfied"
+$527 = "`struct | ✨.structHasKey key` was not satisfied"
+$528 = "`subtrahend | typeIs Int` was not satisfied"
+$529 = "`tag | typeIs Tag` was not satisfied"
+$530 = "`tag | ✨.tagHasValue` was not satisfied"
+$531 = "`text | typeIs Text` was not satisfied"
+$532 = "`then | getArgumentCount | equals 0` was not satisfied"
+$533 = "`then | typeIs Function` was not satisfied"
+$534 = "`value | isNonNegative` was not satisfied"
+$535 = "`value | typeIs Int` was not satisfied"
+# Builtins::ifElse:1:case-0:matched, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched, Core:bool:is:1:case-0:matched, Core:bool:lazyOr:18:case-0:matched, Core:bool:not:6:case-1:matched, anonymous:$generated::needs:isConditionTrue:then
+$536 = { (responsible $537) ->
+  $538 = $432
+}
+# Core::19:isMatch:then, Core::30:isMatch:then, Core::41:isMatch:then, Core::102:isMatch:then, Core::153:isMatch:then, Core::164:isMatch:then, Core:bool:9:isMatch:then, Core:check:19:isMatch:then, Core:controlFlow:if:27, Core:controlFlow:29:isMatch:then, Core:controlFlow:50:isMatch:then, Core:fixedDecimal:add:14:isMatch:then, Core:fixedDecimal:compareTo:14:isMatch:then, Core:fixedDecimal:divideTruncating:37:isMatch:then, Core:fixedDecimal:divideTruncatingAtScale:42:isMatch:then, Core:fixedDecimal:subtract:14:isMatch:then, Core:fixedDecimal:19:isMatch:then, Core:fixedDecimal:30:isMatch:then, Core:fixedDecimal:41:isMatch:then, Core:fixedDecimal:52:isMatch:then, Core:fixedDecimal:103:isMatch:then, Core:function:19:isMatch:then, Core:int:pow:21:1:isMatch:then, Core:int:29:isMatch:then, Core:int:40:isMatch:then, Core:int:51:isMatch:then, Core:iterable:fromList:18:1:isMatch:then, Core:iterable:generateWithState:14:0:11:1:isMatch:then, Core:iterable:map:19:11:1:isMatch:then, Core:iterable:reduceLeft:38:1:isMatch:then, Core:iterable:take:33:1:isMatch:then, Core:iterable:takeWhile:2:11:1:isMatch:then, Core:iterable:withIndex:11:1:isMatch:then, Core:iterable:withIndex:11:14:1:isMatch:then, Core:iterable:19:isMatch:then, Core:iterable:30:isMatch:then, Core:iterable:82:11:1:isMatch:then, Core:iterable:84:2:11:1:isMatch:then, Core:iterable:86:6:21, Core:list:generate:59:1:isMatch:then, Core:list:29:isMatch:then, Core:list:40:isMatch:then, Core:result:19:isMatch:then, Core:result:30:isMatch:then, Core:struct:19:isMatch:then, Core:tag:29:isMatch:then, Core:text:29:isMatch:then, Core:text:40:isMatch:then, Core:type:19:isMatch:then, Examples:sqrt:19:isMatch:then, anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+$539 = { (responsible $540) ->
+  $541 = $425
+}
+# anonymous:$generated::needs
+$542 = { $543 $544 $545 (+ responsible $546) ->
+  $547 = call $388 with $543 $432 ($387 is responsible)
+  # anonymous:$generated::needs:isConditionTrue:else
+  $548 = { (responsible $549) ->
+    $550 = call $388 with $543 $415 ($387 is responsible)
+  }
+  $551 = call $390 with $547 $536 $548 ($387 is responsible)
+  # anonymous:$generated::needs:isConditionBool:else
+  $552 = { (responsible $553) ->
+    $554 = panicking because $468 ($546 is at fault)
+  }
+  $555 = call $390 with $551 $539 $552 ($387 is responsible)
+  $556 = call $411 with $544 ($546 is responsible)
+  $557 = call $388 with $556 $431 ($546 is responsible)
+  # anonymous:$generated::needs:isReasonText:else
+  $558 = { (responsible $559) ->
+    $560 = panicking because $469 ($546 is at fault)
+  }
+  $561 = call $390 with $557 $539 $558 ($387 is responsible)
+  # anonymous:$generated::needs:condition:else
+  $562 = { (responsible $563) ->
+    $564 = panicking because $544 ($545 is at fault)
+  }
+  $565 = call $390 with $543 $539 $562 ($387 is responsible)
+}
+$566 = ($422,)
+# Builtins::ifElse:1:equals:then, Builtins::isLessThanOrEqualTo:19:equals:then, Builtins::isNonNegative:13:equals:then, Builtins::not:1:equals:then, Core:bool:is:1:equals:then, Core:bool:lazyAnd:18:equals:then, Core:bool:lazyOr:18:equals:then, Core:bool:not:6:equals:then, Core:int:pow:21:4:equals:then, Core:list:first:6:equals:then, Core:list:single:6:equals:then
+$567 = { (responsible $568) ->
+  $569 = $566
+}
+# Builtins::isLessThanOrEqualTo:19:case-1:matched, Builtins::isNonNegative:13:case-1:matched, Builtins::not:1:case-0:matched, Core:bool:lazyAnd:18:case-1:matched, Core:bool:not:6:case-0:matched, Core:function:is0:12, Core:function:is1:12, Core:function:is2:12, Core:function:is3:12, Core:function:is4:12, Core:function:is5:12, Core:list:isValidIndex:21, Core:list:isValidInsertIndex:21, anonymous:$generated::needs:isConditionTrue:else
+$570 = { (responsible $571) ->
+  $572 = $415
+}
+# Builtins::not
+$573 = { $574 (+ responsible $575) ->
+  $576 = call $411 with $574 ($65 is responsible)
+  $577 = call $388 with $429 $576 ($65 is responsible)
+  # Builtins::not:1:equals:then
+  $578 = { (responsible $579) ->
+    $580 = call $405 with $574 ($65 is responsible)
+    $581 = call $388 with $432 $580 ($65 is responsible)
+    # Builtins::not:1:equals:then
+    $582 = { (responsible $583) ->
+      $584 = call $404 with $574 ($65 is responsible)
+      $585 = call $388 with $415 $584 ($65 is responsible)
+      # Builtins::not:1:equals:else
+      $586 = { (responsible $587) ->
+        $588 = call $410 with $584 ($65 is responsible)
+        $589 = call $403 with $574 ($65 is responsible)
+        $590 = call $410 with $589 ($65 is responsible)
+        $591 = call $406 with $457 $590 ($65 is responsible)
+        $592 = call $406 with $591 $473 ($65 is responsible)
+        $593 = ($424, $592)
+      }
+      $594 = call $390 with $585 $567 $586 ($65 is responsible)
+    }
+    # Builtins::not:1:equals:else
+    $595 = { (responsible $596) ->
+      $597 = call $410 with $580 ($65 is responsible)
+      $598 = call $406 with $452 $597 ($65 is responsible)
+      $599 = call $406 with $598 $443 ($65 is responsible)
+      $600 = ($424, $599)
+    }
+    $601 = call $390 with $581 $582 $595 ($65 is responsible)
+  }
+  # Builtins::not:1:equals:else
+  $602 = { (responsible $603) ->
+    $604 = call $410 with $576 ($65 is responsible)
+    $605 = call $406 with $455 $604 ($65 is responsible)
+    $606 = call $406 with $605 $473 ($65 is responsible)
+    $607 = ($424, $606)
+  }
+  $608 = call $390 with $577 $578 $602 ($65 is responsible)
+  $609 = call $399 with $608 $435 ($65 is responsible)
+  $610 = call $388 with $609 $422 ($65 is responsible)
+  # Builtins::not:1:case-0:didNotMatch
+  $611 = { (responsible $612) ->
+    $613 = call $399 with $608 $436 ($65 is responsible)
+    $614 = call $411 with $574 ($65 is responsible)
+    $615 = call $388 with $429 $614 ($65 is responsible)
+    # Builtins::not:1:equals:then
+    $616 = { (responsible $617) ->
+      $618 = call $405 with $574 ($65 is responsible)
+      $619 = call $388 with $415 $618 ($65 is responsible)
+      # Builtins::not:1:equals:then
+      $620 = { (responsible $621) ->
+        $622 = call $404 with $574 ($65 is responsible)
+        $623 = call $388 with $415 $622 ($65 is responsible)
+        # Builtins::not:1:equals:else
+        $624 = { (responsible $625) ->
+          $626 = call $410 with $622 ($65 is responsible)
+          $627 = call $403 with $574 ($65 is responsible)
+          $628 = call $410 with $627 ($65 is responsible)
+          $629 = call $406 with $457 $628 ($65 is responsible)
+          $630 = call $406 with $629 $473 ($65 is responsible)
+          $631 = ($424, $630)
+        }
+        $632 = call $390 with $623 $567 $624 ($65 is responsible)
+      }
+      # Builtins::not:1:equals:else
+      $633 = { (responsible $634) ->
+        $635 = call $410 with $618 ($65 is responsible)
+        $636 = call $406 with $448 $635 ($65 is responsible)
+        $637 = call $406 with $636 $443 ($65 is responsible)
+        $638 = ($424, $637)
+      }
+      $639 = call $390 with $619 $620 $633 ($65 is responsible)
+    }
+    # Builtins::not:1:equals:else
+    $640 = { (responsible $641) ->
+      $642 = call $410 with $614 ($65 is responsible)
+      $643 = call $406 with $455 $642 ($65 is responsible)
+      $644 = call $406 with $643 $473 ($65 is responsible)
+      $645 = ($424, $644)
+    }
+    $646 = call $390 with $615 $616 $640 ($65 is responsible)
+    $647 = call $399 with $646 $435 ($65 is responsible)
+    $648 = call $388 with $647 $422 ($65 is responsible)
+    # Builtins::not:1:case-1:didNotMatch
+    $649 = { (responsible $650) ->
+      $651 = call $399 with $646 $436 ($65 is responsible)
+      $652 = panicking because $474 ($575 is at fault)
+    }
+    $653 = call $390 with $648 $536 $649 ($65 is responsible)
+  }
+  $654 = call $390 with $610 $570 $611 ($65 is responsible)
+}
+# Builtins::isNonNegative
+$655 = { $656 (+ responsible $657) ->
+  $658 = call $411 with $656 ($97 is responsible)
+  $659 = call $388 with $658 $419 ($98 is responsible)
+  $660 = call $542 with $659 $495 $657 ($64 is responsible)
+  $661 = call $393 with $656 $435 ($62 is responsible)
+  # Builtins::isNonNegative:13:equals:then
+  $662 = { (responsible $663) ->
+    $664 = call $405 with $661 ($63 is responsible)
+    $665 = call $388 with $418 $664 ($63 is responsible)
+    # Builtins::isNonNegative:13:equals:then
+    $666 = { (responsible $667) ->
+      $668 = call $404 with $661 ($63 is responsible)
+      $669 = call $388 with $415 $668 ($63 is responsible)
+      # Builtins::isNonNegative:13:equals:else
+      $670 = { (responsible $671) ->
+        $672 = call $410 with $668 ($63 is responsible)
+        $673 = call $403 with $661 ($63 is responsible)
+        $674 = call $410 with $673 ($63 is responsible)
+        $675 = call $406 with $457 $674 ($63 is responsible)
+        $676 = call $406 with $675 $473 ($63 is responsible)
+        $677 = ($424, $676)
+      }
+      $678 = call $390 with $669 $567 $670 ($63 is responsible)
+    }
+    # Builtins::isNonNegative:13:equals:else
+    $679 = { (responsible $680) ->
+      $681 = call $410 with $664 ($63 is responsible)
+      $682 = call $406 with $450 $681 ($63 is responsible)
+      $683 = call $406 with $682 $443 ($63 is responsible)
+      $684 = ($424, $683)
+    }
+    $685 = call $390 with $665 $666 $679 ($63 is responsible)
+  }
+  $686 = call $662 with no arguments ($63 is responsible)
+  $687 = call $399 with $686 $435 ($63 is responsible)
+  $688 = call $388 with $687 $422 ($63 is responsible)
+  # Builtins::isNonNegative:13:isMatch:then
+  $689 = { (responsible $690) ->
+    $691 = $686
+  }
+  # Builtins::isNonNegative:13:isMatch:else
+  $692 = { (responsible $693) ->
+    # Builtins::isNonNegative:13:equals:then
+    $694 = { (responsible $695) ->
+      $696 = call $405 with $661 ($63 is responsible)
+      $697 = call $388 with $413 $696 ($63 is responsible)
+      # Builtins::isNonNegative:13:equals:then
+      $698 = { (responsible $699) ->
+        $700 = call $404 with $661 ($63 is responsible)
+        $701 = call $388 with $415 $700 ($63 is responsible)
+        # Builtins::isNonNegative:13:equals:else
+        $702 = { (responsible $703) ->
+          $704 = call $410 with $700 ($63 is responsible)
+          $705 = call $403 with $661 ($63 is responsible)
+          $706 = call $410 with $705 ($63 is responsible)
+          $707 = call $406 with $457 $706 ($63 is responsible)
+          $708 = call $406 with $707 $473 ($63 is responsible)
+          $709 = ($424, $708)
+        }
+        $710 = call $390 with $701 $567 $702 ($63 is responsible)
+      }
+      # Builtins::isNonNegative:13:equals:else
+      $711 = { (responsible $712) ->
+        $713 = call $410 with $696 ($63 is responsible)
+        $714 = call $406 with $447 $713 ($63 is responsible)
+        $715 = call $406 with $714 $443 ($63 is responsible)
+        $716 = ($424, $715)
+      }
+      $717 = call $390 with $697 $698 $711 ($63 is responsible)
+    }
+    $718 = call $694 with no arguments ($63 is responsible)
+  }
+  $719 = call $390 with $688 $689 $692 ($63 is responsible)
+  $720 = call $399 with $719 $435 ($63 is responsible)
+  $721 = call $388 with $720 $422 ($63 is responsible)
+  # Builtins::isNonNegative:13:case-0:didNotMatch
+  $722 = { (responsible $723) ->
+    $724 = call $399 with $719 $436 ($63 is responsible)
+    # Builtins::isNonNegative:13:equals:then
+    $725 = { (responsible $726) ->
+      $727 = call $405 with $661 ($63 is responsible)
+      $728 = call $388 with $420 $727 ($63 is responsible)
+      # Builtins::isNonNegative:13:equals:then
+      $729 = { (responsible $730) ->
+        $731 = call $404 with $661 ($63 is responsible)
+        $732 = call $388 with $415 $731 ($63 is responsible)
+        # Builtins::isNonNegative:13:equals:else
+        $733 = { (responsible $734) ->
+          $735 = call $410 with $731 ($63 is responsible)
+          $736 = call $403 with $661 ($63 is responsible)
+          $737 = call $410 with $736 ($63 is responsible)
+          $738 = call $406 with $457 $737 ($63 is responsible)
+          $739 = call $406 with $738 $473 ($63 is responsible)
+          $740 = ($424, $739)
+        }
+        $741 = call $390 with $732 $567 $733 ($63 is responsible)
+      }
+      # Builtins::isNonNegative:13:equals:else
+      $742 = { (responsible $743) ->
+        $744 = call $410 with $727 ($63 is responsible)
+        $745 = call $406 with $451 $744 ($63 is responsible)
+        $746 = call $406 with $745 $443 ($63 is responsible)
+        $747 = ($424, $746)
+      }
+      $748 = call $390 with $728 $729 $742 ($63 is responsible)
+    }
+    $749 = call $725 with no arguments ($63 is responsible)
+    $750 = call $399 with $749 $435 ($63 is responsible)
+    $751 = call $388 with $750 $422 ($63 is responsible)
+    # Builtins::isNonNegative:13:case-1:didNotMatch
+    $752 = { (responsible $753) ->
+      $754 = call $399 with $749 $436 ($63 is responsible)
+      $755 = panicking because $458 ($63 is at fault)
+    }
+    $756 = call $390 with $751 $570 $752 ($63 is responsible)
+  }
+  $757 = call $390 with $721 $536 $722 ($63 is responsible)
+}
+# Builtins::isLessThanOrEqualTo
+$758 = { $759 $760 (+ responsible $761) ->
+  $762 = call $411 with $759 ($97 is responsible)
+  $763 = call $388 with $762 $419 ($98 is responsible)
+  $764 = call $542 with $763 $475 $761 ($61 is responsible)
+  $765 = call $411 with $760 ($97 is responsible)
+  $766 = call $388 with $765 $419 ($98 is responsible)
+  $767 = call $542 with $766 $477 $761 ($58 is responsible)
+  $768 = call $393 with $759 $760 ($59 is responsible)
+  # Builtins::isLessThanOrEqualTo:19:equals:then
+  $769 = { (responsible $770) ->
+    $771 = call $405 with $768 ($60 is responsible)
+    $772 = call $388 with $420 $771 ($60 is responsible)
+    # Builtins::isLessThanOrEqualTo:19:equals:then
+    $773 = { (responsible $774) ->
+      $775 = call $404 with $768 ($60 is responsible)
+      $776 = call $388 with $415 $775 ($60 is responsible)
+      # Builtins::isLessThanOrEqualTo:19:equals:else
+      $777 = { (responsible $778) ->
+        $779 = call $410 with $775 ($60 is responsible)
+        $780 = call $403 with $768 ($60 is responsible)
+        $781 = call $410 with $780 ($60 is responsible)
+        $782 = call $406 with $457 $781 ($60 is responsible)
+        $783 = call $406 with $782 $473 ($60 is responsible)
+        $784 = ($424, $783)
+      }
+      $785 = call $390 with $776 $567 $777 ($60 is responsible)
+    }
+    # Builtins::isLessThanOrEqualTo:19:equals:else
+    $786 = { (responsible $787) ->
+      $788 = call $410 with $771 ($60 is responsible)
+      $789 = call $406 with $451 $788 ($60 is responsible)
+      $790 = call $406 with $789 $443 ($60 is responsible)
+      $791 = ($424, $790)
+    }
+    $792 = call $390 with $772 $773 $786 ($60 is responsible)
+  }
+  $793 = call $769 with no arguments ($60 is responsible)
+  $794 = call $399 with $793 $435 ($60 is responsible)
+  $795 = call $388 with $794 $422 ($60 is responsible)
+  # Builtins::isLessThanOrEqualTo:19:isMatch:then
+  $796 = { (responsible $797) ->
+    $798 = $793
+  }
+  # Builtins::isLessThanOrEqualTo:19:isMatch:else
+  $799 = { (responsible $800) ->
+    # Builtins::isLessThanOrEqualTo:19:equals:then
+    $801 = { (responsible $802) ->
+      $803 = call $405 with $768 ($60 is responsible)
+      $804 = call $388 with $413 $803 ($60 is responsible)
+      # Builtins::isLessThanOrEqualTo:19:equals:then
+      $805 = { (responsible $806) ->
+        $807 = call $404 with $768 ($60 is responsible)
+        $808 = call $388 with $415 $807 ($60 is responsible)
+        # Builtins::isLessThanOrEqualTo:19:equals:else
+        $809 = { (responsible $810) ->
+          $811 = call $410 with $807 ($60 is responsible)
+          $812 = call $403 with $768 ($60 is responsible)
+          $813 = call $410 with $812 ($60 is responsible)
+          $814 = call $406 with $457 $813 ($60 is responsible)
+          $815 = call $406 with $814 $473 ($60 is responsible)
+          $816 = ($424, $815)
+        }
+        $817 = call $390 with $808 $567 $809 ($60 is responsible)
+      }
+      # Builtins::isLessThanOrEqualTo:19:equals:else
+      $818 = { (responsible $819) ->
+        $820 = call $410 with $803 ($60 is responsible)
+        $821 = call $406 with $447 $820 ($60 is responsible)
+        $822 = call $406 with $821 $443 ($60 is responsible)
+        $823 = ($424, $822)
+      }
+      $824 = call $390 with $804 $805 $818 ($60 is responsible)
+    }
+    $825 = call $801 with no arguments ($60 is responsible)
+  }
+  $826 = call $390 with $795 $796 $799 ($60 is responsible)
+  $827 = call $399 with $826 $435 ($60 is responsible)
+  $828 = call $388 with $827 $422 ($60 is responsible)
+  # Builtins::isLessThanOrEqualTo:19:case-0:didNotMatch
+  $829 = { (responsible $830) ->
+    $831 = call $399 with $826 $436 ($60 is responsible)
+    # Builtins::isLessThanOrEqualTo:19:equals:then
+    $832 = { (responsible $833) ->
+      $834 = call $405 with $768 ($60 is responsible)
+      $835 = call $388 with $418 $834 ($60 is responsible)
+      # Builtins::isLessThanOrEqualTo:19:equals:then
+      $836 = { (responsible $837) ->
+        $838 = call $404 with $768 ($60 is responsible)
+        $839 = call $388 with $415 $838 ($60 is responsible)
+        # Builtins::isLessThanOrEqualTo:19:equals:else
+        $840 = { (responsible $841) ->
+          $842 = call $410 with $838 ($60 is responsible)
+          $843 = call $403 with $768 ($60 is responsible)
+          $844 = call $410 with $843 ($60 is responsible)
+          $845 = call $406 with $457 $844 ($60 is responsible)
+          $846 = call $406 with $845 $473 ($60 is responsible)
+          $847 = ($424, $846)
+        }
+        $848 = call $390 with $839 $567 $840 ($60 is responsible)
+      }
+      # Builtins::isLessThanOrEqualTo:19:equals:else
+      $849 = { (responsible $850) ->
+        $851 = call $410 with $834 ($60 is responsible)
+        $852 = call $406 with $450 $851 ($60 is responsible)
+        $853 = call $406 with $852 $443 ($60 is responsible)
+        $854 = ($424, $853)
+      }
+      $855 = call $390 with $835 $836 $849 ($60 is responsible)
+    }
+    $856 = call $832 with no arguments ($60 is responsible)
+    $857 = call $399 with $856 $435 ($60 is responsible)
+    $858 = call $388 with $857 $422 ($60 is responsible)
+    # Builtins::isLessThanOrEqualTo:19:case-1:didNotMatch
+    $859 = { (responsible $860) ->
+      $861 = call $399 with $856 $436 ($60 is responsible)
+      $862 = panicking because $458 ($60 is at fault)
+    }
+    $863 = call $390 with $858 $570 $859 ($60 is responsible)
+  }
+  $864 = call $390 with $828 $536 $829 ($60 is responsible)
+}
+# Builtins::ifElse
+$865 = { $866 $867 $868 (+ responsible $869) ->
+  $870 = call $411 with $866 ($12 is responsible)
+  $871 = call $388 with $429 $870 ($12 is responsible)
+  # Builtins::ifElse:1:equals:then
+  $872 = { (responsible $873) ->
+    $874 = call $405 with $866 ($12 is responsible)
+    $875 = call $388 with $432 $874 ($12 is responsible)
+    # Builtins::ifElse:1:equals:then
+    $876 = { (responsible $877) ->
+      $878 = call $404 with $866 ($12 is responsible)
+      $879 = call $388 with $415 $878 ($12 is responsible)
+      # Builtins::ifElse:1:equals:else
+      $880 = { (responsible $881) ->
+        $882 = call $410 with $878 ($12 is responsible)
+        $883 = call $403 with $866 ($12 is responsible)
+        $884 = call $410 with $883 ($12 is responsible)
+        $885 = call $406 with $457 $884 ($12 is responsible)
+        $886 = call $406 with $885 $473 ($12 is responsible)
+        $887 = ($424, $886)
+      }
+      $888 = call $390 with $879 $567 $880 ($12 is responsible)
+    }
+    # Builtins::ifElse:1:equals:else
+    $889 = { (responsible $890) ->
+      $891 = call $410 with $874 ($12 is responsible)
+      $892 = call $406 with $452 $891 ($12 is responsible)
+      $893 = call $406 with $892 $443 ($12 is responsible)
+      $894 = ($424, $893)
+    }
+    $895 = call $390 with $875 $876 $889 ($12 is responsible)
+  }
+  # Builtins::ifElse:1:equals:else
+  $896 = { (responsible $897) ->
+    $898 = call $410 with $870 ($12 is responsible)
+    $899 = call $406 with $455 $898 ($12 is responsible)
+    $900 = call $406 with $899 $473 ($12 is responsible)
+    $901 = ($424, $900)
+  }
+  $902 = call $390 with $871 $872 $896 ($12 is responsible)
+  $903 = call $399 with $902 $435 ($12 is responsible)
+  $904 = call $388 with $903 $422 ($12 is responsible)
+  # Builtins::ifElse:1:isMatch:then
+  $905 = { (responsible $906) ->
+    $907 = $902
+  }
+  # Builtins::ifElse:1:isMatch:else
+  $908 = { (responsible $909) ->
+    $910 = call $411 with $866 ($12 is responsible)
+    $911 = call $388 with $429 $910 ($12 is responsible)
+    # Builtins::ifElse:1:equals:then
+    $912 = { (responsible $913) ->
+      $914 = call $405 with $866 ($12 is responsible)
+      $915 = call $388 with $415 $914 ($12 is responsible)
+      # Builtins::ifElse:1:equals:then
+      $916 = { (responsible $917) ->
+        $918 = call $404 with $866 ($12 is responsible)
+        $919 = call $388 with $415 $918 ($12 is responsible)
+        # Builtins::ifElse:1:equals:else
+        $920 = { (responsible $921) ->
+          $922 = call $410 with $918 ($12 is responsible)
+          $923 = call $403 with $866 ($12 is responsible)
+          $924 = call $410 with $923 ($12 is responsible)
+          $925 = call $406 with $457 $924 ($12 is responsible)
+          $926 = call $406 with $925 $473 ($12 is responsible)
+          $927 = ($424, $926)
+        }
+        $928 = call $390 with $919 $567 $920 ($12 is responsible)
+      }
+      # Builtins::ifElse:1:equals:else
+      $929 = { (responsible $930) ->
+        $931 = call $410 with $914 ($12 is responsible)
+        $932 = call $406 with $448 $931 ($12 is responsible)
+        $933 = call $406 with $932 $443 ($12 is responsible)
+        $934 = ($424, $933)
+      }
+      $935 = call $390 with $915 $916 $929 ($12 is responsible)
+    }
+    # Builtins::ifElse:1:equals:else
+    $936 = { (responsible $937) ->
+      $938 = call $410 with $910 ($12 is responsible)
+      $939 = call $406 with $455 $938 ($12 is responsible)
+      $940 = call $406 with $939 $473 ($12 is responsible)
+      $941 = ($424, $940)
+    }
+    $942 = call $390 with $911 $912 $936 ($12 is responsible)
+  }
+  $943 = call $390 with $904 $905 $908 ($12 is responsible)
+  $944 = call $399 with $943 $435 ($12 is responsible)
+  $945 = call $388 with $944 $422 ($12 is responsible)
+  # Builtins::ifElse:1:case-0:didNotMatch
+  $946 = { (responsible $947) ->
+    $948 = call $399 with $943 $436 ($12 is responsible)
+    $949 = $415
+  }
+  $950 = call $390 with $945 $536 $946 ($12 is responsible)
+  $951 = call $542 with $950 $480 $869 ($20 is responsible)
+  $952 = call $411 with $867 ($97 is responsible)
+  $953 = call $388 with $952 $417 ($98 is responsible)
+  $954 = call $542 with $953 $533 $869 ($13 is responsible)
+  $955 = call $411 with $867 ($97 is responsible)
+  $956 = call $388 with $955 $417 ($98 is responsible)
+  $957 = call $542 with $956 $492 $14 ($11 is responsible)
+  $958 = call $389 with $867 ($10 is responsible)
+  $959 = call $388 with $958 $435 ($1 is responsible)
+  $960 = call $542 with $959 $532 $869 ($15 is responsible)
+  $961 = call $411 with $868 ($97 is responsible)
+  $962 = call $388 with $961 $417 ($98 is responsible)
+  $963 = call $542 with $962 $484 $869 ($16 is responsible)
+  $964 = call $411 with $868 ($97 is responsible)
+  $965 = call $388 with $964 $417 ($98 is responsible)
+  $966 = call $542 with $965 $492 $17 ($11 is responsible)
+  $967 = call $389 with $868 ($10 is responsible)
+  $968 = call $388 with $967 $435 ($1 is responsible)
+  $969 = call $542 with $968 $483 $869 ($18 is responsible)
+  $970 = call $390 with $866 $867 $868 ($19 is responsible)
+}
+# Builtins::intDivideTruncating
+$971 = { $972 $973 (+ responsible $974) ->
+  $975 = call $411 with $972 ($97 is responsible)
+  $976 = call $388 with $975 $419 ($98 is responsible)
+  $977 = call $542 with $976 $481 $974 ($33 is responsible)
+  $978 = call $411 with $973 ($97 is responsible)
+  $979 = call $388 with $978 $419 ($98 is responsible)
+  $980 = call $542 with $979 $482 $974 ($29 is responsible)
+  $981 = call $388 with $973 $435 ($1 is responsible)
+  $982 = call $573 with $981 ($30 is responsible)
+  $983 = call $542 with $982 $472 $974 ($31 is responsible)
+  $984 = call $394 with $972 $973 ($32 is responsible)
+}
+# Builtins::intRemainder
+$985 = { $986 $987 (+ responsible $988) ->
+  $989 = call $411 with $986 ($97 is responsible)
+  $990 = call $388 with $989 $419 ($98 is responsible)
+  $991 = call $542 with $990 $481 $988 ($41 is responsible)
+  $992 = call $411 with $987 ($97 is responsible)
+  $993 = call $388 with $992 $419 ($98 is responsible)
+  $994 = call $542 with $993 $482 $988 ($37 is responsible)
+  $995 = call $388 with $987 $435 ($1 is responsible)
+  $996 = call $573 with $995 ($38 is responsible)
+  $997 = call $542 with $996 $472 $988 ($39 is responsible)
+  $998 = call $396 with $986 $987 ($40 is responsible)
+}
+# Builtins::intShiftRight
+$999 = { $1000 $1001 (+ responsible $1002) ->
+  $1003 = call $411 with $1000 ($97 is responsible)
+  $1004 = call $388 with $1003 $419 ($98 is responsible)
+  $1005 = call $542 with $1004 $535 $1002 ($54 is responsible)
+  $1006 = call $411 with $1001 ($97 is responsible)
+  $1007 = call $388 with $1006 $419 ($98 is responsible)
+  $1008 = call $542 with $1007 $476 $1002 ($42 is responsible)
+  $1009 = call $655 with $1001 ($43 is responsible)
+  $1010 = call $411 with $1001 ($44 is responsible)
+  $1011 = call $388 with $1010 $431 ($45 is responsible)
+  # Builtins::intShiftRight:25
+  $1012 = { (responsible $1013) ->
+    $1014 = $1001
+  }
+  # Builtins::intShiftRight:26
+  $1015 = { (responsible $1016) ->
+    $1017 = call $410 with $1001 ($46 is responsible)
+  }
+  $1018 = call $390 with $1011 $1012 $1015 ($47 is responsible)
+  $1019 = call $406 with $471 $1018 ($48 is responsible)
+  $1020 = call $406 with $1019 $444 ($49 is responsible)
+  $1021 = call $542 with $1009 $1020 $1002 ($50 is responsible)
+  $1022 = call $411 with $1001 ($97 is responsible)
+  $1023 = call $388 with $1022 $419 ($98 is responsible)
+  $1024 = call $542 with $1023 $535 $51 ($4 is responsible)
+  $1025 = call $655 with $1001 ($5 is responsible)
+  $1026 = call $542 with $1025 $534 $51 ($2 is responsible)
+  $1027 = call $758 with $1001 $441 ($3 is responsible)
+  $1028 = call $542 with $1027 $459 $1002 ($52 is responsible)
+  $1029 = call $397 with $1000 $1001 ($53 is responsible)
+}
+# Builtins::textGetRange
+$1030 = { $1031 $1032 $1033 (+ responsible $1034) ->
+  $1035 = call $411 with $1031 ($97 is responsible)
+  $1036 = call $388 with $1035 $431 ($98 is responsible)
+  $1037 = call $542 with $1036 $531 $1034 ($87 is responsible)
+  $1038 = call $411 with $1032 ($97 is responsible)
+  $1039 = call $388 with $1038 $419 ($98 is responsible)
+  $1040 = call $542 with $1039 $525 $1034 ($75 is responsible)
+  $1041 = call $655 with $1032 ($76 is responsible)
+  $1042 = call $542 with $1041 $524 $1034 ($77 is responsible)
+  $1043 = call $408 with $1031 ($78 is responsible)
+  $1044 = call $758 with $1032 $1043 ($79 is responsible)
+  $1045 = call $542 with $1044 $522 $1034 ($80 is responsible)
+  $1046 = call $411 with $1033 ($97 is responsible)
+  $1047 = call $388 with $1046 $419 ($98 is responsible)
+  $1048 = call $542 with $1047 $487 $1034 ($81 is responsible)
+  $1049 = call $655 with $1033 ($82 is responsible)
+  $1050 = call $542 with $1049 $486 $1034 ($83 is responsible)
+  $1051 = call $408 with $1031 ($84 is responsible)
+  $1052 = call $758 with $1033 $1051 ($85 is responsible)
+  $1053 = call $542 with $1052 $485 $1034 ($86 is responsible)
+  $1054 = call $758 with $1032 $1033 ($88 is responsible)
+  $1055 = call $542 with $1054 $523 $1034 ($89 is responsible)
+  $1056 = call $407 with $1031 $1032 $1033 ($90 is responsible)
+}
+# Core:function:is0
+$1057 = { $1058 (+ responsible $1059) ->
+  $1060 = call $411 with $1058 ($99 is responsible)
+  $1061 = call $388 with $1060 $417 ($1 is responsible)
+  # Core:function:is0:11
+  $1062 = { (responsible $1063) ->
+    $1064 = call $411 with $1058 ($97 is responsible)
+    $1065 = call $388 with $1064 $417 ($98 is responsible)
+    $1066 = call $542 with $1065 $492 $303 ($11 is responsible)
+    $1067 = call $389 with $1058 ($10 is responsible)
+    $1068 = call $388 with $1067 $435 ($1 is responsible)
+  }
+  $1069 = call $865 with $1061 $1062 $570 ($304 is responsible)
+}
+# Core:function:run
+$1070 = { $1071 (+ responsible $1072) ->
+  $1073 = call $1057 with $1071 ($308 is responsible)
+  $1074 = call $542 with $1073 $515 $1072 ($309 is responsible)
+  $1075 = call $411 with $1071 ($97 is responsible)
+  $1076 = call $388 with $1075 $417 ($98 is responsible)
+  $1077 = call $542 with $1076 $492 $307 ($9 is responsible)
+  $1078 = call $389 with $1071 ($6 is responsible)
+  $1079 = call $388 with $1078 $435 ($1 is responsible)
+  $1080 = call $542 with $1079 $493 $307 ($7 is responsible)
+  $1081 = call $1071 with no arguments ($8 is responsible)
+}
+# Core:bool:is
+$1082 = { $1083 (+ responsible $1084) ->
+  $1085 = call $411 with $1083 ($106 is responsible)
+  $1086 = call $388 with $429 $1085 ($106 is responsible)
+  # Core:bool:is:1:equals:then
+  $1087 = { (responsible $1088) ->
+    $1089 = call $405 with $1083 ($106 is responsible)
+    $1090 = call $388 with $432 $1089 ($106 is responsible)
+    # Core:bool:is:1:equals:then
+    $1091 = { (responsible $1092) ->
+      $1093 = call $404 with $1083 ($106 is responsible)
+      $1094 = call $388 with $415 $1093 ($106 is responsible)
+      # Core:bool:is:1:equals:else
+      $1095 = { (responsible $1096) ->
+        $1097 = call $410 with $1093 ($106 is responsible)
+        $1098 = call $403 with $1083 ($106 is responsible)
+        $1099 = call $410 with $1098 ($106 is responsible)
+        $1100 = call $406 with $457 $1099 ($106 is responsible)
+        $1101 = call $406 with $1100 $473 ($106 is responsible)
+        $1102 = ($424, $1101)
+      }
+      $1103 = call $390 with $1094 $567 $1095 ($106 is responsible)
+    }
+    # Core:bool:is:1:equals:else
+    $1104 = { (responsible $1105) ->
+      $1106 = call $410 with $1089 ($106 is responsible)
+      $1107 = call $406 with $452 $1106 ($106 is responsible)
+      $1108 = call $406 with $1107 $443 ($106 is responsible)
+      $1109 = ($424, $1108)
+    }
+    $1110 = call $390 with $1090 $1091 $1104 ($106 is responsible)
+  }
+  # Core:bool:is:1:equals:else
+  $1111 = { (responsible $1112) ->
+    $1113 = call $410 with $1085 ($106 is responsible)
+    $1114 = call $406 with $455 $1113 ($106 is responsible)
+    $1115 = call $406 with $1114 $473 ($106 is responsible)
+    $1116 = ($424, $1115)
+  }
+  $1117 = call $390 with $1086 $1087 $1111 ($106 is responsible)
+  $1118 = call $399 with $1117 $435 ($106 is responsible)
+  $1119 = call $388 with $1118 $422 ($106 is responsible)
+  # Core:bool:is:1:isMatch:then
+  $1120 = { (responsible $1121) ->
+    $1122 = $1117
+  }
+  # Core:bool:is:1:isMatch:else
+  $1123 = { (responsible $1124) ->
+    $1125 = call $411 with $1083 ($106 is responsible)
+    $1126 = call $388 with $429 $1125 ($106 is responsible)
+    # Core:bool:is:1:equals:then
+    $1127 = { (responsible $1128) ->
+      $1129 = call $405 with $1083 ($106 is responsible)
+      $1130 = call $388 with $415 $1129 ($106 is responsible)
+      # Core:bool:is:1:equals:then
+      $1131 = { (responsible $1132) ->
+        $1133 = call $404 with $1083 ($106 is responsible)
+        $1134 = call $388 with $415 $1133 ($106 is responsible)
+        # Core:bool:is:1:equals:else
+        $1135 = { (responsible $1136) ->
+          $1137 = call $410 with $1133 ($106 is responsible)
+          $1138 = call $403 with $1083 ($106 is responsible)
+          $1139 = call $410 with $1138 ($106 is responsible)
+          $1140 = call $406 with $457 $1139 ($106 is responsible)
+          $1141 = call $406 with $1140 $473 ($106 is responsible)
+          $1142 = ($424, $1141)
+        }
+        $1143 = call $390 with $1134 $567 $1135 ($106 is responsible)
+      }
+      # Core:bool:is:1:equals:else
+      $1144 = { (responsible $1145) ->
+        $1146 = call $410 with $1129 ($106 is responsible)
+        $1147 = call $406 with $448 $1146 ($106 is responsible)
+        $1148 = call $406 with $1147 $443 ($106 is responsible)
+        $1149 = ($424, $1148)
+      }
+      $1150 = call $390 with $1130 $1131 $1144 ($106 is responsible)
+    }
+    # Core:bool:is:1:equals:else
+    $1151 = { (responsible $1152) ->
+      $1153 = call $410 with $1125 ($106 is responsible)
+      $1154 = call $406 with $455 $1153 ($106 is responsible)
+      $1155 = call $406 with $1154 $473 ($106 is responsible)
+      $1156 = ($424, $1155)
+    }
+    $1157 = call $390 with $1126 $1127 $1151 ($106 is responsible)
+  }
+  $1158 = call $390 with $1119 $1120 $1123 ($106 is responsible)
+  $1159 = call $399 with $1158 $435 ($106 is responsible)
+  $1160 = call $388 with $1159 $422 ($106 is responsible)
+  # Core:bool:is:1:case-0:didNotMatch
+  $1161 = { (responsible $1162) ->
+    $1163 = call $399 with $1158 $436 ($106 is responsible)
+    $1164 = $415
+  }
+  $1165 = call $390 with $1160 $536 $1161 ($106 is responsible)
+}
+# Core:bool:not
+$1166 = { $1167 (+ responsible $1168) ->
+  $1169 = call $1082 with $1167 ($123 is responsible)
+  $1170 = call $542 with $1169 $514 $1168 ($124 is responsible)
+  $1171 = call $411 with $1167 ($125 is responsible)
+  $1172 = call $388 with $429 $1171 ($125 is responsible)
+  # Core:bool:not:6:equals:then
+  $1173 = { (responsible $1174) ->
+    $1175 = call $405 with $1167 ($125 is responsible)
+    $1176 = call $388 with $432 $1175 ($125 is responsible)
+    # Core:bool:not:6:equals:then
+    $1177 = { (responsible $1178) ->
+      $1179 = call $404 with $1167 ($125 is responsible)
+      $1180 = call $388 with $415 $1179 ($125 is responsible)
+      # Core:bool:not:6:equals:else
+      $1181 = { (responsible $1182) ->
+        $1183 = call $410 with $1179 ($125 is responsible)
+        $1184 = call $403 with $1167 ($125 is responsible)
+        $1185 = call $410 with $1184 ($125 is responsible)
+        $1186 = call $406 with $457 $1185 ($125 is responsible)
+        $1187 = call $406 with $1186 $473 ($125 is responsible)
+        $1188 = ($424, $1187)
+      }
+      $1189 = call $390 with $1180 $567 $1181 ($125 is responsible)
+    }
+    # Core:bool:not:6:equals:else
+    $1190 = { (responsible $1191) ->
+      $1192 = call $410 with $1175 ($125 is responsible)
+      $1193 = call $406 with $452 $1192 ($125 is responsible)
+      $1194 = call $406 with $1193 $443 ($125 is responsible)
+      $1195 = ($424, $1194)
+    }
+    $1196 = call $390 with $1176 $1177 $1190 ($125 is responsible)
+  }
+  # Core:bool:not:6:equals:else
+  $1197 = { (responsible $1198) ->
+    $1199 = call $410 with $1171 ($125 is responsible)
+    $1200 = call $406 with $455 $1199 ($125 is responsible)
+    $1201 = call $406 with $1200 $473 ($125 is responsible)
+    $1202 = ($424, $1201)
+  }
+  $1203 = call $390 with $1172 $1173 $1197 ($125 is responsible)
+  $1204 = call $399 with $1203 $435 ($125 is responsible)
+  $1205 = call $388 with $1204 $422 ($125 is responsible)
+  # Core:bool:not:6:case-0:didNotMatch
+  $1206 = { (responsible $1207) ->
+    $1208 = call $399 with $1203 $436 ($125 is responsible)
+    $1209 = call $411 with $1167 ($125 is responsible)
+    $1210 = call $388 with $429 $1209 ($125 is responsible)
+    # Core:bool:not:6:equals:then
+    $1211 = { (responsible $1212) ->
+      $1213 = call $405 with $1167 ($125 is responsible)
+      $1214 = call $388 with $415 $1213 ($125 is responsible)
+      # Core:bool:not:6:equals:then
+      $1215 = { (responsible $1216) ->
+        $1217 = call $404 with $1167 ($125 is responsible)
+        $1218 = call $388 with $415 $1217 ($125 is responsible)
+        # Core:bool:not:6:equals:else
+        $1219 = { (responsible $1220) ->
+          $1221 = call $410 with $1217 ($125 is responsible)
+          $1222 = call $403 with $1167 ($125 is responsible)
+          $1223 = call $410 with $1222 ($125 is responsible)
+          $1224 = call $406 with $457 $1223 ($125 is responsible)
+          $1225 = call $406 with $1224 $473 ($125 is responsible)
+          $1226 = ($424, $1225)
+        }
+        $1227 = call $390 with $1218 $567 $1219 ($125 is responsible)
+      }
+      # Core:bool:not:6:equals:else
+      $1228 = { (responsible $1229) ->
+        $1230 = call $410 with $1213 ($125 is responsible)
+        $1231 = call $406 with $448 $1230 ($125 is responsible)
+        $1232 = call $406 with $1231 $443 ($125 is responsible)
+        $1233 = ($424, $1232)
+      }
+      $1234 = call $390 with $1214 $1215 $1228 ($125 is responsible)
+    }
+    # Core:bool:not:6:equals:else
+    $1235 = { (responsible $1236) ->
+      $1237 = call $410 with $1209 ($125 is responsible)
+      $1238 = call $406 with $455 $1237 ($125 is responsible)
+      $1239 = call $406 with $1238 $473 ($125 is responsible)
+      $1240 = ($424, $1239)
+    }
+    $1241 = call $390 with $1210 $1211 $1235 ($125 is responsible)
+    $1242 = call $399 with $1241 $435 ($125 is responsible)
+    $1243 = call $388 with $1242 $422 ($125 is responsible)
+    # Core:bool:not:6:case-1:didNotMatch
+    $1244 = { (responsible $1245) ->
+      $1246 = call $399 with $1241 $436 ($125 is responsible)
+      $1247 = panicking because $458 ($125 is at fault)
+    }
+    $1248 = call $390 with $1243 $536 $1244 ($125 is responsible)
+  }
+  $1249 = call $390 with $1205 $570 $1206 ($125 is responsible)
+}
+# Core:bool:lazyAnd
+$1250 = { $1251 $1252 (+ responsible $1253) ->
+  $1254 = call $1082 with $1251 ($113 is responsible)
+  $1255 = call $542 with $1254 $499 $1253 ($114 is responsible)
+  $1256 = call $1057 with $1252 ($107 is responsible)
+  $1257 = call $542 with $1256 $494 $1253 ($108 is responsible)
+  $1258 = call $411 with $1251 ($109 is responsible)
+  $1259 = call $388 with $429 $1258 ($109 is responsible)
+  # Core:bool:lazyAnd:18:equals:then
+  $1260 = { (responsible $1261) ->
+    $1262 = call $405 with $1251 ($109 is responsible)
+    $1263 = call $388 with $432 $1262 ($109 is responsible)
+    # Core:bool:lazyAnd:18:equals:then
+    $1264 = { (responsible $1265) ->
+      $1266 = call $404 with $1251 ($109 is responsible)
+      $1267 = call $388 with $415 $1266 ($109 is responsible)
+      # Core:bool:lazyAnd:18:equals:else
+      $1268 = { (responsible $1269) ->
+        $1270 = call $410 with $1266 ($109 is responsible)
+        $1271 = call $403 with $1251 ($109 is responsible)
+        $1272 = call $410 with $1271 ($109 is responsible)
+        $1273 = call $406 with $457 $1272 ($109 is responsible)
+        $1274 = call $406 with $1273 $473 ($109 is responsible)
+        $1275 = ($424, $1274)
+      }
+      $1276 = call $390 with $1267 $567 $1268 ($109 is responsible)
+    }
+    # Core:bool:lazyAnd:18:equals:else
+    $1277 = { (responsible $1278) ->
+      $1279 = call $410 with $1262 ($109 is responsible)
+      $1280 = call $406 with $452 $1279 ($109 is responsible)
+      $1281 = call $406 with $1280 $443 ($109 is responsible)
+      $1282 = ($424, $1281)
+    }
+    $1283 = call $390 with $1263 $1264 $1277 ($109 is responsible)
+  }
+  # Core:bool:lazyAnd:18:equals:else
+  $1284 = { (responsible $1285) ->
+    $1286 = call $410 with $1258 ($109 is responsible)
+    $1287 = call $406 with $455 $1286 ($109 is responsible)
+    $1288 = call $406 with $1287 $473 ($109 is responsible)
+    $1289 = ($424, $1288)
+  }
+  $1290 = call $390 with $1259 $1260 $1284 ($109 is responsible)
+  $1291 = call $399 with $1290 $435 ($109 is responsible)
+  $1292 = call $388 with $1291 $422 ($109 is responsible)
+  # Core:bool:lazyAnd:18:case-0:matched
+  $1293 = { (responsible $1294) ->
+    $1295 = call $1070 with $1252 ($112 is responsible)
+    $1296 = $1295
+    $1297 = call $1082 with $1295 ($110 is responsible)
+    $1298 = call $542 with $1297 $478 $1253 ($111 is responsible)
+    $1299 = $1296
+  }
+  # Core:bool:lazyAnd:18:case-0:didNotMatch
+  $1300 = { (responsible $1301) ->
+    $1302 = call $399 with $1290 $436 ($109 is responsible)
+    $1303 = call $411 with $1251 ($109 is responsible)
+    $1304 = call $388 with $429 $1303 ($109 is responsible)
+    # Core:bool:lazyAnd:18:equals:then
+    $1305 = { (responsible $1306) ->
+      $1307 = call $405 with $1251 ($109 is responsible)
+      $1308 = call $388 with $415 $1307 ($109 is responsible)
+      # Core:bool:lazyAnd:18:equals:then
+      $1309 = { (responsible $1310) ->
+        $1311 = call $404 with $1251 ($109 is responsible)
+        $1312 = call $388 with $415 $1311 ($109 is responsible)
+        # Core:bool:lazyAnd:18:equals:else
+        $1313 = { (responsible $1314) ->
+          $1315 = call $410 with $1311 ($109 is responsible)
+          $1316 = call $403 with $1251 ($109 is responsible)
+          $1317 = call $410 with $1316 ($109 is responsible)
+          $1318 = call $406 with $457 $1317 ($109 is responsible)
+          $1319 = call $406 with $1318 $473 ($109 is responsible)
+          $1320 = ($424, $1319)
+        }
+        $1321 = call $390 with $1312 $567 $1313 ($109 is responsible)
+      }
+      # Core:bool:lazyAnd:18:equals:else
+      $1322 = { (responsible $1323) ->
+        $1324 = call $410 with $1307 ($109 is responsible)
+        $1325 = call $406 with $448 $1324 ($109 is responsible)
+        $1326 = call $406 with $1325 $443 ($109 is responsible)
+        $1327 = ($424, $1326)
+      }
+      $1328 = call $390 with $1308 $1309 $1322 ($109 is responsible)
+    }
+    # Core:bool:lazyAnd:18:equals:else
+    $1329 = { (responsible $1330) ->
+      $1331 = call $410 with $1303 ($109 is responsible)
+      $1332 = call $406 with $455 $1331 ($109 is responsible)
+      $1333 = call $406 with $1332 $473 ($109 is responsible)
+      $1334 = ($424, $1333)
+    }
+    $1335 = call $390 with $1304 $1305 $1329 ($109 is responsible)
+    $1336 = call $399 with $1335 $435 ($109 is responsible)
+    $1337 = call $388 with $1336 $422 ($109 is responsible)
+    # Core:bool:lazyAnd:18:case-1:didNotMatch
+    $1338 = { (responsible $1339) ->
+      $1340 = call $399 with $1335 $436 ($109 is responsible)
+      $1341 = panicking because $458 ($109 is at fault)
+    }
+    $1342 = call $390 with $1337 $570 $1338 ($109 is responsible)
+  }
+  $1343 = call $390 with $1292 $1293 $1300 ($109 is responsible)
+}
+# Core:bool:lazyOr
+$1344 = { $1345 $1346 (+ responsible $1347) ->
+  $1348 = call $1082 with $1345 ($121 is responsible)
+  $1349 = call $542 with $1348 $499 $1347 ($122 is responsible)
+  $1350 = call $1057 with $1346 ($115 is responsible)
+  $1351 = call $542 with $1350 $494 $1347 ($116 is responsible)
+  $1352 = call $411 with $1345 ($117 is responsible)
+  $1353 = call $388 with $429 $1352 ($117 is responsible)
+  # Core:bool:lazyOr:18:equals:then
+  $1354 = { (responsible $1355) ->
+    $1356 = call $405 with $1345 ($117 is responsible)
+    $1357 = call $388 with $432 $1356 ($117 is responsible)
+    # Core:bool:lazyOr:18:equals:then
+    $1358 = { (responsible $1359) ->
+      $1360 = call $404 with $1345 ($117 is responsible)
+      $1361 = call $388 with $415 $1360 ($117 is responsible)
+      # Core:bool:lazyOr:18:equals:else
+      $1362 = { (responsible $1363) ->
+        $1364 = call $410 with $1360 ($117 is responsible)
+        $1365 = call $403 with $1345 ($117 is responsible)
+        $1366 = call $410 with $1365 ($117 is responsible)
+        $1367 = call $406 with $457 $1366 ($117 is responsible)
+        $1368 = call $406 with $1367 $473 ($117 is responsible)
+        $1369 = ($424, $1368)
+      }
+      $1370 = call $390 with $1361 $567 $1362 ($117 is responsible)
+    }
+    # Core:bool:lazyOr:18:equals:else
+    $1371 = { (responsible $1372) ->
+      $1373 = call $410 with $1356 ($117 is responsible)
+      $1374 = call $406 with $452 $1373 ($117 is responsible)
+      $1375 = call $406 with $1374 $443 ($117 is responsible)
+      $1376 = ($424, $1375)
+    }
+    $1377 = call $390 with $1357 $1358 $1371 ($117 is responsible)
+  }
+  # Core:bool:lazyOr:18:equals:else
+  $1378 = { (responsible $1379) ->
+    $1380 = call $410 with $1352 ($117 is responsible)
+    $1381 = call $406 with $455 $1380 ($117 is responsible)
+    $1382 = call $406 with $1381 $473 ($117 is responsible)
+    $1383 = ($424, $1382)
+  }
+  $1384 = call $390 with $1353 $1354 $1378 ($117 is responsible)
+  $1385 = call $399 with $1384 $435 ($117 is responsible)
+  $1386 = call $388 with $1385 $422 ($117 is responsible)
+  # Core:bool:lazyOr:18:case-0:didNotMatch
+  $1387 = { (responsible $1388) ->
+    $1389 = call $399 with $1384 $436 ($117 is responsible)
+    $1390 = call $411 with $1345 ($117 is responsible)
+    $1391 = call $388 with $429 $1390 ($117 is responsible)
+    # Core:bool:lazyOr:18:equals:then
+    $1392 = { (responsible $1393) ->
+      $1394 = call $405 with $1345 ($117 is responsible)
+      $1395 = call $388 with $415 $1394 ($117 is responsible)
+      # Core:bool:lazyOr:18:equals:then
+      $1396 = { (responsible $1397) ->
+        $1398 = call $404 with $1345 ($117 is responsible)
+        $1399 = call $388 with $415 $1398 ($117 is responsible)
+        # Core:bool:lazyOr:18:equals:else
+        $1400 = { (responsible $1401) ->
+          $1402 = call $410 with $1398 ($117 is responsible)
+          $1403 = call $403 with $1345 ($117 is responsible)
+          $1404 = call $410 with $1403 ($117 is responsible)
+          $1405 = call $406 with $457 $1404 ($117 is responsible)
+          $1406 = call $406 with $1405 $473 ($117 is responsible)
+          $1407 = ($424, $1406)
+        }
+        $1408 = call $390 with $1399 $567 $1400 ($117 is responsible)
+      }
+      # Core:bool:lazyOr:18:equals:else
+      $1409 = { (responsible $1410) ->
+        $1411 = call $410 with $1394 ($117 is responsible)
+        $1412 = call $406 with $448 $1411 ($117 is responsible)
+        $1413 = call $406 with $1412 $443 ($117 is responsible)
+        $1414 = ($424, $1413)
+      }
+      $1415 = call $390 with $1395 $1396 $1409 ($117 is responsible)
+    }
+    # Core:bool:lazyOr:18:equals:else
+    $1416 = { (responsible $1417) ->
+      $1418 = call $410 with $1390 ($117 is responsible)
+      $1419 = call $406 with $455 $1418 ($117 is responsible)
+      $1420 = call $406 with $1419 $473 ($117 is responsible)
+      $1421 = ($424, $1420)
+    }
+    $1422 = call $390 with $1391 $1392 $1416 ($117 is responsible)
+    $1423 = call $399 with $1422 $435 ($117 is responsible)
+    $1424 = call $388 with $1423 $422 ($117 is responsible)
+    # Core:bool:lazyOr:18:case-1:matched
+    $1425 = { (responsible $1426) ->
+      $1427 = call $1070 with $1346 ($118 is responsible)
+      $1428 = $1427
+      $1429 = call $1082 with $1427 ($119 is responsible)
+      $1430 = call $542 with $1429 $478 $1347 ($120 is responsible)
+      $1431 = $1428
+    }
+    # Core:bool:lazyOr:18:case-1:didNotMatch
+    $1432 = { (responsible $1433) ->
+      $1434 = call $399 with $1422 $436 ($117 is responsible)
+      $1435 = panicking because $458 ($117 is at fault)
+    }
+    $1436 = call $390 with $1424 $1425 $1432 ($117 is responsible)
+  }
+  $1437 = call $390 with $1386 $536 $1387 ($117 is responsible)
+}
+# Core:bool:implies
+$1438 = { $1439 $1440 (+ responsible $1441) ->
+  $1442 = call $1082 with $1439 ($102 is responsible)
+  $1443 = call $542 with $1442 $499 $1441 ($103 is responsible)
+  $1444 = call $1082 with $1440 ($104 is responsible)
+  $1445 = call $542 with $1444 $500 $1441 ($105 is responsible)
+  $1446 = call $1166 with $1439 ($100 is responsible)
+  $1447 = call $1082 with $1446 ($127 is responsible)
+  $1448 = call $542 with $1447 $499 $101 ($128 is responsible)
+  $1449 = call $1082 with $1440 ($129 is responsible)
+  $1450 = call $542 with $1449 $500 $101 ($130 is responsible)
+  # Core:bool:or:12
+  $1451 = { (responsible $1452) ->
+    $1453 = $1440
+  }
+  $1454 = call $1344 with $1446 $1451 ($126 is responsible)
+}
+# anonymous:$generated::needs:isConditionBool:else
+$1455 = { (responsible $1456) ->
+  $1457 = panicking because $468 ($132 is at fault)
+}
+# Core:check:check
+$1458 = { $1459 (+ responsible $1460) ->
+  $1461 = call $1082 with $1459 ($133 is responsible)
+  $1462 = call $542 with $1461 $479 $1460 ($131 is responsible)
+  $1463 = call $388 with $1459 $432 ($387 is responsible)
+  # anonymous:$generated::needs:isConditionTrue:else
+  $1464 = { (responsible $1465) ->
+    $1466 = call $388 with $1459 $415 ($387 is responsible)
+  }
+  $1467 = call $390 with $1463 $536 $1464 ($387 is responsible)
+  $1468 = call $390 with $1467 $539 $1455 ($387 is responsible)
+  # anonymous:$generated::needs:condition:else
+  $1469 = { (responsible $1470) ->
+    $1471 = panicking because $446 ($1460 is at fault)
+  }
+  $1472 = call $390 with $1459 $539 $1469 ($387 is responsible)
+}
+# Core:function:is2
+$1473 = { $1474 (+ responsible $1475) ->
+  $1476 = call $411 with $1474 ($99 is responsible)
+  $1477 = call $388 with $1476 $417 ($1 is responsible)
+  # Core:function:is2:11
+  $1478 = { (responsible $1479) ->
+    $1480 = call $411 with $1474 ($97 is responsible)
+    $1481 = call $388 with $1480 $417 ($98 is responsible)
+    $1482 = call $542 with $1481 $492 $305 ($11 is responsible)
+    $1483 = call $389 with $1474 ($10 is responsible)
+    $1484 = call $388 with $1483 $437 ($1 is responsible)
+  }
+  $1485 = call $865 with $1477 $1478 $570 ($306 is responsible)
+}
+# Core:int:compareTo
+$1486 = { $1487 $1488 (+ responsible $1489) ->
+  $1490 = call $411 with $1487 ($99 is responsible)
+  $1491 = call $388 with $1490 $419 ($1 is responsible)
+  $1492 = call $542 with $1491 $512 $1489 ($312 is responsible)
+  $1493 = call $411 with $1488 ($99 is responsible)
+  $1494 = call $388 with $1493 $419 ($1 is responsible)
+  $1495 = call $542 with $1494 $513 $1489 ($314 is responsible)
+  $1496 = call $411 with $1487 ($97 is responsible)
+  $1497 = call $388 with $1496 $419 ($98 is responsible)
+  $1498 = call $542 with $1497 $475 $310 ($28 is responsible)
+  $1499 = call $411 with $1488 ($97 is responsible)
+  $1500 = call $388 with $1499 $419 ($98 is responsible)
+  $1501 = call $542 with $1500 $477 $310 ($26 is responsible)
+  $1502 = call $393 with $1487 $1488 ($27 is responsible)
+  $1503 = $1502
+  $1504 = call $388 with $1502 $413 ($1 is responsible)
+  $1505 = call $388 with $1487 $1488 ($1 is responsible)
+  $1506 = call $1438 with $1504 $1505 ($311 is responsible)
+  $1507 = call $1458 with $1506 ($313 is responsible)
+  $1508 = $1503
+}
+# Core:int:isLessThan
+$1509 = { $1510 $1511 (+ responsible $1512) ->
+  $1513 = call $411 with $1510 ($99 is responsible)
+  $1514 = call $388 with $1513 $419 ($1 is responsible)
+  $1515 = call $542 with $1514 $512 $1512 ($325 is responsible)
+  $1516 = call $411 with $1511 ($99 is responsible)
+  $1517 = call $388 with $1516 $419 ($1 is responsible)
+  $1518 = call $542 with $1517 $513 $1512 ($326 is responsible)
+  $1519 = call $1486 with $1510 $1511 ($324 is responsible)
+  $1520 = call $388 with $1519 $420 ($1 is responsible)
+}
+# Core:int:isGreaterThan
+$1521 = { $1522 $1523 (+ responsible $1524) ->
+  $1525 = call $411 with $1522 ($99 is responsible)
+  $1526 = call $388 with $1525 $419 ($1 is responsible)
+  $1527 = call $542 with $1526 $512 $1524 ($318 is responsible)
+  $1528 = call $411 with $1523 ($99 is responsible)
+  $1529 = call $388 with $1528 $419 ($1 is responsible)
+  $1530 = call $542 with $1529 $513 $1524 ($319 is responsible)
+  $1531 = call $1486 with $1522 $1523 ($317 is responsible)
+  $1532 = call $388 with $1531 $418 ($1 is responsible)
+}
+# Core:int:isGreaterThanOrEqualTo
+$1533 = { $1534 $1535 (+ responsible $1536) ->
+  $1537 = call $411 with $1534 ($99 is responsible)
+  $1538 = call $388 with $1537 $419 ($1 is responsible)
+  $1539 = call $542 with $1538 $512 $1536 ($322 is responsible)
+  $1540 = call $411 with $1535 ($99 is responsible)
+  $1541 = call $388 with $1540 $419 ($1 is responsible)
+  $1542 = call $542 with $1541 $513 $1536 ($323 is responsible)
+  $1543 = call $1509 with $1534 $1535 ($320 is responsible)
+  $1544 = call $1166 with $1543 ($321 is responsible)
+}
+# Core:int:isNonNegative
+$1545 = { $1546 (+ responsible $1547) ->
+  $1548 = call $411 with $1546 ($99 is responsible)
+  $1549 = call $388 with $1548 $419 ($1 is responsible)
+  $1550 = call $542 with $1549 $514 $1547 ($330 is responsible)
+  $1551 = call $411 with $1546 ($99 is responsible)
+  $1552 = call $388 with $1551 $419 ($1 is responsible)
+  $1553 = call $542 with $1552 $514 $331 ($327 is responsible)
+  $1554 = call $1509 with $1546 $435 ($328 is responsible)
+  $1555 = call $1166 with $1554 ($329 is responsible)
+}
+# Core:int:isEven
+$1556 = { $1557 (+ responsible $1558) ->
+  $1559 = call $411 with $1557 ($99 is responsible)
+  $1560 = call $388 with $1559 $419 ($1 is responsible)
+  $1561 = call $542 with $1560 $514 $1558 ($315 is responsible)
+  $1562 = call $411 with $1557 ($97 is responsible)
+  $1563 = call $388 with $1562 $419 ($98 is responsible)
+  $1564 = call $542 with $1563 $475 $316 ($25 is responsible)
+  $1565 = call $392 with $1557 $436 ($24 is responsible)
+  $1566 = call $388 with $1565 $435 ($1 is responsible)
+}
+# Core:int:max
+$1567 = { $1568 $1569 (+ responsible $1570) ->
+  $1571 = call $411 with $1568 ($99 is responsible)
+  $1572 = call $388 with $1571 $419 ($1 is responsible)
+  $1573 = call $542 with $1572 $512 $1570 ($334 is responsible)
+  $1574 = call $411 with $1569 ($99 is responsible)
+  $1575 = call $388 with $1574 $419 ($1 is responsible)
+  $1576 = call $542 with $1575 $513 $1570 ($335 is responsible)
+  $1577 = call $1533 with $1568 $1569 ($332 is responsible)
+  # Core:int:max:15
+  $1578 = { (responsible $1579) ->
+    $1580 = $1568
+  }
+  # Core:int:max:16
+  $1581 = { (responsible $1582) ->
+    $1583 = $1569
+  }
+  $1584 = call $865 with $1577 $1578 $1581 ($333 is responsible)
+}
+# Core:int:pow:21:4:case-0:matched
+$1585 = { (responsible $1586) ->
+  $1587 = $436
+}
+# Core:int:pow:21
+$1588 = { $1589 $1590 (+ responsible $1591) ->
+  $1592 = call $411 with $1590 ($340 is responsible)
+  $1593 = call $388 with $428 $1592 ($340 is responsible)
+  # Core:int:pow:21:1:equals:then
+  $1594 = { (responsible $1595) ->
+    $1596 = call $402 with $1590 $412 ($340 is responsible)
+    # Core:int:pow:21:1:hasKey:then
+    $1597 = { (responsible $1598) ->
+      $1599 = call $401 with $1590 $412 ($340 is responsible)
+      $1600 = ($422, $1599)
+    }
+    # Core:int:pow:21:1:hasKey:else
+    $1601 = { (responsible $1602) ->
+      $1603 = call $410 with $1590 ($340 is responsible)
+      $1604 = call $406 with $460 $1603 ($340 is responsible)
+      $1605 = call $406 with $1604 $473 ($340 is responsible)
+      $1606 = ($424, $1605)
+    }
+    $1607 = call $390 with $1596 $1597 $1601 ($340 is responsible)
+    $1608 = call $399 with $1607 $435 ($340 is responsible)
+    $1609 = call $388 with $1608 $422 ($340 is responsible)
+    # Core:int:pow:21:1:isMatch:then
+    $1610 = { (responsible $1611) ->
+      $1612 = call $399 with $1607 $436 ($340 is responsible)
+      $1613 = call $402 with $1590 $414 ($340 is responsible)
+      # Core:int:pow:21:1:hasKey:then
+      $1614 = { (responsible $1615) ->
+        $1616 = call $401 with $1590 $414 ($340 is responsible)
+        $1617 = ($422, $1616)
+      }
+      # Core:int:pow:21:1:hasKey:else
+      $1618 = { (responsible $1619) ->
+        $1620 = call $410 with $1590 ($340 is responsible)
+        $1621 = call $406 with $461 $1620 ($340 is responsible)
+        $1622 = call $406 with $1621 $473 ($340 is responsible)
+        $1623 = ($424, $1622)
+      }
+      $1624 = call $390 with $1613 $1614 $1618 ($340 is responsible)
+      $1625 = call $399 with $1624 $435 ($340 is responsible)
+      $1626 = call $388 with $1625 $422 ($340 is responsible)
+      # Core:int:pow:21:1:isMatch:then
+      $1627 = { (responsible $1628) ->
+        $1629 = call $399 with $1624 $436 ($340 is responsible)
+        $1630 = ($422, $1612, $1629)
+      }
+      # Core:int:pow:21:1:isMatch:else
+      $1631 = { (responsible $1632) ->
+        $1633 = $1624
+      }
+      $1634 = call $390 with $1626 $1627 $1631 ($340 is responsible)
+    }
+    # Core:int:pow:21:1:isMatch:else
+    $1635 = { (responsible $1636) ->
+      $1637 = $1607
+    }
+    $1638 = call $390 with $1609 $1610 $1635 ($340 is responsible)
+  }
+  # Core:int:pow:21:1:equals:else
+  $1639 = { (responsible $1640) ->
+    $1641 = call $410 with $1592 ($340 is responsible)
+    $1642 = call $406 with $454 $1641 ($340 is responsible)
+    $1643 = call $406 with $1642 $473 ($340 is responsible)
+    $1644 = ($424, $1643)
+  }
+  $1645 = call $390 with $1593 $1594 $1639 ($340 is responsible)
+  $1646 = call $399 with $1645 $435 ($340 is responsible)
+  $1647 = call $388 with $1646 $422 ($340 is responsible)
+  # Core:int:pow:21:1:isMatch:else
+  $1648 = { (responsible $1649) ->
+    $1650 = call $399 with $1645 $436 ($340 is responsible)
+    $1651 = panicking because $1650 ($340 is at fault)
+  }
+  $1652 = call $390 with $1647 $539 $1648 ($340 is responsible)
+  $1653 = call $399 with $1645 $436 ($352 is responsible)
+  $1654 = call $399 with $1645 $437 ($353 is responsible)
+  $1655 = call $388 with $435 $1654 ($341 is responsible)
+  # Core:int:pow:21:4:equals:else
+  $1656 = { (responsible $1657) ->
+    $1658 = call $410 with $1654 ($341 is responsible)
+    $1659 = call $406 with $453 $1658 ($341 is responsible)
+    $1660 = call $406 with $1659 $473 ($341 is responsible)
+    $1661 = ($424, $1660)
+  }
+  $1662 = call $390 with $1655 $567 $1656 ($341 is responsible)
+  $1663 = call $399 with $1662 $435 ($341 is responsible)
+  $1664 = call $388 with $1663 $422 ($341 is responsible)
+  # Core:int:pow:21:4:case-0:didNotMatch
+  $1665 = { (responsible $1666) ->
+    $1667 = call $399 with $1662 $436 ($341 is responsible)
+    # Core:int:pow:21:4:case-1:matched
+    $1668 = { (responsible $1669) ->
+      $1670 = call $1556 with $1654 ($342 is responsible)
+      # Core:int:pow:21:4:5
+      $1671 = { (responsible $1672) ->
+        $1673 = call $411 with $1653 ($97 is responsible)
+        $1674 = call $388 with $1673 $419 ($98 is responsible)
+        $1675 = call $542 with $1674 $488 $345 ($36 is responsible)
+        $1676 = call $411 with $1653 ($97 is responsible)
+        $1677 = call $388 with $1676 $419 ($98 is responsible)
+        $1678 = call $542 with $1677 $489 $345 ($34 is responsible)
+        $1679 = call $395 with $1653 $1653 ($35 is responsible)
+        $1680 = call $999 with $1654 $436 ($343 is responsible)
+        $1681 = [$414: $1680, $412: $1679]
+        $1682 = call $1589 with $1681 ($344 is responsible)
+      }
+      # Core:int:pow:21:4:6
+      $1683 = { (responsible $1684) ->
+        $1685 = call $411 with $1653 ($97 is responsible)
+        $1686 = call $388 with $1685 $419 ($98 is responsible)
+        $1687 = call $542 with $1686 $488 $350 ($36 is responsible)
+        $1688 = call $411 with $1653 ($97 is responsible)
+        $1689 = call $388 with $1688 $419 ($98 is responsible)
+        $1690 = call $542 with $1689 $489 $350 ($34 is responsible)
+        $1691 = call $395 with $1653 $1653 ($35 is responsible)
+        $1692 = call $411 with $1654 ($97 is responsible)
+        $1693 = call $388 with $1692 $419 ($98 is responsible)
+        $1694 = call $542 with $1693 $520 $346 ($57 is responsible)
+        $1695 = call $398 with $1654 $436 ($56 is responsible)
+        $1696 = call $999 with $1695 $436 ($347 is responsible)
+        $1697 = [$412: $1691, $414: $1696]
+        $1698 = call $1589 with $1697 ($348 is responsible)
+        $1699 = call $411 with $1653 ($97 is responsible)
+        $1700 = call $388 with $1699 $419 ($98 is responsible)
+        $1701 = call $542 with $1700 $488 $349 ($36 is responsible)
+        $1702 = call $411 with $1698 ($97 is responsible)
+        $1703 = call $388 with $1702 $419 ($98 is responsible)
+        $1704 = call $542 with $1703 $489 $349 ($34 is responsible)
+        $1705 = call $395 with $1653 $1698 ($35 is responsible)
+      }
+      $1706 = call $865 with $1670 $1671 $1683 ($351 is responsible)
+    }
+    $1707 = call $1668 with no arguments ($341 is responsible)
+  }
+  $1708 = call $390 with $1664 $1585 $1665 ($341 is responsible)
+}
+# Core:controlFlow:recursive:18
+$1709 = { $1710 $1711 (+ responsible $1712) ->
+  # Core:controlFlow:recursive:18:0
+  $1713 = { $1714 (+ responsible $1715) ->
+    $1716 = call $1710 with $1710 $1714 ($135 is responsible)
+  }
+  $1717 = call $1588 with $1713 $1711 ($136 is responsible)
+}
+# Core:int:pow
+$1718 = { $1719 $1720 (+ responsible $1721) ->
+  $1722 = call $411 with $1719 ($99 is responsible)
+  $1723 = call $388 with $1722 $419 ($1 is responsible)
+  $1724 = call $542 with $1723 $501 $1721 ($355 is responsible)
+  $1725 = call $411 with $1720 ($99 is responsible)
+  $1726 = call $388 with $1725 $419 ($1 is responsible)
+  $1727 = call $542 with $1726 $505 $1721 ($356 is responsible)
+  $1728 = call $1545 with $1720 ($338 is responsible)
+  $1729 = call $542 with $1728 $517 $1721 ($339 is responsible)
+  $1730 = [$414: $1720, $412: $1719]
+  $1731 = call $1473 with $1588 ($138 is responsible)
+  $1732 = call $542 with $1731 $467 $354 ($134 is responsible)
+  $1733 = call $1709 with $1709 $1730 ($137 is responsible)
+}
+# Core:text:removePrefix
+$1734 = { $1735 $1736 (+ responsible $1737) ->
+  $1738 = call $411 with $1735 ($99 is responsible)
+  $1739 = call $388 with $1738 $431 ($1 is responsible)
+  $1740 = call $542 with $1739 $511 $1737 ($362 is responsible)
+  $1741 = call $411 with $1736 ($99 is responsible)
+  $1742 = call $388 with $1741 $431 ($1 is responsible)
+  $1743 = call $542 with $1742 $507 $1737 ($363 is responsible)
+  $1744 = call $411 with $1735 ($97 is responsible)
+  $1745 = call $388 with $1744 $431 ($98 is responsible)
+  $1746 = call $542 with $1745 $531 $357 ($95 is responsible)
+  $1747 = call $411 with $1736 ($97 is responsible)
+  $1748 = call $388 with $1747 $431 ($98 is responsible)
+  $1749 = call $542 with $1748 $521 $357 ($93 is responsible)
+  $1750 = call $409 with $1735 $1736 ($94 is responsible)
+  # Core:text:removePrefix:15
+  $1751 = { (responsible $1752) ->
+    $1753 = call $411 with $1736 ($97 is responsible)
+    $1754 = call $388 with $1753 $431 ($98 is responsible)
+    $1755 = call $542 with $1754 $531 $358 ($92 is responsible)
+    $1756 = call $408 with $1736 ($91 is responsible)
+    $1757 = call $411 with $1735 ($97 is responsible)
+    $1758 = call $388 with $1757 $431 ($98 is responsible)
+    $1759 = call $542 with $1758 $531 $359 ($92 is responsible)
+    $1760 = call $408 with $1735 ($91 is responsible)
+    $1761 = call $1030 with $1735 $1756 $1760 ($360 is responsible)
+  }
+  # Core:text:removePrefix:16
+  $1762 = { (responsible $1763) ->
+    $1764 = $1735
+  }
+  $1765 = call $865 with $1750 $1751 $1762 ($361 is responsible)
+}
+$1766 = ($424, $456)
+# Core:fixedDecimal:is
+$1767 = { $1768 (+ responsible $1769) ->
+  $1770 = call $411 with $1768 ($211 is responsible)
+  $1771 = call $388 with $429 $1770 ($211 is responsible)
+  # Core:fixedDecimal:is:1:equals:then
+  $1772 = { (responsible $1773) ->
+    $1774 = call $405 with $1768 ($211 is responsible)
+    $1775 = call $388 with $416 $1774 ($211 is responsible)
+    # Core:fixedDecimal:is:1:equals:then
+    $1776 = { (responsible $1777) ->
+      $1778 = call $404 with $1768 ($211 is responsible)
+      $1779 = call $388 with $432 $1778 ($211 is responsible)
+      # Core:fixedDecimal:is:1:equals:then
+      $1780 = { (responsible $1781) ->
+        $1782 = call $403 with $1768 ($211 is responsible)
+        $1783 = call $411 with $1782 ($211 is responsible)
+        $1784 = call $388 with $428 $1783 ($211 is responsible)
+        # Core:fixedDecimal:is:1:equals:then
+        $1785 = { (responsible $1786) ->
+          $1787 = call $402 with $1782 $423 ($211 is responsible)
+          # Core:fixedDecimal:is:1:hasKey:then
+          $1788 = { (responsible $1789) ->
+            $1790 = call $401 with $1782 $423 ($211 is responsible)
+            $1791 = ($422, $1790)
+          }
+          # Core:fixedDecimal:is:1:hasKey:else
+          $1792 = { (responsible $1793) ->
+            $1794 = call $410 with $1782 ($211 is responsible)
+            $1795 = call $406 with $462 $1794 ($211 is responsible)
+            $1796 = call $406 with $1795 $473 ($211 is responsible)
+            $1797 = ($424, $1796)
+          }
+          $1798 = call $390 with $1787 $1788 $1792 ($211 is responsible)
+          $1799 = call $399 with $1798 $435 ($211 is responsible)
+          $1800 = call $388 with $1799 $422 ($211 is responsible)
+          # Core:fixedDecimal:is:1:isMatch:then
+          $1801 = { (responsible $1802) ->
+            $1803 = call $399 with $1798 $436 ($211 is responsible)
+            $1804 = call $402 with $1782 $426 ($211 is responsible)
+            # Core:fixedDecimal:is:1:hasKey:then
+            $1805 = { (responsible $1806) ->
+              $1807 = call $401 with $1782 $426 ($211 is responsible)
+              $1808 = ($422, $1807)
+            }
+            # Core:fixedDecimal:is:1:hasKey:else
+            $1809 = { (responsible $1810) ->
+              $1811 = call $410 with $1782 ($211 is responsible)
+              $1812 = call $406 with $463 $1811 ($211 is responsible)
+              $1813 = call $406 with $1812 $473 ($211 is responsible)
+              $1814 = ($424, $1813)
+            }
+            $1815 = call $390 with $1804 $1805 $1809 ($211 is responsible)
+            $1816 = call $399 with $1815 $435 ($211 is responsible)
+            $1817 = call $388 with $1816 $422 ($211 is responsible)
+            # Core:fixedDecimal:is:1:isMatch:then
+            $1818 = { (responsible $1819) ->
+              $1820 = call $399 with $1815 $436 ($211 is responsible)
+              $1821 = ($422, $1803, $1820)
+            }
+            # Core:fixedDecimal:is:1:isMatch:else
+            $1822 = { (responsible $1823) ->
+              $1824 = $1815
+            }
+            $1825 = call $390 with $1817 $1818 $1822 ($211 is responsible)
+          }
+          # Core:fixedDecimal:is:1:isMatch:else
+          $1826 = { (responsible $1827) ->
+            $1828 = $1798
+          }
+          $1829 = call $390 with $1800 $1801 $1826 ($211 is responsible)
+        }
+        # Core:fixedDecimal:is:1:equals:else
+        $1830 = { (responsible $1831) ->
+          $1832 = call $410 with $1783 ($211 is responsible)
+          $1833 = call $406 with $454 $1832 ($211 is responsible)
+          $1834 = call $406 with $1833 $473 ($211 is responsible)
+          $1835 = ($424, $1834)
+        }
+        $1836 = call $390 with $1784 $1785 $1830 ($211 is responsible)
+      }
+      # Core:fixedDecimal:is:1:equals:else
+      $1837 = { (responsible $1838) ->
+        $1839 = call $410 with $1778 ($211 is responsible)
+        $1840 = $1766
+      }
+      $1841 = call $390 with $1779 $1780 $1837 ($211 is responsible)
+    }
+    # Core:fixedDecimal:is:1:equals:else
+    $1842 = { (responsible $1843) ->
+      $1844 = call $410 with $1774 ($211 is responsible)
+      $1845 = call $406 with $449 $1844 ($211 is responsible)
+      $1846 = call $406 with $1845 $443 ($211 is responsible)
+      $1847 = ($424, $1846)
+    }
+    $1848 = call $390 with $1775 $1776 $1842 ($211 is responsible)
+  }
+  # Core:fixedDecimal:is:1:equals:else
+  $1849 = { (responsible $1850) ->
+    $1851 = call $410 with $1770 ($211 is responsible)
+    $1852 = call $406 with $455 $1851 ($211 is responsible)
+    $1853 = call $406 with $1852 $473 ($211 is responsible)
+    $1854 = ($424, $1853)
+  }
+  $1855 = call $390 with $1771 $1772 $1849 ($211 is responsible)
+  $1856 = call $399 with $1855 $435 ($211 is responsible)
+  $1857 = call $388 with $1856 $422 ($211 is responsible)
+  # Core:fixedDecimal:is:1:case-0:matched
+  $1858 = { (responsible $1859) ->
+    $1860 = call $399 with $1855 $436 ($213 is responsible)
+    $1861 = call $399 with $1855 $437 ($214 is responsible)
+    $1862 = call $411 with $1860 ($99 is responsible)
+    $1863 = call $388 with $1862 $419 ($1 is responsible)
+    # Core:fixedDecimal:is:1:18
+    $1864 = { (responsible $1865) ->
+      $1866 = call $411 with $1861 ($99 is responsible)
+      $1867 = call $388 with $1866 $419 ($1 is responsible)
+      # Core:fixedDecimal:isScale:18
+      $1868 = { (responsible $1869) ->
+        $1870 = call $1545 with $1861 ($234 is responsible)
+      }
+      $1871 = call $1250 with $1867 $1868 ($235 is responsible)
+    }
+    $1872 = call $1250 with $1863 $1864 ($212 is responsible)
+  }
+  # Core:fixedDecimal:is:1:case-0:didNotMatch
+  $1873 = { (responsible $1874) ->
+    $1875 = call $399 with $1855 $436 ($211 is responsible)
+    $1876 = $415
+  }
+  $1877 = call $390 with $1857 $1858 $1873 ($211 is responsible)
+}
+# Core:fixedDecimal:minorUnits
+$1878 = { $1879 (+ responsible $1880) ->
+  $1881 = call $1767 with $1879 ($237 is responsible)
+  $1882 = call $542 with $1881 $499 $1880 ($239 is responsible)
+  $1883 = call $411 with $1879 ($97 is responsible)
+  $1884 = call $388 with $1883 $429 ($98 is responsible)
+  $1885 = call $542 with $1884 $529 $236 ($74 is responsible)
+  $1886 = call $404 with $1879 ($71 is responsible)
+  $1887 = call $542 with $1886 $530 $236 ($72 is responsible)
+  $1888 = call $403 with $1879 ($73 is responsible)
+  $1889 = call $411 with $1888 ($97 is responsible)
+  $1890 = call $388 with $1889 $428 ($98 is responsible)
+  $1891 = call $542 with $1890 $526 $238 ($70 is responsible)
+  $1892 = call $402 with $1888 $423 ($67 is responsible)
+  $1893 = call $542 with $1892 $527 $238 ($68 is responsible)
+  $1894 = call $401 with $1888 $423 ($69 is responsible)
+}
+# Core:fixedDecimal:scale
+$1895 = { $1896 (+ responsible $1897) ->
+  $1898 = call $1767 with $1896 ($263 is responsible)
+  $1899 = call $542 with $1898 $499 $1897 ($265 is responsible)
+  $1900 = call $411 with $1896 ($97 is responsible)
+  $1901 = call $388 with $1900 $429 ($98 is responsible)
+  $1902 = call $542 with $1901 $529 $262 ($74 is responsible)
+  $1903 = call $404 with $1896 ($71 is responsible)
+  $1904 = call $542 with $1903 $530 $262 ($72 is responsible)
+  $1905 = call $403 with $1896 ($73 is responsible)
+  $1906 = call $411 with $1905 ($97 is responsible)
+  $1907 = call $388 with $1906 $428 ($98 is responsible)
+  $1908 = call $542 with $1907 $526 $264 ($70 is responsible)
+  $1909 = call $402 with $1905 $426 ($67 is responsible)
+  $1910 = call $542 with $1909 $527 $264 ($68 is responsible)
+  $1911 = call $401 with $1905 $426 ($69 is responsible)
+}
+# Core:fixedDecimal:fromIntScaled
+$1912 = { $1913 $1914 (+ responsible $1915) ->
+  $1916 = call $411 with $1913 ($99 is responsible)
+  $1917 = call $388 with $1916 $419 ($1 is responsible)
+  $1918 = call $542 with $1917 $496 $1915 ($209 is responsible)
+  $1919 = call $411 with $1914 ($99 is responsible)
+  $1920 = call $388 with $1919 $419 ($1 is responsible)
+  # Core:fixedDecimal:isScale:18
+  $1921 = { (responsible $1922) ->
+    $1923 = call $1545 with $1914 ($234 is responsible)
+  }
+  $1924 = call $1250 with $1920 $1921 ($235 is responsible)
+  $1925 = call $542 with $1924 $518 $1915 ($210 is responsible)
+  $1926 = [$426: $1914, $423: $1913]
+  $1927 = FixedDecimal $1926
+}
+# Core:fixedDecimal:floorToInt
+$1928 = { $1929 (+ responsible $1930) ->
+  $1931 = call $1767 with $1929 ($203 is responsible)
+  $1932 = call $542 with $1931 $499 $1930 ($206 is responsible)
+  $1933 = call $1878 with $1929 ($207 is responsible)
+  $1934 = call $1895 with $1929 ($202 is responsible)
+  $1935 = call $411 with $1934 ($99 is responsible)
+  $1936 = call $388 with $1935 $419 ($1 is responsible)
+  # Core:fixedDecimal:isScale:18
+  $1937 = { (responsible $1938) ->
+    $1939 = call $1545 with $1934 ($234 is responsible)
+  }
+  $1940 = call $1250 with $1936 $1937 ($235 is responsible)
+  $1941 = call $542 with $1940 $518 $204 ($267 is responsible)
+  $1942 = call $1718 with $439 $1934 ($266 is responsible)
+  $1943 = call $971 with $1933 $1942 ($205 is responsible)
+}
+# Core:fixedDecimal:rescaledMinorUnits
+$1944 = { $1945 $1946 (+ responsible $1947) ->
+  $1948 = call $1767 with $1945 ($247 is responsible)
+  $1949 = call $542 with $1948 $499 $1947 ($260 is responsible)
+  $1950 = call $411 with $1946 ($99 is responsible)
+  $1951 = call $388 with $1950 $419 ($1 is responsible)
+  # Core:fixedDecimal:isScale:18
+  $1952 = { (responsible $1953) ->
+    $1954 = call $1545 with $1946 ($234 is responsible)
+  }
+  $1955 = call $1250 with $1951 $1952 ($235 is responsible)
+  $1956 = call $542 with $1955 $519 $1947 ($261 is responsible)
+  $1957 = call $1895 with $1945 ($246 is responsible)
+  $1958 = call $1521 with $1957 $1946 ($248 is responsible)
+  # Core:fixedDecimal:rescaledMinorUnits:24
+  $1959 = { (responsible $1960) ->
+    $1961 = call $1878 with $1945 ($250 is responsible)
+    $1962 = call $1895 with $1945 ($249 is responsible)
+    $1963 = call $411 with $1962 ($97 is responsible)
+    $1964 = call $388 with $1963 $419 ($98 is responsible)
+    $1965 = call $542 with $1964 $520 $251 ($57 is responsible)
+    $1966 = call $411 with $1946 ($97 is responsible)
+    $1967 = call $388 with $1966 $419 ($98 is responsible)
+    $1968 = call $542 with $1967 $528 $251 ($55 is responsible)
+    $1969 = call $398 with $1962 $1946 ($56 is responsible)
+    # Core:fixedDecimal:isScale:18
+    $1970 = { (responsible $1971) ->
+      $1972 = call $1545 with $1969 ($234 is responsible)
+    }
+    $1973 = call $1250 with $432 $1970 ($235 is responsible)
+    $1974 = call $542 with $1973 $518 $252 ($267 is responsible)
+    $1975 = call $1718 with $439 $1969 ($266 is responsible)
+    $1976 = call $971 with $1961 $1975 ($253 is responsible)
+  }
+  # Core:fixedDecimal:rescaledMinorUnits:25
+  $1977 = { (responsible $1978) ->
+    $1979 = call $1878 with $1945 ($254 is responsible)
+    $1980 = call $1895 with $1945 ($255 is responsible)
+    $1981 = call $411 with $1946 ($97 is responsible)
+    $1982 = call $388 with $1981 $419 ($98 is responsible)
+    $1983 = call $542 with $1982 $520 $256 ($57 is responsible)
+    $1984 = call $411 with $1980 ($97 is responsible)
+    $1985 = call $388 with $1984 $419 ($98 is responsible)
+    $1986 = call $542 with $1985 $528 $256 ($55 is responsible)
+    $1987 = call $398 with $1946 $1980 ($56 is responsible)
+    # Core:fixedDecimal:isScale:18
+    $1988 = { (responsible $1989) ->
+      $1990 = call $1545 with $1987 ($234 is responsible)
+    }
+    $1991 = call $1250 with $432 $1988 ($235 is responsible)
+    $1992 = call $542 with $1991 $518 $257 ($267 is responsible)
+    $1993 = call $1718 with $439 $1987 ($266 is responsible)
+    $1994 = call $411 with $1979 ($97 is responsible)
+    $1995 = call $388 with $1994 $419 ($98 is responsible)
+    $1996 = call $542 with $1995 $488 $258 ($36 is responsible)
+    $1997 = call $411 with $1993 ($97 is responsible)
+    $1998 = call $388 with $1997 $419 ($98 is responsible)
+    $1999 = call $542 with $1998 $489 $258 ($34 is responsible)
+    $2000 = call $395 with $1979 $1993 ($35 is responsible)
+  }
+  $2001 = call $865 with $1958 $1959 $1977 ($259 is responsible)
+}
+# Core:fixedDecimal:comparableMinorUnits
+$2002 = { $2003 $2004 (+ responsible $2005) ->
+  $2006 = call $1767 with $2003 ($166 is responsible)
+  $2007 = call $542 with $2006 $512 $2005 ($172 is responsible)
+  $2008 = call $1767 with $2004 ($173 is responsible)
+  $2009 = call $542 with $2008 $513 $2005 ($174 is responsible)
+  $2010 = call $1895 with $2003 ($167 is responsible)
+  $2011 = call $1895 with $2004 ($168 is responsible)
+  $2012 = call $1567 with $2010 $2011 ($169 is responsible)
+  $2013 = call $1944 with $2003 $2012 ($170 is responsible)
+  $2014 = call $1944 with $2004 $2012 ($171 is responsible)
+  $2015 = [$433: $2013, $434: $2014, $430: $2012]
+}
+# Core:fixedDecimal:add
+$2016 = { $2017 $2018 (+ responsible $2019) ->
+  $2020 = call $1767 with $2017 ($146 is responsible)
+  $2021 = call $542 with $2020 $509 $2019 ($149 is responsible)
+  $2022 = call $1767 with $2018 ($150 is responsible)
+  $2023 = call $542 with $2022 $510 $2019 ($151 is responsible)
+  $2024 = call $2002 with $2017 $2018 ($144 is responsible)
+  $2025 = call $411 with $2024 ($145 is responsible)
+  $2026 = call $388 with $428 $2025 ($145 is responsible)
+  # Core:fixedDecimal:add:14:equals:then
+  $2027 = { (responsible $2028) ->
+    $2029 = call $402 with $2024 $433 ($145 is responsible)
+    # Core:fixedDecimal:add:14:hasKey:then
+    $2030 = { (responsible $2031) ->
+      $2032 = call $401 with $2024 $433 ($145 is responsible)
+      $2033 = ($422, $2032)
+    }
+    # Core:fixedDecimal:add:14:hasKey:else
+    $2034 = { (responsible $2035) ->
+      $2036 = call $410 with $2024 ($145 is responsible)
+      $2037 = call $406 with $465 $2036 ($145 is responsible)
+      $2038 = call $406 with $2037 $473 ($145 is responsible)
+      $2039 = ($424, $2038)
+    }
+    $2040 = call $390 with $2029 $2030 $2034 ($145 is responsible)
+    $2041 = call $399 with $2040 $435 ($145 is responsible)
+    $2042 = call $388 with $2041 $422 ($145 is responsible)
+    # Core:fixedDecimal:add:14:isMatch:then
+    $2043 = { (responsible $2044) ->
+      $2045 = call $399 with $2040 $436 ($145 is responsible)
+      $2046 = call $402 with $2024 $434 ($145 is responsible)
+      # Core:fixedDecimal:add:14:hasKey:then
+      $2047 = { (responsible $2048) ->
+        $2049 = call $401 with $2024 $434 ($145 is responsible)
+        $2050 = ($422, $2049)
+      }
+      # Core:fixedDecimal:add:14:hasKey:else
+      $2051 = { (responsible $2052) ->
+        $2053 = call $410 with $2024 ($145 is responsible)
+        $2054 = call $406 with $466 $2053 ($145 is responsible)
+        $2055 = call $406 with $2054 $473 ($145 is responsible)
+        $2056 = ($424, $2055)
+      }
+      $2057 = call $390 with $2046 $2047 $2051 ($145 is responsible)
+      $2058 = call $399 with $2057 $435 ($145 is responsible)
+      $2059 = call $388 with $2058 $422 ($145 is responsible)
+      # Core:fixedDecimal:add:14:isMatch:then
+      $2060 = { (responsible $2061) ->
+        $2062 = call $399 with $2057 $436 ($145 is responsible)
+        $2063 = call $402 with $2024 $430 ($145 is responsible)
+        # Core:fixedDecimal:add:14:hasKey:then
+        $2064 = { (responsible $2065) ->
+          $2066 = call $401 with $2024 $430 ($145 is responsible)
+          $2067 = ($422, $2066)
+        }
+        # Core:fixedDecimal:add:14:hasKey:else
+        $2068 = { (responsible $2069) ->
+          $2070 = call $410 with $2024 ($145 is responsible)
+          $2071 = call $406 with $464 $2070 ($145 is responsible)
+          $2072 = call $406 with $2071 $473 ($145 is responsible)
+          $2073 = ($424, $2072)
+        }
+        $2074 = call $390 with $2063 $2064 $2068 ($145 is responsible)
+        $2075 = call $399 with $2074 $435 ($145 is responsible)
+        $2076 = call $388 with $2075 $422 ($145 is responsible)
+        # Core:fixedDecimal:add:14:isMatch:then
+        $2077 = { (responsible $2078) ->
+          $2079 = call $399 with $2074 $436 ($145 is responsible)
+          $2080 = ($422, $2045, $2062, $2079)
+        }
+        # Core:fixedDecimal:add:14:isMatch:else
+        $2081 = { (responsible $2082) ->
+          $2083 = $2074
+        }
+        $2084 = call $390 with $2076 $2077 $2081 ($145 is responsible)
+      }
+      # Core:fixedDecimal:add:14:isMatch:else
+      $2085 = { (responsible $2086) ->
+        $2087 = $2057
+      }
+      $2088 = call $390 with $2059 $2060 $2085 ($145 is responsible)
+    }
+    # Core:fixedDecimal:add:14:isMatch:else
+    $2089 = { (responsible $2090) ->
+      $2091 = $2040
+    }
+    $2092 = call $390 with $2042 $2043 $2089 ($145 is responsible)
+  }
+  # Core:fixedDecimal:add:14:equals:else
+  $2093 = { (responsible $2094) ->
+    $2095 = call $410 with $2025 ($145 is responsible)
+    $2096 = call $406 with $454 $2095 ($145 is responsible)
+    $2097 = call $406 with $2096 $473 ($145 is responsible)
+    $2098 = ($424, $2097)
+  }
+  $2099 = call $390 with $2026 $2027 $2093 ($145 is responsible)
+  $2100 = call $399 with $2099 $435 ($145 is responsible)
+  $2101 = call $388 with $2100 $422 ($145 is responsible)
+  # Core:fixedDecimal:add:14:isMatch:else
+  $2102 = { (responsible $2103) ->
+    $2104 = call $399 with $2099 $436 ($145 is responsible)
+    $2105 = panicking because $2104 ($145 is at fault)
+  }
+  $2106 = call $390 with $2101 $539 $2102 ($145 is responsible)
+  $2107 = call $399 with $2099 $436 ($153 is responsible)
+  $2108 = call $399 with $2099 $437 ($154 is responsible)
+  $2109 = call $399 with $2099 $438 ($152 is responsible)
+  $2110 = call $411 with $2107 ($97 is responsible)
+  $2111 = call $388 with $2110 $419 ($98 is responsible)
+  $2112 = call $542 with $2111 $475 $147 ($23 is responsible)
+  $2113 = call $411 with $2108 ($97 is responsible)
+  $2114 = call $388 with $2113 $419 ($98 is responsible)
+  $2115 = call $542 with $2114 $477 $147 ($21 is responsible)
+  $2116 = call $391 with $2107 $2108 ($22 is responsible)
+  $2117 = call $1912 with $2116 $2109 ($148 is responsible)
+}
+# Core:fixedDecimal:subtract
+$2118 = { $2119 $2120 (+ responsible $2121) ->
+  $2122 = call $1767 with $2119 ($270 is responsible)
+  $2123 = call $542 with $2122 $506 $2121 ($273 is responsible)
+  $2124 = call $1767 with $2120 ($274 is responsible)
+  $2125 = call $542 with $2124 $508 $2121 ($275 is responsible)
+  $2126 = call $2002 with $2119 $2120 ($268 is responsible)
+  $2127 = call $411 with $2126 ($269 is responsible)
+  $2128 = call $388 with $428 $2127 ($269 is responsible)
+  # Core:fixedDecimal:subtract:14:equals:then
+  $2129 = { (responsible $2130) ->
+    $2131 = call $402 with $2126 $433 ($269 is responsible)
+    # Core:fixedDecimal:subtract:14:hasKey:then
+    $2132 = { (responsible $2133) ->
+      $2134 = call $401 with $2126 $433 ($269 is responsible)
+      $2135 = ($422, $2134)
+    }
+    # Core:fixedDecimal:subtract:14:hasKey:else
+    $2136 = { (responsible $2137) ->
+      $2138 = call $410 with $2126 ($269 is responsible)
+      $2139 = call $406 with $465 $2138 ($269 is responsible)
+      $2140 = call $406 with $2139 $473 ($269 is responsible)
+      $2141 = ($424, $2140)
+    }
+    $2142 = call $390 with $2131 $2132 $2136 ($269 is responsible)
+    $2143 = call $399 with $2142 $435 ($269 is responsible)
+    $2144 = call $388 with $2143 $422 ($269 is responsible)
+    # Core:fixedDecimal:subtract:14:isMatch:then
+    $2145 = { (responsible $2146) ->
+      $2147 = call $399 with $2142 $436 ($269 is responsible)
+      $2148 = call $402 with $2126 $434 ($269 is responsible)
+      # Core:fixedDecimal:subtract:14:hasKey:then
+      $2149 = { (responsible $2150) ->
+        $2151 = call $401 with $2126 $434 ($269 is responsible)
+        $2152 = ($422, $2151)
+      }
+      # Core:fixedDecimal:subtract:14:hasKey:else
+      $2153 = { (responsible $2154) ->
+        $2155 = call $410 with $2126 ($269 is responsible)
+        $2156 = call $406 with $466 $2155 ($269 is responsible)
+        $2157 = call $406 with $2156 $473 ($269 is responsible)
+        $2158 = ($424, $2157)
+      }
+      $2159 = call $390 with $2148 $2149 $2153 ($269 is responsible)
+      $2160 = call $399 with $2159 $435 ($269 is responsible)
+      $2161 = call $388 with $2160 $422 ($269 is responsible)
+      # Core:fixedDecimal:subtract:14:isMatch:then
+      $2162 = { (responsible $2163) ->
+        $2164 = call $399 with $2159 $436 ($269 is responsible)
+        $2165 = call $402 with $2126 $430 ($269 is responsible)
+        # Core:fixedDecimal:subtract:14:hasKey:then
+        $2166 = { (responsible $2167) ->
+          $2168 = call $401 with $2126 $430 ($269 is responsible)
+          $2169 = ($422, $2168)
+        }
+        # Core:fixedDecimal:subtract:14:hasKey:else
+        $2170 = { (responsible $2171) ->
+          $2172 = call $410 with $2126 ($269 is responsible)
+          $2173 = call $406 with $464 $2172 ($269 is responsible)
+          $2174 = call $406 with $2173 $473 ($269 is responsible)
+          $2175 = ($424, $2174)
+        }
+        $2176 = call $390 with $2165 $2166 $2170 ($269 is responsible)
+        $2177 = call $399 with $2176 $435 ($269 is responsible)
+        $2178 = call $388 with $2177 $422 ($269 is responsible)
+        # Core:fixedDecimal:subtract:14:isMatch:then
+        $2179 = { (responsible $2180) ->
+          $2181 = call $399 with $2176 $436 ($269 is responsible)
+          $2182 = ($422, $2147, $2164, $2181)
+        }
+        # Core:fixedDecimal:subtract:14:isMatch:else
+        $2183 = { (responsible $2184) ->
+          $2185 = $2176
+        }
+        $2186 = call $390 with $2178 $2179 $2183 ($269 is responsible)
+      }
+      # Core:fixedDecimal:subtract:14:isMatch:else
+      $2187 = { (responsible $2188) ->
+        $2189 = $2159
+      }
+      $2190 = call $390 with $2161 $2162 $2187 ($269 is responsible)
+    }
+    # Core:fixedDecimal:subtract:14:isMatch:else
+    $2191 = { (responsible $2192) ->
+      $2193 = $2142
+    }
+    $2194 = call $390 with $2144 $2145 $2191 ($269 is responsible)
+  }
+  # Core:fixedDecimal:subtract:14:equals:else
+  $2195 = { (responsible $2196) ->
+    $2197 = call $410 with $2127 ($269 is responsible)
+    $2198 = call $406 with $454 $2197 ($269 is responsible)
+    $2199 = call $406 with $2198 $473 ($269 is responsible)
+    $2200 = ($424, $2199)
+  }
+  $2201 = call $390 with $2128 $2129 $2195 ($269 is responsible)
+  $2202 = call $399 with $2201 $435 ($269 is responsible)
+  $2203 = call $388 with $2202 $422 ($269 is responsible)
+  # Core:fixedDecimal:subtract:14:isMatch:else
+  $2204 = { (responsible $2205) ->
+    $2206 = call $399 with $2201 $436 ($269 is responsible)
+    $2207 = panicking because $2206 ($269 is at fault)
+  }
+  $2208 = call $390 with $2203 $539 $2204 ($269 is responsible)
+  $2209 = call $399 with $2201 $436 ($277 is responsible)
+  $2210 = call $399 with $2201 $437 ($278 is responsible)
+  $2211 = call $399 with $2201 $438 ($276 is responsible)
+  $2212 = call $411 with $2209 ($97 is responsible)
+  $2213 = call $388 with $2212 $419 ($98 is responsible)
+  $2214 = call $542 with $2213 $520 $271 ($57 is responsible)
+  $2215 = call $411 with $2210 ($97 is responsible)
+  $2216 = call $388 with $2215 $419 ($98 is responsible)
+  $2217 = call $542 with $2216 $528 $271 ($55 is responsible)
+  $2218 = call $398 with $2209 $2210 ($56 is responsible)
+  $2219 = call $1912 with $2218 $2211 ($272 is responsible)
+}
+# Core:fixedDecimal:negate
+$2220 = { $2221 (+ responsible $2222) ->
+  $2223 = call $1767 with $2221 ($241 is responsible)
+  $2224 = call $542 with $2223 $514 $2222 ($244 is responsible)
+  $2225 = call $1878 with $2221 ($245 is responsible)
+  $2226 = call $411 with $2225 ($99 is responsible)
+  $2227 = call $388 with $2226 $419 ($1 is responsible)
+  $2228 = call $542 with $2227 $514 $240 ($336 is responsible)
+  $2229 = call $411 with $2225 ($97 is responsible)
+  $2230 = call $388 with $2229 $419 ($98 is responsible)
+  $2231 = call $542 with $2230 $528 $337 ($55 is responsible)
+  $2232 = call $398 with $435 $2225 ($56 is responsible)
+  $2233 = call $1895 with $2221 ($242 is responsible)
+  $2234 = call $1912 with $2232 $2233 ($243 is responsible)
+}
+# Core:fixedDecimal:divideTruncatingAtScale
+$2235 = { $2236 $2237 $2238 (+ responsible $2239) ->
+  $2240 = call $1767 with $2236 ($188 is responsible)
+  $2241 = call $542 with $2240 $503 $2239 ($191 is responsible)
+  $2242 = call $1767 with $2237 ($198 is responsible)
+  $2243 = call $542 with $2242 $504 $2239 ($199 is responsible)
+  $2244 = call $411 with $2238 ($99 is responsible)
+  $2245 = call $388 with $2244 $419 ($1 is responsible)
+  # Core:fixedDecimal:isScale:18
+  $2246 = { (responsible $2247) ->
+    $2248 = call $1545 with $2238 ($234 is responsible)
+  }
+  $2249 = call $1250 with $2245 $2246 ($235 is responsible)
+  $2250 = call $542 with $2249 $519 $2239 ($186 is responsible)
+  $2251 = call $1878 with $2237 ($187 is responsible)
+  $2252 = call $388 with $2251 $435 ($1 is responsible)
+  $2253 = call $1166 with $2252 ($189 is responsible)
+  $2254 = call $542 with $2253 $472 $2239 ($190 is responsible)
+  $2255 = call $2002 with $2236 $2237 ($192 is responsible)
+  $2256 = call $411 with $2255 ($193 is responsible)
+  $2257 = call $388 with $428 $2256 ($193 is responsible)
+  # Core:fixedDecimal:divideTruncatingAtScale:42:equals:then
+  $2258 = { (responsible $2259) ->
+    $2260 = call $402 with $2255 $433 ($193 is responsible)
+    # Core:fixedDecimal:divideTruncatingAtScale:42:hasKey:then
+    $2261 = { (responsible $2262) ->
+      $2263 = call $401 with $2255 $433 ($193 is responsible)
+      $2264 = ($422, $2263)
+    }
+    # Core:fixedDecimal:divideTruncatingAtScale:42:hasKey:else
+    $2265 = { (responsible $2266) ->
+      $2267 = call $410 with $2255 ($193 is responsible)
+      $2268 = call $406 with $465 $2267 ($193 is responsible)
+      $2269 = call $406 with $2268 $473 ($193 is responsible)
+      $2270 = ($424, $2269)
+    }
+    $2271 = call $390 with $2260 $2261 $2265 ($193 is responsible)
+    $2272 = call $399 with $2271 $435 ($193 is responsible)
+    $2273 = call $388 with $2272 $422 ($193 is responsible)
+    # Core:fixedDecimal:divideTruncatingAtScale:42:isMatch:then
+    $2274 = { (responsible $2275) ->
+      $2276 = call $399 with $2271 $436 ($193 is responsible)
+      $2277 = call $402 with $2255 $434 ($193 is responsible)
+      # Core:fixedDecimal:divideTruncatingAtScale:42:hasKey:then
+      $2278 = { (responsible $2279) ->
+        $2280 = call $401 with $2255 $434 ($193 is responsible)
+        $2281 = ($422, $2280)
+      }
+      # Core:fixedDecimal:divideTruncatingAtScale:42:hasKey:else
+      $2282 = { (responsible $2283) ->
+        $2284 = call $410 with $2255 ($193 is responsible)
+        $2285 = call $406 with $466 $2284 ($193 is responsible)
+        $2286 = call $406 with $2285 $473 ($193 is responsible)
+        $2287 = ($424, $2286)
+      }
+      $2288 = call $390 with $2277 $2278 $2282 ($193 is responsible)
+      $2289 = call $399 with $2288 $435 ($193 is responsible)
+      $2290 = call $388 with $2289 $422 ($193 is responsible)
+      # Core:fixedDecimal:divideTruncatingAtScale:42:isMatch:then
+      $2291 = { (responsible $2292) ->
+        $2293 = call $399 with $2288 $436 ($193 is responsible)
+        $2294 = ($422, $2276, $2293)
+      }
+      # Core:fixedDecimal:divideTruncatingAtScale:42:isMatch:else
+      $2295 = { (responsible $2296) ->
+        $2297 = $2288
+      }
+      $2298 = call $390 with $2290 $2291 $2295 ($193 is responsible)
+    }
+    # Core:fixedDecimal:divideTruncatingAtScale:42:isMatch:else
+    $2299 = { (responsible $2300) ->
+      $2301 = $2271
+    }
+    $2302 = call $390 with $2273 $2274 $2299 ($193 is responsible)
+  }
+  # Core:fixedDecimal:divideTruncatingAtScale:42:equals:else
+  $2303 = { (responsible $2304) ->
+    $2305 = call $410 with $2256 ($193 is responsible)
+    $2306 = call $406 with $454 $2305 ($193 is responsible)
+    $2307 = call $406 with $2306 $473 ($193 is responsible)
+    $2308 = ($424, $2307)
+  }
+  $2309 = call $390 with $2257 $2258 $2303 ($193 is responsible)
+  $2310 = call $399 with $2309 $435 ($193 is responsible)
+  $2311 = call $388 with $2310 $422 ($193 is responsible)
+  # Core:fixedDecimal:divideTruncatingAtScale:42:isMatch:else
+  $2312 = { (responsible $2313) ->
+    $2314 = call $399 with $2309 $436 ($193 is responsible)
+    $2315 = panicking because $2314 ($193 is at fault)
+  }
+  $2316 = call $390 with $2311 $539 $2312 ($193 is responsible)
+  $2317 = call $399 with $2309 $436 ($200 is responsible)
+  $2318 = call $399 with $2309 $437 ($201 is responsible)
+  $2319 = call $411 with $2238 ($99 is responsible)
+  $2320 = call $388 with $2319 $419 ($1 is responsible)
+  $2321 = call $1250 with $2320 $2246 ($235 is responsible)
+  $2322 = call $542 with $2321 $518 $194 ($267 is responsible)
+  $2323 = call $1718 with $439 $2238 ($266 is responsible)
+  $2324 = call $411 with $2317 ($97 is responsible)
+  $2325 = call $388 with $2324 $419 ($98 is responsible)
+  $2326 = call $542 with $2325 $488 $195 ($36 is responsible)
+  $2327 = call $411 with $2323 ($97 is responsible)
+  $2328 = call $388 with $2327 $419 ($98 is responsible)
+  $2329 = call $542 with $2328 $489 $195 ($34 is responsible)
+  $2330 = call $395 with $2317 $2323 ($35 is responsible)
+  $2331 = call $971 with $2330 $2318 ($196 is responsible)
+  $2332 = call $1912 with $2331 $2238 ($197 is responsible)
+}
+# Core:fixedDecimal:compareTo
+$2333 = { $2334 $2335 (+ responsible $2336) ->
+  $2337 = call $1767 with $2334 ($177 is responsible)
+  $2338 = call $542 with $2337 $512 $2336 ($179 is responsible)
+  $2339 = call $1767 with $2335 ($182 is responsible)
+  $2340 = call $542 with $2339 $513 $2336 ($183 is responsible)
+  $2341 = call $2002 with $2334 $2335 ($175 is responsible)
+  $2342 = call $411 with $2341 ($176 is responsible)
+  $2343 = call $388 with $428 $2342 ($176 is responsible)
+  # Core:fixedDecimal:compareTo:14:equals:then
+  $2344 = { (responsible $2345) ->
+    $2346 = call $402 with $2341 $433 ($176 is responsible)
+    # Core:fixedDecimal:compareTo:14:hasKey:then
+    $2347 = { (responsible $2348) ->
+      $2349 = call $401 with $2341 $433 ($176 is responsible)
+      $2350 = ($422, $2349)
+    }
+    # Core:fixedDecimal:compareTo:14:hasKey:else
+    $2351 = { (responsible $2352) ->
+      $2353 = call $410 with $2341 ($176 is responsible)
+      $2354 = call $406 with $465 $2353 ($176 is responsible)
+      $2355 = call $406 with $2354 $473 ($176 is responsible)
+      $2356 = ($424, $2355)
+    }
+    $2357 = call $390 with $2346 $2347 $2351 ($176 is responsible)
+    $2358 = call $399 with $2357 $435 ($176 is responsible)
+    $2359 = call $388 with $2358 $422 ($176 is responsible)
+    # Core:fixedDecimal:compareTo:14:isMatch:then
+    $2360 = { (responsible $2361) ->
+      $2362 = call $399 with $2357 $436 ($176 is responsible)
+      $2363 = call $402 with $2341 $434 ($176 is responsible)
+      # Core:fixedDecimal:compareTo:14:hasKey:then
+      $2364 = { (responsible $2365) ->
+        $2366 = call $401 with $2341 $434 ($176 is responsible)
+        $2367 = ($422, $2366)
+      }
+      # Core:fixedDecimal:compareTo:14:hasKey:else
+      $2368 = { (responsible $2369) ->
+        $2370 = call $410 with $2341 ($176 is responsible)
+        $2371 = call $406 with $466 $2370 ($176 is responsible)
+        $2372 = call $406 with $2371 $473 ($176 is responsible)
+        $2373 = ($424, $2372)
+      }
+      $2374 = call $390 with $2363 $2364 $2368 ($176 is responsible)
+      $2375 = call $399 with $2374 $435 ($176 is responsible)
+      $2376 = call $388 with $2375 $422 ($176 is responsible)
+      # Core:fixedDecimal:compareTo:14:isMatch:then
+      $2377 = { (responsible $2378) ->
+        $2379 = call $399 with $2374 $436 ($176 is responsible)
+        $2380 = ($422, $2362, $2379)
+      }
+      # Core:fixedDecimal:compareTo:14:isMatch:else
+      $2381 = { (responsible $2382) ->
+        $2383 = $2374
+      }
+      $2384 = call $390 with $2376 $2377 $2381 ($176 is responsible)
+    }
+    # Core:fixedDecimal:compareTo:14:isMatch:else
+    $2385 = { (responsible $2386) ->
+      $2387 = $2357
+    }
+    $2388 = call $390 with $2359 $2360 $2385 ($176 is responsible)
+  }
+  # Core:fixedDecimal:compareTo:14:equals:else
+  $2389 = { (responsible $2390) ->
+    $2391 = call $410 with $2342 ($176 is responsible)
+    $2392 = call $406 with $454 $2391 ($176 is responsible)
+    $2393 = call $406 with $2392 $473 ($176 is responsible)
+    $2394 = ($424, $2393)
+  }
+  $2395 = call $390 with $2343 $2344 $2389 ($176 is responsible)
+  $2396 = call $399 with $2395 $435 ($176 is responsible)
+  $2397 = call $388 with $2396 $422 ($176 is responsible)
+  # Core:fixedDecimal:compareTo:14:isMatch:else
+  $2398 = { (responsible $2399) ->
+    $2400 = call $399 with $2395 $436 ($176 is responsible)
+    $2401 = panicking because $2400 ($176 is at fault)
+  }
+  $2402 = call $390 with $2397 $539 $2398 ($176 is responsible)
+  $2403 = call $399 with $2395 $436 ($184 is responsible)
+  $2404 = call $399 with $2395 $437 ($185 is responsible)
+  $2405 = call $1486 with $2403 $2404 ($178 is responsible)
+  $2406 = $2405
+  $2407 = call $388 with $2405 $413 ($1 is responsible)
+  $2408 = call $388 with $2403 $2404 ($1 is responsible)
+  $2409 = call $1438 with $2407 $2408 ($180 is responsible)
+  $2410 = call $1458 with $2409 ($181 is responsible)
+  $2411 = $2406
+}
+# Core:fixedDecimal:isLessThanOrEqualTo
+$2412 = { $2413 $2414 (+ responsible $2415) ->
+  $2416 = call $1767 with $2413 ($221 is responsible)
+  $2417 = call $542 with $2416 $512 $2415 ($223 is responsible)
+  $2418 = call $1767 with $2414 ($224 is responsible)
+  $2419 = call $542 with $2418 $513 $2415 ($225 is responsible)
+  $2420 = call $1767 with $2413 ($216 is responsible)
+  $2421 = call $542 with $2420 $512 $220 ($217 is responsible)
+  $2422 = call $1767 with $2414 ($218 is responsible)
+  $2423 = call $542 with $2422 $513 $220 ($219 is responsible)
+  $2424 = call $2333 with $2413 $2414 ($215 is responsible)
+  $2425 = call $388 with $2424 $418 ($1 is responsible)
+  $2426 = call $1166 with $2425 ($222 is responsible)
+}
+# Core:fixedDecimal:absolute
+$2427 = { $2428 (+ responsible $2429) ->
+  $2430 = call $1767 with $2428 ($140 is responsible)
+  $2431 = call $542 with $2430 $514 $2429 ($141 is responsible)
+  $2432 = call $1767 with $2428 ($227 is responsible)
+  $2433 = call $542 with $2432 $514 $142 ($228 is responsible)
+  $2434 = call $1878 with $2428 ($229 is responsible)
+  $2435 = call $1509 with $2434 $435 ($226 is responsible)
+  # Core:fixedDecimal:absolute:9
+  $2436 = { (responsible $2437) ->
+    $2438 = call $2220 with $2428 ($143 is responsible)
+  }
+  # Core:fixedDecimal:absolute:10
+  $2439 = { (responsible $2440) ->
+    $2441 = $2428
+  }
+  $2442 = call $865 with $2435 $2436 $2439 ($139 is responsible)
+}
+# Core:fixedDecimal:approxEquals
+$2443 = { $2444 $2445 $2446 (+ responsible $2447) ->
+  $2448 = call $1767 with $2444 ($159 is responsible)
+  $2449 = call $542 with $2448 $499 $2447 ($163 is responsible)
+  $2450 = call $1767 with $2445 ($164 is responsible)
+  $2451 = call $542 with $2450 $500 $2447 ($165 is responsible)
+  $2452 = call $1767 with $2446 ($155 is responsible)
+  $2453 = call $542 with $2452 $502 $2447 ($156 is responsible)
+  $2454 = call $1767 with $2446 ($231 is responsible)
+  $2455 = call $542 with $2454 $514 $157 ($232 is responsible)
+  $2456 = call $1767 with $2446 ($227 is responsible)
+  $2457 = call $542 with $2456 $514 $233 ($228 is responsible)
+  $2458 = call $1878 with $2446 ($229 is responsible)
+  $2459 = call $1509 with $2458 $435 ($226 is responsible)
+  $2460 = call $1166 with $2459 ($230 is responsible)
+  $2461 = call $542 with $2460 $516 $2447 ($158 is responsible)
+  $2462 = call $2118 with $2444 $2445 ($160 is responsible)
+  $2463 = call $2427 with $2462 ($161 is responsible)
+  $2464 = call $2412 with $2463 $2446 ($162 is responsible)
+}
+# Core:fixedDecimal:toText
+$2465 = { $2466 (+ responsible $2467) ->
+  $2468 = call $1767 with $2466 ($290 is responsible)
+  $2469 = call $542 with $2468 $499 $2467 ($301 is responsible)
+  $2470 = call $1928 with $2466 ($302 is responsible)
+  # Core:fixedDecimal:toText:10
+  $2471 = { (responsible $2472) ->
+    $2473 = call $1895 with $2466 ($280 is responsible)
+    $2474 = call $411 with $2473 ($99 is responsible)
+    $2475 = call $388 with $2474 $419 ($1 is responsible)
+    # Core:fixedDecimal:isScale:18
+    $2476 = { (responsible $2477) ->
+      $2478 = call $1545 with $2473 ($234 is responsible)
+    }
+    $2479 = call $1250 with $2475 $2476 ($235 is responsible)
+    $2480 = call $542 with $2479 $518 $287 ($267 is responsible)
+    $2481 = call $1718 with $439 $2473 ($266 is responsible)
+    $2482 = call $1878 with $2466 ($288 is responsible)
+    $2483 = call $985 with $2482 $2481 ($279 is responsible)
+    $2484 = call $1545 with $2483 ($281 is responsible)
+    # Core:fixedDecimal:toText:10:31
+    $2485 = { (responsible $2486) ->
+      $2487 = call $411 with $2483 ($97 is responsible)
+      $2488 = call $388 with $2487 $419 ($98 is responsible)
+      $2489 = call $542 with $2488 $475 $282 ($23 is responsible)
+      $2490 = call $411 with $2481 ($97 is responsible)
+      $2491 = call $388 with $2490 $419 ($98 is responsible)
+      $2492 = call $542 with $2491 $477 $282 ($21 is responsible)
+      $2493 = call $391 with $2483 $2481 ($22 is responsible)
+      $2494 = call $410 with $2493 ($96 is responsible)
+      $2495 = call $1734 with $2494 $445 ($283 is responsible)
+    }
+    # Core:fixedDecimal:toText:10:32
+    $2496 = { (responsible $2497) ->
+      $2498 = call $411 with $2483 ($97 is responsible)
+      $2499 = call $388 with $2498 $419 ($98 is responsible)
+      $2500 = call $542 with $2499 $520 $284 ($57 is responsible)
+      $2501 = call $411 with $2481 ($97 is responsible)
+      $2502 = call $388 with $2501 $419 ($98 is responsible)
+      $2503 = call $542 with $2502 $528 $284 ($55 is responsible)
+      $2504 = call $398 with $2483 $2481 ($56 is responsible)
+      $2505 = call $410 with $2504 ($96 is responsible)
+      $2506 = call $1734 with $2505 $442 ($285 is responsible)
+    }
+    $2507 = call $865 with $2484 $2485 $2496 ($286 is responsible)
+  }
+  $2508 = call $1070 with $2471 ($289 is responsible)
+  $2509 = call $411 with $2470 ($291 is responsible)
+  $2510 = call $388 with $2509 $431 ($292 is responsible)
+  # Core:fixedDecimal:toText:22
+  $2511 = { (responsible $2512) ->
+    $2513 = $2470
+  }
+  # Core:fixedDecimal:toText:23
+  $2514 = { (responsible $2515) ->
+    $2516 = call $410 with $2470 ($293 is responsible)
+  }
+  $2517 = call $390 with $2510 $2511 $2514 ($294 is responsible)
+  $2518 = call $411 with $2508 ($295 is responsible)
+  $2519 = call $388 with $2518 $431 ($296 is responsible)
+  # Core:fixedDecimal:toText:29
+  $2520 = { (responsible $2521) ->
+    $2522 = $2508
+  }
+  # Core:fixedDecimal:toText:30
+  $2523 = { (responsible $2524) ->
+    $2525 = call $410 with $2508 ($297 is responsible)
+  }
+  $2526 = call $390 with $2519 $2520 $2523 ($298 is responsible)
+  $2527 = call $406 with $2517 $443 ($299 is responsible)
+  $2528 = call $406 with $2527 $2526 ($300 is responsible)
+}
+# Examples:sqrt:sqrt
+$2529 = { $2530 $2531 (+ responsible $2532) ->
+  $2533 = call $1767 with $2530 ($386 is responsible)
+  $2534 = call $542 with $2533 $490 $2532 ($371 is responsible)
+  $2535 = call $1767 with $2530 ($231 is responsible)
+  $2536 = call $542 with $2535 $514 $372 ($232 is responsible)
+  $2537 = call $1767 with $2530 ($227 is responsible)
+  $2538 = call $542 with $2537 $514 $233 ($228 is responsible)
+  $2539 = call $1878 with $2530 ($229 is responsible)
+  $2540 = call $1509 with $2539 $435 ($226 is responsible)
+  $2541 = call $1166 with $2540 ($230 is responsible)
+  $2542 = call $542 with $2541 $491 $2532 ($373 is responsible)
+  $2543 = call $411 with $2531 ($99 is responsible)
+  $2544 = call $388 with $2543 $419 ($1 is responsible)
+  $2545 = call $542 with $2544 $497 $2532 ($374 is responsible)
+  $2546 = call $1545 with $2531 ($375 is responsible)
+  $2547 = call $542 with $2546 $498 $2532 ($376 is responsible)
+  $2548 = call $1912 with $439 $2531 ($377 is responsible)
+  $2549 = call $1912 with $437 $435 ($208 is responsible)
+  $2550 = call $2235 with $2530 $2549 $2531 ($378 is responsible)
+  # Examples:sqrt:sqrt:82
+  $2551 = { $2552 $2553 (+ responsible $2554) ->
+    $2555 = call $2235 with $2530 $2553 $2531 ($379 is responsible)
+    $2556 = call $2016 with $2553 $2555 ($380 is responsible)
+    $2557 = call $1912 with $437 $435 ($208 is responsible)
+    $2558 = call $2235 with $2556 $2557 $2531 ($381 is responsible)
+    $2559 = call $2443 with $2553 $2558 $2548 ($382 is responsible)
+    # Examples:sqrt:sqrt:82:56
+    $2560 = { (responsible $2561) ->
+      $2562 = $2553
+    }
+    # Examples:sqrt:sqrt:82:57
+    $2563 = { (responsible $2564) ->
+      $2565 = call $2552 with $2558 ($383 is responsible)
+    }
+    $2566 = call $865 with $2559 $2560 $2563 ($384 is responsible)
+  }
+  $2567 = call $1473 with $2551 ($138 is responsible)
+  $2568 = call $542 with $2567 $467 $385 ($134 is responsible)
+  # Core:controlFlow:recursive:18
+  $2569 = { $2570 $2571 (+ responsible $2572) ->
+    # Core:controlFlow:recursive:18:0
+    $2573 = { $2574 (+ responsible $2575) ->
+      $2576 = call $2570 with $2570 $2574 ($135 is responsible)
+    }
+    $2577 = call $2551 with $2573 $2571 ($136 is responsible)
+  }
+  $2578 = call $2569 with $2569 $2550 ($137 is responsible)
+}
+# Examples:sqrt:main
+$2579 = { $2580 (+ responsible $2581) ->
+  $2582 = call $1912 with $437 $435 ($208 is responsible)
+  $2583 = call $2529 with $2582 $440 ($364 is responsible)
+  $2584 = call $2465 with $2583 ($365 is responsible)
+  $2585 = call $411 with $2584 ($366 is responsible)
+  $2586 = call $388 with $2585 $431 ($367 is responsible)
+  # Examples:sqrt:main:50
+  $2587 = { (responsible $2588) ->
+    $2589 = $2584
+  }
+  # Examples:sqrt:main:51
+  $2590 = { (responsible $2591) ->
+    $2592 = call $410 with $2584 ($368 is responsible)
+  }
+  $2593 = call $390 with $2586 $2587 $2590 ($369 is responsible)
+  $2594 = call $406 with $470 $2593 ($370 is responsible)
+  $2595 = call $400 with $2594 ($66 is responsible)
+}
+$2596 = [$427: $2529, $421: $2579]
