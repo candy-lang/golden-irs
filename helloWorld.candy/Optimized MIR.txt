@@ -1,0 +1,125 @@
+# Optimized MIR for module Examples:helloWorld
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+$1 = Builtins::structGet:12
+$2 = Builtins::structGet:21
+$3 = Builtins::structGet:22
+$4 = Builtins::structGet:24:0
+$5 = Builtins::structGet:25
+$6 = Builtins::structGet:28
+$7 = Builtins::structGet:29
+$8 = Builtins::structGet:31:0
+$9 = Builtins::structGet:32
+$10 = Builtins::structGet:34
+$11 = Builtins::structGet:35
+$12 = Builtins::structGet:36
+$13 = Builtins::structGet:37
+$14 = Builtins::structGet:38
+$15 = Builtins::structGet:45
+$16 = Builtins::structGet:5
+$17 = Builtins::typeIs:19
+$18 = Builtins::typeIs:25
+$19 = Examples:helloWorld:0:15
+$20 = Examples:helloWorld:0:7
+$21 = anonymous:$generated::needs
+$22 = builtinEquals
+$23 = builtinIfElse
+$24 = builtinStructGet
+$25 = builtinStructHasKey
+$26 = builtinTextConcatenate
+$27 = builtinToDebugText
+$28 = builtinTypeOf
+$29 = False
+$30 = Main
+$31 = Nothing
+$32 = Stdout
+$33 = Struct
+$34 = Text
+$35 = True
+$36 = "Hello, world!"
+$37 = "Struct `"
+$38 = "The `condition` must be either `True` or `False`."
+$39 = "The `reason` must be a text."
+$40 = "` is missing the key `"
+$41 = "`."
+$42 = "`struct | typeIs Struct` was not satisfied"
+# Builtins::ifElse:1:case-0:matched, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched, anonymous:$generated::needs:isConditionTrue:then
+$43 = { (responsible $44) ->
+  $45 = $35
+}
+# anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+$46 = { (responsible $47) ->
+  $48 = $31
+}
+# anonymous:$generated::needs
+$49 = { $50 $51 $52 (+ responsible $53) ->
+  $54 = call $22 with $50 $35 ($21 is responsible)
+  # anonymous:$generated::needs:isConditionTrue:else
+  $55 = { (responsible $56) ->
+    $57 = call $22 with $50 $29 ($21 is responsible)
+  }
+  $58 = call $23 with $54 $43 $55 ($21 is responsible)
+  # anonymous:$generated::needs:isConditionBool:else
+  $59 = { (responsible $60) ->
+    $61 = panicking because $38 ($53 is at fault)
+  }
+  $62 = call $23 with $58 $46 $59 ($21 is responsible)
+  $63 = call $28 with $51 ($53 is responsible)
+  $64 = call $22 with $63 $34 ($53 is responsible)
+  # anonymous:$generated::needs:isReasonText:else
+  $65 = { (responsible $66) ->
+    $67 = panicking because $39 ($53 is at fault)
+  }
+  $68 = call $23 with $64 $46 $65 ($21 is responsible)
+  # anonymous:$generated::needs:condition:else
+  $69 = { (responsible $70) ->
+    $71 = panicking because $51 ($52 is at fault)
+  }
+  $72 = call $23 with $50 $46 $69 ($21 is responsible)
+}
+# Builtins::structGet
+$73 = { $74 $75 (+ responsible $76) ->
+  $77 = call $28 with $74 ($17 is responsible)
+  $78 = call $22 with $77 $33 ($18 is responsible)
+  $79 = call $49 with $78 $42 $76 ($16 is responsible)
+  $80 = call $25 with $74 $75 ($1 is responsible)
+  $81 = call $28 with $74 ($2 is responsible)
+  $82 = call $22 with $81 $34 ($3 is responsible)
+  # Builtins::structGet:23
+  $83 = { (responsible $84) ->
+    $85 = $74
+  }
+  # Builtins::structGet:24
+  $86 = { (responsible $87) ->
+    $88 = call $27 with $74 ($4 is responsible)
+  }
+  $89 = call $23 with $82 $83 $86 ($5 is responsible)
+  $90 = call $28 with $75 ($6 is responsible)
+  $91 = call $22 with $90 $34 ($7 is responsible)
+  # Builtins::structGet:30
+  $92 = { (responsible $93) ->
+    $94 = $75
+  }
+  # Builtins::structGet:31
+  $95 = { (responsible $96) ->
+    $97 = call $27 with $75 ($8 is responsible)
+  }
+  $98 = call $23 with $91 $92 $95 ($9 is responsible)
+  $99 = call $26 with $37 $89 ($10 is responsible)
+  $100 = call $26 with $99 $40 ($11 is responsible)
+  $101 = call $26 with $100 $98 ($12 is responsible)
+  $102 = call $26 with $101 $41 ($13 is responsible)
+  $103 = call $49 with $80 $102 $76 ($14 is responsible)
+  $104 = call $24 with $74 $75 ($15 is responsible)
+}
+# Examples:helloWorld:0
+$105 = { $106 (+ responsible $107) ->
+  $108 = call $73 with $106 $32 ($20 is responsible)
+  $109 = call $108 with $36 ($19 is responsible)
+}
+$110 = [$30: $105]
