@@ -1,0 +1,100 @@
+# VM Byte Code for module Examples:_package
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# Constant heap
+<replaced address 05cf6ed3a3e1ef22>: "NotUtf8"
+<replaced address 1076a7c75d895c72>: "NotAnInteger"
+<replaced address 2a8be7103eabae0e>: "Ok"
+<replaced address 2ded061b072e15be>: { 0 arguments (capturing nothing) → ip-0 }
+<replaced address 42a12fd43197b700>: "The exported main value is not a function."
+<replaced address 45bb5c6ad7379de9>: "Main"
+<replaced address 4d094d47213a5655>: "Equal"
+<replaced address 507b18145b4ec156>: "The module doesn't export a main function."
+<replaced address 51f524ae63c4af0b>: "Tag"
+<replaced address 5daeb472a61ff7f8>: "False"
+<replaced address 614077b0f92cd7f0>: "Struct"
+<replaced address 6732a87eefdda5c6>: "Nothing"
+<replaced address 6b24044ae391e0b7>: "Int"
+<replaced address 6cdccd509afc921c>: "Text"
+<replaced address 6fe1fdb2563c07ad>: "Arguments"
+<replaced address 7ffec549f096563f>: []
+<replaced address 807d7368f1a4edd6>: "Builtin"
+<replaced address a0b14ec6761df9bc>: Examples:_package:
+<replaced address a0b14ec6761df9bc>: Examples:_package:
+<replaced address a2f6d53168c96b64>: "GetRandomBytes"
+<replaced address b66aa5e8eefa60de>: "Function"
+<replaced address b9d313d4403e6a66>: { 0 arguments (capturing nothing) → ip-8 }
+<replaced address bbcfa9d6e3f11acf>: "Greater"
+<replaced address bd7e643bf52790f0>: "Stdout"
+<replaced address c55cceaecad84aa7>: { 0 arguments (capturing nothing) → ip-13 }
+<replaced address c841b45ecc45bd33>: "True"
+<replaced address d7629bf6e871f5e8>: "Error"
+<replaced address d830aeca8fc194e9>: "The exported main function doesn't accept exactly one parameter."
+<replaced address dc704463e00c0b29>: { 0 arguments (capturing nothing) → ip-3 }
+<replaced address e13459ee6346ab5d>: "List"
+<replaced address f2debbb68786f674>: "Less"
+<replaced address f8bed0fc3ef0a4f6>: "Stdin"
+
+# Instructions
+# anonymous:$generated::needs:isReasonText:then, anonymous:$generated::needs:isConditionBool:then, Examples:_package:then, anonymous:$generated::needs:condition:then
+ 0: pushConstant inline Nothing
+ 1: popMultipleBelowTop 1
+ 2: return
+# Examples:_package:else
+ 3: pushConstant <replaced address 42a12fd43197b700> "The exported main value is not a function."
+ 4: pushConstant <replaced address a0b14ec6761df9bc> Examples:_package:
+ 5: panic
+ 6: popMultipleBelowTop 1
+ 7: return
+ 8: pushConstant <replaced address d830aeca8fc194e9> "The exported main function doesn't accept exactly one parameter."
+ 9: pushConstant <replaced address a0b14ec6761df9bc> Examples:_package:
+10: panic
+11: popMultipleBelowTop 1
+12: return
+# Examples:_package:
+13: pushConstant <replaced address 507b18145b4ec156> "The module doesn't export a main function."
+14: pushConstant <replaced address a0b14ec6761df9bc> Examples:_package:
+15: panic
+16: pushConstant inline builtinStructGet
+17: pushConstant <replaced address 7ffec549f096563f> []
+18: pushConstant inline Main
+19: pushConstant <replaced address a0b14ec6761df9bc> Examples:_package:
+20: call with 2 arguments
+21: pushConstant inline builtinTypeOf
+22: pushFromStack 1
+23: pushConstant <replaced address a0b14ec6761df9bc> Examples:_package:
+24: call with 1 argument
+25: pushConstant inline builtinEquals
+26: pushFromStack 1
+27: pushConstant inline Function
+28: pushConstant <replaced address a0b14ec6761df9bc> Examples:_package:
+29: call with 2 arguments
+30: pushConstant inline builtinIfElse
+31: pushFromStack 1
+32: pushConstant <replaced address 2ded061b072e15be> { 0 arguments (capturing nothing) → ip-0 }
+33: pushConstant <replaced address dc704463e00c0b29> { 0 arguments (capturing nothing) → ip-3 }
+34: pushConstant <replaced address a0b14ec6761df9bc> Examples:_package:
+35: call with 3 arguments
+36: pushConstant inline builtinGetArgumentCount
+37: pushFromStack 4
+38: pushConstant <replaced address a0b14ec6761df9bc> Examples:_package:
+39: call with 1 argument
+40: pushConstant inline builtinEquals
+41: pushFromStack 1
+42: pushConstant inline 1
+43: pushConstant <replaced address a0b14ec6761df9bc> Examples:_package:
+44: call with 2 arguments
+45: pushConstant inline builtinIfElse
+46: pushFromStack 1
+47: pushConstant <replaced address 2ded061b072e15be> { 0 arguments (capturing nothing) → ip-0 }
+48: pushConstant <replaced address b9d313d4403e6a66> { 0 arguments (capturing nothing) → ip-8 }
+49: pushConstant <replaced address a0b14ec6761df9bc> Examples:_package:
+50: call with 3 arguments
+51: pushFromStack 6
+52: popMultipleBelowTop 9
+53: return
