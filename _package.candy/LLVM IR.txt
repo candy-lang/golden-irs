@@ -1,0 +1,48 @@
+; ModuleID = 'module'
+source_filename = "module"
+
+@candy_environment = external global ptr
+
+declare ptr @make_candy_int(i64)
+
+declare ptr @make_candy_tag(ptr, ptr)
+
+declare ptr @make_candy_text(ptr)
+
+declare ptr @make_candy_list(ptr)
+
+declare ptr @make_candy_function(ptr, ptr, i64)
+
+declare ptr @make_candy_struct(ptr, ptr)
+
+declare ptr @candy_builtin_struct_get(ptr, ptr)
+
+declare void @candy_panic(ptr)
+
+declare void @free_candy_value(ptr)
+
+declare void @print_candy_value(ptr)
+
+declare ptr @get_candy_function_pointer(ptr)
+
+declare ptr @get_candy_function_environment(ptr)
+
+define i32 @main() {
+entry:
+  %0 = alloca ptr, i64 1, align 8
+  %1 = alloca ptr, i64 1, align 8
+  %2 = getelementptr ptr, ptr %0, i64 0
+  store ptr null, ptr %2, align 8
+  %3 = getelementptr ptr, ptr %1, i64 0
+  store ptr null, ptr %3, align 8
+  %4 = call ptr @make_candy_struct(ptr %0, ptr %1)
+  %5 = alloca i8, i64 5, align 1
+  store [5 x i8] c"Main\00", ptr %5, align 1
+  %6 = call ptr @make_candy_tag(ptr %5, ptr null)
+  %7 = call ptr @candy_builtin_struct_get(ptr %4, ptr %6)
+  %8 = call ptr @run_candy_main(ptr %7, ptr @candy_environment)
+  call void @print_candy_value(ptr %8)
+  ret i32 0
+}
+
+declare ptr @run_candy_main(ptr, ptr)
