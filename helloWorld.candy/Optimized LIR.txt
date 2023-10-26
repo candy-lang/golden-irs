@@ -1,0 +1,136 @@
+# LIR for module Examples:helloWorld
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# Constants
+%0 = Builtins::structGet:12
+%1 = Builtins::structGet:14
+%2 = Builtins::structGet:21
+%3 = Builtins::structGet:5
+%4 = Builtins::typeIs:19
+%5 = Builtins::typeIs:25
+%6 = Examples:helloWorld:0:15
+%7 = Examples:helloWorld:0:7
+%8 = anonymous:$generated::needs
+%9 = builtinEquals
+%10 = builtinIfElse
+%11 = builtinStructGet
+%12 = builtinStructHasKey
+%13 = builtinTypeOf
+%14 = False
+%15 = Nothing
+%16 = Stdout
+%17 = Struct
+%18 = Text
+%19 = True
+%20 = "Hello, world!"
+%21 = "The `condition` must be either `True` or `False`."
+%22 = "The `reason` must be a text."
+%23 = "`struct | typeIs Struct` was not satisfied"
+%24 = "`struct | ✨.structHasKey key` was not satisfied"
+%25 = { body_0 }
+%26 = { body_1 }
+%27 = { body_6 }
+%28 = { body_7 }
+
+# Bodies
+body_0 (responsible $0) =
+  # Original HIR IDs: Builtins::ifElse:1:case-0:matched, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched, anonymous:$generated::needs:isConditionTrue:then
+  # Captured IDs: none
+  $1 = %19
+body_1 (responsible $0) =
+  # Original HIR IDs: Examples:helloWorld:then, anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+  # Captured IDs: none
+  $1 = %15
+body_2 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionTrue:else
+  # Captured IDs: $0
+  $2 = %9
+  $3 = %14
+  $4 = %8
+  $5 = call $2 with $0 $3 ($4 is responsible)
+  $6 = $5
+body_3 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionBool:else
+  # Captured IDs: $0
+  $2 = %21
+  $3 = panicking because $2 ($0 is at fault)
+  $4 = $3
+body_4 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isReasonText:else
+  # Captured IDs: $0
+  $2 = %22
+  $3 = panicking because $2 ($0 is at fault)
+  $4 = $3
+body_5 (responsible $2) =
+  # Original HIR IDs: anonymous:$generated::needs:condition:else
+  # Captured IDs: $0, $1
+  $3 = panicking because $0 ($1 is at fault)
+  $4 = $3
+body_6 $0 $1 $2 (+ responsible $3) =
+  # Original HIR IDs: anonymous:$generated::needs
+  # Captured IDs: none
+  $4 = dup $0 by 1
+  $5 = %9
+  $6 = %19
+  $7 = %8
+  $8 = call $5 with $0 $6 ($7 is responsible)
+  $9 = { body_2 capturing $0 }
+  $10 = %10
+  $11 = %25
+  $12 = call $10 with $8 $11 $9 ($7 is responsible)
+  $13 = { body_3 capturing $3 }
+  $14 = %26
+  $15 = call $10 with $12 $14 $13 ($7 is responsible)
+  $16 = %13
+  $17 = call $16 with $1 ($3 is responsible)
+  $18 = %18
+  $19 = call $5 with $17 $18 ($3 is responsible)
+  $20 = { body_4 capturing $3 }
+  $21 = call $10 with $19 $14 $20 ($7 is responsible)
+  $22 = { body_5 capturing $1, $2 }
+  $23 = call $10 with $0 $14 $22 ($7 is responsible)
+  $24 = $23
+  $25 = drop $2
+  $26 = drop $19
+  $27 = drop $29
+body_7 $0 (+ responsible $1) =
+  # Original HIR IDs: Examples:helloWorld:0
+  # Captured IDs: none
+  $2 = dup $0 by 2
+  $3 = %13
+  $4 = %4
+  $5 = call $3 with $0 ($4 is responsible)
+  $6 = %9
+  $7 = %17
+  $8 = %5
+  $9 = call $6 with $5 $7 ($8 is responsible)
+  $10 = %27
+  $11 = %23
+  $12 = %7
+  $13 = %3
+  $14 = call $10 with $9 $11 $12 ($13 is responsible)
+  $15 = %12
+  $16 = %16
+  $17 = %0
+  $18 = call $15 with $0 $16 ($17 is responsible)
+  $19 = %24
+  $20 = %1
+  $21 = call $10 with $18 $19 $12 ($20 is responsible)
+  $22 = %11
+  $23 = %2
+  $24 = call $22 with $0 $16 ($23 is responsible)
+  $25 = %20
+  $26 = %6
+  $27 = call $24 with $25 ($26 is responsible)
+  $28 = $27
+  $29 = drop $16
+  $30 = drop $25
+body_8 (responsible $0) =
+  # Original HIR IDs: Examples:helloWorld:
+  # Captured IDs: none
+  $1 = %28
