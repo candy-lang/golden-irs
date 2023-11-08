@@ -1,0 +1,123 @@
+# MIR for module Examples:minimal
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# anonymous:$generated::needs
+$49 = { $2 $3 $4 (+ responsible $1) ->
+  $5 = anonymous:$generated::needs
+  $6 = builtinEquals
+  $7 = Nothing
+  $8 = True
+  $9 = False
+  $10 = call $6 with $2 $8 ($5 is responsible)
+  $11 = builtinIfElse
+  # anonymous:$generated::needs:isConditionTrue:then
+  $14 = { (responsible $12) ->
+    $13 = $8
+  }
+  # anonymous:$generated::needs:isConditionTrue:else
+  $17 = { (responsible $15) ->
+    $16 = call $6 with $2 $9 ($5 is responsible)
+  }
+  $18 = call $11 with $10 $14 $17 ($5 is responsible)
+  $19 = builtinIfElse
+  # anonymous:$generated::needs:isConditionBool:then
+  $22 = { (responsible $20) ->
+    $21 = $7
+  }
+  # anonymous:$generated::needs:isConditionBool:else
+  $26 = { (responsible $23) ->
+    $24 = "The `condition` must be either `True` or `False`."
+    $25 = panicking because $24 ($1 is at fault)
+  }
+  $27 = call $19 with $18 $22 $26 ($5 is responsible)
+  $28 = builtinTypeOf
+  $29 = call $28 with $3 ($1 is responsible)
+  $30 = Text
+  $31 = call $6 with $29 $30 ($1 is responsible)
+  $32 = builtinIfElse
+  # anonymous:$generated::needs:isReasonText:then
+  $35 = { (responsible $33) ->
+    $34 = $7
+  }
+  # anonymous:$generated::needs:isReasonText:else
+  $39 = { (responsible $36) ->
+    $37 = "The `reason` must be a text."
+    $38 = panicking because $37 ($1 is at fault)
+  }
+  $40 = call $32 with $31 $35 $39 ($5 is responsible)
+  $41 = builtinIfElse
+  # anonymous:$generated::needs:condition:then
+  $44 = { (responsible $42) ->
+    $43 = $7
+  }
+  # anonymous:$generated::needs:condition:else
+  $47 = { (responsible $45) ->
+    $46 = panicking because $3 ($4 is at fault)
+  }
+  $48 = call $41 with $2 $44 $47 ($5 is responsible)
+}
+$50 = Examples:minimal:
+# Examples:minimal:use
+$54 = { $52 (+ responsible $51) ->
+  $53 = use $52 (relative to Examples:minimal; $51 is responsible)
+}
+# Examples:minimal:main
+$58 = { $56 (+ responsible $55) ->
+  $57 = Nothing
+}
+$59 = $58
+$60 = Main
+$61 = [$60: $59]
+$62 = builtinStructHasKey
+$63 = Main
+$64 = call $62 with $61 $63 ($50 is responsible)
+$65 = "The module doesn't export a main function."
+$66 = builtinIfElse
+# Examples:minimal:then
+$69 = { (responsible $67) ->
+  $68 = Nothing
+}
+# Examples:minimal:else
+$72 = { (responsible $70) ->
+  $71 = panicking because $65 ($50 is at fault)
+}
+$73 = call $66 with $64 $69 $72 ($50 is responsible)
+$74 = builtinStructGet
+$75 = call $74 with $61 $63 ($50 is responsible)
+$76 = builtinTypeOf
+$77 = call $76 with $75 ($50 is responsible)
+$78 = builtinEquals
+$79 = Function
+$80 = call $78 with $77 $79 ($50 is responsible)
+$81 = "The exported main value is not a function."
+$82 = builtinIfElse
+# Examples:minimal:then
+$85 = { (responsible $83) ->
+  $84 = Nothing
+}
+# Examples:minimal:else
+$88 = { (responsible $86) ->
+  $87 = panicking because $81 ($50 is at fault)
+}
+$89 = call $82 with $80 $85 $88 ($50 is responsible)
+$90 = builtinGetArgumentCount
+$91 = call $90 with $75 ($50 is responsible)
+$92 = 1
+$93 = call $78 with $91 $92 ($50 is responsible)
+$94 = "The exported main function doesn't accept exactly one parameter."
+$95 = builtinIfElse
+# Examples:minimal:then
+$98 = { (responsible $96) ->
+  $97 = Nothing
+}
+# Examples:minimal:else
+$101 = { (responsible $99) ->
+  $100 = panicking because $94 ($50 is at fault)
+}
+$102 = call $95 with $93 $98 $101 ($50 is responsible)
+$103 = $75
