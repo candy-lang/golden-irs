@@ -1,0 +1,74 @@
+# Optimized LIR for module Examples:_package
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# Constants
+%0 = Examples:_package:
+%1 = builtinEquals
+%2 = builtinIfElse
+%3 = builtinTypeOf
+%4 = Main
+%5 = Nothing
+%6 = "The module doesn't export a main function."
+%7 = { body_0 }
+%8 = []
+%9 = builtinStructGet
+%10 = Function
+%11 = "The exported main value is not a function."
+%12 = { body_1 }
+%13 = builtinGetArgumentCount
+%14 = 1
+%15 = "The exported main function doesn't accept exactly one parameter."
+%16 = { body_2 }
+
+# Bodies
+body_0 (responsible $0) =
+  # Original HIR IDs: Examples:_package:then, anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+  # Captured IDs: none
+  $1 = %5
+body_1 (responsible $0) =
+  # Original HIR IDs: Examples:_package:else
+  # Captured IDs: none
+  $1 = %11
+  $2 = %0
+  $3 = panicking because $1 ($2 is at fault)
+body_2 (responsible $0) =
+  # Original HIR IDs: Examples:_package:else
+  # Captured IDs: none
+  $1 = %15
+  $2 = %0
+  $3 = panicking because $1 ($2 is at fault)
+body_3 (responsible $0) =
+  # Original HIR IDs: Examples:_package:
+  # Captured IDs: none
+  $1 = %6
+  $2 = %0
+  $3 = panicking because $1 ($2 is at fault)
+  $4 = %9
+  $5 = %8
+  $6 = %4
+  $7 = call $4 with $5 $6 ($2 is responsible)
+  $8 = dup $7 by 2
+  $9 = %3
+  $10 = call $9 with $7 ($2 is responsible)
+  $11 = %1
+  $12 = %10
+  $13 = call $11 with $10 $12 ($2 is responsible)
+  $14 = %2
+  $15 = %7
+  $16 = %12
+  $17 = call $14 with $13 $15 $16 ($2 is responsible)
+  $18 = %13
+  $19 = call $18 with $7 ($2 is responsible)
+  $20 = %14
+  $21 = call $11 with $19 $20 ($2 is responsible)
+  $22 = %16
+  $23 = call $14 with $21 $15 $22 ($2 is responsible)
+  $24 = drop $3
+  $25 = drop $17
+  $26 = drop $23
+  $27 = $7
