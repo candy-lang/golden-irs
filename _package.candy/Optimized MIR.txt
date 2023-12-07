@@ -1,0 +1,43 @@
+# Optimized MIR for module Examples:_package
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+$1 = Examples:_package:
+$2 = builtinEquals
+$3 = builtinIfElse
+$4 = builtinTypeOf
+$5 = Main
+$6 = Nothing
+$7 = "The module doesn't export a main function."
+# Examples:_package:then, anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+$8 = { (responsible $9) ->
+  $10 = $6
+}
+$11 = []
+$12 = panicking because $7 ($1 is at fault)
+$13 = builtinStructGet
+$14 = call $13 with $11 $5 ($1 is responsible)
+$15 = call $4 with $14 ($1 is responsible)
+$16 = Function
+$17 = call $2 with $15 $16 ($1 is responsible)
+$18 = "The exported main value is not a function."
+# Examples:_package:else
+$19 = { (responsible $20) ->
+  $21 = panicking because $18 ($1 is at fault)
+}
+$22 = call $3 with $17 $8 $19 ($1 is responsible)
+$23 = builtinGetArgumentCount
+$24 = call $23 with $14 ($1 is responsible)
+$25 = 1
+$26 = call $2 with $24 $25 ($1 is responsible)
+$27 = "The exported main function doesn't accept exactly one parameter."
+# Examples:_package:else
+$28 = { (responsible $29) ->
+  $30 = panicking because $27 ($1 is at fault)
+}
+$31 = call $3 with $26 $8 $28 ($1 is responsible)
+$32 = $14
