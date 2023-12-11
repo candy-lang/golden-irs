@@ -1,0 +1,222 @@
+# VM Byte Code for module Examples:helloWorld
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# Constant heap
+<replaced address 05cf6ed3a3e1ef22>: "NotUtf8"
+<replaced address 0fea7d5fa5afcc30>: Builtins::typeIs:25
+<replaced address 1076a7c75d895c72>: "NotAnInteger"
+<replaced address 18dc4adab2c8e8df>: "`struct | ✨.structHasKey key` was not satisfied"
+<replaced address 1f92019f89733a43>: Builtins::structGet:12
+<replaced address 2a8be7103eabae0e>: "Ok"
+<replaced address 2ded061b072e15be>: { 0 arguments (capturing nothing) → ip-0 }
+<replaced address 36eebe9168aef0b0>: "The `reason` must be a text."
+<replaced address 39087ed1383b1c46>: { 1 argument (capturing nothing) → ip-94 }
+<replaced address 3eca0e872d043602>: Builtins::typeIs:19
+<replaced address 422f322f2940db06>: Builtins::structGet:21
+<replaced address 4d094d47213a5655>: "Equal"
+<replaced address 51f524ae63c4af0b>: "Tag"
+<replaced address 53edeed76ed1cc58>: Examples:helloWorld:0:15
+<replaced address 568420a2a5125080>: "GetNextRequest"
+<replaced address 59d6aae2417bc61d>: "Hello, world!"
+<replaced address 59fb4da19b618456>: Builtins::structGet:5
+<replaced address 5b10e82ed1489edf>: { 3 arguments (capturing nothing) → ip-31 }
+<replaced address 5daeb472a61ff7f8>: "False"
+<replaced address 614077b0f92cd7f0>: "Struct"
+<replaced address 6732a87eefdda5c6>: "Nothing"
+<replaced address 6b24044ae391e0b7>: "Int"
+<replaced address 6cdccd509afc921c>: "Text"
+<replaced address 6fe1fdb2563c07ad>: "Arguments"
+<replaced address 7c987e313b2f2519>: Builtins::structGet:14
+<replaced address 807d7368f1a4edd6>: "Builtin"
+<replaced address 80f4eaa53f4876cd>: anonymous:$generated::needs
+<replaced address 859014e38a16c47f>: "HttpServer"
+<replaced address 8935c17065d0f29c>: Examples:helloWorld:
+<replaced address 91ccd4b75c545de9>: "The `condition` must be either `True` or `False`."
+<replaced address 996cc5f08093ac25>: "`struct | typeIs Struct` was not satisfied"
+<replaced address 9b692663aeb40da7>: "SendResponse"
+<replaced address 9beb0cb1b775254c>: "Close"
+<replaced address a2f6d53168c96b64>: "GetRandomBytes"
+<replaced address b66aa5e8eefa60de>: "Function"
+<replaced address bbcfa9d6e3f11acf>: "Greater"
+<replaced address bd7e643bf52790f0>: "Stdout"
+<replaced address c807e11e35c177b0>: Examples:helloWorld:0:7
+<replaced address c841b45ecc45bd33>: "True"
+<replaced address d7629bf6e871f5e8>: "Error"
+<replaced address dc704463e00c0b29>: { 0 arguments (capturing nothing) → ip-3 }
+<replaced address e13459ee6346ab5d>: "List"
+<replaced address e17ccc916a8668cb>: { 0 arguments (capturing nothing) → ip-153 }
+<replaced address ef0df736712a6b95>: "Request"
+<replaced address f2debbb68786f674>: "Less"
+<replaced address f8bed0fc3ef0a4f6>: "Stdin"
+
+# Instructions
+# Builtins::ifElse:1:case-0:matched, anonymous:$generated::needs:isConditionTrue:then, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched
+  0: pushConstant inline True
+  1: popMultipleBelowTop 1
+  2: return
+# anonymous:$generated::needs:isReasonText:then, anonymous:$generated::needs:isConditionBool:then, Examples:helloWorld:then, anonymous:$generated::needs:condition:then
+  3: pushConstant inline Nothing
+  4: popMultipleBelowTop 1
+  5: return
+# anonymous:$generated::needs:isConditionTrue:else
+  6: pushConstant inline builtinEquals
+  7: pushConstant inline False
+  8: pushConstant <replaced address 80f4eaa53f4876cd> anonymous:$generated::needs
+  9: pushFromStack 2
+ 10: pushFromStack 5
+ 11: pushFromStack 3
+ 12: pushFromStack 3
+ 13: tailCall with 5 locals and 2 arguments
+# anonymous:$generated::needs:isConditionBool:else
+ 14: pushConstant <replaced address 91ccd4b75c545de9> "The `condition` must be either `True` or `False`."
+ 15: pushFromStack 0
+ 16: pushFromStack 3
+ 17: panic
+ 18: popMultipleBelowTop 3
+ 19: return
+# anonymous:$generated::needs:isReasonText:else
+ 20: pushConstant <replaced address 36eebe9168aef0b0> "The `reason` must be a text."
+ 21: pushFromStack 0
+ 22: pushFromStack 3
+ 23: panic
+ 24: popMultipleBelowTop 3
+ 25: return
+# anonymous:$generated::needs:condition:else
+ 26: pushFromStack 2
+ 27: pushFromStack 2
+ 28: panic
+ 29: popMultipleBelowTop 3
+ 30: return
+# anonymous:$generated::needs
+ 31: pushFromStack 3
+ 32: dup by 2
+ 33: pushFromStack 2
+ 34: dup by 1
+ 35: pushConstant inline builtinEquals
+ 36: pushConstant inline True
+ 37: pushConstant <replaced address 80f4eaa53f4876cd> anonymous:$generated::needs
+ 38: pushFromStack 2
+ 39: pushFromStack 7
+ 40: pushFromStack 3
+ 41: pushFromStack 3
+ 42: call with 2 arguments
+ 43: pushFromStack 7
+ 44: createFunction with 0 arguments capturing 0 starting at ip-6
+ 45: pushConstant inline builtinIfElse
+ 46: pushConstant <replaced address 2ded061b072e15be> { 0 arguments (capturing nothing) → ip-0 }
+ 47: pushFromStack 1
+ 48: pushFromStack 5
+ 49: pushFromStack 2
+ 50: pushFromStack 5
+ 51: pushFromStack 9
+ 52: call with 3 arguments
+ 53: pushFromStack 9
+ 54: createFunction with 0 arguments capturing 0 starting at ip-14
+ 55: pushConstant <replaced address dc704463e00c0b29> { 0 arguments (capturing nothing) → ip-3 }
+ 56: pushFromStack 5
+ 57: pushFromStack 4
+ 58: pushFromStack 2
+ 59: pushFromStack 4
+ 60: pushFromStack 13
+ 61: call with 3 arguments
+ 62: pushConstant inline builtinTypeOf
+ 63: pushFromStack 0
+ 64: pushFromStack 17
+ 65: pushFromStack 6
+ 66: call with 1 argument
+ 67: pushConstant inline Text
+ 68: pushFromStack 15
+ 69: pushFromStack 2
+ 70: pushFromStack 2
+ 71: pushFromStack 9
+ 72: call with 2 arguments
+ 73: pushFromStack 7
+ 74: createFunction with 0 arguments capturing 0 starting at ip-20
+ 75: pushFromStack 12
+ 76: pushFromStack 3
+ 77: pushFromStack 9
+ 78: pushFromStack 3
+ 79: pushFromStack 20
+ 80: call with 3 arguments
+ 81: pushFromStack 22
+ 82: pushFromStack 22
+ 83: createFunction with 0 arguments capturing 1, 0 starting at ip-26
+ 84: pushFromStack 10
+ 85: drop
+ 86: pushFromStack 3
+ 87: drop
+ 88: pushFromStack 16
+ 89: pushFromStack 19
+ 90: pushFromStack 13
+ 91: pushFromStack 3
+ 92: pushFromStack 24
+ 93: tailCall with 27 locals and 3 arguments
+# Examples:helloWorld:0
+ 94: pushFromStack 1
+ 95: dup by 2
+ 96: pushConstant inline builtinTypeOf
+ 97: pushConstant <replaced address 3eca0e872d043602> Builtins::typeIs:19
+ 98: pushFromStack 1
+ 99: pushFromStack 4
+100: pushFromStack 2
+101: call with 1 argument
+102: pushConstant inline builtinEquals
+103: pushConstant inline Struct
+104: pushConstant <replaced address 0fea7d5fa5afcc30> Builtins::typeIs:25
+105: pushFromStack 2
+106: pushFromStack 4
+107: pushFromStack 3
+108: pushFromStack 3
+109: call with 2 arguments
+110: pushConstant <replaced address 5b10e82ed1489edf> { 3 arguments (capturing nothing) → ip-31 }
+111: pushConstant <replaced address 996cc5f08093ac25> "`struct | typeIs Struct` was not satisfied"
+112: pushConstant <replaced address c807e11e35c177b0> Examples:helloWorld:0:7
+113: pushConstant <replaced address 59fb4da19b618456> Builtins::structGet:5
+114: pushFromStack 3
+115: pushFromStack 5
+116: pushFromStack 4
+117: pushFromStack 4
+118: pushFromStack 4
+119: call with 3 arguments
+120: pushConstant inline builtinStructHasKey
+121: pushConstant inline Stdout
+122: pushConstant <replaced address 1f92019f89733a43> Builtins::structGet:12
+123: pushFromStack 2
+124: pushFromStack 17
+125: pushFromStack 3
+126: pushFromStack 3
+127: call with 2 arguments
+128: pushConstant <replaced address 18dc4adab2c8e8df> "`struct | ✨.structHasKey key` was not satisfied"
+129: pushConstant <replaced address 7c987e313b2f2519> Builtins::structGet:14
+130: pushFromStack 10
+131: pushFromStack 3
+132: pushFromStack 3
+133: pushFromStack 11
+134: pushFromStack 4
+135: call with 3 arguments
+136: pushConstant inline builtinStructGet
+137: pushConstant <replaced address 422f322f2940db06> Builtins::structGet:21
+138: pushFromStack 1
+139: pushFromStack 23
+140: pushFromStack 9
+141: pushFromStack 3
+142: call with 2 arguments
+143: pushConstant <replaced address 59d6aae2417bc61d> "Hello, world!"
+144: pushConstant <replaced address 53edeed76ed1cc58> Examples:helloWorld:0:15
+145: pushFromStack 12
+146: drop
+147: pushFromStack 5
+148: drop
+149: pushFromStack 2
+150: pushFromStack 2
+151: pushFromStack 2
+152: tailCall with 26 locals and 1 argument
+# Examples:helloWorld:
+153: pushConstant <replaced address 39087ed1383b1c46> { 1 argument (capturing nothing) → ip-94 }
+154: popMultipleBelowTop 1
+155: return
