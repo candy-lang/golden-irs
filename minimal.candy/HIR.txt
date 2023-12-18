@@ -1,0 +1,10 @@
+# HIR for module Examples:minimal
+$use = { (non-fuzzable, but passes on responsibility) $use:relativePath ->
+  $use:importedModule = relative to module Examples:minimal, use $use:relativePath
+}
+$main = { (fuzzable) $main:environment ->
+  $main:0 = Nothing
+}
+$main#1 = $main
+$0 = Main
+$1 = [$0: $main#1]
