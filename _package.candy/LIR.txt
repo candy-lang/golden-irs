@@ -1,0 +1,19 @@
+# LIR for module Examples:_package
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# Constants
+%0 = Examples:_package:
+%1 = "The module doesn't export a main function."
+
+# Bodies
+body_0 (responsible $0) =
+  # Original HIR IDs: Examples:_package:
+  # Captured IDs: none
+  $1 = %1
+  $2 = %0
+  $3 = panicking because $1 ($2 is at fault)
