@@ -1,0 +1,130 @@
+# Optimized LIR for module Examples:helloWorld
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# Constants
+%0 = Builtins::structGet:12
+%1 = Builtins::structGet:14
+%2 = Builtins::structGet:21
+%3 = Builtins::structGet:5
+%4 = Builtins::typeIs:19
+%5 = Builtins::typeIs:25
+%6 = Examples:helloWorld:0:15
+%7 = Examples:helloWorld:0:7
+%8 = anonymous:$generated::needs
+%9 = builtinEquals
+%10 = builtinIfElse
+%11 = builtinStructGet
+%12 = builtinStructHasKey
+%13 = builtinTypeOf
+%14 = False
+%15 = Nothing
+%16 = Stdout
+%17 = Struct
+%18 = Text
+%19 = True
+%20 = "Hello, world!"
+%21 = "The `condition` must be either `True` or `False`."
+%22 = "The `reason` must be a text."
+%23 = "`struct | typeIs Struct` was not satisfied"
+%24 = "`struct | ✨.structHasKey key` was not satisfied"
+%25 = { body_0 }
+%26 = { body_1 }
+%27 = { body_6 }
+%28 = { body_7 }
+
+# Bodies
+body_0 (responsible $0) =
+  # Original HIR IDs: Builtins::ifElse:1:case-0:matched, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched, anonymous:$generated::needs:isConditionTrue:then
+  # Captured IDs: none
+  $1 = %19<True>
+body_1 (responsible $0) =
+  # Original HIR IDs: Examples:helloWorld:then, anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+  # Captured IDs: none
+  $1 = %15<Nothing>
+body_2 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionTrue:else
+  # Captured IDs: $0
+  $2 = %9<builtinEquals>
+  $3 = %14<False>
+  $4 = %8<anonymous:$generated::needs>
+  $5 = call $2<%9<builtinEquals>> with $0 $3<%14<False>> ($4<%8<anonymous:$generated::needs>> is responsible)
+body_3 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionBool:else
+  # Captured IDs: $0
+  $2 = %21<"The `condition` must be either `True` or `False`.">
+  $3 = panicking because $2<%21<"The `condition` must be either `True` or `False`.">> ($0 is at fault)
+body_4 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isReasonText:else
+  # Captured IDs: $0
+  $2 = %22<"The `reason` must be a text.">
+  $3 = panicking because $2<%22<"The `reason` must be a text.">> ($0 is at fault)
+body_5 (responsible $2) =
+  # Original HIR IDs: anonymous:$generated::needs:condition:else
+  # Captured IDs: $0, $1
+  $3 = panicking because $0 ($1 is at fault)
+body_6 $0 $1 $2 (+ responsible $3) =
+  # Original HIR IDs: anonymous:$generated::needs
+  # Captured IDs: none
+  $4 = dup $0 by 2
+  $5 = dup $1 by 1
+  $6 = %9<builtinEquals>
+  $7 = %19<True>
+  $8 = %8<anonymous:$generated::needs>
+  $9 = call $6<%9<builtinEquals>> with $0 $7<%19<True>> ($8<%8<anonymous:$generated::needs>> is responsible)
+  $10 = { body_2 capturing $0 }
+  $11 = %10<builtinIfElse>
+  $12 = %25<{ body_0 }>
+  $13 = call $11<%10<builtinIfElse>> with $9 $12<%25<{ body_0 }>> $10 ($8<%8<anonymous:$generated::needs>> is responsible)
+  $14 = { body_3 capturing $3 }
+  $15 = %26<{ body_1 }>
+  $16 = call $11<%10<builtinIfElse>> with $13 $15<%26<{ body_1 }>> $14 ($8<%8<anonymous:$generated::needs>> is responsible)
+  $17 = %13<builtinTypeOf>
+  $18 = call $17<%13<builtinTypeOf>> with $1 ($3 is responsible)
+  $19 = %18<Text>
+  $20 = call $6<%9<builtinEquals>> with $18 $19<%18<Text>> ($3 is responsible)
+  $21 = { body_4 capturing $3 }
+  $22 = call $11<%10<builtinIfElse>> with $20 $15<%26<{ body_1 }>> $21 ($8<%8<anonymous:$generated::needs>> is responsible)
+  $23 = { body_5 capturing $1, $2 }
+  $24 = drop $16
+  $25 = drop $22
+  $26 = call $11<%10<builtinIfElse>> with $0 $15<%26<{ body_1 }>> $23 ($8<%8<anonymous:$generated::needs>> is responsible)
+body_7 $0 (+ responsible $1) =
+  # Original HIR IDs: Examples:helloWorld:0
+  # Captured IDs: none
+  $2 = dup $0 by 2
+  $3 = %13<builtinTypeOf>
+  $4 = %4<Builtins::typeIs:19>
+  $5 = call $3<%13<builtinTypeOf>> with $0 ($4<%4<Builtins::typeIs:19>> is responsible)
+  $6 = %9<builtinEquals>
+  $7 = %17<Struct>
+  $8 = %5<Builtins::typeIs:25>
+  $9 = call $6<%9<builtinEquals>> with $5 $7<%17<Struct>> ($8<%5<Builtins::typeIs:25>> is responsible)
+  $10 = %27<{ body_6 }>
+  $11 = %23<"`struct | typeIs Struct` was not satisfied">
+  $12 = %7<Examples:helloWorld:0:7>
+  $13 = %3<Builtins::structGet:5>
+  $14 = call $10<%27<{ body_6 }>> with $9 $11<%23<"`struct | typeIs Struct` was not satisfied">> $12<%7<Examples:helloWorld:0:7>> ($13<%3<Builtins::structGet:5>> is responsible)
+  $15 = %12<builtinStructHasKey>
+  $16 = %16<Stdout>
+  $17 = %0<Builtins::structGet:12>
+  $18 = call $15<%12<builtinStructHasKey>> with $0 $16<%16<Stdout>> ($17<%0<Builtins::structGet:12>> is responsible)
+  $19 = %24<"`struct | ✨.structHasKey key` was not satisfied">
+  $20 = %1<Builtins::structGet:14>
+  $21 = call $10<%27<{ body_6 }>> with $18 $19<%24<"`struct | ✨.structHasKey key` was not satisfied">> $12<%7<Examples:helloWorld:0:7>> ($20<%1<Builtins::structGet:14>> is responsible)
+  $22 = %11<builtinStructGet>
+  $23 = %2<Builtins::structGet:21>
+  $24 = call $22<%11<builtinStructGet>> with $0 $16<%16<Stdout>> ($23<%2<Builtins::structGet:21>> is responsible)
+  $25 = %20<"Hello, world!">
+  $26 = %6<Examples:helloWorld:0:15>
+  $27 = drop $14
+  $28 = drop $21
+  $29 = call $24 with $25<%20<"Hello, world!">> ($26<%6<Examples:helloWorld:0:15>> is responsible)
+body_8 (responsible $0) =
+  # Original HIR IDs: Examples:helloWorld:
+  # Captured IDs: none
+  $1 = %28<{ body_7 }>
