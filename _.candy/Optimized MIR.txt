@@ -1,0 +1,15 @@
+# Optimized MIR for module Examples:
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+$1 = Builtins::print:11
+$2 = builtinPrint
+$3 = "3"
+# Examples::10
+$4 = { $5 (+ responsible $6) ->
+  $7 = call $2 with $3 ($1 is responsible)
+}
