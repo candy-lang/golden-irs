@@ -1,0 +1,2315 @@
+# Optimized LIR for module Examples:fibonacci
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# Constants
+%0 = Builtins::equals:6
+%1 = Builtins::functionRun:11
+%2 = Builtins::functionRun:16
+%3 = Builtins::functionRun:22
+%4 = Builtins::functionRun:5
+%5 = Builtins::getArgumentCount:11
+%6 = Builtins::getArgumentCount:5
+%7 = Builtins::ifElse:1
+%8 = Builtins::ifElse:11
+%9 = Builtins::ifElse:14
+%10 = Builtins::ifElse:19
+%11 = Builtins::ifElse:25
+%12 = Builtins::ifElse:28
+%13 = Builtins::ifElse:33
+%14 = Builtins::ifElse:41
+%15 = Builtins::ifElse:5
+%16 = Builtins::intAdd:11
+%17 = Builtins::intAdd:18
+%18 = Builtins::intAdd:5
+%19 = Builtins::intCompareTo:11
+%20 = Builtins::intCompareTo:18
+%21 = Builtins::intCompareTo:5
+%22 = Builtins::intParse:11
+%23 = Builtins::intParse:5
+%24 = Builtins::intSubtract:18
+%25 = Builtins::intSubtract:5
+%26 = Builtins::structGet:12
+%27 = Builtins::structGet:14
+%28 = Builtins::structGet:21
+%29 = Builtins::structGet:5
+%30 = Builtins::tagGetValue:11
+%31 = Builtins::tagGetValue:13
+%32 = Builtins::tagGetValue:19
+%33 = Builtins::tagGetValue:5
+%34 = Builtins::toDebugText:5
+%35 = Builtins::typeIs:19
+%36 = Builtins::typeIs:25
+%37 = Builtins::typeOf:5
+%38 = Core:bool:is:1
+%39 = Core:bool:lazyAnd:14
+%40 = Core:bool:lazyAnd:16
+%41 = Core:bool:lazyAnd:18
+%42 = Core:bool:lazyAnd:18:13
+%43 = Core:bool:lazyAnd:18:21
+%44 = Core:bool:lazyAnd:18:9
+%45 = Core:bool:lazyAnd:2
+%46 = Core:bool:lazyAnd:4
+%47 = Core:bool:not:2
+%48 = Core:bool:not:4
+%49 = Core:bool:not:6
+%50 = Core:fixedDecimal:fromInt:15
+%51 = Core:fixedDecimal:fromIntScaled:11
+%52 = Core:fixedDecimal:fromIntScaled:16
+%53 = Core:fixedDecimal:isScale:18:9
+%54 = Core:fixedDecimal:isScale:19
+%55 = Core:function:is0:11:3
+%56 = Core:function:is0:13
+%57 = Core:function:run:14
+%58 = Core:function:run:2
+%59 = Core:function:run:4
+%60 = Core:int:compareTo:20
+%61 = Core:int:compareTo:4
+%62 = Core:int:compareTo:9
+%63 = Core:int:isLessThan:13
+%64 = Core:int:isLessThan:4
+%65 = Core:int:isLessThan:9
+%66 = Core:int:isNegative:4
+%67 = Core:int:isNegative:8
+%68 = Core:int:isNonNegative:16
+%69 = Core:int:isNonNegative:4
+%70 = Core:int:isNonNegative:7
+%71 = anonymous:$generated::needs
+%72 = builtinEquals
+%73 = builtinGetArgumentCount
+%74 = builtinIfElse
+%75 = builtinIntAdd
+%76 = builtinIntCompareTo
+%77 = builtinIntParse
+%78 = builtinIntSubtract
+%79 = builtinListGet
+%80 = builtinListLength
+%81 = builtinStructGet
+%82 = builtinStructHasKey
+%83 = builtinTagGetValue
+%84 = builtinTagHasValue
+%85 = builtinTagWithoutValue
+%86 = builtinTextConcatenate
+%87 = builtinToDebugText
+%88 = builtinTypeOf
+%89 = False
+%90 = Function
+%91 = Int
+%92 = Less
+%93 = List
+%94 = Match
+%95 = MinorUnits
+%96 = NoMatch
+%97 = Nothing
+%98 = Scale
+%99 = Struct
+%100 = Tag
+%101 = Text
+%102 = True
+%103 = 0
+%104 = 1
+%105 = 2
+%106 = "."
+%107 = "Expected False, got "
+%108 = "Expected True, got "
+%109 = "Expected a Tag, got `"
+%110 = "Expected tag to have a value, but it doesn't have any."
+%111 = "Expected tag to not have a value, but it has one: `"
+%112 = "No case matched the given expression."
+%113 = "The `condition` must be either `True` or `False`."
+%114 = "The `reason` must be a text."
+%115 = "`."
+%116 = "`a | typeIs Int` was not satisfied"
+%117 = "`b | typeIs Int` was not satisfied"
+%118 = "`b` didn't return a bool."
+%119 = "`conditionIsBool` was not satisfied"
+%120 = "`else | getArgumentCount | equals 0` was not satisfied"
+%121 = "`else | typeIs Function` was not satisfied"
+%122 = "`function | typeIs Function` was not satisfied"
+%123 = "`function | ✨.getArgumentCount | equals 0` was not satisfied"
+%124 = "`function.is0 b` was not satisfied"
+%125 = "`int.is minorUnits` was not satisfied"
+%126 = "`is a` was not satisfied"
+%127 = "`is valueA` was not satisfied"
+%128 = "`is valueB` was not satisfied"
+%129 = "`is value` was not satisfied"
+%130 = "`is0 body` was not satisfied"
+%131 = "`isScale scale` was not satisfied"
+%132 = "`minuend | typeIs Int` was not satisfied"
+%133 = "`struct | typeIs Struct` was not satisfied"
+%134 = "`struct | ✨.structHasKey key` was not satisfied"
+%135 = "`tag | typeIs Tag` was not satisfied"
+%136 = "`tag | ✨.tagHasValue` was not satisfied"
+%137 = "`text | typeIs Text` was not satisfied"
+%138 = "`then | getArgumentCount | equals 0` was not satisfied"
+%139 = "`then | typeIs Function` was not satisfied"
+%140 = { body_0 }
+%141 = { body_1 }
+%142 = { body_6 }
+%143 = (%94<Match>,)
+%144 = { body_7 }
+%145 = { body_8 }
+%146 = { body_22 }
+%147 = { body_24 }
+%148 = { body_25 }
+%149 = { body_39 }
+%150 = { body_52 }
+%151 = { body_66 }
+%152 = { body_67 }
+%153 = { body_68 }
+%154 = { body_69 }
+%155 = (%96<NoMatch>, %110<"Expected tag to have a value, but it doesn't have any.">)
+%156 = { body_71 }
+%157 = Core:function:is1:11:3
+%158 = Core:function:is1:13
+%159 = { body_73 }
+%160 = Core:result:flatMap:14
+%161 = Core:result:flatMap:16
+%162 = Core:result:flatMap:19:2
+%163 = Core:result:flatMap:2
+%164 = Core:result:flatMap:21
+%165 = Core:result:flatMap:4
+%166 = Core:result:is:1
+%167 = Core:result:is:1:_
+%168 = Core:result:map:14
+%169 = Core:result:map:16
+%170 = Core:result:map:19:3
+%171 = Core:result:map:2
+%172 = Core:result:map:20
+%173 = Core:result:map:4
+%174 = Core:result:mapOr:14
+%175 = Core:result:mapOr:16
+%176 = Core:result:mapOr:2
+%177 = Core:result:mapOr:21
+%178 = Core:result:mapOr:4
+%179 = Core:result:mapOrElse:14
+%180 = Core:result:mapOrElse:16
+%181 = Core:result:mapOrElse:2
+%182 = Core:result:mapOrElse:26
+%183 = Core:result:mapOrElse:28
+%184 = Core:result:mapOrElse:30
+%185 = Core:result:mapOrElse:30:2
+%186 = Core:result:mapOrElse:30:5
+%187 = Core:result:mapOrElse:30:value
+%188 = Core:result:mapOrElse:30:value#1
+%189 = Core:result:mapOrElse:4
+%190 = Error
+%191 = Ok
+%192 = "Expected Error, got "
+%193 = "Expected Ok, got "
+%194 = "`function.is1 errorMapper` was not satisfied"
+%195 = "`function.is1 okMapper` was not satisfied"
+%196 = "`is result` was not satisfied"
+%197 = { body_90 }
+%198 = { body_107 }
+%199 = { body_110 }
+%200 = { body_112 }
+%201 = Core:result:getValue:14
+%202 = Core:result:getValue:2
+%203 = Core:result:getValue:4
+%204 = "Expected 1 item, got "
+%205 = "Expected a List, got `"
+%206 = { body_113 }
+%207 = Examples:fibonacci:recursive:0:0:3
+%208 = Examples:fibonacci:recursive:0:5
+%209 = Examples:fibonacci:recursive:5
+%210 = Examples:fibonacci:compareTo:10
+%211 = { body_114 }
+%212 = Examples:fibonacci:fibonacci:2:11
+%213 = Examples:fibonacci:fibonacci:2:13:11
+%214 = Examples:fibonacci:fibonacci:2:13:12
+%215 = Examples:fibonacci:fibonacci:2:13:32
+%216 = Examples:fibonacci:fibonacci:2:13:33
+%217 = Examples:fibonacci:fibonacci:2:13:34
+%218 = Examples:fibonacci:fibonacci:2:14
+%219 = { body_117 }
+%220 = { body_119 }
+%221 = Arguments
+%222 = Examples:fibonacci:21:7
+%223 = Examples:fibonacci:21:8
+%224 = Examples:fibonacci:21:8:n
+%225 = Examples:fibonacci:21:8:9
+%226 = { body_120 }
+%227 = Examples:fibonacci:21:8:19
+%228 = Examples:fibonacci:21:8:28
+%229 = "Usage: `cargo run -- run fibonacci.candy -- <number>`"
+%230 = Stdout
+%231 = Examples:fibonacci:21:16
+%232 = Examples:fibonacci:21:17
+%233 = { body_127 }
+
+# Bodies
+body_0 (responsible $0) =
+  # Original HIR IDs: Builtins::ifElse:1:case-0:matched, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched, Core:bool:is:1:case-0:matched, Core:bool:lazyOr:18:case-0:matched, Core:bool:not:6:case-1:matched, Core:check:check:1:case-0:matched, Core:text:isAsciiDigit:14:case-0:matched, anonymous:$generated::needs:isConditionTrue:then
+  # Captured IDs: none
+  $1 = %102<True>
+body_1 (responsible $0) =
+  # Original HIR IDs: Core::19:isMatch:then, Core::30:isMatch:then, Core::41:isMatch:then, Core::102:isMatch:then, Core::153:isMatch:then, Core::164:isMatch:then, Core:bool:9:isMatch:then, Core:check:9:isMatch:then, Core:controlFlow:if:27, Core:controlFlow:29:isMatch:then, Core:controlFlow:50:isMatch:then, Core:fixedDecimal:add:14:isMatch:then, Core:fixedDecimal:compareTo:14:isMatch:then, Core:fixedDecimal:divideTruncating:37:isMatch:then, Core:fixedDecimal:divideTruncatingAtScale:42:isMatch:then, Core:fixedDecimal:subtract:14:isMatch:then, Core:fixedDecimal:19:isMatch:then, Core:fixedDecimal:30:isMatch:then, Core:fixedDecimal:41:isMatch:then, Core:fixedDecimal:52:isMatch:then, Core:fixedDecimal:103:isMatch:then, Core:function:19:isMatch:then, Core:int:pow:21:1:isMatch:then, Core:int:29:isMatch:then, Core:int:40:isMatch:then, Core:iterable:generateWithState:14:0:11:1:isMatch:then, Core:iterable:map:19:11:1:isMatch:then, Core:iterable:reduceLeft:38:1:isMatch:then, Core:iterable:take:33:1:isMatch:then, Core:iterable:takeWhile:2:11:1:isMatch:then, Core:iterable:withIndex:11:1:isMatch:then, Core:iterable:withIndex:11:14:1:isMatch:then, Core:iterable:19:isMatch:then, Core:iterable:30:isMatch:then, Core:iterable:82:11:1:isMatch:then, Core:iterable:84:2:11:1:isMatch:then, Core:iterable:84:2:11:7:15:1:isMatch:then, Core:list:firstIndexWhere:23:1:isMatch:then, Core:list:generate:59:1:isMatch:then, Core:list:lastIndexWhere:44:1:isMatch:then, Core:list:29:isMatch:then, Core:list:40:isMatch:then, Core:result:19:isMatch:then, Core:result:30:isMatch:then, Core:struct:19:isMatch:then, Core:tag:29:isMatch:then, Core:text:repeat:34:1:isMatch:then, Core:text:29:isMatch:then, Core:text:40:isMatch:then, Core:type:19:isMatch:then, Examples:fibonacci:then, Examples:fibonacci:19:isMatch:then, anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+  # Captured IDs: none
+  $1 = %97<Nothing>
+body_2 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionTrue:else
+  # Captured IDs: $0
+  $2 = %72<builtinEquals>
+  $3 = %89<False>
+  $4 = %71<anonymous:$generated::needs>
+  $5 = call $2<%72<builtinEquals>> with $0 $3<%89<False>> ($4<%71<anonymous:$generated::needs>> is responsible)
+body_3 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionBool:else
+  # Captured IDs: $0
+  $2 = %113<"The `condition` must be either `True` or `False`.">
+  $3 = panicking because $2<%113<"The `condition` must be either `True` or `False`.">> ($0 is at fault)
+body_4 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isReasonText:else
+  # Captured IDs: $0
+  $2 = %114<"The `reason` must be a text.">
+  $3 = panicking because $2<%114<"The `reason` must be a text.">> ($0 is at fault)
+body_5 (responsible $2) =
+  # Original HIR IDs: anonymous:$generated::needs:condition:else
+  # Captured IDs: $0, $1
+  $3 = panicking because $0 ($1 is at fault)
+body_6 $0 $1 $2 (+ responsible $3) =
+  # Original HIR IDs: anonymous:$generated::needs
+  # Captured IDs: none
+  $4 = dup $0 by 2
+  $5 = dup $1 by 1
+  $6 = %72<builtinEquals>
+  $7 = %102<True>
+  $8 = %71<anonymous:$generated::needs>
+  $9 = call $6<%72<builtinEquals>> with $0 $7<%102<True>> ($8<%71<anonymous:$generated::needs>> is responsible)
+  $10 = { body_2 capturing $0 }
+  $11 = %74<builtinIfElse>
+  $12 = %140<{ body_0 }>
+  $13 = call $11<%74<builtinIfElse>> with $9 $12<%140<{ body_0 }>> $10 ($8<%71<anonymous:$generated::needs>> is responsible)
+  $14 = { body_3 capturing $3 }
+  $15 = %141<{ body_1 }>
+  $16 = call $11<%74<builtinIfElse>> with $13 $15<%141<{ body_1 }>> $14 ($8<%71<anonymous:$generated::needs>> is responsible)
+  $17 = %88<builtinTypeOf>
+  $18 = call $17<%88<builtinTypeOf>> with $1 ($3 is responsible)
+  $19 = %101<Text>
+  $20 = call $6<%72<builtinEquals>> with $18 $19<%101<Text>> ($3 is responsible)
+  $21 = { body_4 capturing $3 }
+  $22 = call $11<%74<builtinIfElse>> with $20 $15<%141<{ body_1 }>> $21 ($8<%71<anonymous:$generated::needs>> is responsible)
+  $23 = { body_5 capturing $1, $2 }
+  $24 = drop $16
+  $25 = drop $22
+  $26 = call $11<%74<builtinIfElse>> with $0 $15<%141<{ body_1 }>> $23 ($8<%71<anonymous:$generated::needs>> is responsible)
+body_7 (responsible $0) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:then, Builtins::isLessThanOrEqualTo:19:equals:then, Builtins::isNonNegative:13:equals:then, Builtins::not:1:equals:then, Core:bool:is:1:equals:then, Core:bool:lazyAnd:18:equals:then, Core:bool:lazyOr:18:equals:then, Core:bool:not:6:equals:then, Core:check:check:1:equals:then, Core:int:pow:21:4:equals:then, Core:list:first:6:equals:then, Core:list:firstWhere:21:equals:then, Core:list:lastWhere:21:equals:then, Core:list:single:6:equals:then, Core:text:isAsciiDigit:14:equals:then
+  # Captured IDs: none
+  $1 = %143<(%94<Match>,)>
+body_8 (responsible $0) =
+  # Original HIR IDs: Builtins::isLessThanOrEqualTo:19:case-1:matched, Builtins::isNonNegative:13:case-1:matched, Builtins::not:1:case-0:matched, Core:bool:lazyAnd:18:case-1:matched, Core:bool:not:6:case-0:matched, Core:function:is0:12, Core:function:is1:12, Core:function:is2:12, Core:function:is3:12, Core:function:is4:12, Core:function:is5:12, Core:list:isValidIndex:21, Core:list:isValidInsertIndex:21, anonymous:$generated::needs:isConditionTrue:else
+  # Captured IDs: none
+  $1 = %89<False>
+body_9 (responsible $2) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:else
+  # Captured IDs: $0, $1
+  $3 = %87<builtinToDebugText>
+  $4 = %7<Builtins::ifElse:1>
+  $5 = call $3<%87<builtinToDebugText>> with $1 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $6 = %83<builtinTagGetValue>
+  $7 = call $6<%83<builtinTagGetValue>> with $0 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $8 = call $3<%87<builtinToDebugText>> with $7 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $9 = %86<builtinTextConcatenate>
+  $10 = %111<"Expected tag to not have a value, but it has one: `">
+  $11 = call $9<%86<builtinTextConcatenate>> with $10<%111<"Expected tag to not have a value, but it has one: `">> $8 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $12 = %115<"`.">
+  $13 = call $9<%86<builtinTextConcatenate>> with $11 $12<%115<"`.">> ($4<%7<Builtins::ifElse:1>> is responsible)
+  $14 = %96<NoMatch>
+  $15 = drop $5
+  $16 = ($14<%96<NoMatch>>, $13)
+body_10 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %84<builtinTagHasValue>
+  $4 = %7<Builtins::ifElse:1>
+  $5 = call $3<%84<builtinTagHasValue>> with $0 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %89<False>
+  $9 = call $7<%72<builtinEquals>> with $8<%89<False>> $5 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $10 = { body_9 capturing $0, $5 }
+  $11 = %74<builtinIfElse>
+  $12 = %144<{ body_7 }>
+  $13 = call $11<%74<builtinIfElse>> with $9 $12<%144<{ body_7 }>> $10 ($4<%7<Builtins::ifElse:1>> is responsible)
+body_11 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %7<Builtins::ifElse:1>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%7<Builtins::ifElse:1>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %108<"Expected True, got ">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%108<"Expected True, got ">> $4 ($3<%7<Builtins::ifElse:1>> is responsible)
+  $8 = %106<".">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%106<".">> ($3<%7<Builtins::ifElse:1>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_12 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %85<builtinTagWithoutValue>
+  $4 = %7<Builtins::ifElse:1>
+  $5 = call $3<%85<builtinTagWithoutValue>> with $0 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %102<True>
+  $9 = call $7<%72<builtinEquals>> with $8<%102<True>> $5 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $10 = { body_10 capturing $0 }
+  $11 = { body_11 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%7<Builtins::ifElse:1>> is responsible)
+body_13 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %7<Builtins::ifElse:1>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%7<Builtins::ifElse:1>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %109<"Expected a Tag, got `">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%109<"Expected a Tag, got `">> $4 ($3<%7<Builtins::ifElse:1>> is responsible)
+  $8 = %115<"`.">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%115<"`.">> ($3<%7<Builtins::ifElse:1>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_14 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:isMatch:then
+  # Captured IDs: $0
+  $2 = $0
+body_15 (responsible $2) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:else
+  # Captured IDs: $0, $1
+  $3 = %87<builtinToDebugText>
+  $4 = %7<Builtins::ifElse:1>
+  $5 = call $3<%87<builtinToDebugText>> with $1 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $6 = %83<builtinTagGetValue>
+  $7 = call $6<%83<builtinTagGetValue>> with $0 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $8 = call $3<%87<builtinToDebugText>> with $7 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $9 = %86<builtinTextConcatenate>
+  $10 = %111<"Expected tag to not have a value, but it has one: `">
+  $11 = call $9<%86<builtinTextConcatenate>> with $10<%111<"Expected tag to not have a value, but it has one: `">> $8 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $12 = %115<"`.">
+  $13 = call $9<%86<builtinTextConcatenate>> with $11 $12<%115<"`.">> ($4<%7<Builtins::ifElse:1>> is responsible)
+  $14 = %96<NoMatch>
+  $15 = drop $5
+  $16 = ($14<%96<NoMatch>>, $13)
+body_16 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %84<builtinTagHasValue>
+  $4 = %7<Builtins::ifElse:1>
+  $5 = call $3<%84<builtinTagHasValue>> with $0 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %89<False>
+  $9 = call $7<%72<builtinEquals>> with $8<%89<False>> $5 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $10 = { body_15 capturing $0, $5 }
+  $11 = %74<builtinIfElse>
+  $12 = %144<{ body_7 }>
+  $13 = call $11<%74<builtinIfElse>> with $9 $12<%144<{ body_7 }>> $10 ($4<%7<Builtins::ifElse:1>> is responsible)
+body_17 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %7<Builtins::ifElse:1>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%7<Builtins::ifElse:1>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %107<"Expected False, got ">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%107<"Expected False, got ">> $4 ($3<%7<Builtins::ifElse:1>> is responsible)
+  $8 = %106<".">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%106<".">> ($3<%7<Builtins::ifElse:1>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_18 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %85<builtinTagWithoutValue>
+  $4 = %7<Builtins::ifElse:1>
+  $5 = call $3<%85<builtinTagWithoutValue>> with $0 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %89<False>
+  $9 = call $7<%72<builtinEquals>> with $8<%89<False>> $5 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $10 = { body_16 capturing $0 }
+  $11 = { body_17 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%7<Builtins::ifElse:1>> is responsible)
+body_19 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %7<Builtins::ifElse:1>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%7<Builtins::ifElse:1>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %109<"Expected a Tag, got `">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%109<"Expected a Tag, got `">> $4 ($3<%7<Builtins::ifElse:1>> is responsible)
+  $8 = %115<"`.">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%115<"`.">> ($3<%7<Builtins::ifElse:1>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_20 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:isMatch:else
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %88<builtinTypeOf>
+  $4 = %7<Builtins::ifElse:1>
+  $5 = call $3<%88<builtinTypeOf>> with $0 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %100<Tag>
+  $9 = call $7<%72<builtinEquals>> with $8<%100<Tag>> $5 ($4<%7<Builtins::ifElse:1>> is responsible)
+  $10 = { body_18 capturing $0 }
+  $11 = { body_19 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%7<Builtins::ifElse:1>> is responsible)
+body_21 (responsible $1) =
+  # Original HIR IDs: Builtins::ifElse:1:case-0:didNotMatch
+  # Captured IDs: $0
+  $2 = %79<builtinListGet>
+  $3 = %104<1>
+  $4 = %7<Builtins::ifElse:1>
+  $5 = call $2<%79<builtinListGet>> with $0 $3<%104<1>> ($4<%7<Builtins::ifElse:1>> is responsible)
+  $6 = drop $5
+  $7 = %89<False>
+body_22 $0 $1 $2 (+ responsible $3) =
+  # Original HIR IDs: Builtins::ifElse
+  # Captured IDs: none
+  $4 = dup $0 by 3
+  $5 = dup $1 by 3
+  $6 = dup $2 by 3
+  $7 = %88<builtinTypeOf>
+  $8 = %7<Builtins::ifElse:1>
+  $9 = call $7<%88<builtinTypeOf>> with $0 ($8<%7<Builtins::ifElse:1>> is responsible)
+  $10 = dup $9 by 1
+  $11 = %72<builtinEquals>
+  $12 = %100<Tag>
+  $13 = call $11<%72<builtinEquals>> with $12<%100<Tag>> $9 ($8<%7<Builtins::ifElse:1>> is responsible)
+  $14 = { body_12 capturing $0 }
+  $15 = { body_13 capturing $9 }
+  $16 = %74<builtinIfElse>
+  $17 = call $16<%74<builtinIfElse>> with $13 $14 $15 ($8<%7<Builtins::ifElse:1>> is responsible)
+  $18 = dup $17 by 1
+  $19 = %79<builtinListGet>
+  $20 = %103<0>
+  $21 = call $19<%79<builtinListGet>> with $17 $20<%103<0>> ($8<%7<Builtins::ifElse:1>> is responsible)
+  $22 = %94<Match>
+  $23 = call $11<%72<builtinEquals>> with $21 $22<%94<Match>> ($8<%7<Builtins::ifElse:1>> is responsible)
+  $24 = { body_14 capturing $17 }
+  $25 = { body_20 capturing $0 }
+  $26 = call $16<%74<builtinIfElse>> with $23 $24 $25 ($8<%7<Builtins::ifElse:1>> is responsible)
+  $27 = dup $26 by 1
+  $28 = call $19<%79<builtinListGet>> with $26 $20<%103<0>> ($8<%7<Builtins::ifElse:1>> is responsible)
+  $29 = call $11<%72<builtinEquals>> with $28 $22<%94<Match>> ($8<%7<Builtins::ifElse:1>> is responsible)
+  $30 = { body_21 capturing $26 }
+  $31 = %140<{ body_0 }>
+  $32 = call $16<%74<builtinIfElse>> with $29 $31<%140<{ body_0 }>> $30 ($8<%7<Builtins::ifElse:1>> is responsible)
+  $33 = %142<{ body_6 }>
+  $34 = %119<"`conditionIsBool` was not satisfied">
+  $35 = %15<Builtins::ifElse:5>
+  $36 = call $33<%142<{ body_6 }>> with $32 $34<%119<"`conditionIsBool` was not satisfied">> $3 ($35<%15<Builtins::ifElse:5>> is responsible)
+  $37 = %35<Builtins::typeIs:19>
+  $38 = call $7<%88<builtinTypeOf>> with $1 ($37<%35<Builtins::typeIs:19>> is responsible)
+  $39 = %90<Function>
+  $40 = %36<Builtins::typeIs:25>
+  $41 = call $11<%72<builtinEquals>> with $38 $39<%90<Function>> ($40<%36<Builtins::typeIs:25>> is responsible)
+  $42 = %139<"`then | typeIs Function` was not satisfied">
+  $43 = %8<Builtins::ifElse:11>
+  $44 = call $33<%142<{ body_6 }>> with $41 $42<%139<"`then | typeIs Function` was not satisfied">> $3 ($43<%8<Builtins::ifElse:11>> is responsible)
+  $45 = call $7<%88<builtinTypeOf>> with $1 ($37<%35<Builtins::typeIs:19>> is responsible)
+  $46 = call $11<%72<builtinEquals>> with $45 $39<%90<Function>> ($40<%36<Builtins::typeIs:25>> is responsible)
+  $47 = %122<"`function | typeIs Function` was not satisfied">
+  $48 = %9<Builtins::ifElse:14>
+  $49 = %6<Builtins::getArgumentCount:5>
+  $50 = call $33<%142<{ body_6 }>> with $46 $47<%122<"`function | typeIs Function` was not satisfied">> $48<%9<Builtins::ifElse:14>> ($49<%6<Builtins::getArgumentCount:5>> is responsible)
+  $51 = %73<builtinGetArgumentCount>
+  $52 = %5<Builtins::getArgumentCount:11>
+  $53 = call $51<%73<builtinGetArgumentCount>> with $1 ($52<%5<Builtins::getArgumentCount:11>> is responsible)
+  $54 = %0<Builtins::equals:6>
+  $55 = call $11<%72<builtinEquals>> with $53 $20<%103<0>> ($54<%0<Builtins::equals:6>> is responsible)
+  $56 = %138<"`then | getArgumentCount | equals 0` was not satisfied">
+  $57 = %10<Builtins::ifElse:19>
+  $58 = call $33<%142<{ body_6 }>> with $55 $56<%138<"`then | getArgumentCount | equals 0` was not satisfied">> $3 ($57<%10<Builtins::ifElse:19>> is responsible)
+  $59 = call $7<%88<builtinTypeOf>> with $2 ($37<%35<Builtins::typeIs:19>> is responsible)
+  $60 = call $11<%72<builtinEquals>> with $59 $39<%90<Function>> ($40<%36<Builtins::typeIs:25>> is responsible)
+  $61 = %121<"`else | typeIs Function` was not satisfied">
+  $62 = %11<Builtins::ifElse:25>
+  $63 = call $33<%142<{ body_6 }>> with $60 $61<%121<"`else | typeIs Function` was not satisfied">> $3 ($62<%11<Builtins::ifElse:25>> is responsible)
+  $64 = call $7<%88<builtinTypeOf>> with $2 ($37<%35<Builtins::typeIs:19>> is responsible)
+  $65 = call $11<%72<builtinEquals>> with $64 $39<%90<Function>> ($40<%36<Builtins::typeIs:25>> is responsible)
+  $66 = %12<Builtins::ifElse:28>
+  $67 = call $33<%142<{ body_6 }>> with $65 $47<%122<"`function | typeIs Function` was not satisfied">> $66<%12<Builtins::ifElse:28>> ($49<%6<Builtins::getArgumentCount:5>> is responsible)
+  $68 = call $51<%73<builtinGetArgumentCount>> with $2 ($52<%5<Builtins::getArgumentCount:11>> is responsible)
+  $69 = call $11<%72<builtinEquals>> with $68 $20<%103<0>> ($54<%0<Builtins::equals:6>> is responsible)
+  $70 = %120<"`else | getArgumentCount | equals 0` was not satisfied">
+  $71 = %13<Builtins::ifElse:33>
+  $72 = call $33<%142<{ body_6 }>> with $69 $70<%120<"`else | getArgumentCount | equals 0` was not satisfied">> $3 ($71<%13<Builtins::ifElse:33>> is responsible)
+  $73 = %14<Builtins::ifElse:41>
+  $74 = drop $36
+  $75 = drop $44
+  $76 = drop $50
+  $77 = drop $58
+  $78 = drop $63
+  $79 = drop $67
+  $80 = drop $72
+  $81 = call $16<%74<builtinIfElse>> with $0 $1 $2 ($73<%14<Builtins::ifElse:41>> is responsible)
+body_23 (responsible $1) =
+  # Original HIR IDs: Core:function:is0:11
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %88<builtinTypeOf>
+  $4 = %35<Builtins::typeIs:19>
+  $5 = call $3<%88<builtinTypeOf>> with $0 ($4<%35<Builtins::typeIs:19>> is responsible)
+  $6 = %72<builtinEquals>
+  $7 = %90<Function>
+  $8 = %36<Builtins::typeIs:25>
+  $9 = call $6<%72<builtinEquals>> with $5 $7<%90<Function>> ($8<%36<Builtins::typeIs:25>> is responsible)
+  $10 = %142<{ body_6 }>
+  $11 = %122<"`function | typeIs Function` was not satisfied">
+  $12 = %55<Core:function:is0:11:3>
+  $13 = %6<Builtins::getArgumentCount:5>
+  $14 = call $10<%142<{ body_6 }>> with $9 $11<%122<"`function | typeIs Function` was not satisfied">> $12<%55<Core:function:is0:11:3>> ($13<%6<Builtins::getArgumentCount:5>> is responsible)
+  $15 = %73<builtinGetArgumentCount>
+  $16 = %5<Builtins::getArgumentCount:11>
+  $17 = call $15<%73<builtinGetArgumentCount>> with $0 ($16<%5<Builtins::getArgumentCount:11>> is responsible)
+  $18 = %103<0>
+  $19 = %0<Builtins::equals:6>
+  $20 = drop $14
+  $21 = call $6<%72<builtinEquals>> with $17 $18<%103<0>> ($19<%0<Builtins::equals:6>> is responsible)
+body_24 $0 (+ responsible $1) =
+  # Original HIR IDs: Core:function:is0
+  # Captured IDs: none
+  $2 = dup $0 by 1
+  $3 = %88<builtinTypeOf>
+  $4 = %37<Builtins::typeOf:5>
+  $5 = call $3<%88<builtinTypeOf>> with $0 ($4<%37<Builtins::typeOf:5>> is responsible)
+  $6 = %72<builtinEquals>
+  $7 = %90<Function>
+  $8 = %0<Builtins::equals:6>
+  $9 = call $6<%72<builtinEquals>> with $5 $7<%90<Function>> ($8<%0<Builtins::equals:6>> is responsible)
+  $10 = { body_23 capturing $0 }
+  $11 = %146<{ body_22 }>
+  $12 = %145<{ body_8 }>
+  $13 = %56<Core:function:is0:13>
+  $14 = call $11<%146<{ body_22 }>> with $9 $10 $12<%145<{ body_8 }>> ($13<%56<Core:function:is0:13>> is responsible)
+body_25 $0 (+ responsible $1) =
+  # Original HIR IDs: Core:function:run
+  # Captured IDs: none
+  $2 = dup $0 by 3
+  $3 = %147<{ body_24 }>
+  $4 = %58<Core:function:run:2>
+  $5 = call $3<%147<{ body_24 }>> with $0 ($4<%58<Core:function:run:2>> is responsible)
+  $6 = %142<{ body_6 }>
+  $7 = %130<"`is0 body` was not satisfied">
+  $8 = %59<Core:function:run:4>
+  $9 = call $6<%142<{ body_6 }>> with $5 $7<%130<"`is0 body` was not satisfied">> $1 ($8<%59<Core:function:run:4>> is responsible)
+  $10 = %88<builtinTypeOf>
+  $11 = %35<Builtins::typeIs:19>
+  $12 = call $10<%88<builtinTypeOf>> with $0 ($11<%35<Builtins::typeIs:19>> is responsible)
+  $13 = %72<builtinEquals>
+  $14 = %90<Function>
+  $15 = %36<Builtins::typeIs:25>
+  $16 = call $13<%72<builtinEquals>> with $12 $14<%90<Function>> ($15<%36<Builtins::typeIs:25>> is responsible)
+  $17 = %122<"`function | typeIs Function` was not satisfied">
+  $18 = %57<Core:function:run:14>
+  $19 = %4<Builtins::functionRun:5>
+  $20 = call $6<%142<{ body_6 }>> with $16 $17<%122<"`function | typeIs Function` was not satisfied">> $18<%57<Core:function:run:14>> ($19<%4<Builtins::functionRun:5>> is responsible)
+  $21 = %73<builtinGetArgumentCount>
+  $22 = %1<Builtins::functionRun:11>
+  $23 = call $21<%73<builtinGetArgumentCount>> with $0 ($22<%1<Builtins::functionRun:11>> is responsible)
+  $24 = %103<0>
+  $25 = %0<Builtins::equals:6>
+  $26 = call $13<%72<builtinEquals>> with $23 $24<%103<0>> ($25<%0<Builtins::equals:6>> is responsible)
+  $27 = %123<"`function | ✨.getArgumentCount | equals 0` was not satisfied">
+  $28 = %2<Builtins::functionRun:16>
+  $29 = call $6<%142<{ body_6 }>> with $26 $27<%123<"`function | ✨.getArgumentCount | equals 0` was not satisfied">> $18<%57<Core:function:run:14>> ($28<%2<Builtins::functionRun:16>> is responsible)
+  $30 = %3<Builtins::functionRun:22>
+  $31 = drop $9
+  $32 = drop $20
+  $33 = drop $29
+  $34 = call $0 with no arguments ($30<%3<Builtins::functionRun:22>> is responsible)
+body_26 (responsible $2) =
+  # Original HIR IDs: Core:bool:is:1:equals:else
+  # Captured IDs: $0, $1
+  $3 = %87<builtinToDebugText>
+  $4 = %38<Core:bool:is:1>
+  $5 = call $3<%87<builtinToDebugText>> with $1 ($4<%38<Core:bool:is:1>> is responsible)
+  $6 = %83<builtinTagGetValue>
+  $7 = call $6<%83<builtinTagGetValue>> with $0 ($4<%38<Core:bool:is:1>> is responsible)
+  $8 = call $3<%87<builtinToDebugText>> with $7 ($4<%38<Core:bool:is:1>> is responsible)
+  $9 = %86<builtinTextConcatenate>
+  $10 = %111<"Expected tag to not have a value, but it has one: `">
+  $11 = call $9<%86<builtinTextConcatenate>> with $10<%111<"Expected tag to not have a value, but it has one: `">> $8 ($4<%38<Core:bool:is:1>> is responsible)
+  $12 = %115<"`.">
+  $13 = call $9<%86<builtinTextConcatenate>> with $11 $12<%115<"`.">> ($4<%38<Core:bool:is:1>> is responsible)
+  $14 = %96<NoMatch>
+  $15 = drop $5
+  $16 = ($14<%96<NoMatch>>, $13)
+body_27 (responsible $1) =
+  # Original HIR IDs: Core:bool:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %84<builtinTagHasValue>
+  $4 = %38<Core:bool:is:1>
+  $5 = call $3<%84<builtinTagHasValue>> with $0 ($4<%38<Core:bool:is:1>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %89<False>
+  $9 = call $7<%72<builtinEquals>> with $8<%89<False>> $5 ($4<%38<Core:bool:is:1>> is responsible)
+  $10 = { body_26 capturing $0, $5 }
+  $11 = %74<builtinIfElse>
+  $12 = %144<{ body_7 }>
+  $13 = call $11<%74<builtinIfElse>> with $9 $12<%144<{ body_7 }>> $10 ($4<%38<Core:bool:is:1>> is responsible)
+body_28 (responsible $1) =
+  # Original HIR IDs: Core:bool:is:1:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %38<Core:bool:is:1>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%38<Core:bool:is:1>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %108<"Expected True, got ">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%108<"Expected True, got ">> $4 ($3<%38<Core:bool:is:1>> is responsible)
+  $8 = %106<".">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%106<".">> ($3<%38<Core:bool:is:1>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_29 (responsible $1) =
+  # Original HIR IDs: Core:bool:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %85<builtinTagWithoutValue>
+  $4 = %38<Core:bool:is:1>
+  $5 = call $3<%85<builtinTagWithoutValue>> with $0 ($4<%38<Core:bool:is:1>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %102<True>
+  $9 = call $7<%72<builtinEquals>> with $8<%102<True>> $5 ($4<%38<Core:bool:is:1>> is responsible)
+  $10 = { body_27 capturing $0 }
+  $11 = { body_28 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%38<Core:bool:is:1>> is responsible)
+body_30 (responsible $1) =
+  # Original HIR IDs: Core:bool:is:1:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %38<Core:bool:is:1>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%38<Core:bool:is:1>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %109<"Expected a Tag, got `">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%109<"Expected a Tag, got `">> $4 ($3<%38<Core:bool:is:1>> is responsible)
+  $8 = %115<"`.">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%115<"`.">> ($3<%38<Core:bool:is:1>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_31 (responsible $1) =
+  # Original HIR IDs: Core:bool:is:1:isMatch:then
+  # Captured IDs: $0
+  $2 = $0
+body_32 (responsible $2) =
+  # Original HIR IDs: Core:bool:is:1:equals:else
+  # Captured IDs: $0, $1
+  $3 = %87<builtinToDebugText>
+  $4 = %38<Core:bool:is:1>
+  $5 = call $3<%87<builtinToDebugText>> with $1 ($4<%38<Core:bool:is:1>> is responsible)
+  $6 = %83<builtinTagGetValue>
+  $7 = call $6<%83<builtinTagGetValue>> with $0 ($4<%38<Core:bool:is:1>> is responsible)
+  $8 = call $3<%87<builtinToDebugText>> with $7 ($4<%38<Core:bool:is:1>> is responsible)
+  $9 = %86<builtinTextConcatenate>
+  $10 = %111<"Expected tag to not have a value, but it has one: `">
+  $11 = call $9<%86<builtinTextConcatenate>> with $10<%111<"Expected tag to not have a value, but it has one: `">> $8 ($4<%38<Core:bool:is:1>> is responsible)
+  $12 = %115<"`.">
+  $13 = call $9<%86<builtinTextConcatenate>> with $11 $12<%115<"`.">> ($4<%38<Core:bool:is:1>> is responsible)
+  $14 = %96<NoMatch>
+  $15 = drop $5
+  $16 = ($14<%96<NoMatch>>, $13)
+body_33 (responsible $1) =
+  # Original HIR IDs: Core:bool:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %84<builtinTagHasValue>
+  $4 = %38<Core:bool:is:1>
+  $5 = call $3<%84<builtinTagHasValue>> with $0 ($4<%38<Core:bool:is:1>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %89<False>
+  $9 = call $7<%72<builtinEquals>> with $8<%89<False>> $5 ($4<%38<Core:bool:is:1>> is responsible)
+  $10 = { body_32 capturing $0, $5 }
+  $11 = %74<builtinIfElse>
+  $12 = %144<{ body_7 }>
+  $13 = call $11<%74<builtinIfElse>> with $9 $12<%144<{ body_7 }>> $10 ($4<%38<Core:bool:is:1>> is responsible)
+body_34 (responsible $1) =
+  # Original HIR IDs: Core:bool:is:1:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %38<Core:bool:is:1>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%38<Core:bool:is:1>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %107<"Expected False, got ">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%107<"Expected False, got ">> $4 ($3<%38<Core:bool:is:1>> is responsible)
+  $8 = %106<".">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%106<".">> ($3<%38<Core:bool:is:1>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_35 (responsible $1) =
+  # Original HIR IDs: Core:bool:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %85<builtinTagWithoutValue>
+  $4 = %38<Core:bool:is:1>
+  $5 = call $3<%85<builtinTagWithoutValue>> with $0 ($4<%38<Core:bool:is:1>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %89<False>
+  $9 = call $7<%72<builtinEquals>> with $8<%89<False>> $5 ($4<%38<Core:bool:is:1>> is responsible)
+  $10 = { body_33 capturing $0 }
+  $11 = { body_34 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%38<Core:bool:is:1>> is responsible)
+body_36 (responsible $1) =
+  # Original HIR IDs: Core:bool:is:1:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %38<Core:bool:is:1>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%38<Core:bool:is:1>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %109<"Expected a Tag, got `">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%109<"Expected a Tag, got `">> $4 ($3<%38<Core:bool:is:1>> is responsible)
+  $8 = %115<"`.">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%115<"`.">> ($3<%38<Core:bool:is:1>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_37 (responsible $1) =
+  # Original HIR IDs: Core:bool:is:1:isMatch:else
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %88<builtinTypeOf>
+  $4 = %38<Core:bool:is:1>
+  $5 = call $3<%88<builtinTypeOf>> with $0 ($4<%38<Core:bool:is:1>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %100<Tag>
+  $9 = call $7<%72<builtinEquals>> with $8<%100<Tag>> $5 ($4<%38<Core:bool:is:1>> is responsible)
+  $10 = { body_35 capturing $0 }
+  $11 = { body_36 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%38<Core:bool:is:1>> is responsible)
+body_38 (responsible $1) =
+  # Original HIR IDs: Core:bool:is:1:case-0:didNotMatch
+  # Captured IDs: $0
+  $2 = %79<builtinListGet>
+  $3 = %104<1>
+  $4 = %38<Core:bool:is:1>
+  $5 = call $2<%79<builtinListGet>> with $0 $3<%104<1>> ($4<%38<Core:bool:is:1>> is responsible)
+  $6 = drop $5
+  $7 = %89<False>
+body_39 $0 (+ responsible $1) =
+  # Original HIR IDs: Core:bool:is
+  # Captured IDs: none
+  $2 = dup $0 by 2
+  $3 = %88<builtinTypeOf>
+  $4 = %38<Core:bool:is:1>
+  $5 = call $3<%88<builtinTypeOf>> with $0 ($4<%38<Core:bool:is:1>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %100<Tag>
+  $9 = call $7<%72<builtinEquals>> with $8<%100<Tag>> $5 ($4<%38<Core:bool:is:1>> is responsible)
+  $10 = { body_29 capturing $0 }
+  $11 = { body_30 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%38<Core:bool:is:1>> is responsible)
+  $14 = dup $13 by 1
+  $15 = %79<builtinListGet>
+  $16 = %103<0>
+  $17 = call $15<%79<builtinListGet>> with $13 $16<%103<0>> ($4<%38<Core:bool:is:1>> is responsible)
+  $18 = %94<Match>
+  $19 = call $7<%72<builtinEquals>> with $17 $18<%94<Match>> ($4<%38<Core:bool:is:1>> is responsible)
+  $20 = { body_31 capturing $13 }
+  $21 = { body_37 capturing $0 }
+  $22 = call $12<%74<builtinIfElse>> with $19 $20 $21 ($4<%38<Core:bool:is:1>> is responsible)
+  $23 = dup $22 by 1
+  $24 = call $15<%79<builtinListGet>> with $22 $16<%103<0>> ($4<%38<Core:bool:is:1>> is responsible)
+  $25 = call $7<%72<builtinEquals>> with $24 $18<%94<Match>> ($4<%38<Core:bool:is:1>> is responsible)
+  $26 = { body_38 capturing $22 }
+  $27 = %140<{ body_0 }>
+  $28 = call $12<%74<builtinIfElse>> with $25 $27<%140<{ body_0 }>> $26 ($4<%38<Core:bool:is:1>> is responsible)
+body_40 (responsible $2) =
+  # Original HIR IDs: Core:bool:not:6:equals:else
+  # Captured IDs: $0, $1
+  $3 = %87<builtinToDebugText>
+  $4 = %49<Core:bool:not:6>
+  $5 = call $3<%87<builtinToDebugText>> with $1 ($4<%49<Core:bool:not:6>> is responsible)
+  $6 = %83<builtinTagGetValue>
+  $7 = call $6<%83<builtinTagGetValue>> with $0 ($4<%49<Core:bool:not:6>> is responsible)
+  $8 = call $3<%87<builtinToDebugText>> with $7 ($4<%49<Core:bool:not:6>> is responsible)
+  $9 = %86<builtinTextConcatenate>
+  $10 = %111<"Expected tag to not have a value, but it has one: `">
+  $11 = call $9<%86<builtinTextConcatenate>> with $10<%111<"Expected tag to not have a value, but it has one: `">> $8 ($4<%49<Core:bool:not:6>> is responsible)
+  $12 = %115<"`.">
+  $13 = call $9<%86<builtinTextConcatenate>> with $11 $12<%115<"`.">> ($4<%49<Core:bool:not:6>> is responsible)
+  $14 = %96<NoMatch>
+  $15 = drop $5
+  $16 = ($14<%96<NoMatch>>, $13)
+body_41 (responsible $1) =
+  # Original HIR IDs: Core:bool:not:6:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %84<builtinTagHasValue>
+  $4 = %49<Core:bool:not:6>
+  $5 = call $3<%84<builtinTagHasValue>> with $0 ($4<%49<Core:bool:not:6>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %89<False>
+  $9 = call $7<%72<builtinEquals>> with $8<%89<False>> $5 ($4<%49<Core:bool:not:6>> is responsible)
+  $10 = { body_40 capturing $0, $5 }
+  $11 = %74<builtinIfElse>
+  $12 = %144<{ body_7 }>
+  $13 = call $11<%74<builtinIfElse>> with $9 $12<%144<{ body_7 }>> $10 ($4<%49<Core:bool:not:6>> is responsible)
+body_42 (responsible $1) =
+  # Original HIR IDs: Core:bool:not:6:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %49<Core:bool:not:6>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%49<Core:bool:not:6>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %108<"Expected True, got ">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%108<"Expected True, got ">> $4 ($3<%49<Core:bool:not:6>> is responsible)
+  $8 = %106<".">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%106<".">> ($3<%49<Core:bool:not:6>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_43 (responsible $1) =
+  # Original HIR IDs: Core:bool:not:6:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %85<builtinTagWithoutValue>
+  $4 = %49<Core:bool:not:6>
+  $5 = call $3<%85<builtinTagWithoutValue>> with $0 ($4<%49<Core:bool:not:6>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %102<True>
+  $9 = call $7<%72<builtinEquals>> with $8<%102<True>> $5 ($4<%49<Core:bool:not:6>> is responsible)
+  $10 = { body_41 capturing $0 }
+  $11 = { body_42 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%49<Core:bool:not:6>> is responsible)
+body_44 (responsible $1) =
+  # Original HIR IDs: Core:bool:not:6:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %49<Core:bool:not:6>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%49<Core:bool:not:6>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %109<"Expected a Tag, got `">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%109<"Expected a Tag, got `">> $4 ($3<%49<Core:bool:not:6>> is responsible)
+  $8 = %115<"`.">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%115<"`.">> ($3<%49<Core:bool:not:6>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_45 (responsible $2) =
+  # Original HIR IDs: Core:bool:not:6:equals:else
+  # Captured IDs: $0, $1
+  $3 = %87<builtinToDebugText>
+  $4 = %49<Core:bool:not:6>
+  $5 = call $3<%87<builtinToDebugText>> with $1 ($4<%49<Core:bool:not:6>> is responsible)
+  $6 = %83<builtinTagGetValue>
+  $7 = call $6<%83<builtinTagGetValue>> with $0 ($4<%49<Core:bool:not:6>> is responsible)
+  $8 = call $3<%87<builtinToDebugText>> with $7 ($4<%49<Core:bool:not:6>> is responsible)
+  $9 = %86<builtinTextConcatenate>
+  $10 = %111<"Expected tag to not have a value, but it has one: `">
+  $11 = call $9<%86<builtinTextConcatenate>> with $10<%111<"Expected tag to not have a value, but it has one: `">> $8 ($4<%49<Core:bool:not:6>> is responsible)
+  $12 = %115<"`.">
+  $13 = call $9<%86<builtinTextConcatenate>> with $11 $12<%115<"`.">> ($4<%49<Core:bool:not:6>> is responsible)
+  $14 = %96<NoMatch>
+  $15 = drop $5
+  $16 = ($14<%96<NoMatch>>, $13)
+body_46 (responsible $1) =
+  # Original HIR IDs: Core:bool:not:6:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %84<builtinTagHasValue>
+  $4 = %49<Core:bool:not:6>
+  $5 = call $3<%84<builtinTagHasValue>> with $0 ($4<%49<Core:bool:not:6>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %89<False>
+  $9 = call $7<%72<builtinEquals>> with $8<%89<False>> $5 ($4<%49<Core:bool:not:6>> is responsible)
+  $10 = { body_45 capturing $0, $5 }
+  $11 = %74<builtinIfElse>
+  $12 = %144<{ body_7 }>
+  $13 = call $11<%74<builtinIfElse>> with $9 $12<%144<{ body_7 }>> $10 ($4<%49<Core:bool:not:6>> is responsible)
+body_47 (responsible $1) =
+  # Original HIR IDs: Core:bool:not:6:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %49<Core:bool:not:6>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%49<Core:bool:not:6>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %107<"Expected False, got ">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%107<"Expected False, got ">> $4 ($3<%49<Core:bool:not:6>> is responsible)
+  $8 = %106<".">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%106<".">> ($3<%49<Core:bool:not:6>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_48 (responsible $1) =
+  # Original HIR IDs: Core:bool:not:6:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %85<builtinTagWithoutValue>
+  $4 = %49<Core:bool:not:6>
+  $5 = call $3<%85<builtinTagWithoutValue>> with $0 ($4<%49<Core:bool:not:6>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %89<False>
+  $9 = call $7<%72<builtinEquals>> with $8<%89<False>> $5 ($4<%49<Core:bool:not:6>> is responsible)
+  $10 = { body_46 capturing $0 }
+  $11 = { body_47 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%49<Core:bool:not:6>> is responsible)
+body_49 (responsible $1) =
+  # Original HIR IDs: Core:bool:not:6:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %49<Core:bool:not:6>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%49<Core:bool:not:6>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %109<"Expected a Tag, got `">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%109<"Expected a Tag, got `">> $4 ($3<%49<Core:bool:not:6>> is responsible)
+  $8 = %115<"`.">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%115<"`.">> ($3<%49<Core:bool:not:6>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_50 (responsible $1) =
+  # Original HIR IDs: Core:bool:not:6:case-1:didNotMatch
+  # Captured IDs: $0
+  $2 = %79<builtinListGet>
+  $3 = %104<1>
+  $4 = %49<Core:bool:not:6>
+  $5 = call $2<%79<builtinListGet>> with $0 $3<%104<1>> ($4<%49<Core:bool:not:6>> is responsible)
+  $6 = %112<"No case matched the given expression.">
+  $7 = drop $5
+  $8 = panicking because $6<%112<"No case matched the given expression.">> ($4<%49<Core:bool:not:6>> is at fault)
+body_51 (responsible $2) =
+  # Original HIR IDs: Core:bool:not:6:case-0:didNotMatch
+  # Captured IDs: $0, $1
+  $3 = dup $0 by 1
+  $4 = %79<builtinListGet>
+  $5 = %104<1>
+  $6 = %49<Core:bool:not:6>
+  $7 = call $4<%79<builtinListGet>> with $1 $5<%104<1>> ($6<%49<Core:bool:not:6>> is responsible)
+  $8 = %88<builtinTypeOf>
+  $9 = call $8<%88<builtinTypeOf>> with $0 ($6<%49<Core:bool:not:6>> is responsible)
+  $10 = dup $9 by 1
+  $11 = %72<builtinEquals>
+  $12 = %100<Tag>
+  $13 = call $11<%72<builtinEquals>> with $12<%100<Tag>> $9 ($6<%49<Core:bool:not:6>> is responsible)
+  $14 = { body_48 capturing $0 }
+  $15 = { body_49 capturing $9 }
+  $16 = %74<builtinIfElse>
+  $17 = call $16<%74<builtinIfElse>> with $13 $14 $15 ($6<%49<Core:bool:not:6>> is responsible)
+  $18 = dup $17 by 1
+  $19 = %103<0>
+  $20 = call $4<%79<builtinListGet>> with $17 $19<%103<0>> ($6<%49<Core:bool:not:6>> is responsible)
+  $21 = %94<Match>
+  $22 = call $11<%72<builtinEquals>> with $20 $21<%94<Match>> ($6<%49<Core:bool:not:6>> is responsible)
+  $23 = { body_50 capturing $17 }
+  $24 = %140<{ body_0 }>
+  $25 = drop $7
+  $26 = call $16<%74<builtinIfElse>> with $22 $24<%140<{ body_0 }>> $23 ($6<%49<Core:bool:not:6>> is responsible)
+body_52 $0 (+ responsible $1) =
+  # Original HIR IDs: Core:bool:not
+  # Captured IDs: none
+  $2 = dup $0 by 3
+  $3 = %149<{ body_39 }>
+  $4 = %47<Core:bool:not:2>
+  $5 = call $3<%149<{ body_39 }>> with $0 ($4<%47<Core:bool:not:2>> is responsible)
+  $6 = %142<{ body_6 }>
+  $7 = %129<"`is value` was not satisfied">
+  $8 = %48<Core:bool:not:4>
+  $9 = call $6<%142<{ body_6 }>> with $5 $7<%129<"`is value` was not satisfied">> $1 ($8<%48<Core:bool:not:4>> is responsible)
+  $10 = %88<builtinTypeOf>
+  $11 = %49<Core:bool:not:6>
+  $12 = call $10<%88<builtinTypeOf>> with $0 ($11<%49<Core:bool:not:6>> is responsible)
+  $13 = dup $12 by 1
+  $14 = %72<builtinEquals>
+  $15 = %100<Tag>
+  $16 = call $14<%72<builtinEquals>> with $15<%100<Tag>> $12 ($11<%49<Core:bool:not:6>> is responsible)
+  $17 = { body_43 capturing $0 }
+  $18 = { body_44 capturing $12 }
+  $19 = %74<builtinIfElse>
+  $20 = call $19<%74<builtinIfElse>> with $16 $17 $18 ($11<%49<Core:bool:not:6>> is responsible)
+  $21 = dup $20 by 1
+  $22 = %79<builtinListGet>
+  $23 = %103<0>
+  $24 = call $22<%79<builtinListGet>> with $20 $23<%103<0>> ($11<%49<Core:bool:not:6>> is responsible)
+  $25 = %94<Match>
+  $26 = call $14<%72<builtinEquals>> with $24 $25<%94<Match>> ($11<%49<Core:bool:not:6>> is responsible)
+  $27 = { body_51 capturing $0, $20 }
+  $28 = %145<{ body_8 }>
+  $29 = drop $9
+  $30 = call $19<%74<builtinIfElse>> with $26 $28<%145<{ body_8 }>> $27 ($11<%49<Core:bool:not:6>> is responsible)
+body_53 (responsible $2) =
+  # Original HIR IDs: Core:bool:lazyAnd:18:equals:else
+  # Captured IDs: $0, $1
+  $3 = %87<builtinToDebugText>
+  $4 = %41<Core:bool:lazyAnd:18>
+  $5 = call $3<%87<builtinToDebugText>> with $1 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $6 = %83<builtinTagGetValue>
+  $7 = call $6<%83<builtinTagGetValue>> with $0 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $8 = call $3<%87<builtinToDebugText>> with $7 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $9 = %86<builtinTextConcatenate>
+  $10 = %111<"Expected tag to not have a value, but it has one: `">
+  $11 = call $9<%86<builtinTextConcatenate>> with $10<%111<"Expected tag to not have a value, but it has one: `">> $8 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $12 = %115<"`.">
+  $13 = call $9<%86<builtinTextConcatenate>> with $11 $12<%115<"`.">> ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $14 = %96<NoMatch>
+  $15 = drop $5
+  $16 = ($14<%96<NoMatch>>, $13)
+body_54 (responsible $1) =
+  # Original HIR IDs: Core:bool:lazyAnd:18:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %84<builtinTagHasValue>
+  $4 = %41<Core:bool:lazyAnd:18>
+  $5 = call $3<%84<builtinTagHasValue>> with $0 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %89<False>
+  $9 = call $7<%72<builtinEquals>> with $8<%89<False>> $5 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $10 = { body_53 capturing $0, $5 }
+  $11 = %74<builtinIfElse>
+  $12 = %144<{ body_7 }>
+  $13 = call $11<%74<builtinIfElse>> with $9 $12<%144<{ body_7 }>> $10 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+body_55 (responsible $1) =
+  # Original HIR IDs: Core:bool:lazyAnd:18:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %41<Core:bool:lazyAnd:18>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%41<Core:bool:lazyAnd:18>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %108<"Expected True, got ">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%108<"Expected True, got ">> $4 ($3<%41<Core:bool:lazyAnd:18>> is responsible)
+  $8 = %106<".">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%106<".">> ($3<%41<Core:bool:lazyAnd:18>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_56 (responsible $1) =
+  # Original HIR IDs: Core:bool:lazyAnd:18:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %85<builtinTagWithoutValue>
+  $4 = %41<Core:bool:lazyAnd:18>
+  $5 = call $3<%85<builtinTagWithoutValue>> with $0 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %102<True>
+  $9 = call $7<%72<builtinEquals>> with $8<%102<True>> $5 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $10 = { body_54 capturing $0 }
+  $11 = { body_55 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+body_57 (responsible $1) =
+  # Original HIR IDs: Core:bool:lazyAnd:18:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %41<Core:bool:lazyAnd:18>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%41<Core:bool:lazyAnd:18>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %109<"Expected a Tag, got `">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%109<"Expected a Tag, got `">> $4 ($3<%41<Core:bool:lazyAnd:18>> is responsible)
+  $8 = %115<"`.">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%115<"`.">> ($3<%41<Core:bool:lazyAnd:18>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_58 (responsible $2) =
+  # Original HIR IDs: Core:bool:lazyAnd:18:case-0:matched
+  # Captured IDs: $0, $1
+  $3 = %148<{ body_25 }>
+  $4 = %44<Core:bool:lazyAnd:18:9>
+  $5 = call $3<%148<{ body_25 }>> with $0 ($4<%44<Core:bool:lazyAnd:18:9>> is responsible)
+  $6 = dup $5 by 1
+  $7 = $5
+  $8 = %149<{ body_39 }>
+  $9 = %42<Core:bool:lazyAnd:18:13>
+  $10 = call $8<%149<{ body_39 }>> with $5 ($9<%42<Core:bool:lazyAnd:18:13>> is responsible)
+  $11 = %142<{ body_6 }>
+  $12 = %118<"`b` didn't return a bool.">
+  $13 = %43<Core:bool:lazyAnd:18:21>
+  $14 = call $11<%142<{ body_6 }>> with $10 $12<%118<"`b` didn't return a bool.">> $1 ($13<%43<Core:bool:lazyAnd:18:21>> is responsible)
+  $15 = drop $14
+  $16 = $7
+body_59 (responsible $2) =
+  # Original HIR IDs: Core:bool:lazyAnd:18:equals:else
+  # Captured IDs: $0, $1
+  $3 = %87<builtinToDebugText>
+  $4 = %41<Core:bool:lazyAnd:18>
+  $5 = call $3<%87<builtinToDebugText>> with $1 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $6 = %83<builtinTagGetValue>
+  $7 = call $6<%83<builtinTagGetValue>> with $0 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $8 = call $3<%87<builtinToDebugText>> with $7 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $9 = %86<builtinTextConcatenate>
+  $10 = %111<"Expected tag to not have a value, but it has one: `">
+  $11 = call $9<%86<builtinTextConcatenate>> with $10<%111<"Expected tag to not have a value, but it has one: `">> $8 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $12 = %115<"`.">
+  $13 = call $9<%86<builtinTextConcatenate>> with $11 $12<%115<"`.">> ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $14 = %96<NoMatch>
+  $15 = drop $5
+  $16 = ($14<%96<NoMatch>>, $13)
+body_60 (responsible $1) =
+  # Original HIR IDs: Core:bool:lazyAnd:18:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %84<builtinTagHasValue>
+  $4 = %41<Core:bool:lazyAnd:18>
+  $5 = call $3<%84<builtinTagHasValue>> with $0 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %89<False>
+  $9 = call $7<%72<builtinEquals>> with $8<%89<False>> $5 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $10 = { body_59 capturing $0, $5 }
+  $11 = %74<builtinIfElse>
+  $12 = %144<{ body_7 }>
+  $13 = call $11<%74<builtinIfElse>> with $9 $12<%144<{ body_7 }>> $10 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+body_61 (responsible $1) =
+  # Original HIR IDs: Core:bool:lazyAnd:18:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %41<Core:bool:lazyAnd:18>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%41<Core:bool:lazyAnd:18>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %107<"Expected False, got ">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%107<"Expected False, got ">> $4 ($3<%41<Core:bool:lazyAnd:18>> is responsible)
+  $8 = %106<".">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%106<".">> ($3<%41<Core:bool:lazyAnd:18>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_62 (responsible $1) =
+  # Original HIR IDs: Core:bool:lazyAnd:18:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %85<builtinTagWithoutValue>
+  $4 = %41<Core:bool:lazyAnd:18>
+  $5 = call $3<%85<builtinTagWithoutValue>> with $0 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %89<False>
+  $9 = call $7<%72<builtinEquals>> with $8<%89<False>> $5 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $10 = { body_60 capturing $0 }
+  $11 = { body_61 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+body_63 (responsible $1) =
+  # Original HIR IDs: Core:bool:lazyAnd:18:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %41<Core:bool:lazyAnd:18>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%41<Core:bool:lazyAnd:18>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %109<"Expected a Tag, got `">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%109<"Expected a Tag, got `">> $4 ($3<%41<Core:bool:lazyAnd:18>> is responsible)
+  $8 = %115<"`.">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%115<"`.">> ($3<%41<Core:bool:lazyAnd:18>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_64 (responsible $1) =
+  # Original HIR IDs: Core:bool:lazyAnd:18:case-1:didNotMatch
+  # Captured IDs: $0
+  $2 = %79<builtinListGet>
+  $3 = %104<1>
+  $4 = %41<Core:bool:lazyAnd:18>
+  $5 = call $2<%79<builtinListGet>> with $0 $3<%104<1>> ($4<%41<Core:bool:lazyAnd:18>> is responsible)
+  $6 = %112<"No case matched the given expression.">
+  $7 = drop $5
+  $8 = panicking because $6<%112<"No case matched the given expression.">> ($4<%41<Core:bool:lazyAnd:18>> is at fault)
+body_65 (responsible $2) =
+  # Original HIR IDs: Core:bool:lazyAnd:18:case-0:didNotMatch
+  # Captured IDs: $0, $1
+  $3 = dup $0 by 1
+  $4 = %79<builtinListGet>
+  $5 = %104<1>
+  $6 = %41<Core:bool:lazyAnd:18>
+  $7 = call $4<%79<builtinListGet>> with $1 $5<%104<1>> ($6<%41<Core:bool:lazyAnd:18>> is responsible)
+  $8 = %88<builtinTypeOf>
+  $9 = call $8<%88<builtinTypeOf>> with $0 ($6<%41<Core:bool:lazyAnd:18>> is responsible)
+  $10 = dup $9 by 1
+  $11 = %72<builtinEquals>
+  $12 = %100<Tag>
+  $13 = call $11<%72<builtinEquals>> with $12<%100<Tag>> $9 ($6<%41<Core:bool:lazyAnd:18>> is responsible)
+  $14 = { body_62 capturing $0 }
+  $15 = { body_63 capturing $9 }
+  $16 = %74<builtinIfElse>
+  $17 = call $16<%74<builtinIfElse>> with $13 $14 $15 ($6<%41<Core:bool:lazyAnd:18>> is responsible)
+  $18 = dup $17 by 1
+  $19 = %103<0>
+  $20 = call $4<%79<builtinListGet>> with $17 $19<%103<0>> ($6<%41<Core:bool:lazyAnd:18>> is responsible)
+  $21 = %94<Match>
+  $22 = call $11<%72<builtinEquals>> with $20 $21<%94<Match>> ($6<%41<Core:bool:lazyAnd:18>> is responsible)
+  $23 = { body_64 capturing $17 }
+  $24 = %145<{ body_8 }>
+  $25 = drop $7
+  $26 = call $16<%74<builtinIfElse>> with $22 $24<%145<{ body_8 }>> $23 ($6<%41<Core:bool:lazyAnd:18>> is responsible)
+body_66 $0 $1 (+ responsible $2) =
+  # Original HIR IDs: Core:bool:lazyAnd
+  # Captured IDs: none
+  $3 = dup $0 by 3
+  $4 = dup $1 by 1
+  $5 = %149<{ body_39 }>
+  $6 = %45<Core:bool:lazyAnd:2>
+  $7 = call $5<%149<{ body_39 }>> with $0 ($6<%45<Core:bool:lazyAnd:2>> is responsible)
+  $8 = %142<{ body_6 }>
+  $9 = %126<"`is a` was not satisfied">
+  $10 = %46<Core:bool:lazyAnd:4>
+  $11 = call $8<%142<{ body_6 }>> with $7 $9<%126<"`is a` was not satisfied">> $2 ($10<%46<Core:bool:lazyAnd:4>> is responsible)
+  $12 = %147<{ body_24 }>
+  $13 = %39<Core:bool:lazyAnd:14>
+  $14 = call $12<%147<{ body_24 }>> with $1 ($13<%39<Core:bool:lazyAnd:14>> is responsible)
+  $15 = %124<"`function.is0 b` was not satisfied">
+  $16 = %40<Core:bool:lazyAnd:16>
+  $17 = call $8<%142<{ body_6 }>> with $14 $15<%124<"`function.is0 b` was not satisfied">> $2 ($16<%40<Core:bool:lazyAnd:16>> is responsible)
+  $18 = %88<builtinTypeOf>
+  $19 = %41<Core:bool:lazyAnd:18>
+  $20 = call $18<%88<builtinTypeOf>> with $0 ($19<%41<Core:bool:lazyAnd:18>> is responsible)
+  $21 = dup $20 by 1
+  $22 = %72<builtinEquals>
+  $23 = %100<Tag>
+  $24 = call $22<%72<builtinEquals>> with $23<%100<Tag>> $20 ($19<%41<Core:bool:lazyAnd:18>> is responsible)
+  $25 = { body_56 capturing $0 }
+  $26 = { body_57 capturing $20 }
+  $27 = %74<builtinIfElse>
+  $28 = call $27<%74<builtinIfElse>> with $24 $25 $26 ($19<%41<Core:bool:lazyAnd:18>> is responsible)
+  $29 = dup $28 by 1
+  $30 = %79<builtinListGet>
+  $31 = %103<0>
+  $32 = call $30<%79<builtinListGet>> with $28 $31<%103<0>> ($19<%41<Core:bool:lazyAnd:18>> is responsible)
+  $33 = %94<Match>
+  $34 = call $22<%72<builtinEquals>> with $32 $33<%94<Match>> ($19<%41<Core:bool:lazyAnd:18>> is responsible)
+  $35 = { body_58 capturing $1, $2 }
+  $36 = { body_65 capturing $0, $28 }
+  $37 = drop $11
+  $38 = drop $17
+  $39 = call $27<%74<builtinIfElse>> with $34 $35 $36 ($19<%41<Core:bool:lazyAnd:18>> is responsible)
+body_67 $0 $1 (+ responsible $2) =
+  # Original HIR IDs: Core:int:compareTo
+  # Captured IDs: none
+  $3 = dup $0 by 2
+  $4 = dup $1 by 2
+  $5 = %88<builtinTypeOf>
+  $6 = %37<Builtins::typeOf:5>
+  $7 = call $5<%88<builtinTypeOf>> with $0 ($6<%37<Builtins::typeOf:5>> is responsible)
+  $8 = %72<builtinEquals>
+  $9 = %91<Int>
+  $10 = %0<Builtins::equals:6>
+  $11 = call $8<%72<builtinEquals>> with $7 $9<%91<Int>> ($10<%0<Builtins::equals:6>> is responsible)
+  $12 = %142<{ body_6 }>
+  $13 = %127<"`is valueA` was not satisfied">
+  $14 = %61<Core:int:compareTo:4>
+  $15 = call $12<%142<{ body_6 }>> with $11 $13<%127<"`is valueA` was not satisfied">> $2 ($14<%61<Core:int:compareTo:4>> is responsible)
+  $16 = call $5<%88<builtinTypeOf>> with $1 ($6<%37<Builtins::typeOf:5>> is responsible)
+  $17 = call $8<%72<builtinEquals>> with $16 $9<%91<Int>> ($10<%0<Builtins::equals:6>> is responsible)
+  $18 = %128<"`is valueB` was not satisfied">
+  $19 = %62<Core:int:compareTo:9>
+  $20 = call $12<%142<{ body_6 }>> with $17 $18<%128<"`is valueB` was not satisfied">> $2 ($19<%62<Core:int:compareTo:9>> is responsible)
+  $21 = %35<Builtins::typeIs:19>
+  $22 = call $5<%88<builtinTypeOf>> with $0 ($21<%35<Builtins::typeIs:19>> is responsible)
+  $23 = %36<Builtins::typeIs:25>
+  $24 = call $8<%72<builtinEquals>> with $22 $9<%91<Int>> ($23<%36<Builtins::typeIs:25>> is responsible)
+  $25 = %116<"`a | typeIs Int` was not satisfied">
+  $26 = %60<Core:int:compareTo:20>
+  $27 = %21<Builtins::intCompareTo:5>
+  $28 = call $12<%142<{ body_6 }>> with $24 $25<%116<"`a | typeIs Int` was not satisfied">> $26<%60<Core:int:compareTo:20>> ($27<%21<Builtins::intCompareTo:5>> is responsible)
+  $29 = call $5<%88<builtinTypeOf>> with $1 ($21<%35<Builtins::typeIs:19>> is responsible)
+  $30 = call $8<%72<builtinEquals>> with $29 $9<%91<Int>> ($23<%36<Builtins::typeIs:25>> is responsible)
+  $31 = %117<"`b | typeIs Int` was not satisfied">
+  $32 = %19<Builtins::intCompareTo:11>
+  $33 = call $12<%142<{ body_6 }>> with $30 $31<%117<"`b | typeIs Int` was not satisfied">> $26<%60<Core:int:compareTo:20>> ($32<%19<Builtins::intCompareTo:11>> is responsible)
+  $34 = %76<builtinIntCompareTo>
+  $35 = %20<Builtins::intCompareTo:18>
+  $36 = drop $15
+  $37 = drop $20
+  $38 = drop $28
+  $39 = drop $33
+  $40 = call $34<%76<builtinIntCompareTo>> with $0 $1 ($35<%20<Builtins::intCompareTo:18>> is responsible)
+body_68 $0 $1 (+ responsible $2) =
+  # Original HIR IDs: Core:int:isLessThan
+  # Captured IDs: none
+  $3 = dup $0 by 1
+  $4 = dup $1 by 1
+  $5 = %88<builtinTypeOf>
+  $6 = %37<Builtins::typeOf:5>
+  $7 = call $5<%88<builtinTypeOf>> with $0 ($6<%37<Builtins::typeOf:5>> is responsible)
+  $8 = %72<builtinEquals>
+  $9 = %91<Int>
+  $10 = %0<Builtins::equals:6>
+  $11 = call $8<%72<builtinEquals>> with $7 $9<%91<Int>> ($10<%0<Builtins::equals:6>> is responsible)
+  $12 = %142<{ body_6 }>
+  $13 = %127<"`is valueA` was not satisfied">
+  $14 = %64<Core:int:isLessThan:4>
+  $15 = call $12<%142<{ body_6 }>> with $11 $13<%127<"`is valueA` was not satisfied">> $2 ($14<%64<Core:int:isLessThan:4>> is responsible)
+  $16 = call $5<%88<builtinTypeOf>> with $1 ($6<%37<Builtins::typeOf:5>> is responsible)
+  $17 = call $8<%72<builtinEquals>> with $16 $9<%91<Int>> ($10<%0<Builtins::equals:6>> is responsible)
+  $18 = %128<"`is valueB` was not satisfied">
+  $19 = %65<Core:int:isLessThan:9>
+  $20 = call $12<%142<{ body_6 }>> with $17 $18<%128<"`is valueB` was not satisfied">> $2 ($19<%65<Core:int:isLessThan:9>> is responsible)
+  $21 = %152<{ body_67 }>
+  $22 = %63<Core:int:isLessThan:13>
+  $23 = call $21<%152<{ body_67 }>> with $0 $1 ($22<%63<Core:int:isLessThan:13>> is responsible)
+  $24 = %92<Less>
+  $25 = drop $15
+  $26 = drop $20
+  $27 = call $8<%72<builtinEquals>> with $23 $24<%92<Less>> ($10<%0<Builtins::equals:6>> is responsible)
+body_69 $0 (+ responsible $1) =
+  # Original HIR IDs: Core:int:isNonNegative
+  # Captured IDs: none
+  $2 = dup $0 by 2
+  $3 = %88<builtinTypeOf>
+  $4 = %37<Builtins::typeOf:5>
+  $5 = call $3<%88<builtinTypeOf>> with $0 ($4<%37<Builtins::typeOf:5>> is responsible)
+  $6 = %72<builtinEquals>
+  $7 = %91<Int>
+  $8 = %0<Builtins::equals:6>
+  $9 = call $6<%72<builtinEquals>> with $5 $7<%91<Int>> ($8<%0<Builtins::equals:6>> is responsible)
+  $10 = %142<{ body_6 }>
+  $11 = %129<"`is value` was not satisfied">
+  $12 = %69<Core:int:isNonNegative:4>
+  $13 = call $10<%142<{ body_6 }>> with $9 $11<%129<"`is value` was not satisfied">> $1 ($12<%69<Core:int:isNonNegative:4>> is responsible)
+  $14 = call $3<%88<builtinTypeOf>> with $0 ($4<%37<Builtins::typeOf:5>> is responsible)
+  $15 = call $6<%72<builtinEquals>> with $14 $7<%91<Int>> ($8<%0<Builtins::equals:6>> is responsible)
+  $16 = %70<Core:int:isNonNegative:7>
+  $17 = %66<Core:int:isNegative:4>
+  $18 = call $10<%142<{ body_6 }>> with $15 $11<%129<"`is value` was not satisfied">> $16<%70<Core:int:isNonNegative:7>> ($17<%66<Core:int:isNegative:4>> is responsible)
+  $19 = %153<{ body_68 }>
+  $20 = %103<0>
+  $21 = %67<Core:int:isNegative:8>
+  $22 = call $19<%153<{ body_68 }>> with $0 $20<%103<0>> ($21<%67<Core:int:isNegative:8>> is responsible)
+  $23 = %150<{ body_52 }>
+  $24 = %68<Core:int:isNonNegative:16>
+  $25 = drop $13
+  $26 = drop $18
+  $27 = call $23<%150<{ body_52 }>> with $22 ($24<%68<Core:int:isNonNegative:16>> is responsible)
+body_70 (responsible $1) =
+  # Original HIR IDs: Core:fixedDecimal:isScale:18
+  # Captured IDs: $0
+  $2 = %154<{ body_69 }>
+  $3 = %53<Core:fixedDecimal:isScale:18:9>
+  $4 = call $2<%154<{ body_69 }>> with $0 ($3<%53<Core:fixedDecimal:isScale:18:9>> is responsible)
+body_71 $0 $1 (+ responsible $2) =
+  # Original HIR IDs: Core:fixedDecimal:fromIntScaled
+  # Captured IDs: none
+  $3 = dup $0 by 1
+  $4 = dup $1 by 2
+  $5 = %88<builtinTypeOf>
+  $6 = %37<Builtins::typeOf:5>
+  $7 = call $5<%88<builtinTypeOf>> with $0 ($6<%37<Builtins::typeOf:5>> is responsible)
+  $8 = %72<builtinEquals>
+  $9 = %91<Int>
+  $10 = %0<Builtins::equals:6>
+  $11 = call $8<%72<builtinEquals>> with $7 $9<%91<Int>> ($10<%0<Builtins::equals:6>> is responsible)
+  $12 = %142<{ body_6 }>
+  $13 = %125<"`int.is minorUnits` was not satisfied">
+  $14 = %51<Core:fixedDecimal:fromIntScaled:11>
+  $15 = call $12<%142<{ body_6 }>> with $11 $13<%125<"`int.is minorUnits` was not satisfied">> $2 ($14<%51<Core:fixedDecimal:fromIntScaled:11>> is responsible)
+  $16 = call $5<%88<builtinTypeOf>> with $1 ($6<%37<Builtins::typeOf:5>> is responsible)
+  $17 = call $8<%72<builtinEquals>> with $16 $9<%91<Int>> ($10<%0<Builtins::equals:6>> is responsible)
+  $18 = { body_70 capturing $1 }
+  $19 = %151<{ body_66 }>
+  $20 = %54<Core:fixedDecimal:isScale:19>
+  $21 = call $19<%151<{ body_66 }>> with $17 $18 ($20<%54<Core:fixedDecimal:isScale:19>> is responsible)
+  $22 = %131<"`isScale scale` was not satisfied">
+  $23 = %52<Core:fixedDecimal:fromIntScaled:16>
+  $24 = call $12<%142<{ body_6 }>> with $21 $22<%131<"`isScale scale` was not satisfied">> $2 ($23<%52<Core:fixedDecimal:fromIntScaled:16>> is responsible)
+  $25 = %98<Scale>
+  $26 = %95<MinorUnits>
+  $27 = [$25<%98<Scale>>: $1, $26<%95<MinorUnits>>: $0]
+  $28 = drop $15
+  $29 = drop $24
+  $30 = FixedDecimal $27
+body_72 (responsible $1) =
+  # Original HIR IDs: Core:function:is1:11
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %88<builtinTypeOf>
+  $4 = %35<Builtins::typeIs:19>
+  $5 = call $3<%88<builtinTypeOf>> with $0 ($4<%35<Builtins::typeIs:19>> is responsible)
+  $6 = %72<builtinEquals>
+  $7 = %90<Function>
+  $8 = %36<Builtins::typeIs:25>
+  $9 = call $6<%72<builtinEquals>> with $5 $7<%90<Function>> ($8<%36<Builtins::typeIs:25>> is responsible)
+  $10 = %142<{ body_6 }>
+  $11 = %122<"`function | typeIs Function` was not satisfied">
+  $12 = %157<Core:function:is1:11:3>
+  $13 = %6<Builtins::getArgumentCount:5>
+  $14 = call $10<%142<{ body_6 }>> with $9 $11<%122<"`function | typeIs Function` was not satisfied">> $12<%157<Core:function:is1:11:3>> ($13<%6<Builtins::getArgumentCount:5>> is responsible)
+  $15 = %73<builtinGetArgumentCount>
+  $16 = %5<Builtins::getArgumentCount:11>
+  $17 = call $15<%73<builtinGetArgumentCount>> with $0 ($16<%5<Builtins::getArgumentCount:11>> is responsible)
+  $18 = %104<1>
+  $19 = %0<Builtins::equals:6>
+  $20 = drop $14
+  $21 = call $6<%72<builtinEquals>> with $17 $18<%104<1>> ($19<%0<Builtins::equals:6>> is responsible)
+body_73 $0 (+ responsible $1) =
+  # Original HIR IDs: Core:function:is1
+  # Captured IDs: none
+  $2 = dup $0 by 1
+  $3 = %88<builtinTypeOf>
+  $4 = %37<Builtins::typeOf:5>
+  $5 = call $3<%88<builtinTypeOf>> with $0 ($4<%37<Builtins::typeOf:5>> is responsible)
+  $6 = %72<builtinEquals>
+  $7 = %90<Function>
+  $8 = %0<Builtins::equals:6>
+  $9 = call $6<%72<builtinEquals>> with $5 $7<%90<Function>> ($8<%0<Builtins::equals:6>> is responsible)
+  $10 = { body_72 capturing $0 }
+  $11 = %146<{ body_22 }>
+  $12 = %145<{ body_8 }>
+  $13 = %158<Core:function:is1:13>
+  $14 = call $11<%146<{ body_22 }>> with $9 $10 $12<%145<{ body_8 }>> ($13<%158<Core:function:is1:13>> is responsible)
+body_74 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = %83<builtinTagGetValue>
+  $3 = %166<Core:result:is:1>
+  $4 = call $2<%83<builtinTagGetValue>> with $0 ($3<%166<Core:result:is:1>> is responsible)
+  $5 = %94<Match>
+  $6 = ($5<%94<Match>>, $4)
+body_75 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %166<Core:result:is:1>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%166<Core:result:is:1>> is responsible)
+  $5 = drop $4
+  $6 = %155<(%96<NoMatch>, %110<"Expected tag to have a value, but it doesn't have any.">)>
+body_76 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %84<builtinTagHasValue>
+  $4 = %166<Core:result:is:1>
+  $5 = call $3<%84<builtinTagHasValue>> with $0 ($4<%166<Core:result:is:1>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %102<True>
+  $9 = call $7<%72<builtinEquals>> with $8<%102<True>> $5 ($4<%166<Core:result:is:1>> is responsible)
+  $10 = { body_74 capturing $0 }
+  $11 = { body_75 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%166<Core:result:is:1>> is responsible)
+body_77 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %166<Core:result:is:1>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%166<Core:result:is:1>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %193<"Expected Ok, got ">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%193<"Expected Ok, got ">> $4 ($3<%166<Core:result:is:1>> is responsible)
+  $8 = %106<".">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%106<".">> ($3<%166<Core:result:is:1>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_78 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %85<builtinTagWithoutValue>
+  $4 = %166<Core:result:is:1>
+  $5 = call $3<%85<builtinTagWithoutValue>> with $0 ($4<%166<Core:result:is:1>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %191<Ok>
+  $9 = call $7<%72<builtinEquals>> with $8<%191<Ok>> $5 ($4<%166<Core:result:is:1>> is responsible)
+  $10 = { body_76 capturing $0 }
+  $11 = { body_77 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%166<Core:result:is:1>> is responsible)
+body_79 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %166<Core:result:is:1>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%166<Core:result:is:1>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %109<"Expected a Tag, got `">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%109<"Expected a Tag, got `">> $4 ($3<%166<Core:result:is:1>> is responsible)
+  $8 = %115<"`.">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%115<"`.">> ($3<%166<Core:result:is:1>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_80 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:isMatch:then
+  # Captured IDs: $0
+  $2 = $0
+body_81 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = %83<builtinTagGetValue>
+  $3 = %166<Core:result:is:1>
+  $4 = call $2<%83<builtinTagGetValue>> with $0 ($3<%166<Core:result:is:1>> is responsible)
+  $5 = %94<Match>
+  $6 = ($5<%94<Match>>, $4)
+body_82 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %166<Core:result:is:1>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%166<Core:result:is:1>> is responsible)
+  $5 = drop $4
+  $6 = %155<(%96<NoMatch>, %110<"Expected tag to have a value, but it doesn't have any.">)>
+body_83 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %84<builtinTagHasValue>
+  $4 = %166<Core:result:is:1>
+  $5 = call $3<%84<builtinTagHasValue>> with $0 ($4<%166<Core:result:is:1>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %102<True>
+  $9 = call $7<%72<builtinEquals>> with $8<%102<True>> $5 ($4<%166<Core:result:is:1>> is responsible)
+  $10 = { body_81 capturing $0 }
+  $11 = { body_82 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%166<Core:result:is:1>> is responsible)
+body_84 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %166<Core:result:is:1>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%166<Core:result:is:1>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %192<"Expected Error, got ">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%192<"Expected Error, got ">> $4 ($3<%166<Core:result:is:1>> is responsible)
+  $8 = %106<".">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%106<".">> ($3<%166<Core:result:is:1>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_85 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %85<builtinTagWithoutValue>
+  $4 = %166<Core:result:is:1>
+  $5 = call $3<%85<builtinTagWithoutValue>> with $0 ($4<%166<Core:result:is:1>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %190<Error>
+  $9 = call $7<%72<builtinEquals>> with $8<%190<Error>> $5 ($4<%166<Core:result:is:1>> is responsible)
+  $10 = { body_83 capturing $0 }
+  $11 = { body_84 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%166<Core:result:is:1>> is responsible)
+body_86 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %166<Core:result:is:1>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%166<Core:result:is:1>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %109<"Expected a Tag, got `">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%109<"Expected a Tag, got `">> $4 ($3<%166<Core:result:is:1>> is responsible)
+  $8 = %115<"`.">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%115<"`.">> ($3<%166<Core:result:is:1>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_87 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:isMatch:else
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %88<builtinTypeOf>
+  $4 = %166<Core:result:is:1>
+  $5 = call $3<%88<builtinTypeOf>> with $0 ($4<%166<Core:result:is:1>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %100<Tag>
+  $9 = call $7<%72<builtinEquals>> with $8<%100<Tag>> $5 ($4<%166<Core:result:is:1>> is responsible)
+  $10 = { body_85 capturing $0 }
+  $11 = { body_86 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%166<Core:result:is:1>> is responsible)
+body_88 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:case-0:matched
+  # Captured IDs: $0
+  $2 = %79<builtinListGet>
+  $3 = %104<1>
+  $4 = %167<Core:result:is:1:_>
+  $5 = call $2<%79<builtinListGet>> with $0 $3<%104<1>> ($4<%167<Core:result:is:1:_>> is responsible)
+  $6 = drop $5
+  $7 = %102<True>
+body_89 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:case-0:didNotMatch
+  # Captured IDs: $0
+  $2 = %79<builtinListGet>
+  $3 = %104<1>
+  $4 = %166<Core:result:is:1>
+  $5 = call $2<%79<builtinListGet>> with $0 $3<%104<1>> ($4<%166<Core:result:is:1>> is responsible)
+  $6 = drop $5
+  $7 = %89<False>
+body_90 $0 (+ responsible $1) =
+  # Original HIR IDs: Core:result:is
+  # Captured IDs: none
+  $2 = dup $0 by 2
+  $3 = %88<builtinTypeOf>
+  $4 = %166<Core:result:is:1>
+  $5 = call $3<%88<builtinTypeOf>> with $0 ($4<%166<Core:result:is:1>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %100<Tag>
+  $9 = call $7<%72<builtinEquals>> with $8<%100<Tag>> $5 ($4<%166<Core:result:is:1>> is responsible)
+  $10 = { body_78 capturing $0 }
+  $11 = { body_79 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%166<Core:result:is:1>> is responsible)
+  $14 = dup $13 by 1
+  $15 = %79<builtinListGet>
+  $16 = %103<0>
+  $17 = call $15<%79<builtinListGet>> with $13 $16<%103<0>> ($4<%166<Core:result:is:1>> is responsible)
+  $18 = %94<Match>
+  $19 = call $7<%72<builtinEquals>> with $17 $18<%94<Match>> ($4<%166<Core:result:is:1>> is responsible)
+  $20 = { body_80 capturing $13 }
+  $21 = { body_87 capturing $0 }
+  $22 = call $12<%74<builtinIfElse>> with $19 $20 $21 ($4<%166<Core:result:is:1>> is responsible)
+  $23 = dup $22 by 2
+  $24 = call $15<%79<builtinListGet>> with $22 $16<%103<0>> ($4<%166<Core:result:is:1>> is responsible)
+  $25 = call $7<%72<builtinEquals>> with $24 $18<%94<Match>> ($4<%166<Core:result:is:1>> is responsible)
+  $26 = { body_88 capturing $22 }
+  $27 = { body_89 capturing $22 }
+  $28 = call $12<%74<builtinIfElse>> with $25 $26 $27 ($4<%166<Core:result:is:1>> is responsible)
+body_91 (responsible $1) =
+  # Original HIR IDs: Core:result:mapOrElse:30:equals:then
+  # Captured IDs: $0
+  $2 = %83<builtinTagGetValue>
+  $3 = %184<Core:result:mapOrElse:30>
+  $4 = call $2<%83<builtinTagGetValue>> with $0 ($3<%184<Core:result:mapOrElse:30>> is responsible)
+  $5 = %94<Match>
+  $6 = ($5<%94<Match>>, $4)
+body_92 (responsible $1) =
+  # Original HIR IDs: Core:result:mapOrElse:30:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %184<Core:result:mapOrElse:30>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%184<Core:result:mapOrElse:30>> is responsible)
+  $5 = drop $4
+  $6 = %155<(%96<NoMatch>, %110<"Expected tag to have a value, but it doesn't have any.">)>
+body_93 (responsible $1) =
+  # Original HIR IDs: Core:result:mapOrElse:30:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %84<builtinTagHasValue>
+  $4 = %184<Core:result:mapOrElse:30>
+  $5 = call $3<%84<builtinTagHasValue>> with $0 ($4<%184<Core:result:mapOrElse:30>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %102<True>
+  $9 = call $7<%72<builtinEquals>> with $8<%102<True>> $5 ($4<%184<Core:result:mapOrElse:30>> is responsible)
+  $10 = { body_91 capturing $0 }
+  $11 = { body_92 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%184<Core:result:mapOrElse:30>> is responsible)
+body_94 (responsible $1) =
+  # Original HIR IDs: Core:result:mapOrElse:30:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %184<Core:result:mapOrElse:30>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%184<Core:result:mapOrElse:30>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %193<"Expected Ok, got ">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%193<"Expected Ok, got ">> $4 ($3<%184<Core:result:mapOrElse:30>> is responsible)
+  $8 = %106<".">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%106<".">> ($3<%184<Core:result:mapOrElse:30>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_95 (responsible $1) =
+  # Original HIR IDs: Core:result:mapOrElse:30:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %85<builtinTagWithoutValue>
+  $4 = %184<Core:result:mapOrElse:30>
+  $5 = call $3<%85<builtinTagWithoutValue>> with $0 ($4<%184<Core:result:mapOrElse:30>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %191<Ok>
+  $9 = call $7<%72<builtinEquals>> with $8<%191<Ok>> $5 ($4<%184<Core:result:mapOrElse:30>> is responsible)
+  $10 = { body_93 capturing $0 }
+  $11 = { body_94 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%184<Core:result:mapOrElse:30>> is responsible)
+body_96 (responsible $1) =
+  # Original HIR IDs: Core:result:mapOrElse:30:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %184<Core:result:mapOrElse:30>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%184<Core:result:mapOrElse:30>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %109<"Expected a Tag, got `">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%109<"Expected a Tag, got `">> $4 ($3<%184<Core:result:mapOrElse:30>> is responsible)
+  $8 = %115<"`.">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%115<"`.">> ($3<%184<Core:result:mapOrElse:30>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_97 (responsible $2) =
+  # Original HIR IDs: Core:result:mapOrElse:30:case-0:matched
+  # Captured IDs: $0, $1
+  $3 = %79<builtinListGet>
+  $4 = %104<1>
+  $5 = %187<Core:result:mapOrElse:30:value>
+  $6 = call $3<%79<builtinListGet>> with $1 $4<%104<1>> ($5<%187<Core:result:mapOrElse:30:value>> is responsible)
+  $7 = %185<Core:result:mapOrElse:30:2>
+  $8 = call $0 with $6 ($7<%185<Core:result:mapOrElse:30:2>> is responsible)
+body_98 (responsible $1) =
+  # Original HIR IDs: Core:result:mapOrElse:30:equals:then
+  # Captured IDs: $0
+  $2 = %83<builtinTagGetValue>
+  $3 = %184<Core:result:mapOrElse:30>
+  $4 = call $2<%83<builtinTagGetValue>> with $0 ($3<%184<Core:result:mapOrElse:30>> is responsible)
+  $5 = %94<Match>
+  $6 = ($5<%94<Match>>, $4)
+body_99 (responsible $1) =
+  # Original HIR IDs: Core:result:mapOrElse:30:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %184<Core:result:mapOrElse:30>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%184<Core:result:mapOrElse:30>> is responsible)
+  $5 = drop $4
+  $6 = %155<(%96<NoMatch>, %110<"Expected tag to have a value, but it doesn't have any.">)>
+body_100 (responsible $1) =
+  # Original HIR IDs: Core:result:mapOrElse:30:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %84<builtinTagHasValue>
+  $4 = %184<Core:result:mapOrElse:30>
+  $5 = call $3<%84<builtinTagHasValue>> with $0 ($4<%184<Core:result:mapOrElse:30>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %102<True>
+  $9 = call $7<%72<builtinEquals>> with $8<%102<True>> $5 ($4<%184<Core:result:mapOrElse:30>> is responsible)
+  $10 = { body_98 capturing $0 }
+  $11 = { body_99 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%184<Core:result:mapOrElse:30>> is responsible)
+body_101 (responsible $1) =
+  # Original HIR IDs: Core:result:mapOrElse:30:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %184<Core:result:mapOrElse:30>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%184<Core:result:mapOrElse:30>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %192<"Expected Error, got ">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%192<"Expected Error, got ">> $4 ($3<%184<Core:result:mapOrElse:30>> is responsible)
+  $8 = %106<".">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%106<".">> ($3<%184<Core:result:mapOrElse:30>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_102 (responsible $1) =
+  # Original HIR IDs: Core:result:mapOrElse:30:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %85<builtinTagWithoutValue>
+  $4 = %184<Core:result:mapOrElse:30>
+  $5 = call $3<%85<builtinTagWithoutValue>> with $0 ($4<%184<Core:result:mapOrElse:30>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %190<Error>
+  $9 = call $7<%72<builtinEquals>> with $8<%190<Error>> $5 ($4<%184<Core:result:mapOrElse:30>> is responsible)
+  $10 = { body_100 capturing $0 }
+  $11 = { body_101 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%184<Core:result:mapOrElse:30>> is responsible)
+body_103 (responsible $1) =
+  # Original HIR IDs: Core:result:mapOrElse:30:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %184<Core:result:mapOrElse:30>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%184<Core:result:mapOrElse:30>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %109<"Expected a Tag, got `">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%109<"Expected a Tag, got `">> $4 ($3<%184<Core:result:mapOrElse:30>> is responsible)
+  $8 = %115<"`.">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%115<"`.">> ($3<%184<Core:result:mapOrElse:30>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_104 (responsible $2) =
+  # Original HIR IDs: Core:result:mapOrElse:30:case-1:matched
+  # Captured IDs: $0, $1
+  $3 = %79<builtinListGet>
+  $4 = %104<1>
+  $5 = %188<Core:result:mapOrElse:30:value#1>
+  $6 = call $3<%79<builtinListGet>> with $1 $4<%104<1>> ($5<%188<Core:result:mapOrElse:30:value#1>> is responsible)
+  $7 = %186<Core:result:mapOrElse:30:5>
+  $8 = call $0 with $6 ($7<%186<Core:result:mapOrElse:30:5>> is responsible)
+body_105 (responsible $1) =
+  # Original HIR IDs: Core:result:mapOrElse:30:case-1:didNotMatch
+  # Captured IDs: $0
+  $2 = %79<builtinListGet>
+  $3 = %104<1>
+  $4 = %184<Core:result:mapOrElse:30>
+  $5 = call $2<%79<builtinListGet>> with $0 $3<%104<1>> ($4<%184<Core:result:mapOrElse:30>> is responsible)
+  $6 = %112<"No case matched the given expression.">
+  $7 = drop $5
+  $8 = panicking because $6<%112<"No case matched the given expression.">> ($4<%184<Core:result:mapOrElse:30>> is at fault)
+body_106 (responsible $3) =
+  # Original HIR IDs: Core:result:mapOrElse:30:case-0:didNotMatch
+  # Captured IDs: $0, $1, $2
+  $4 = dup $0 by 1
+  $5 = %79<builtinListGet>
+  $6 = %104<1>
+  $7 = %184<Core:result:mapOrElse:30>
+  $8 = call $5<%79<builtinListGet>> with $2 $6<%104<1>> ($7<%184<Core:result:mapOrElse:30>> is responsible)
+  $9 = %88<builtinTypeOf>
+  $10 = call $9<%88<builtinTypeOf>> with $0 ($7<%184<Core:result:mapOrElse:30>> is responsible)
+  $11 = dup $10 by 1
+  $12 = %72<builtinEquals>
+  $13 = %100<Tag>
+  $14 = call $12<%72<builtinEquals>> with $13<%100<Tag>> $10 ($7<%184<Core:result:mapOrElse:30>> is responsible)
+  $15 = { body_102 capturing $0 }
+  $16 = { body_103 capturing $10 }
+  $17 = %74<builtinIfElse>
+  $18 = call $17<%74<builtinIfElse>> with $14 $15 $16 ($7<%184<Core:result:mapOrElse:30>> is responsible)
+  $19 = dup $18 by 2
+  $20 = %103<0>
+  $21 = call $5<%79<builtinListGet>> with $18 $20<%103<0>> ($7<%184<Core:result:mapOrElse:30>> is responsible)
+  $22 = %94<Match>
+  $23 = call $12<%72<builtinEquals>> with $21 $22<%94<Match>> ($7<%184<Core:result:mapOrElse:30>> is responsible)
+  $24 = { body_104 capturing $1, $18 }
+  $25 = { body_105 capturing $18 }
+  $26 = drop $8
+  $27 = call $17<%74<builtinIfElse>> with $23 $24 $25 ($7<%184<Core:result:mapOrElse:30>> is responsible)
+body_107 $0 $1 $2 (+ responsible $3) =
+  # Original HIR IDs: Core:result:mapOrElse
+  # Captured IDs: none
+  $4 = dup $0 by 3
+  $5 = dup $1 by 1
+  $6 = dup $2 by 1
+  $7 = %197<{ body_90 }>
+  $8 = %181<Core:result:mapOrElse:2>
+  $9 = call $7<%197<{ body_90 }>> with $0 ($8<%181<Core:result:mapOrElse:2>> is responsible)
+  $10 = %142<{ body_6 }>
+  $11 = %196<"`is result` was not satisfied">
+  $12 = %189<Core:result:mapOrElse:4>
+  $13 = call $10<%142<{ body_6 }>> with $9 $11<%196<"`is result` was not satisfied">> $3 ($12<%189<Core:result:mapOrElse:4>> is responsible)
+  $14 = %159<{ body_73 }>
+  $15 = %179<Core:result:mapOrElse:14>
+  $16 = call $14<%159<{ body_73 }>> with $1 ($15<%179<Core:result:mapOrElse:14>> is responsible)
+  $17 = %195<"`function.is1 okMapper` was not satisfied">
+  $18 = %180<Core:result:mapOrElse:16>
+  $19 = call $10<%142<{ body_6 }>> with $16 $17<%195<"`function.is1 okMapper` was not satisfied">> $3 ($18<%180<Core:result:mapOrElse:16>> is responsible)
+  $20 = %182<Core:result:mapOrElse:26>
+  $21 = call $14<%159<{ body_73 }>> with $2 ($20<%182<Core:result:mapOrElse:26>> is responsible)
+  $22 = %194<"`function.is1 errorMapper` was not satisfied">
+  $23 = %183<Core:result:mapOrElse:28>
+  $24 = call $10<%142<{ body_6 }>> with $21 $22<%194<"`function.is1 errorMapper` was not satisfied">> $3 ($23<%183<Core:result:mapOrElse:28>> is responsible)
+  $25 = %88<builtinTypeOf>
+  $26 = %184<Core:result:mapOrElse:30>
+  $27 = call $25<%88<builtinTypeOf>> with $0 ($26<%184<Core:result:mapOrElse:30>> is responsible)
+  $28 = dup $27 by 1
+  $29 = %72<builtinEquals>
+  $30 = %100<Tag>
+  $31 = call $29<%72<builtinEquals>> with $30<%100<Tag>> $27 ($26<%184<Core:result:mapOrElse:30>> is responsible)
+  $32 = { body_95 capturing $0 }
+  $33 = { body_96 capturing $27 }
+  $34 = %74<builtinIfElse>
+  $35 = call $34<%74<builtinIfElse>> with $31 $32 $33 ($26<%184<Core:result:mapOrElse:30>> is responsible)
+  $36 = dup $35 by 2
+  $37 = %79<builtinListGet>
+  $38 = %103<0>
+  $39 = call $37<%79<builtinListGet>> with $35 $38<%103<0>> ($26<%184<Core:result:mapOrElse:30>> is responsible)
+  $40 = %94<Match>
+  $41 = call $29<%72<builtinEquals>> with $39 $40<%94<Match>> ($26<%184<Core:result:mapOrElse:30>> is responsible)
+  $42 = { body_97 capturing $1, $35 }
+  $43 = { body_106 capturing $0, $2, $35 }
+  $44 = drop $13
+  $45 = drop $19
+  $46 = drop $24
+  $47 = call $34<%74<builtinIfElse>> with $41 $42 $43 ($26<%184<Core:result:mapOrElse:30>> is responsible)
+body_108 $1 (+ responsible $2) =
+  # Original HIR IDs: Core:result:flatMap:19
+  # Captured IDs: $0
+  $3 = %162<Core:result:flatMap:19:2>
+  $4 = call $0 with $1 ($3<%162<Core:result:flatMap:19:2>> is responsible)
+body_109 $1 (+ responsible $2) =
+  # Original HIR IDs: Core:result:mapOr:20
+  # Captured IDs: $0
+  $3 = drop $1
+  $4 = $0
+body_110 $0 $1 (+ responsible $2) =
+  # Original HIR IDs: Core:result:flatMap
+  # Captured IDs: none
+  $3 = dup $0 by 3
+  $4 = dup $1 by 1
+  $5 = %197<{ body_90 }>
+  $6 = %163<Core:result:flatMap:2>
+  $7 = call $5<%197<{ body_90 }>> with $0 ($6<%163<Core:result:flatMap:2>> is responsible)
+  $8 = %142<{ body_6 }>
+  $9 = %196<"`is result` was not satisfied">
+  $10 = %165<Core:result:flatMap:4>
+  $11 = call $8<%142<{ body_6 }>> with $7 $9<%196<"`is result` was not satisfied">> $2 ($10<%165<Core:result:flatMap:4>> is responsible)
+  $12 = %159<{ body_73 }>
+  $13 = %160<Core:result:flatMap:14>
+  $14 = call $12<%159<{ body_73 }>> with $1 ($13<%160<Core:result:flatMap:14>> is responsible)
+  $15 = %195<"`function.is1 okMapper` was not satisfied">
+  $16 = %161<Core:result:flatMap:16>
+  $17 = call $8<%142<{ body_6 }>> with $14 $15<%195<"`function.is1 okMapper` was not satisfied">> $2 ($16<%161<Core:result:flatMap:16>> is responsible)
+  $18 = { body_108 capturing $1 }
+  $19 = dup $18 by 1
+  $20 = %176<Core:result:mapOr:2>
+  $21 = call $5<%197<{ body_90 }>> with $0 ($20<%176<Core:result:mapOr:2>> is responsible)
+  $22 = %164<Core:result:flatMap:21>
+  $23 = %178<Core:result:mapOr:4>
+  $24 = call $8<%142<{ body_6 }>> with $21 $9<%196<"`is result` was not satisfied">> $22<%164<Core:result:flatMap:21>> ($23<%178<Core:result:mapOr:4>> is responsible)
+  $25 = %174<Core:result:mapOr:14>
+  $26 = call $12<%159<{ body_73 }>> with $18 ($25<%174<Core:result:mapOr:14>> is responsible)
+  $27 = %175<Core:result:mapOr:16>
+  $28 = call $8<%142<{ body_6 }>> with $26 $15<%195<"`function.is1 okMapper` was not satisfied">> $22<%164<Core:result:flatMap:21>> ($27<%175<Core:result:mapOr:16>> is responsible)
+  $29 = { body_109 capturing $0 }
+  $30 = %198<{ body_107 }>
+  $31 = %177<Core:result:mapOr:21>
+  $32 = drop $11
+  $33 = drop $17
+  $34 = drop $24
+  $35 = drop $28
+  $36 = call $30<%198<{ body_107 }>> with $0 $18 $29 ($31<%177<Core:result:mapOr:21>> is responsible)
+body_111 $1 (+ responsible $2) =
+  # Original HIR IDs: Core:result:map:19
+  # Captured IDs: $0
+  $3 = %170<Core:result:map:19:3>
+  $4 = call $0 with $1 ($3<%170<Core:result:map:19:3>> is responsible)
+  $5 = Ok $4
+body_112 $0 $1 (+ responsible $2) =
+  # Original HIR IDs: Core:result:map
+  # Captured IDs: none
+  $3 = dup $0 by 1
+  $4 = dup $1 by 1
+  $5 = %197<{ body_90 }>
+  $6 = %171<Core:result:map:2>
+  $7 = call $5<%197<{ body_90 }>> with $0 ($6<%171<Core:result:map:2>> is responsible)
+  $8 = %142<{ body_6 }>
+  $9 = %196<"`is result` was not satisfied">
+  $10 = %173<Core:result:map:4>
+  $11 = call $8<%142<{ body_6 }>> with $7 $9<%196<"`is result` was not satisfied">> $2 ($10<%173<Core:result:map:4>> is responsible)
+  $12 = %159<{ body_73 }>
+  $13 = %168<Core:result:map:14>
+  $14 = call $12<%159<{ body_73 }>> with $1 ($13<%168<Core:result:map:14>> is responsible)
+  $15 = %195<"`function.is1 okMapper` was not satisfied">
+  $16 = %169<Core:result:map:16>
+  $17 = call $8<%142<{ body_6 }>> with $14 $15<%195<"`function.is1 okMapper` was not satisfied">> $2 ($16<%169<Core:result:map:16>> is responsible)
+  $18 = { body_111 capturing $1 }
+  $19 = %199<{ body_110 }>
+  $20 = %172<Core:result:map:20>
+  $21 = drop $11
+  $22 = drop $17
+  $23 = call $19<%199<{ body_110 }>> with $0 $18 ($20<%172<Core:result:map:20>> is responsible)
+body_113 $0 (+ responsible $1) =
+  # Original HIR IDs: Core:result:getValue
+  # Captured IDs: none
+  $2 = dup $0 by 3
+  $3 = %197<{ body_90 }>
+  $4 = %202<Core:result:getValue:2>
+  $5 = call $3<%197<{ body_90 }>> with $0 ($4<%202<Core:result:getValue:2>> is responsible)
+  $6 = %142<{ body_6 }>
+  $7 = %196<"`is result` was not satisfied">
+  $8 = %203<Core:result:getValue:4>
+  $9 = call $6<%142<{ body_6 }>> with $5 $7<%196<"`is result` was not satisfied">> $1 ($8<%203<Core:result:getValue:4>> is responsible)
+  $10 = %88<builtinTypeOf>
+  $11 = %35<Builtins::typeIs:19>
+  $12 = call $10<%88<builtinTypeOf>> with $0 ($11<%35<Builtins::typeIs:19>> is responsible)
+  $13 = %72<builtinEquals>
+  $14 = %100<Tag>
+  $15 = %36<Builtins::typeIs:25>
+  $16 = call $13<%72<builtinEquals>> with $12 $14<%100<Tag>> ($15<%36<Builtins::typeIs:25>> is responsible)
+  $17 = %135<"`tag | typeIs Tag` was not satisfied">
+  $18 = %201<Core:result:getValue:14>
+  $19 = %33<Builtins::tagGetValue:5>
+  $20 = call $6<%142<{ body_6 }>> with $16 $17<%135<"`tag | typeIs Tag` was not satisfied">> $18<%201<Core:result:getValue:14>> ($19<%33<Builtins::tagGetValue:5>> is responsible)
+  $21 = %84<builtinTagHasValue>
+  $22 = %30<Builtins::tagGetValue:11>
+  $23 = call $21<%84<builtinTagHasValue>> with $0 ($22<%30<Builtins::tagGetValue:11>> is responsible)
+  $24 = %136<"`tag | ✨.tagHasValue` was not satisfied">
+  $25 = %31<Builtins::tagGetValue:13>
+  $26 = call $6<%142<{ body_6 }>> with $23 $24<%136<"`tag | ✨.tagHasValue` was not satisfied">> $18<%201<Core:result:getValue:14>> ($25<%31<Builtins::tagGetValue:13>> is responsible)
+  $27 = %83<builtinTagGetValue>
+  $28 = %32<Builtins::tagGetValue:19>
+  $29 = drop $9
+  $30 = drop $20
+  $31 = drop $26
+  $32 = call $27<%83<builtinTagGetValue>> with $0 ($28<%32<Builtins::tagGetValue:19>> is responsible)
+body_114 $0 $1 (+ responsible $2) =
+  # Original HIR IDs: Examples:fibonacci:isLessThan
+  # Captured IDs: none
+  $3 = dup $0 by 1
+  $4 = dup $1 by 1
+  $5 = %88<builtinTypeOf>
+  $6 = %35<Builtins::typeIs:19>
+  $7 = call $5<%88<builtinTypeOf>> with $0 ($6<%35<Builtins::typeIs:19>> is responsible)
+  $8 = %72<builtinEquals>
+  $9 = %91<Int>
+  $10 = %36<Builtins::typeIs:25>
+  $11 = call $8<%72<builtinEquals>> with $7 $9<%91<Int>> ($10<%36<Builtins::typeIs:25>> is responsible)
+  $12 = %142<{ body_6 }>
+  $13 = %116<"`a | typeIs Int` was not satisfied">
+  $14 = %210<Examples:fibonacci:compareTo:10>
+  $15 = %21<Builtins::intCompareTo:5>
+  $16 = call $12<%142<{ body_6 }>> with $11 $13<%116<"`a | typeIs Int` was not satisfied">> $14<%210<Examples:fibonacci:compareTo:10>> ($15<%21<Builtins::intCompareTo:5>> is responsible)
+  $17 = call $5<%88<builtinTypeOf>> with $1 ($6<%35<Builtins::typeIs:19>> is responsible)
+  $18 = call $8<%72<builtinEquals>> with $17 $9<%91<Int>> ($10<%36<Builtins::typeIs:25>> is responsible)
+  $19 = %117<"`b | typeIs Int` was not satisfied">
+  $20 = %19<Builtins::intCompareTo:11>
+  $21 = call $12<%142<{ body_6 }>> with $18 $19<%117<"`b | typeIs Int` was not satisfied">> $14<%210<Examples:fibonacci:compareTo:10>> ($20<%19<Builtins::intCompareTo:11>> is responsible)
+  $22 = %76<builtinIntCompareTo>
+  $23 = %20<Builtins::intCompareTo:18>
+  $24 = call $22<%76<builtinIntCompareTo>> with $0 $1 ($23<%20<Builtins::intCompareTo:18>> is responsible)
+  $25 = %92<Less>
+  $26 = %0<Builtins::equals:6>
+  $27 = drop $16
+  $28 = drop $21
+  $29 = call $8<%72<builtinEquals>> with $24 $25<%92<Less>> ($26<%0<Builtins::equals:6>> is responsible)
+body_115 (responsible $1) =
+  # Original HIR IDs: Examples:fibonacci:fibonacci:2:12
+  # Captured IDs: $0
+  $2 = $0
+body_116 (responsible $2) =
+  # Original HIR IDs: Examples:fibonacci:fibonacci:2:13
+  # Captured IDs: $0, $1
+  $3 = dup $0 by 1
+  $4 = dup $1 by 3
+  $5 = %88<builtinTypeOf>
+  $6 = %35<Builtins::typeIs:19>
+  $7 = call $5<%88<builtinTypeOf>> with $1 ($6<%35<Builtins::typeIs:19>> is responsible)
+  $8 = %72<builtinEquals>
+  $9 = %91<Int>
+  $10 = %36<Builtins::typeIs:25>
+  $11 = call $8<%72<builtinEquals>> with $7 $9<%91<Int>> ($10<%36<Builtins::typeIs:25>> is responsible)
+  $12 = %142<{ body_6 }>
+  $13 = %132<"`minuend | typeIs Int` was not satisfied">
+  $14 = %213<Examples:fibonacci:fibonacci:2:13:11>
+  $15 = %25<Builtins::intSubtract:5>
+  $16 = call $12<%142<{ body_6 }>> with $11 $13<%132<"`minuend | typeIs Int` was not satisfied">> $14<%213<Examples:fibonacci:fibonacci:2:13:11>> ($15<%25<Builtins::intSubtract:5>> is responsible)
+  $17 = %78<builtinIntSubtract>
+  $18 = %104<1>
+  $19 = %24<Builtins::intSubtract:18>
+  $20 = call $17<%78<builtinIntSubtract>> with $1 $18<%104<1>> ($19<%24<Builtins::intSubtract:18>> is responsible)
+  $21 = %214<Examples:fibonacci:fibonacci:2:13:12>
+  $22 = call $0 with $20 ($21<%214<Examples:fibonacci:fibonacci:2:13:12>> is responsible)
+  $23 = dup $22 by 1
+  $24 = call $5<%88<builtinTypeOf>> with $1 ($6<%35<Builtins::typeIs:19>> is responsible)
+  $25 = call $8<%72<builtinEquals>> with $24 $9<%91<Int>> ($10<%36<Builtins::typeIs:25>> is responsible)
+  $26 = %215<Examples:fibonacci:fibonacci:2:13:32>
+  $27 = call $12<%142<{ body_6 }>> with $25 $13<%132<"`minuend | typeIs Int` was not satisfied">> $26<%215<Examples:fibonacci:fibonacci:2:13:32>> ($15<%25<Builtins::intSubtract:5>> is responsible)
+  $28 = %105<2>
+  $29 = call $17<%78<builtinIntSubtract>> with $1 $28<%105<2>> ($19<%24<Builtins::intSubtract:18>> is responsible)
+  $30 = %216<Examples:fibonacci:fibonacci:2:13:33>
+  $31 = call $0 with $29 ($30<%216<Examples:fibonacci:fibonacci:2:13:33>> is responsible)
+  $32 = dup $31 by 1
+  $33 = call $5<%88<builtinTypeOf>> with $22 ($6<%35<Builtins::typeIs:19>> is responsible)
+  $34 = call $8<%72<builtinEquals>> with $33 $9<%91<Int>> ($10<%36<Builtins::typeIs:25>> is responsible)
+  $35 = %116<"`a | typeIs Int` was not satisfied">
+  $36 = %217<Examples:fibonacci:fibonacci:2:13:34>
+  $37 = %18<Builtins::intAdd:5>
+  $38 = call $12<%142<{ body_6 }>> with $34 $35<%116<"`a | typeIs Int` was not satisfied">> $36<%217<Examples:fibonacci:fibonacci:2:13:34>> ($37<%18<Builtins::intAdd:5>> is responsible)
+  $39 = call $5<%88<builtinTypeOf>> with $31 ($6<%35<Builtins::typeIs:19>> is responsible)
+  $40 = call $8<%72<builtinEquals>> with $39 $9<%91<Int>> ($10<%36<Builtins::typeIs:25>> is responsible)
+  $41 = %117<"`b | typeIs Int` was not satisfied">
+  $42 = %16<Builtins::intAdd:11>
+  $43 = call $12<%142<{ body_6 }>> with $40 $41<%117<"`b | typeIs Int` was not satisfied">> $36<%217<Examples:fibonacci:fibonacci:2:13:34>> ($42<%16<Builtins::intAdd:11>> is responsible)
+  $44 = %75<builtinIntAdd>
+  $45 = %17<Builtins::intAdd:18>
+  $46 = drop $16
+  $47 = drop $27
+  $48 = drop $38
+  $49 = drop $43
+  $50 = call $44<%75<builtinIntAdd>> with $22 $31 ($45<%17<Builtins::intAdd:18>> is responsible)
+body_117 $0 $1 (+ responsible $2) =
+  # Original HIR IDs: Examples:fibonacci:fibonacci:2
+  # Captured IDs: none
+  $3 = dup $1 by 2
+  $4 = %211<{ body_114 }>
+  $5 = %105<2>
+  $6 = %212<Examples:fibonacci:fibonacci:2:11>
+  $7 = call $4<%211<{ body_114 }>> with $1 $5<%105<2>> ($6<%212<Examples:fibonacci:fibonacci:2:11>> is responsible)
+  $8 = { body_115 capturing $1 }
+  $9 = { body_116 capturing $0, $1 }
+  $10 = %146<{ body_22 }>
+  $11 = %218<Examples:fibonacci:fibonacci:2:14>
+  $12 = call $10<%146<{ body_22 }>> with $7 $8 $9 ($11<%218<Examples:fibonacci:fibonacci:2:14>> is responsible)
+body_118 $1 (+ responsible $2) =
+  # Original HIR IDs: Examples:fibonacci:recursive:0:0
+  # Captured IDs: $0
+  $3 = dup $0 by 1
+  $4 = %207<Examples:fibonacci:recursive:0:0:3>
+  $5 = call $0 with $0 $1 ($4<%207<Examples:fibonacci:recursive:0:0:3>> is responsible)
+body_119 $0 $1 (+ responsible $2) =
+  # Original HIR IDs: Examples:fibonacci:recursive:0
+  # Captured IDs: none
+  $3 = { body_118 capturing $0 }
+  $4 = %219<{ body_117 }>
+  $5 = %208<Examples:fibonacci:recursive:0:5>
+  $6 = call $4<%219<{ body_117 }>> with $3 $1 ($5<%208<Examples:fibonacci:recursive:0:5>> is responsible)
+body_120 $0 (+ responsible $1) =
+  # Original HIR IDs: Examples:fibonacci:21:8:18
+  # Captured IDs: none
+  $2 = %220<{ body_119 }>
+  $3 = %209<Examples:fibonacci:recursive:5>
+  $4 = call $2<%220<{ body_119 }>> with $2<%220<{ body_119 }>> $0 ($3<%209<Examples:fibonacci:recursive:5>> is responsible)
+  $5 = %87<builtinToDebugText>
+  $6 = %34<Builtins::toDebugText:5>
+  $7 = call $5<%87<builtinToDebugText>> with $4 ($6<%34<Builtins::toDebugText:5>> is responsible)
+body_121 (responsible $1) =
+  # Original HIR IDs: Examples:fibonacci:21:8:equals:then
+  # Captured IDs: $0
+  $2 = %79<builtinListGet>
+  $3 = %103<0>
+  $4 = %223<Examples:fibonacci:21:8>
+  $5 = call $2<%79<builtinListGet>> with $0 $3<%103<0>> ($4<%223<Examples:fibonacci:21:8>> is responsible)
+  $6 = %94<Match>
+  $7 = ($6<%94<Match>>, $5)
+body_122 (responsible $1) =
+  # Original HIR IDs: Examples:fibonacci:21:8:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %223<Examples:fibonacci:21:8>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%223<Examples:fibonacci:21:8>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %204<"Expected 1 item, got ">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%204<"Expected 1 item, got ">> $4 ($3<%223<Examples:fibonacci:21:8>> is responsible)
+  $8 = %106<".">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%106<".">> ($3<%223<Examples:fibonacci:21:8>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_123 (responsible $1) =
+  # Original HIR IDs: Examples:fibonacci:21:8:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %80<builtinListLength>
+  $4 = %223<Examples:fibonacci:21:8>
+  $5 = call $3<%80<builtinListLength>> with $0 ($4<%223<Examples:fibonacci:21:8>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %72<builtinEquals>
+  $8 = %104<1>
+  $9 = call $7<%72<builtinEquals>> with $8<%104<1>> $5 ($4<%223<Examples:fibonacci:21:8>> is responsible)
+  $10 = { body_121 capturing $0 }
+  $11 = { body_122 capturing $5 }
+  $12 = %74<builtinIfElse>
+  $13 = call $12<%74<builtinIfElse>> with $9 $10 $11 ($4<%223<Examples:fibonacci:21:8>> is responsible)
+body_124 (responsible $1) =
+  # Original HIR IDs: Examples:fibonacci:21:8:equals:else
+  # Captured IDs: $0
+  $2 = %87<builtinToDebugText>
+  $3 = %223<Examples:fibonacci:21:8>
+  $4 = call $2<%87<builtinToDebugText>> with $0 ($3<%223<Examples:fibonacci:21:8>> is responsible)
+  $5 = %86<builtinTextConcatenate>
+  $6 = %205<"Expected a List, got `">
+  $7 = call $5<%86<builtinTextConcatenate>> with $6<%205<"Expected a List, got `">> $4 ($3<%223<Examples:fibonacci:21:8>> is responsible)
+  $8 = %115<"`.">
+  $9 = call $5<%86<builtinTextConcatenate>> with $7 $8<%115<"`.">> ($3<%223<Examples:fibonacci:21:8>> is responsible)
+  $10 = %96<NoMatch>
+  $11 = ($10<%96<NoMatch>>, $9)
+body_125 (responsible $1) =
+  # Original HIR IDs: Examples:fibonacci:21:8:case-0:matched
+  # Captured IDs: $0
+  $2 = %79<builtinListGet>
+  $3 = %104<1>
+  $4 = %224<Examples:fibonacci:21:8:n>
+  $5 = call $2<%79<builtinListGet>> with $0 $3<%104<1>> ($4<%224<Examples:fibonacci:21:8:n>> is responsible)
+  $6 = dup $5 by 1
+  $7 = %88<builtinTypeOf>
+  $8 = %35<Builtins::typeIs:19>
+  $9 = call $7<%88<builtinTypeOf>> with $5 ($8<%35<Builtins::typeIs:19>> is responsible)
+  $10 = %72<builtinEquals>
+  $11 = %101<Text>
+  $12 = %36<Builtins::typeIs:25>
+  $13 = call $10<%72<builtinEquals>> with $9 $11<%101<Text>> ($12<%36<Builtins::typeIs:25>> is responsible)
+  $14 = %142<{ body_6 }>
+  $15 = %137<"`text | typeIs Text` was not satisfied">
+  $16 = %225<Examples:fibonacci:21:8:9>
+  $17 = %23<Builtins::intParse:5>
+  $18 = call $14<%142<{ body_6 }>> with $13 $15<%137<"`text | typeIs Text` was not satisfied">> $16<%225<Examples:fibonacci:21:8:9>> ($17<%23<Builtins::intParse:5>> is responsible)
+  $19 = %77<builtinIntParse>
+  $20 = %22<Builtins::intParse:11>
+  $21 = call $19<%77<builtinIntParse>> with $5 ($20<%22<Builtins::intParse:11>> is responsible)
+  $22 = %200<{ body_112 }>
+  $23 = %226<{ body_120 }>
+  $24 = %227<Examples:fibonacci:21:8:19>
+  $25 = call $22<%200<{ body_112 }>> with $21 $23<%226<{ body_120 }>> ($24<%227<Examples:fibonacci:21:8:19>> is responsible)
+  $26 = %206<{ body_113 }>
+  $27 = %228<Examples:fibonacci:21:8:28>
+  $28 = drop $18
+  $29 = call $26<%206<{ body_113 }>> with $25 ($27<%228<Examples:fibonacci:21:8:28>> is responsible)
+body_126 (responsible $1) =
+  # Original HIR IDs: Examples:fibonacci:21:8:case-0:didNotMatch
+  # Captured IDs: $0
+  $2 = %79<builtinListGet>
+  $3 = %104<1>
+  $4 = %223<Examples:fibonacci:21:8>
+  $5 = call $2<%79<builtinListGet>> with $0 $3<%104<1>> ($4<%223<Examples:fibonacci:21:8>> is responsible)
+  $6 = drop $5
+  $7 = %229<"Usage: `cargo run -- run fibonacci.candy -- <number>`">
+body_127 $0 (+ responsible $1) =
+  # Original HIR IDs: Examples:fibonacci:21
+  # Captured IDs: none
+  $2 = dup $0 by 5
+  $3 = %88<builtinTypeOf>
+  $4 = %35<Builtins::typeIs:19>
+  $5 = call $3<%88<builtinTypeOf>> with $0 ($4<%35<Builtins::typeIs:19>> is responsible)
+  $6 = %72<builtinEquals>
+  $7 = %99<Struct>
+  $8 = %36<Builtins::typeIs:25>
+  $9 = call $6<%72<builtinEquals>> with $5 $7<%99<Struct>> ($8<%36<Builtins::typeIs:25>> is responsible)
+  $10 = %142<{ body_6 }>
+  $11 = %133<"`struct | typeIs Struct` was not satisfied">
+  $12 = %222<Examples:fibonacci:21:7>
+  $13 = %29<Builtins::structGet:5>
+  $14 = call $10<%142<{ body_6 }>> with $9 $11<%133<"`struct | typeIs Struct` was not satisfied">> $12<%222<Examples:fibonacci:21:7>> ($13<%29<Builtins::structGet:5>> is responsible)
+  $15 = %82<builtinStructHasKey>
+  $16 = %221<Arguments>
+  $17 = %26<Builtins::structGet:12>
+  $18 = call $15<%82<builtinStructHasKey>> with $0 $16<%221<Arguments>> ($17<%26<Builtins::structGet:12>> is responsible)
+  $19 = %134<"`struct | ✨.structHasKey key` was not satisfied">
+  $20 = %27<Builtins::structGet:14>
+  $21 = call $10<%142<{ body_6 }>> with $18 $19<%134<"`struct | ✨.structHasKey key` was not satisfied">> $12<%222<Examples:fibonacci:21:7>> ($20<%27<Builtins::structGet:14>> is responsible)
+  $22 = %81<builtinStructGet>
+  $23 = %28<Builtins::structGet:21>
+  $24 = call $22<%81<builtinStructGet>> with $0 $16<%221<Arguments>> ($23<%28<Builtins::structGet:21>> is responsible)
+  $25 = dup $24 by 1
+  $26 = %223<Examples:fibonacci:21:8>
+  $27 = call $3<%88<builtinTypeOf>> with $24 ($26<%223<Examples:fibonacci:21:8>> is responsible)
+  $28 = dup $27 by 1
+  $29 = %93<List>
+  $30 = call $6<%72<builtinEquals>> with $29<%93<List>> $27 ($26<%223<Examples:fibonacci:21:8>> is responsible)
+  $31 = { body_123 capturing $24 }
+  $32 = { body_124 capturing $27 }
+  $33 = %74<builtinIfElse>
+  $34 = call $33<%74<builtinIfElse>> with $30 $31 $32 ($26<%223<Examples:fibonacci:21:8>> is responsible)
+  $35 = dup $34 by 2
+  $36 = %79<builtinListGet>
+  $37 = %103<0>
+  $38 = call $36<%79<builtinListGet>> with $34 $37<%103<0>> ($26<%223<Examples:fibonacci:21:8>> is responsible)
+  $39 = %94<Match>
+  $40 = call $6<%72<builtinEquals>> with $38 $39<%94<Match>> ($26<%223<Examples:fibonacci:21:8>> is responsible)
+  $41 = { body_125 capturing $34 }
+  $42 = { body_126 capturing $34 }
+  $43 = call $33<%74<builtinIfElse>> with $40 $41 $42 ($26<%223<Examples:fibonacci:21:8>> is responsible)
+  $44 = call $3<%88<builtinTypeOf>> with $0 ($4<%35<Builtins::typeIs:19>> is responsible)
+  $45 = call $6<%72<builtinEquals>> with $44 $7<%99<Struct>> ($8<%36<Builtins::typeIs:25>> is responsible)
+  $46 = %231<Examples:fibonacci:21:16>
+  $47 = call $10<%142<{ body_6 }>> with $45 $11<%133<"`struct | typeIs Struct` was not satisfied">> $46<%231<Examples:fibonacci:21:16>> ($13<%29<Builtins::structGet:5>> is responsible)
+  $48 = %230<Stdout>
+  $49 = call $15<%82<builtinStructHasKey>> with $0 $48<%230<Stdout>> ($17<%26<Builtins::structGet:12>> is responsible)
+  $50 = call $10<%142<{ body_6 }>> with $49 $19<%134<"`struct | ✨.structHasKey key` was not satisfied">> $46<%231<Examples:fibonacci:21:16>> ($20<%27<Builtins::structGet:14>> is responsible)
+  $51 = call $22<%81<builtinStructGet>> with $0 $48<%230<Stdout>> ($23<%28<Builtins::structGet:21>> is responsible)
+  $52 = %232<Examples:fibonacci:21:17>
+  $53 = drop $14
+  $54 = drop $21
+  $55 = drop $47
+  $56 = drop $50
+  $57 = call $51 with $43 ($52<%232<Examples:fibonacci:21:17>> is responsible)
+body_128 (responsible $0) =
+  # Original HIR IDs: Examples:fibonacci:
+  # Captured IDs: none
+  $1 = %156<{ body_71 }>
+  $2 = %103<0>
+  $3 = %50<Core:fixedDecimal:fromInt:15>
+  $4 = call $1<%156<{ body_71 }>> with $2<%103<0>> $2<%103<0>> ($3<%50<Core:fixedDecimal:fromInt:15>> is responsible)
