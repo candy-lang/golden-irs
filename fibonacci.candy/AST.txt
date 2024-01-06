@@ -1,0 +1,86 @@
+# AST for module Examples:fibonacci
+assignment: identifier $6@"builtins" = 
+  call identifier $0@"use" with these arguments:
+    text
+      textPart $2@"Builtins"
+assignment: struct
+  identifier $15@"int"
+  identifier $17@"result"
+  identifier $19@"toDebugText" = 
+  call identifier $9@"use" with these arguments:
+    text
+      textPart $11@"Core"
+assignment: $58@"recursive" = function (fuzzable) { identifier $59@"initialArg" identifier $61@"body" ->
+  assignment: identifier $48@"recurse" = 
+    function (non-fuzzable) { identifier $23@"recurse" identifier $25@"arg" ->
+      assignment: identifier $37@"rec" = 
+        function (non-fuzzable) { identifier $27@"arg" ->
+          call identifier $29@"recurse" with these arguments:
+            identifier $31@"recurse"
+            identifier $33@"arg"
+        }
+      call identifier $40@"body" with these arguments:
+        identifier $42@"rec"
+        identifier $44@"arg"
+    }
+  call identifier $51@"recurse" with these arguments:
+    identifier $53@"recurse"
+    identifier $55@"initialArg"
+}
+assignment: $79@"compareTo" = function (fuzzable) { identifier $80@"valueA" identifier $82@"valueB" ->
+  assignment: identifier $74@"result" = 
+    call struct access identifier $66@"builtins".$68@"IntCompareTo" with these arguments:
+      identifier $64@"valueA"
+      identifier $70@"valueB"
+  identifier $77@"result"
+}
+assignment: $99@"isLessThan" = function (fuzzable) { identifier $100@"valueA" identifier $102@"valueB" ->
+  call struct access identifier $85@"builtins".$87@"Equals" with these arguments:
+    call identifier $89@"compareTo" with these arguments:
+      identifier $91@"valueA"
+      identifier $93@"valueB"
+    symbol $96@"Less"
+}
+assignment: $161@"fibonacci" = function (fuzzable) { identifier $162@"n" ->
+  call identifier $105@"recursive" with these arguments:
+    identifier $107@"n"
+    function (non-fuzzable) { identifier $109@"recurse" identifier $111@"n" ->
+      call struct access identifier $113@"builtins".$115@"IfElse" with these arguments:
+        call identifier $119@"isLessThan" with these arguments:
+          identifier $117@"n"
+          int 2
+        function (non-fuzzable) {
+          identifier $124@"n"
+        }
+        function (non-fuzzable) {
+          call struct access identifier $139@"builtins".$141@"IntAdd" with these arguments:
+            call identifier $127@"recurse" with these arguments:
+              call struct access identifier $131@"builtins".$133@"IntSubtract" with these arguments:
+                identifier $129@"n"
+                int 1
+            call identifier $143@"recurse" with these arguments:
+              call struct access identifier $147@"builtins".$149@"IntSubtract" with these arguments:
+                identifier $145@"n"
+                int 2
+        }
+    }
+}
+assignment: identifier $217@"main" := 
+  function (non-fuzzable) { identifier $165@"environment" ->
+    call struct access identifier $211@"environment".$213@"Stdout" with these arguments:
+      match struct access identifier $167@"environment".$169@"Arguments" %
+        case list
+          identifier $171@"n" -> 
+            call struct access identifier $198@"result".$200@"GetValue" with these arguments:
+              call struct access identifier $181@"result".$183@"Map" with these arguments:
+                call struct access identifier $176@"int".$178@"Parse" with these arguments:
+                  identifier $174@"n"
+                function (non-fuzzable) { identifier $185@"it" ->
+                  call identifier $192@"toDebugText" with these arguments:
+                    call identifier $187@"fibonacci" with these arguments:
+                      identifier $189@"it"
+                }
+        case identifier $204@"_" -> 
+            text
+              textPart $206@"Usage: `cargo run -- run fibonacci.candy -- <number>`"
+  }

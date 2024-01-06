@@ -1,0 +1,119 @@
+# MIR for module Examples:_package
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# anonymous:$generated::needs
+$50 = { $2 $3 $4 (+ responsible $1) ->
+  $5 = anonymous:$generated::needs
+  $6 = builtinEquals
+  $7 = True
+  $8 = builtinEquals
+  $9 = call $8 with $2 $7 ($5 is responsible)
+  $10 = builtinIfElse
+  # anonymous:$generated::needs:isValueTrue:then
+  $13 = { (responsible $11) ->
+    $12 = $9
+  }
+  # anonymous:$generated::needs:isValueTrue:else
+  $18 = { (responsible $14) ->
+    $15 = False
+    $16 = builtinEquals
+    $17 = call $16 with $2 $15 ($5 is responsible)
+  }
+  $19 = call $10 with $9 $13 $18 ($5 is responsible)
+  $20 = builtinIfElse
+  # anonymous:$generated::needs:isConditionBool:then
+  $23 = { (responsible $21) ->
+    $22 = Nothing
+  }
+  # anonymous:$generated::needs:isConditionBool:else
+  $27 = { (responsible $24) ->
+    $25 = "The `condition` must be either `True` or `False`."
+    $26 = panicking because $25 ($1 is at fault)
+  }
+  $28 = call $20 with $19 $23 $27 ($5 is responsible)
+  $29 = builtinTypeOf
+  $30 = call $29 with $3 ($1 is responsible)
+  $31 = Text
+  $32 = call $6 with $30 $31 ($1 is responsible)
+  $33 = builtinIfElse
+  # anonymous:$generated::needs:isReasonText:then
+  $36 = { (responsible $34) ->
+    $35 = Nothing
+  }
+  # anonymous:$generated::needs:isReasonText:else
+  $40 = { (responsible $37) ->
+    $38 = "The `reason` must be a text."
+    $39 = panicking because $38 ($1 is at fault)
+  }
+  $41 = call $33 with $32 $36 $40 ($5 is responsible)
+  $42 = builtinIfElse
+  # anonymous:$generated::needs:condition:then
+  $45 = { (responsible $43) ->
+    $44 = Nothing
+  }
+  # anonymous:$generated::needs:condition:else
+  $48 = { (responsible $46) ->
+    $47 = panicking because $3 ($4 is at fault)
+  }
+  $49 = call $42 with $2 $45 $48 ($5 is responsible)
+}
+$51 = Examples:_package:
+# Examples:_package:use
+$55 = { $53 (+ responsible $52) ->
+  $54 = use $53 (relative to Examples:_package; $52 is responsible)
+}
+$56 = Nothing
+$57 = []
+$58 = builtinStructHasKey
+$59 = Main
+$60 = call $58 with $57 $59 ($51 is responsible)
+$61 = "The module doesn't export a main function."
+$62 = builtinIfElse
+# Examples:_package:then
+$65 = { (responsible $63) ->
+  $64 = Nothing
+}
+# Examples:_package:else
+$68 = { (responsible $66) ->
+  $67 = panicking because $61 ($51 is at fault)
+}
+$69 = call $62 with $60 $65 $68 ($51 is responsible)
+$70 = builtinStructGet
+$71 = call $70 with $57 $59 ($51 is responsible)
+$72 = builtinTypeOf
+$73 = call $72 with $71 ($51 is responsible)
+$74 = builtinEquals
+$75 = Function
+$76 = call $74 with $73 $75 ($51 is responsible)
+$77 = "The exported main value is not a function."
+$78 = builtinIfElse
+# Examples:_package:then
+$81 = { (responsible $79) ->
+  $80 = Nothing
+}
+# Examples:_package:else
+$84 = { (responsible $82) ->
+  $83 = panicking because $77 ($51 is at fault)
+}
+$85 = call $78 with $76 $81 $84 ($51 is responsible)
+$86 = builtinGetArgumentCount
+$87 = call $86 with $71 ($51 is responsible)
+$88 = 1
+$89 = call $74 with $87 $88 ($51 is responsible)
+$90 = "The exported main function doesn't accept exactly one parameter."
+$91 = builtinIfElse
+# Examples:_package:then
+$94 = { (responsible $92) ->
+  $93 = Nothing
+}
+# Examples:_package:else
+$97 = { (responsible $95) ->
+  $96 = panicking because $90 ($51 is at fault)
+}
+$98 = call $91 with $89 $94 $97 ($51 is responsible)
+$99 = $71

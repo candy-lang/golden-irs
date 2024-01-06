@@ -1,0 +1,805 @@
+# MIR for module Examples:higherLower
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# anonymous:$generated::needs
+$50 = { $2 $3 $4 (+ responsible $1) ->
+  $5 = anonymous:$generated::needs
+  $6 = builtinEquals
+  $7 = True
+  $8 = builtinEquals
+  $9 = call $8 with $2 $7 ($5 is responsible)
+  $10 = builtinIfElse
+  # anonymous:$generated::needs:isValueTrue:then
+  $13 = { (responsible $11) ->
+    $12 = $9
+  }
+  # anonymous:$generated::needs:isValueTrue:else
+  $18 = { (responsible $14) ->
+    $15 = False
+    $16 = builtinEquals
+    $17 = call $16 with $2 $15 ($5 is responsible)
+  }
+  $19 = call $10 with $9 $13 $18 ($5 is responsible)
+  $20 = builtinIfElse
+  # anonymous:$generated::needs:isConditionBool:then
+  $23 = { (responsible $21) ->
+    $22 = Nothing
+  }
+  # anonymous:$generated::needs:isConditionBool:else
+  $27 = { (responsible $24) ->
+    $25 = "The `condition` must be either `True` or `False`."
+    $26 = panicking because $25 ($1 is at fault)
+  }
+  $28 = call $20 with $19 $23 $27 ($5 is responsible)
+  $29 = builtinTypeOf
+  $30 = call $29 with $3 ($1 is responsible)
+  $31 = Text
+  $32 = call $6 with $30 $31 ($1 is responsible)
+  $33 = builtinIfElse
+  # anonymous:$generated::needs:isReasonText:then
+  $36 = { (responsible $34) ->
+    $35 = Nothing
+  }
+  # anonymous:$generated::needs:isReasonText:else
+  $40 = { (responsible $37) ->
+    $38 = "The `reason` must be a text."
+    $39 = panicking because $38 ($1 is at fault)
+  }
+  $41 = call $33 with $32 $36 $40 ($5 is responsible)
+  $42 = builtinIfElse
+  # anonymous:$generated::needs:condition:then
+  $45 = { (responsible $43) ->
+    $44 = Nothing
+  }
+  # anonymous:$generated::needs:condition:else
+  $48 = { (responsible $46) ->
+    $47 = panicking because $3 ($4 is at fault)
+  }
+  $49 = call $42 with $2 $45 $48 ($5 is responsible)
+}
+$51 = Examples:higherLower:
+# Examples:higherLower:use
+$55 = { $53 (+ responsible $52) ->
+  $54 = use $53 (relative to Examples:higherLower; $52 is responsible)
+}
+$56 = $55
+$57 = builtinTextConcatenate
+$58 = builtinTypeOf
+$59 = Text
+$60 = builtinEquals
+$61 = builtinIfElse
+$62 = builtinToDebugText
+$63 = "Core"
+$64 = Examples:higherLower:8
+$65 = call $56 with $63 ($64 is responsible)
+$66 = Examples:higherLower:9
+$67 = Match
+$68 = NoMatch
+$69 = Struct
+$70 = builtinTypeOf
+$71 = call $70 with $65 ($66 is responsible)
+$72 = builtinEquals
+$73 = call $72 with $69 $71 ($66 is responsible)
+$74 = builtinIfElse
+# Examples:higherLower:9:equals:then
+$345 = { (responsible $75) ->
+  $76 = builtinStructHasKey
+  $77 = builtinStructGet
+  $78 = Equals
+  $79 = call $76 with $65 $78 ($66 is responsible)
+  $80 = builtinIfElse
+  # Examples:higherLower:9:hasKey:then
+  $84 = { (responsible $81) ->
+    $82 = call $77 with $65 $78 ($66 is responsible)
+    $83 = ($67, $82)
+  }
+  # Examples:higherLower:9:hasKey:else
+  $98 = { (responsible $85) ->
+    $86 = builtinToDebugText
+    $87 = call $86 with $78 ($66 is responsible)
+    $88 = call $86 with $65 ($66 is responsible)
+    $89 = "Struct doesn't contain key `"
+    $90 = "`: `"
+    $91 = "`."
+    $92 = builtinTextConcatenate
+    $93 = call $92 with $89 $87 ($66 is responsible)
+    $94 = call $92 with $93 $90 ($66 is responsible)
+    $95 = call $92 with $94 $88 ($66 is responsible)
+    $96 = call $92 with $95 $91 ($66 is responsible)
+    $97 = ($68, $96)
+  }
+  $99 = call $80 with $79 $84 $98 ($66 is responsible)
+  $100 = builtinListGet
+  $101 = 0
+  $102 = call $100 with $99 $101 ($66 is responsible)
+  $103 = builtinEquals
+  $104 = Match
+  $105 = call $103 with $102 $104 ($66 is responsible)
+  $106 = builtinIfElse
+  # Examples:higherLower:9:isMatch:then
+  $340 = { (responsible $107) ->
+    $108 = builtinListGet
+    $109 = 1
+    $110 = call $108 with $99 $109 ($66 is responsible)
+    $111 = IfElse
+    $112 = call $76 with $65 $111 ($66 is responsible)
+    $113 = builtinIfElse
+    # Examples:higherLower:9:hasKey:then
+    $117 = { (responsible $114) ->
+      $115 = call $77 with $65 $111 ($66 is responsible)
+      $116 = ($67, $115)
+    }
+    # Examples:higherLower:9:hasKey:else
+    $131 = { (responsible $118) ->
+      $119 = builtinToDebugText
+      $120 = call $119 with $111 ($66 is responsible)
+      $121 = call $119 with $65 ($66 is responsible)
+      $122 = "Struct doesn't contain key `"
+      $123 = "`: `"
+      $124 = "`."
+      $125 = builtinTextConcatenate
+      $126 = call $125 with $122 $120 ($66 is responsible)
+      $127 = call $125 with $126 $123 ($66 is responsible)
+      $128 = call $125 with $127 $121 ($66 is responsible)
+      $129 = call $125 with $128 $124 ($66 is responsible)
+      $130 = ($68, $129)
+    }
+    $132 = call $113 with $112 $117 $131 ($66 is responsible)
+    $133 = builtinListGet
+    $134 = 0
+    $135 = call $133 with $132 $134 ($66 is responsible)
+    $136 = builtinEquals
+    $137 = Match
+    $138 = call $136 with $135 $137 ($66 is responsible)
+    $139 = builtinIfElse
+    # Examples:higherLower:9:isMatch:then
+    $335 = { (responsible $140) ->
+      $141 = builtinListGet
+      $142 = 1
+      $143 = call $141 with $132 $142 ($66 is responsible)
+      $144 = Int
+      $145 = call $76 with $65 $144 ($66 is responsible)
+      $146 = builtinIfElse
+      # Examples:higherLower:9:hasKey:then
+      $150 = { (responsible $147) ->
+        $148 = call $77 with $65 $144 ($66 is responsible)
+        $149 = ($67, $148)
+      }
+      # Examples:higherLower:9:hasKey:else
+      $164 = { (responsible $151) ->
+        $152 = builtinToDebugText
+        $153 = call $152 with $144 ($66 is responsible)
+        $154 = call $152 with $65 ($66 is responsible)
+        $155 = "Struct doesn't contain key `"
+        $156 = "`: `"
+        $157 = "`."
+        $158 = builtinTextConcatenate
+        $159 = call $158 with $155 $153 ($66 is responsible)
+        $160 = call $158 with $159 $156 ($66 is responsible)
+        $161 = call $158 with $160 $154 ($66 is responsible)
+        $162 = call $158 with $161 $157 ($66 is responsible)
+        $163 = ($68, $162)
+      }
+      $165 = call $146 with $145 $150 $164 ($66 is responsible)
+      $166 = builtinListGet
+      $167 = 0
+      $168 = call $166 with $165 $167 ($66 is responsible)
+      $169 = builtinEquals
+      $170 = Match
+      $171 = call $169 with $168 $170 ($66 is responsible)
+      $172 = builtinIfElse
+      # Examples:higherLower:9:isMatch:then
+      $330 = { (responsible $173) ->
+        $174 = builtinListGet
+        $175 = 1
+        $176 = call $174 with $165 $175 ($66 is responsible)
+        $177 = Loop
+        $178 = call $76 with $65 $177 ($66 is responsible)
+        $179 = builtinIfElse
+        # Examples:higherLower:9:hasKey:then
+        $183 = { (responsible $180) ->
+          $181 = call $77 with $65 $177 ($66 is responsible)
+          $182 = ($67, $181)
+        }
+        # Examples:higherLower:9:hasKey:else
+        $197 = { (responsible $184) ->
+          $185 = builtinToDebugText
+          $186 = call $185 with $177 ($66 is responsible)
+          $187 = call $185 with $65 ($66 is responsible)
+          $188 = "Struct doesn't contain key `"
+          $189 = "`: `"
+          $190 = "`."
+          $191 = builtinTextConcatenate
+          $192 = call $191 with $188 $186 ($66 is responsible)
+          $193 = call $191 with $192 $189 ($66 is responsible)
+          $194 = call $191 with $193 $187 ($66 is responsible)
+          $195 = call $191 with $194 $190 ($66 is responsible)
+          $196 = ($68, $195)
+        }
+        $198 = call $179 with $178 $183 $197 ($66 is responsible)
+        $199 = builtinListGet
+        $200 = 0
+        $201 = call $199 with $198 $200 ($66 is responsible)
+        $202 = builtinEquals
+        $203 = Match
+        $204 = call $202 with $201 $203 ($66 is responsible)
+        $205 = builtinIfElse
+        # Examples:higherLower:9:isMatch:then
+        $325 = { (responsible $206) ->
+          $207 = builtinListGet
+          $208 = 1
+          $209 = call $207 with $198 $208 ($66 is responsible)
+          $210 = Result
+          $211 = call $76 with $65 $210 ($66 is responsible)
+          $212 = builtinIfElse
+          # Examples:higherLower:9:hasKey:then
+          $216 = { (responsible $213) ->
+            $214 = call $77 with $65 $210 ($66 is responsible)
+            $215 = ($67, $214)
+          }
+          # Examples:higherLower:9:hasKey:else
+          $230 = { (responsible $217) ->
+            $218 = builtinToDebugText
+            $219 = call $218 with $210 ($66 is responsible)
+            $220 = call $218 with $65 ($66 is responsible)
+            $221 = "Struct doesn't contain key `"
+            $222 = "`: `"
+            $223 = "`."
+            $224 = builtinTextConcatenate
+            $225 = call $224 with $221 $219 ($66 is responsible)
+            $226 = call $224 with $225 $222 ($66 is responsible)
+            $227 = call $224 with $226 $220 ($66 is responsible)
+            $228 = call $224 with $227 $223 ($66 is responsible)
+            $229 = ($68, $228)
+          }
+          $231 = call $212 with $211 $216 $230 ($66 is responsible)
+          $232 = builtinListGet
+          $233 = 0
+          $234 = call $232 with $231 $233 ($66 is responsible)
+          $235 = builtinEquals
+          $236 = Match
+          $237 = call $235 with $234 $236 ($66 is responsible)
+          $238 = builtinIfElse
+          # Examples:higherLower:9:isMatch:then
+          $320 = { (responsible $239) ->
+            $240 = builtinListGet
+            $241 = 1
+            $242 = call $240 with $231 $241 ($66 is responsible)
+            $243 = Function
+            $244 = call $76 with $65 $243 ($66 is responsible)
+            $245 = builtinIfElse
+            # Examples:higherLower:9:hasKey:then
+            $249 = { (responsible $246) ->
+              $247 = call $77 with $65 $243 ($66 is responsible)
+              $248 = ($67, $247)
+            }
+            # Examples:higherLower:9:hasKey:else
+            $263 = { (responsible $250) ->
+              $251 = builtinToDebugText
+              $252 = call $251 with $243 ($66 is responsible)
+              $253 = call $251 with $65 ($66 is responsible)
+              $254 = "Struct doesn't contain key `"
+              $255 = "`: `"
+              $256 = "`."
+              $257 = builtinTextConcatenate
+              $258 = call $257 with $254 $252 ($66 is responsible)
+              $259 = call $257 with $258 $255 ($66 is responsible)
+              $260 = call $257 with $259 $253 ($66 is responsible)
+              $261 = call $257 with $260 $256 ($66 is responsible)
+              $262 = ($68, $261)
+            }
+            $264 = call $245 with $244 $249 $263 ($66 is responsible)
+            $265 = builtinListGet
+            $266 = 0
+            $267 = call $265 with $264 $266 ($66 is responsible)
+            $268 = builtinEquals
+            $269 = Match
+            $270 = call $268 with $267 $269 ($66 is responsible)
+            $271 = builtinIfElse
+            # Examples:higherLower:9:isMatch:then
+            $315 = { (responsible $272) ->
+              $273 = builtinListGet
+              $274 = 1
+              $275 = call $273 with $264 $274 ($66 is responsible)
+              $276 = Text
+              $277 = call $76 with $65 $276 ($66 is responsible)
+              $278 = builtinIfElse
+              # Examples:higherLower:9:hasKey:then
+              $282 = { (responsible $279) ->
+                $280 = call $77 with $65 $276 ($66 is responsible)
+                $281 = ($67, $280)
+              }
+              # Examples:higherLower:9:hasKey:else
+              $296 = { (responsible $283) ->
+                $284 = builtinToDebugText
+                $285 = call $284 with $276 ($66 is responsible)
+                $286 = call $284 with $65 ($66 is responsible)
+                $287 = "Struct doesn't contain key `"
+                $288 = "`: `"
+                $289 = "`."
+                $290 = builtinTextConcatenate
+                $291 = call $290 with $287 $285 ($66 is responsible)
+                $292 = call $290 with $291 $288 ($66 is responsible)
+                $293 = call $290 with $292 $286 ($66 is responsible)
+                $294 = call $290 with $293 $289 ($66 is responsible)
+                $295 = ($68, $294)
+              }
+              $297 = call $278 with $277 $282 $296 ($66 is responsible)
+              $298 = builtinListGet
+              $299 = 0
+              $300 = call $298 with $297 $299 ($66 is responsible)
+              $301 = builtinEquals
+              $302 = Match
+              $303 = call $301 with $300 $302 ($66 is responsible)
+              $304 = builtinIfElse
+              # Examples:higherLower:9:isMatch:then
+              $310 = { (responsible $305) ->
+                $306 = builtinListGet
+                $307 = 1
+                $308 = call $306 with $297 $307 ($66 is responsible)
+                $309 = ($67, $110, $143, $176, $209, $242, $275, $308)
+              }
+              # Examples:higherLower:9:isMatch:else
+              $313 = { (responsible $311) ->
+                $312 = $297
+              }
+              $314 = call $304 with $303 $310 $313 ($66 is responsible)
+            }
+            # Examples:higherLower:9:isMatch:else
+            $318 = { (responsible $316) ->
+              $317 = $264
+            }
+            $319 = call $271 with $270 $315 $318 ($66 is responsible)
+          }
+          # Examples:higherLower:9:isMatch:else
+          $323 = { (responsible $321) ->
+            $322 = $231
+          }
+          $324 = call $238 with $237 $320 $323 ($66 is responsible)
+        }
+        # Examples:higherLower:9:isMatch:else
+        $328 = { (responsible $326) ->
+          $327 = $198
+        }
+        $329 = call $205 with $204 $325 $328 ($66 is responsible)
+      }
+      # Examples:higherLower:9:isMatch:else
+      $333 = { (responsible $331) ->
+        $332 = $165
+      }
+      $334 = call $172 with $171 $330 $333 ($66 is responsible)
+    }
+    # Examples:higherLower:9:isMatch:else
+    $338 = { (responsible $336) ->
+      $337 = $132
+    }
+    $339 = call $139 with $138 $335 $338 ($66 is responsible)
+  }
+  # Examples:higherLower:9:isMatch:else
+  $343 = { (responsible $341) ->
+    $342 = $99
+  }
+  $344 = call $106 with $105 $340 $343 ($66 is responsible)
+}
+# Examples:higherLower:9:equals:else
+$359 = { (responsible $346) ->
+  $347 = builtinToDebugText
+  $348 = call $347 with $69 ($66 is responsible)
+  $349 = call $347 with $71 ($66 is responsible)
+  $350 = "Expected a "
+  $351 = ", got `"
+  $352 = "`."
+  $353 = builtinTextConcatenate
+  $354 = call $353 with $350 $348 ($66 is responsible)
+  $355 = call $353 with $354 $351 ($66 is responsible)
+  $356 = call $353 with $355 $349 ($66 is responsible)
+  $357 = call $353 with $356 $352 ($66 is responsible)
+  $358 = ($68, $357)
+}
+$360 = call $74 with $73 $345 $359 ($66 is responsible)
+$361 = builtinListGet
+$362 = 0
+$363 = call $361 with $360 $362 ($66 is responsible)
+$364 = builtinEquals
+$365 = Match
+$366 = call $364 with $363 $365 ($66 is responsible)
+$367 = builtinIfElse
+# Examples:higherLower:9:isMatch:then
+$370 = { (responsible $368) ->
+  $369 = Nothing
+}
+# Examples:higherLower:9:isMatch:else
+$376 = { (responsible $371) ->
+  $372 = builtinListGet
+  $373 = 1
+  $374 = call $372 with $360 $373 ($66 is responsible)
+  $375 = panicking because $374 ($66 is at fault)
+}
+$377 = call $367 with $366 $370 $376 ($66 is responsible)
+$378 = builtinListGet
+$379 = 1
+$380 = Examples:higherLower:equals
+$381 = call $378 with $360 $379 ($380 is responsible)
+$382 = builtinListGet
+$383 = 2
+$384 = Examples:higherLower:ifElse
+$385 = call $382 with $360 $383 ($384 is responsible)
+$386 = builtinListGet
+$387 = 3
+$388 = Examples:higherLower:int
+$389 = call $386 with $360 $387 ($388 is responsible)
+$390 = builtinListGet
+$391 = 4
+$392 = Examples:higherLower:loop
+$393 = call $390 with $360 $391 ($392 is responsible)
+$394 = builtinListGet
+$395 = 5
+$396 = Examples:higherLower:result
+$397 = call $394 with $360 $395 ($396 is responsible)
+$398 = builtinListGet
+$399 = 6
+$400 = Examples:higherLower:function
+$401 = call $398 with $360 $399 ($400 is responsible)
+$402 = builtinListGet
+$403 = 7
+$404 = Examples:higherLower:text
+$405 = call $402 with $360 $403 ($404 is responsible)
+$406 = Nothing
+$407 = $401
+$408 = Examples:higherLower:12
+$409 = Match
+$410 = NoMatch
+$411 = Struct
+$412 = builtinTypeOf
+$413 = call $412 with $407 ($408 is responsible)
+$414 = builtinEquals
+$415 = call $414 with $411 $413 ($408 is responsible)
+$416 = builtinIfElse
+# Examples:higherLower:12:equals:then
+$459 = { (responsible $417) ->
+  $418 = builtinStructHasKey
+  $419 = builtinStructGet
+  $420 = Run
+  $421 = call $418 with $407 $420 ($408 is responsible)
+  $422 = builtinIfElse
+  # Examples:higherLower:12:hasKey:then
+  $426 = { (responsible $423) ->
+    $424 = call $419 with $407 $420 ($408 is responsible)
+    $425 = ($409, $424)
+  }
+  # Examples:higherLower:12:hasKey:else
+  $440 = { (responsible $427) ->
+    $428 = builtinToDebugText
+    $429 = call $428 with $420 ($408 is responsible)
+    $430 = call $428 with $407 ($408 is responsible)
+    $431 = "Struct doesn't contain key `"
+    $432 = "`: `"
+    $433 = "`."
+    $434 = builtinTextConcatenate
+    $435 = call $434 with $431 $429 ($408 is responsible)
+    $436 = call $434 with $435 $432 ($408 is responsible)
+    $437 = call $434 with $436 $430 ($408 is responsible)
+    $438 = call $434 with $437 $433 ($408 is responsible)
+    $439 = ($410, $438)
+  }
+  $441 = call $422 with $421 $426 $440 ($408 is responsible)
+  $442 = builtinListGet
+  $443 = 0
+  $444 = call $442 with $441 $443 ($408 is responsible)
+  $445 = builtinEquals
+  $446 = Match
+  $447 = call $445 with $444 $446 ($408 is responsible)
+  $448 = builtinIfElse
+  # Examples:higherLower:12:isMatch:then
+  $454 = { (responsible $449) ->
+    $450 = builtinListGet
+    $451 = 1
+    $452 = call $450 with $441 $451 ($408 is responsible)
+    $453 = ($409, $452)
+  }
+  # Examples:higherLower:12:isMatch:else
+  $457 = { (responsible $455) ->
+    $456 = $441
+  }
+  $458 = call $448 with $447 $454 $457 ($408 is responsible)
+}
+# Examples:higherLower:12:equals:else
+$473 = { (responsible $460) ->
+  $461 = builtinToDebugText
+  $462 = call $461 with $411 ($408 is responsible)
+  $463 = call $461 with $413 ($408 is responsible)
+  $464 = "Expected a "
+  $465 = ", got `"
+  $466 = "`."
+  $467 = builtinTextConcatenate
+  $468 = call $467 with $464 $462 ($408 is responsible)
+  $469 = call $467 with $468 $465 ($408 is responsible)
+  $470 = call $467 with $469 $463 ($408 is responsible)
+  $471 = call $467 with $470 $466 ($408 is responsible)
+  $472 = ($410, $471)
+}
+$474 = call $416 with $415 $459 $473 ($408 is responsible)
+$475 = builtinListGet
+$476 = 0
+$477 = call $475 with $474 $476 ($408 is responsible)
+$478 = builtinEquals
+$479 = Match
+$480 = call $478 with $477 $479 ($408 is responsible)
+$481 = builtinIfElse
+# Examples:higherLower:12:isMatch:then
+$484 = { (responsible $482) ->
+  $483 = Nothing
+}
+# Examples:higherLower:12:isMatch:else
+$490 = { (responsible $485) ->
+  $486 = builtinListGet
+  $487 = 1
+  $488 = call $486 with $474 $487 ($408 is responsible)
+  $489 = panicking because $488 ($408 is at fault)
+}
+$491 = call $481 with $480 $484 $490 ($408 is responsible)
+$492 = builtinListGet
+$493 = 1
+$494 = Examples:higherLower:run
+$495 = call $492 with $474 $493 ($494 is responsible)
+$496 = Nothing
+# Examples:higherLower:14
+$692 = { $498 (+ responsible $497) ->
+  # Examples:higherLower:14:print
+  $515 = { $500 (+ responsible $499) ->
+    $501 = "Builtins"
+    $502 = Examples:higherLower:14:print:1
+    $503 = call $55 with $501 ($502 is responsible)
+    $504 = builtinStructGet
+    $505 = StructGet
+    $506 = Examples:higherLower:14:print:4
+    $507 = call $504 with $503 $505 ($506 is responsible)
+    $508 = $498
+    $509 = Stdout
+    $510 = Examples:higherLower:14:print:7
+    $511 = call $507 with $508 $509 ($510 is responsible)
+    $512 = $500
+    $513 = Examples:higherLower:14:print:9
+    $514 = call $511 with $512 ($513 is responsible)
+  }
+  $516 = $515
+  # Examples:higherLower:14:0
+  $532 = { (responsible $517) ->
+    $518 = $495
+    $519 = "Builtins"
+    $520 = Examples:higherLower:14:0:2
+    $521 = call $55 with $519 ($520 is responsible)
+    $522 = builtinStructGet
+    $523 = StructGet
+    $524 = Examples:higherLower:14:0:5
+    $525 = call $522 with $521 $523 ($524 is responsible)
+    $526 = $498
+    $527 = Stdin
+    $528 = Examples:higherLower:14:0:8
+    $529 = call $525 with $526 $527 ($528 is responsible)
+    $530 = Examples:higherLower:14:0:9
+    $531 = call $518 with $529 ($530 is responsible)
+  }
+  $533 = $532
+  $534 = $533
+  $535 = Nothing
+  $536 = $516
+  $537 = builtinTextConcatenate
+  $538 = builtinTypeOf
+  $539 = Text
+  $540 = builtinEquals
+  $541 = builtinIfElse
+  $542 = builtinToDebugText
+  $543 = "Welcome to the number guessing game!"
+  $544 = Examples:higherLower:14:10
+  $545 = call $536 with $543 ($544 is responsible)
+  $546 = 42
+  $547 = $546
+  $548 = $547
+  $549 = Nothing
+  $550 = $393
+  # Examples:higherLower:14:14
+  $689 = { (responsible $551) ->
+    $552 = $516
+    $553 = builtinTextConcatenate
+    $554 = builtinTypeOf
+    $555 = Text
+    $556 = builtinEquals
+    $557 = builtinIfElse
+    $558 = builtinToDebugText
+    $559 = "What's your guess?"
+    $560 = Examples:higherLower:14:14:8
+    $561 = call $552 with $559 ($560 is responsible)
+    $562 = $495
+    $563 = $534
+    $564 = Examples:higherLower:14:14:11
+    $565 = call $562 with $563 ($564 is responsible)
+    $566 = "Builtins"
+    $567 = Examples:higherLower:14:14:13
+    $568 = call $55 with $566 ($567 is responsible)
+    $569 = builtinStructGet
+    $570 = StructGet
+    $571 = Examples:higherLower:14:14:16
+    $572 = call $569 with $568 $570 ($571 is responsible)
+    $573 = $405
+    $574 = Trim
+    $575 = Examples:higherLower:14:14:19
+    $576 = call $572 with $573 $574 ($575 is responsible)
+    $577 = Examples:higherLower:14:14:20
+    $578 = call $576 with $565 ($577 is responsible)
+    $579 = "Builtins"
+    $580 = Examples:higherLower:14:14:22
+    $581 = call $55 with $579 ($580 is responsible)
+    $582 = builtinStructGet
+    $583 = StructGet
+    $584 = Examples:higherLower:14:14:25
+    $585 = call $582 with $581 $583 ($584 is responsible)
+    $586 = $389
+    $587 = Parse
+    $588 = Examples:higherLower:14:14:28
+    $589 = call $585 with $586 $587 ($588 is responsible)
+    $590 = Examples:higherLower:14:14:29
+    $591 = call $589 with $578 ($590 is responsible)
+    $592 = $591
+    $593 = $592
+    $594 = Nothing
+    $595 = $593
+    $596 = "Builtins"
+    $597 = Examples:higherLower:14:14:33
+    $598 = call $55 with $596 ($597 is responsible)
+    $599 = builtinStructGet
+    $600 = StructGet
+    $601 = Examples:higherLower:14:14:36
+    $602 = call $599 with $598 $600 ($601 is responsible)
+    $603 = $397
+    $604 = MapOrElse
+    $605 = Examples:higherLower:14:14:39
+    $606 = call $602 with $603 $604 ($605 is responsible)
+    # Examples:higherLower:14:14:40
+    $672 = { $608 (+ responsible $607) ->
+      $609 = $385
+      $610 = $381
+      $611 = $608
+      $612 = $548
+      $613 = Examples:higherLower:14:14:40:4
+      $614 = call $610 with $611 $612 ($613 is responsible)
+      # Examples:higherLower:14:14:40:5
+      $627 = { (responsible $615) ->
+        $616 = $516
+        $617 = builtinTextConcatenate
+        $618 = builtinTypeOf
+        $619 = Text
+        $620 = builtinEquals
+        $621 = builtinIfElse
+        $622 = builtinToDebugText
+        $623 = "You did it!"
+        $624 = Examples:higherLower:14:14:40:5:8
+        $625 = call $616 with $623 ($624 is responsible)
+        $626 = Break
+      }
+      # Examples:higherLower:14:14:40:6
+      $669 = { (responsible $628) ->
+        $629 = $516
+        $630 = $385
+        $631 = "Builtins"
+        $632 = Examples:higherLower:14:14:40:6:3
+        $633 = call $55 with $631 ($632 is responsible)
+        $634 = builtinStructGet
+        $635 = StructGet
+        $636 = Examples:higherLower:14:14:40:6:6
+        $637 = call $634 with $633 $635 ($636 is responsible)
+        $638 = $389
+        $639 = IsLessThan
+        $640 = Examples:higherLower:14:14:40:6:9
+        $641 = call $637 with $638 $639 ($640 is responsible)
+        $642 = $548
+        $643 = $608
+        $644 = Examples:higherLower:14:14:40:6:12
+        $645 = call $641 with $642 $643 ($644 is responsible)
+        # Examples:higherLower:14:14:40:6:13
+        $654 = { (responsible $646) ->
+          $647 = builtinTextConcatenate
+          $648 = builtinTypeOf
+          $649 = Text
+          $650 = builtinEquals
+          $651 = builtinIfElse
+          $652 = builtinToDebugText
+          $653 = "Lower!"
+        }
+        # Examples:higherLower:14:14:40:6:14
+        $663 = { (responsible $655) ->
+          $656 = builtinTextConcatenate
+          $657 = builtinTypeOf
+          $658 = Text
+          $659 = builtinEquals
+          $660 = builtinIfElse
+          $661 = builtinToDebugText
+          $662 = "Higher!"
+        }
+        $664 = Examples:higherLower:14:14:40:6:15
+        $665 = call $630 with $645 $654 $663 ($664 is responsible)
+        $666 = Examples:higherLower:14:14:40:6:16
+        $667 = call $629 with $665 ($666 is responsible)
+        $668 = Continue
+      }
+      $670 = Examples:higherLower:14:14:40:7
+      $671 = call $609 with $614 $627 $669 ($670 is responsible)
+    }
+    # Examples:higherLower:14:14:41
+    $686 = { $674 (+ responsible $673) ->
+      $675 = $516
+      $676 = builtinTextConcatenate
+      $677 = builtinTypeOf
+      $678 = Text
+      $679 = builtinEquals
+      $680 = builtinIfElse
+      $681 = builtinToDebugText
+      $682 = "Your guess must be a number."
+      $683 = Examples:higherLower:14:14:41:8
+      $684 = call $675 with $682 ($683 is responsible)
+      $685 = Continue
+    }
+    $687 = Examples:higherLower:14:14:42
+    $688 = call $606 with $595 $672 $686 ($687 is responsible)
+  }
+  $690 = Examples:higherLower:14:15
+  $691 = call $550 with $689 ($690 is responsible)
+}
+$693 = $692
+$694 = $693
+$695 = Nothing
+$696 = Main
+$697 = [$696: $694]
+$698 = builtinStructHasKey
+$699 = Main
+$700 = call $698 with $697 $699 ($51 is responsible)
+$701 = "The module doesn't export a main function."
+$702 = builtinIfElse
+# Examples:higherLower:then
+$705 = { (responsible $703) ->
+  $704 = Nothing
+}
+# Examples:higherLower:else
+$708 = { (responsible $706) ->
+  $707 = panicking because $701 ($51 is at fault)
+}
+$709 = call $702 with $700 $705 $708 ($51 is responsible)
+$710 = builtinStructGet
+$711 = call $710 with $697 $699 ($51 is responsible)
+$712 = builtinTypeOf
+$713 = call $712 with $711 ($51 is responsible)
+$714 = builtinEquals
+$715 = Function
+$716 = call $714 with $713 $715 ($51 is responsible)
+$717 = "The exported main value is not a function."
+$718 = builtinIfElse
+# Examples:higherLower:then
+$721 = { (responsible $719) ->
+  $720 = Nothing
+}
+# Examples:higherLower:else
+$724 = { (responsible $722) ->
+  $723 = panicking because $717 ($51 is at fault)
+}
+$725 = call $718 with $716 $721 $724 ($51 is responsible)
+$726 = builtinGetArgumentCount
+$727 = call $726 with $711 ($51 is responsible)
+$728 = 1
+$729 = call $714 with $727 $728 ($51 is responsible)
+$730 = "The exported main function doesn't accept exactly one parameter."
+$731 = builtinIfElse
+# Examples:higherLower:then
+$734 = { (responsible $732) ->
+  $733 = Nothing
+}
+# Examples:higherLower:else
+$737 = { (responsible $735) ->
+  $736 = panicking because $730 ($51 is at fault)
+}
+$738 = call $731 with $729 $734 $737 ($51 is responsible)
+$739 = $711

@@ -1,0 +1,145 @@
+# HIR for module Examples:match
+$use = { (non-fuzzable, but passes on responsibility) $use:relativePath ->
+  $use:importedModule = relative to module Examples:match, use $use:relativePath
+}
+$0 = $use
+$1 = builtinTextConcatenate
+$2 = builtinTypeOf
+$3 = Text
+$4 = builtinEquals
+$5 = builtinIfElse
+$6 = builtinToDebugText
+$7 = "Core"
+$8 = call $0 with $7
+$9 = destructure $8 into [IfElse: p$0, Int: p$1]
+$ifElse = p$0
+$int = p$1
+$10 = Nothing
+$buildEnum = { (fuzzable) $buildEnum:value ->
+  $buildEnum:0 = "Builtins"
+  $buildEnum:1 = call $use with $buildEnum:0
+  $buildEnum:2 = builtinStructGet
+  $buildEnum:3 = StructGet
+  $buildEnum:4 = call $buildEnum:2 with $buildEnum:1 $buildEnum:3
+  $buildEnum:5 = $int
+  $buildEnum:6 = Is
+  $buildEnum:7 = call $buildEnum:4 with $buildEnum:5 $buildEnum:6
+  $buildEnum:8 = $buildEnum:value
+  $buildEnum:9 = call $buildEnum:7 with $buildEnum:8
+  $buildEnum:10 = "`int.is value` was not satisfied"
+  $buildEnum:11 = needs $buildEnum:9 with reason $buildEnum:10
+  $buildEnum:12 = $ifElse
+  $buildEnum:13 = $buildEnum:value
+  $buildEnum:14 = "Builtins"
+  $buildEnum:15 = call $use with $buildEnum:14
+  $buildEnum:16 = builtinStructGet
+  $buildEnum:17 = StructGet
+  $buildEnum:18 = call $buildEnum:16 with $buildEnum:15 $buildEnum:17
+  $buildEnum:19 = $int
+  $buildEnum:20 = IsLessThan
+  $buildEnum:21 = call $buildEnum:18 with $buildEnum:19 $buildEnum:20
+  $buildEnum:22 = 10
+  $buildEnum:23 = call $buildEnum:21 with $buildEnum:13 $buildEnum:22
+  $buildEnum:24 = { (non-fuzzable) ->
+    $buildEnum:24:0 = Ok
+    $buildEnum:24:1 = $buildEnum:value
+    $buildEnum:24:2 = call $buildEnum:24:0 with $buildEnum:24:1
+  }
+  $buildEnum:25 = { (non-fuzzable) ->
+    $buildEnum:25:0 = Error
+    $buildEnum:25:1 = builtinTextConcatenate
+    $buildEnum:25:2 = builtinTypeOf
+    $buildEnum:25:3 = Text
+    $buildEnum:25:4 = builtinEquals
+    $buildEnum:25:5 = builtinIfElse
+    $buildEnum:25:6 = builtinToDebugText
+    $buildEnum:25:7 = "NOPE"
+    $buildEnum:25:8 = call $buildEnum:25:0 with $buildEnum:25:7
+  }
+  $buildEnum:26 = call $buildEnum:12 with $buildEnum:23 $buildEnum:24 $buildEnum:25
+}
+$buildEnum#1 = $buildEnum
+$testFunction = { (fuzzable) $testFunction:value ->
+  $testFunction:0 = "Builtins"
+  $testFunction:1 = call $use with $testFunction:0
+  $testFunction:2 = builtinStructGet
+  $testFunction:3 = StructGet
+  $testFunction:4 = call $testFunction:2 with $testFunction:1 $testFunction:3
+  $testFunction:5 = $int
+  $testFunction:6 = Is
+  $testFunction:7 = call $testFunction:4 with $testFunction:5 $testFunction:6
+  $testFunction:8 = $testFunction:value
+  $testFunction:9 = call $testFunction:7 with $testFunction:8
+  $testFunction:10 = "`int.is value` was not satisfied"
+  $testFunction:11 = needs $testFunction:9 with reason $testFunction:10
+  $testFunction:12 = $buildEnum#1
+  $testFunction:13 = $testFunction:value
+  $testFunction:14 = call $testFunction:12 with $testFunction:13
+  $testFunction:15 = $testFunction:14 %
+    Ok (p$0), 
+      $testFunction:15:0 = $testFunction:15:value
+      $testFunction:15:1 = "Builtins"
+      $testFunction:15:2 = call $use with $testFunction:15:1
+      $testFunction:15:3 = builtinStructGet
+      $testFunction:15:4 = StructGet
+      $testFunction:15:5 = call $testFunction:15:3 with $testFunction:15:2 $testFunction:15:4
+      $testFunction:15:6 = $int
+      $testFunction:15:7 = IsLessThan
+      $testFunction:15:8 = call $testFunction:15:5 with $testFunction:15:6 $testFunction:15:7
+      $testFunction:15:9 = 2
+      $testFunction:15:10 = call $testFunction:15:8 with $testFunction:15:0 $testFunction:15:9
+     ->
+      $testFunction:15:11 = $testFunction:15:value
+    Ok (p$0), 
+      $testFunction:15:12 = $testFunction:15:value#1
+      $testFunction:15:13 = "Builtins"
+      $testFunction:15:14 = call $use with $testFunction:15:13
+      $testFunction:15:15 = builtinStructGet
+      $testFunction:15:16 = StructGet
+      $testFunction:15:17 = call $testFunction:15:15 with $testFunction:15:14 $testFunction:15:16
+      $testFunction:15:18 = $int
+      $testFunction:15:19 = IsGreaterThan
+      $testFunction:15:20 = call $testFunction:15:17 with $testFunction:15:18 $testFunction:15:19
+      $testFunction:15:21 = 3
+      $testFunction:15:22 = call $testFunction:15:20 with $testFunction:15:12 $testFunction:15:21
+     ->
+      $testFunction:15:23 = "Builtins"
+      $testFunction:15:24 = call $use with $testFunction:15:23
+      $testFunction:15:25 = builtinStructGet
+      $testFunction:15:26 = StructGet
+      $testFunction:15:27 = call $testFunction:15:25 with $testFunction:15:24 $testFunction:15:26
+      $testFunction:15:28 = $int
+      $testFunction:15:29 = Multiply
+      $testFunction:15:30 = call $testFunction:15:27 with $testFunction:15:28 $testFunction:15:29
+      $testFunction:15:31 = $testFunction:15:value#1
+      $testFunction:15:32 = 2
+      $testFunction:15:33 = call $testFunction:15:30 with $testFunction:15:31 $testFunction:15:32
+    Error (p$0) ->
+      $testFunction:15:34 = 10
+    p$0 ->
+      $testFunction:15:35 = 20
+}
+$testFunction#1 = $testFunction
+$11 = { (non-fuzzable) $11:args ->
+  $11:0 = $testFunction#1
+  $11:1 = 1
+  $11:2 = call $11:0 with $11:1
+  $11:3 = $testFunction#1
+  $11:4 = 2
+  $11:5 = call $11:3 with $11:4
+  $11:6 = $testFunction#1
+  $11:7 = 3
+  $11:8 = call $11:6 with $11:7
+  $11:9 = $testFunction#1
+  $11:10 = 4
+  $11:11 = call $11:9 with $11:10
+  $11:12 = $testFunction#1
+  $11:13 = 40
+  $11:14 = call $11:12 with $11:13
+  $11:15 = ($11:2, $11:5, $11:8, $11:11, $11:14)
+}
+$main = $11
+$main#1 = $main
+$12 = Nothing
+$13 = Main
+$14 = [$13: $main#1]

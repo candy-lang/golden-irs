@@ -1,0 +1,65 @@
+# AST for module Examples:match
+assignment: struct
+  identifier $6@"ifElse"
+  identifier $8@"int" = 
+  call identifier $0@"use" with these arguments:
+    text
+      textPart $2@"Core"
+assignment: $47@"buildEnum" = function (fuzzable) { identifier $48@"value" ->
+  call identifier $12@"needs" with these arguments:
+    call struct access identifier $14@"int".$16@"Is" with these arguments:
+      identifier $18@"value"
+  call identifier $22@"ifElse" with these arguments:
+    call struct access identifier $26@"int".$28@"IsLessThan" with these arguments:
+      identifier $24@"value"
+      int 10
+    function (non-fuzzable) {
+      call symbol $33@"Ok" with these arguments:
+        identifier $35@"value"
+    }
+    function (non-fuzzable) {
+      call symbol $39@"Error" with these arguments:
+        text
+          textPart $41@"NOPE"
+    }
+}
+assignment: $118@"testFunction" = function (fuzzable) { identifier $119@"value" ->
+  call identifier $51@"needs" with these arguments:
+    call struct access identifier $53@"int".$55@"Is" with these arguments:
+      identifier $57@"value"
+  match call identifier $61@"buildEnum" with these arguments:
+    identifier $63@"value" %
+    case call symbol $66@"Ok" with these arguments:
+      identifier $68@"value", 
+      condition call struct access identifier $73@"int".$75@"IsLessThan" with these arguments:
+        identifier $71@"value"
+        int 2 -> 
+          identifier $80@"value"
+    case call symbol $83@"Ok" with these arguments:
+      identifier $85@"value", 
+      condition call struct access identifier $90@"int".$92@"IsGreaterThan" with these arguments:
+        identifier $88@"value"
+        int 3 -> 
+          call struct access identifier $97@"int".$99@"Multiply" with these arguments:
+            identifier $101@"value"
+            int 2
+    case call symbol $106@"Error" with these arguments:
+      identifier $108@"value" -> 
+        int 10
+    case identifier $113@"_" -> 
+        int 20
+}
+assignment: identifier $146@"main" := 
+  function (non-fuzzable) { identifier $122@"args" ->
+    list
+      call identifier $124@"testFunction" with these arguments:
+        int 1
+      call identifier $128@"testFunction" with these arguments:
+        int 2
+      call identifier $132@"testFunction" with these arguments:
+        int 3
+      call identifier $136@"testFunction" with these arguments:
+        int 4
+      call identifier $140@"testFunction" with these arguments:
+        int 40
+  }

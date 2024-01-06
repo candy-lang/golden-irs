@@ -1,0 +1,661 @@
+# MIR for module Examples:average
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# anonymous:$generated::needs
+$50 = { $2 $3 $4 (+ responsible $1) ->
+  $5 = anonymous:$generated::needs
+  $6 = builtinEquals
+  $7 = True
+  $8 = builtinEquals
+  $9 = call $8 with $2 $7 ($5 is responsible)
+  $10 = builtinIfElse
+  # anonymous:$generated::needs:isValueTrue:then
+  $13 = { (responsible $11) ->
+    $12 = $9
+  }
+  # anonymous:$generated::needs:isValueTrue:else
+  $18 = { (responsible $14) ->
+    $15 = False
+    $16 = builtinEquals
+    $17 = call $16 with $2 $15 ($5 is responsible)
+  }
+  $19 = call $10 with $9 $13 $18 ($5 is responsible)
+  $20 = builtinIfElse
+  # anonymous:$generated::needs:isConditionBool:then
+  $23 = { (responsible $21) ->
+    $22 = Nothing
+  }
+  # anonymous:$generated::needs:isConditionBool:else
+  $27 = { (responsible $24) ->
+    $25 = "The `condition` must be either `True` or `False`."
+    $26 = panicking because $25 ($1 is at fault)
+  }
+  $28 = call $20 with $19 $23 $27 ($5 is responsible)
+  $29 = builtinTypeOf
+  $30 = call $29 with $3 ($1 is responsible)
+  $31 = Text
+  $32 = call $6 with $30 $31 ($1 is responsible)
+  $33 = builtinIfElse
+  # anonymous:$generated::needs:isReasonText:then
+  $36 = { (responsible $34) ->
+    $35 = Nothing
+  }
+  # anonymous:$generated::needs:isReasonText:else
+  $40 = { (responsible $37) ->
+    $38 = "The `reason` must be a text."
+    $39 = panicking because $38 ($1 is at fault)
+  }
+  $41 = call $33 with $32 $36 $40 ($5 is responsible)
+  $42 = builtinIfElse
+  # anonymous:$generated::needs:condition:then
+  $45 = { (responsible $43) ->
+    $44 = Nothing
+  }
+  # anonymous:$generated::needs:condition:else
+  $48 = { (responsible $46) ->
+    $47 = panicking because $3 ($4 is at fault)
+  }
+  $49 = call $42 with $2 $45 $48 ($5 is responsible)
+}
+$51 = Examples:average:
+# Examples:average:use
+$55 = { $53 (+ responsible $52) ->
+  $54 = use $53 (relative to Examples:average; $52 is responsible)
+}
+$56 = $55
+$57 = builtinTextConcatenate
+$58 = builtinTypeOf
+$59 = Text
+$60 = builtinEquals
+$61 = builtinIfElse
+$62 = builtinToDebugText
+$63 = "Core"
+$64 = Examples:average:8
+$65 = call $56 with $63 ($64 is responsible)
+$66 = Examples:average:9
+$67 = Match
+$68 = NoMatch
+$69 = Struct
+$70 = builtinTypeOf
+$71 = call $70 with $65 ($66 is responsible)
+$72 = builtinEquals
+$73 = call $72 with $69 $71 ($66 is responsible)
+$74 = builtinIfElse
+# Examples:average:9:equals:then
+$269 = { (responsible $75) ->
+  $76 = builtinStructHasKey
+  $77 = builtinStructGet
+  $78 = Bool
+  $79 = call $76 with $65 $78 ($66 is responsible)
+  $80 = builtinIfElse
+  # Examples:average:9:hasKey:then
+  $84 = { (responsible $81) ->
+    $82 = call $77 with $65 $78 ($66 is responsible)
+    $83 = ($67, $82)
+  }
+  # Examples:average:9:hasKey:else
+  $98 = { (responsible $85) ->
+    $86 = builtinToDebugText
+    $87 = call $86 with $78 ($66 is responsible)
+    $88 = call $86 with $65 ($66 is responsible)
+    $89 = "Struct doesn't contain key `"
+    $90 = "`: `"
+    $91 = "`."
+    $92 = builtinTextConcatenate
+    $93 = call $92 with $89 $87 ($66 is responsible)
+    $94 = call $92 with $93 $90 ($66 is responsible)
+    $95 = call $92 with $94 $88 ($66 is responsible)
+    $96 = call $92 with $95 $91 ($66 is responsible)
+    $97 = ($68, $96)
+  }
+  $99 = call $80 with $79 $84 $98 ($66 is responsible)
+  $100 = builtinListGet
+  $101 = 0
+  $102 = call $100 with $99 $101 ($66 is responsible)
+  $103 = builtinEquals
+  $104 = Match
+  $105 = call $103 with $102 $104 ($66 is responsible)
+  $106 = builtinIfElse
+  # Examples:average:9:isMatch:then
+  $264 = { (responsible $107) ->
+    $108 = builtinListGet
+    $109 = 1
+    $110 = call $108 with $99 $109 ($66 is responsible)
+    $111 = Int
+    $112 = call $76 with $65 $111 ($66 is responsible)
+    $113 = builtinIfElse
+    # Examples:average:9:hasKey:then
+    $117 = { (responsible $114) ->
+      $115 = call $77 with $65 $111 ($66 is responsible)
+      $116 = ($67, $115)
+    }
+    # Examples:average:9:hasKey:else
+    $131 = { (responsible $118) ->
+      $119 = builtinToDebugText
+      $120 = call $119 with $111 ($66 is responsible)
+      $121 = call $119 with $65 ($66 is responsible)
+      $122 = "Struct doesn't contain key `"
+      $123 = "`: `"
+      $124 = "`."
+      $125 = builtinTextConcatenate
+      $126 = call $125 with $122 $120 ($66 is responsible)
+      $127 = call $125 with $126 $123 ($66 is responsible)
+      $128 = call $125 with $127 $121 ($66 is responsible)
+      $129 = call $125 with $128 $124 ($66 is responsible)
+      $130 = ($68, $129)
+    }
+    $132 = call $113 with $112 $117 $131 ($66 is responsible)
+    $133 = builtinListGet
+    $134 = 0
+    $135 = call $133 with $132 $134 ($66 is responsible)
+    $136 = builtinEquals
+    $137 = Match
+    $138 = call $136 with $135 $137 ($66 is responsible)
+    $139 = builtinIfElse
+    # Examples:average:9:isMatch:then
+    $259 = { (responsible $140) ->
+      $141 = builtinListGet
+      $142 = 1
+      $143 = call $141 with $132 $142 ($66 is responsible)
+      $144 = Iterator
+      $145 = call $76 with $65 $144 ($66 is responsible)
+      $146 = builtinIfElse
+      # Examples:average:9:hasKey:then
+      $150 = { (responsible $147) ->
+        $148 = call $77 with $65 $144 ($66 is responsible)
+        $149 = ($67, $148)
+      }
+      # Examples:average:9:hasKey:else
+      $164 = { (responsible $151) ->
+        $152 = builtinToDebugText
+        $153 = call $152 with $144 ($66 is responsible)
+        $154 = call $152 with $65 ($66 is responsible)
+        $155 = "Struct doesn't contain key `"
+        $156 = "`: `"
+        $157 = "`."
+        $158 = builtinTextConcatenate
+        $159 = call $158 with $155 $153 ($66 is responsible)
+        $160 = call $158 with $159 $156 ($66 is responsible)
+        $161 = call $158 with $160 $154 ($66 is responsible)
+        $162 = call $158 with $161 $157 ($66 is responsible)
+        $163 = ($68, $162)
+      }
+      $165 = call $146 with $145 $150 $164 ($66 is responsible)
+      $166 = builtinListGet
+      $167 = 0
+      $168 = call $166 with $165 $167 ($66 is responsible)
+      $169 = builtinEquals
+      $170 = Match
+      $171 = call $169 with $168 $170 ($66 is responsible)
+      $172 = builtinIfElse
+      # Examples:average:9:isMatch:then
+      $254 = { (responsible $173) ->
+        $174 = builtinListGet
+        $175 = 1
+        $176 = call $174 with $165 $175 ($66 is responsible)
+        $177 = List
+        $178 = call $76 with $65 $177 ($66 is responsible)
+        $179 = builtinIfElse
+        # Examples:average:9:hasKey:then
+        $183 = { (responsible $180) ->
+          $181 = call $77 with $65 $177 ($66 is responsible)
+          $182 = ($67, $181)
+        }
+        # Examples:average:9:hasKey:else
+        $197 = { (responsible $184) ->
+          $185 = builtinToDebugText
+          $186 = call $185 with $177 ($66 is responsible)
+          $187 = call $185 with $65 ($66 is responsible)
+          $188 = "Struct doesn't contain key `"
+          $189 = "`: `"
+          $190 = "`."
+          $191 = builtinTextConcatenate
+          $192 = call $191 with $188 $186 ($66 is responsible)
+          $193 = call $191 with $192 $189 ($66 is responsible)
+          $194 = call $191 with $193 $187 ($66 is responsible)
+          $195 = call $191 with $194 $190 ($66 is responsible)
+          $196 = ($68, $195)
+        }
+        $198 = call $179 with $178 $183 $197 ($66 is responsible)
+        $199 = builtinListGet
+        $200 = 0
+        $201 = call $199 with $198 $200 ($66 is responsible)
+        $202 = builtinEquals
+        $203 = Match
+        $204 = call $202 with $201 $203 ($66 is responsible)
+        $205 = builtinIfElse
+        # Examples:average:9:isMatch:then
+        $249 = { (responsible $206) ->
+          $207 = builtinListGet
+          $208 = 1
+          $209 = call $207 with $198 $208 ($66 is responsible)
+          $210 = Result
+          $211 = call $76 with $65 $210 ($66 is responsible)
+          $212 = builtinIfElse
+          # Examples:average:9:hasKey:then
+          $216 = { (responsible $213) ->
+            $214 = call $77 with $65 $210 ($66 is responsible)
+            $215 = ($67, $214)
+          }
+          # Examples:average:9:hasKey:else
+          $230 = { (responsible $217) ->
+            $218 = builtinToDebugText
+            $219 = call $218 with $210 ($66 is responsible)
+            $220 = call $218 with $65 ($66 is responsible)
+            $221 = "Struct doesn't contain key `"
+            $222 = "`: `"
+            $223 = "`."
+            $224 = builtinTextConcatenate
+            $225 = call $224 with $221 $219 ($66 is responsible)
+            $226 = call $224 with $225 $222 ($66 is responsible)
+            $227 = call $224 with $226 $220 ($66 is responsible)
+            $228 = call $224 with $227 $223 ($66 is responsible)
+            $229 = ($68, $228)
+          }
+          $231 = call $212 with $211 $216 $230 ($66 is responsible)
+          $232 = builtinListGet
+          $233 = 0
+          $234 = call $232 with $231 $233 ($66 is responsible)
+          $235 = builtinEquals
+          $236 = Match
+          $237 = call $235 with $234 $236 ($66 is responsible)
+          $238 = builtinIfElse
+          # Examples:average:9:isMatch:then
+          $244 = { (responsible $239) ->
+            $240 = builtinListGet
+            $241 = 1
+            $242 = call $240 with $231 $241 ($66 is responsible)
+            $243 = ($67, $110, $143, $176, $209, $242)
+          }
+          # Examples:average:9:isMatch:else
+          $247 = { (responsible $245) ->
+            $246 = $231
+          }
+          $248 = call $238 with $237 $244 $247 ($66 is responsible)
+        }
+        # Examples:average:9:isMatch:else
+        $252 = { (responsible $250) ->
+          $251 = $198
+        }
+        $253 = call $205 with $204 $249 $252 ($66 is responsible)
+      }
+      # Examples:average:9:isMatch:else
+      $257 = { (responsible $255) ->
+        $256 = $165
+      }
+      $258 = call $172 with $171 $254 $257 ($66 is responsible)
+    }
+    # Examples:average:9:isMatch:else
+    $262 = { (responsible $260) ->
+      $261 = $132
+    }
+    $263 = call $139 with $138 $259 $262 ($66 is responsible)
+  }
+  # Examples:average:9:isMatch:else
+  $267 = { (responsible $265) ->
+    $266 = $99
+  }
+  $268 = call $106 with $105 $264 $267 ($66 is responsible)
+}
+# Examples:average:9:equals:else
+$283 = { (responsible $270) ->
+  $271 = builtinToDebugText
+  $272 = call $271 with $69 ($66 is responsible)
+  $273 = call $271 with $71 ($66 is responsible)
+  $274 = "Expected a "
+  $275 = ", got `"
+  $276 = "`."
+  $277 = builtinTextConcatenate
+  $278 = call $277 with $274 $272 ($66 is responsible)
+  $279 = call $277 with $278 $275 ($66 is responsible)
+  $280 = call $277 with $279 $273 ($66 is responsible)
+  $281 = call $277 with $280 $276 ($66 is responsible)
+  $282 = ($68, $281)
+}
+$284 = call $74 with $73 $269 $283 ($66 is responsible)
+$285 = builtinListGet
+$286 = 0
+$287 = call $285 with $284 $286 ($66 is responsible)
+$288 = builtinEquals
+$289 = Match
+$290 = call $288 with $287 $289 ($66 is responsible)
+$291 = builtinIfElse
+# Examples:average:9:isMatch:then
+$294 = { (responsible $292) ->
+  $293 = Nothing
+}
+# Examples:average:9:isMatch:else
+$300 = { (responsible $295) ->
+  $296 = builtinListGet
+  $297 = 1
+  $298 = call $296 with $284 $297 ($66 is responsible)
+  $299 = panicking because $298 ($66 is at fault)
+}
+$301 = call $291 with $290 $294 $300 ($66 is responsible)
+$302 = builtinListGet
+$303 = 1
+$304 = Examples:average:bool
+$305 = call $302 with $284 $303 ($304 is responsible)
+$306 = builtinListGet
+$307 = 2
+$308 = Examples:average:int
+$309 = call $306 with $284 $307 ($308 is responsible)
+$310 = builtinListGet
+$311 = 3
+$312 = Examples:average:iterator
+$313 = call $310 with $284 $311 ($312 is responsible)
+$314 = builtinListGet
+$315 = 4
+$316 = Examples:average:list
+$317 = call $314 with $284 $315 ($316 is responsible)
+$318 = builtinListGet
+$319 = 5
+$320 = Examples:average:result
+$321 = call $318 with $284 $319 ($320 is responsible)
+$322 = Nothing
+$323 = $309
+$324 = Examples:average:12
+$325 = Match
+$326 = NoMatch
+$327 = Struct
+$328 = builtinTypeOf
+$329 = call $328 with $323 ($324 is responsible)
+$330 = builtinEquals
+$331 = call $330 with $327 $329 ($324 is responsible)
+$332 = builtinIfElse
+# Examples:average:12:equals:then
+$375 = { (responsible $333) ->
+  $334 = builtinStructHasKey
+  $335 = builtinStructGet
+  $336 = DivideTruncating
+  $337 = call $334 with $323 $336 ($324 is responsible)
+  $338 = builtinIfElse
+  # Examples:average:12:hasKey:then
+  $342 = { (responsible $339) ->
+    $340 = call $335 with $323 $336 ($324 is responsible)
+    $341 = ($325, $340)
+  }
+  # Examples:average:12:hasKey:else
+  $356 = { (responsible $343) ->
+    $344 = builtinToDebugText
+    $345 = call $344 with $336 ($324 is responsible)
+    $346 = call $344 with $323 ($324 is responsible)
+    $347 = "Struct doesn't contain key `"
+    $348 = "`: `"
+    $349 = "`."
+    $350 = builtinTextConcatenate
+    $351 = call $350 with $347 $345 ($324 is responsible)
+    $352 = call $350 with $351 $348 ($324 is responsible)
+    $353 = call $350 with $352 $346 ($324 is responsible)
+    $354 = call $350 with $353 $349 ($324 is responsible)
+    $355 = ($326, $354)
+  }
+  $357 = call $338 with $337 $342 $356 ($324 is responsible)
+  $358 = builtinListGet
+  $359 = 0
+  $360 = call $358 with $357 $359 ($324 is responsible)
+  $361 = builtinEquals
+  $362 = Match
+  $363 = call $361 with $360 $362 ($324 is responsible)
+  $364 = builtinIfElse
+  # Examples:average:12:isMatch:then
+  $370 = { (responsible $365) ->
+    $366 = builtinListGet
+    $367 = 1
+    $368 = call $366 with $357 $367 ($324 is responsible)
+    $369 = ($325, $368)
+  }
+  # Examples:average:12:isMatch:else
+  $373 = { (responsible $371) ->
+    $372 = $357
+  }
+  $374 = call $364 with $363 $370 $373 ($324 is responsible)
+}
+# Examples:average:12:equals:else
+$389 = { (responsible $376) ->
+  $377 = builtinToDebugText
+  $378 = call $377 with $327 ($324 is responsible)
+  $379 = call $377 with $329 ($324 is responsible)
+  $380 = "Expected a "
+  $381 = ", got `"
+  $382 = "`."
+  $383 = builtinTextConcatenate
+  $384 = call $383 with $380 $378 ($324 is responsible)
+  $385 = call $383 with $384 $381 ($324 is responsible)
+  $386 = call $383 with $385 $379 ($324 is responsible)
+  $387 = call $383 with $386 $382 ($324 is responsible)
+  $388 = ($326, $387)
+}
+$390 = call $332 with $331 $375 $389 ($324 is responsible)
+$391 = builtinListGet
+$392 = 0
+$393 = call $391 with $390 $392 ($324 is responsible)
+$394 = builtinEquals
+$395 = Match
+$396 = call $394 with $393 $395 ($324 is responsible)
+$397 = builtinIfElse
+# Examples:average:12:isMatch:then
+$400 = { (responsible $398) ->
+  $399 = Nothing
+}
+# Examples:average:12:isMatch:else
+$406 = { (responsible $401) ->
+  $402 = builtinListGet
+  $403 = 1
+  $404 = call $402 with $390 $403 ($324 is responsible)
+  $405 = panicking because $404 ($324 is at fault)
+}
+$407 = call $397 with $396 $400 $406 ($324 is responsible)
+$408 = builtinListGet
+$409 = 1
+$410 = Examples:average:divideTruncating
+$411 = call $408 with $390 $409 ($410 is responsible)
+$412 = Nothing
+# Examples:average:average
+$553 = { $414 (+ responsible $413) ->
+  $415 = "Builtins"
+  $416 = Examples:average:average:1
+  $417 = call $55 with $415 ($416 is responsible)
+  $418 = builtinStructGet
+  $419 = StructGet
+  $420 = Examples:average:average:4
+  $421 = call $418 with $417 $419 ($420 is responsible)
+  $422 = $317
+  $423 = Is
+  $424 = Examples:average:average:7
+  $425 = call $421 with $422 $423 ($424 is responsible)
+  $426 = $414
+  $427 = Examples:average:average:9
+  $428 = call $425 with $426 ($427 is responsible)
+  $429 = "`list.is a` was not satisfied"
+  $430 = Examples:average:average:11
+  $431 = call $50 with $428 $429 $413 ($430 is responsible)
+  $432 = $414
+  $433 = "Builtins"
+  $434 = Examples:average:average:14
+  $435 = call $55 with $433 ($434 is responsible)
+  $436 = builtinStructGet
+  $437 = StructGet
+  $438 = Examples:average:average:17
+  $439 = call $436 with $435 $437 ($438 is responsible)
+  $440 = $317
+  $441 = IsEmpty
+  $442 = Examples:average:average:20
+  $443 = call $439 with $440 $441 ($442 is responsible)
+  $444 = Examples:average:average:21
+  $445 = call $443 with $432 ($444 is responsible)
+  $446 = "Builtins"
+  $447 = Examples:average:average:23
+  $448 = call $55 with $446 ($447 is responsible)
+  $449 = builtinStructGet
+  $450 = StructGet
+  $451 = Examples:average:average:26
+  $452 = call $449 with $448 $450 ($451 is responsible)
+  $453 = $305
+  $454 = Not
+  $455 = Examples:average:average:29
+  $456 = call $452 with $453 $454 ($455 is responsible)
+  $457 = Examples:average:average:30
+  $458 = call $456 with $445 ($457 is responsible)
+  $459 = "`a | list.isEmpty | bool.not` was not satisfied"
+  $460 = Examples:average:average:32
+  $461 = call $50 with $458 $459 $413 ($460 is responsible)
+  $462 = $414
+  $463 = "Builtins"
+  $464 = Examples:average:average:35
+  $465 = call $55 with $463 ($464 is responsible)
+  $466 = builtinStructGet
+  $467 = StructGet
+  $468 = Examples:average:average:38
+  $469 = call $466 with $465 $467 ($468 is responsible)
+  $470 = $313
+  $471 = FromList
+  $472 = Examples:average:average:41
+  $473 = call $469 with $470 $471 ($472 is responsible)
+  $474 = Examples:average:average:42
+  $475 = call $473 with $462 ($474 is responsible)
+  $476 = "Builtins"
+  $477 = Examples:average:average:44
+  $478 = call $55 with $476 ($477 is responsible)
+  $479 = builtinStructGet
+  $480 = StructGet
+  $481 = Examples:average:average:47
+  $482 = call $479 with $478 $480 ($481 is responsible)
+  $483 = $313
+  $484 = All
+  $485 = Examples:average:average:50
+  $486 = call $482 with $483 $484 ($485 is responsible)
+  # Examples:average:average:51
+  $503 = { $488 (+ responsible $487) ->
+    $489 = "Builtins"
+    $490 = Examples:average:average:51:1
+    $491 = call $55 with $489 ($490 is responsible)
+    $492 = builtinStructGet
+    $493 = StructGet
+    $494 = Examples:average:average:51:4
+    $495 = call $492 with $491 $493 ($494 is responsible)
+    $496 = $309
+    $497 = Is
+    $498 = Examples:average:average:51:7
+    $499 = call $495 with $496 $497 ($498 is responsible)
+    $500 = $488
+    $501 = Examples:average:average:51:9
+    $502 = call $499 with $500 ($501 is responsible)
+  }
+  $504 = Examples:average:average:52
+  $505 = call $486 with $475 $503 ($504 is responsible)
+  $506 = "`a | iterator.fromList | iterator.all { a -> int.is a }` was not satisfied"
+  $507 = Examples:average:average:54
+  $508 = call $50 with $505 $506 $413 ($507 is responsible)
+  $509 = $411
+  $510 = $414
+  $511 = "Builtins"
+  $512 = Examples:average:average:58
+  $513 = call $55 with $511 ($512 is responsible)
+  $514 = builtinStructGet
+  $515 = StructGet
+  $516 = Examples:average:average:61
+  $517 = call $514 with $513 $515 ($516 is responsible)
+  $518 = $313
+  $519 = FromList
+  $520 = Examples:average:average:64
+  $521 = call $517 with $518 $519 ($520 is responsible)
+  $522 = Examples:average:average:65
+  $523 = call $521 with $510 ($522 is responsible)
+  $524 = "Builtins"
+  $525 = Examples:average:average:67
+  $526 = call $55 with $524 ($525 is responsible)
+  $527 = builtinStructGet
+  $528 = StructGet
+  $529 = Examples:average:average:70
+  $530 = call $527 with $526 $528 ($529 is responsible)
+  $531 = $313
+  $532 = Sum
+  $533 = Examples:average:average:73
+  $534 = call $530 with $531 $532 ($533 is responsible)
+  $535 = Examples:average:average:74
+  $536 = call $534 with $523 ($535 is responsible)
+  $537 = $414
+  $538 = "Builtins"
+  $539 = Examples:average:average:77
+  $540 = call $55 with $538 ($539 is responsible)
+  $541 = builtinStructGet
+  $542 = StructGet
+  $543 = Examples:average:average:80
+  $544 = call $541 with $540 $542 ($543 is responsible)
+  $545 = $317
+  $546 = Length
+  $547 = Examples:average:average:83
+  $548 = call $544 with $545 $546 ($547 is responsible)
+  $549 = Examples:average:average:84
+  $550 = call $548 with $537 ($549 is responsible)
+  $551 = Examples:average:average:85
+  $552 = call $509 with $536 $550 ($551 is responsible)
+}
+$554 = $553
+# Examples:average:main
+$564 = { $556 (+ responsible $555) ->
+  $557 = $554
+  $558 = 1
+  $559 = 2
+  $560 = 3
+  $561 = ($558, $559, $560)
+  $562 = Examples:average:main:5
+  $563 = call $557 with $561 ($562 is responsible)
+}
+$565 = $564
+$566 = Main
+$567 = [$566: $565]
+$568 = builtinStructHasKey
+$569 = Main
+$570 = call $568 with $567 $569 ($51 is responsible)
+$571 = "The module doesn't export a main function."
+$572 = builtinIfElse
+# Examples:average:then
+$575 = { (responsible $573) ->
+  $574 = Nothing
+}
+# Examples:average:else
+$578 = { (responsible $576) ->
+  $577 = panicking because $571 ($51 is at fault)
+}
+$579 = call $572 with $570 $575 $578 ($51 is responsible)
+$580 = builtinStructGet
+$581 = call $580 with $567 $569 ($51 is responsible)
+$582 = builtinTypeOf
+$583 = call $582 with $581 ($51 is responsible)
+$584 = builtinEquals
+$585 = Function
+$586 = call $584 with $583 $585 ($51 is responsible)
+$587 = "The exported main value is not a function."
+$588 = builtinIfElse
+# Examples:average:then
+$591 = { (responsible $589) ->
+  $590 = Nothing
+}
+# Examples:average:else
+$594 = { (responsible $592) ->
+  $593 = panicking because $587 ($51 is at fault)
+}
+$595 = call $588 with $586 $591 $594 ($51 is responsible)
+$596 = builtinGetArgumentCount
+$597 = call $596 with $581 ($51 is responsible)
+$598 = 1
+$599 = call $584 with $597 $598 ($51 is responsible)
+$600 = "The exported main function doesn't accept exactly one parameter."
+$601 = builtinIfElse
+# Examples:average:then
+$604 = { (responsible $602) ->
+  $603 = Nothing
+}
+# Examples:average:else
+$607 = { (responsible $605) ->
+  $606 = panicking because $600 ($51 is at fault)
+}
+$608 = call $601 with $599 $604 $607 ($51 is responsible)
+$609 = $581

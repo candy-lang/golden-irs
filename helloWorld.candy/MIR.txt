@@ -1,0 +1,145 @@
+# MIR for module Examples:helloWorld
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# anonymous:$generated::needs
+$50 = { $2 $3 $4 (+ responsible $1) ->
+  $5 = anonymous:$generated::needs
+  $6 = builtinEquals
+  $7 = True
+  $8 = builtinEquals
+  $9 = call $8 with $2 $7 ($5 is responsible)
+  $10 = builtinIfElse
+  # anonymous:$generated::needs:isValueTrue:then
+  $13 = { (responsible $11) ->
+    $12 = $9
+  }
+  # anonymous:$generated::needs:isValueTrue:else
+  $18 = { (responsible $14) ->
+    $15 = False
+    $16 = builtinEquals
+    $17 = call $16 with $2 $15 ($5 is responsible)
+  }
+  $19 = call $10 with $9 $13 $18 ($5 is responsible)
+  $20 = builtinIfElse
+  # anonymous:$generated::needs:isConditionBool:then
+  $23 = { (responsible $21) ->
+    $22 = Nothing
+  }
+  # anonymous:$generated::needs:isConditionBool:else
+  $27 = { (responsible $24) ->
+    $25 = "The `condition` must be either `True` or `False`."
+    $26 = panicking because $25 ($1 is at fault)
+  }
+  $28 = call $20 with $19 $23 $27 ($5 is responsible)
+  $29 = builtinTypeOf
+  $30 = call $29 with $3 ($1 is responsible)
+  $31 = Text
+  $32 = call $6 with $30 $31 ($1 is responsible)
+  $33 = builtinIfElse
+  # anonymous:$generated::needs:isReasonText:then
+  $36 = { (responsible $34) ->
+    $35 = Nothing
+  }
+  # anonymous:$generated::needs:isReasonText:else
+  $40 = { (responsible $37) ->
+    $38 = "The `reason` must be a text."
+    $39 = panicking because $38 ($1 is at fault)
+  }
+  $41 = call $33 with $32 $36 $40 ($5 is responsible)
+  $42 = builtinIfElse
+  # anonymous:$generated::needs:condition:then
+  $45 = { (responsible $43) ->
+    $44 = Nothing
+  }
+  # anonymous:$generated::needs:condition:else
+  $48 = { (responsible $46) ->
+    $47 = panicking because $3 ($4 is at fault)
+  }
+  $49 = call $42 with $2 $45 $48 ($5 is responsible)
+}
+$51 = Examples:helloWorld:
+# Examples:helloWorld:use
+$55 = { $53 (+ responsible $52) ->
+  $54 = use $53 (relative to Examples:helloWorld; $52 is responsible)
+}
+# Examples:helloWorld:0
+$78 = { $57 (+ responsible $56) ->
+  $58 = "Builtins"
+  $59 = Examples:helloWorld:0:1
+  $60 = call $55 with $58 ($59 is responsible)
+  $61 = builtinStructGet
+  $62 = StructGet
+  $63 = Examples:helloWorld:0:4
+  $64 = call $61 with $60 $62 ($63 is responsible)
+  $65 = $57
+  $66 = Stdout
+  $67 = Examples:helloWorld:0:7
+  $68 = call $64 with $65 $66 ($67 is responsible)
+  $69 = builtinTextConcatenate
+  $70 = builtinTypeOf
+  $71 = Text
+  $72 = builtinEquals
+  $73 = builtinIfElse
+  $74 = builtinToDebugText
+  $75 = "Hello, world!"
+  $76 = Examples:helloWorld:0:15
+  $77 = call $68 with $75 ($76 is responsible)
+}
+$79 = $78
+$80 = $79
+$81 = Nothing
+$82 = Main
+$83 = [$82: $80]
+$84 = builtinStructHasKey
+$85 = Main
+$86 = call $84 with $83 $85 ($51 is responsible)
+$87 = "The module doesn't export a main function."
+$88 = builtinIfElse
+# Examples:helloWorld:then
+$91 = { (responsible $89) ->
+  $90 = Nothing
+}
+# Examples:helloWorld:else
+$94 = { (responsible $92) ->
+  $93 = panicking because $87 ($51 is at fault)
+}
+$95 = call $88 with $86 $91 $94 ($51 is responsible)
+$96 = builtinStructGet
+$97 = call $96 with $83 $85 ($51 is responsible)
+$98 = builtinTypeOf
+$99 = call $98 with $97 ($51 is responsible)
+$100 = builtinEquals
+$101 = Function
+$102 = call $100 with $99 $101 ($51 is responsible)
+$103 = "The exported main value is not a function."
+$104 = builtinIfElse
+# Examples:helloWorld:then
+$107 = { (responsible $105) ->
+  $106 = Nothing
+}
+# Examples:helloWorld:else
+$110 = { (responsible $108) ->
+  $109 = panicking because $103 ($51 is at fault)
+}
+$111 = call $104 with $102 $107 $110 ($51 is responsible)
+$112 = builtinGetArgumentCount
+$113 = call $112 with $97 ($51 is responsible)
+$114 = 1
+$115 = call $100 with $113 $114 ($51 is responsible)
+$116 = "The exported main function doesn't accept exactly one parameter."
+$117 = builtinIfElse
+# Examples:helloWorld:then
+$120 = { (responsible $118) ->
+  $119 = Nothing
+}
+# Examples:helloWorld:else
+$123 = { (responsible $121) ->
+  $122 = panicking because $116 ($51 is at fault)
+}
+$124 = call $117 with $115 $120 $123 ($51 is responsible)
+$125 = $97
