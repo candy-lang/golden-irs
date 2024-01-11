@@ -1,0 +1,86 @@
+# LIR for module Examples:_package
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# Constants
+%0 = Examples:_package:
+%1 = builtinEquals
+%2 = builtinGetArgumentCount
+%3 = builtinIfElse
+%4 = builtinStructGet
+%5 = builtinTypeOf
+%6 = Function
+%7 = Main
+%8 = Nothing
+%9 = 1
+%10 = "The module doesn't export a main function."
+%11 = { body_0 }
+%12 = []
+%13 = "The exported main value is not a function."
+%14 = { body_1 }
+%15 = "The exported main function doesn't accept exactly one parameter."
+%16 = { body_2 }
+
+# Bodies
+body_0 (responsible $0) =
+  # Original HIR IDs: Examples:_package:then, anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+  # Captured IDs: none
+  $1 = %8<Nothing>
+body_1 (responsible $0) =
+  # Original HIR IDs: Examples:_package:else
+  # Captured IDs: none
+  $1 = %13<"The exported main value is not a function.">
+  $2 = %0<Examples:_package:>
+  $3 = panicking because $1<%13<"The exported main value is not a function.">> ($2<%0<Examples:_package:>> is at fault)
+body_2 (responsible $0) =
+  # Original HIR IDs: Examples:_package:else
+  # Captured IDs: none
+  $1 = %15<"The exported main function doesn't accept exactly one parameter.">
+  $2 = %0<Examples:_package:>
+  $3 = panicking because $1<%15<"The exported main function doesn't accept exactly one parameter.">> ($2<%0<Examples:_package:>> is at fault)
+body_3 (responsible $0) =
+  # Original HIR IDs: Examples:_package:
+  # Captured IDs: none
+  $1 = %10<"The module doesn't export a main function.">
+  $2 = %0<Examples:_package:>
+  $3 = panicking because $1<%10<"The module doesn't export a main function.">> ($2<%0<Examples:_package:>> is at fault)
+  $4 = %4<builtinStructGet>
+  $5 = %12<[]>
+  $6 = %7<Main>
+  $7 = call $4<%4<builtinStructGet>> with $5<%12<[]>> $6<%7<Main>> ($2<%0<Examples:_package:>> is responsible)
+  $8 = %5<builtinTypeOf>
+  $9 = dup $7 by 1
+  $10 = call $8<%5<builtinTypeOf>> with $7 ($2<%0<Examples:_package:>> is responsible)
+  $11 = %1<builtinEquals>
+  $12 = dup $10 by 1
+  $13 = %6<Function>
+  $14 = call $11<%1<builtinEquals>> with $10 $13<%6<Function>> ($2<%0<Examples:_package:>> is responsible)
+  $15 = %3<builtinIfElse>
+  $16 = dup $14 by 1
+  $17 = %11<{ body_0 }>
+  $18 = %14<{ body_1 }>
+  $19 = call $15<%3<builtinIfElse>> with $14 $17<%11<{ body_0 }>> $18<%14<{ body_1 }>> ($2<%0<Examples:_package:>> is responsible)
+  $20 = %2<builtinGetArgumentCount>
+  $21 = dup $7 by 1
+  $22 = call $20<%2<builtinGetArgumentCount>> with $7 ($2<%0<Examples:_package:>> is responsible)
+  $23 = dup $22 by 1
+  $24 = %9<1>
+  $25 = call $11<%1<builtinEquals>> with $22 $24<%9<1>> ($2<%0<Examples:_package:>> is responsible)
+  $26 = dup $25 by 1
+  $27 = %16<{ body_2 }>
+  $28 = call $15<%3<builtinIfElse>> with $25 $17<%11<{ body_0 }>> $27<%16<{ body_2 }>> ($2<%0<Examples:_package:>> is responsible)
+  $29 = dup $7 by 1
+  $30 = $7
+  $31 = drop $28
+  $32 = drop $25
+  $33 = drop $22
+  $34 = drop $19
+  $35 = drop $14
+  $36 = drop $10
+  $37 = drop $7
+  $38 = drop $3
+  $39 = $30
