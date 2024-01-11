@@ -1,0 +1,44 @@
+; ModuleID = 'module'
+source_filename = "module"
+
+@"Examples:_package:" = global ptr null
+@"text_The module doesn't export a main function." = global ptr null
+
+declare ptr @make_candy_int(i64)
+
+declare ptr @make_candy_tag(ptr, ptr)
+
+declare ptr @make_candy_text(ptr)
+
+declare ptr @make_candy_list(ptr)
+
+declare ptr @make_candy_function(ptr, ptr, i64)
+
+declare ptr @make_candy_struct(ptr, ptr)
+
+declare void @candy_panic(ptr)
+
+declare void @free_candy_value(ptr)
+
+declare void @print_candy_value(ptr)
+
+declare ptr @get_candy_function_pointer(ptr)
+
+declare ptr @get_candy_function_environment(ptr)
+
+define i32 @main() {
+entry:
+  %0 = alloca i8, i64 19, align 1
+  store [19 x i8] c"Examples:_package:\00", ptr %0, align 1
+  %1 = call ptr @make_candy_text(ptr %0)
+  store ptr %1, ptr @"Examples:_package:", align 8
+  %2 = alloca i8, i64 43, align 1
+  store [43 x i8] c"The module doesn't export a main function.\00", ptr %2, align 1
+  %3 = call ptr @make_candy_text(ptr %2)
+  store ptr %3, ptr @"text_The module doesn't export a main function.", align 8
+  %4 = load ptr, ptr @"text_The module doesn't export a main function.", align 8
+  call void @candy_panic(ptr %4)
+  unreachable
+}
+
+declare ptr @run_candy_main(ptr, ptr)
