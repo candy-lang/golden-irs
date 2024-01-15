@@ -1,0 +1,521 @@
+# MIR for module Examples:clock
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# anonymous:$generated::needs
+$49 = { $2 $3 $4 (+ responsible $1) ->
+  $5 = anonymous:$generated::needs
+  $6 = builtinEquals
+  $7 = Nothing
+  $8 = True
+  $9 = False
+  $10 = call $6 with $2 $8 ($5 is responsible)
+  $11 = builtinIfElse
+  # anonymous:$generated::needs:isConditionTrue:then
+  $14 = { (responsible $12) ->
+    $13 = $8
+  }
+  # anonymous:$generated::needs:isConditionTrue:else
+  $17 = { (responsible $15) ->
+    $16 = call $6 with $2 $9 ($5 is responsible)
+  }
+  $18 = call $11 with $10 $14 $17 ($5 is responsible)
+  $19 = builtinIfElse
+  # anonymous:$generated::needs:isConditionBool:then
+  $22 = { (responsible $20) ->
+    $21 = $7
+  }
+  # anonymous:$generated::needs:isConditionBool:else
+  $26 = { (responsible $23) ->
+    $24 = "The `condition` must be either `True` or `False`."
+    $25 = panicking because $24 ($1 is at fault)
+  }
+  $27 = call $19 with $18 $22 $26 ($5 is responsible)
+  $28 = builtinTypeOf
+  $29 = call $28 with $3 ($1 is responsible)
+  $30 = Text
+  $31 = call $6 with $29 $30 ($1 is responsible)
+  $32 = builtinIfElse
+  # anonymous:$generated::needs:isReasonText:then
+  $35 = { (responsible $33) ->
+    $34 = $7
+  }
+  # anonymous:$generated::needs:isReasonText:else
+  $39 = { (responsible $36) ->
+    $37 = "The `reason` must be a text."
+    $38 = panicking because $37 ($1 is at fault)
+  }
+  $40 = call $32 with $31 $35 $39 ($5 is responsible)
+  $41 = builtinIfElse
+  # anonymous:$generated::needs:condition:then
+  $44 = { (responsible $42) ->
+    $43 = $7
+  }
+  # anonymous:$generated::needs:condition:else
+  $47 = { (responsible $45) ->
+    $46 = panicking because $3 ($4 is at fault)
+  }
+  $48 = call $41 with $2 $44 $47 ($5 is responsible)
+}
+$50 = Examples:clock:
+# Examples:clock:use
+$54 = { $52 (+ responsible $51) ->
+  $53 = use $52 (relative to Examples:clock; $51 is responsible)
+}
+$55 = "Builtins"
+$56 = Examples:clock:1
+$57 = call $54 with $55 ($56 is responsible)
+$58 = $54
+$59 = builtinTextConcatenate
+$60 = builtinTypeOf
+$61 = Text
+$62 = builtinEquals
+$63 = builtinIfElse
+$64 = builtinToDebugText
+$65 = "Chrono"
+$66 = Examples:clock:10
+$67 = call $58 with $65 ($66 is responsible)
+$68 = Examples:clock:11
+$69 = Match
+$70 = NoMatch
+$71 = Struct
+$72 = builtinTypeOf
+$73 = call $72 with $67 ($68 is responsible)
+$74 = builtinEquals
+$75 = call $74 with $71 $73 ($68 is responsible)
+$76 = builtinIfElse
+# Examples:clock:11:equals:then
+$169 = { (responsible $77) ->
+  $78 = builtinStructHasKey
+  $79 = builtinStructGet
+  $80 = Clock
+  $81 = call $78 with $67 $80 ($68 is responsible)
+  $82 = builtinIfElse
+  # Examples:clock:11:hasKey:then
+  $87 = { (responsible $83) ->
+    $84 = call $79 with $67 $80 ($68 is responsible)
+    $85 = ($84,)
+    $86 = call $69 with $85 ($68 is responsible)
+  }
+  # Examples:clock:11:hasKey:else
+  $90 = { (responsible $88) ->
+    $89 = $70
+  }
+  $91 = call $82 with $81 $87 $90 ($68 is responsible)
+  $92 = builtinTagWithoutValue
+  $93 = call $92 with $91 ($68 is responsible)
+  $94 = builtinEquals
+  $95 = Match
+  $96 = call $94 with $93 $95 ($68 is responsible)
+  $97 = builtinIfElse
+  # Examples:clock:11:isMatch:then
+  $164 = { (responsible $98) ->
+    $99 = builtinTagGetValue
+    $100 = call $99 with $91 ($68 is responsible)
+    $101 = builtinListGet
+    $102 = 0
+    $103 = call $101 with $100 $102 ($68 is responsible)
+    $104 = Duration
+    $105 = call $78 with $67 $104 ($68 is responsible)
+    $106 = builtinIfElse
+    # Examples:clock:11:hasKey:then
+    $111 = { (responsible $107) ->
+      $108 = call $79 with $67 $104 ($68 is responsible)
+      $109 = ($108,)
+      $110 = call $69 with $109 ($68 is responsible)
+    }
+    # Examples:clock:11:hasKey:else
+    $114 = { (responsible $112) ->
+      $113 = $70
+    }
+    $115 = call $106 with $105 $111 $114 ($68 is responsible)
+    $116 = builtinTagWithoutValue
+    $117 = call $116 with $115 ($68 is responsible)
+    $118 = builtinEquals
+    $119 = Match
+    $120 = call $118 with $117 $119 ($68 is responsible)
+    $121 = builtinIfElse
+    # Examples:clock:11:isMatch:then
+    $159 = { (responsible $122) ->
+      $123 = builtinTagGetValue
+      $124 = call $123 with $115 ($68 is responsible)
+      $125 = builtinListGet
+      $126 = 0
+      $127 = call $125 with $124 $126 ($68 is responsible)
+      $128 = Instant
+      $129 = call $78 with $67 $128 ($68 is responsible)
+      $130 = builtinIfElse
+      # Examples:clock:11:hasKey:then
+      $135 = { (responsible $131) ->
+        $132 = call $79 with $67 $128 ($68 is responsible)
+        $133 = ($132,)
+        $134 = call $69 with $133 ($68 is responsible)
+      }
+      # Examples:clock:11:hasKey:else
+      $138 = { (responsible $136) ->
+        $137 = $70
+      }
+      $139 = call $130 with $129 $135 $138 ($68 is responsible)
+      $140 = builtinTagWithoutValue
+      $141 = call $140 with $139 ($68 is responsible)
+      $142 = builtinEquals
+      $143 = Match
+      $144 = call $142 with $141 $143 ($68 is responsible)
+      $145 = builtinIfElse
+      # Examples:clock:11:isMatch:then
+      $154 = { (responsible $146) ->
+        $147 = builtinTagGetValue
+        $148 = call $147 with $139 ($68 is responsible)
+        $149 = builtinListGet
+        $150 = 0
+        $151 = call $149 with $148 $150 ($68 is responsible)
+        $152 = ($103, $127, $151)
+        $153 = call $69 with $152 ($68 is responsible)
+      }
+      # Examples:clock:11:isMatch:else
+      $157 = { (responsible $155) ->
+        $156 = $139
+      }
+      $158 = call $145 with $144 $154 $157 ($68 is responsible)
+    }
+    # Examples:clock:11:isMatch:else
+    $162 = { (responsible $160) ->
+      $161 = $115
+    }
+    $163 = call $121 with $120 $159 $162 ($68 is responsible)
+  }
+  # Examples:clock:11:isMatch:else
+  $167 = { (responsible $165) ->
+    $166 = $91
+  }
+  $168 = call $97 with $96 $164 $167 ($68 is responsible)
+}
+# Examples:clock:11:equals:else
+$172 = { (responsible $170) ->
+  $171 = $70
+}
+$173 = call $76 with $75 $169 $172 ($68 is responsible)
+$174 = Nothing
+$175 = builtinTagWithoutValue
+$176 = call $175 with $173 ($68 is responsible)
+$177 = builtinEquals
+$178 = Match
+$179 = call $177 with $176 $178 ($68 is responsible)
+$180 = builtinIfElse
+# Examples:clock:11:isMatch:then
+$183 = { (responsible $181) ->
+  $182 = $174
+}
+# Examples:clock:11:isMatch:else
+$187 = { (responsible $184) ->
+  $185 = "The value doesn't match the pattern on the left side of the destructuring."
+  $186 = panicking because $185 ($68 is at fault)
+}
+$188 = call $180 with $179 $183 $187 ($68 is responsible)
+$189 = Examples:clock:clock
+$190 = builtinTagGetValue
+$191 = call $190 with $173 ($189 is responsible)
+$192 = builtinListGet
+$193 = 0
+$194 = call $192 with $191 $193 ($189 is responsible)
+$195 = Examples:clock:duration
+$196 = builtinTagGetValue
+$197 = call $196 with $173 ($195 is responsible)
+$198 = builtinListGet
+$199 = 1
+$200 = call $198 with $197 $199 ($195 is responsible)
+$201 = Examples:clock:instant
+$202 = builtinTagGetValue
+$203 = call $202 with $173 ($201 is responsible)
+$204 = builtinListGet
+$205 = 2
+$206 = call $204 with $203 $205 ($201 is responsible)
+$207 = Nothing
+$208 = $54
+$209 = builtinTextConcatenate
+$210 = builtinTypeOf
+$211 = Text
+$212 = builtinEquals
+$213 = builtinIfElse
+$214 = builtinToDebugText
+$215 = "Core"
+$216 = Examples:clock:21
+$217 = call $208 with $215 ($216 is responsible)
+$218 = Examples:clock:22
+$219 = Match
+$220 = NoMatch
+$221 = Struct
+$222 = builtinTypeOf
+$223 = call $222 with $217 ($218 is responsible)
+$224 = builtinEquals
+$225 = call $224 with $221 $223 ($218 is responsible)
+$226 = builtinIfElse
+# Examples:clock:22:equals:then
+$290 = { (responsible $227) ->
+  $228 = builtinStructHasKey
+  $229 = builtinStructGet
+  $230 = Tag
+  $231 = call $228 with $217 $230 ($218 is responsible)
+  $232 = builtinIfElse
+  # Examples:clock:22:hasKey:then
+  $237 = { (responsible $233) ->
+    $234 = call $229 with $217 $230 ($218 is responsible)
+    $235 = ($234,)
+    $236 = call $219 with $235 ($218 is responsible)
+  }
+  # Examples:clock:22:hasKey:else
+  $240 = { (responsible $238) ->
+    $239 = $220
+  }
+  $241 = call $232 with $231 $237 $240 ($218 is responsible)
+  $242 = builtinTagWithoutValue
+  $243 = call $242 with $241 ($218 is responsible)
+  $244 = builtinEquals
+  $245 = Match
+  $246 = call $244 with $243 $245 ($218 is responsible)
+  $247 = builtinIfElse
+  # Examples:clock:22:isMatch:then
+  $285 = { (responsible $248) ->
+    $249 = builtinTagGetValue
+    $250 = call $249 with $241 ($218 is responsible)
+    $251 = builtinListGet
+    $252 = 0
+    $253 = call $251 with $250 $252 ($218 is responsible)
+    $254 = FixedDecimal
+    $255 = call $228 with $217 $254 ($218 is responsible)
+    $256 = builtinIfElse
+    # Examples:clock:22:hasKey:then
+    $261 = { (responsible $257) ->
+      $258 = call $229 with $217 $254 ($218 is responsible)
+      $259 = ($258,)
+      $260 = call $219 with $259 ($218 is responsible)
+    }
+    # Examples:clock:22:hasKey:else
+    $264 = { (responsible $262) ->
+      $263 = $220
+    }
+    $265 = call $256 with $255 $261 $264 ($218 is responsible)
+    $266 = builtinTagWithoutValue
+    $267 = call $266 with $265 ($218 is responsible)
+    $268 = builtinEquals
+    $269 = Match
+    $270 = call $268 with $267 $269 ($218 is responsible)
+    $271 = builtinIfElse
+    # Examples:clock:22:isMatch:then
+    $280 = { (responsible $272) ->
+      $273 = builtinTagGetValue
+      $274 = call $273 with $265 ($218 is responsible)
+      $275 = builtinListGet
+      $276 = 0
+      $277 = call $275 with $274 $276 ($218 is responsible)
+      $278 = ($253, $277)
+      $279 = call $219 with $278 ($218 is responsible)
+    }
+    # Examples:clock:22:isMatch:else
+    $283 = { (responsible $281) ->
+      $282 = $265
+    }
+    $284 = call $271 with $270 $280 $283 ($218 is responsible)
+  }
+  # Examples:clock:22:isMatch:else
+  $288 = { (responsible $286) ->
+    $287 = $241
+  }
+  $289 = call $247 with $246 $285 $288 ($218 is responsible)
+}
+# Examples:clock:22:equals:else
+$293 = { (responsible $291) ->
+  $292 = $220
+}
+$294 = call $226 with $225 $290 $293 ($218 is responsible)
+$295 = Nothing
+$296 = builtinTagWithoutValue
+$297 = call $296 with $294 ($218 is responsible)
+$298 = builtinEquals
+$299 = Match
+$300 = call $298 with $297 $299 ($218 is responsible)
+$301 = builtinIfElse
+# Examples:clock:22:isMatch:then
+$304 = { (responsible $302) ->
+  $303 = $295
+}
+# Examples:clock:22:isMatch:else
+$308 = { (responsible $305) ->
+  $306 = "The value doesn't match the pattern on the left side of the destructuring."
+  $307 = panicking because $306 ($218 is at fault)
+}
+$309 = call $301 with $300 $304 $308 ($218 is responsible)
+$310 = Examples:clock:tag
+$311 = builtinTagGetValue
+$312 = call $311 with $294 ($310 is responsible)
+$313 = builtinListGet
+$314 = 0
+$315 = call $313 with $312 $314 ($310 is responsible)
+$316 = Examples:clock:fixedDecimal
+$317 = builtinTagGetValue
+$318 = call $317 with $294 ($316 is responsible)
+$319 = builtinListGet
+$320 = 1
+$321 = call $319 with $318 $320 ($316 is responsible)
+$322 = Nothing
+# Examples:clock:24
+$424 = { $324 (+ responsible $323) ->
+  # Examples:clock:24:print
+  $338 = { $326 (+ responsible $325) ->
+    $327 = builtinStructGet
+    $328 = StructGet
+    $329 = Examples:clock:24:print:2
+    $330 = call $327 with $57 $328 ($329 is responsible)
+    $331 = $324
+    $332 = Stdout
+    $333 = Examples:clock:24:print:5
+    $334 = call $330 with $331 $332 ($333 is responsible)
+    $335 = $326
+    $336 = Examples:clock:24:print:7
+    $337 = call $334 with $335 ($336 is responsible)
+  }
+  $339 = $338
+  $340 = builtinStructGet
+  $341 = StructGet
+  $342 = Examples:clock:24:2
+  $343 = call $340 with $57 $341 ($342 is responsible)
+  $344 = $194
+  $345 = FromSystemClock
+  $346 = Examples:clock:24:5
+  $347 = call $343 with $344 $345 ($346 is responsible)
+  $348 = builtinStructGet
+  $349 = StructGet
+  $350 = Examples:clock:24:8
+  $351 = call $348 with $57 $349 ($350 is responsible)
+  $352 = $324
+  $353 = SystemClock
+  $354 = Examples:clock:24:11
+  $355 = call $351 with $352 $353 ($354 is responsible)
+  $356 = Examples:clock:24:12
+  $357 = call $347 with $355 ($356 is responsible)
+  $358 = $357
+  $359 = $358
+  $360 = Nothing
+  $361 = builtinStructGet
+  $362 = StructGet
+  $363 = Examples:clock:24:16
+  $364 = call $361 with $57 $362 ($363 is responsible)
+  $365 = $194
+  $366 = Now
+  $367 = Examples:clock:24:19
+  $368 = call $364 with $365 $366 ($367 is responsible)
+  $369 = $359
+  $370 = Examples:clock:24:21
+  $371 = call $368 with $369 ($370 is responsible)
+  $372 = $371
+  $373 = $372
+  $374 = Nothing
+  $375 = $339
+  $376 = builtinTextConcatenate
+  $377 = builtinTypeOf
+  $378 = Text
+  $379 = builtinEquals
+  $380 = builtinIfElse
+  $381 = builtinToDebugText
+  $382 = "It has been "
+  $383 = $373
+  $384 = builtinStructGet
+  $385 = StructGet
+  $386 = Examples:clock:24:34
+  $387 = call $384 with $57 $385 ($386 is responsible)
+  $388 = $206
+  $389 = ToUnixTimeDuration
+  $390 = Examples:clock:24:37
+  $391 = call $387 with $388 $389 ($390 is responsible)
+  $392 = Examples:clock:24:38
+  $393 = call $391 with $383 ($392 is responsible)
+  $394 = builtinStructGet
+  $395 = StructGet
+  $396 = Examples:clock:24:41
+  $397 = call $394 with $57 $395 ($396 is responsible)
+  $398 = $200
+  $399 = ToText
+  $400 = Examples:clock:24:44
+  $401 = call $397 with $398 $399 ($400 is responsible)
+  $402 = Examples:clock:24:45
+  $403 = call $401 with $393 ($402 is responsible)
+  $404 = Examples:clock:24:46
+  $405 = call $377 with $403 ($404 is responsible)
+  $406 = Examples:clock:24:47
+  $407 = call $379 with $405 $378 ($406 is responsible)
+  # Examples:clock:24:48
+  $410 = { (responsible $408) ->
+    $409 = $403
+  }
+  # Examples:clock:24:49
+  $414 = { (responsible $411) ->
+    $412 = Examples:clock:24:49:0
+    $413 = call $381 with $403 ($412 is responsible)
+  }
+  $415 = Examples:clock:24:50
+  $416 = call $380 with $407 $410 $414 ($415 is responsible)
+  $417 = " since the start the of Unix epoch"
+  $418 = Examples:clock:24:52
+  $419 = call $376 with $382 $416 ($418 is responsible)
+  $420 = Examples:clock:24:53
+  $421 = call $376 with $419 $417 ($420 is responsible)
+  $422 = Examples:clock:24:54
+  $423 = call $375 with $421 ($422 is responsible)
+}
+$425 = $424
+$426 = $425
+$427 = Nothing
+$428 = Main
+$429 = [$428: $426]
+$430 = builtinStructHasKey
+$431 = Main
+$432 = call $430 with $429 $431 ($50 is responsible)
+$433 = "The module doesn't export a main function."
+$434 = builtinIfElse
+# Examples:clock:then
+$437 = { (responsible $435) ->
+  $436 = Nothing
+}
+# Examples:clock:else
+$440 = { (responsible $438) ->
+  $439 = panicking because $433 ($50 is at fault)
+}
+$441 = call $434 with $432 $437 $440 ($50 is responsible)
+$442 = builtinStructGet
+$443 = call $442 with $429 $431 ($50 is responsible)
+$444 = builtinTypeOf
+$445 = call $444 with $443 ($50 is responsible)
+$446 = builtinEquals
+$447 = Function
+$448 = call $446 with $445 $447 ($50 is responsible)
+$449 = "The exported main value is not a function."
+$450 = builtinIfElse
+# Examples:clock:then
+$453 = { (responsible $451) ->
+  $452 = Nothing
+}
+# Examples:clock:else
+$456 = { (responsible $454) ->
+  $455 = panicking because $449 ($50 is at fault)
+}
+$457 = call $450 with $448 $453 $456 ($50 is responsible)
+$458 = builtinGetArgumentCount
+$459 = call $458 with $443 ($50 is responsible)
+$460 = 1
+$461 = call $446 with $459 $460 ($50 is responsible)
+$462 = "The exported main function doesn't accept exactly one parameter."
+$463 = builtinIfElse
+# Examples:clock:then
+$466 = { (responsible $464) ->
+  $465 = Nothing
+}
+# Examples:clock:else
+$469 = { (responsible $467) ->
+  $468 = panicking because $462 ($50 is at fault)
+}
+$470 = call $463 with $461 $466 $469 ($50 is responsible)
+$471 = $443
