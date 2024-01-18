@@ -1,0 +1,318 @@
+# MIR for module Examples:echo
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? No
+# • Include tracing of evaluated expressions? No
+
+# anonymous:$generated::needs
+$49 = { $2 $3 $4 (+ responsible $1) ->
+  $5 = anonymous:$generated::needs
+  $6 = builtinEquals
+  $7 = Nothing
+  $8 = True
+  $9 = False
+  $10 = call $6 with $2 $8 ($5 is responsible)
+  $11 = builtinIfElse
+  # anonymous:$generated::needs:isConditionTrue:then
+  $14 = { (responsible $12) ->
+    $13 = $8
+  }
+  # anonymous:$generated::needs:isConditionTrue:else
+  $17 = { (responsible $15) ->
+    $16 = call $6 with $2 $9 ($5 is responsible)
+  }
+  $18 = call $11 with $10 $14 $17 ($5 is responsible)
+  $19 = builtinIfElse
+  # anonymous:$generated::needs:isConditionBool:then
+  $22 = { (responsible $20) ->
+    $21 = $7
+  }
+  # anonymous:$generated::needs:isConditionBool:else
+  $26 = { (responsible $23) ->
+    $24 = "The `condition` must be either `True` or `False`."
+    $25 = panicking because $24 ($1 is at fault)
+  }
+  $27 = call $19 with $18 $22 $26 ($5 is responsible)
+  $28 = builtinTypeOf
+  $29 = call $28 with $3 ($1 is responsible)
+  $30 = Text
+  $31 = call $6 with $29 $30 ($1 is responsible)
+  $32 = builtinIfElse
+  # anonymous:$generated::needs:isReasonText:then
+  $35 = { (responsible $33) ->
+    $34 = $7
+  }
+  # anonymous:$generated::needs:isReasonText:else
+  $39 = { (responsible $36) ->
+    $37 = "The `reason` must be a text."
+    $38 = panicking because $37 ($1 is at fault)
+  }
+  $40 = call $32 with $31 $35 $39 ($5 is responsible)
+  $41 = builtinIfElse
+  # anonymous:$generated::needs:condition:then
+  $44 = { (responsible $42) ->
+    $43 = $7
+  }
+  # anonymous:$generated::needs:condition:else
+  $47 = { (responsible $45) ->
+    $46 = panicking because $3 ($4 is at fault)
+  }
+  $48 = call $41 with $2 $44 $47 ($5 is responsible)
+}
+$50 = Examples:echo:
+# Examples:echo:use
+$54 = { $52 (+ responsible $51) ->
+  $53 = use $52 (relative to Examples:echo; $51 is responsible)
+}
+$55 = "Builtins"
+$56 = Examples:echo:1
+$57 = call $54 with $55 ($56 is responsible)
+$58 = $54
+$59 = builtinTextConcatenate
+$60 = builtinTypeOf
+$61 = Text
+$62 = builtinEquals
+$63 = builtinIfElse
+$64 = builtinToDebugText
+$65 = "Core"
+$66 = Examples:echo:10
+$67 = call $58 with $65 ($66 is responsible)
+$68 = Examples:echo:11
+$69 = Match
+$70 = NoMatch
+$71 = Struct
+$72 = builtinTypeOf
+$73 = call $72 with $67 ($68 is responsible)
+$74 = builtinEquals
+$75 = call $74 with $71 $73 ($68 is responsible)
+$76 = builtinIfElse
+# Examples:echo:11:equals:then
+$140 = { (responsible $77) ->
+  $78 = builtinStructHasKey
+  $79 = builtinStructGet
+  $80 = Function
+  $81 = call $78 with $67 $80 ($68 is responsible)
+  $82 = builtinIfElse
+  # Examples:echo:11:hasKey:then
+  $87 = { (responsible $83) ->
+    $84 = call $79 with $67 $80 ($68 is responsible)
+    $85 = ($84,)
+    $86 = call $69 with $85 ($68 is responsible)
+  }
+  # Examples:echo:11:hasKey:else
+  $90 = { (responsible $88) ->
+    $89 = $70
+  }
+  $91 = call $82 with $81 $87 $90 ($68 is responsible)
+  $92 = builtinTagWithoutValue
+  $93 = call $92 with $91 ($68 is responsible)
+  $94 = builtinEquals
+  $95 = Match
+  $96 = call $94 with $93 $95 ($68 is responsible)
+  $97 = builtinIfElse
+  # Examples:echo:11:isMatch:then
+  $135 = { (responsible $98) ->
+    $99 = builtinTagGetValue
+    $100 = call $99 with $91 ($68 is responsible)
+    $101 = builtinListGet
+    $102 = 0
+    $103 = call $101 with $100 $102 ($68 is responsible)
+    $104 = Text
+    $105 = call $78 with $67 $104 ($68 is responsible)
+    $106 = builtinIfElse
+    # Examples:echo:11:hasKey:then
+    $111 = { (responsible $107) ->
+      $108 = call $79 with $67 $104 ($68 is responsible)
+      $109 = ($108,)
+      $110 = call $69 with $109 ($68 is responsible)
+    }
+    # Examples:echo:11:hasKey:else
+    $114 = { (responsible $112) ->
+      $113 = $70
+    }
+    $115 = call $106 with $105 $111 $114 ($68 is responsible)
+    $116 = builtinTagWithoutValue
+    $117 = call $116 with $115 ($68 is responsible)
+    $118 = builtinEquals
+    $119 = Match
+    $120 = call $118 with $117 $119 ($68 is responsible)
+    $121 = builtinIfElse
+    # Examples:echo:11:isMatch:then
+    $130 = { (responsible $122) ->
+      $123 = builtinTagGetValue
+      $124 = call $123 with $115 ($68 is responsible)
+      $125 = builtinListGet
+      $126 = 0
+      $127 = call $125 with $124 $126 ($68 is responsible)
+      $128 = ($103, $127)
+      $129 = call $69 with $128 ($68 is responsible)
+    }
+    # Examples:echo:11:isMatch:else
+    $133 = { (responsible $131) ->
+      $132 = $115
+    }
+    $134 = call $121 with $120 $130 $133 ($68 is responsible)
+  }
+  # Examples:echo:11:isMatch:else
+  $138 = { (responsible $136) ->
+    $137 = $91
+  }
+  $139 = call $97 with $96 $135 $138 ($68 is responsible)
+}
+# Examples:echo:11:equals:else
+$143 = { (responsible $141) ->
+  $142 = $70
+}
+$144 = call $76 with $75 $140 $143 ($68 is responsible)
+$145 = Nothing
+$146 = builtinTagWithoutValue
+$147 = call $146 with $144 ($68 is responsible)
+$148 = builtinEquals
+$149 = Match
+$150 = call $148 with $147 $149 ($68 is responsible)
+$151 = builtinIfElse
+# Examples:echo:11:isMatch:then
+$154 = { (responsible $152) ->
+  $153 = $145
+}
+# Examples:echo:11:isMatch:else
+$158 = { (responsible $155) ->
+  $156 = "The value doesn't match the pattern on the left side of the destructuring."
+  $157 = panicking because $156 ($68 is at fault)
+}
+$159 = call $151 with $150 $154 $158 ($68 is responsible)
+$160 = Examples:echo:function
+$161 = builtinTagGetValue
+$162 = call $161 with $144 ($160 is responsible)
+$163 = builtinListGet
+$164 = 0
+$165 = call $163 with $162 $164 ($160 is responsible)
+$166 = Examples:echo:text
+$167 = builtinTagGetValue
+$168 = call $167 with $144 ($166 is responsible)
+$169 = builtinListGet
+$170 = 1
+$171 = call $169 with $168 $170 ($166 is responsible)
+$172 = Nothing
+# Examples:echo:13
+$239 = { $174 (+ responsible $173) ->
+  # Examples:echo:13:print
+  $188 = { $176 (+ responsible $175) ->
+    $177 = builtinStructGet
+    $178 = StructGet
+    $179 = Examples:echo:13:print:2
+    $180 = call $177 with $57 $178 ($179 is responsible)
+    $181 = $174
+    $182 = Stdout
+    $183 = Examples:echo:13:print:5
+    $184 = call $180 with $181 $182 ($183 is responsible)
+    $185 = $176
+    $186 = Examples:echo:13:print:7
+    $187 = call $184 with $185 ($186 is responsible)
+  }
+  $189 = $188
+  $190 = builtinStructGet
+  $191 = StructGet
+  $192 = Examples:echo:13:2
+  $193 = call $190 with $57 $191 ($192 is responsible)
+  $194 = $174
+  $195 = Stdin
+  $196 = Examples:echo:13:5
+  $197 = call $193 with $194 $195 ($196 is responsible)
+  $198 = $197
+  $199 = $198
+  $200 = Nothing
+  $201 = $189
+  $202 = builtinTextConcatenate
+  $203 = builtinTypeOf
+  $204 = Text
+  $205 = builtinEquals
+  $206 = builtinIfElse
+  $207 = builtinToDebugText
+  $208 = "Hello, world!"
+  $209 = Examples:echo:13:15
+  $210 = call $201 with $208 ($209 is responsible)
+  $211 = builtinStructGet
+  $212 = StructGet
+  $213 = Examples:echo:13:18
+  $214 = call $211 with $57 $212 ($213 is responsible)
+  $215 = $165
+  $216 = Run
+  $217 = Examples:echo:13:21
+  $218 = call $214 with $215 $216 ($217 is responsible)
+  $219 = $199
+  $220 = Examples:echo:13:23
+  $221 = call $218 with $219 ($220 is responsible)
+  $222 = $221
+  $223 = $222
+  $224 = Nothing
+  $225 = $189
+  $226 = builtinTextConcatenate
+  $227 = builtinTypeOf
+  $228 = Text
+  $229 = builtinEquals
+  $230 = builtinIfElse
+  $231 = builtinToDebugText
+  $232 = "Echo:"
+  $233 = Examples:echo:13:33
+  $234 = call $225 with $232 ($233 is responsible)
+  $235 = $189
+  $236 = $223
+  $237 = Examples:echo:13:36
+  $238 = call $235 with $236 ($237 is responsible)
+}
+$240 = $239
+$241 = $240
+$242 = Nothing
+$243 = Main
+$244 = [$243: $241]
+$245 = builtinStructHasKey
+$246 = Main
+$247 = call $245 with $244 $246 ($50 is responsible)
+$248 = "The module doesn't export a main function."
+$249 = builtinIfElse
+# Examples:echo:then
+$252 = { (responsible $250) ->
+  $251 = Nothing
+}
+# Examples:echo:else
+$255 = { (responsible $253) ->
+  $254 = panicking because $248 ($50 is at fault)
+}
+$256 = call $249 with $247 $252 $255 ($50 is responsible)
+$257 = builtinStructGet
+$258 = call $257 with $244 $246 ($50 is responsible)
+$259 = builtinTypeOf
+$260 = call $259 with $258 ($50 is responsible)
+$261 = builtinEquals
+$262 = Function
+$263 = call $261 with $260 $262 ($50 is responsible)
+$264 = "The exported main value is not a function."
+$265 = builtinIfElse
+# Examples:echo:then
+$268 = { (responsible $266) ->
+  $267 = Nothing
+}
+# Examples:echo:else
+$271 = { (responsible $269) ->
+  $270 = panicking because $264 ($50 is at fault)
+}
+$272 = call $265 with $263 $268 $271 ($50 is responsible)
+$273 = builtinGetArgumentCount
+$274 = call $273 with $258 ($50 is responsible)
+$275 = 1
+$276 = call $261 with $274 $275 ($50 is responsible)
+$277 = "The exported main function doesn't accept exactly one parameter."
+$278 = builtinIfElse
+# Examples:echo:then
+$281 = { (responsible $279) ->
+  $280 = Nothing
+}
+# Examples:echo:else
+$284 = { (responsible $282) ->
+  $283 = panicking because $277 ($50 is at fault)
+}
+$285 = call $278 with $276 $281 $284 ($50 is responsible)
+$286 = $258
