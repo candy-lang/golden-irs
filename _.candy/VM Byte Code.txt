@@ -1,0 +1,250 @@
+# VM Byte Code for module Examples:
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? Only for panic traces
+# • Include tracing of evaluated expressions? No
+
+# Constant heap
+<replaced address 05cf6ed3a3e1ef22>: "NotUtf8"
+<replaced address 0fea7d5fa5afcc30>: Builtins::typeIs:25
+<replaced address 1076a7c75d895c72>: "NotAnInteger"
+<replaced address 2a8be7103eabae0e>: "Ok"
+<replaced address 2ded061b072e15be>: { 0 arguments (capturing nothing) → ip-0 }
+<replaced address 36de8d99217461dc>: { 1 argument (capturing nothing) → ip-156 }
+<replaced address 36eebe9168aef0b0>: "The `reason` must be a text."
+<replaced address 3eca0e872d043602>: Builtins::typeIs:19
+<replaced address 4ac5a9bb03c91cb0>: { 0 arguments (capturing nothing) → ip-182 }
+<replaced address 4d094d47213a5655>: "Equal"
+<replaced address 51f524ae63c4af0b>: "Tag"
+<replaced address 55043490d5f24695>: Builtins::print:11
+<replaced address 568420a2a5125080>: "GetNextRequest"
+<replaced address 5daeb472a61ff7f8>: "False"
+<replaced address 614077b0f92cd7f0>: "Struct"
+<replaced address 667af424e9d4d676>: "`message | typeIs Text` was not satisfied"
+<replaced address 6732a87eefdda5c6>: "Nothing"
+<replaced address 6b24044ae391e0b7>: "Int"
+<replaced address 6cdccd509afc921c>: "Text"
+<replaced address 6fe1fdb2563c07ad>: "Arguments"
+<replaced address 807d7368f1a4edd6>: "Builtin"
+<replaced address 80f4eaa53f4876cd>: anonymous:$generated::needs
+<replaced address 859014e38a16c47f>: "HttpServer"
+<replaced address 91ccd4b75c545de9>: "The `condition` must be either `True` or `False`."
+<replaced address 9b692663aeb40da7>: "SendResponse"
+<replaced address 9beb0cb1b775254c>: "Close"
+<replaced address a299eca8798bd5e6>: "3"
+<replaced address a2f6d53168c96b64>: "GetRandomBytes"
+<replaced address b66aa5e8eefa60de>: "Function"
+<replaced address bbcfa9d6e3f11acf>: "Greater"
+<replaced address bd7e643bf52790f0>: "Stdout"
+<replaced address c52c1f71bac3244c>: Examples::
+<replaced address c841b45ecc45bd33>: "True"
+<replaced address c9d6cc94f9cedabb>: Builtins::print:5
+<replaced address caa2a7fa3204260d>: Examples::12:24
+<replaced address d7629bf6e871f5e8>: "Error"
+<replaced address db495c82299248a2>: { 1 argument (capturing nothing) → ip-106 }
+<replaced address dc704463e00c0b29>: { 0 arguments (capturing nothing) → ip-3 }
+<replaced address e13459ee6346ab5d>: "List"
+<replaced address e63e502aad6c0ab9>: { 3 arguments (capturing nothing) → ip-41 }
+<replaced address ef0df736712a6b95>: "Request"
+<replaced address f2debbb68786f674>: "Less"
+<replaced address f8bed0fc3ef0a4f6>: "Stdin"
+<replaced address fa8cdeec1123ecd3>: "SystemClock"
+
+# Instructions
+# Builtins::ifElse:1:case-0:matched, anonymous:$generated::needs:isConditionTrue:then, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched
+  0: pushConstant inline True
+  1: popMultipleBelowTop 1
+  2: return
+# anonymous:$generated::needs:isReasonText:then, anonymous:$generated::needs:isConditionBool:then, Examples::then, anonymous:$generated::needs:condition:then
+  3: pushConstant inline Nothing
+  4: popMultipleBelowTop 1
+  5: return
+# anonymous:$generated::needs:isConditionTrue:else
+  6: pushFromStack 1
+  7: dup by 1
+  8: pushConstant inline builtinEquals
+  9: pushConstant inline False
+ 10: pushConstant <replaced address 80f4eaa53f4876cd> anonymous:$generated::needs
+ 11: pushFromStack 2
+ 12: pushFromStack 5
+ 13: pushFromStack 3
+ 14: pushFromStack 3
+ 15: tailCall with 5 locals and 2 arguments
+# anonymous:$generated::needs:isConditionBool:else
+ 16: pushFromStack 1
+ 17: dup by 1
+ 18: pushConstant <replaced address 91ccd4b75c545de9> "The `condition` must be either `True` or `False`."
+ 19: pushFromStack 0
+ 20: pushFromStack 3
+ 21: panic
+ 22: popMultipleBelowTop 3
+ 23: return
+# anonymous:$generated::needs:isReasonText:else
+ 24: pushFromStack 1
+ 25: dup by 1
+ 26: pushConstant <replaced address 36eebe9168aef0b0> "The `reason` must be a text."
+ 27: pushFromStack 0
+ 28: pushFromStack 3
+ 29: panic
+ 30: popMultipleBelowTop 3
+ 31: return
+# anonymous:$generated::needs:condition:else
+ 32: pushFromStack 2
+ 33: dup by 1
+ 34: pushFromStack 1
+ 35: dup by 1
+ 36: pushFromStack 2
+ 37: pushFromStack 2
+ 38: panic
+ 39: popMultipleBelowTop 3
+ 40: return
+# anonymous:$generated::needs
+ 41: pushFromStack 3
+ 42: dup by 2
+ 43: pushFromStack 2
+ 44: dup by 1
+ 45: pushFromStack 0
+ 46: dup by 2
+ 47: pushConstant inline builtinEquals
+ 48: pushConstant inline True
+ 49: pushConstant <replaced address 80f4eaa53f4876cd> anonymous:$generated::needs
+ 50: pushFromStack 2
+ 51: pushFromStack 7
+ 52: pushFromStack 3
+ 53: pushFromStack 3
+ 54: call with 2 arguments
+ 55: pushFromStack 7
+ 56: createFunction with 0 arguments capturing 0 starting at ip-6
+ 57: pushConstant inline builtinIfElse
+ 58: pushConstant <replaced address 2ded061b072e15be> { 0 arguments (capturing nothing) → ip-0 }
+ 59: pushFromStack 1
+ 60: pushFromStack 5
+ 61: pushFromStack 2
+ 62: pushFromStack 5
+ 63: pushFromStack 9
+ 64: call with 3 arguments
+ 65: pushFromStack 9
+ 66: createFunction with 0 arguments capturing 0 starting at ip-16
+ 67: pushConstant <replaced address dc704463e00c0b29> { 0 arguments (capturing nothing) → ip-3 }
+ 68: pushFromStack 5
+ 69: pushFromStack 4
+ 70: pushFromStack 2
+ 71: pushFromStack 4
+ 72: pushFromStack 13
+ 73: call with 3 arguments
+ 74: pushConstant inline builtinTypeOf
+ 75: pushFromStack 0
+ 76: pushFromStack 17
+ 77: pushFromStack 6
+ 78: call with 1 argument
+ 79: pushConstant inline Text
+ 80: pushFromStack 15
+ 81: pushFromStack 2
+ 82: pushFromStack 2
+ 83: pushFromStack 9
+ 84: call with 2 arguments
+ 85: pushFromStack 7
+ 86: createFunction with 0 arguments capturing 0 starting at ip-24
+ 87: pushFromStack 12
+ 88: pushFromStack 3
+ 89: pushFromStack 9
+ 90: pushFromStack 3
+ 91: pushFromStack 20
+ 92: call with 3 arguments
+ 93: pushFromStack 22
+ 94: pushFromStack 22
+ 95: createFunction with 0 arguments capturing 1, 0 starting at ip-32
+ 96: pushFromStack 10
+ 97: drop
+ 98: pushFromStack 3
+ 99: drop
+100: pushFromStack 16
+101: pushFromStack 19
+102: pushFromStack 13
+103: pushFromStack 3
+104: pushFromStack 24
+105: tailCall with 27 locals and 3 arguments
+# Builtins::print
+106: pushFromStack 1
+107: dup by 2
+108: pushFromStack 0
+109: dup by 2
+110: pushConstant inline builtinTypeOf
+111: pushConstant <replaced address 3eca0e872d043602> Builtins::typeIs:19
+112: pushFromStack 1
+113: pushFromStack 4
+114: pushFromStack 2
+115: call with 1 argument
+116: pushConstant inline builtinEquals
+117: pushConstant inline Text
+118: pushConstant <replaced address 0fea7d5fa5afcc30> Builtins::typeIs:25
+119: pushFromStack 2
+120: pushFromStack 4
+121: pushFromStack 3
+122: pushFromStack 3
+123: call with 2 arguments
+124: pushFromStack 0
+125: dup by 1
+126: pushConstant <replaced address c9d6cc94f9cedabb> Builtins::print:5
+127: pushConstant <replaced address e63e502aad6c0ab9> { 3 arguments (capturing nothing) → ip-41 }
+128: pushConstant <replaced address 667af424e9d4d676> "`message | typeIs Text` was not satisfied"
+129: pushFromStack 2
+130: pushFromStack 2
+131: pushFromStack 5
+132: pushFromStack 3
+133: pushFromStack 14
+134: pushFromStack 4
+135: traceCallStarts (3 arguments)
+136: pushFromStack 1
+137: pushFromStack 4
+138: pushFromStack 2
+139: pushFromStack 13
+140: pushFromStack 6
+141: call with 3 arguments
+142: traceCallEnds without return value
+143: pushConstant <replaced address 55043490d5f24695> Builtins::print:11
+144: pushConstant inline builtinPrint
+145: pushFromStack 1
+146: pushFromStack 1
+147: pushFromStack 16
+148: pushFromStack 2
+149: traceTailCall (1 argument)
+150: pushFromStack 2
+151: drop
+152: pushFromStack 0
+153: pushFromStack 15
+154: pushFromStack 3
+155: tailCall with 15 locals and 1 argument
+# Examples::12
+156: pushConstant <replaced address caa2a7fa3204260d> Examples::12:24
+157: pushConstant <replaced address db495c82299248a2> { 1 argument (capturing nothing) → ip-106 }
+158: pushConstant <replaced address a299eca8798bd5e6> "3"
+159: pushFromStack 2
+160: pushFromStack 2
+161: pushFromStack 2
+162: pushFromStack 2
+163: traceCallStarts (1 argument)
+164: pushConstant <replaced address 55043490d5f24695> Builtins::print:11
+165: pushConstant inline builtinPrint
+166: pushFromStack 1
+167: pushFromStack 1
+168: pushFromStack 4
+169: pushFromStack 2
+170: traceCallStarts (1 argument)
+171: pushFromStack 0
+172: pushFromStack 3
+173: pushFromStack 3
+174: call with 1 argument
+175: traceCallEnds without return value
+176: traceCallEnds without return value
+177: pushFromStack 7
+178: drop
+179: pushFromStack 0
+180: popMultipleBelowTop 8
+181: return
+# Examples::
+182: pushConstant <replaced address 36de8d99217461dc> { 1 argument (capturing nothing) → ip-156 }
+183: popMultipleBelowTop 1
+184: return
