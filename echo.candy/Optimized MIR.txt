@@ -1,0 +1,344 @@
+# Optimized MIR for module Examples:echo
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? Only for panic traces
+# • Include tracing of evaluated expressions? No
+
+$1 = Builtins::equals:6
+$2 = Builtins::functionRun:11
+$3 = Builtins::functionRun:16
+$4 = Builtins::functionRun:22
+$5 = Builtins::functionRun:5
+$6 = Builtins::getArgumentCount:11
+$7 = Builtins::getArgumentCount:5
+$8 = Builtins::ifElse:1
+$9 = Builtins::ifElse:11
+$10 = Builtins::ifElse:14
+$11 = Builtins::ifElse:19
+$12 = Builtins::ifElse:25
+$13 = Builtins::ifElse:28
+$14 = Builtins::ifElse:33
+$15 = Builtins::ifElse:41
+$16 = Builtins::ifElse:5
+$17 = Builtins::structGet:12
+$18 = Builtins::structGet:14
+$19 = Builtins::structGet:21
+$20 = Builtins::structGet:5
+$21 = Builtins::typeIs:19
+$22 = Builtins::typeIs:25
+$23 = Builtins::typeOf:5
+$24 = Core:function:is0:11
+$25 = Core:function:is0:9:3
+$26 = Core:function:run:12
+$27 = Core:function:run:2
+$28 = Core:function:run:4
+$29 = Examples:echo:13:15
+$30 = Examples:echo:13:23
+$31 = Examples:echo:13:33
+$32 = Examples:echo:13:36
+$33 = Examples:echo:13:5
+$34 = Examples:echo:13:print:5
+$35 = Examples:echo:13:print:7
+$36 = anonymous:$generated::needs
+$37 = builtinEquals
+$38 = builtinFunctionRun
+$39 = builtinGetArgumentCount
+$40 = builtinIfElse
+$41 = builtinStructGet
+$42 = builtinStructHasKey
+$43 = builtinTagWithoutValue
+$44 = builtinTypeOf
+$45 = False
+$46 = Function
+$47 = Match
+$48 = NoMatch
+$49 = Nothing
+$50 = Stdin
+$51 = Stdout
+$52 = Struct
+$53 = Text
+$54 = True
+$55 = 0
+$56 = "Echo:"
+$57 = "Hello, world!"
+$58 = "The `condition` must be either `True` or `False`."
+$59 = "The `reason` must be a text."
+$60 = "`conditionIsBool` was not satisfied"
+$61 = "`else | getArgumentCount | equals 0` was not satisfied"
+$62 = "`else | typeIs Function` was not satisfied"
+$63 = "`function | typeIs Function` was not satisfied"
+$64 = "`function | ✨.getArgumentCount | equals 0` was not satisfied"
+$65 = "`is0 body` was not satisfied"
+$66 = "`struct | typeIs Struct` was not satisfied"
+$67 = "`struct | ✨.structHasKey key` was not satisfied"
+$68 = "`then | getArgumentCount | equals 0` was not satisfied"
+$69 = "`then | typeIs Function` was not satisfied"
+# Builtins::ifElse:1:case-0:matched, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched, Core:bool:is:1:case-0:matched, Core:bool:lazyOr:16:case-0:matched, Core:bool:not:6:case-1:matched, Core:check:check:1:case-0:matched, Core:result:is:1:case-0:matched, Core:text:isAsciiDigit:14:case-0:matched, anonymous:$generated::needs:isConditionTrue:then
+$70 = { (responsible $71) ->
+  $72 = $54
+}
+# Core::21:isMatch:then, Core::32:isMatch:then, Core::43:isMatch:then, Core::104:isMatch:then, Core::155:isMatch:then, Core::166:isMatch:then, Core:bool:11:isMatch:then, Core:check:11:isMatch:then, Core:controlFlow:if:23, Core:controlFlow:31:isMatch:then, Core:controlFlow:52:isMatch:then, Core:fixedDecimal:21:isMatch:then, Core:fixedDecimal:32:isMatch:then, Core:fixedDecimal:43:isMatch:then, Core:fixedDecimal:54:isMatch:then, Core:fixedDecimal:105:isMatch:then, Core:function:21:isMatch:then, Core:int:pow:21:1:isMatch:then, Core:int:31:isMatch:then, Core:int:42:isMatch:then, Core:iterator:foldLeft:21:1:isMatch:then, Core:iterator:next:6:isMatch:then, Core:iterator:skip:26:6:1:isMatch:then, Core:iterator:take:27:1:isMatch:then, Core:iterator:withIndex:11:1:isMatch:then, Core:iterator:21:isMatch:then, Core:iterator:32:isMatch:then, Core:list:firstIndexWhere:21:1:isMatch:then, Core:list:generate:51:1:isMatch:then, Core:list:lastIndexWhere:38:1:isMatch:then, Core:list:31:isMatch:then, Core:list:42:isMatch:then, Core:result:also:16:case-0:didNotMatch, Core:result:21:isMatch:then, Core:result:32:isMatch:then, Core:struct:21:isMatch:then, Core:tag:31:isMatch:then, Core:text:repeat:30:1:isMatch:then, Core:text:31:isMatch:then, Core:text:42:isMatch:then, Core:type:21:isMatch:then, Examples:echo:then, Examples:echo:11:isMatch:then, anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+$73 = { (responsible $74) ->
+  $75 = $49
+}
+# anonymous:$generated::needs
+$76 = { $77 $78 $79 (+ responsible $80) ->
+  $81 = call $37 with $77 $54 ($36 is responsible)
+  # anonymous:$generated::needs:isConditionTrue:else
+  $82 = { (responsible $83) ->
+    $84 = call $37 with $77 $45 ($36 is responsible)
+  }
+  $85 = call $40 with $81 $70 $82 ($36 is responsible)
+  # anonymous:$generated::needs:isConditionBool:else
+  $86 = { (responsible $87) ->
+    $88 = panicking because $58 ($80 is at fault)
+  }
+  $89 = call $40 with $85 $73 $86 ($36 is responsible)
+  $90 = call $44 with $78 ($80 is responsible)
+  $91 = call $37 with $90 $53 ($80 is responsible)
+  # anonymous:$generated::needs:isReasonText:else
+  $92 = { (responsible $93) ->
+    $94 = panicking because $59 ($80 is at fault)
+  }
+  $95 = call $40 with $91 $73 $92 ($36 is responsible)
+  # anonymous:$generated::needs:condition:else
+  $96 = { (responsible $97) ->
+    $98 = panicking because $78 ($79 is at fault)
+  }
+  $99 = call $40 with $77 $73 $96 ($36 is responsible)
+}
+$100 = (,)
+$101 = Match $100
+# Builtins::ifElse:1:equals:then, Builtins::isLessThanOrEqualTo:19:equals:then, Builtins::isNonNegative:13:equals:then, Builtins::not:1:equals:then, Core:bool:is:1:equals:then, Core:bool:lazyAnd:16:equals:then, Core:bool:lazyOr:16:equals:then, Core:bool:not:6:equals:then, Core:check:check:1:equals:then, Core:int:pow:21:4:equals:then, Core:iterator:foldLeft:21:5:equals:then, Core:iterator:generateWithState:12:1:3:equals:then, Core:iterator:map:17:3:equals:then, Core:iterator:reduceLeft:16:equals:then, Core:iterator:skip:26:6:8:3:equals:then, Core:iterator:takeWhile:7:3:equals:then, Core:iterator:where:17:2:3:equals:then, Core:iterator:where:17:2:3:6:5:equals:then, Core:iterator:withIndex:11:5:equals:then, Core:iterator:wrapSafe:14:22:8:equals:then, Core:list:first:6:equals:then, Core:list:firstWhere:19:equals:then, Core:list:lastWhere:19:equals:then, Core:list:single:6:equals:then, Core:text:isAsciiDigit:14:equals:then
+$102 = { (responsible $103) ->
+  $104 = $101
+}
+# Builtins::ifElse:1:equals:else, Builtins::isLessThanOrEqualTo:19:equals:else, Builtins::isNonNegative:13:equals:else, Builtins::not:1:equals:else, Core::21:equals:else, Core::32:equals:else, Core::43:equals:else, Core::104:equals:else, Core::155:equals:else, Core::166:equals:else, Core:bool:is:1:equals:else, Core:bool:lazyAnd:16:equals:else, Core:bool:lazyOr:16:equals:else, Core:bool:not:6:equals:else, Core:bool:11:equals:else, Core:check:check:1:equals:else, Core:check:11:equals:else, Core:controlFlow:31:equals:else, Core:controlFlow:52:equals:else, Core:fixedDecimal:is:1:equals:else, Core:fixedDecimal:is:1:hasKey:else, Core:fixedDecimal:21:equals:else, Core:fixedDecimal:32:equals:else, Core:fixedDecimal:43:equals:else, Core:fixedDecimal:54:equals:else, Core:fixedDecimal:105:equals:else, Core:function:21:equals:else, Core:int:pow:21:1:equals:else, Core:int:pow:21:1:hasKey:else, Core:int:pow:21:4:equals:else, Core:int:31:equals:else, Core:int:42:equals:else, Core:iterator:foldLeft:21:1:equals:else, Core:iterator:foldLeft:21:1:hasKey:else, Core:iterator:foldLeft:21:5:equals:else, Core:iterator:foldLeft:21:5:hasKey:else, Core:iterator:generateWithState:12:1:3:equals:else, Core:iterator:generateWithState:12:1:3:hasKey:else, Core:iterator:map:17:3:equals:else, Core:iterator:map:17:3:hasKey:else, Core:iterator:next:6:equals:else, Core:iterator:reduceLeft:16:equals:else, Core:iterator:reduceLeft:16:hasKey:else, Core:iterator:skip:26:6:1:equals:else, Core:iterator:skip:26:6:1:hasKey:else, Core:iterator:skip:26:6:8:3:equals:else, Core:iterator:skip:26:6:8:3:hasKey:else, Core:iterator:take:27:1:equals:else, Core:iterator:take:27:1:hasKey:else, Core:iterator:takeWhile:7:3:equals:else, Core:iterator:takeWhile:7:3:hasKey:else, Core:iterator:where:17:2:3:equals:else, Core:iterator:where:17:2:3:hasKey:else, Core:iterator:where:17:2:3:6:5:equals:else, Core:iterator:where:17:2:3:6:5:hasKey:else, Core:iterator:withIndex:11:1:equals:else, Core:iterator:withIndex:11:1:hasKey:else, Core:iterator:withIndex:11:5:equals:else, Core:iterator:withIndex:11:5:hasKey:else, Core:iterator:wrapSafe:14:1:equals:else, Core:iterator:wrapSafe:14:22:8:equals:else, Core:iterator:wrapSafe:14:22:8:hasKey:else, Core:iterator:21:equals:else, Core:iterator:32:equals:else, Core:list:first:6:equals:else, Core:list:firstIndexWhere:21:1:equals:else, Core:list:firstIndexWhere:21:1:hasKey:else, Core:list:firstWhere:19:equals:else, Core:list:generate:51:1:equals:else, Core:list:generate:51:1:hasKey:else, Core:list:lastIndexWhere:38:1:equals:else, Core:list:lastIndexWhere:38:1:hasKey:else, Core:list:lastWhere:19:equals:else, Core:list:single:6:equals:else, Core:list:31:equals:else, Core:list:42:equals:else, Core:result:also:16:equals:else, Core:result:is:1:equals:else, Core:result:mapOrElse:26:equals:else, Core:result:21:equals:else, Core:result:32:equals:else, Core:struct:21:equals:else, Core:tag:31:equals:else, Core:text:isAsciiDigit:14:equals:else, Core:text:repeat:30:1:equals:else, Core:text:31:equals:else, Core:text:42:equals:else, Examples:echo:11:equals:else
+$105 = { (responsible $106) ->
+  $107 = $48
+}
+# Builtins::ifElse:1:case-0:didNotMatch, Builtins::isLessThanOrEqualTo:19:case-1:matched, Builtins::isNonNegative:13:case-1:matched, Builtins::not:1:case-0:matched, Core:bool:is:1:case-0:didNotMatch, Core:bool:lazyAnd:16:case-1:matched, Core:bool:not:6:case-0:matched, Core:check:check:1:case-0:didNotMatch, Core:fixedDecimal:is:1:case-0:didNotMatch, Core:function:is0:10, Core:function:is1:10, Core:function:is2:10, Core:function:is3:10, Core:function:is4:10, Core:function:is5:10, Core:list:isValidIndex:19, Core:list:isValidInsertIndex:19, Core:result:is:1:case-0:didNotMatch, Core:text:isAsciiDigit:14:case-0:didNotMatch, anonymous:$generated::needs:isConditionTrue:else
+$108 = { (responsible $109) ->
+  $110 = $45
+}
+# Builtins::functionRun
+$111 = { $112 (+ responsible $113) ->
+  $114 = call $44 with $112 ($21 is responsible)
+  $115 = call $37 with $114 $46 ($22 is responsible)
+  $116 = trace: start of call of $76 with $115 $63 $113 ($5 is responsible, code is at $5)
+  $117 = call $76 with $115 $63 $113 ($5 is responsible)
+  $118 = trace: end of call
+  $119 = call $39 with $112 ($2 is responsible)
+  $120 = call $37 with $119 $55 ($1 is responsible)
+  $121 = trace: start of call of $76 with $120 $64 $113 ($3 is responsible, code is at $3)
+  $122 = call $76 with $120 $64 $113 ($3 is responsible)
+  $123 = trace: end of call
+  $124 = trace: tail call of $38 with $112 ($4 is responsible, code is at $4)
+  $125 = call $112 with no arguments ($4 is responsible)
+}
+# Builtins::getArgumentCount
+$128 = { $129 (+ responsible $130) ->
+  $131 = call $44 with $129 ($21 is responsible)
+  $132 = call $37 with $131 $46 ($22 is responsible)
+  $133 = trace: start of call of $76 with $132 $63 $130 ($7 is responsible, code is at $7)
+  $134 = call $76 with $132 $63 $130 ($7 is responsible)
+  $135 = trace: end of call
+  $136 = call $39 with $129 ($6 is responsible)
+}
+# Builtins::ifElse
+$137 = { $138 $139 $140 (+ responsible $141) ->
+  $142 = call $37 with $54 $138 ($8 is responsible)
+  $143 = call $40 with $142 $102 $105 ($8 is responsible)
+  $144 = call $43 with $143 ($8 is responsible)
+  $145 = call $37 with $144 $47 ($8 is responsible)
+  # Builtins::ifElse:1:isMatch:then
+  $146 = { (responsible $147) ->
+    $148 = $143
+  }
+  # Builtins::ifElse:1:isMatch:else
+  $149 = { (responsible $150) ->
+    $151 = call $37 with $45 $138 ($8 is responsible)
+    $152 = call $40 with $151 $102 $105 ($8 is responsible)
+  }
+  $153 = call $40 with $145 $146 $149 ($8 is responsible)
+  $154 = call $43 with $153 ($8 is responsible)
+  $155 = call $37 with $154 $47 ($8 is responsible)
+  $156 = call $40 with $155 $70 $108 ($8 is responsible)
+  $157 = trace: start of call of $76 with $156 $60 $141 ($16 is responsible, code is at $16)
+  $158 = call $76 with $156 $60 $141 ($16 is responsible)
+  $159 = trace: end of call
+  $160 = call $44 with $139 ($21 is responsible)
+  $161 = call $37 with $160 $46 ($22 is responsible)
+  $162 = trace: start of call of $76 with $161 $69 $141 ($9 is responsible, code is at $9)
+  $163 = call $76 with $161 $69 $141 ($9 is responsible)
+  $164 = trace: end of call
+  $165 = trace: start of call of $128 with $139 ($10 is responsible, code is at $10)
+  $166 = call $37 with $160 $46 ($22 is responsible)
+  $167 = trace: start of call of $76 with $166 $63 $10 ($7 is responsible, code is at $7)
+  $168 = call $76 with $166 $63 $10 ($7 is responsible)
+  $169 = trace: end of call
+  $170 = call $39 with $139 ($6 is responsible)
+  $171 = trace: end of call
+  $172 = call $37 with $170 $55 ($1 is responsible)
+  $173 = trace: start of call of $76 with $172 $68 $141 ($11 is responsible, code is at $11)
+  $174 = call $76 with $172 $68 $141 ($11 is responsible)
+  $175 = trace: end of call
+  $176 = call $44 with $140 ($21 is responsible)
+  $177 = call $37 with $176 $46 ($22 is responsible)
+  $178 = trace: start of call of $76 with $177 $62 $141 ($12 is responsible, code is at $12)
+  $179 = call $76 with $177 $62 $141 ($12 is responsible)
+  $180 = trace: end of call
+  $181 = trace: start of call of $128 with $140 ($13 is responsible, code is at $13)
+  $182 = call $37 with $176 $46 ($22 is responsible)
+  $183 = trace: start of call of $76 with $182 $63 $13 ($7 is responsible, code is at $7)
+  $184 = call $76 with $182 $63 $13 ($7 is responsible)
+  $185 = trace: end of call
+  $186 = call $39 with $140 ($6 is responsible)
+  $187 = trace: end of call
+  $188 = call $37 with $186 $55 ($1 is responsible)
+  $189 = trace: start of call of $76 with $188 $61 $141 ($14 is responsible, code is at $14)
+  $190 = call $76 with $188 $61 $141 ($14 is responsible)
+  $191 = trace: end of call
+  $192 = trace: tail call of $40 with $138 $139 $140 ($15 is responsible, code is at $15)
+  $193 = call $40 with $138 $139 $140 ($15 is responsible)
+}
+# Builtins::structGet
+$196 = { $197 $198 (+ responsible $199) ->
+  $200 = call $44 with $197 ($21 is responsible)
+  $201 = call $37 with $200 $52 ($22 is responsible)
+  $202 = trace: start of call of $76 with $201 $66 $199 ($20 is responsible, code is at $20)
+  $203 = call $76 with $201 $66 $199 ($20 is responsible)
+  $204 = trace: end of call
+  $205 = call $42 with $197 $198 ($17 is responsible)
+  $206 = trace: start of call of $76 with $205 $67 $199 ($18 is responsible, code is at $18)
+  $207 = call $76 with $205 $67 $199 ($18 is responsible)
+  $208 = trace: end of call
+  $209 = call $41 with $197 $198 ($19 is responsible)
+}
+# Core:function:is0
+$210 = { $211 (+ responsible $212) ->
+  $213 = call $44 with $211 ($23 is responsible)
+  $214 = call $37 with $213 $46 ($1 is responsible)
+  # Core:function:is0:9
+  $215 = { (responsible $216) ->
+    $217 = trace: start of call of $128 with $211 ($25 is responsible, code is at $25)
+    $218 = call $44 with $211 ($21 is responsible)
+    $219 = call $37 with $218 $46 ($22 is responsible)
+    $220 = trace: start of call of $76 with $219 $63 $25 ($7 is responsible, code is at $7)
+    $221 = call $76 with $219 $63 $25 ($7 is responsible)
+    $222 = trace: end of call
+    $223 = call $39 with $211 ($6 is responsible)
+    $224 = trace: end of call
+    $225 = call $37 with $223 $55 ($1 is responsible)
+  }
+  $226 = trace: tail call of $137 with $214 $215 $108 ($24 is responsible, code is at $24)
+  $227 = call $137 with $214 $215 $108 ($24 is responsible)
+}
+# Core:function:run
+$230 = { $231 (+ responsible $232) ->
+  $233 = trace: start of call of $210 with $231 ($27 is responsible, code is at $27)
+  $234 = call $44 with $231 ($23 is responsible)
+  $235 = call $37 with $234 $46 ($1 is responsible)
+  # Core:function:is0:9
+  $236 = { (responsible $237) ->
+    $238 = trace: start of call of $128 with $231 ($25 is responsible, code is at $25)
+    $239 = call $44 with $231 ($21 is responsible)
+    $240 = call $37 with $239 $46 ($22 is responsible)
+    $241 = trace: start of call of $76 with $240 $63 $25 ($7 is responsible, code is at $7)
+    $242 = call $76 with $240 $63 $25 ($7 is responsible)
+    $243 = trace: end of call
+    $244 = call $39 with $231 ($6 is responsible)
+    $245 = trace: end of call
+    $246 = call $37 with $244 $55 ($1 is responsible)
+  }
+  $247 = trace: start of call of $137 with $235 $236 $108 ($24 is responsible, code is at $24)
+  $248 = call $137 with $235 $236 $108 ($24 is responsible)
+  $249 = trace: end of call
+  $250 = trace: end of call
+  $251 = trace: start of call of $76 with $248 $65 $232 ($28 is responsible, code is at $28)
+  $252 = call $76 with $248 $65 $232 ($28 is responsible)
+  $253 = trace: end of call
+  $254 = trace: start of call of $111 with $231 ($26 is responsible, code is at $26)
+  $255 = call $44 with $231 ($21 is responsible)
+  $256 = call $37 with $255 $46 ($22 is responsible)
+  $257 = trace: start of call of $76 with $256 $63 $26 ($5 is responsible, code is at $5)
+  $258 = call $76 with $256 $63 $26 ($5 is responsible)
+  $259 = trace: end of call
+  $260 = call $39 with $231 ($2 is responsible)
+  $261 = call $37 with $260 $55 ($1 is responsible)
+  $262 = trace: start of call of $76 with $261 $64 $26 ($3 is responsible, code is at $3)
+  $263 = call $76 with $261 $64 $26 ($3 is responsible)
+  $264 = trace: end of call
+  $265 = trace: start of call of $38 with $231 ($4 is responsible, code is at $4)
+  $266 = call $231 with no arguments ($4 is responsible)
+  $267 = trace: end of call
+  $268 = trace: end of call
+  $269 = $266
+}
+# Examples:echo:13
+$270 = { $271 (+ responsible $272) ->
+  # Examples:echo:13:print
+  $273 = { $274 (+ responsible $275) ->
+    $276 = trace: start of call of $196 with $271 $51 ($34 is responsible, code is at $34)
+    $277 = call $44 with $271 ($21 is responsible)
+    $278 = call $37 with $277 $52 ($22 is responsible)
+    $279 = trace: start of call of $76 with $278 $66 $34 ($20 is responsible, code is at $20)
+    $280 = call $76 with $278 $66 $34 ($20 is responsible)
+    $281 = trace: end of call
+    $282 = call $42 with $271 $51 ($17 is responsible)
+    $283 = trace: start of call of $76 with $282 $67 $34 ($18 is responsible, code is at $18)
+    $284 = call $76 with $282 $67 $34 ($18 is responsible)
+    $285 = trace: end of call
+    $286 = call $41 with $271 $51 ($19 is responsible)
+    $287 = trace: end of call
+    $288 = trace: tail call of $286 with $274 ($35 is responsible, code is at $35)
+    $289 = call $286 with $274 ($35 is responsible)
+  }
+  $292 = trace: start of call of $196 with $271 $50 ($33 is responsible, code is at $33)
+  $293 = call $44 with $271 ($21 is responsible)
+  $294 = call $37 with $293 $52 ($22 is responsible)
+  $295 = trace: start of call of $76 with $294 $66 $33 ($20 is responsible, code is at $20)
+  $296 = call $76 with $294 $66 $33 ($20 is responsible)
+  $297 = trace: end of call
+  $298 = call $42 with $271 $50 ($17 is responsible)
+  $299 = trace: start of call of $76 with $298 $67 $33 ($18 is responsible, code is at $18)
+  $300 = call $76 with $298 $67 $33 ($18 is responsible)
+  $301 = trace: end of call
+  $302 = call $41 with $271 $50 ($19 is responsible)
+  $303 = trace: end of call
+  $304 = trace: start of call of $273 with $57 ($29 is responsible, code is at $29)
+  $305 = trace: start of call of $196 with $271 $51 ($34 is responsible, code is at $34)
+  $306 = trace: start of call of $76 with $294 $66 $34 ($20 is responsible, code is at $20)
+  $307 = call $76 with $294 $66 $34 ($20 is responsible)
+  $308 = trace: end of call
+  $309 = call $42 with $271 $51 ($17 is responsible)
+  $310 = trace: start of call of $76 with $309 $67 $34 ($18 is responsible, code is at $18)
+  $311 = call $76 with $309 $67 $34 ($18 is responsible)
+  $312 = trace: end of call
+  $313 = call $41 with $271 $51 ($19 is responsible)
+  $314 = trace: end of call
+  $315 = trace: start of call of $313 with $57 ($35 is responsible, code is at $35)
+  $316 = call $313 with $57 ($35 is responsible)
+  $317 = trace: end of call
+  $318 = trace: end of call
+  $319 = trace: start of call of $230 with $302 ($30 is responsible, code is at $30)
+  $320 = call $230 with $302 ($30 is responsible)
+  $321 = trace: end of call
+  $322 = trace: start of call of $273 with $56 ($31 is responsible, code is at $31)
+  $323 = trace: start of call of $196 with $271 $51 ($34 is responsible, code is at $34)
+  $324 = trace: start of call of $76 with $294 $66 $34 ($20 is responsible, code is at $20)
+  $325 = call $76 with $294 $66 $34 ($20 is responsible)
+  $326 = trace: end of call
+  $327 = trace: start of call of $76 with $309 $67 $34 ($18 is responsible, code is at $18)
+  $328 = call $76 with $309 $67 $34 ($18 is responsible)
+  $329 = trace: end of call
+  $330 = trace: end of call
+  $331 = trace: start of call of $313 with $56 ($35 is responsible, code is at $35)
+  $332 = call $313 with $56 ($35 is responsible)
+  $333 = trace: end of call
+  $334 = trace: end of call
+  $335 = trace: tail call of $273 with $320 ($32 is responsible, code is at $32)
+  $336 = call $273 with $320 ($32 is responsible)
+}
