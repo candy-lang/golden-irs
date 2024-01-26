@@ -1,0 +1,48 @@
+# AST for module Examples:file
+assignment: struct
+  identifier $6@"print" = 
+  call identifier $0@"use" with these arguments:
+    text
+      textPart $2@"Builtins"
+assignment: struct
+  identifier $16@"result"
+  identifier $18@"text" = 
+  call identifier $10@"use" with these arguments:
+    text
+      textPart $12@"Core"
+assignment: identifier $129@"main" := 
+  function (non-fuzzable) { identifier $22@"environment" ->
+    assignment: list
+      identifier $28@"path" = 
+      struct access identifier $24@"environment".$26@"Arguments"
+    assignment: identifier $48@"file" = 
+      call struct access identifier $43@"result".$45@"Unwrap" with these arguments:
+        call struct access struct access struct access identifier $32@"environment".$34@"FileSystem".$36@"File".$38@"Open" with these arguments:
+          identifier $40@"path"
+    call identifier $51@"print" with these arguments:
+      text
+        textPart $53@"File: "
+        identifier $55@"file"
+    assignment: identifier $75@"bytes" = 
+      call struct access identifier $70@"result".$72@"Unwrap" with these arguments:
+        call struct access struct access struct access identifier $61@"environment".$63@"FileSystem".$65@"File".$67@"ReadToEnd" with these arguments:
+          identifier $59@"file"
+    call identifier $78@"print" with these arguments:
+      text
+        textPart $80@"Bytes: "
+        identifier $82@"bytes"
+    assignment: identifier $98@"text" = 
+      call struct access identifier $93@"result".$95@"Unwrap" with these arguments:
+        call struct access identifier $88@"text".$90@"FromUtf8" with these arguments:
+          identifier $86@"bytes"
+    call identifier $101@"print" with these arguments:
+      text
+        textPart $103@"Text: "
+        identifier $105@"text"
+    call struct access struct access struct access identifier $111@"environment".$113@"FileSystem".$115@"File".$117@"Close" with these arguments:
+      identifier $109@"file"
+    call identifier $120@"print" with these arguments:
+      text
+        textPart $122@"File: "
+        identifier $124@"file"
+  }
