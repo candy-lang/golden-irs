@@ -1,0 +1,79 @@
+# Optimized MIR for module Examples:
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? Only for panic traces
+# • Include tracing of evaluated expressions? No
+
+$1 = Builtins::print:11
+$2 = Builtins::print:5
+$3 = Builtins::typeIs:19
+$4 = Builtins::typeIs:25
+$5 = Examples::12:24
+$6 = anonymous:$generated::needs
+$7 = builtinEquals
+$8 = builtinIfElse
+$9 = builtinPrint
+$10 = builtinTypeOf
+$11 = False
+$12 = Nothing
+$13 = Text
+$14 = True
+$15 = "3"
+$16 = "The `condition` must be either `True` or `False`."
+$17 = "The `reason` must be a text."
+$18 = "`message | typeIs Text` was not satisfied"
+# Builtins::ifElse:1:case-0:matched, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched, anonymous:$generated::needs:isConditionTrue:then
+$19 = { (responsible $20) ->
+  $21 = $14
+}
+# Examples::then, anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+$22 = { (responsible $23) ->
+  $24 = $12
+}
+# anonymous:$generated::needs
+$25 = { $26 $27 $28 (+ responsible $29) ->
+  $30 = call $7 with $26 $14 ($6 is responsible)
+  # anonymous:$generated::needs:isConditionTrue:else
+  $31 = { (responsible $32) ->
+    $33 = call $7 with $26 $11 ($6 is responsible)
+  }
+  $34 = call $8 with $30 $19 $31 ($6 is responsible)
+  # anonymous:$generated::needs:isConditionBool:else
+  $35 = { (responsible $36) ->
+    $37 = panicking because $16 ($29 is at fault)
+  }
+  $38 = call $8 with $34 $22 $35 ($6 is responsible)
+  $39 = call $10 with $27 ($29 is responsible)
+  $40 = call $7 with $39 $13 ($29 is responsible)
+  # anonymous:$generated::needs:isReasonText:else
+  $41 = { (responsible $42) ->
+    $43 = panicking because $17 ($29 is at fault)
+  }
+  $44 = call $8 with $40 $22 $41 ($6 is responsible)
+  # anonymous:$generated::needs:condition:else
+  $45 = { (responsible $46) ->
+    $47 = panicking because $27 ($28 is at fault)
+  }
+  $48 = call $8 with $26 $22 $45 ($6 is responsible)
+}
+# Builtins::print
+$49 = { $50 (+ responsible $51) ->
+  $52 = call $10 with $50 ($3 is responsible)
+  $53 = call $7 with $52 $13 ($4 is responsible)
+  $54 = trace: start of call of $25 with $53 $18 $51 ($2 is responsible, code is at $2)
+  $55 = call $25 with $53 $18 $51 ($2 is responsible)
+  $56 = trace: end of call
+  $57 = trace: tail call of $9 with $50 ($1 is responsible, code is at $1)
+  $58 = call $9 with $50 ($1 is responsible)
+}
+# Examples::12
+$61 = { $62 (+ responsible $63) ->
+  $64 = trace: start of call of $49 with $15 ($5 is responsible, code is at $5)
+  $65 = trace: start of call of $9 with $15 ($1 is responsible, code is at $1)
+  $66 = call $9 with $15 ($1 is responsible)
+  $67 = trace: end of call
+  $68 = trace: end of call
+  $69 = $66
+}
