@@ -1,0 +1,1371 @@
+# Optimized LIR for module Examples:file
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? Only for panic traces
+# • Include tracing of evaluated expressions? No
+
+# Constants
+%0 = Builtins::equals:6
+%1 = Builtins::print:11
+%2 = Builtins::print:5
+%3 = Builtins::structGet:12
+%4 = Builtins::structGet:14
+%5 = Builtins::structGet:21
+%6 = Builtins::structGet:5
+%7 = Builtins::tagGetValue:11
+%8 = Builtins::tagGetValue:13
+%9 = Builtins::tagGetValue:19
+%10 = Builtins::tagGetValue:5
+%11 = Builtins::tagWithoutValue:11
+%12 = Builtins::tagWithoutValue:5
+%13 = Builtins::textFromUtf8:11
+%14 = Builtins::textFromUtf8:5
+%15 = Builtins::typeIs:19
+%16 = Builtins::typeIs:25
+%17 = Core:result:getValue:12
+%18 = Core:result:getValue:2
+%19 = Core:result:getValue:4
+%20 = Core:result:is:1
+%21 = Core:result:isOk:12
+%22 = Core:result:isOk:2
+%23 = Core:result:isOk:4
+%24 = Core:result:unwrap:12
+%25 = Core:result:unwrap:2
+%26 = Core:result:unwrap:4
+%27 = Core:result:unwrap:7
+%28 = Core:result:unwrap:9
+%29 = Examples:file:24:106
+%30 = Examples:file:24:117
+%31 = Examples:file:24:118
+%32 = Examples:file:24:120:0
+%33 = Examples:file:24:121
+%34 = Examples:file:24:122
+%35 = Examples:file:24:123
+%36 = Examples:file:24:136
+%37 = Examples:file:24:138
+%38 = Examples:file:24:140
+%39 = Examples:file:24:141
+%40 = Examples:file:24:151
+%41 = Examples:file:24:152
+%42 = Examples:file:24:154:0
+%43 = Examples:file:24:155
+%44 = Examples:file:24:156
+%45 = Examples:file:24:157
+%46 = Examples:file:24:19
+%47 = Examples:file:24:21
+%48 = Examples:file:24:23
+%49 = Examples:file:24:25
+%50 = Examples:file:24:32
+%51 = Examples:file:24:43
+%52 = Examples:file:24:44
+%53 = Examples:file:24:46:0
+%54 = Examples:file:24:47
+%55 = Examples:file:24:48
+%56 = Examples:file:24:49
+%57 = Examples:file:24:5
+%58 = Examples:file:24:6
+%59 = Examples:file:24:62
+%60 = Examples:file:24:64
+%61 = Examples:file:24:66
+%62 = Examples:file:24:67
+%63 = Examples:file:24:74
+%64 = Examples:file:24:85
+%65 = Examples:file:24:86
+%66 = Examples:file:24:88:0
+%67 = Examples:file:24:89
+%68 = Examples:file:24:90
+%69 = Examples:file:24:91
+%70 = Examples:file:24:99
+%71 = Examples:file:24:path
+%72 = anonymous:$generated::needs
+%73 = builtinEquals
+%74 = builtinIfElse
+%75 = builtinListGet
+%76 = builtinListLength
+%77 = builtinPrint
+%78 = builtinStructGet
+%79 = builtinStructHasKey
+%80 = builtinTagGetValue
+%81 = builtinTagHasValue
+%82 = builtinTagWithoutValue
+%83 = builtinTextConcatenate
+%84 = builtinTextFromUtf8
+%85 = builtinToDebugText
+%86 = builtinTypeOf
+%87 = Arguments
+%88 = Close
+%89 = Error
+%90 = False
+%91 = File
+%92 = FileSystem
+%93 = List
+%94 = Match
+%95 = NoMatch
+%96 = Nothing
+%97 = Ok
+%98 = Open
+%99 = ReadToEnd
+%100 = Struct
+%101 = Tag
+%102 = Text
+%103 = True
+%104 = 0
+%105 = 1
+%106 = "Bytes: "
+%107 = "File: "
+%108 = "Text: "
+%109 = "The `condition` must be either `True` or `False`."
+%110 = "The `reason` must be a text."
+%111 = "The value doesn't match the pattern on the left side of the destructuring."
+%112 = "`bytes | typeIs List` was not satisfied"
+%113 = "`is result` was not satisfied"
+%114 = "`isOk result` was not satisfied"
+%115 = "`message | typeIs Text` was not satisfied"
+%116 = "`struct | typeIs Struct` was not satisfied"
+%117 = "`struct | ✨.structHasKey key` was not satisfied"
+%118 = "`tag | typeIs Tag` was not satisfied"
+%119 = "`tag | ✨.tagHasValue` was not satisfied"
+%120 = { body_0 }
+%121 = { body_1 }
+%122 = { body_6 }
+%123 = { body_7 }
+%124 = { body_8 }
+%125 = { body_9 }
+%126 = { body_10 }
+%127 = { body_11 }
+%128 = { body_12 }
+%129 = { body_13 }
+%130 = { body_22 }
+%131 = { body_31 }
+%132 = { body_40 }
+%133 = { body_51 }
+%134 = { body_52 }
+%135 = { body_62 }
+
+# Bodies
+body_0 (responsible $0) =
+  # Original HIR IDs: Builtins::ifElse:1:case-0:matched, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched, Core:bool:is:1:case-0:matched, Core:bool:lazyOr:16:case-0:matched, Core:bool:not:6:case-1:matched, Core:check:check:1:case-0:matched, Core:result:is:1:case-0:matched, Core:text:isAsciiDigit:14:case-0:matched, anonymous:$generated::needs:isConditionTrue:then
+  # Captured IDs: none
+  $1 = %103<True>
+body_1 (responsible $0) =
+  # Original HIR IDs: Core::21:isMatch:then, Core::32:isMatch:then, Core::43:isMatch:then, Core::104:isMatch:then, Core::155:isMatch:then, Core::166:isMatch:then, Core:bool:11:isMatch:then, Core:check:11:isMatch:then, Core:controlFlow:if:23, Core:controlFlow:31:isMatch:then, Core:controlFlow:52:isMatch:then, Core:fixedDecimal:21:isMatch:then, Core:fixedDecimal:32:isMatch:then, Core:fixedDecimal:43:isMatch:then, Core:fixedDecimal:54:isMatch:then, Core:fixedDecimal:105:isMatch:then, Core:function:21:isMatch:then, Core:int:pow:21:1:isMatch:then, Core:int:31:isMatch:then, Core:int:42:isMatch:then, Core:iterator:foldLeft:21:1:isMatch:then, Core:iterator:next:6:isMatch:then, Core:iterator:skip:26:6:1:isMatch:then, Core:iterator:take:27:1:isMatch:then, Core:iterator:withIndex:11:1:isMatch:then, Core:iterator:21:isMatch:then, Core:iterator:32:isMatch:then, Core:list:firstIndexWhere:21:1:isMatch:then, Core:list:generate:51:1:isMatch:then, Core:list:lastIndexWhere:38:1:isMatch:then, Core:list:31:isMatch:then, Core:list:42:isMatch:then, Core:result:21:isMatch:then, Core:result:32:isMatch:then, Core:struct:21:isMatch:then, Core:tag:31:isMatch:then, Core:text:repeat:30:1:isMatch:then, Core:text:31:isMatch:then, Core:text:42:isMatch:then, Core:type:21:isMatch:then, Examples:file:then, Examples:file:11:isMatch:then, Examples:file:22:isMatch:then, Examples:file:24:6:isMatch:then, anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+  # Captured IDs: none
+  $1 = %96<Nothing>
+body_2 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionTrue:else
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %73<builtinEquals>
+  $4 = %90<False>
+  $5 = %72<anonymous:$generated::needs>
+  $6 = call $3<%73<builtinEquals>> with $0 $4<%90<False>> ($5<%72<anonymous:$generated::needs>> is responsible)
+body_3 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionBool:else
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %109<"The `condition` must be either `True` or `False`.">
+  $4 = panicking because $3<%109<"The `condition` must be either `True` or `False`.">> ($0 is at fault)
+body_4 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isReasonText:else
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %110<"The `reason` must be a text.">
+  $4 = panicking because $3<%110<"The `reason` must be a text.">> ($0 is at fault)
+body_5 (responsible $2) =
+  # Original HIR IDs: anonymous:$generated::needs:condition:else
+  # Captured IDs: $0, $1
+  $3 = dup $0 by 1
+  $4 = dup $1 by 1
+  $5 = panicking because $0 ($1 is at fault)
+body_6 $0 $1 $2 (+ responsible $3) =
+  # Original HIR IDs: anonymous:$generated::needs
+  # Captured IDs: none
+  $4 = dup $0 by 2
+  $5 = dup $1 by 1
+  $6 = dup $3 by 2
+  $7 = %73<builtinEquals>
+  $8 = %103<True>
+  $9 = %72<anonymous:$generated::needs>
+  $10 = call $7<%73<builtinEquals>> with $0 $8<%103<True>> ($9<%72<anonymous:$generated::needs>> is responsible)
+  $11 = { body_2 capturing $0 }
+  $12 = %74<builtinIfElse>
+  $13 = %120<{ body_0 }>
+  $14 = call $12<%74<builtinIfElse>> with $10 $13<%120<{ body_0 }>> $11 ($9<%72<anonymous:$generated::needs>> is responsible)
+  $15 = { body_3 capturing $3 }
+  $16 = %121<{ body_1 }>
+  $17 = call $12<%74<builtinIfElse>> with $14 $16<%121<{ body_1 }>> $15 ($9<%72<anonymous:$generated::needs>> is responsible)
+  $18 = %86<builtinTypeOf>
+  $19 = call $18<%86<builtinTypeOf>> with $1 ($3 is responsible)
+  $20 = %102<Text>
+  $21 = call $7<%73<builtinEquals>> with $19 $20<%102<Text>> ($3 is responsible)
+  $22 = { body_4 capturing $3 }
+  $23 = call $12<%74<builtinIfElse>> with $21 $16<%121<{ body_1 }>> $22 ($9<%72<anonymous:$generated::needs>> is responsible)
+  $24 = { body_5 capturing $1, $2 }
+  $25 = drop $17
+  $26 = drop $23
+  $27 = call $12<%74<builtinIfElse>> with $0 $16<%121<{ body_1 }>> $24 ($9<%72<anonymous:$generated::needs>> is responsible)
+body_7 (responsible $0) =
+  # Original HIR IDs: Builtins::ifElse:1:equals:else, Builtins::isLessThanOrEqualTo:19:equals:else, Builtins::isNonNegative:13:equals:else, Builtins::not:1:equals:else, Core::21:equals:else, Core::32:equals:else, Core::43:equals:else, Core::104:equals:else, Core::155:equals:else, Core::166:equals:else, Core:bool:is:1:equals:else, Core:bool:lazyAnd:16:equals:else, Core:bool:lazyOr:16:equals:else, Core:bool:not:6:equals:else, Core:bool:11:equals:else, Core:check:check:1:equals:else, Core:check:11:equals:else, Core:controlFlow:31:equals:else, Core:controlFlow:52:equals:else, Core:fixedDecimal:is:1:equals:else, Core:fixedDecimal:is:1:hasKey:else, Core:fixedDecimal:21:equals:else, Core:fixedDecimal:32:equals:else, Core:fixedDecimal:43:equals:else, Core:fixedDecimal:54:equals:else, Core:fixedDecimal:105:equals:else, Core:function:21:equals:else, Core:int:pow:21:1:equals:else, Core:int:pow:21:1:hasKey:else, Core:int:pow:21:4:equals:else, Core:int:31:equals:else, Core:int:42:equals:else, Core:iterator:foldLeft:21:1:equals:else, Core:iterator:foldLeft:21:1:hasKey:else, Core:iterator:foldLeft:21:5:equals:else, Core:iterator:foldLeft:21:5:hasKey:else, Core:iterator:generateWithState:12:1:3:equals:else, Core:iterator:generateWithState:12:1:3:hasKey:else, Core:iterator:map:17:3:equals:else, Core:iterator:map:17:3:hasKey:else, Core:iterator:next:6:equals:else, Core:iterator:reduceLeft:16:equals:else, Core:iterator:reduceLeft:16:hasKey:else, Core:iterator:skip:26:6:1:equals:else, Core:iterator:skip:26:6:1:hasKey:else, Core:iterator:skip:26:6:8:3:equals:else, Core:iterator:skip:26:6:8:3:hasKey:else, Core:iterator:take:27:1:equals:else, Core:iterator:take:27:1:hasKey:else, Core:iterator:takeWhile:7:3:equals:else, Core:iterator:takeWhile:7:3:hasKey:else, Core:iterator:where:17:2:3:equals:else, Core:iterator:where:17:2:3:hasKey:else, Core:iterator:where:17:2:3:6:5:equals:else, Core:iterator:where:17:2:3:6:5:hasKey:else, Core:iterator:withIndex:11:1:equals:else, Core:iterator:withIndex:11:1:hasKey:else, Core:iterator:withIndex:11:5:equals:else, Core:iterator:withIndex:11:5:hasKey:else, Core:iterator:wrapSafe:14:1:equals:else, Core:iterator:wrapSafe:14:22:8:equals:else, Core:iterator:wrapSafe:14:22:8:hasKey:else, Core:iterator:21:equals:else, Core:iterator:32:equals:else, Core:list:first:6:equals:else, Core:list:firstIndexWhere:21:1:equals:else, Core:list:firstIndexWhere:21:1:hasKey:else, Core:list:firstWhere:19:equals:else, Core:list:generate:51:1:equals:else, Core:list:generate:51:1:hasKey:else, Core:list:lastIndexWhere:38:1:equals:else, Core:list:lastIndexWhere:38:1:hasKey:else, Core:list:lastWhere:19:equals:else, Core:list:single:6:equals:else, Core:list:31:equals:else, Core:list:42:equals:else, Core:result:is:1:equals:else, Core:result:mapOrElse:26:equals:else, Core:result:21:equals:else, Core:result:32:equals:else, Core:struct:21:equals:else, Core:tag:31:equals:else, Core:text:isAsciiDigit:14:equals:else, Core:text:repeat:30:1:equals:else, Core:text:31:equals:else, Core:text:42:equals:else, Examples:file:11:equals:else, Examples:file:22:equals:else, Examples:file:24:6:equals:else
+  # Captured IDs: none
+  $1 = %95<NoMatch>
+body_8 (responsible $0) =
+  # Original HIR IDs: Builtins::ifElse:1:case-0:didNotMatch, Builtins::isLessThanOrEqualTo:19:case-1:matched, Builtins::isNonNegative:13:case-1:matched, Builtins::not:1:case-0:matched, Core:bool:is:1:case-0:didNotMatch, Core:bool:lazyAnd:16:case-1:matched, Core:bool:not:6:case-0:matched, Core:check:check:1:case-0:didNotMatch, Core:fixedDecimal:is:1:case-0:didNotMatch, Core:function:is0:10, Core:function:is1:10, Core:function:is2:10, Core:function:is3:10, Core:function:is4:10, Core:function:is5:10, Core:list:isValidIndex:19, Core:list:isValidInsertIndex:19, Core:result:is:1:case-0:didNotMatch, Core:text:isAsciiDigit:14:case-0:didNotMatch, anonymous:$generated::needs:isConditionTrue:else
+  # Captured IDs: none
+  $1 = %90<False>
+body_9 $0 (+ responsible $1) =
+  # Original HIR IDs: Builtins::print
+  # Captured IDs: none
+  $2 = dup $0 by 2
+  $3 = dup $1 by 2
+  $4 = %86<builtinTypeOf>
+  $5 = %15<Builtins::typeIs:19>
+  $6 = call $4<%86<builtinTypeOf>> with $0 ($5<%15<Builtins::typeIs:19>> is responsible)
+  $7 = %73<builtinEquals>
+  $8 = %102<Text>
+  $9 = %16<Builtins::typeIs:25>
+  $10 = call $7<%73<builtinEquals>> with $6 $8<%102<Text>> ($9<%16<Builtins::typeIs:25>> is responsible)
+  $11 = dup $10 by 1
+  $12 = %2<Builtins::print:5>
+  $13 = %122<{ body_6 }>
+  $14 = %115<"`message | typeIs Text` was not satisfied">
+  $15 = trace: start of call of $13<%122<{ body_6 }>> with $10 $14<%115<"`message | typeIs Text` was not satisfied">> $1 ($12<%2<Builtins::print:5>> is responsible, code is at $12<%2<Builtins::print:5>>)
+  $16 = call $13<%122<{ body_6 }>> with $10 $14<%115<"`message | typeIs Text` was not satisfied">> $1 ($12<%2<Builtins::print:5>> is responsible)
+  $17 = trace: end of call
+  $18 = %1<Builtins::print:11>
+  $19 = %77<builtinPrint>
+  $20 = trace: tail call of $19<%77<builtinPrint>> with $0 ($18<%1<Builtins::print:11>> is responsible, code is at $18<%1<Builtins::print:11>>)
+  $21 = drop $16
+  $22 = call $19<%77<builtinPrint>> with $0 ($18<%1<Builtins::print:11>> is responsible)
+body_10 $0 $1 (+ responsible $2) =
+  # Original HIR IDs: Builtins::structGet
+  # Captured IDs: none
+  $3 = dup $0 by 2
+  $4 = dup $1 by 1
+  $5 = dup $2 by 4
+  $6 = %86<builtinTypeOf>
+  $7 = %15<Builtins::typeIs:19>
+  $8 = call $6<%86<builtinTypeOf>> with $0 ($7<%15<Builtins::typeIs:19>> is responsible)
+  $9 = %73<builtinEquals>
+  $10 = %100<Struct>
+  $11 = %16<Builtins::typeIs:25>
+  $12 = call $9<%73<builtinEquals>> with $8 $10<%100<Struct>> ($11<%16<Builtins::typeIs:25>> is responsible)
+  $13 = dup $12 by 1
+  $14 = %6<Builtins::structGet:5>
+  $15 = %122<{ body_6 }>
+  $16 = %116<"`struct | typeIs Struct` was not satisfied">
+  $17 = trace: start of call of $15<%122<{ body_6 }>> with $12 $16<%116<"`struct | typeIs Struct` was not satisfied">> $2 ($14<%6<Builtins::structGet:5>> is responsible, code is at $14<%6<Builtins::structGet:5>>)
+  $18 = call $15<%122<{ body_6 }>> with $12 $16<%116<"`struct | typeIs Struct` was not satisfied">> $2 ($14<%6<Builtins::structGet:5>> is responsible)
+  $19 = trace: end of call
+  $20 = %79<builtinStructHasKey>
+  $21 = %3<Builtins::structGet:12>
+  $22 = call $20<%79<builtinStructHasKey>> with $0 $1 ($21<%3<Builtins::structGet:12>> is responsible)
+  $23 = dup $22 by 1
+  $24 = %4<Builtins::structGet:14>
+  $25 = %117<"`struct | ✨.structHasKey key` was not satisfied">
+  $26 = trace: start of call of $15<%122<{ body_6 }>> with $22 $25<%117<"`struct | ✨.structHasKey key` was not satisfied">> $2 ($24<%4<Builtins::structGet:14>> is responsible, code is at $24<%4<Builtins::structGet:14>>)
+  $27 = call $15<%122<{ body_6 }>> with $22 $25<%117<"`struct | ✨.structHasKey key` was not satisfied">> $2 ($24<%4<Builtins::structGet:14>> is responsible)
+  $28 = trace: end of call
+  $29 = %78<builtinStructGet>
+  $30 = %5<Builtins::structGet:21>
+  $31 = drop $18
+  $32 = drop $27
+  $33 = call $29<%78<builtinStructGet>> with $0 $1 ($30<%5<Builtins::structGet:21>> is responsible)
+body_11 $0 (+ responsible $1) =
+  # Original HIR IDs: Builtins::tagGetValue
+  # Captured IDs: none
+  $2 = dup $0 by 2
+  $3 = dup $1 by 4
+  $4 = %86<builtinTypeOf>
+  $5 = %15<Builtins::typeIs:19>
+  $6 = call $4<%86<builtinTypeOf>> with $0 ($5<%15<Builtins::typeIs:19>> is responsible)
+  $7 = %73<builtinEquals>
+  $8 = %101<Tag>
+  $9 = %16<Builtins::typeIs:25>
+  $10 = call $7<%73<builtinEquals>> with $6 $8<%101<Tag>> ($9<%16<Builtins::typeIs:25>> is responsible)
+  $11 = dup $10 by 1
+  $12 = %10<Builtins::tagGetValue:5>
+  $13 = %122<{ body_6 }>
+  $14 = %118<"`tag | typeIs Tag` was not satisfied">
+  $15 = trace: start of call of $13<%122<{ body_6 }>> with $10 $14<%118<"`tag | typeIs Tag` was not satisfied">> $1 ($12<%10<Builtins::tagGetValue:5>> is responsible, code is at $12<%10<Builtins::tagGetValue:5>>)
+  $16 = call $13<%122<{ body_6 }>> with $10 $14<%118<"`tag | typeIs Tag` was not satisfied">> $1 ($12<%10<Builtins::tagGetValue:5>> is responsible)
+  $17 = trace: end of call
+  $18 = %81<builtinTagHasValue>
+  $19 = %7<Builtins::tagGetValue:11>
+  $20 = call $18<%81<builtinTagHasValue>> with $0 ($19<%7<Builtins::tagGetValue:11>> is responsible)
+  $21 = dup $20 by 1
+  $22 = %8<Builtins::tagGetValue:13>
+  $23 = %119<"`tag | ✨.tagHasValue` was not satisfied">
+  $24 = trace: start of call of $13<%122<{ body_6 }>> with $20 $23<%119<"`tag | ✨.tagHasValue` was not satisfied">> $1 ($22<%8<Builtins::tagGetValue:13>> is responsible, code is at $22<%8<Builtins::tagGetValue:13>>)
+  $25 = call $13<%122<{ body_6 }>> with $20 $23<%119<"`tag | ✨.tagHasValue` was not satisfied">> $1 ($22<%8<Builtins::tagGetValue:13>> is responsible)
+  $26 = trace: end of call
+  $27 = %80<builtinTagGetValue>
+  $28 = %9<Builtins::tagGetValue:19>
+  $29 = drop $16
+  $30 = drop $25
+  $31 = call $27<%80<builtinTagGetValue>> with $0 ($28<%9<Builtins::tagGetValue:19>> is responsible)
+body_12 $0 (+ responsible $1) =
+  # Original HIR IDs: Builtins::tagWithoutValue
+  # Captured IDs: none
+  $2 = dup $0 by 1
+  $3 = dup $1 by 2
+  $4 = %86<builtinTypeOf>
+  $5 = %15<Builtins::typeIs:19>
+  $6 = call $4<%86<builtinTypeOf>> with $0 ($5<%15<Builtins::typeIs:19>> is responsible)
+  $7 = %73<builtinEquals>
+  $8 = %101<Tag>
+  $9 = %16<Builtins::typeIs:25>
+  $10 = call $7<%73<builtinEquals>> with $6 $8<%101<Tag>> ($9<%16<Builtins::typeIs:25>> is responsible)
+  $11 = dup $10 by 1
+  $12 = %12<Builtins::tagWithoutValue:5>
+  $13 = %122<{ body_6 }>
+  $14 = %118<"`tag | typeIs Tag` was not satisfied">
+  $15 = trace: start of call of $13<%122<{ body_6 }>> with $10 $14<%118<"`tag | typeIs Tag` was not satisfied">> $1 ($12<%12<Builtins::tagWithoutValue:5>> is responsible, code is at $12<%12<Builtins::tagWithoutValue:5>>)
+  $16 = call $13<%122<{ body_6 }>> with $10 $14<%118<"`tag | typeIs Tag` was not satisfied">> $1 ($12<%12<Builtins::tagWithoutValue:5>> is responsible)
+  $17 = trace: end of call
+  $18 = %82<builtinTagWithoutValue>
+  $19 = %11<Builtins::tagWithoutValue:11>
+  $20 = drop $16
+  $21 = call $18<%82<builtinTagWithoutValue>> with $0 ($19<%11<Builtins::tagWithoutValue:11>> is responsible)
+body_13 $0 (+ responsible $1) =
+  # Original HIR IDs: Builtins::textFromUtf8
+  # Captured IDs: none
+  $2 = dup $0 by 1
+  $3 = dup $1 by 2
+  $4 = %86<builtinTypeOf>
+  $5 = %15<Builtins::typeIs:19>
+  $6 = call $4<%86<builtinTypeOf>> with $0 ($5<%15<Builtins::typeIs:19>> is responsible)
+  $7 = %73<builtinEquals>
+  $8 = %93<List>
+  $9 = %16<Builtins::typeIs:25>
+  $10 = call $7<%73<builtinEquals>> with $6 $8<%93<List>> ($9<%16<Builtins::typeIs:25>> is responsible)
+  $11 = dup $10 by 1
+  $12 = %14<Builtins::textFromUtf8:5>
+  $13 = %122<{ body_6 }>
+  $14 = %112<"`bytes | typeIs List` was not satisfied">
+  $15 = trace: start of call of $13<%122<{ body_6 }>> with $10 $14<%112<"`bytes | typeIs List` was not satisfied">> $1 ($12<%14<Builtins::textFromUtf8:5>> is responsible, code is at $12<%14<Builtins::textFromUtf8:5>>)
+  $16 = call $13<%122<{ body_6 }>> with $10 $14<%112<"`bytes | typeIs List` was not satisfied">> $1 ($12<%14<Builtins::textFromUtf8:5>> is responsible)
+  $17 = trace: end of call
+  $18 = %84<builtinTextFromUtf8>
+  $19 = %13<Builtins::textFromUtf8:11>
+  $20 = drop $16
+  $21 = call $18<%84<builtinTextFromUtf8>> with $0 ($19<%13<Builtins::textFromUtf8:11>> is responsible)
+body_14 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %80<builtinTagGetValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%80<builtinTagGetValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = ($5,)
+  $7 = Match $6
+body_15 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %81<builtinTagHasValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%81<builtinTagHasValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %103<True>
+  $8 = call $6<%73<builtinEquals>> with $7<%103<True>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_14 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_16 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %82<builtinTagWithoutValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%82<builtinTagWithoutValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %97<Ok>
+  $8 = call $6<%73<builtinEquals>> with $7<%97<Ok>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_15 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_17 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:isMatch:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = $0
+body_18 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %80<builtinTagGetValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%80<builtinTagGetValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = ($5,)
+  $7 = Match $6
+body_19 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %81<builtinTagHasValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%81<builtinTagHasValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %103<True>
+  $8 = call $6<%73<builtinEquals>> with $7<%103<True>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_18 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_20 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %82<builtinTagWithoutValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%82<builtinTagWithoutValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %89<Error>
+  $8 = call $6<%73<builtinEquals>> with $7<%89<Error>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_19 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_21 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:isMatch:else
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %86<builtinTypeOf>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%86<builtinTypeOf>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %101<Tag>
+  $8 = call $6<%73<builtinEquals>> with $7<%101<Tag>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_20 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_22 $0 (+ responsible $1) =
+  # Original HIR IDs: Core:result:is
+  # Captured IDs: none
+  $2 = dup $0 by 2
+  $3 = %86<builtinTypeOf>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%86<builtinTypeOf>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %101<Tag>
+  $8 = call $6<%73<builtinEquals>> with $7<%101<Tag>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_16 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+  $13 = dup $12 by 1
+  $14 = %82<builtinTagWithoutValue>
+  $15 = call $14<%82<builtinTagWithoutValue>> with $12 ($4<%20<Core:result:is:1>> is responsible)
+  $16 = %94<Match>
+  $17 = call $6<%73<builtinEquals>> with $15 $16<%94<Match>> ($4<%20<Core:result:is:1>> is responsible)
+  $18 = { body_17 capturing $12 }
+  $19 = { body_21 capturing $0 }
+  $20 = call $10<%74<builtinIfElse>> with $17 $18 $19 ($4<%20<Core:result:is:1>> is responsible)
+  $21 = call $14<%82<builtinTagWithoutValue>> with $20 ($4<%20<Core:result:is:1>> is responsible)
+  $22 = call $6<%73<builtinEquals>> with $21 $16<%94<Match>> ($4<%20<Core:result:is:1>> is responsible)
+  $23 = %120<{ body_0 }>
+  $24 = %124<{ body_8 }>
+  $25 = call $10<%74<builtinIfElse>> with $22 $23<%120<{ body_0 }>> $24<%124<{ body_8 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_23 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %80<builtinTagGetValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%80<builtinTagGetValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = ($5,)
+  $7 = Match $6
+body_24 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %81<builtinTagHasValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%81<builtinTagHasValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %103<True>
+  $8 = call $6<%73<builtinEquals>> with $7<%103<True>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_23 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_25 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %82<builtinTagWithoutValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%82<builtinTagWithoutValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %97<Ok>
+  $8 = call $6<%73<builtinEquals>> with $7<%97<Ok>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_24 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_26 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:isMatch:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = $0
+body_27 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %80<builtinTagGetValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%80<builtinTagGetValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = ($5,)
+  $7 = Match $6
+body_28 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %81<builtinTagHasValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%81<builtinTagHasValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %103<True>
+  $8 = call $6<%73<builtinEquals>> with $7<%103<True>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_27 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_29 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %82<builtinTagWithoutValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%82<builtinTagWithoutValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %89<Error>
+  $8 = call $6<%73<builtinEquals>> with $7<%89<Error>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_28 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_30 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:isMatch:else
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %86<builtinTypeOf>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%86<builtinTypeOf>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %101<Tag>
+  $8 = call $6<%73<builtinEquals>> with $7<%101<Tag>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_29 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_31 $0 (+ responsible $1) =
+  # Original HIR IDs: Core:result:getValue
+  # Captured IDs: none
+  $2 = dup $0 by 7
+  $3 = dup $1 by 2
+  $4 = %18<Core:result:getValue:2>
+  $5 = %130<{ body_22 }>
+  $6 = trace: start of call of $5<%130<{ body_22 }>> with $0 ($4<%18<Core:result:getValue:2>> is responsible, code is at $4<%18<Core:result:getValue:2>>)
+  $7 = %86<builtinTypeOf>
+  $8 = %20<Core:result:is:1>
+  $9 = call $7<%86<builtinTypeOf>> with $0 ($8<%20<Core:result:is:1>> is responsible)
+  $10 = %73<builtinEquals>
+  $11 = %101<Tag>
+  $12 = call $10<%73<builtinEquals>> with $11<%101<Tag>> $9 ($8<%20<Core:result:is:1>> is responsible)
+  $13 = { body_25 capturing $0 }
+  $14 = %74<builtinIfElse>
+  $15 = %123<{ body_7 }>
+  $16 = call $14<%74<builtinIfElse>> with $12 $13 $15<%123<{ body_7 }>> ($8<%20<Core:result:is:1>> is responsible)
+  $17 = dup $16 by 1
+  $18 = %82<builtinTagWithoutValue>
+  $19 = call $18<%82<builtinTagWithoutValue>> with $16 ($8<%20<Core:result:is:1>> is responsible)
+  $20 = %94<Match>
+  $21 = call $10<%73<builtinEquals>> with $19 $20<%94<Match>> ($8<%20<Core:result:is:1>> is responsible)
+  $22 = { body_26 capturing $16 }
+  $23 = { body_30 capturing $0 }
+  $24 = call $14<%74<builtinIfElse>> with $21 $22 $23 ($8<%20<Core:result:is:1>> is responsible)
+  $25 = call $18<%82<builtinTagWithoutValue>> with $24 ($8<%20<Core:result:is:1>> is responsible)
+  $26 = call $10<%73<builtinEquals>> with $25 $20<%94<Match>> ($8<%20<Core:result:is:1>> is responsible)
+  $27 = %120<{ body_0 }>
+  $28 = %124<{ body_8 }>
+  $29 = call $14<%74<builtinIfElse>> with $26 $27<%120<{ body_0 }>> $28<%124<{ body_8 }>> ($8<%20<Core:result:is:1>> is responsible)
+  $30 = dup $29 by 1
+  $31 = trace: end of call
+  $32 = %19<Core:result:getValue:4>
+  $33 = %122<{ body_6 }>
+  $34 = %113<"`is result` was not satisfied">
+  $35 = trace: start of call of $33<%122<{ body_6 }>> with $29 $34<%113<"`is result` was not satisfied">> $1 ($32<%19<Core:result:getValue:4>> is responsible, code is at $32<%19<Core:result:getValue:4>>)
+  $36 = call $33<%122<{ body_6 }>> with $29 $34<%113<"`is result` was not satisfied">> $1 ($32<%19<Core:result:getValue:4>> is responsible)
+  $37 = trace: end of call
+  $38 = %17<Core:result:getValue:12>
+  $39 = %127<{ body_11 }>
+  $40 = trace: tail call of $39<%127<{ body_11 }>> with $0 ($38<%17<Core:result:getValue:12>> is responsible, code is at $38<%17<Core:result:getValue:12>>)
+  $41 = %15<Builtins::typeIs:19>
+  $42 = call $7<%86<builtinTypeOf>> with $0 ($41<%15<Builtins::typeIs:19>> is responsible)
+  $43 = %16<Builtins::typeIs:25>
+  $44 = call $10<%73<builtinEquals>> with $42 $11<%101<Tag>> ($43<%16<Builtins::typeIs:25>> is responsible)
+  $45 = dup $44 by 1
+  $46 = %10<Builtins::tagGetValue:5>
+  $47 = %118<"`tag | typeIs Tag` was not satisfied">
+  $48 = trace: start of call of $33<%122<{ body_6 }>> with $44 $47<%118<"`tag | typeIs Tag` was not satisfied">> $38<%17<Core:result:getValue:12>> ($46<%10<Builtins::tagGetValue:5>> is responsible, code is at $46<%10<Builtins::tagGetValue:5>>)
+  $49 = call $33<%122<{ body_6 }>> with $44 $47<%118<"`tag | typeIs Tag` was not satisfied">> $38<%17<Core:result:getValue:12>> ($46<%10<Builtins::tagGetValue:5>> is responsible)
+  $50 = trace: end of call
+  $51 = %81<builtinTagHasValue>
+  $52 = %7<Builtins::tagGetValue:11>
+  $53 = call $51<%81<builtinTagHasValue>> with $0 ($52<%7<Builtins::tagGetValue:11>> is responsible)
+  $54 = dup $53 by 1
+  $55 = %8<Builtins::tagGetValue:13>
+  $56 = %119<"`tag | ✨.tagHasValue` was not satisfied">
+  $57 = trace: start of call of $33<%122<{ body_6 }>> with $53 $56<%119<"`tag | ✨.tagHasValue` was not satisfied">> $38<%17<Core:result:getValue:12>> ($55<%8<Builtins::tagGetValue:13>> is responsible, code is at $55<%8<Builtins::tagGetValue:13>>)
+  $58 = call $33<%122<{ body_6 }>> with $53 $56<%119<"`tag | ✨.tagHasValue` was not satisfied">> $38<%17<Core:result:getValue:12>> ($55<%8<Builtins::tagGetValue:13>> is responsible)
+  $59 = trace: end of call
+  $60 = %80<builtinTagGetValue>
+  $61 = %9<Builtins::tagGetValue:19>
+  $62 = drop $36
+  $63 = drop $49
+  $64 = drop $58
+  $65 = call $60<%80<builtinTagGetValue>> with $0 ($61<%9<Builtins::tagGetValue:19>> is responsible)
+body_32 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %80<builtinTagGetValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%80<builtinTagGetValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = ($5,)
+  $7 = Match $6
+body_33 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %81<builtinTagHasValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%81<builtinTagHasValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %103<True>
+  $8 = call $6<%73<builtinEquals>> with $7<%103<True>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_32 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_34 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %82<builtinTagWithoutValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%82<builtinTagWithoutValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %97<Ok>
+  $8 = call $6<%73<builtinEquals>> with $7<%97<Ok>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_33 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_35 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:isMatch:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = $0
+body_36 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %80<builtinTagGetValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%80<builtinTagGetValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = ($5,)
+  $7 = Match $6
+body_37 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %81<builtinTagHasValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%81<builtinTagHasValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %103<True>
+  $8 = call $6<%73<builtinEquals>> with $7<%103<True>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_36 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_38 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %82<builtinTagWithoutValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%82<builtinTagWithoutValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %89<Error>
+  $8 = call $6<%73<builtinEquals>> with $7<%89<Error>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_37 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_39 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:isMatch:else
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %86<builtinTypeOf>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%86<builtinTypeOf>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %101<Tag>
+  $8 = call $6<%73<builtinEquals>> with $7<%101<Tag>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_38 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_40 $0 (+ responsible $1) =
+  # Original HIR IDs: Core:result:isOk
+  # Captured IDs: none
+  $2 = dup $0 by 6
+  $3 = dup $1 by 2
+  $4 = %22<Core:result:isOk:2>
+  $5 = %130<{ body_22 }>
+  $6 = trace: start of call of $5<%130<{ body_22 }>> with $0 ($4<%22<Core:result:isOk:2>> is responsible, code is at $4<%22<Core:result:isOk:2>>)
+  $7 = %86<builtinTypeOf>
+  $8 = %20<Core:result:is:1>
+  $9 = call $7<%86<builtinTypeOf>> with $0 ($8<%20<Core:result:is:1>> is responsible)
+  $10 = %73<builtinEquals>
+  $11 = %101<Tag>
+  $12 = call $10<%73<builtinEquals>> with $11<%101<Tag>> $9 ($8<%20<Core:result:is:1>> is responsible)
+  $13 = { body_34 capturing $0 }
+  $14 = %74<builtinIfElse>
+  $15 = %123<{ body_7 }>
+  $16 = call $14<%74<builtinIfElse>> with $12 $13 $15<%123<{ body_7 }>> ($8<%20<Core:result:is:1>> is responsible)
+  $17 = dup $16 by 1
+  $18 = %82<builtinTagWithoutValue>
+  $19 = call $18<%82<builtinTagWithoutValue>> with $16 ($8<%20<Core:result:is:1>> is responsible)
+  $20 = %94<Match>
+  $21 = call $10<%73<builtinEquals>> with $19 $20<%94<Match>> ($8<%20<Core:result:is:1>> is responsible)
+  $22 = { body_35 capturing $16 }
+  $23 = { body_39 capturing $0 }
+  $24 = call $14<%74<builtinIfElse>> with $21 $22 $23 ($8<%20<Core:result:is:1>> is responsible)
+  $25 = call $18<%82<builtinTagWithoutValue>> with $24 ($8<%20<Core:result:is:1>> is responsible)
+  $26 = call $10<%73<builtinEquals>> with $25 $20<%94<Match>> ($8<%20<Core:result:is:1>> is responsible)
+  $27 = %120<{ body_0 }>
+  $28 = %124<{ body_8 }>
+  $29 = call $14<%74<builtinIfElse>> with $26 $27<%120<{ body_0 }>> $28<%124<{ body_8 }>> ($8<%20<Core:result:is:1>> is responsible)
+  $30 = dup $29 by 1
+  $31 = trace: end of call
+  $32 = %23<Core:result:isOk:4>
+  $33 = %122<{ body_6 }>
+  $34 = %113<"`is result` was not satisfied">
+  $35 = trace: start of call of $33<%122<{ body_6 }>> with $29 $34<%113<"`is result` was not satisfied">> $1 ($32<%23<Core:result:isOk:4>> is responsible, code is at $32<%23<Core:result:isOk:4>>)
+  $36 = call $33<%122<{ body_6 }>> with $29 $34<%113<"`is result` was not satisfied">> $1 ($32<%23<Core:result:isOk:4>> is responsible)
+  $37 = trace: end of call
+  $38 = %21<Core:result:isOk:12>
+  $39 = %128<{ body_12 }>
+  $40 = trace: start of call of $39<%128<{ body_12 }>> with $0 ($38<%21<Core:result:isOk:12>> is responsible, code is at $38<%21<Core:result:isOk:12>>)
+  $41 = %15<Builtins::typeIs:19>
+  $42 = call $7<%86<builtinTypeOf>> with $0 ($41<%15<Builtins::typeIs:19>> is responsible)
+  $43 = %16<Builtins::typeIs:25>
+  $44 = call $10<%73<builtinEquals>> with $42 $11<%101<Tag>> ($43<%16<Builtins::typeIs:25>> is responsible)
+  $45 = dup $44 by 1
+  $46 = %12<Builtins::tagWithoutValue:5>
+  $47 = %118<"`tag | typeIs Tag` was not satisfied">
+  $48 = trace: start of call of $33<%122<{ body_6 }>> with $44 $47<%118<"`tag | typeIs Tag` was not satisfied">> $38<%21<Core:result:isOk:12>> ($46<%12<Builtins::tagWithoutValue:5>> is responsible, code is at $46<%12<Builtins::tagWithoutValue:5>>)
+  $49 = call $33<%122<{ body_6 }>> with $44 $47<%118<"`tag | typeIs Tag` was not satisfied">> $38<%21<Core:result:isOk:12>> ($46<%12<Builtins::tagWithoutValue:5>> is responsible)
+  $50 = trace: end of call
+  $51 = %11<Builtins::tagWithoutValue:11>
+  $52 = call $18<%82<builtinTagWithoutValue>> with $0 ($51<%11<Builtins::tagWithoutValue:11>> is responsible)
+  $53 = trace: end of call
+  $54 = %97<Ok>
+  $55 = %0<Builtins::equals:6>
+  $56 = drop $36
+  $57 = drop $49
+  $58 = call $10<%73<builtinEquals>> with $52 $54<%97<Ok>> ($55<%0<Builtins::equals:6>> is responsible)
+body_41 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %80<builtinTagGetValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%80<builtinTagGetValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = ($5,)
+  $7 = Match $6
+body_42 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %81<builtinTagHasValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%81<builtinTagHasValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %103<True>
+  $8 = call $6<%73<builtinEquals>> with $7<%103<True>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_41 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_43 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %82<builtinTagWithoutValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%82<builtinTagWithoutValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %97<Ok>
+  $8 = call $6<%73<builtinEquals>> with $7<%97<Ok>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_42 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_44 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:isMatch:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = $0
+body_45 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %80<builtinTagGetValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%80<builtinTagGetValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = ($5,)
+  $7 = Match $6
+body_46 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %81<builtinTagHasValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%81<builtinTagHasValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %103<True>
+  $8 = call $6<%73<builtinEquals>> with $7<%103<True>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_45 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_47 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %82<builtinTagWithoutValue>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%82<builtinTagWithoutValue>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %89<Error>
+  $8 = call $6<%73<builtinEquals>> with $7<%89<Error>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_46 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_48 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:isMatch:else
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %86<builtinTypeOf>
+  $4 = %20<Core:result:is:1>
+  $5 = call $3<%86<builtinTypeOf>> with $0 ($4<%20<Core:result:is:1>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %101<Tag>
+  $8 = call $6<%73<builtinEquals>> with $7<%101<Tag>> $5 ($4<%20<Core:result:is:1>> is responsible)
+  $9 = { body_47 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%20<Core:result:is:1>> is responsible)
+body_49 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:isMatch:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = $0
+body_50 (responsible $1) =
+  # Original HIR IDs: Core:result:is:1:isMatch:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = $0
+body_51 $0 (+ responsible $1) =
+  # Original HIR IDs: Core:result:unwrap
+  # Captured IDs: none
+  $2 = dup $0 by 13
+  $3 = dup $1 by 4
+  $4 = %25<Core:result:unwrap:2>
+  $5 = %130<{ body_22 }>
+  $6 = trace: start of call of $5<%130<{ body_22 }>> with $0 ($4<%25<Core:result:unwrap:2>> is responsible, code is at $4<%25<Core:result:unwrap:2>>)
+  $7 = %86<builtinTypeOf>
+  $8 = %20<Core:result:is:1>
+  $9 = call $7<%86<builtinTypeOf>> with $0 ($8<%20<Core:result:is:1>> is responsible)
+  $10 = %73<builtinEquals>
+  $11 = %101<Tag>
+  $12 = call $10<%73<builtinEquals>> with $11<%101<Tag>> $9 ($8<%20<Core:result:is:1>> is responsible)
+  $13 = dup $12 by 2
+  $14 = { body_43 capturing $0 }
+  $15 = dup $14 by 2
+  $16 = %74<builtinIfElse>
+  $17 = %123<{ body_7 }>
+  $18 = call $16<%74<builtinIfElse>> with $12 $14 $17<%123<{ body_7 }>> ($8<%20<Core:result:is:1>> is responsible)
+  $19 = dup $18 by 1
+  $20 = %82<builtinTagWithoutValue>
+  $21 = call $20<%82<builtinTagWithoutValue>> with $18 ($8<%20<Core:result:is:1>> is responsible)
+  $22 = %94<Match>
+  $23 = call $10<%73<builtinEquals>> with $21 $22<%94<Match>> ($8<%20<Core:result:is:1>> is responsible)
+  $24 = { body_44 capturing $18 }
+  $25 = { body_48 capturing $0 }
+  $26 = dup $25 by 2
+  $27 = call $16<%74<builtinIfElse>> with $23 $24 $25 ($8<%20<Core:result:is:1>> is responsible)
+  $28 = call $20<%82<builtinTagWithoutValue>> with $27 ($8<%20<Core:result:is:1>> is responsible)
+  $29 = call $10<%73<builtinEquals>> with $28 $22<%94<Match>> ($8<%20<Core:result:is:1>> is responsible)
+  $30 = %120<{ body_0 }>
+  $31 = %124<{ body_8 }>
+  $32 = call $16<%74<builtinIfElse>> with $29 $30<%120<{ body_0 }>> $31<%124<{ body_8 }>> ($8<%20<Core:result:is:1>> is responsible)
+  $33 = dup $32 by 1
+  $34 = trace: end of call
+  $35 = %26<Core:result:unwrap:4>
+  $36 = %122<{ body_6 }>
+  $37 = %113<"`is result` was not satisfied">
+  $38 = trace: start of call of $36<%122<{ body_6 }>> with $32 $37<%113<"`is result` was not satisfied">> $1 ($35<%26<Core:result:unwrap:4>> is responsible, code is at $35<%26<Core:result:unwrap:4>>)
+  $39 = call $36<%122<{ body_6 }>> with $32 $37<%113<"`is result` was not satisfied">> $1 ($35<%26<Core:result:unwrap:4>> is responsible)
+  $40 = trace: end of call
+  $41 = %27<Core:result:unwrap:7>
+  $42 = %132<{ body_40 }>
+  $43 = trace: start of call of $42<%132<{ body_40 }>> with $0 ($41<%27<Core:result:unwrap:7>> is responsible, code is at $41<%27<Core:result:unwrap:7>>)
+  $44 = %22<Core:result:isOk:2>
+  $45 = trace: start of call of $5<%130<{ body_22 }>> with $0 ($44<%22<Core:result:isOk:2>> is responsible, code is at $44<%22<Core:result:isOk:2>>)
+  $46 = call $16<%74<builtinIfElse>> with $12 $14 $17<%123<{ body_7 }>> ($8<%20<Core:result:is:1>> is responsible)
+  $47 = dup $46 by 1
+  $48 = call $20<%82<builtinTagWithoutValue>> with $46 ($8<%20<Core:result:is:1>> is responsible)
+  $49 = call $10<%73<builtinEquals>> with $48 $22<%94<Match>> ($8<%20<Core:result:is:1>> is responsible)
+  $50 = { body_49 capturing $46 }
+  $51 = call $16<%74<builtinIfElse>> with $49 $50 $25 ($8<%20<Core:result:is:1>> is responsible)
+  $52 = call $20<%82<builtinTagWithoutValue>> with $51 ($8<%20<Core:result:is:1>> is responsible)
+  $53 = call $10<%73<builtinEquals>> with $52 $22<%94<Match>> ($8<%20<Core:result:is:1>> is responsible)
+  $54 = call $16<%74<builtinIfElse>> with $53 $30<%120<{ body_0 }>> $31<%124<{ body_8 }>> ($8<%20<Core:result:is:1>> is responsible)
+  $55 = dup $54 by 1
+  $56 = trace: end of call
+  $57 = %23<Core:result:isOk:4>
+  $58 = trace: start of call of $36<%122<{ body_6 }>> with $54 $37<%113<"`is result` was not satisfied">> $41<%27<Core:result:unwrap:7>> ($57<%23<Core:result:isOk:4>> is responsible, code is at $57<%23<Core:result:isOk:4>>)
+  $59 = call $36<%122<{ body_6 }>> with $54 $37<%113<"`is result` was not satisfied">> $41<%27<Core:result:unwrap:7>> ($57<%23<Core:result:isOk:4>> is responsible)
+  $60 = trace: end of call
+  $61 = %21<Core:result:isOk:12>
+  $62 = %128<{ body_12 }>
+  $63 = trace: start of call of $62<%128<{ body_12 }>> with $0 ($61<%21<Core:result:isOk:12>> is responsible, code is at $61<%21<Core:result:isOk:12>>)
+  $64 = %15<Builtins::typeIs:19>
+  $65 = call $7<%86<builtinTypeOf>> with $0 ($64<%15<Builtins::typeIs:19>> is responsible)
+  $66 = %16<Builtins::typeIs:25>
+  $67 = call $10<%73<builtinEquals>> with $65 $11<%101<Tag>> ($66<%16<Builtins::typeIs:25>> is responsible)
+  $68 = dup $67 by 3
+  $69 = %12<Builtins::tagWithoutValue:5>
+  $70 = %118<"`tag | typeIs Tag` was not satisfied">
+  $71 = trace: start of call of $36<%122<{ body_6 }>> with $67 $70<%118<"`tag | typeIs Tag` was not satisfied">> $61<%21<Core:result:isOk:12>> ($69<%12<Builtins::tagWithoutValue:5>> is responsible, code is at $69<%12<Builtins::tagWithoutValue:5>>)
+  $72 = call $36<%122<{ body_6 }>> with $67 $70<%118<"`tag | typeIs Tag` was not satisfied">> $61<%21<Core:result:isOk:12>> ($69<%12<Builtins::tagWithoutValue:5>> is responsible)
+  $73 = trace: end of call
+  $74 = %11<Builtins::tagWithoutValue:11>
+  $75 = call $20<%82<builtinTagWithoutValue>> with $0 ($74<%11<Builtins::tagWithoutValue:11>> is responsible)
+  $76 = trace: end of call
+  $77 = %97<Ok>
+  $78 = %0<Builtins::equals:6>
+  $79 = call $10<%73<builtinEquals>> with $75 $77<%97<Ok>> ($78<%0<Builtins::equals:6>> is responsible)
+  $80 = dup $79 by 1
+  $81 = trace: end of call
+  $82 = %28<Core:result:unwrap:9>
+  $83 = %114<"`isOk result` was not satisfied">
+  $84 = trace: start of call of $36<%122<{ body_6 }>> with $79 $83<%114<"`isOk result` was not satisfied">> $1 ($82<%28<Core:result:unwrap:9>> is responsible, code is at $82<%28<Core:result:unwrap:9>>)
+  $85 = call $36<%122<{ body_6 }>> with $79 $83<%114<"`isOk result` was not satisfied">> $1 ($82<%28<Core:result:unwrap:9>> is responsible)
+  $86 = trace: end of call
+  $87 = %24<Core:result:unwrap:12>
+  $88 = %131<{ body_31 }>
+  $89 = trace: start of call of $88<%131<{ body_31 }>> with $0 ($87<%24<Core:result:unwrap:12>> is responsible, code is at $87<%24<Core:result:unwrap:12>>)
+  $90 = %18<Core:result:getValue:2>
+  $91 = trace: start of call of $5<%130<{ body_22 }>> with $0 ($90<%18<Core:result:getValue:2>> is responsible, code is at $90<%18<Core:result:getValue:2>>)
+  $92 = call $16<%74<builtinIfElse>> with $12 $14 $17<%123<{ body_7 }>> ($8<%20<Core:result:is:1>> is responsible)
+  $93 = dup $92 by 1
+  $94 = call $20<%82<builtinTagWithoutValue>> with $92 ($8<%20<Core:result:is:1>> is responsible)
+  $95 = call $10<%73<builtinEquals>> with $94 $22<%94<Match>> ($8<%20<Core:result:is:1>> is responsible)
+  $96 = { body_50 capturing $92 }
+  $97 = call $16<%74<builtinIfElse>> with $95 $96 $25 ($8<%20<Core:result:is:1>> is responsible)
+  $98 = call $20<%82<builtinTagWithoutValue>> with $97 ($8<%20<Core:result:is:1>> is responsible)
+  $99 = call $10<%73<builtinEquals>> with $98 $22<%94<Match>> ($8<%20<Core:result:is:1>> is responsible)
+  $100 = call $16<%74<builtinIfElse>> with $99 $30<%120<{ body_0 }>> $31<%124<{ body_8 }>> ($8<%20<Core:result:is:1>> is responsible)
+  $101 = dup $100 by 1
+  $102 = trace: end of call
+  $103 = %19<Core:result:getValue:4>
+  $104 = trace: start of call of $36<%122<{ body_6 }>> with $100 $37<%113<"`is result` was not satisfied">> $87<%24<Core:result:unwrap:12>> ($103<%19<Core:result:getValue:4>> is responsible, code is at $103<%19<Core:result:getValue:4>>)
+  $105 = call $36<%122<{ body_6 }>> with $100 $37<%113<"`is result` was not satisfied">> $87<%24<Core:result:unwrap:12>> ($103<%19<Core:result:getValue:4>> is responsible)
+  $106 = trace: end of call
+  $107 = %17<Core:result:getValue:12>
+  $108 = %127<{ body_11 }>
+  $109 = trace: start of call of $108<%127<{ body_11 }>> with $0 ($107<%17<Core:result:getValue:12>> is responsible, code is at $107<%17<Core:result:getValue:12>>)
+  $110 = %10<Builtins::tagGetValue:5>
+  $111 = trace: start of call of $36<%122<{ body_6 }>> with $67 $70<%118<"`tag | typeIs Tag` was not satisfied">> $107<%17<Core:result:getValue:12>> ($110<%10<Builtins::tagGetValue:5>> is responsible, code is at $110<%10<Builtins::tagGetValue:5>>)
+  $112 = call $36<%122<{ body_6 }>> with $67 $70<%118<"`tag | typeIs Tag` was not satisfied">> $107<%17<Core:result:getValue:12>> ($110<%10<Builtins::tagGetValue:5>> is responsible)
+  $113 = trace: end of call
+  $114 = %81<builtinTagHasValue>
+  $115 = %7<Builtins::tagGetValue:11>
+  $116 = call $114<%81<builtinTagHasValue>> with $0 ($115<%7<Builtins::tagGetValue:11>> is responsible)
+  $117 = dup $116 by 1
+  $118 = %8<Builtins::tagGetValue:13>
+  $119 = %119<"`tag | ✨.tagHasValue` was not satisfied">
+  $120 = trace: start of call of $36<%122<{ body_6 }>> with $116 $119<%119<"`tag | ✨.tagHasValue` was not satisfied">> $107<%17<Core:result:getValue:12>> ($118<%8<Builtins::tagGetValue:13>> is responsible, code is at $118<%8<Builtins::tagGetValue:13>>)
+  $121 = call $36<%122<{ body_6 }>> with $116 $119<%119<"`tag | ✨.tagHasValue` was not satisfied">> $107<%17<Core:result:getValue:12>> ($118<%8<Builtins::tagGetValue:13>> is responsible)
+  $122 = trace: end of call
+  $123 = %80<builtinTagGetValue>
+  $124 = %9<Builtins::tagGetValue:19>
+  $125 = call $123<%80<builtinTagGetValue>> with $0 ($124<%9<Builtins::tagGetValue:19>> is responsible)
+  $126 = trace: end of call
+  $127 = trace: end of call
+  $128 = drop $39
+  $129 = drop $59
+  $130 = drop $72
+  $131 = drop $85
+  $132 = drop $105
+  $133 = drop $112
+  $134 = drop $121
+  $135 = $125
+body_52 (responsible $0) =
+  # Original HIR IDs: Examples:file:24:6:isMatch:else
+  # Captured IDs: none
+  $1 = %111<"The value doesn't match the pattern on the left side of the destructuring.">
+  $2 = %58<Examples:file:24:6>
+  $3 = panicking because $1<%111<"The value doesn't match the pattern on the left side of the destructuring.">> ($2<%58<Examples:file:24:6>> is at fault)
+body_53 (responsible $1) =
+  # Original HIR IDs: Examples:file:24:6:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %75<builtinListGet>
+  $4 = %104<0>
+  $5 = %58<Examples:file:24:6>
+  $6 = call $3<%75<builtinListGet>> with $0 $4<%104<0>> ($5<%58<Examples:file:24:6>> is responsible)
+  $7 = ($6,)
+  $8 = Match $7
+body_54 (responsible $1) =
+  # Original HIR IDs: Examples:file:24:6:equals:then
+  # Captured IDs: $0
+  $2 = dup $0 by 2
+  $3 = %76<builtinListLength>
+  $4 = %58<Examples:file:24:6>
+  $5 = call $3<%76<builtinListLength>> with $0 ($4<%58<Examples:file:24:6>> is responsible)
+  $6 = %73<builtinEquals>
+  $7 = %105<1>
+  $8 = call $6<%73<builtinEquals>> with $7<%105<1>> $5 ($4<%58<Examples:file:24:6>> is responsible)
+  $9 = { body_53 capturing $0 }
+  $10 = %74<builtinIfElse>
+  $11 = %123<{ body_7 }>
+  $12 = call $10<%74<builtinIfElse>> with $8 $9 $11<%123<{ body_7 }>> ($4<%58<Examples:file:24:6>> is responsible)
+body_55 (responsible $1) =
+  # Original HIR IDs: Examples:file:24:45, Examples:file:24:153
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = $0
+body_56 (responsible $1) =
+  # Original HIR IDs: Examples:file:24:46
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %85<builtinToDebugText>
+  $4 = %53<Examples:file:24:46:0>
+  $5 = call $3<%85<builtinToDebugText>> with $0 ($4<%53<Examples:file:24:46:0>> is responsible)
+body_57 (responsible $1) =
+  # Original HIR IDs: Examples:file:24:87
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = $0
+body_58 (responsible $1) =
+  # Original HIR IDs: Examples:file:24:88
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %85<builtinToDebugText>
+  $4 = %66<Examples:file:24:88:0>
+  $5 = call $3<%85<builtinToDebugText>> with $0 ($4<%66<Examples:file:24:88:0>> is responsible)
+body_59 (responsible $1) =
+  # Original HIR IDs: Examples:file:24:119
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = $0
+body_60 (responsible $1) =
+  # Original HIR IDs: Examples:file:24:120
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %85<builtinToDebugText>
+  $4 = %32<Examples:file:24:120:0>
+  $5 = call $3<%85<builtinToDebugText>> with $0 ($4<%32<Examples:file:24:120:0>> is responsible)
+body_61 (responsible $1) =
+  # Original HIR IDs: Examples:file:24:154
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %85<builtinToDebugText>
+  $4 = %42<Examples:file:24:154:0>
+  $5 = call $3<%85<builtinToDebugText>> with $0 ($4<%42<Examples:file:24:154:0>> is responsible)
+body_62 $0 (+ responsible $1) =
+  # Original HIR IDs: Examples:file:24
+  # Captured IDs: none
+  $2 = dup $0 by 8
+  $3 = %57<Examples:file:24:5>
+  $4 = %126<{ body_10 }>
+  $5 = %87<Arguments>
+  $6 = trace: start of call of $4<%126<{ body_10 }>> with $0 $5<%87<Arguments>> ($3<%57<Examples:file:24:5>> is responsible, code is at $3<%57<Examples:file:24:5>>)
+  $7 = %86<builtinTypeOf>
+  $8 = %15<Builtins::typeIs:19>
+  $9 = call $7<%86<builtinTypeOf>> with $0 ($8<%15<Builtins::typeIs:19>> is responsible)
+  $10 = %73<builtinEquals>
+  $11 = %100<Struct>
+  $12 = %16<Builtins::typeIs:25>
+  $13 = call $10<%73<builtinEquals>> with $9 $11<%100<Struct>> ($12<%16<Builtins::typeIs:25>> is responsible)
+  $14 = dup $13 by 7
+  $15 = %6<Builtins::structGet:5>
+  $16 = %122<{ body_6 }>
+  $17 = %116<"`struct | typeIs Struct` was not satisfied">
+  $18 = trace: start of call of $16<%122<{ body_6 }>> with $13 $17<%116<"`struct | typeIs Struct` was not satisfied">> $3<%57<Examples:file:24:5>> ($15<%6<Builtins::structGet:5>> is responsible, code is at $15<%6<Builtins::structGet:5>>)
+  $19 = call $16<%122<{ body_6 }>> with $13 $17<%116<"`struct | typeIs Struct` was not satisfied">> $3<%57<Examples:file:24:5>> ($15<%6<Builtins::structGet:5>> is responsible)
+  $20 = trace: end of call
+  $21 = %79<builtinStructHasKey>
+  $22 = %3<Builtins::structGet:12>
+  $23 = call $21<%79<builtinStructHasKey>> with $0 $5<%87<Arguments>> ($22<%3<Builtins::structGet:12>> is responsible)
+  $24 = dup $23 by 1
+  $25 = %4<Builtins::structGet:14>
+  $26 = %117<"`struct | ✨.structHasKey key` was not satisfied">
+  $27 = trace: start of call of $16<%122<{ body_6 }>> with $23 $26<%117<"`struct | ✨.structHasKey key` was not satisfied">> $3<%57<Examples:file:24:5>> ($25<%4<Builtins::structGet:14>> is responsible, code is at $25<%4<Builtins::structGet:14>>)
+  $28 = call $16<%122<{ body_6 }>> with $23 $26<%117<"`struct | ✨.structHasKey key` was not satisfied">> $3<%57<Examples:file:24:5>> ($25<%4<Builtins::structGet:14>> is responsible)
+  $29 = trace: end of call
+  $30 = %78<builtinStructGet>
+  $31 = %5<Builtins::structGet:21>
+  $32 = call $30<%78<builtinStructGet>> with $0 $5<%87<Arguments>> ($31<%5<Builtins::structGet:21>> is responsible)
+  $33 = dup $32 by 1
+  $34 = trace: end of call
+  $35 = %58<Examples:file:24:6>
+  $36 = call $7<%86<builtinTypeOf>> with $32 ($35<%58<Examples:file:24:6>> is responsible)
+  $37 = %93<List>
+  $38 = call $10<%73<builtinEquals>> with $37<%93<List>> $36 ($35<%58<Examples:file:24:6>> is responsible)
+  $39 = { body_54 capturing $32 }
+  $40 = %74<builtinIfElse>
+  $41 = %123<{ body_7 }>
+  $42 = call $40<%74<builtinIfElse>> with $38 $39 $41<%123<{ body_7 }>> ($35<%58<Examples:file:24:6>> is responsible)
+  $43 = dup $42 by 1
+  $44 = %82<builtinTagWithoutValue>
+  $45 = call $44<%82<builtinTagWithoutValue>> with $42 ($35<%58<Examples:file:24:6>> is responsible)
+  $46 = %94<Match>
+  $47 = call $10<%73<builtinEquals>> with $45 $46<%94<Match>> ($35<%58<Examples:file:24:6>> is responsible)
+  $48 = %121<{ body_1 }>
+  $49 = %134<{ body_52 }>
+  $50 = call $40<%74<builtinIfElse>> with $47 $48<%121<{ body_1 }>> $49<%134<{ body_52 }>> ($35<%58<Examples:file:24:6>> is responsible)
+  $51 = %80<builtinTagGetValue>
+  $52 = %71<Examples:file:24:path>
+  $53 = call $51<%80<builtinTagGetValue>> with $42 ($52<%71<Examples:file:24:path>> is responsible)
+  $54 = %75<builtinListGet>
+  $55 = %104<0>
+  $56 = call $54<%75<builtinListGet>> with $53 $55<%104<0>> ($52<%71<Examples:file:24:path>> is responsible)
+  $57 = dup $56 by 1
+  $58 = %46<Examples:file:24:19>
+  $59 = %92<FileSystem>
+  $60 = trace: start of call of $4<%126<{ body_10 }>> with $0 $59<%92<FileSystem>> ($58<%46<Examples:file:24:19>> is responsible, code is at $58<%46<Examples:file:24:19>>)
+  $61 = trace: start of call of $16<%122<{ body_6 }>> with $13 $17<%116<"`struct | typeIs Struct` was not satisfied">> $58<%46<Examples:file:24:19>> ($15<%6<Builtins::structGet:5>> is responsible, code is at $15<%6<Builtins::structGet:5>>)
+  $62 = call $16<%122<{ body_6 }>> with $13 $17<%116<"`struct | typeIs Struct` was not satisfied">> $58<%46<Examples:file:24:19>> ($15<%6<Builtins::structGet:5>> is responsible)
+  $63 = trace: end of call
+  $64 = call $21<%79<builtinStructHasKey>> with $0 $59<%92<FileSystem>> ($22<%3<Builtins::structGet:12>> is responsible)
+  $65 = dup $64 by 5
+  $66 = trace: start of call of $16<%122<{ body_6 }>> with $64 $26<%117<"`struct | ✨.structHasKey key` was not satisfied">> $58<%46<Examples:file:24:19>> ($25<%4<Builtins::structGet:14>> is responsible, code is at $25<%4<Builtins::structGet:14>>)
+  $67 = call $16<%122<{ body_6 }>> with $64 $26<%117<"`struct | ✨.structHasKey key` was not satisfied">> $58<%46<Examples:file:24:19>> ($25<%4<Builtins::structGet:14>> is responsible)
+  $68 = trace: end of call
+  $69 = call $30<%78<builtinStructGet>> with $0 $59<%92<FileSystem>> ($31<%5<Builtins::structGet:21>> is responsible)
+  $70 = dup $69 by 5
+  $71 = trace: end of call
+  $72 = %47<Examples:file:24:21>
+  $73 = %91<File>
+  $74 = trace: start of call of $4<%126<{ body_10 }>> with $69 $73<%91<File>> ($72<%47<Examples:file:24:21>> is responsible, code is at $72<%47<Examples:file:24:21>>)
+  $75 = call $4<%126<{ body_10 }>> with $69 $73<%91<File>> ($72<%47<Examples:file:24:21>> is responsible)
+  $76 = dup $75 by 1
+  $77 = trace: end of call
+  $78 = %48<Examples:file:24:23>
+  $79 = %98<Open>
+  $80 = trace: start of call of $4<%126<{ body_10 }>> with $75 $79<%98<Open>> ($78<%48<Examples:file:24:23>> is responsible, code is at $78<%48<Examples:file:24:23>>)
+  $81 = call $4<%126<{ body_10 }>> with $75 $79<%98<Open>> ($78<%48<Examples:file:24:23>> is responsible)
+  $82 = dup $81 by 1
+  $83 = trace: end of call
+  $84 = %49<Examples:file:24:25>
+  $85 = trace: start of call of $81 with $56 ($84<%49<Examples:file:24:25>> is responsible, code is at $84<%49<Examples:file:24:25>>)
+  $86 = call $81 with $56 ($84<%49<Examples:file:24:25>> is responsible)
+  $87 = dup $86 by 1
+  $88 = trace: end of call
+  $89 = %50<Examples:file:24:32>
+  $90 = %133<{ body_51 }>
+  $91 = trace: start of call of $90<%133<{ body_51 }>> with $86 ($89<%50<Examples:file:24:32>> is responsible, code is at $89<%50<Examples:file:24:32>>)
+  $92 = call $90<%133<{ body_51 }>> with $86 ($89<%50<Examples:file:24:32>> is responsible)
+  $93 = dup $92 by 8
+  $94 = trace: end of call
+  $95 = %51<Examples:file:24:43>
+  $96 = call $7<%86<builtinTypeOf>> with $92 ($95<%51<Examples:file:24:43>> is responsible)
+  $97 = %102<Text>
+  $98 = %52<Examples:file:24:44>
+  $99 = call $10<%73<builtinEquals>> with $96 $97<%102<Text>> ($98<%52<Examples:file:24:44>> is responsible)
+  $100 = dup $99 by 1
+  $101 = { body_55 capturing $92 }
+  $102 = dup $101 by 3
+  $103 = { body_56 capturing $92 }
+  $104 = dup $103 by 1
+  $105 = %54<Examples:file:24:47>
+  $106 = trace: start of call of $40<%74<builtinIfElse>> with $99 $101 $103 ($105<%54<Examples:file:24:47>> is responsible, code is at $105<%54<Examples:file:24:47>>)
+  $107 = call $40<%74<builtinIfElse>> with $99 $101 $103 ($105<%54<Examples:file:24:47>> is responsible)
+  $108 = trace: end of call
+  $109 = %83<builtinTextConcatenate>
+  $110 = %107<"File: ">
+  $111 = %55<Examples:file:24:48>
+  $112 = call $109<%83<builtinTextConcatenate>> with $110<%107<"File: ">> $107 ($111<%55<Examples:file:24:48>> is responsible)
+  $113 = dup $112 by 1
+  $114 = %56<Examples:file:24:49>
+  $115 = %125<{ body_9 }>
+  $116 = trace: start of call of $115<%125<{ body_9 }>> with $112 ($114<%56<Examples:file:24:49>> is responsible, code is at $114<%56<Examples:file:24:49>>)
+  $117 = call $115<%125<{ body_9 }>> with $112 ($114<%56<Examples:file:24:49>> is responsible)
+  $118 = trace: end of call
+  $119 = %59<Examples:file:24:62>
+  $120 = trace: start of call of $4<%126<{ body_10 }>> with $0 $59<%92<FileSystem>> ($119<%59<Examples:file:24:62>> is responsible, code is at $119<%59<Examples:file:24:62>>)
+  $121 = trace: start of call of $16<%122<{ body_6 }>> with $13 $17<%116<"`struct | typeIs Struct` was not satisfied">> $119<%59<Examples:file:24:62>> ($15<%6<Builtins::structGet:5>> is responsible, code is at $15<%6<Builtins::structGet:5>>)
+  $122 = call $16<%122<{ body_6 }>> with $13 $17<%116<"`struct | typeIs Struct` was not satisfied">> $119<%59<Examples:file:24:62>> ($15<%6<Builtins::structGet:5>> is responsible)
+  $123 = trace: end of call
+  $124 = trace: start of call of $16<%122<{ body_6 }>> with $64 $26<%117<"`struct | ✨.structHasKey key` was not satisfied">> $119<%59<Examples:file:24:62>> ($25<%4<Builtins::structGet:14>> is responsible, code is at $25<%4<Builtins::structGet:14>>)
+  $125 = call $16<%122<{ body_6 }>> with $64 $26<%117<"`struct | ✨.structHasKey key` was not satisfied">> $119<%59<Examples:file:24:62>> ($25<%4<Builtins::structGet:14>> is responsible)
+  $126 = trace: end of call
+  $127 = trace: end of call
+  $128 = %60<Examples:file:24:64>
+  $129 = trace: start of call of $4<%126<{ body_10 }>> with $69 $73<%91<File>> ($128<%60<Examples:file:24:64>> is responsible, code is at $128<%60<Examples:file:24:64>>)
+  $130 = call $4<%126<{ body_10 }>> with $69 $73<%91<File>> ($128<%60<Examples:file:24:64>> is responsible)
+  $131 = dup $130 by 1
+  $132 = trace: end of call
+  $133 = %61<Examples:file:24:66>
+  $134 = %99<ReadToEnd>
+  $135 = trace: start of call of $4<%126<{ body_10 }>> with $130 $134<%99<ReadToEnd>> ($133<%61<Examples:file:24:66>> is responsible, code is at $133<%61<Examples:file:24:66>>)
+  $136 = call $4<%126<{ body_10 }>> with $130 $134<%99<ReadToEnd>> ($133<%61<Examples:file:24:66>> is responsible)
+  $137 = dup $136 by 1
+  $138 = trace: end of call
+  $139 = %62<Examples:file:24:67>
+  $140 = trace: start of call of $136 with $92 ($139<%62<Examples:file:24:67>> is responsible, code is at $139<%62<Examples:file:24:67>>)
+  $141 = call $136 with $92 ($139<%62<Examples:file:24:67>> is responsible)
+  $142 = dup $141 by 1
+  $143 = trace: end of call
+  $144 = %63<Examples:file:24:74>
+  $145 = trace: start of call of $90<%133<{ body_51 }>> with $141 ($144<%63<Examples:file:24:74>> is responsible, code is at $144<%63<Examples:file:24:74>>)
+  $146 = call $90<%133<{ body_51 }>> with $141 ($144<%63<Examples:file:24:74>> is responsible)
+  $147 = dup $146 by 5
+  $148 = trace: end of call
+  $149 = %64<Examples:file:24:85>
+  $150 = call $7<%86<builtinTypeOf>> with $146 ($149<%64<Examples:file:24:85>> is responsible)
+  $151 = %65<Examples:file:24:86>
+  $152 = call $10<%73<builtinEquals>> with $150 $97<%102<Text>> ($151<%65<Examples:file:24:86>> is responsible)
+  $153 = dup $152 by 1
+  $154 = { body_57 capturing $146 }
+  $155 = dup $154 by 1
+  $156 = { body_58 capturing $146 }
+  $157 = dup $156 by 1
+  $158 = %67<Examples:file:24:89>
+  $159 = trace: start of call of $40<%74<builtinIfElse>> with $152 $154 $156 ($158<%67<Examples:file:24:89>> is responsible, code is at $158<%67<Examples:file:24:89>>)
+  $160 = call $40<%74<builtinIfElse>> with $152 $154 $156 ($158<%67<Examples:file:24:89>> is responsible)
+  $161 = trace: end of call
+  $162 = %106<"Bytes: ">
+  $163 = %68<Examples:file:24:90>
+  $164 = call $109<%83<builtinTextConcatenate>> with $162<%106<"Bytes: ">> $160 ($163<%68<Examples:file:24:90>> is responsible)
+  $165 = dup $164 by 1
+  $166 = %69<Examples:file:24:91>
+  $167 = trace: start of call of $115<%125<{ body_9 }>> with $164 ($166<%69<Examples:file:24:91>> is responsible, code is at $166<%69<Examples:file:24:91>>)
+  $168 = call $115<%125<{ body_9 }>> with $164 ($166<%69<Examples:file:24:91>> is responsible)
+  $169 = trace: end of call
+  $170 = %70<Examples:file:24:99>
+  $171 = %129<{ body_13 }>
+  $172 = trace: start of call of $171<%129<{ body_13 }>> with $146 ($170<%70<Examples:file:24:99>> is responsible, code is at $170<%70<Examples:file:24:99>>)
+  $173 = call $7<%86<builtinTypeOf>> with $146 ($8<%15<Builtins::typeIs:19>> is responsible)
+  $174 = call $10<%73<builtinEquals>> with $173 $37<%93<List>> ($12<%16<Builtins::typeIs:25>> is responsible)
+  $175 = dup $174 by 1
+  $176 = %14<Builtins::textFromUtf8:5>
+  $177 = %112<"`bytes | typeIs List` was not satisfied">
+  $178 = trace: start of call of $16<%122<{ body_6 }>> with $174 $177<%112<"`bytes | typeIs List` was not satisfied">> $170<%70<Examples:file:24:99>> ($176<%14<Builtins::textFromUtf8:5>> is responsible, code is at $176<%14<Builtins::textFromUtf8:5>>)
+  $179 = call $16<%122<{ body_6 }>> with $174 $177<%112<"`bytes | typeIs List` was not satisfied">> $170<%70<Examples:file:24:99>> ($176<%14<Builtins::textFromUtf8:5>> is responsible)
+  $180 = trace: end of call
+  $181 = %84<builtinTextFromUtf8>
+  $182 = %13<Builtins::textFromUtf8:11>
+  $183 = call $181<%84<builtinTextFromUtf8>> with $146 ($182<%13<Builtins::textFromUtf8:11>> is responsible)
+  $184 = dup $183 by 1
+  $185 = trace: end of call
+  $186 = %29<Examples:file:24:106>
+  $187 = trace: start of call of $90<%133<{ body_51 }>> with $183 ($186<%29<Examples:file:24:106>> is responsible, code is at $186<%29<Examples:file:24:106>>)
+  $188 = call $90<%133<{ body_51 }>> with $183 ($186<%29<Examples:file:24:106>> is responsible)
+  $189 = dup $188 by 2
+  $190 = trace: end of call
+  $191 = %30<Examples:file:24:117>
+  $192 = call $7<%86<builtinTypeOf>> with $188 ($191<%30<Examples:file:24:117>> is responsible)
+  $193 = %31<Examples:file:24:118>
+  $194 = call $10<%73<builtinEquals>> with $192 $97<%102<Text>> ($193<%31<Examples:file:24:118>> is responsible)
+  $195 = dup $194 by 1
+  $196 = { body_59 capturing $188 }
+  $197 = dup $196 by 1
+  $198 = { body_60 capturing $188 }
+  $199 = dup $198 by 1
+  $200 = %33<Examples:file:24:121>
+  $201 = trace: start of call of $40<%74<builtinIfElse>> with $194 $196 $198 ($200<%33<Examples:file:24:121>> is responsible, code is at $200<%33<Examples:file:24:121>>)
+  $202 = call $40<%74<builtinIfElse>> with $194 $196 $198 ($200<%33<Examples:file:24:121>> is responsible)
+  $203 = trace: end of call
+  $204 = %108<"Text: ">
+  $205 = %34<Examples:file:24:122>
+  $206 = call $109<%83<builtinTextConcatenate>> with $204<%108<"Text: ">> $202 ($205<%34<Examples:file:24:122>> is responsible)
+  $207 = dup $206 by 1
+  $208 = %35<Examples:file:24:123>
+  $209 = trace: start of call of $115<%125<{ body_9 }>> with $206 ($208<%35<Examples:file:24:123>> is responsible, code is at $208<%35<Examples:file:24:123>>)
+  $210 = call $115<%125<{ body_9 }>> with $206 ($208<%35<Examples:file:24:123>> is responsible)
+  $211 = trace: end of call
+  $212 = %36<Examples:file:24:136>
+  $213 = trace: start of call of $4<%126<{ body_10 }>> with $0 $59<%92<FileSystem>> ($212<%36<Examples:file:24:136>> is responsible, code is at $212<%36<Examples:file:24:136>>)
+  $214 = trace: start of call of $16<%122<{ body_6 }>> with $13 $17<%116<"`struct | typeIs Struct` was not satisfied">> $212<%36<Examples:file:24:136>> ($15<%6<Builtins::structGet:5>> is responsible, code is at $15<%6<Builtins::structGet:5>>)
+  $215 = call $16<%122<{ body_6 }>> with $13 $17<%116<"`struct | typeIs Struct` was not satisfied">> $212<%36<Examples:file:24:136>> ($15<%6<Builtins::structGet:5>> is responsible)
+  $216 = trace: end of call
+  $217 = trace: start of call of $16<%122<{ body_6 }>> with $64 $26<%117<"`struct | ✨.structHasKey key` was not satisfied">> $212<%36<Examples:file:24:136>> ($25<%4<Builtins::structGet:14>> is responsible, code is at $25<%4<Builtins::structGet:14>>)
+  $218 = call $16<%122<{ body_6 }>> with $64 $26<%117<"`struct | ✨.structHasKey key` was not satisfied">> $212<%36<Examples:file:24:136>> ($25<%4<Builtins::structGet:14>> is responsible)
+  $219 = trace: end of call
+  $220 = trace: end of call
+  $221 = %37<Examples:file:24:138>
+  $222 = trace: start of call of $4<%126<{ body_10 }>> with $69 $73<%91<File>> ($221<%37<Examples:file:24:138>> is responsible, code is at $221<%37<Examples:file:24:138>>)
+  $223 = call $4<%126<{ body_10 }>> with $69 $73<%91<File>> ($221<%37<Examples:file:24:138>> is responsible)
+  $224 = dup $223 by 1
+  $225 = trace: end of call
+  $226 = %38<Examples:file:24:140>
+  $227 = %88<Close>
+  $228 = trace: start of call of $4<%126<{ body_10 }>> with $223 $227<%88<Close>> ($226<%38<Examples:file:24:140>> is responsible, code is at $226<%38<Examples:file:24:140>>)
+  $229 = call $4<%126<{ body_10 }>> with $223 $227<%88<Close>> ($226<%38<Examples:file:24:140>> is responsible)
+  $230 = dup $229 by 1
+  $231 = trace: end of call
+  $232 = %39<Examples:file:24:141>
+  $233 = trace: start of call of $229 with $92 ($232<%39<Examples:file:24:141>> is responsible, code is at $232<%39<Examples:file:24:141>>)
+  $234 = call $229 with $92 ($232<%39<Examples:file:24:141>> is responsible)
+  $235 = trace: end of call
+  $236 = %40<Examples:file:24:151>
+  $237 = call $7<%86<builtinTypeOf>> with $92 ($236<%40<Examples:file:24:151>> is responsible)
+  $238 = %41<Examples:file:24:152>
+  $239 = call $10<%73<builtinEquals>> with $237 $97<%102<Text>> ($238<%41<Examples:file:24:152>> is responsible)
+  $240 = dup $239 by 1
+  $241 = { body_61 capturing $92 }
+  $242 = dup $241 by 1
+  $243 = %43<Examples:file:24:155>
+  $244 = trace: start of call of $40<%74<builtinIfElse>> with $239 $101 $241 ($243<%43<Examples:file:24:155>> is responsible, code is at $243<%43<Examples:file:24:155>>)
+  $245 = call $40<%74<builtinIfElse>> with $239 $101 $241 ($243<%43<Examples:file:24:155>> is responsible)
+  $246 = trace: end of call
+  $247 = %44<Examples:file:24:156>
+  $248 = call $109<%83<builtinTextConcatenate>> with $110<%107<"File: ">> $245 ($247<%44<Examples:file:24:156>> is responsible)
+  $249 = dup $248 by 1
+  $250 = %45<Examples:file:24:157>
+  $251 = trace: tail call of $115<%125<{ body_9 }>> with $248 ($250<%45<Examples:file:24:157>> is responsible, code is at $250<%45<Examples:file:24:157>>)
+  $252 = drop $19
+  $253 = drop $28
+  $254 = drop $50
+  $255 = drop $62
+  $256 = drop $67
+  $257 = drop $117
+  $258 = drop $122
+  $259 = drop $125
+  $260 = drop $168
+  $261 = drop $179
+  $262 = drop $210
+  $263 = drop $215
+  $264 = drop $218
+  $265 = drop $234
+  $266 = call $115<%125<{ body_9 }>> with $248 ($250<%45<Examples:file:24:157>> is responsible)
+body_63 (responsible $0) =
+  # Original HIR IDs: Examples:file:
+  # Captured IDs: none
+  $1 = %135<{ body_62 }>
