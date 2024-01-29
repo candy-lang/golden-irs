@@ -1,0 +1,919 @@
+# MIR for module Examples:sqrt
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? Only for panic traces
+# • Include tracing of evaluated expressions? No
+
+# anonymous:$generated::needs
+$49 = { $2 $3 $4 (+ responsible $1) ->
+  $5 = anonymous:$generated::needs
+  $6 = builtinEquals
+  $7 = Nothing
+  $8 = True
+  $9 = False
+  $10 = call $6 with $2 $8 ($5 is responsible)
+  $11 = builtinIfElse
+  # anonymous:$generated::needs:isConditionTrue:then
+  $14 = { (responsible $12) ->
+    $13 = $8
+  }
+  # anonymous:$generated::needs:isConditionTrue:else
+  $17 = { (responsible $15) ->
+    $16 = call $6 with $2 $9 ($5 is responsible)
+  }
+  $18 = call $11 with $10 $14 $17 ($5 is responsible)
+  $19 = builtinIfElse
+  # anonymous:$generated::needs:isConditionBool:then
+  $22 = { (responsible $20) ->
+    $21 = $7
+  }
+  # anonymous:$generated::needs:isConditionBool:else
+  $26 = { (responsible $23) ->
+    $24 = "The `condition` must be either `True` or `False`."
+    $25 = panicking because $24 ($1 is at fault)
+  }
+  $27 = call $19 with $18 $22 $26 ($5 is responsible)
+  $28 = builtinTypeOf
+  $29 = call $28 with $3 ($1 is responsible)
+  $30 = Text
+  $31 = call $6 with $29 $30 ($1 is responsible)
+  $32 = builtinIfElse
+  # anonymous:$generated::needs:isReasonText:then
+  $35 = { (responsible $33) ->
+    $34 = $7
+  }
+  # anonymous:$generated::needs:isReasonText:else
+  $39 = { (responsible $36) ->
+    $37 = "The `reason` must be a text."
+    $38 = panicking because $37 ($1 is at fault)
+  }
+  $40 = call $32 with $31 $35 $39 ($5 is responsible)
+  $41 = builtinIfElse
+  # anonymous:$generated::needs:condition:then
+  $44 = { (responsible $42) ->
+    $43 = $7
+  }
+  # anonymous:$generated::needs:condition:else
+  $47 = { (responsible $45) ->
+    $46 = panicking because $3 ($4 is at fault)
+  }
+  $48 = call $41 with $2 $44 $47 ($5 is responsible)
+}
+$50 = Examples:sqrt:
+# Examples:sqrt:use
+$54 = { $52 (+ responsible $51) ->
+  $53 = use $52 (relative to Examples:sqrt; $51 is responsible)
+}
+$55 = "Builtins"
+$56 = Examples:sqrt:1
+$57 = Examples:sqrt:1
+$58 = trace: start of call of $54 with $55 ($56 is responsible, code is at $57)
+$59 = call $54 with $55 ($56 is responsible)
+$60 = trace: end of call
+$61 = $59
+$62 = $54
+$63 = builtinTextConcatenate
+$64 = builtinTypeOf
+$65 = Text
+$66 = builtinEquals
+$67 = builtinIfElse
+$68 = builtinToDebugText
+$69 = "Builtins"
+$70 = Examples:sqrt:10
+$71 = Examples:sqrt:10
+$72 = trace: start of call of $62 with $69 ($70 is responsible, code is at $71)
+$73 = call $62 with $69 ($70 is responsible)
+$74 = trace: end of call
+$75 = $73
+$76 = $75
+$77 = $76
+$78 = Nothing
+$79 = $54
+$80 = builtinTextConcatenate
+$81 = builtinTypeOf
+$82 = Text
+$83 = builtinEquals
+$84 = builtinIfElse
+$85 = builtinToDebugText
+$86 = "Core"
+$87 = Examples:sqrt:20
+$88 = Examples:sqrt:20
+$89 = trace: start of call of $79 with $86 ($87 is responsible, code is at $88)
+$90 = call $79 with $86 ($87 is responsible)
+$91 = trace: end of call
+$92 = $90
+$93 = Examples:sqrt:21
+$94 = Match
+$95 = NoMatch
+$96 = Struct
+$97 = builtinTypeOf
+$98 = call $97 with $92 ($93 is responsible)
+$99 = builtinEquals
+$100 = call $99 with $96 $98 ($93 is responsible)
+$101 = builtinIfElse
+# Examples:sqrt:21:equals:then
+$252 = { (responsible $102) ->
+  $103 = builtinStructHasKey
+  $104 = builtinStructGet
+  $105 = Equals
+  $106 = call $103 with $92 $105 ($93 is responsible)
+  $107 = builtinIfElse
+  # Examples:sqrt:21:hasKey:then
+  $112 = { (responsible $108) ->
+    $109 = call $104 with $92 $105 ($93 is responsible)
+    $110 = ($109,)
+    $111 = call $94 with $110 ($93 is responsible)
+  }
+  # Examples:sqrt:21:hasKey:else
+  $115 = { (responsible $113) ->
+    $114 = $95
+  }
+  $116 = call $107 with $106 $112 $115 ($93 is responsible)
+  $117 = builtinTagWithoutValue
+  $118 = call $117 with $116 ($93 is responsible)
+  $119 = builtinEquals
+  $120 = Match
+  $121 = call $119 with $118 $120 ($93 is responsible)
+  $122 = builtinIfElse
+  # Examples:sqrt:21:isMatch:then
+  $247 = { (responsible $123) ->
+    $124 = builtinTagGetValue
+    $125 = call $124 with $116 ($93 is responsible)
+    $126 = builtinListGet
+    $127 = 0
+    $128 = call $126 with $125 $127 ($93 is responsible)
+    $129 = FixedDecimal
+    $130 = call $103 with $92 $129 ($93 is responsible)
+    $131 = builtinIfElse
+    # Examples:sqrt:21:hasKey:then
+    $136 = { (responsible $132) ->
+      $133 = call $104 with $92 $129 ($93 is responsible)
+      $134 = ($133,)
+      $135 = call $94 with $134 ($93 is responsible)
+    }
+    # Examples:sqrt:21:hasKey:else
+    $139 = { (responsible $137) ->
+      $138 = $95
+    }
+    $140 = call $131 with $130 $136 $139 ($93 is responsible)
+    $141 = builtinTagWithoutValue
+    $142 = call $141 with $140 ($93 is responsible)
+    $143 = builtinEquals
+    $144 = Match
+    $145 = call $143 with $142 $144 ($93 is responsible)
+    $146 = builtinIfElse
+    # Examples:sqrt:21:isMatch:then
+    $242 = { (responsible $147) ->
+      $148 = builtinTagGetValue
+      $149 = call $148 with $140 ($93 is responsible)
+      $150 = builtinListGet
+      $151 = 0
+      $152 = call $150 with $149 $151 ($93 is responsible)
+      $153 = IfElse
+      $154 = call $103 with $92 $153 ($93 is responsible)
+      $155 = builtinIfElse
+      # Examples:sqrt:21:hasKey:then
+      $160 = { (responsible $156) ->
+        $157 = call $104 with $92 $153 ($93 is responsible)
+        $158 = ($157,)
+        $159 = call $94 with $158 ($93 is responsible)
+      }
+      # Examples:sqrt:21:hasKey:else
+      $163 = { (responsible $161) ->
+        $162 = $95
+      }
+      $164 = call $155 with $154 $160 $163 ($93 is responsible)
+      $165 = builtinTagWithoutValue
+      $166 = call $165 with $164 ($93 is responsible)
+      $167 = builtinEquals
+      $168 = Match
+      $169 = call $167 with $166 $168 ($93 is responsible)
+      $170 = builtinIfElse
+      # Examples:sqrt:21:isMatch:then
+      $237 = { (responsible $171) ->
+        $172 = builtinTagGetValue
+        $173 = call $172 with $164 ($93 is responsible)
+        $174 = builtinListGet
+        $175 = 0
+        $176 = call $174 with $173 $175 ($93 is responsible)
+        $177 = Int
+        $178 = call $103 with $92 $177 ($93 is responsible)
+        $179 = builtinIfElse
+        # Examples:sqrt:21:hasKey:then
+        $184 = { (responsible $180) ->
+          $181 = call $104 with $92 $177 ($93 is responsible)
+          $182 = ($181,)
+          $183 = call $94 with $182 ($93 is responsible)
+        }
+        # Examples:sqrt:21:hasKey:else
+        $187 = { (responsible $185) ->
+          $186 = $95
+        }
+        $188 = call $179 with $178 $184 $187 ($93 is responsible)
+        $189 = builtinTagWithoutValue
+        $190 = call $189 with $188 ($93 is responsible)
+        $191 = builtinEquals
+        $192 = Match
+        $193 = call $191 with $190 $192 ($93 is responsible)
+        $194 = builtinIfElse
+        # Examples:sqrt:21:isMatch:then
+        $232 = { (responsible $195) ->
+          $196 = builtinTagGetValue
+          $197 = call $196 with $188 ($93 is responsible)
+          $198 = builtinListGet
+          $199 = 0
+          $200 = call $198 with $197 $199 ($93 is responsible)
+          $201 = Recursive
+          $202 = call $103 with $92 $201 ($93 is responsible)
+          $203 = builtinIfElse
+          # Examples:sqrt:21:hasKey:then
+          $208 = { (responsible $204) ->
+            $205 = call $104 with $92 $201 ($93 is responsible)
+            $206 = ($205,)
+            $207 = call $94 with $206 ($93 is responsible)
+          }
+          # Examples:sqrt:21:hasKey:else
+          $211 = { (responsible $209) ->
+            $210 = $95
+          }
+          $212 = call $203 with $202 $208 $211 ($93 is responsible)
+          $213 = builtinTagWithoutValue
+          $214 = call $213 with $212 ($93 is responsible)
+          $215 = builtinEquals
+          $216 = Match
+          $217 = call $215 with $214 $216 ($93 is responsible)
+          $218 = builtinIfElse
+          # Examples:sqrt:21:isMatch:then
+          $227 = { (responsible $219) ->
+            $220 = builtinTagGetValue
+            $221 = call $220 with $212 ($93 is responsible)
+            $222 = builtinListGet
+            $223 = 0
+            $224 = call $222 with $221 $223 ($93 is responsible)
+            $225 = ($128, $152, $176, $200, $224)
+            $226 = call $94 with $225 ($93 is responsible)
+          }
+          # Examples:sqrt:21:isMatch:else
+          $230 = { (responsible $228) ->
+            $229 = $212
+          }
+          $231 = call $218 with $217 $227 $230 ($93 is responsible)
+        }
+        # Examples:sqrt:21:isMatch:else
+        $235 = { (responsible $233) ->
+          $234 = $188
+        }
+        $236 = call $194 with $193 $232 $235 ($93 is responsible)
+      }
+      # Examples:sqrt:21:isMatch:else
+      $240 = { (responsible $238) ->
+        $239 = $164
+      }
+      $241 = call $170 with $169 $237 $240 ($93 is responsible)
+    }
+    # Examples:sqrt:21:isMatch:else
+    $245 = { (responsible $243) ->
+      $244 = $140
+    }
+    $246 = call $146 with $145 $242 $245 ($93 is responsible)
+  }
+  # Examples:sqrt:21:isMatch:else
+  $250 = { (responsible $248) ->
+    $249 = $116
+  }
+  $251 = call $122 with $121 $247 $250 ($93 is responsible)
+}
+# Examples:sqrt:21:equals:else
+$255 = { (responsible $253) ->
+  $254 = $95
+}
+$256 = call $101 with $100 $252 $255 ($93 is responsible)
+$257 = Nothing
+$258 = builtinTagWithoutValue
+$259 = call $258 with $256 ($93 is responsible)
+$260 = builtinEquals
+$261 = Match
+$262 = call $260 with $259 $261 ($93 is responsible)
+$263 = builtinIfElse
+# Examples:sqrt:21:isMatch:then
+$266 = { (responsible $264) ->
+  $265 = $257
+}
+# Examples:sqrt:21:isMatch:else
+$270 = { (responsible $267) ->
+  $268 = "The value doesn't match the pattern on the left side of the destructuring."
+  $269 = panicking because $268 ($93 is at fault)
+}
+$271 = call $263 with $262 $266 $270 ($93 is responsible)
+$272 = Examples:sqrt:equals
+$273 = builtinTagGetValue
+$274 = call $273 with $256 ($272 is responsible)
+$275 = builtinListGet
+$276 = 0
+$277 = call $275 with $274 $276 ($272 is responsible)
+$278 = Examples:sqrt:fixedDecimal
+$279 = builtinTagGetValue
+$280 = call $279 with $256 ($278 is responsible)
+$281 = builtinListGet
+$282 = 1
+$283 = call $281 with $280 $282 ($278 is responsible)
+$284 = Examples:sqrt:ifElse
+$285 = builtinTagGetValue
+$286 = call $285 with $256 ($284 is responsible)
+$287 = builtinListGet
+$288 = 2
+$289 = call $287 with $286 $288 ($284 is responsible)
+$290 = Examples:sqrt:int
+$291 = builtinTagGetValue
+$292 = call $291 with $256 ($290 is responsible)
+$293 = builtinListGet
+$294 = 3
+$295 = call $293 with $292 $294 ($290 is responsible)
+$296 = Examples:sqrt:recursive
+$297 = builtinTagGetValue
+$298 = call $297 with $256 ($296 is responsible)
+$299 = builtinListGet
+$300 = 4
+$301 = call $299 with $298 $300 ($296 is responsible)
+$302 = Nothing
+# Examples:sqrt:sqrt
+$653 = { $304 $305 (+ responsible $303) ->
+  $306 = builtinStructGet
+  $307 = StructGet
+  $308 = Examples:sqrt:sqrt:2
+  $309 = Examples:sqrt:sqrt:2
+  $310 = trace: start of call of $306 with $61 $307 ($308 is responsible, code is at $309)
+  $311 = call $306 with $61 $307 ($308 is responsible)
+  $312 = trace: end of call
+  $313 = $311
+  $314 = $283
+  $315 = Is
+  $316 = Examples:sqrt:sqrt:5
+  $317 = Examples:sqrt:sqrt:5
+  $318 = trace: start of call of $313 with $314 $315 ($316 is responsible, code is at $317)
+  $319 = call $313 with $314 $315 ($316 is responsible)
+  $320 = trace: end of call
+  $321 = $319
+  $322 = $304
+  $323 = Examples:sqrt:sqrt:7
+  $324 = Examples:sqrt:sqrt:7
+  $325 = trace: start of call of $321 with $322 ($323 is responsible, code is at $324)
+  $326 = call $321 with $322 ($323 is responsible)
+  $327 = trace: end of call
+  $328 = $326
+  $329 = "`fixedDecimal.is x` was not satisfied"
+  $330 = Examples:sqrt:sqrt:9
+  $331 = Examples:sqrt:sqrt:9
+  $332 = trace: start of call of $49 with $328 $329 $303 ($330 is responsible, code is at $331)
+  $333 = call $49 with $328 $329 $303 ($330 is responsible)
+  $334 = trace: end of call
+  $335 = $333
+  $336 = builtinStructGet
+  $337 = StructGet
+  $338 = Examples:sqrt:sqrt:12
+  $339 = Examples:sqrt:sqrt:12
+  $340 = trace: start of call of $336 with $61 $337 ($338 is responsible, code is at $339)
+  $341 = call $336 with $61 $337 ($338 is responsible)
+  $342 = trace: end of call
+  $343 = $341
+  $344 = $283
+  $345 = IsNonNegative
+  $346 = Examples:sqrt:sqrt:15
+  $347 = Examples:sqrt:sqrt:15
+  $348 = trace: start of call of $343 with $344 $345 ($346 is responsible, code is at $347)
+  $349 = call $343 with $344 $345 ($346 is responsible)
+  $350 = trace: end of call
+  $351 = $349
+  $352 = $304
+  $353 = Examples:sqrt:sqrt:17
+  $354 = Examples:sqrt:sqrt:17
+  $355 = trace: start of call of $351 with $352 ($353 is responsible, code is at $354)
+  $356 = call $351 with $352 ($353 is responsible)
+  $357 = trace: end of call
+  $358 = $356
+  $359 = "`fixedDecimal.isNonNegative x` was not satisfied"
+  $360 = Examples:sqrt:sqrt:19
+  $361 = Examples:sqrt:sqrt:19
+  $362 = trace: start of call of $49 with $358 $359 $303 ($360 is responsible, code is at $361)
+  $363 = call $49 with $358 $359 $303 ($360 is responsible)
+  $364 = trace: end of call
+  $365 = $363
+  $366 = builtinStructGet
+  $367 = StructGet
+  $368 = Examples:sqrt:sqrt:22
+  $369 = Examples:sqrt:sqrt:22
+  $370 = trace: start of call of $366 with $61 $367 ($368 is responsible, code is at $369)
+  $371 = call $366 with $61 $367 ($368 is responsible)
+  $372 = trace: end of call
+  $373 = $371
+  $374 = $295
+  $375 = Is
+  $376 = Examples:sqrt:sqrt:25
+  $377 = Examples:sqrt:sqrt:25
+  $378 = trace: start of call of $373 with $374 $375 ($376 is responsible, code is at $377)
+  $379 = call $373 with $374 $375 ($376 is responsible)
+  $380 = trace: end of call
+  $381 = $379
+  $382 = $305
+  $383 = Examples:sqrt:sqrt:27
+  $384 = Examples:sqrt:sqrt:27
+  $385 = trace: start of call of $381 with $382 ($383 is responsible, code is at $384)
+  $386 = call $381 with $382 ($383 is responsible)
+  $387 = trace: end of call
+  $388 = $386
+  $389 = "`int.is precision` was not satisfied"
+  $390 = Examples:sqrt:sqrt:29
+  $391 = Examples:sqrt:sqrt:29
+  $392 = trace: start of call of $49 with $388 $389 $303 ($390 is responsible, code is at $391)
+  $393 = call $49 with $388 $389 $303 ($390 is responsible)
+  $394 = trace: end of call
+  $395 = $393
+  $396 = builtinStructGet
+  $397 = StructGet
+  $398 = Examples:sqrt:sqrt:32
+  $399 = Examples:sqrt:sqrt:32
+  $400 = trace: start of call of $396 with $61 $397 ($398 is responsible, code is at $399)
+  $401 = call $396 with $61 $397 ($398 is responsible)
+  $402 = trace: end of call
+  $403 = $401
+  $404 = $295
+  $405 = IsNonNegative
+  $406 = Examples:sqrt:sqrt:35
+  $407 = Examples:sqrt:sqrt:35
+  $408 = trace: start of call of $403 with $404 $405 ($406 is responsible, code is at $407)
+  $409 = call $403 with $404 $405 ($406 is responsible)
+  $410 = trace: end of call
+  $411 = $409
+  $412 = $305
+  $413 = Examples:sqrt:sqrt:37
+  $414 = Examples:sqrt:sqrt:37
+  $415 = trace: start of call of $411 with $412 ($413 is responsible, code is at $414)
+  $416 = call $411 with $412 ($413 is responsible)
+  $417 = trace: end of call
+  $418 = $416
+  $419 = "`int.isNonNegative precision` was not satisfied"
+  $420 = Examples:sqrt:sqrt:39
+  $421 = Examples:sqrt:sqrt:39
+  $422 = trace: start of call of $49 with $418 $419 $303 ($420 is responsible, code is at $421)
+  $423 = call $49 with $418 $419 $303 ($420 is responsible)
+  $424 = trace: end of call
+  $425 = $423
+  $426 = 10
+  $427 = builtinStructGet
+  $428 = StructGet
+  $429 = Examples:sqrt:sqrt:43
+  $430 = Examples:sqrt:sqrt:43
+  $431 = trace: start of call of $427 with $61 $428 ($429 is responsible, code is at $430)
+  $432 = call $427 with $61 $428 ($429 is responsible)
+  $433 = trace: end of call
+  $434 = $432
+  $435 = $283
+  $436 = FromIntScaled
+  $437 = Examples:sqrt:sqrt:46
+  $438 = Examples:sqrt:sqrt:46
+  $439 = trace: start of call of $434 with $435 $436 ($437 is responsible, code is at $438)
+  $440 = call $434 with $435 $436 ($437 is responsible)
+  $441 = trace: end of call
+  $442 = $440
+  $443 = $305
+  $444 = Examples:sqrt:sqrt:48
+  $445 = Examples:sqrt:sqrt:48
+  $446 = trace: start of call of $442 with $426 $443 ($444 is responsible, code is at $445)
+  $447 = call $442 with $426 $443 ($444 is responsible)
+  $448 = trace: end of call
+  $449 = $447
+  $450 = $449
+  $451 = $450
+  $452 = Nothing
+  $453 = $301
+  $454 = $304
+  $455 = builtinStructGet
+  $456 = StructGet
+  $457 = Examples:sqrt:sqrt:54
+  $458 = Examples:sqrt:sqrt:54
+  $459 = trace: start of call of $455 with $61 $456 ($457 is responsible, code is at $458)
+  $460 = call $455 with $61 $456 ($457 is responsible)
+  $461 = trace: end of call
+  $462 = $460
+  $463 = $283
+  $464 = DivideTruncatingAtScale
+  $465 = Examples:sqrt:sqrt:57
+  $466 = Examples:sqrt:sqrt:57
+  $467 = trace: start of call of $462 with $463 $464 ($465 is responsible, code is at $466)
+  $468 = call $462 with $463 $464 ($465 is responsible)
+  $469 = trace: end of call
+  $470 = $468
+  $471 = 2
+  $472 = builtinStructGet
+  $473 = StructGet
+  $474 = Examples:sqrt:sqrt:61
+  $475 = Examples:sqrt:sqrt:61
+  $476 = trace: start of call of $472 with $61 $473 ($474 is responsible, code is at $475)
+  $477 = call $472 with $61 $473 ($474 is responsible)
+  $478 = trace: end of call
+  $479 = $477
+  $480 = $283
+  $481 = FromInt
+  $482 = Examples:sqrt:sqrt:64
+  $483 = Examples:sqrt:sqrt:64
+  $484 = trace: start of call of $479 with $480 $481 ($482 is responsible, code is at $483)
+  $485 = call $479 with $480 $481 ($482 is responsible)
+  $486 = trace: end of call
+  $487 = $485
+  $488 = Examples:sqrt:sqrt:65
+  $489 = Examples:sqrt:sqrt:65
+  $490 = trace: start of call of $487 with $471 ($488 is responsible, code is at $489)
+  $491 = call $487 with $471 ($488 is responsible)
+  $492 = trace: end of call
+  $493 = $491
+  $494 = $305
+  $495 = Examples:sqrt:sqrt:67
+  $496 = Examples:sqrt:sqrt:67
+  $497 = trace: start of call of $470 with $454 $493 $494 ($495 is responsible, code is at $496)
+  $498 = call $470 with $454 $493 $494 ($495 is responsible)
+  $499 = trace: end of call
+  $500 = $498
+  # Examples:sqrt:sqrt:68
+  $646 = { $502 $503 (+ responsible $501) ->
+    $504 = builtinStructGet
+    $505 = StructGet
+    $506 = Examples:sqrt:sqrt:68:2
+    $507 = Examples:sqrt:sqrt:68:2
+    $508 = trace: start of call of $504 with $61 $505 ($506 is responsible, code is at $507)
+    $509 = call $504 with $61 $505 ($506 is responsible)
+    $510 = trace: end of call
+    $511 = $509
+    $512 = $283
+    $513 = DivideTruncatingAtScale
+    $514 = Examples:sqrt:sqrt:68:5
+    $515 = Examples:sqrt:sqrt:68:5
+    $516 = trace: start of call of $511 with $512 $513 ($514 is responsible, code is at $515)
+    $517 = call $511 with $512 $513 ($514 is responsible)
+    $518 = trace: end of call
+    $519 = $517
+    $520 = $503
+    $521 = builtinStructGet
+    $522 = StructGet
+    $523 = Examples:sqrt:sqrt:68:9
+    $524 = Examples:sqrt:sqrt:68:9
+    $525 = trace: start of call of $521 with $61 $522 ($523 is responsible, code is at $524)
+    $526 = call $521 with $61 $522 ($523 is responsible)
+    $527 = trace: end of call
+    $528 = $526
+    $529 = $283
+    $530 = Add
+    $531 = Examples:sqrt:sqrt:68:12
+    $532 = Examples:sqrt:sqrt:68:12
+    $533 = trace: start of call of $528 with $529 $530 ($531 is responsible, code is at $532)
+    $534 = call $528 with $529 $530 ($531 is responsible)
+    $535 = trace: end of call
+    $536 = $534
+    $537 = $304
+    $538 = builtinStructGet
+    $539 = StructGet
+    $540 = Examples:sqrt:sqrt:68:16
+    $541 = Examples:sqrt:sqrt:68:16
+    $542 = trace: start of call of $538 with $61 $539 ($540 is responsible, code is at $541)
+    $543 = call $538 with $61 $539 ($540 is responsible)
+    $544 = trace: end of call
+    $545 = $543
+    $546 = $283
+    $547 = DivideTruncatingAtScale
+    $548 = Examples:sqrt:sqrt:68:19
+    $549 = Examples:sqrt:sqrt:68:19
+    $550 = trace: start of call of $545 with $546 $547 ($548 is responsible, code is at $549)
+    $551 = call $545 with $546 $547 ($548 is responsible)
+    $552 = trace: end of call
+    $553 = $551
+    $554 = $503
+    $555 = $305
+    $556 = Examples:sqrt:sqrt:68:22
+    $557 = Examples:sqrt:sqrt:68:22
+    $558 = trace: start of call of $553 with $537 $554 $555 ($556 is responsible, code is at $557)
+    $559 = call $553 with $537 $554 $555 ($556 is responsible)
+    $560 = trace: end of call
+    $561 = $559
+    $562 = Examples:sqrt:sqrt:68:23
+    $563 = Examples:sqrt:sqrt:68:23
+    $564 = trace: start of call of $536 with $520 $561 ($562 is responsible, code is at $563)
+    $565 = call $536 with $520 $561 ($562 is responsible)
+    $566 = trace: end of call
+    $567 = $565
+    $568 = 2
+    $569 = builtinStructGet
+    $570 = StructGet
+    $571 = Examples:sqrt:sqrt:68:27
+    $572 = Examples:sqrt:sqrt:68:27
+    $573 = trace: start of call of $569 with $61 $570 ($571 is responsible, code is at $572)
+    $574 = call $569 with $61 $570 ($571 is responsible)
+    $575 = trace: end of call
+    $576 = $574
+    $577 = $283
+    $578 = FromInt
+    $579 = Examples:sqrt:sqrt:68:30
+    $580 = Examples:sqrt:sqrt:68:30
+    $581 = trace: start of call of $576 with $577 $578 ($579 is responsible, code is at $580)
+    $582 = call $576 with $577 $578 ($579 is responsible)
+    $583 = trace: end of call
+    $584 = $582
+    $585 = Examples:sqrt:sqrt:68:31
+    $586 = Examples:sqrt:sqrt:68:31
+    $587 = trace: start of call of $584 with $568 ($585 is responsible, code is at $586)
+    $588 = call $584 with $568 ($585 is responsible)
+    $589 = trace: end of call
+    $590 = $588
+    $591 = $305
+    $592 = Examples:sqrt:sqrt:68:33
+    $593 = Examples:sqrt:sqrt:68:33
+    $594 = trace: start of call of $519 with $567 $590 $591 ($592 is responsible, code is at $593)
+    $595 = call $519 with $567 $590 $591 ($592 is responsible)
+    $596 = trace: end of call
+    $597 = $595
+    $598 = $597
+    $599 = $598
+    $600 = Nothing
+    $601 = $289
+    $602 = builtinStructGet
+    $603 = StructGet
+    $604 = Examples:sqrt:sqrt:68:38
+    $605 = Examples:sqrt:sqrt:68:38
+    $606 = trace: start of call of $602 with $61 $603 ($604 is responsible, code is at $605)
+    $607 = call $602 with $61 $603 ($604 is responsible)
+    $608 = trace: end of call
+    $609 = $607
+    $610 = $283
+    $611 = ApproxEquals
+    $612 = Examples:sqrt:sqrt:68:41
+    $613 = Examples:sqrt:sqrt:68:41
+    $614 = trace: start of call of $609 with $610 $611 ($612 is responsible, code is at $613)
+    $615 = call $609 with $610 $611 ($612 is responsible)
+    $616 = trace: end of call
+    $617 = $615
+    $618 = $503
+    $619 = $599
+    $620 = $451
+    $621 = Examples:sqrt:sqrt:68:45
+    $622 = Examples:sqrt:sqrt:68:45
+    $623 = trace: start of call of $617 with $618 $619 $620 ($621 is responsible, code is at $622)
+    $624 = call $617 with $618 $619 $620 ($621 is responsible)
+    $625 = trace: end of call
+    $626 = $624
+    # Examples:sqrt:sqrt:68:46
+    $629 = { (responsible $627) ->
+      $628 = $503
+    }
+    # Examples:sqrt:sqrt:68:47
+    $639 = { (responsible $630) ->
+      $631 = $502
+      $632 = $599
+      $633 = Examples:sqrt:sqrt:68:47:2
+      $634 = Examples:sqrt:sqrt:68:47:2
+      $635 = trace: start of call of $631 with $632 ($633 is responsible, code is at $634)
+      $636 = call $631 with $632 ($633 is responsible)
+      $637 = trace: end of call
+      $638 = $636
+    }
+    $640 = Examples:sqrt:sqrt:68:48
+    $641 = Examples:sqrt:sqrt:68:48
+    $642 = trace: start of call of $601 with $626 $629 $639 ($640 is responsible, code is at $641)
+    $643 = call $601 with $626 $629 $639 ($640 is responsible)
+    $644 = trace: end of call
+    $645 = $643
+  }
+  $647 = Examples:sqrt:sqrt:69
+  $648 = Examples:sqrt:sqrt:69
+  $649 = trace: start of call of $453 with $500 $646 ($647 is responsible, code is at $648)
+  $650 = call $453 with $500 $646 ($647 is responsible)
+  $651 = trace: end of call
+  $652 = $650
+}
+$654 = $653
+# Examples:sqrt:main
+$825 = { $656 (+ responsible $655) ->
+  $657 = 2
+  $658 = $657
+  $659 = $658
+  $660 = Nothing
+  $661 = $659
+  $662 = builtinStructGet
+  $663 = StructGet
+  $664 = Examples:sqrt:main:5
+  $665 = Examples:sqrt:main:5
+  $666 = trace: start of call of $662 with $61 $663 ($664 is responsible, code is at $665)
+  $667 = call $662 with $61 $663 ($664 is responsible)
+  $668 = trace: end of call
+  $669 = $667
+  $670 = $283
+  $671 = FromInt
+  $672 = Examples:sqrt:main:8
+  $673 = Examples:sqrt:main:8
+  $674 = trace: start of call of $669 with $670 $671 ($672 is responsible, code is at $673)
+  $675 = call $669 with $670 $671 ($672 is responsible)
+  $676 = trace: end of call
+  $677 = $675
+  $678 = Examples:sqrt:main:9
+  $679 = Examples:sqrt:main:9
+  $680 = trace: start of call of $677 with $661 ($678 is responsible, code is at $679)
+  $681 = call $677 with $661 ($678 is responsible)
+  $682 = trace: end of call
+  $683 = $681
+  $684 = $654
+  $685 = 65
+  $686 = Examples:sqrt:main:12
+  $687 = Examples:sqrt:main:12
+  $688 = trace: start of call of $684 with $683 $685 ($686 is responsible, code is at $687)
+  $689 = call $684 with $683 $685 ($686 is responsible)
+  $690 = trace: end of call
+  $691 = $689
+  $692 = $691
+  $693 = $692
+  $694 = Nothing
+  $695 = builtinStructGet
+  $696 = StructGet
+  $697 = Examples:sqrt:main:16
+  $698 = Examples:sqrt:main:16
+  $699 = trace: start of call of $695 with $61 $696 ($697 is responsible, code is at $698)
+  $700 = call $695 with $61 $696 ($697 is responsible)
+  $701 = trace: end of call
+  $702 = $700
+  $703 = $77
+  $704 = Print
+  $705 = Examples:sqrt:main:19
+  $706 = Examples:sqrt:main:19
+  $707 = trace: start of call of $702 with $703 $704 ($705 is responsible, code is at $706)
+  $708 = call $702 with $703 $704 ($705 is responsible)
+  $709 = trace: end of call
+  $710 = $708
+  $711 = builtinTextConcatenate
+  $712 = builtinTypeOf
+  $713 = Text
+  $714 = builtinEquals
+  $715 = builtinIfElse
+  $716 = builtinToDebugText
+  $717 = "The root of "
+  $718 = $659
+  $719 = Examples:sqrt:main:28
+  $720 = Examples:sqrt:main:28
+  $721 = trace: start of call of $712 with $718 ($719 is responsible, code is at $720)
+  $722 = call $712 with $718 ($719 is responsible)
+  $723 = trace: end of call
+  $724 = $722
+  $725 = Examples:sqrt:main:29
+  $726 = Examples:sqrt:main:29
+  $727 = trace: start of call of $714 with $724 $713 ($725 is responsible, code is at $726)
+  $728 = call $714 with $724 $713 ($725 is responsible)
+  $729 = trace: end of call
+  $730 = $728
+  # Examples:sqrt:main:30
+  $733 = { (responsible $731) ->
+    $732 = $718
+  }
+  # Examples:sqrt:main:31
+  $741 = { (responsible $734) ->
+    $735 = Examples:sqrt:main:31:0
+    $736 = Examples:sqrt:main:31:0
+    $737 = trace: start of call of $716 with $718 ($735 is responsible, code is at $736)
+    $738 = call $716 with $718 ($735 is responsible)
+    $739 = trace: end of call
+    $740 = $738
+  }
+  $742 = Examples:sqrt:main:32
+  $743 = Examples:sqrt:main:32
+  $744 = trace: start of call of $715 with $730 $733 $741 ($742 is responsible, code is at $743)
+  $745 = call $715 with $730 $733 $741 ($742 is responsible)
+  $746 = trace: end of call
+  $747 = $745
+  $748 = " is "
+  $749 = $693
+  $750 = builtinStructGet
+  $751 = StructGet
+  $752 = Examples:sqrt:main:37
+  $753 = Examples:sqrt:main:37
+  $754 = trace: start of call of $750 with $61 $751 ($752 is responsible, code is at $753)
+  $755 = call $750 with $61 $751 ($752 is responsible)
+  $756 = trace: end of call
+  $757 = $755
+  $758 = $283
+  $759 = ToText
+  $760 = Examples:sqrt:main:40
+  $761 = Examples:sqrt:main:40
+  $762 = trace: start of call of $757 with $758 $759 ($760 is responsible, code is at $761)
+  $763 = call $757 with $758 $759 ($760 is responsible)
+  $764 = trace: end of call
+  $765 = $763
+  $766 = Examples:sqrt:main:41
+  $767 = Examples:sqrt:main:41
+  $768 = trace: start of call of $765 with $749 ($766 is responsible, code is at $767)
+  $769 = call $765 with $749 ($766 is responsible)
+  $770 = trace: end of call
+  $771 = $769
+  $772 = Examples:sqrt:main:42
+  $773 = Examples:sqrt:main:42
+  $774 = trace: start of call of $712 with $771 ($772 is responsible, code is at $773)
+  $775 = call $712 with $771 ($772 is responsible)
+  $776 = trace: end of call
+  $777 = $775
+  $778 = Examples:sqrt:main:43
+  $779 = Examples:sqrt:main:43
+  $780 = trace: start of call of $714 with $777 $713 ($778 is responsible, code is at $779)
+  $781 = call $714 with $777 $713 ($778 is responsible)
+  $782 = trace: end of call
+  $783 = $781
+  # Examples:sqrt:main:44
+  $786 = { (responsible $784) ->
+    $785 = $771
+  }
+  # Examples:sqrt:main:45
+  $794 = { (responsible $787) ->
+    $788 = Examples:sqrt:main:45:0
+    $789 = Examples:sqrt:main:45:0
+    $790 = trace: start of call of $716 with $771 ($788 is responsible, code is at $789)
+    $791 = call $716 with $771 ($788 is responsible)
+    $792 = trace: end of call
+    $793 = $791
+  }
+  $795 = Examples:sqrt:main:46
+  $796 = Examples:sqrt:main:46
+  $797 = trace: start of call of $715 with $783 $786 $794 ($795 is responsible, code is at $796)
+  $798 = call $715 with $783 $786 $794 ($795 is responsible)
+  $799 = trace: end of call
+  $800 = $798
+  $801 = Examples:sqrt:main:47
+  $802 = Examples:sqrt:main:47
+  $803 = trace: start of call of $711 with $717 $747 ($801 is responsible, code is at $802)
+  $804 = call $711 with $717 $747 ($801 is responsible)
+  $805 = trace: end of call
+  $806 = $804
+  $807 = Examples:sqrt:main:48
+  $808 = Examples:sqrt:main:48
+  $809 = trace: start of call of $711 with $806 $748 ($807 is responsible, code is at $808)
+  $810 = call $711 with $806 $748 ($807 is responsible)
+  $811 = trace: end of call
+  $812 = $810
+  $813 = Examples:sqrt:main:49
+  $814 = Examples:sqrt:main:49
+  $815 = trace: start of call of $711 with $812 $800 ($813 is responsible, code is at $814)
+  $816 = call $711 with $812 $800 ($813 is responsible)
+  $817 = trace: end of call
+  $818 = $816
+  $819 = Examples:sqrt:main:50
+  $820 = Examples:sqrt:main:50
+  $821 = trace: start of call of $710 with $818 ($819 is responsible, code is at $820)
+  $822 = call $710 with $818 ($819 is responsible)
+  $823 = trace: end of call
+  $824 = $822
+}
+$826 = $825
+$827 = Main
+$828 = Sqrt
+$829 = [$827: $826, $828: $654]
+$830 = builtinStructHasKey
+$831 = Main
+$832 = call $830 with $829 $831 ($50 is responsible)
+$833 = "The module doesn't export a main function."
+$834 = builtinIfElse
+# Examples:sqrt:then
+$837 = { (responsible $835) ->
+  $836 = Nothing
+}
+# Examples:sqrt:else
+$840 = { (responsible $838) ->
+  $839 = panicking because $833 ($50 is at fault)
+}
+$841 = call $834 with $832 $837 $840 ($50 is responsible)
+$842 = builtinStructGet
+$843 = call $842 with $829 $831 ($50 is responsible)
+$844 = builtinTypeOf
+$845 = call $844 with $843 ($50 is responsible)
+$846 = builtinEquals
+$847 = Function
+$848 = call $846 with $845 $847 ($50 is responsible)
+$849 = "The exported main value is not a function."
+$850 = builtinIfElse
+# Examples:sqrt:then
+$853 = { (responsible $851) ->
+  $852 = Nothing
+}
+# Examples:sqrt:else
+$856 = { (responsible $854) ->
+  $855 = panicking because $849 ($50 is at fault)
+}
+$857 = call $850 with $848 $853 $856 ($50 is responsible)
+$858 = builtinGetArgumentCount
+$859 = call $858 with $843 ($50 is responsible)
+$860 = 1
+$861 = call $846 with $859 $860 ($50 is responsible)
+$862 = "The exported main function doesn't accept exactly one parameter."
+$863 = builtinIfElse
+# Examples:sqrt:then
+$866 = { (responsible $864) ->
+  $865 = Nothing
+}
+# Examples:sqrt:else
+$869 = { (responsible $867) ->
+  $868 = panicking because $862 ($50 is at fault)
+}
+$870 = call $863 with $861 $866 $869 ($50 is responsible)
+$871 = $843
