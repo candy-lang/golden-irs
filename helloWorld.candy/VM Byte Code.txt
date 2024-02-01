@@ -1,0 +1,510 @@
+# VM Byte Code for module Examples:helloWorld
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? Only for panic traces
+# • Include tracing of evaluated expressions? No
+
+# Constant heap
+<replaced address 02f274440fa59a68>: { 1 argument (capturing nothing) → ip-312 }
+<replaced address 05cf6ed3a3e1ef22>: "NotUtf8"
+<replaced address 0a7bac382389bce1>: "ReadToEnd"
+<replaced address 0fea7d5fa5afcc30>: Builtins::typeIs:25
+<replaced address 1076a7c75d895c72>: "NotAnInteger"
+<replaced address 18dc4adab2c8e8df>: "`struct | ✨.structHasKey key` was not satisfied"
+<replaced address 1f92019f89733a43>: Builtins::structGet:12
+<replaced address 21f03b3ca28e0378>: "You called a tag that already has a value."
+<replaced address 29f9db9855e50da6>: "You called a function that expects "
+<replaced address 2a8be7103eabae0e>: "Ok"
+<replaced address 2cc529e2abd4637b>: " arguments with 1 arguments."
+<replaced address 2ded061b072e15be>: { 0 arguments (capturing nothing) → ip-0 }
+<replaced address 36eebe9168aef0b0>: "The `reason` must be a text."
+<replaced address 3c7ceb8d9bbdedae>: Examples:helloWorld:2:13
+<replaced address 3eca0e872d043602>: Builtins::typeIs:19
+<replaced address 3f3beee0792f3c6f>: { 0 arguments (capturing nothing) → ip-181 }
+<replaced address 422f322f2940db06>: Builtins::structGet:21
+<replaced address 4d094d47213a5655>: "Equal"
+<replaced address 51f524ae63c4af0b>: "Tag"
+<replaced address 568420a2a5125080>: "GetNextRequest"
+<replaced address 59315a8fbde1f38a>: { 0 arguments (capturing nothing) → ip-420 }
+<replaced address 59d6aae2417bc61d>: "Hello, world!"
+<replaced address 59fb4da19b618456>: Builtins::structGet:5
+<replaced address 5daeb472a61ff7f8>: "False"
+<replaced address 614077b0f92cd7f0>: "Struct"
+<replaced address 642c742827aec9ac>: "File"
+<replaced address 6732a87eefdda5c6>: "Nothing"
+<replaced address 6b24044ae391e0b7>: "Int"
+<replaced address 6cdccd509afc921c>: "Text"
+<replaced address 6fe1fdb2563c07ad>: "Arguments"
+<replaced address 79a53ae28b1d8682>: { 0 arguments (capturing nothing) → ip-188 }
+<replaced address 7c987e313b2f2519>: Builtins::structGet:14
+<replaced address 807d7368f1a4edd6>: "Builtin"
+<replaced address 80f4eaa53f4876cd>: anonymous:$generated::needs
+<replaced address 859014e38a16c47f>: "HttpServer"
+<replaced address 8935c17065d0f29c>: Examples:helloWorld:
+<replaced address 91ccd4b75c545de9>: "The `condition` must be either `True` or `False`."
+<replaced address 996cc5f08093ac25>: "`struct | typeIs Struct` was not satisfied"
+<replaced address 9b051d74ed814f94>: "Open"
+<replaced address 9b692663aeb40da7>: "SendResponse"
+<replaced address 9beb0cb1b775254c>: "Close"
+<replaced address a2f6d53168c96b64>: "GetRandomBytes"
+<replaced address b66aa5e8eefa60de>: "Function"
+<replaced address baaf981cf3581dd8>: { 2 arguments (capturing nothing) → ip-106 }
+<replaced address bbcfa9d6e3f11acf>: "Greater"
+<replaced address bd7e643bf52790f0>: "Stdout"
+<replaced address c1be25f0a730ee0f>: "You can only call tags or functions."
+<replaced address c841b45ecc45bd33>: "True"
+<replaced address c862f946d4ce4256>: Examples:helloWorld:2:5
+<replaced address d7629bf6e871f5e8>: "Error"
+<replaced address dc704463e00c0b29>: { 0 arguments (capturing nothing) → ip-3 }
+<replaced address e13459ee6346ab5d>: "List"
+<replaced address e20e5f8b7e376a93>: "FileSystem"
+<replaced address e63e502aad6c0ab9>: { 3 arguments (capturing nothing) → ip-41 }
+<replaced address ef0df736712a6b95>: "Request"
+<replaced address f2debbb68786f674>: "Less"
+<replaced address f8bed0fc3ef0a4f6>: "Stdin"
+<replaced address fa8cdeec1123ecd3>: "SystemClock"
+
+# Instructions
+# Builtins::ifElse:1:case-0:matched, anonymous:$generated::needs:isConditionTrue:then, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched
+  0: pushConstant inline True
+  1: popMultipleBelowTop 1
+  2: return
+# anonymous:$generated::needs:isReasonText:then, anonymous:$generated::needs:isConditionBool:then, Examples:helloWorld:then, anonymous:$generated::needs:condition:then
+  3: pushConstant inline Nothing
+  4: popMultipleBelowTop 1
+  5: return
+# anonymous:$generated::needs:isConditionTrue:else
+  6: pushFromStack 1
+  7: dup by 1
+  8: pushConstant inline builtinEquals
+  9: pushConstant inline False
+ 10: pushConstant <replaced address 80f4eaa53f4876cd> anonymous:$generated::needs
+ 11: pushFromStack 2
+ 12: pushFromStack 5
+ 13: pushFromStack 3
+ 14: pushFromStack 3
+ 15: tailCall with 5 locals and 2 arguments
+# anonymous:$generated::needs:isConditionBool:else
+ 16: pushFromStack 1
+ 17: dup by 1
+ 18: pushConstant <replaced address 91ccd4b75c545de9> "The `condition` must be either `True` or `False`."
+ 19: pushFromStack 0
+ 20: pushFromStack 3
+ 21: panic
+ 22: popMultipleBelowTop 3
+ 23: return
+# anonymous:$generated::needs:isReasonText:else
+ 24: pushFromStack 1
+ 25: dup by 1
+ 26: pushConstant <replaced address 36eebe9168aef0b0> "The `reason` must be a text."
+ 27: pushFromStack 0
+ 28: pushFromStack 3
+ 29: panic
+ 30: popMultipleBelowTop 3
+ 31: return
+# anonymous:$generated::needs:condition:else
+ 32: pushFromStack 2
+ 33: dup by 1
+ 34: pushFromStack 1
+ 35: dup by 1
+ 36: pushFromStack 2
+ 37: pushFromStack 2
+ 38: panic
+ 39: popMultipleBelowTop 3
+ 40: return
+# anonymous:$generated::needs
+ 41: pushFromStack 3
+ 42: dup by 2
+ 43: pushFromStack 2
+ 44: dup by 1
+ 45: pushFromStack 0
+ 46: dup by 2
+ 47: pushConstant inline builtinEquals
+ 48: pushConstant inline True
+ 49: pushConstant <replaced address 80f4eaa53f4876cd> anonymous:$generated::needs
+ 50: pushFromStack 2
+ 51: pushFromStack 7
+ 52: pushFromStack 3
+ 53: pushFromStack 3
+ 54: call with 2 arguments
+ 55: pushFromStack 7
+ 56: createFunction with 0 arguments capturing 0 starting at ip-6
+ 57: pushConstant inline builtinIfElse
+ 58: pushConstant <replaced address 2ded061b072e15be> { 0 arguments (capturing nothing) → ip-0 }
+ 59: pushFromStack 1
+ 60: pushFromStack 5
+ 61: pushFromStack 2
+ 62: pushFromStack 5
+ 63: pushFromStack 9
+ 64: call with 3 arguments
+ 65: pushFromStack 9
+ 66: createFunction with 0 arguments capturing 0 starting at ip-16
+ 67: pushConstant <replaced address dc704463e00c0b29> { 0 arguments (capturing nothing) → ip-3 }
+ 68: pushFromStack 5
+ 69: pushFromStack 4
+ 70: pushFromStack 2
+ 71: pushFromStack 4
+ 72: pushFromStack 13
+ 73: call with 3 arguments
+ 74: pushConstant inline builtinTypeOf
+ 75: pushFromStack 0
+ 76: pushFromStack 17
+ 77: pushFromStack 6
+ 78: call with 1 argument
+ 79: pushConstant inline Text
+ 80: pushFromStack 15
+ 81: pushFromStack 2
+ 82: pushFromStack 2
+ 83: pushFromStack 9
+ 84: call with 2 arguments
+ 85: pushFromStack 7
+ 86: createFunction with 0 arguments capturing 0 starting at ip-24
+ 87: pushFromStack 12
+ 88: pushFromStack 3
+ 89: pushFromStack 9
+ 90: pushFromStack 3
+ 91: pushFromStack 20
+ 92: call with 3 arguments
+ 93: pushFromStack 22
+ 94: pushFromStack 22
+ 95: createFunction with 0 arguments capturing 1, 0 starting at ip-32
+ 96: pushFromStack 10
+ 97: drop
+ 98: pushFromStack 3
+ 99: drop
+100: pushFromStack 16
+101: pushFromStack 19
+102: pushFromStack 13
+103: pushFromStack 3
+104: pushFromStack 24
+105: tailCall with 27 locals and 3 arguments
+# Builtins::structGet
+106: pushFromStack 2
+107: dup by 2
+108: pushFromStack 1
+109: dup by 1
+110: pushFromStack 0
+111: dup by 4
+112: pushConstant inline builtinTypeOf
+113: pushConstant <replaced address 3eca0e872d043602> Builtins::typeIs:19
+114: pushFromStack 1
+115: pushFromStack 5
+116: pushFromStack 2
+117: call with 1 argument
+118: pushConstant inline builtinEquals
+119: pushConstant inline Struct
+120: pushConstant <replaced address 0fea7d5fa5afcc30> Builtins::typeIs:25
+121: pushFromStack 2
+122: pushFromStack 4
+123: pushFromStack 3
+124: pushFromStack 3
+125: call with 2 arguments
+126: pushFromStack 0
+127: dup by 1
+128: pushConstant <replaced address 59fb4da19b618456> Builtins::structGet:5
+129: pushConstant <replaced address e63e502aad6c0ab9> { 3 arguments (capturing nothing) → ip-41 }
+130: pushConstant <replaced address 996cc5f08093ac25> "`struct | typeIs Struct` was not satisfied"
+131: pushFromStack 2
+132: pushFromStack 2
+133: pushFromStack 5
+134: pushFromStack 3
+135: pushFromStack 14
+136: pushFromStack 4
+137: traceCallStarts (3 arguments)
+138: pushFromStack 1
+139: pushFromStack 4
+140: pushFromStack 2
+141: pushFromStack 13
+142: pushFromStack 6
+143: call with 3 arguments
+144: traceCallEnds without return value
+145: pushConstant inline builtinStructHasKey
+146: pushConstant <replaced address 1f92019f89733a43> Builtins::structGet:12
+147: pushFromStack 1
+148: pushFromStack 16
+149: pushFromStack 16
+150: pushFromStack 3
+151: call with 2 arguments
+152: pushFromStack 0
+153: dup by 1
+154: pushConstant <replaced address 7c987e313b2f2519> Builtins::structGet:14
+155: pushConstant <replaced address 18dc4adab2c8e8df> "`struct | ✨.structHasKey key` was not satisfied"
+156: pushFromStack 1
+157: pushFromStack 8
+158: pushFromStack 4
+159: pushFromStack 3
+160: pushFromStack 20
+161: pushFromStack 4
+162: traceCallStarts (3 arguments)
+163: pushFromStack 7
+164: pushFromStack 3
+165: pushFromStack 2
+166: pushFromStack 19
+167: pushFromStack 5
+168: call with 3 arguments
+169: traceCallEnds without return value
+170: pushConstant inline builtinStructGet
+171: pushConstant <replaced address 422f322f2940db06> Builtins::structGet:21
+172: pushFromStack 8
+173: drop
+174: pushFromStack 2
+175: drop
+176: pushFromStack 1
+177: pushFromStack 22
+178: pushFromStack 22
+179: pushFromStack 3
+180: tailCall with 22 locals and 2 arguments
+# Examples:helloWorld:2:13:doesTagHaveValue:then
+181: pushConstant <replaced address 21f03b3ca28e0378> "You called a tag that already has a value."
+182: pushConstant <replaced address 3c7ceb8d9bbdedae> Examples:helloWorld:2:13
+183: pushFromStack 1
+184: pushFromStack 1
+185: panic
+186: popMultipleBelowTop 3
+187: return
+# Examples:helloWorld:2:13:calleeIsFunction:else
+188: pushConstant <replaced address c1be25f0a730ee0f> "You can only call tags or functions."
+189: pushConstant <replaced address 3c7ceb8d9bbdedae> Examples:helloWorld:2:13
+190: pushFromStack 1
+191: pushFromStack 1
+192: panic
+193: popMultipleBelowTop 3
+194: return
+# Examples:helloWorld:2:13:doesTagHaveValue:else
+195: pushFromStack 1
+196: dup by 1
+197: pushConstant inline builtinTagWithValue
+198: pushConstant <replaced address 59d6aae2417bc61d> "Hello, world!"
+199: pushConstant <replaced address 3c7ceb8d9bbdedae> Examples:helloWorld:2:13
+200: pushFromStack 2
+201: pushFromStack 5
+202: pushFromStack 3
+203: pushFromStack 3
+204: tailCall with 5 locals and 2 arguments
+# Examples:helloWorld:2:13:calleeIsTag:then
+205: pushFromStack 1
+206: dup by 2
+207: pushConstant inline builtinTagHasValue
+208: pushConstant <replaced address 3c7ceb8d9bbdedae> Examples:helloWorld:2:13
+209: pushFromStack 1
+210: pushFromStack 4
+211: pushFromStack 2
+212: call with 1 argument
+213: pushFromStack 4
+214: createFunction with 0 arguments capturing 0 starting at ip-195
+215: pushConstant inline builtinIfElse
+216: pushConstant <replaced address 3f3beee0792f3c6f> { 0 arguments (capturing nothing) → ip-181 }
+217: pushFromStack 1
+218: pushFromStack 5
+219: pushFromStack 2
+220: pushFromStack 5
+221: pushFromStack 9
+222: tailCall with 9 locals and 3 arguments
+# Examples:helloWorld:2:13:hasCorrectNumberOfArguments:then
+223: pushFromStack 1
+224: dup by 2
+225: pushConstant <replaced address 3c7ceb8d9bbdedae> Examples:helloWorld:2:13
+226: pushConstant <replaced address 59d6aae2417bc61d> "Hello, world!"
+227: pushFromStack 1
+228: pushFromStack 4
+229: pushFromStack 2
+230: pushFromStack 2
+231: traceTailCall (1 argument)
+232: pushFromStack 3
+233: pushFromStack 1
+234: pushFromStack 3
+235: tailCall with 4 locals and 1 argument
+# Examples:helloWorld:2:13:hasCorrectNumberOfArguments:else
+236: pushFromStack 1
+237: dup by 1
+238: pushConstant inline builtinToDebugText
+239: pushConstant <replaced address 3c7ceb8d9bbdedae> Examples:helloWorld:2:13
+240: pushFromStack 1
+241: pushFromStack 4
+242: pushFromStack 2
+243: call with 1 argument
+244: pushConstant inline builtinTextConcatenate
+245: pushConstant <replaced address 29f9db9855e50da6> "You called a function that expects "
+246: pushFromStack 1
+247: pushFromStack 1
+248: pushFromStack 4
+249: pushFromStack 6
+250: call with 2 arguments
+251: pushConstant <replaced address 2cc529e2abd4637b> " arguments with 1 arguments."
+252: pushFromStack 3
+253: pushFromStack 2
+254: pushFromStack 2
+255: pushFromStack 8
+256: call with 2 arguments
+257: pushFromStack 0
+258: pushFromStack 7
+259: panic
+260: popMultipleBelowTop 10
+261: return
+# Examples:helloWorld:2:13:calleeIsFunction:then
+262: pushFromStack 1
+263: dup by 2
+264: pushConstant inline builtinGetArgumentCount
+265: pushConstant <replaced address 3c7ceb8d9bbdedae> Examples:helloWorld:2:13
+266: pushFromStack 1
+267: pushFromStack 4
+268: pushFromStack 2
+269: call with 1 argument
+270: pushFromStack 0
+271: dup by 1
+272: pushConstant inline builtinEquals
+273: pushConstant inline 1
+274: pushFromStack 1
+275: pushFromStack 3
+276: pushFromStack 2
+277: pushFromStack 6
+278: call with 2 arguments
+279: pushFromStack 7
+280: createFunction with 0 arguments capturing 0 starting at ip-223
+281: pushFromStack 5
+282: createFunction with 0 arguments capturing 0 starting at ip-236
+283: pushConstant inline builtinIfElse
+284: pushFromStack 0
+285: pushFromStack 6
+286: pushFromStack 5
+287: pushFromStack 4
+288: pushFromStack 13
+289: tailCall with 13 locals and 3 arguments
+# Examples:helloWorld:2:13:calleeIsTag:else
+290: pushFromStack 2
+291: dup by 1
+292: pushFromStack 1
+293: dup by 1
+294: pushConstant inline builtinEquals
+295: pushConstant inline Function
+296: pushConstant <replaced address 3c7ceb8d9bbdedae> Examples:helloWorld:2:13
+297: pushFromStack 2
+298: pushFromStack 5
+299: pushFromStack 3
+300: pushFromStack 3
+301: call with 2 arguments
+302: pushFromStack 6
+303: createFunction with 0 arguments capturing 0 starting at ip-262
+304: pushConstant inline builtinIfElse
+305: pushConstant <replaced address 79a53ae28b1d8682> { 0 arguments (capturing nothing) → ip-188 }
+306: pushFromStack 1
+307: pushFromStack 5
+308: pushFromStack 4
+309: pushFromStack 3
+310: pushFromStack 9
+311: tailCall with 11 locals and 3 arguments
+# Examples:helloWorld:2
+312: pushFromStack 1
+313: dup by 3
+314: pushConstant <replaced address c862f946d4ce4256> Examples:helloWorld:2:5
+315: pushConstant <replaced address baaf981cf3581dd8> { 2 arguments (capturing nothing) → ip-106 }
+316: pushConstant inline Stdout
+317: pushFromStack 2
+318: pushFromStack 2
+319: pushFromStack 6
+320: pushFromStack 3
+321: pushFromStack 3
+322: traceCallStarts (2 arguments)
+323: pushConstant inline builtinTypeOf
+324: pushConstant <replaced address 3eca0e872d043602> Builtins::typeIs:19
+325: pushFromStack 1
+326: pushFromStack 7
+327: pushFromStack 2
+328: call with 1 argument
+329: pushConstant inline builtinEquals
+330: pushConstant inline Struct
+331: pushConstant <replaced address 0fea7d5fa5afcc30> Builtins::typeIs:25
+332: pushFromStack 2
+333: pushFromStack 4
+334: pushFromStack 3
+335: pushFromStack 3
+336: call with 2 arguments
+337: pushFromStack 0
+338: dup by 1
+339: pushConstant <replaced address 59fb4da19b618456> Builtins::structGet:5
+340: pushConstant <replaced address e63e502aad6c0ab9> { 3 arguments (capturing nothing) → ip-41 }
+341: pushConstant <replaced address 996cc5f08093ac25> "`struct | typeIs Struct` was not satisfied"
+342: pushFromStack 2
+343: pushFromStack 2
+344: pushFromStack 5
+345: pushFromStack 3
+346: pushFromStack 16
+347: pushFromStack 4
+348: traceCallStarts (3 arguments)
+349: pushFromStack 1
+350: pushFromStack 4
+351: pushFromStack 2
+352: pushFromStack 15
+353: pushFromStack 6
+354: call with 3 arguments
+355: traceCallEnds without return value
+356: pushConstant inline builtinStructHasKey
+357: pushConstant <replaced address 1f92019f89733a43> Builtins::structGet:12
+358: pushFromStack 1
+359: pushFromStack 18
+360: pushFromStack 15
+361: pushFromStack 3
+362: call with 2 arguments
+363: pushFromStack 0
+364: dup by 1
+365: pushConstant <replaced address 7c987e313b2f2519> Builtins::structGet:14
+366: pushConstant <replaced address 18dc4adab2c8e8df> "`struct | ✨.structHasKey key` was not satisfied"
+367: pushFromStack 1
+368: pushFromStack 8
+369: pushFromStack 4
+370: pushFromStack 3
+371: pushFromStack 22
+372: pushFromStack 4
+373: traceCallStarts (3 arguments)
+374: pushFromStack 7
+375: pushFromStack 3
+376: pushFromStack 2
+377: pushFromStack 21
+378: pushFromStack 5
+379: call with 3 arguments
+380: traceCallEnds without return value
+381: pushConstant inline builtinStructGet
+382: pushConstant <replaced address 422f322f2940db06> Builtins::structGet:21
+383: pushFromStack 1
+384: pushFromStack 24
+385: pushFromStack 21
+386: pushFromStack 3
+387: call with 2 arguments
+388: pushFromStack 0
+389: dup by 2
+390: traceCallEnds without return value
+391: pushConstant <replaced address 3c7ceb8d9bbdedae> Examples:helloWorld:2:13
+392: pushFromStack 20
+393: pushFromStack 2
+394: pushFromStack 2
+395: call with 1 argument
+396: pushFromStack 0
+397: dup by 1
+398: pushConstant inline Tag
+399: pushFromStack 19
+400: pushFromStack 2
+401: pushFromStack 2
+402: pushFromStack 5
+403: call with 2 arguments
+404: pushFromStack 4
+405: createFunction with 0 arguments capturing 0 starting at ip-205
+406: pushFromStack 1
+407: pushFromStack 5
+408: createFunction with 0 arguments capturing 1, 0 starting at ip-290
+409: pushConstant inline builtinIfElse
+410: pushFromStack 19
+411: drop
+412: pushFromStack 13
+413: drop
+414: pushFromStack 0
+415: pushFromStack 7
+416: pushFromStack 6
+417: pushFromStack 4
+418: pushFromStack 13
+419: tailCall with 35 locals and 3 arguments
+# Examples:helloWorld:
+420: pushConstant <replaced address 02f274440fa59a68> { 1 argument (capturing nothing) → ip-312 }
+421: popMultipleBelowTop 1
+422: return

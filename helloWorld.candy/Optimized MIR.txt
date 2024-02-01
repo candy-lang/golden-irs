@@ -1,0 +1,150 @@
+# Optimized MIR for module Examples:helloWorld
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? Only for panic traces
+# • Include tracing of evaluated expressions? No
+
+$1 = Builtins::structGet:12
+$2 = Builtins::structGet:14
+$3 = Builtins::structGet:21
+$4 = Builtins::structGet:5
+$5 = Builtins::typeIs:19
+$6 = Builtins::typeIs:25
+$7 = Examples:helloWorld:2:13
+$8 = Examples:helloWorld:2:5
+$9 = anonymous:$generated::needs
+$10 = builtinEquals
+$11 = builtinGetArgumentCount
+$12 = builtinIfElse
+$13 = builtinStructGet
+$14 = builtinStructHasKey
+$15 = builtinTagHasValue
+$16 = builtinTagWithValue
+$17 = builtinTextConcatenate
+$18 = builtinToDebugText
+$19 = builtinTypeOf
+$20 = False
+$21 = Function
+$22 = Nothing
+$23 = Stdout
+$24 = Struct
+$25 = Tag
+$26 = Text
+$27 = True
+$28 = 1
+$29 = " arguments with 1 arguments."
+$30 = "Hello, world!"
+$31 = "The `condition` must be either `True` or `False`."
+$32 = "The `reason` must be a text."
+$33 = "You called a function that expects "
+$34 = "You called a tag that already has a value."
+$35 = "You can only call tags or functions."
+$36 = "`struct | typeIs Struct` was not satisfied"
+$37 = "`struct | ✨.structHasKey key` was not satisfied"
+# Builtins::ifElse:1:case-0:matched, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched, anonymous:$generated::needs:isConditionTrue:then
+$38 = { (responsible $39) ->
+  $40 = $27
+}
+# Examples:helloWorld:then, anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+$41 = { (responsible $42) ->
+  $43 = $22
+}
+# anonymous:$generated::needs
+$44 = { $45 $46 $47 (+ responsible $48) ->
+  $49 = call $10 with $45 $27 ($9 is responsible)
+  # anonymous:$generated::needs:isConditionTrue:else
+  $50 = { (responsible $51) ->
+    $52 = call $10 with $45 $20 ($9 is responsible)
+  }
+  $53 = call $12 with $49 $38 $50 ($9 is responsible)
+  # anonymous:$generated::needs:isConditionBool:else
+  $54 = { (responsible $55) ->
+    $56 = panicking because $31 ($48 is at fault)
+  }
+  $57 = call $12 with $53 $41 $54 ($9 is responsible)
+  $58 = call $19 with $46 ($48 is responsible)
+  $59 = call $10 with $58 $26 ($48 is responsible)
+  # anonymous:$generated::needs:isReasonText:else
+  $60 = { (responsible $61) ->
+    $62 = panicking because $32 ($48 is at fault)
+  }
+  $63 = call $12 with $59 $41 $60 ($9 is responsible)
+  # anonymous:$generated::needs:condition:else
+  $64 = { (responsible $65) ->
+    $66 = panicking because $46 ($47 is at fault)
+  }
+  $67 = call $12 with $45 $41 $64 ($9 is responsible)
+}
+# Builtins::structGet
+$68 = { $69 $70 (+ responsible $71) ->
+  $72 = call $19 with $69 ($5 is responsible)
+  $73 = call $10 with $72 $24 ($6 is responsible)
+  $74 = trace: start of call of $44 with $73 $36 $71 ($4 is responsible, code is at $4)
+  $75 = call $44 with $73 $36 $71 ($4 is responsible)
+  $76 = trace: end of call
+  $77 = call $14 with $69 $70 ($1 is responsible)
+  $78 = trace: start of call of $44 with $77 $37 $71 ($2 is responsible, code is at $2)
+  $79 = call $44 with $77 $37 $71 ($2 is responsible)
+  $80 = trace: end of call
+  $81 = call $13 with $69 $70 ($3 is responsible)
+}
+# Examples:helloWorld:2:13:doesTagHaveValue:then
+$82 = { (responsible $83) ->
+  $84 = panicking because $34 ($7 is at fault)
+}
+# Examples:helloWorld:2:13:calleeIsFunction:else
+$85 = { (responsible $86) ->
+  $87 = panicking because $35 ($7 is at fault)
+}
+# Examples:helloWorld:2
+$88 = { $89 (+ responsible $90) ->
+  $91 = trace: start of call of $68 with $89 $23 ($8 is responsible, code is at $8)
+  $92 = call $19 with $89 ($5 is responsible)
+  $93 = call $10 with $92 $24 ($6 is responsible)
+  $94 = trace: start of call of $44 with $93 $36 $8 ($4 is responsible, code is at $4)
+  $95 = call $44 with $93 $36 $8 ($4 is responsible)
+  $96 = trace: end of call
+  $97 = call $14 with $89 $23 ($1 is responsible)
+  $98 = trace: start of call of $44 with $97 $37 $8 ($2 is responsible, code is at $2)
+  $99 = call $44 with $97 $37 $8 ($2 is responsible)
+  $100 = trace: end of call
+  $101 = call $13 with $89 $23 ($3 is responsible)
+  $102 = trace: end of call
+  $103 = call $19 with $101 ($7 is responsible)
+  $104 = call $10 with $103 $25 ($7 is responsible)
+  # Examples:helloWorld:2:13:calleeIsTag:then
+  $105 = { (responsible $106) ->
+    $107 = call $15 with $101 ($7 is responsible)
+    # Examples:helloWorld:2:13:doesTagHaveValue:else
+    $108 = { (responsible $109) ->
+      $110 = call $16 with $101 $30 ($7 is responsible)
+    }
+    $111 = call $12 with $107 $82 $108 ($7 is responsible)
+  }
+  # Examples:helloWorld:2:13:calleeIsTag:else
+  $112 = { (responsible $113) ->
+    $114 = call $10 with $103 $21 ($7 is responsible)
+    # Examples:helloWorld:2:13:calleeIsFunction:then
+    $115 = { (responsible $116) ->
+      $117 = call $11 with $101 ($7 is responsible)
+      $118 = call $10 with $117 $28 ($7 is responsible)
+      # Examples:helloWorld:2:13:hasCorrectNumberOfArguments:then
+      $119 = { (responsible $120) ->
+        $121 = trace: tail call of $101 with $30 ($7 is responsible, code is at $7)
+        $122 = call $101 with $30 ($7 is responsible)
+      }
+      # Examples:helloWorld:2:13:hasCorrectNumberOfArguments:else
+      $125 = { (responsible $126) ->
+        $127 = call $18 with $117 ($7 is responsible)
+        $128 = call $17 with $33 $127 ($7 is responsible)
+        $129 = call $17 with $128 $29 ($7 is responsible)
+        $130 = panicking because $129 ($7 is at fault)
+      }
+      $131 = call $12 with $118 $119 $125 ($7 is responsible)
+    }
+    $132 = call $12 with $114 $115 $85 ($7 is responsible)
+  }
+  $133 = call $12 with $104 $105 $112 ($7 is responsible)
+}
