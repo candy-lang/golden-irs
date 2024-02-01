@@ -1,0 +1,797 @@
+# MIR for module Examples:file
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? Only for panic traces
+# • Include tracing of evaluated expressions? No
+
+# anonymous:$generated::needs
+$49 = { $2 $3 $4 (+ responsible $1) ->
+  $5 = anonymous:$generated::needs
+  $6 = builtinEquals
+  $7 = Nothing
+  $8 = True
+  $9 = False
+  $10 = call $6 with $2 $8 ($5 is responsible)
+  $11 = builtinIfElse
+  # anonymous:$generated::needs:isConditionTrue:then
+  $14 = { (responsible $12) ->
+    $13 = $8
+  }
+  # anonymous:$generated::needs:isConditionTrue:else
+  $17 = { (responsible $15) ->
+    $16 = call $6 with $2 $9 ($5 is responsible)
+  }
+  $18 = call $11 with $10 $14 $17 ($5 is responsible)
+  $19 = builtinIfElse
+  # anonymous:$generated::needs:isConditionBool:then
+  $22 = { (responsible $20) ->
+    $21 = $7
+  }
+  # anonymous:$generated::needs:isConditionBool:else
+  $26 = { (responsible $23) ->
+    $24 = "The `condition` must be either `True` or `False`."
+    $25 = panicking because $24 ($1 is at fault)
+  }
+  $27 = call $19 with $18 $22 $26 ($5 is responsible)
+  $28 = builtinTypeOf
+  $29 = call $28 with $3 ($1 is responsible)
+  $30 = Text
+  $31 = call $6 with $29 $30 ($1 is responsible)
+  $32 = builtinIfElse
+  # anonymous:$generated::needs:isReasonText:then
+  $35 = { (responsible $33) ->
+    $34 = $7
+  }
+  # anonymous:$generated::needs:isReasonText:else
+  $39 = { (responsible $36) ->
+    $37 = "The `reason` must be a text."
+    $38 = panicking because $37 ($1 is at fault)
+  }
+  $40 = call $32 with $31 $35 $39 ($5 is responsible)
+  $41 = builtinIfElse
+  # anonymous:$generated::needs:condition:then
+  $44 = { (responsible $42) ->
+    $43 = $7
+  }
+  # anonymous:$generated::needs:condition:else
+  $47 = { (responsible $45) ->
+    $46 = panicking because $3 ($4 is at fault)
+  }
+  $48 = call $41 with $2 $44 $47 ($5 is responsible)
+}
+$50 = Examples:file:
+# Examples:file:use
+$54 = { $52 (+ responsible $51) ->
+  $53 = use $52 (relative to Examples:file; $51 is responsible)
+}
+$55 = "Builtins"
+$56 = Examples:file:1
+$57 = Examples:file:1
+$58 = trace: start of call of $54 with $55 ($56 is responsible, code is at $57)
+$59 = call $54 with $55 ($56 is responsible)
+$60 = trace: end of call
+$61 = $59
+$62 = $54
+$63 = builtinTextConcatenate
+$64 = builtinTypeOf
+$65 = Text
+$66 = builtinEquals
+$67 = builtinIfElse
+$68 = builtinToDebugText
+$69 = "Builtins"
+$70 = Examples:file:10
+$71 = Examples:file:10
+$72 = trace: start of call of $62 with $69 ($70 is responsible, code is at $71)
+$73 = call $62 with $69 ($70 is responsible)
+$74 = trace: end of call
+$75 = $73
+$76 = Examples:file:11
+$77 = Match
+$78 = NoMatch
+$79 = Struct
+$80 = builtinTypeOf
+$81 = call $80 with $75 ($76 is responsible)
+$82 = builtinEquals
+$83 = call $82 with $79 $81 ($76 is responsible)
+$84 = builtinIfElse
+# Examples:file:11:equals:then
+$119 = { (responsible $85) ->
+  $86 = builtinStructHasKey
+  $87 = builtinStructGet
+  $88 = Print
+  $89 = call $86 with $75 $88 ($76 is responsible)
+  $90 = builtinIfElse
+  # Examples:file:11:hasKey:then
+  $95 = { (responsible $91) ->
+    $92 = call $87 with $75 $88 ($76 is responsible)
+    $93 = ($92,)
+    $94 = call $77 with $93 ($76 is responsible)
+  }
+  # Examples:file:11:hasKey:else
+  $98 = { (responsible $96) ->
+    $97 = $78
+  }
+  $99 = call $90 with $89 $95 $98 ($76 is responsible)
+  $100 = builtinTagWithoutValue
+  $101 = call $100 with $99 ($76 is responsible)
+  $102 = builtinEquals
+  $103 = Match
+  $104 = call $102 with $101 $103 ($76 is responsible)
+  $105 = builtinIfElse
+  # Examples:file:11:isMatch:then
+  $114 = { (responsible $106) ->
+    $107 = builtinTagGetValue
+    $108 = call $107 with $99 ($76 is responsible)
+    $109 = builtinListGet
+    $110 = 0
+    $111 = call $109 with $108 $110 ($76 is responsible)
+    $112 = ($111,)
+    $113 = call $77 with $112 ($76 is responsible)
+  }
+  # Examples:file:11:isMatch:else
+  $117 = { (responsible $115) ->
+    $116 = $99
+  }
+  $118 = call $105 with $104 $114 $117 ($76 is responsible)
+}
+# Examples:file:11:equals:else
+$122 = { (responsible $120) ->
+  $121 = $78
+}
+$123 = call $84 with $83 $119 $122 ($76 is responsible)
+$124 = Nothing
+$125 = builtinTagWithoutValue
+$126 = call $125 with $123 ($76 is responsible)
+$127 = builtinEquals
+$128 = Match
+$129 = call $127 with $126 $128 ($76 is responsible)
+$130 = builtinIfElse
+# Examples:file:11:isMatch:then
+$133 = { (responsible $131) ->
+  $132 = $124
+}
+# Examples:file:11:isMatch:else
+$137 = { (responsible $134) ->
+  $135 = "The value doesn't match the pattern on the left side of the destructuring."
+  $136 = panicking because $135 ($76 is at fault)
+}
+$138 = call $130 with $129 $133 $137 ($76 is responsible)
+$139 = Examples:file:print
+$140 = builtinTagGetValue
+$141 = call $140 with $123 ($139 is responsible)
+$142 = builtinListGet
+$143 = 0
+$144 = call $142 with $141 $143 ($139 is responsible)
+$145 = Nothing
+$146 = $54
+$147 = builtinTextConcatenate
+$148 = builtinTypeOf
+$149 = Text
+$150 = builtinEquals
+$151 = builtinIfElse
+$152 = builtinToDebugText
+$153 = "FileSystem"
+$154 = Examples:file:21
+$155 = Examples:file:21
+$156 = trace: start of call of $146 with $153 ($154 is responsible, code is at $155)
+$157 = call $146 with $153 ($154 is responsible)
+$158 = trace: end of call
+$159 = $157
+$160 = Examples:file:22
+$161 = Match
+$162 = NoMatch
+$163 = Struct
+$164 = builtinTypeOf
+$165 = call $164 with $159 ($160 is responsible)
+$166 = builtinEquals
+$167 = call $166 with $163 $165 ($160 is responsible)
+$168 = builtinIfElse
+# Examples:file:22:equals:then
+$203 = { (responsible $169) ->
+  $170 = builtinStructHasKey
+  $171 = builtinStructGet
+  $172 = File
+  $173 = call $170 with $159 $172 ($160 is responsible)
+  $174 = builtinIfElse
+  # Examples:file:22:hasKey:then
+  $179 = { (responsible $175) ->
+    $176 = call $171 with $159 $172 ($160 is responsible)
+    $177 = ($176,)
+    $178 = call $161 with $177 ($160 is responsible)
+  }
+  # Examples:file:22:hasKey:else
+  $182 = { (responsible $180) ->
+    $181 = $162
+  }
+  $183 = call $174 with $173 $179 $182 ($160 is responsible)
+  $184 = builtinTagWithoutValue
+  $185 = call $184 with $183 ($160 is responsible)
+  $186 = builtinEquals
+  $187 = Match
+  $188 = call $186 with $185 $187 ($160 is responsible)
+  $189 = builtinIfElse
+  # Examples:file:22:isMatch:then
+  $198 = { (responsible $190) ->
+    $191 = builtinTagGetValue
+    $192 = call $191 with $183 ($160 is responsible)
+    $193 = builtinListGet
+    $194 = 0
+    $195 = call $193 with $192 $194 ($160 is responsible)
+    $196 = ($195,)
+    $197 = call $161 with $196 ($160 is responsible)
+  }
+  # Examples:file:22:isMatch:else
+  $201 = { (responsible $199) ->
+    $200 = $183
+  }
+  $202 = call $189 with $188 $198 $201 ($160 is responsible)
+}
+# Examples:file:22:equals:else
+$206 = { (responsible $204) ->
+  $205 = $162
+}
+$207 = call $168 with $167 $203 $206 ($160 is responsible)
+$208 = Nothing
+$209 = builtinTagWithoutValue
+$210 = call $209 with $207 ($160 is responsible)
+$211 = builtinEquals
+$212 = Match
+$213 = call $211 with $210 $212 ($160 is responsible)
+$214 = builtinIfElse
+# Examples:file:22:isMatch:then
+$217 = { (responsible $215) ->
+  $216 = $208
+}
+# Examples:file:22:isMatch:else
+$221 = { (responsible $218) ->
+  $219 = "The value doesn't match the pattern on the left side of the destructuring."
+  $220 = panicking because $219 ($160 is at fault)
+}
+$222 = call $214 with $213 $217 $221 ($160 is responsible)
+$223 = Examples:file:file
+$224 = builtinTagGetValue
+$225 = call $224 with $207 ($223 is responsible)
+$226 = builtinListGet
+$227 = 0
+$228 = call $226 with $225 $227 ($223 is responsible)
+$229 = Nothing
+$230 = $54
+$231 = builtinTextConcatenate
+$232 = builtinTypeOf
+$233 = Text
+$234 = builtinEquals
+$235 = builtinIfElse
+$236 = builtinToDebugText
+$237 = "Core"
+$238 = Examples:file:32
+$239 = Examples:file:32
+$240 = trace: start of call of $230 with $237 ($238 is responsible, code is at $239)
+$241 = call $230 with $237 ($238 is responsible)
+$242 = trace: end of call
+$243 = $241
+$244 = Examples:file:33
+$245 = Match
+$246 = NoMatch
+$247 = Struct
+$248 = builtinTypeOf
+$249 = call $248 with $243 ($244 is responsible)
+$250 = builtinEquals
+$251 = call $250 with $247 $249 ($244 is responsible)
+$252 = builtinIfElse
+# Examples:file:33:equals:then
+$316 = { (responsible $253) ->
+  $254 = builtinStructHasKey
+  $255 = builtinStructGet
+  $256 = Result
+  $257 = call $254 with $243 $256 ($244 is responsible)
+  $258 = builtinIfElse
+  # Examples:file:33:hasKey:then
+  $263 = { (responsible $259) ->
+    $260 = call $255 with $243 $256 ($244 is responsible)
+    $261 = ($260,)
+    $262 = call $245 with $261 ($244 is responsible)
+  }
+  # Examples:file:33:hasKey:else
+  $266 = { (responsible $264) ->
+    $265 = $246
+  }
+  $267 = call $258 with $257 $263 $266 ($244 is responsible)
+  $268 = builtinTagWithoutValue
+  $269 = call $268 with $267 ($244 is responsible)
+  $270 = builtinEquals
+  $271 = Match
+  $272 = call $270 with $269 $271 ($244 is responsible)
+  $273 = builtinIfElse
+  # Examples:file:33:isMatch:then
+  $311 = { (responsible $274) ->
+    $275 = builtinTagGetValue
+    $276 = call $275 with $267 ($244 is responsible)
+    $277 = builtinListGet
+    $278 = 0
+    $279 = call $277 with $276 $278 ($244 is responsible)
+    $280 = Text
+    $281 = call $254 with $243 $280 ($244 is responsible)
+    $282 = builtinIfElse
+    # Examples:file:33:hasKey:then
+    $287 = { (responsible $283) ->
+      $284 = call $255 with $243 $280 ($244 is responsible)
+      $285 = ($284,)
+      $286 = call $245 with $285 ($244 is responsible)
+    }
+    # Examples:file:33:hasKey:else
+    $290 = { (responsible $288) ->
+      $289 = $246
+    }
+    $291 = call $282 with $281 $287 $290 ($244 is responsible)
+    $292 = builtinTagWithoutValue
+    $293 = call $292 with $291 ($244 is responsible)
+    $294 = builtinEquals
+    $295 = Match
+    $296 = call $294 with $293 $295 ($244 is responsible)
+    $297 = builtinIfElse
+    # Examples:file:33:isMatch:then
+    $306 = { (responsible $298) ->
+      $299 = builtinTagGetValue
+      $300 = call $299 with $291 ($244 is responsible)
+      $301 = builtinListGet
+      $302 = 0
+      $303 = call $301 with $300 $302 ($244 is responsible)
+      $304 = ($279, $303)
+      $305 = call $245 with $304 ($244 is responsible)
+    }
+    # Examples:file:33:isMatch:else
+    $309 = { (responsible $307) ->
+      $308 = $291
+    }
+    $310 = call $297 with $296 $306 $309 ($244 is responsible)
+  }
+  # Examples:file:33:isMatch:else
+  $314 = { (responsible $312) ->
+    $313 = $267
+  }
+  $315 = call $273 with $272 $311 $314 ($244 is responsible)
+}
+# Examples:file:33:equals:else
+$319 = { (responsible $317) ->
+  $318 = $246
+}
+$320 = call $252 with $251 $316 $319 ($244 is responsible)
+$321 = Nothing
+$322 = builtinTagWithoutValue
+$323 = call $322 with $320 ($244 is responsible)
+$324 = builtinEquals
+$325 = Match
+$326 = call $324 with $323 $325 ($244 is responsible)
+$327 = builtinIfElse
+# Examples:file:33:isMatch:then
+$330 = { (responsible $328) ->
+  $329 = $321
+}
+# Examples:file:33:isMatch:else
+$334 = { (responsible $331) ->
+  $332 = "The value doesn't match the pattern on the left side of the destructuring."
+  $333 = panicking because $332 ($244 is at fault)
+}
+$335 = call $327 with $326 $330 $334 ($244 is responsible)
+$336 = Examples:file:result
+$337 = builtinTagGetValue
+$338 = call $337 with $320 ($336 is responsible)
+$339 = builtinListGet
+$340 = 0
+$341 = call $339 with $338 $340 ($336 is responsible)
+$342 = Examples:file:text
+$343 = builtinTagGetValue
+$344 = call $343 with $320 ($342 is responsible)
+$345 = builtinListGet
+$346 = 1
+$347 = call $345 with $344 $346 ($342 is responsible)
+$348 = Nothing
+# Examples:file:35
+$690 = { $350 (+ responsible $349) ->
+  $351 = builtinStructGet
+  $352 = StructGet
+  $353 = Examples:file:35:2
+  $354 = Examples:file:35:2
+  $355 = trace: start of call of $351 with $61 $352 ($353 is responsible, code is at $354)
+  $356 = call $351 with $61 $352 ($353 is responsible)
+  $357 = trace: end of call
+  $358 = $356
+  $359 = $350
+  $360 = Arguments
+  $361 = Examples:file:35:5
+  $362 = Examples:file:35:5
+  $363 = trace: start of call of $358 with $359 $360 ($361 is responsible, code is at $362)
+  $364 = call $358 with $359 $360 ($361 is responsible)
+  $365 = trace: end of call
+  $366 = $364
+  $367 = Examples:file:35:6
+  $368 = Match
+  $369 = NoMatch
+  $370 = List
+  $371 = builtinTypeOf
+  $372 = call $371 with $366 ($367 is responsible)
+  $373 = builtinEquals
+  $374 = call $373 with $370 $372 ($367 is responsible)
+  $375 = builtinIfElse
+  # Examples:file:35:6:equals:then
+  $413 = { (responsible $376) ->
+    $377 = 1
+    $378 = builtinListLength
+    $379 = call $378 with $366 ($367 is responsible)
+    $380 = builtinEquals
+    $381 = call $380 with $377 $379 ($367 is responsible)
+    $382 = builtinIfElse
+    # Examples:file:35:6:equals:then
+    $408 = { (responsible $383) ->
+      $384 = builtinListGet
+      $385 = 0
+      $386 = call $384 with $366 $385 ($367 is responsible)
+      $387 = ($386,)
+      $388 = call $368 with $387 ($367 is responsible)
+      $389 = builtinTagWithoutValue
+      $390 = call $389 with $388 ($367 is responsible)
+      $391 = builtinEquals
+      $392 = Match
+      $393 = call $391 with $390 $392 ($367 is responsible)
+      $394 = builtinIfElse
+      # Examples:file:35:6:isMatch:then
+      $403 = { (responsible $395) ->
+        $396 = builtinTagGetValue
+        $397 = call $396 with $388 ($367 is responsible)
+        $398 = builtinListGet
+        $399 = 0
+        $400 = call $398 with $397 $399 ($367 is responsible)
+        $401 = ($400,)
+        $402 = call $368 with $401 ($367 is responsible)
+      }
+      # Examples:file:35:6:isMatch:else
+      $406 = { (responsible $404) ->
+        $405 = $388
+      }
+      $407 = call $394 with $393 $403 $406 ($367 is responsible)
+    }
+    # Examples:file:35:6:equals:else
+    $411 = { (responsible $409) ->
+      $410 = $369
+    }
+    $412 = call $382 with $381 $408 $411 ($367 is responsible)
+  }
+  # Examples:file:35:6:equals:else
+  $416 = { (responsible $414) ->
+    $415 = $369
+  }
+  $417 = call $375 with $374 $413 $416 ($367 is responsible)
+  $418 = Nothing
+  $419 = builtinTagWithoutValue
+  $420 = call $419 with $417 ($367 is responsible)
+  $421 = builtinEquals
+  $422 = Match
+  $423 = call $421 with $420 $422 ($367 is responsible)
+  $424 = builtinIfElse
+  # Examples:file:35:6:isMatch:then
+  $427 = { (responsible $425) ->
+    $426 = $418
+  }
+  # Examples:file:35:6:isMatch:else
+  $431 = { (responsible $428) ->
+    $429 = "The value doesn't match the pattern on the left side of the destructuring."
+    $430 = panicking because $429 ($367 is at fault)
+  }
+  $432 = call $424 with $423 $427 $431 ($367 is responsible)
+  $433 = Examples:file:35:path
+  $434 = builtinTagGetValue
+  $435 = call $434 with $417 ($433 is responsible)
+  $436 = builtinListGet
+  $437 = 0
+  $438 = call $436 with $435 $437 ($433 is responsible)
+  $439 = Nothing
+  $440 = $144
+  $441 = builtinTextConcatenate
+  $442 = builtinTypeOf
+  $443 = Text
+  $444 = builtinEquals
+  $445 = builtinIfElse
+  $446 = builtinToDebugText
+  $447 = "Bytes: "
+  $448 = builtinStructGet
+  $449 = StructGet
+  $450 = Examples:file:35:18
+  $451 = Examples:file:35:18
+  $452 = trace: start of call of $448 with $61 $449 ($450 is responsible, code is at $451)
+  $453 = call $448 with $61 $449 ($450 is responsible)
+  $454 = trace: end of call
+  $455 = $453
+  $456 = $228
+  $457 = ReadBytes
+  $458 = Examples:file:35:21
+  $459 = Examples:file:35:21
+  $460 = trace: start of call of $455 with $456 $457 ($458 is responsible, code is at $459)
+  $461 = call $455 with $456 $457 ($458 is responsible)
+  $462 = trace: end of call
+  $463 = $461
+  $464 = builtinStructGet
+  $465 = StructGet
+  $466 = Examples:file:35:24
+  $467 = Examples:file:35:24
+  $468 = trace: start of call of $464 with $61 $465 ($466 is responsible, code is at $467)
+  $469 = call $464 with $61 $465 ($466 is responsible)
+  $470 = trace: end of call
+  $471 = $469
+  $472 = builtinStructGet
+  $473 = StructGet
+  $474 = Examples:file:35:27
+  $475 = Examples:file:35:27
+  $476 = trace: start of call of $472 with $61 $473 ($474 is responsible, code is at $475)
+  $477 = call $472 with $61 $473 ($474 is responsible)
+  $478 = trace: end of call
+  $479 = $477
+  $480 = $350
+  $481 = FileSystem
+  $482 = Examples:file:35:30
+  $483 = Examples:file:35:30
+  $484 = trace: start of call of $479 with $480 $481 ($482 is responsible, code is at $483)
+  $485 = call $479 with $480 $481 ($482 is responsible)
+  $486 = trace: end of call
+  $487 = $485
+  $488 = File
+  $489 = Examples:file:35:32
+  $490 = Examples:file:35:32
+  $491 = trace: start of call of $471 with $487 $488 ($489 is responsible, code is at $490)
+  $492 = call $471 with $487 $488 ($489 is responsible)
+  $493 = trace: end of call
+  $494 = $492
+  $495 = $438
+  $496 = Examples:file:35:34
+  $497 = Examples:file:35:34
+  $498 = trace: start of call of $463 with $494 $495 ($496 is responsible, code is at $497)
+  $499 = call $463 with $494 $495 ($496 is responsible)
+  $500 = trace: end of call
+  $501 = $499
+  $502 = builtinStructGet
+  $503 = StructGet
+  $504 = Examples:file:35:37
+  $505 = Examples:file:35:37
+  $506 = trace: start of call of $502 with $61 $503 ($504 is responsible, code is at $505)
+  $507 = call $502 with $61 $503 ($504 is responsible)
+  $508 = trace: end of call
+  $509 = $507
+  $510 = $341
+  $511 = Unwrap
+  $512 = Examples:file:35:40
+  $513 = Examples:file:35:40
+  $514 = trace: start of call of $509 with $510 $511 ($512 is responsible, code is at $513)
+  $515 = call $509 with $510 $511 ($512 is responsible)
+  $516 = trace: end of call
+  $517 = $515
+  $518 = Examples:file:35:41
+  $519 = Examples:file:35:41
+  $520 = trace: start of call of $517 with $501 ($518 is responsible, code is at $519)
+  $521 = call $517 with $501 ($518 is responsible)
+  $522 = trace: end of call
+  $523 = $521
+  $524 = Examples:file:35:42
+  $525 = Examples:file:35:42
+  $526 = trace: start of call of $442 with $523 ($524 is responsible, code is at $525)
+  $527 = call $442 with $523 ($524 is responsible)
+  $528 = trace: end of call
+  $529 = $527
+  $530 = Examples:file:35:43
+  $531 = Examples:file:35:43
+  $532 = trace: start of call of $444 with $529 $443 ($530 is responsible, code is at $531)
+  $533 = call $444 with $529 $443 ($530 is responsible)
+  $534 = trace: end of call
+  $535 = $533
+  # Examples:file:35:44
+  $538 = { (responsible $536) ->
+    $537 = $523
+  }
+  # Examples:file:35:45
+  $546 = { (responsible $539) ->
+    $540 = Examples:file:35:45:0
+    $541 = Examples:file:35:45:0
+    $542 = trace: start of call of $446 with $523 ($540 is responsible, code is at $541)
+    $543 = call $446 with $523 ($540 is responsible)
+    $544 = trace: end of call
+    $545 = $543
+  }
+  $547 = Examples:file:35:46
+  $548 = Examples:file:35:46
+  $549 = trace: start of call of $445 with $535 $538 $546 ($547 is responsible, code is at $548)
+  $550 = call $445 with $535 $538 $546 ($547 is responsible)
+  $551 = trace: end of call
+  $552 = $550
+  $553 = Examples:file:35:47
+  $554 = Examples:file:35:47
+  $555 = trace: start of call of $441 with $447 $552 ($553 is responsible, code is at $554)
+  $556 = call $441 with $447 $552 ($553 is responsible)
+  $557 = trace: end of call
+  $558 = $556
+  $559 = Examples:file:35:48
+  $560 = Examples:file:35:48
+  $561 = trace: start of call of $440 with $558 ($559 is responsible, code is at $560)
+  $562 = call $440 with $558 ($559 is responsible)
+  $563 = trace: end of call
+  $564 = $562
+  $565 = $144
+  $566 = builtinTextConcatenate
+  $567 = builtinTypeOf
+  $568 = Text
+  $569 = builtinEquals
+  $570 = builtinIfElse
+  $571 = builtinToDebugText
+  $572 = "Text: "
+  $573 = builtinStructGet
+  $574 = StructGet
+  $575 = Examples:file:35:59
+  $576 = Examples:file:35:59
+  $577 = trace: start of call of $573 with $61 $574 ($575 is responsible, code is at $576)
+  $578 = call $573 with $61 $574 ($575 is responsible)
+  $579 = trace: end of call
+  $580 = $578
+  $581 = $228
+  $582 = ReadText
+  $583 = Examples:file:35:62
+  $584 = Examples:file:35:62
+  $585 = trace: start of call of $580 with $581 $582 ($583 is responsible, code is at $584)
+  $586 = call $580 with $581 $582 ($583 is responsible)
+  $587 = trace: end of call
+  $588 = $586
+  $589 = builtinStructGet
+  $590 = StructGet
+  $591 = Examples:file:35:65
+  $592 = Examples:file:35:65
+  $593 = trace: start of call of $589 with $61 $590 ($591 is responsible, code is at $592)
+  $594 = call $589 with $61 $590 ($591 is responsible)
+  $595 = trace: end of call
+  $596 = $594
+  $597 = builtinStructGet
+  $598 = StructGet
+  $599 = Examples:file:35:68
+  $600 = Examples:file:35:68
+  $601 = trace: start of call of $597 with $61 $598 ($599 is responsible, code is at $600)
+  $602 = call $597 with $61 $598 ($599 is responsible)
+  $603 = trace: end of call
+  $604 = $602
+  $605 = $350
+  $606 = FileSystem
+  $607 = Examples:file:35:71
+  $608 = Examples:file:35:71
+  $609 = trace: start of call of $604 with $605 $606 ($607 is responsible, code is at $608)
+  $610 = call $604 with $605 $606 ($607 is responsible)
+  $611 = trace: end of call
+  $612 = $610
+  $613 = File
+  $614 = Examples:file:35:73
+  $615 = Examples:file:35:73
+  $616 = trace: start of call of $596 with $612 $613 ($614 is responsible, code is at $615)
+  $617 = call $596 with $612 $613 ($614 is responsible)
+  $618 = trace: end of call
+  $619 = $617
+  $620 = $438
+  $621 = Examples:file:35:75
+  $622 = Examples:file:35:75
+  $623 = trace: start of call of $588 with $619 $620 ($621 is responsible, code is at $622)
+  $624 = call $588 with $619 $620 ($621 is responsible)
+  $625 = trace: end of call
+  $626 = $624
+  $627 = builtinStructGet
+  $628 = StructGet
+  $629 = Examples:file:35:78
+  $630 = Examples:file:35:78
+  $631 = trace: start of call of $627 with $61 $628 ($629 is responsible, code is at $630)
+  $632 = call $627 with $61 $628 ($629 is responsible)
+  $633 = trace: end of call
+  $634 = $632
+  $635 = $341
+  $636 = Unwrap
+  $637 = Examples:file:35:81
+  $638 = Examples:file:35:81
+  $639 = trace: start of call of $634 with $635 $636 ($637 is responsible, code is at $638)
+  $640 = call $634 with $635 $636 ($637 is responsible)
+  $641 = trace: end of call
+  $642 = $640
+  $643 = Examples:file:35:82
+  $644 = Examples:file:35:82
+  $645 = trace: start of call of $642 with $626 ($643 is responsible, code is at $644)
+  $646 = call $642 with $626 ($643 is responsible)
+  $647 = trace: end of call
+  $648 = $646
+  $649 = Examples:file:35:83
+  $650 = Examples:file:35:83
+  $651 = trace: start of call of $567 with $648 ($649 is responsible, code is at $650)
+  $652 = call $567 with $648 ($649 is responsible)
+  $653 = trace: end of call
+  $654 = $652
+  $655 = Examples:file:35:84
+  $656 = Examples:file:35:84
+  $657 = trace: start of call of $569 with $654 $568 ($655 is responsible, code is at $656)
+  $658 = call $569 with $654 $568 ($655 is responsible)
+  $659 = trace: end of call
+  $660 = $658
+  # Examples:file:35:85
+  $663 = { (responsible $661) ->
+    $662 = $648
+  }
+  # Examples:file:35:86
+  $671 = { (responsible $664) ->
+    $665 = Examples:file:35:86:0
+    $666 = Examples:file:35:86:0
+    $667 = trace: start of call of $571 with $648 ($665 is responsible, code is at $666)
+    $668 = call $571 with $648 ($665 is responsible)
+    $669 = trace: end of call
+    $670 = $668
+  }
+  $672 = Examples:file:35:87
+  $673 = Examples:file:35:87
+  $674 = trace: start of call of $570 with $660 $663 $671 ($672 is responsible, code is at $673)
+  $675 = call $570 with $660 $663 $671 ($672 is responsible)
+  $676 = trace: end of call
+  $677 = $675
+  $678 = Examples:file:35:88
+  $679 = Examples:file:35:88
+  $680 = trace: start of call of $566 with $572 $677 ($678 is responsible, code is at $679)
+  $681 = call $566 with $572 $677 ($678 is responsible)
+  $682 = trace: end of call
+  $683 = $681
+  $684 = Examples:file:35:89
+  $685 = Examples:file:35:89
+  $686 = trace: start of call of $565 with $683 ($684 is responsible, code is at $685)
+  $687 = call $565 with $683 ($684 is responsible)
+  $688 = trace: end of call
+  $689 = $687
+}
+$691 = $690
+$692 = $691
+$693 = Nothing
+$694 = Main
+$695 = [$694: $692]
+$696 = builtinStructHasKey
+$697 = Main
+$698 = call $696 with $695 $697 ($50 is responsible)
+$699 = "The module doesn't export a main function."
+$700 = builtinIfElse
+# Examples:file:then
+$703 = { (responsible $701) ->
+  $702 = Nothing
+}
+# Examples:file:else
+$706 = { (responsible $704) ->
+  $705 = panicking because $699 ($50 is at fault)
+}
+$707 = call $700 with $698 $703 $706 ($50 is responsible)
+$708 = builtinStructGet
+$709 = call $708 with $695 $697 ($50 is responsible)
+$710 = builtinTypeOf
+$711 = call $710 with $709 ($50 is responsible)
+$712 = builtinEquals
+$713 = Function
+$714 = call $712 with $711 $713 ($50 is responsible)
+$715 = "The exported main value is not a function."
+$716 = builtinIfElse
+# Examples:file:then
+$719 = { (responsible $717) ->
+  $718 = Nothing
+}
+# Examples:file:else
+$722 = { (responsible $720) ->
+  $721 = panicking because $715 ($50 is at fault)
+}
+$723 = call $716 with $714 $719 $722 ($50 is responsible)
+$724 = builtinGetArgumentCount
+$725 = call $724 with $709 ($50 is responsible)
+$726 = 1
+$727 = call $712 with $725 $726 ($50 is responsible)
+$728 = "The exported main function doesn't accept exactly one parameter."
+$729 = builtinIfElse
+# Examples:file:then
+$732 = { (responsible $730) ->
+  $731 = Nothing
+}
+# Examples:file:else
+$735 = { (responsible $733) ->
+  $734 = panicking because $728 ($50 is at fault)
+}
+$736 = call $729 with $727 $732 $735 ($50 is responsible)
+$737 = $709
