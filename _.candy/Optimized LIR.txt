@@ -1,0 +1,171 @@
+# Optimized LIR for module Examples:
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? Only for panic traces
+# • Include tracing of evaluated expressions? No
+
+# Constants
+%0 = Builtins::print:11
+%1 = Builtins::print:5
+%2 = Builtins::typeIs:19
+%3 = Builtins::typeIs:25
+%4 = Examples::12:24
+%5 = anonymous:$generated::needs
+%6 = builtinEquals
+%7 = builtinIfElse
+%8 = builtinPrint
+%9 = builtinTypeOf
+%10 = False
+%11 = Nothing
+%12 = Text
+%13 = True
+%14 = "3"
+%15 = "The `condition` must be either `True` or `False`."
+%16 = "The `reason` must be a text."
+%17 = "`message | typeIs Text` was not satisfied"
+%18 = { body_0 }
+%19 = { body_1 }
+%20 = { body_6 }
+%21 = { body_7 }
+%22 = { body_10 }
+%23 = { body_11 }
+
+# Bodies
+body_0 (responsible $0) =
+  # Original HIR IDs: Builtins::ifElse:1:case-0:matched, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched, anonymous:$generated::needs:isConditionTrue:then
+  # Captured IDs: none
+  $1 = %13<True>
+body_1 (responsible $0) =
+  # Original HIR IDs: Examples::then, anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+  # Captured IDs: none
+  $1 = %11<Nothing>
+body_2 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionTrue:else
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %6<builtinEquals>
+  $4 = %10<False>
+  $5 = %5<anonymous:$generated::needs>
+  $6 = call $3<%6<builtinEquals>> with $0 $4<%10<False>> ($5<%5<anonymous:$generated::needs>> is responsible)
+body_3 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionBool:else
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %15<"The `condition` must be either `True` or `False`.">
+  $4 = panicking because $3<%15<"The `condition` must be either `True` or `False`.">> ($0 is at fault)
+body_4 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isReasonText:else
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %16<"The `reason` must be a text.">
+  $4 = panicking because $3<%16<"The `reason` must be a text.">> ($0 is at fault)
+body_5 (responsible $2) =
+  # Original HIR IDs: anonymous:$generated::needs:condition:else
+  # Captured IDs: $0, $1
+  $3 = dup $0 by 1
+  $4 = dup $1 by 1
+  $5 = panicking because $0 ($1 is at fault)
+body_6 $0 $1 $2 (+ responsible $3) =
+  # Original HIR IDs: anonymous:$generated::needs
+  # Captured IDs: none
+  $4 = dup $0 by 2
+  $5 = dup $1 by 1
+  $6 = dup $3 by 2
+  $7 = %6<builtinEquals>
+  $8 = %13<True>
+  $9 = %5<anonymous:$generated::needs>
+  $10 = call $7<%6<builtinEquals>> with $0 $8<%13<True>> ($9<%5<anonymous:$generated::needs>> is responsible)
+  $11 = { body_2 capturing $0 }
+  $12 = %7<builtinIfElse>
+  $13 = %18<{ body_0 }>
+  $14 = call $12<%7<builtinIfElse>> with $10 $13<%18<{ body_0 }>> $11 ($9<%5<anonymous:$generated::needs>> is responsible)
+  $15 = { body_3 capturing $3 }
+  $16 = %19<{ body_1 }>
+  $17 = call $12<%7<builtinIfElse>> with $14 $16<%19<{ body_1 }>> $15 ($9<%5<anonymous:$generated::needs>> is responsible)
+  $18 = %9<builtinTypeOf>
+  $19 = call $18<%9<builtinTypeOf>> with $1 ($3 is responsible)
+  $20 = %12<Text>
+  $21 = call $7<%6<builtinEquals>> with $19 $20<%12<Text>> ($3 is responsible)
+  $22 = { body_4 capturing $3 }
+  $23 = call $12<%7<builtinIfElse>> with $21 $16<%19<{ body_1 }>> $22 ($9<%5<anonymous:$generated::needs>> is responsible)
+  $24 = { body_5 capturing $1, $2 }
+  $25 = drop $17
+  $26 = drop $23
+  $27 = call $12<%7<builtinIfElse>> with $0 $16<%19<{ body_1 }>> $24 ($9<%5<anonymous:$generated::needs>> is responsible)
+body_7 (responsible $0) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionBool:else
+  # Captured IDs: none
+  $1 = %15<"The `condition` must be either `True` or `False`.">
+  $2 = %1<Builtins::print:5>
+  $3 = panicking because $1<%15<"The `condition` must be either `True` or `False`.">> ($2<%1<Builtins::print:5>> is at fault)
+body_8 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionTrue:else
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %6<builtinEquals>
+  $4 = %10<False>
+  $5 = %5<anonymous:$generated::needs>
+  $6 = call $3<%6<builtinEquals>> with $0 $4<%10<False>> ($5<%5<anonymous:$generated::needs>> is responsible)
+body_9 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:condition:else
+  # Captured IDs: $0
+  $2 = dup $0 by 1
+  $3 = %17<"`message | typeIs Text` was not satisfied">
+  $4 = panicking because $3<%17<"`message | typeIs Text` was not satisfied">> ($0 is at fault)
+body_10 $0 (+ responsible $1) =
+  # Original HIR IDs: Builtins::print
+  # Captured IDs: none
+  $2 = dup $0 by 2
+  $3 = dup $1 by 2
+  $4 = %9<builtinTypeOf>
+  $5 = %2<Builtins::typeIs:19>
+  $6 = call $4<%9<builtinTypeOf>> with $0 ($5<%2<Builtins::typeIs:19>> is responsible)
+  $7 = %6<builtinEquals>
+  $8 = %12<Text>
+  $9 = %3<Builtins::typeIs:25>
+  $10 = call $7<%6<builtinEquals>> with $6 $8<%12<Text>> ($9<%3<Builtins::typeIs:25>> is responsible)
+  $11 = dup $10 by 3
+  $12 = %1<Builtins::print:5>
+  $13 = %20<{ body_6 }>
+  $14 = %17<"`message | typeIs Text` was not satisfied">
+  $15 = trace: start of call of $13<%20<{ body_6 }>> with $10 $14<%17<"`message | typeIs Text` was not satisfied">> $1 ($12<%1<Builtins::print:5>> is responsible, code is at $12<%1<Builtins::print:5>>)
+  $16 = %13<True>
+  $17 = %5<anonymous:$generated::needs>
+  $18 = call $7<%6<builtinEquals>> with $10 $16<%13<True>> ($17<%5<anonymous:$generated::needs>> is responsible)
+  $19 = { body_8 capturing $10 }
+  $20 = %7<builtinIfElse>
+  $21 = %18<{ body_0 }>
+  $22 = call $20<%7<builtinIfElse>> with $18 $21<%18<{ body_0 }>> $19 ($17<%5<anonymous:$generated::needs>> is responsible)
+  $23 = %19<{ body_1 }>
+  $24 = %21<{ body_7 }>
+  $25 = call $20<%7<builtinIfElse>> with $22 $23<%19<{ body_1 }>> $24<%21<{ body_7 }>> ($17<%5<anonymous:$generated::needs>> is responsible)
+  $26 = { body_9 capturing $1 }
+  $27 = call $20<%7<builtinIfElse>> with $10 $23<%19<{ body_1 }>> $26 ($17<%5<anonymous:$generated::needs>> is responsible)
+  $28 = trace: end of call
+  $29 = %0<Builtins::print:11>
+  $30 = %8<builtinPrint>
+  $31 = trace: tail call of $30<%8<builtinPrint>> with $0 ($29<%0<Builtins::print:11>> is responsible, code is at $29<%0<Builtins::print:11>>)
+  $32 = drop $25
+  $33 = drop $27
+  $34 = call $30<%8<builtinPrint>> with $0 ($29<%0<Builtins::print:11>> is responsible)
+body_11 $0 (+ responsible $1) =
+  # Original HIR IDs: Examples::12
+  # Captured IDs: none
+  $2 = %4<Examples::12:24>
+  $3 = %22<{ body_10 }>
+  $4 = %14<"3">
+  $5 = trace: start of call of $3<%22<{ body_10 }>> with $4<%14<"3">> ($2<%4<Examples::12:24>> is responsible, code is at $2<%4<Examples::12:24>>)
+  $6 = %0<Builtins::print:11>
+  $7 = %8<builtinPrint>
+  $8 = trace: start of call of $7<%8<builtinPrint>> with $4<%14<"3">> ($6<%0<Builtins::print:11>> is responsible, code is at $6<%0<Builtins::print:11>>)
+  $9 = call $7<%8<builtinPrint>> with $4<%14<"3">> ($6<%0<Builtins::print:11>> is responsible)
+  $10 = trace: end of call
+  $11 = trace: end of call
+  $12 = drop $0
+  $13 = $9
+body_12 (responsible $0) =
+  # Original HIR IDs: Examples::
+  # Captured IDs: none
+  $1 = %23<{ body_11 }>
