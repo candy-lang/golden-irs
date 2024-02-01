@@ -1,0 +1,28 @@
+# AST for module Examples:range
+assignment: identifier $6@"range" = 
+  call identifier $0@"use" with these arguments:
+    text
+      textPart $2@"Range"
+assignment: struct
+  identifier $15@"iterator" = 
+  call identifier $9@"use" with these arguments:
+    text
+      textPart $11@"Core"
+assignment: identifier $69@"main" := 
+  function (non-fuzzable) { identifier $19@"environment" ->
+    assignment: identifier $29@"a" = 
+      call struct access identifier $22@"range".$24@"Until" with these arguments:
+        int 1
+        int 10
+    call struct access identifier $32@"environment".$34@"Stdout" with these arguments:
+      identifier $36@"a"
+    call struct access identifier $52@"iterator".$54@"ForEach" with these arguments:
+      call struct access identifier $47@"range".$49@"Iterate" with these arguments:
+        call struct access identifier $40@"range".$42@"Until" with these arguments:
+          int 1
+          int 10
+      function (non-fuzzable) { identifier $56@"a" ->
+        call struct access identifier $58@"environment".$60@"Stdout" with these arguments:
+          identifier $62@"a"
+      }
+  }
