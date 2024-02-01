@@ -1,0 +1,37 @@
+# AST for module Examples:file
+assignment: struct
+  identifier $6@"print" = 
+  call identifier $0@"use" with these arguments:
+    text
+      textPart $2@"Builtins"
+assignment: struct
+  identifier $16@"file" = 
+  call identifier $10@"use" with these arguments:
+    text
+      textPart $12@"FileSystem"
+assignment: struct
+  identifier $26@"result"
+  identifier $28@"text" = 
+  call identifier $20@"use" with these arguments:
+    text
+      textPart $22@"Core"
+assignment: identifier $91@"main" := 
+  function (non-fuzzable) { identifier $32@"environment" ->
+    assignment: list
+      identifier $38@"path" = 
+      struct access identifier $34@"environment".$36@"Arguments"
+    call identifier $42@"print" with these arguments:
+      text
+        textPart $44@"Bytes: "
+        call struct access identifier $59@"result".$61@"Unwrap" with these arguments:
+          call struct access identifier $46@"file".$48@"ReadBytes" with these arguments:
+            struct access struct access identifier $50@"environment".$52@"FileSystem".$54@"File"
+            identifier $56@"path"
+    call identifier $66@"print" with these arguments:
+      text
+        textPart $68@"Text: "
+        call struct access identifier $83@"result".$85@"Unwrap" with these arguments:
+          call struct access identifier $70@"file".$72@"ReadText" with these arguments:
+            struct access struct access identifier $74@"environment".$76@"FileSystem".$78@"File"
+            identifier $80@"path"
+  }
