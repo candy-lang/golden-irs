@@ -1,0 +1,27 @@
+# HIR for module Examples:helloWorld
+$use = { (non-fuzzable, but passes on responsibility) $use:relativePath ->
+  $use:importedModule = relative to module Examples:helloWorld, use $use:relativePath
+}
+$0 = "Builtins"
+$1 = call $use with $0
+$2 = { (non-fuzzable) $2:environment ->
+  $2:0 = builtinStructGet
+  $2:1 = StructGet
+  $2:2 = call $2:0 with $1 $2:1
+  $2:3 = $2:environment
+  $2:4 = Stdout
+  $2:5 = call $2:2 with $2:3 $2:4
+  $2:6 = builtinTextConcatenate
+  $2:7 = builtinTypeOf
+  $2:8 = Text
+  $2:9 = builtinEquals
+  $2:10 = builtinIfElse
+  $2:11 = builtinToDebugText
+  $2:12 = "Hello, world!"
+  $2:13 = call $2:5 with $2:12
+}
+$main = $2
+$main#1 = $main
+$3 = Nothing
+$4 = Main
+$5 = [$4: $main#1]
