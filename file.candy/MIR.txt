@@ -1,0 +1,3065 @@
+# MIR for module Examples:file
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? Only for panic traces
+# • Include tracing of evaluated expressions? No
+
+# anonymous:$generated::needs
+$49 = { $2 $3 $4 (+ responsible $1) ->
+  $5 = anonymous:$generated::needs
+  $6 = builtinEquals
+  $7 = Nothing
+  $8 = True
+  $9 = False
+  $10 = call $6 with $2 $8 ($5 is responsible)
+  $11 = builtinIfElse
+  # anonymous:$generated::needs:isConditionTrue:then
+  $14 = { (responsible $12) ->
+    $13 = $8
+  }
+  # anonymous:$generated::needs:isConditionTrue:else
+  $17 = { (responsible $15) ->
+    $16 = call $6 with $2 $9 ($5 is responsible)
+  }
+  $18 = call $11 with $10 $14 $17 ($5 is responsible)
+  $19 = builtinIfElse
+  # anonymous:$generated::needs:isConditionBool:then
+  $22 = { (responsible $20) ->
+    $21 = $7
+  }
+  # anonymous:$generated::needs:isConditionBool:else
+  $26 = { (responsible $23) ->
+    $24 = "The `condition` must be either `True` or `False`."
+    $25 = panicking because $24 ($1 is at fault)
+  }
+  $27 = call $19 with $18 $22 $26 ($5 is responsible)
+  $28 = builtinTypeOf
+  $29 = call $28 with $3 ($1 is responsible)
+  $30 = Text
+  $31 = call $6 with $29 $30 ($1 is responsible)
+  $32 = builtinIfElse
+  # anonymous:$generated::needs:isReasonText:then
+  $35 = { (responsible $33) ->
+    $34 = $7
+  }
+  # anonymous:$generated::needs:isReasonText:else
+  $39 = { (responsible $36) ->
+    $37 = "The `reason` must be a text."
+    $38 = panicking because $37 ($1 is at fault)
+  }
+  $40 = call $32 with $31 $35 $39 ($5 is responsible)
+  $41 = builtinIfElse
+  # anonymous:$generated::needs:condition:then
+  $44 = { (responsible $42) ->
+    $43 = $7
+  }
+  # anonymous:$generated::needs:condition:else
+  $47 = { (responsible $45) ->
+    $46 = panicking because $3 ($4 is at fault)
+  }
+  $48 = call $41 with $2 $44 $47 ($5 is responsible)
+}
+$50 = Examples:file:
+# Examples:file:use
+$54 = { $52 (+ responsible $51) ->
+  $53 = use $52 (relative to Examples:file; $51 is responsible)
+}
+$55 = "Builtins"
+$56 = Examples:file:1
+$57 = builtinEquals
+$58 = builtinGetArgumentCount
+$59 = builtinTagHasValue
+$60 = builtinTagWithValue
+$61 = builtinTextConcatenate
+$62 = builtinToDebugText
+$63 = builtinTypeOf
+$64 = call $63 with $54 ($56 is responsible)
+$65 = Tag
+$66 = call $57 with $64 $65 ($56 is responsible)
+$67 = builtinIfElse
+# Examples:file:1:calleeIsTag:then
+$79 = { (responsible $68) ->
+  $69 = call $59 with $54 ($56 is responsible)
+  $70 = builtinIfElse
+  # Examples:file:1:doesTagHaveValue:then
+  $74 = { (responsible $71) ->
+    $72 = "You called a tag that already has a value."
+    $73 = panicking because $72 ($56 is at fault)
+  }
+  # Examples:file:1:doesTagHaveValue:else
+  $77 = { (responsible $75) ->
+    $76 = call $60 with $54 $55 ($56 is responsible)
+  }
+  $78 = call $70 with $69 $74 $77 ($56 is responsible)
+}
+# Examples:file:1:calleeIsTag:else
+$111 = { (responsible $80) ->
+  $81 = Function
+  $82 = call $57 with $64 $81 ($56 is responsible)
+  $83 = builtinIfElse
+  # Examples:file:1:calleeIsFunction:then
+  $105 = { (responsible $84) ->
+    $85 = call $58 with $54 ($56 is responsible)
+    $86 = 1
+    $87 = call $57 with $85 $86 ($56 is responsible)
+    $88 = builtinIfElse
+    # Examples:file:1:hasCorrectNumberOfArguments:then
+    $95 = { (responsible $89) ->
+      $90 = Examples:file:1
+      $91 = trace: start of call of $54 with $55 ($56 is responsible, code is at $90)
+      $92 = call $54 with $55 ($56 is responsible)
+      $93 = trace: end of call
+      $94 = $92
+    }
+    # Examples:file:1:hasCorrectNumberOfArguments:else
+    $103 = { (responsible $96) ->
+      $97 = "You called a function that expects "
+      $98 = call $62 with $85 ($56 is responsible)
+      $99 = " arguments with 1 arguments."
+      $100 = call $61 with $97 $98 ($56 is responsible)
+      $101 = call $61 with $100 $99 ($56 is responsible)
+      $102 = panicking because $101 ($56 is at fault)
+    }
+    $104 = call $88 with $87 $95 $103 ($56 is responsible)
+  }
+  # Examples:file:1:calleeIsFunction:else
+  $109 = { (responsible $106) ->
+    $107 = "You can only call tags or functions."
+    $108 = panicking because $107 ($56 is at fault)
+  }
+  $110 = call $83 with $82 $105 $109 ($56 is responsible)
+}
+$112 = call $67 with $66 $79 $111 ($56 is responsible)
+$113 = $54
+$114 = builtinTextConcatenate
+$115 = builtinTypeOf
+$116 = Text
+$117 = builtinEquals
+$118 = builtinIfElse
+$119 = builtinToDebugText
+$120 = "Builtins"
+$121 = Examples:file:10
+$122 = builtinEquals
+$123 = builtinGetArgumentCount
+$124 = builtinTagHasValue
+$125 = builtinTagWithValue
+$126 = builtinTextConcatenate
+$127 = builtinToDebugText
+$128 = builtinTypeOf
+$129 = call $128 with $113 ($121 is responsible)
+$130 = Tag
+$131 = call $122 with $129 $130 ($121 is responsible)
+$132 = builtinIfElse
+# Examples:file:10:calleeIsTag:then
+$144 = { (responsible $133) ->
+  $134 = call $124 with $113 ($121 is responsible)
+  $135 = builtinIfElse
+  # Examples:file:10:doesTagHaveValue:then
+  $139 = { (responsible $136) ->
+    $137 = "You called a tag that already has a value."
+    $138 = panicking because $137 ($121 is at fault)
+  }
+  # Examples:file:10:doesTagHaveValue:else
+  $142 = { (responsible $140) ->
+    $141 = call $125 with $113 $120 ($121 is responsible)
+  }
+  $143 = call $135 with $134 $139 $142 ($121 is responsible)
+}
+# Examples:file:10:calleeIsTag:else
+$176 = { (responsible $145) ->
+  $146 = Function
+  $147 = call $122 with $129 $146 ($121 is responsible)
+  $148 = builtinIfElse
+  # Examples:file:10:calleeIsFunction:then
+  $170 = { (responsible $149) ->
+    $150 = call $123 with $113 ($121 is responsible)
+    $151 = 1
+    $152 = call $122 with $150 $151 ($121 is responsible)
+    $153 = builtinIfElse
+    # Examples:file:10:hasCorrectNumberOfArguments:then
+    $160 = { (responsible $154) ->
+      $155 = Examples:file:10
+      $156 = trace: start of call of $113 with $120 ($121 is responsible, code is at $155)
+      $157 = call $113 with $120 ($121 is responsible)
+      $158 = trace: end of call
+      $159 = $157
+    }
+    # Examples:file:10:hasCorrectNumberOfArguments:else
+    $168 = { (responsible $161) ->
+      $162 = "You called a function that expects "
+      $163 = call $127 with $150 ($121 is responsible)
+      $164 = " arguments with 1 arguments."
+      $165 = call $126 with $162 $163 ($121 is responsible)
+      $166 = call $126 with $165 $164 ($121 is responsible)
+      $167 = panicking because $166 ($121 is at fault)
+    }
+    $169 = call $153 with $152 $160 $168 ($121 is responsible)
+  }
+  # Examples:file:10:calleeIsFunction:else
+  $174 = { (responsible $171) ->
+    $172 = "You can only call tags or functions."
+    $173 = panicking because $172 ($121 is at fault)
+  }
+  $175 = call $148 with $147 $170 $174 ($121 is responsible)
+}
+$177 = call $132 with $131 $144 $176 ($121 is responsible)
+$178 = Examples:file:11
+$179 = Match
+$180 = NoMatch
+$181 = Struct
+$182 = builtinTypeOf
+$183 = call $182 with $177 ($178 is responsible)
+$184 = builtinEquals
+$185 = call $184 with $181 $183 ($178 is responsible)
+$186 = builtinIfElse
+# Examples:file:11:equals:then
+$221 = { (responsible $187) ->
+  $188 = builtinStructHasKey
+  $189 = builtinStructGet
+  $190 = Print
+  $191 = call $188 with $177 $190 ($178 is responsible)
+  $192 = builtinIfElse
+  # Examples:file:11:hasKey:then
+  $197 = { (responsible $193) ->
+    $194 = call $189 with $177 $190 ($178 is responsible)
+    $195 = ($194,)
+    $196 = call $179 with $195 ($178 is responsible)
+  }
+  # Examples:file:11:hasKey:else
+  $200 = { (responsible $198) ->
+    $199 = $180
+  }
+  $201 = call $192 with $191 $197 $200 ($178 is responsible)
+  $202 = builtinTagWithoutValue
+  $203 = call $202 with $201 ($178 is responsible)
+  $204 = builtinEquals
+  $205 = Match
+  $206 = call $204 with $203 $205 ($178 is responsible)
+  $207 = builtinIfElse
+  # Examples:file:11:isMatch:then
+  $216 = { (responsible $208) ->
+    $209 = builtinTagGetValue
+    $210 = call $209 with $201 ($178 is responsible)
+    $211 = builtinListGet
+    $212 = 0
+    $213 = call $211 with $210 $212 ($178 is responsible)
+    $214 = ($213,)
+    $215 = call $179 with $214 ($178 is responsible)
+  }
+  # Examples:file:11:isMatch:else
+  $219 = { (responsible $217) ->
+    $218 = $201
+  }
+  $220 = call $207 with $206 $216 $219 ($178 is responsible)
+}
+# Examples:file:11:equals:else
+$224 = { (responsible $222) ->
+  $223 = $180
+}
+$225 = call $186 with $185 $221 $224 ($178 is responsible)
+$226 = Nothing
+$227 = builtinTagWithoutValue
+$228 = call $227 with $225 ($178 is responsible)
+$229 = builtinEquals
+$230 = Match
+$231 = call $229 with $228 $230 ($178 is responsible)
+$232 = builtinIfElse
+# Examples:file:11:isMatch:then
+$235 = { (responsible $233) ->
+  $234 = $226
+}
+# Examples:file:11:isMatch:else
+$239 = { (responsible $236) ->
+  $237 = "The value doesn't match the pattern on the left side of the destructuring."
+  $238 = panicking because $237 ($178 is at fault)
+}
+$240 = call $232 with $231 $235 $239 ($178 is responsible)
+$241 = Examples:file:print
+$242 = builtinTagGetValue
+$243 = call $242 with $225 ($241 is responsible)
+$244 = builtinListGet
+$245 = 0
+$246 = call $244 with $243 $245 ($241 is responsible)
+$247 = Nothing
+$248 = $54
+$249 = builtinTextConcatenate
+$250 = builtinTypeOf
+$251 = Text
+$252 = builtinEquals
+$253 = builtinIfElse
+$254 = builtinToDebugText
+$255 = "FileSystem"
+$256 = Examples:file:21
+$257 = builtinEquals
+$258 = builtinGetArgumentCount
+$259 = builtinTagHasValue
+$260 = builtinTagWithValue
+$261 = builtinTextConcatenate
+$262 = builtinToDebugText
+$263 = builtinTypeOf
+$264 = call $263 with $248 ($256 is responsible)
+$265 = Tag
+$266 = call $257 with $264 $265 ($256 is responsible)
+$267 = builtinIfElse
+# Examples:file:21:calleeIsTag:then
+$279 = { (responsible $268) ->
+  $269 = call $259 with $248 ($256 is responsible)
+  $270 = builtinIfElse
+  # Examples:file:21:doesTagHaveValue:then
+  $274 = { (responsible $271) ->
+    $272 = "You called a tag that already has a value."
+    $273 = panicking because $272 ($256 is at fault)
+  }
+  # Examples:file:21:doesTagHaveValue:else
+  $277 = { (responsible $275) ->
+    $276 = call $260 with $248 $255 ($256 is responsible)
+  }
+  $278 = call $270 with $269 $274 $277 ($256 is responsible)
+}
+# Examples:file:21:calleeIsTag:else
+$311 = { (responsible $280) ->
+  $281 = Function
+  $282 = call $257 with $264 $281 ($256 is responsible)
+  $283 = builtinIfElse
+  # Examples:file:21:calleeIsFunction:then
+  $305 = { (responsible $284) ->
+    $285 = call $258 with $248 ($256 is responsible)
+    $286 = 1
+    $287 = call $257 with $285 $286 ($256 is responsible)
+    $288 = builtinIfElse
+    # Examples:file:21:hasCorrectNumberOfArguments:then
+    $295 = { (responsible $289) ->
+      $290 = Examples:file:21
+      $291 = trace: start of call of $248 with $255 ($256 is responsible, code is at $290)
+      $292 = call $248 with $255 ($256 is responsible)
+      $293 = trace: end of call
+      $294 = $292
+    }
+    # Examples:file:21:hasCorrectNumberOfArguments:else
+    $303 = { (responsible $296) ->
+      $297 = "You called a function that expects "
+      $298 = call $262 with $285 ($256 is responsible)
+      $299 = " arguments with 1 arguments."
+      $300 = call $261 with $297 $298 ($256 is responsible)
+      $301 = call $261 with $300 $299 ($256 is responsible)
+      $302 = panicking because $301 ($256 is at fault)
+    }
+    $304 = call $288 with $287 $295 $303 ($256 is responsible)
+  }
+  # Examples:file:21:calleeIsFunction:else
+  $309 = { (responsible $306) ->
+    $307 = "You can only call tags or functions."
+    $308 = panicking because $307 ($256 is at fault)
+  }
+  $310 = call $283 with $282 $305 $309 ($256 is responsible)
+}
+$312 = call $267 with $266 $279 $311 ($256 is responsible)
+$313 = Examples:file:22
+$314 = Match
+$315 = NoMatch
+$316 = Struct
+$317 = builtinTypeOf
+$318 = call $317 with $312 ($313 is responsible)
+$319 = builtinEquals
+$320 = call $319 with $316 $318 ($313 is responsible)
+$321 = builtinIfElse
+# Examples:file:22:equals:then
+$356 = { (responsible $322) ->
+  $323 = builtinStructHasKey
+  $324 = builtinStructGet
+  $325 = File
+  $326 = call $323 with $312 $325 ($313 is responsible)
+  $327 = builtinIfElse
+  # Examples:file:22:hasKey:then
+  $332 = { (responsible $328) ->
+    $329 = call $324 with $312 $325 ($313 is responsible)
+    $330 = ($329,)
+    $331 = call $314 with $330 ($313 is responsible)
+  }
+  # Examples:file:22:hasKey:else
+  $335 = { (responsible $333) ->
+    $334 = $315
+  }
+  $336 = call $327 with $326 $332 $335 ($313 is responsible)
+  $337 = builtinTagWithoutValue
+  $338 = call $337 with $336 ($313 is responsible)
+  $339 = builtinEquals
+  $340 = Match
+  $341 = call $339 with $338 $340 ($313 is responsible)
+  $342 = builtinIfElse
+  # Examples:file:22:isMatch:then
+  $351 = { (responsible $343) ->
+    $344 = builtinTagGetValue
+    $345 = call $344 with $336 ($313 is responsible)
+    $346 = builtinListGet
+    $347 = 0
+    $348 = call $346 with $345 $347 ($313 is responsible)
+    $349 = ($348,)
+    $350 = call $314 with $349 ($313 is responsible)
+  }
+  # Examples:file:22:isMatch:else
+  $354 = { (responsible $352) ->
+    $353 = $336
+  }
+  $355 = call $342 with $341 $351 $354 ($313 is responsible)
+}
+# Examples:file:22:equals:else
+$359 = { (responsible $357) ->
+  $358 = $315
+}
+$360 = call $321 with $320 $356 $359 ($313 is responsible)
+$361 = Nothing
+$362 = builtinTagWithoutValue
+$363 = call $362 with $360 ($313 is responsible)
+$364 = builtinEquals
+$365 = Match
+$366 = call $364 with $363 $365 ($313 is responsible)
+$367 = builtinIfElse
+# Examples:file:22:isMatch:then
+$370 = { (responsible $368) ->
+  $369 = $361
+}
+# Examples:file:22:isMatch:else
+$374 = { (responsible $371) ->
+  $372 = "The value doesn't match the pattern on the left side of the destructuring."
+  $373 = panicking because $372 ($313 is at fault)
+}
+$375 = call $367 with $366 $370 $374 ($313 is responsible)
+$376 = Examples:file:file
+$377 = builtinTagGetValue
+$378 = call $377 with $360 ($376 is responsible)
+$379 = builtinListGet
+$380 = 0
+$381 = call $379 with $378 $380 ($376 is responsible)
+$382 = Nothing
+$383 = $54
+$384 = builtinTextConcatenate
+$385 = builtinTypeOf
+$386 = Text
+$387 = builtinEquals
+$388 = builtinIfElse
+$389 = builtinToDebugText
+$390 = "Core"
+$391 = Examples:file:32
+$392 = builtinEquals
+$393 = builtinGetArgumentCount
+$394 = builtinTagHasValue
+$395 = builtinTagWithValue
+$396 = builtinTextConcatenate
+$397 = builtinToDebugText
+$398 = builtinTypeOf
+$399 = call $398 with $383 ($391 is responsible)
+$400 = Tag
+$401 = call $392 with $399 $400 ($391 is responsible)
+$402 = builtinIfElse
+# Examples:file:32:calleeIsTag:then
+$414 = { (responsible $403) ->
+  $404 = call $394 with $383 ($391 is responsible)
+  $405 = builtinIfElse
+  # Examples:file:32:doesTagHaveValue:then
+  $409 = { (responsible $406) ->
+    $407 = "You called a tag that already has a value."
+    $408 = panicking because $407 ($391 is at fault)
+  }
+  # Examples:file:32:doesTagHaveValue:else
+  $412 = { (responsible $410) ->
+    $411 = call $395 with $383 $390 ($391 is responsible)
+  }
+  $413 = call $405 with $404 $409 $412 ($391 is responsible)
+}
+# Examples:file:32:calleeIsTag:else
+$446 = { (responsible $415) ->
+  $416 = Function
+  $417 = call $392 with $399 $416 ($391 is responsible)
+  $418 = builtinIfElse
+  # Examples:file:32:calleeIsFunction:then
+  $440 = { (responsible $419) ->
+    $420 = call $393 with $383 ($391 is responsible)
+    $421 = 1
+    $422 = call $392 with $420 $421 ($391 is responsible)
+    $423 = builtinIfElse
+    # Examples:file:32:hasCorrectNumberOfArguments:then
+    $430 = { (responsible $424) ->
+      $425 = Examples:file:32
+      $426 = trace: start of call of $383 with $390 ($391 is responsible, code is at $425)
+      $427 = call $383 with $390 ($391 is responsible)
+      $428 = trace: end of call
+      $429 = $427
+    }
+    # Examples:file:32:hasCorrectNumberOfArguments:else
+    $438 = { (responsible $431) ->
+      $432 = "You called a function that expects "
+      $433 = call $397 with $420 ($391 is responsible)
+      $434 = " arguments with 1 arguments."
+      $435 = call $396 with $432 $433 ($391 is responsible)
+      $436 = call $396 with $435 $434 ($391 is responsible)
+      $437 = panicking because $436 ($391 is at fault)
+    }
+    $439 = call $423 with $422 $430 $438 ($391 is responsible)
+  }
+  # Examples:file:32:calleeIsFunction:else
+  $444 = { (responsible $441) ->
+    $442 = "You can only call tags or functions."
+    $443 = panicking because $442 ($391 is at fault)
+  }
+  $445 = call $418 with $417 $440 $444 ($391 is responsible)
+}
+$447 = call $402 with $401 $414 $446 ($391 is responsible)
+$448 = Examples:file:33
+$449 = Match
+$450 = NoMatch
+$451 = Struct
+$452 = builtinTypeOf
+$453 = call $452 with $447 ($448 is responsible)
+$454 = builtinEquals
+$455 = call $454 with $451 $453 ($448 is responsible)
+$456 = builtinIfElse
+# Examples:file:33:equals:then
+$520 = { (responsible $457) ->
+  $458 = builtinStructHasKey
+  $459 = builtinStructGet
+  $460 = Result
+  $461 = call $458 with $447 $460 ($448 is responsible)
+  $462 = builtinIfElse
+  # Examples:file:33:hasKey:then
+  $467 = { (responsible $463) ->
+    $464 = call $459 with $447 $460 ($448 is responsible)
+    $465 = ($464,)
+    $466 = call $449 with $465 ($448 is responsible)
+  }
+  # Examples:file:33:hasKey:else
+  $470 = { (responsible $468) ->
+    $469 = $450
+  }
+  $471 = call $462 with $461 $467 $470 ($448 is responsible)
+  $472 = builtinTagWithoutValue
+  $473 = call $472 with $471 ($448 is responsible)
+  $474 = builtinEquals
+  $475 = Match
+  $476 = call $474 with $473 $475 ($448 is responsible)
+  $477 = builtinIfElse
+  # Examples:file:33:isMatch:then
+  $515 = { (responsible $478) ->
+    $479 = builtinTagGetValue
+    $480 = call $479 with $471 ($448 is responsible)
+    $481 = builtinListGet
+    $482 = 0
+    $483 = call $481 with $480 $482 ($448 is responsible)
+    $484 = Text
+    $485 = call $458 with $447 $484 ($448 is responsible)
+    $486 = builtinIfElse
+    # Examples:file:33:hasKey:then
+    $491 = { (responsible $487) ->
+      $488 = call $459 with $447 $484 ($448 is responsible)
+      $489 = ($488,)
+      $490 = call $449 with $489 ($448 is responsible)
+    }
+    # Examples:file:33:hasKey:else
+    $494 = { (responsible $492) ->
+      $493 = $450
+    }
+    $495 = call $486 with $485 $491 $494 ($448 is responsible)
+    $496 = builtinTagWithoutValue
+    $497 = call $496 with $495 ($448 is responsible)
+    $498 = builtinEquals
+    $499 = Match
+    $500 = call $498 with $497 $499 ($448 is responsible)
+    $501 = builtinIfElse
+    # Examples:file:33:isMatch:then
+    $510 = { (responsible $502) ->
+      $503 = builtinTagGetValue
+      $504 = call $503 with $495 ($448 is responsible)
+      $505 = builtinListGet
+      $506 = 0
+      $507 = call $505 with $504 $506 ($448 is responsible)
+      $508 = ($483, $507)
+      $509 = call $449 with $508 ($448 is responsible)
+    }
+    # Examples:file:33:isMatch:else
+    $513 = { (responsible $511) ->
+      $512 = $495
+    }
+    $514 = call $501 with $500 $510 $513 ($448 is responsible)
+  }
+  # Examples:file:33:isMatch:else
+  $518 = { (responsible $516) ->
+    $517 = $471
+  }
+  $519 = call $477 with $476 $515 $518 ($448 is responsible)
+}
+# Examples:file:33:equals:else
+$523 = { (responsible $521) ->
+  $522 = $450
+}
+$524 = call $456 with $455 $520 $523 ($448 is responsible)
+$525 = Nothing
+$526 = builtinTagWithoutValue
+$527 = call $526 with $524 ($448 is responsible)
+$528 = builtinEquals
+$529 = Match
+$530 = call $528 with $527 $529 ($448 is responsible)
+$531 = builtinIfElse
+# Examples:file:33:isMatch:then
+$534 = { (responsible $532) ->
+  $533 = $525
+}
+# Examples:file:33:isMatch:else
+$538 = { (responsible $535) ->
+  $536 = "The value doesn't match the pattern on the left side of the destructuring."
+  $537 = panicking because $536 ($448 is at fault)
+}
+$539 = call $531 with $530 $534 $538 ($448 is responsible)
+$540 = Examples:file:result
+$541 = builtinTagGetValue
+$542 = call $541 with $524 ($540 is responsible)
+$543 = builtinListGet
+$544 = 0
+$545 = call $543 with $542 $544 ($540 is responsible)
+$546 = Examples:file:text
+$547 = builtinTagGetValue
+$548 = call $547 with $524 ($546 is responsible)
+$549 = builtinListGet
+$550 = 1
+$551 = call $549 with $548 $550 ($546 is responsible)
+$552 = Nothing
+# Examples:file:35
+$2654 = { $554 (+ responsible $553) ->
+  $555 = builtinStructGet
+  $556 = StructGet
+  $557 = Examples:file:35:2
+  $558 = builtinEquals
+  $559 = builtinGetArgumentCount
+  $560 = builtinTagHasValue
+  $561 = builtinTagWithValue
+  $562 = builtinTextConcatenate
+  $563 = builtinToDebugText
+  $564 = builtinTypeOf
+  $565 = call $564 with $555 ($557 is responsible)
+  $566 = Tag
+  $567 = call $558 with $565 $566 ($557 is responsible)
+  $568 = builtinIfElse
+  # Examples:file:35:2:calleeIsTag:then
+  $581 = { (responsible $569) ->
+    $570 = call $560 with $555 ($557 is responsible)
+    $571 = builtinIfElse
+    # Examples:file:35:2:doesTagHaveValue:then
+    $575 = { (responsible $572) ->
+      $573 = "You called a tag that already has a value."
+      $574 = panicking because $573 ($557 is at fault)
+    }
+    # Examples:file:35:2:doesTagHaveValue:else
+    $579 = { (responsible $576) ->
+      $577 = "Tags can only be created with one value."
+      $578 = panicking because $577 ($557 is at fault)
+    }
+    $580 = call $571 with $570 $575 $579 ($557 is responsible)
+  }
+  # Examples:file:35:2:calleeIsTag:else
+  $613 = { (responsible $582) ->
+    $583 = Function
+    $584 = call $558 with $565 $583 ($557 is responsible)
+    $585 = builtinIfElse
+    # Examples:file:35:2:calleeIsFunction:then
+    $607 = { (responsible $586) ->
+      $587 = call $559 with $555 ($557 is responsible)
+      $588 = 2
+      $589 = call $558 with $587 $588 ($557 is responsible)
+      $590 = builtinIfElse
+      # Examples:file:35:2:hasCorrectNumberOfArguments:then
+      $597 = { (responsible $591) ->
+        $592 = Examples:file:35:2
+        $593 = trace: start of call of $555 with $112 $556 ($557 is responsible, code is at $592)
+        $594 = call $555 with $112 $556 ($557 is responsible)
+        $595 = trace: end of call
+        $596 = $594
+      }
+      # Examples:file:35:2:hasCorrectNumberOfArguments:else
+      $605 = { (responsible $598) ->
+        $599 = "You called a function that expects "
+        $600 = call $563 with $587 ($557 is responsible)
+        $601 = " arguments with 2 arguments."
+        $602 = call $562 with $599 $600 ($557 is responsible)
+        $603 = call $562 with $602 $601 ($557 is responsible)
+        $604 = panicking because $603 ($557 is at fault)
+      }
+      $606 = call $590 with $589 $597 $605 ($557 is responsible)
+    }
+    # Examples:file:35:2:calleeIsFunction:else
+    $611 = { (responsible $608) ->
+      $609 = "You can only call tags or functions."
+      $610 = panicking because $609 ($557 is at fault)
+    }
+    $612 = call $585 with $584 $607 $611 ($557 is responsible)
+  }
+  $614 = call $568 with $567 $581 $613 ($557 is responsible)
+  $615 = $554
+  $616 = Arguments
+  $617 = Examples:file:35:5
+  $618 = builtinEquals
+  $619 = builtinGetArgumentCount
+  $620 = builtinTagHasValue
+  $621 = builtinTagWithValue
+  $622 = builtinTextConcatenate
+  $623 = builtinToDebugText
+  $624 = builtinTypeOf
+  $625 = call $624 with $614 ($617 is responsible)
+  $626 = Tag
+  $627 = call $618 with $625 $626 ($617 is responsible)
+  $628 = builtinIfElse
+  # Examples:file:35:5:calleeIsTag:then
+  $641 = { (responsible $629) ->
+    $630 = call $620 with $614 ($617 is responsible)
+    $631 = builtinIfElse
+    # Examples:file:35:5:doesTagHaveValue:then
+    $635 = { (responsible $632) ->
+      $633 = "You called a tag that already has a value."
+      $634 = panicking because $633 ($617 is at fault)
+    }
+    # Examples:file:35:5:doesTagHaveValue:else
+    $639 = { (responsible $636) ->
+      $637 = "Tags can only be created with one value."
+      $638 = panicking because $637 ($617 is at fault)
+    }
+    $640 = call $631 with $630 $635 $639 ($617 is responsible)
+  }
+  # Examples:file:35:5:calleeIsTag:else
+  $673 = { (responsible $642) ->
+    $643 = Function
+    $644 = call $618 with $625 $643 ($617 is responsible)
+    $645 = builtinIfElse
+    # Examples:file:35:5:calleeIsFunction:then
+    $667 = { (responsible $646) ->
+      $647 = call $619 with $614 ($617 is responsible)
+      $648 = 2
+      $649 = call $618 with $647 $648 ($617 is responsible)
+      $650 = builtinIfElse
+      # Examples:file:35:5:hasCorrectNumberOfArguments:then
+      $657 = { (responsible $651) ->
+        $652 = Examples:file:35:5
+        $653 = trace: start of call of $614 with $615 $616 ($617 is responsible, code is at $652)
+        $654 = call $614 with $615 $616 ($617 is responsible)
+        $655 = trace: end of call
+        $656 = $654
+      }
+      # Examples:file:35:5:hasCorrectNumberOfArguments:else
+      $665 = { (responsible $658) ->
+        $659 = "You called a function that expects "
+        $660 = call $623 with $647 ($617 is responsible)
+        $661 = " arguments with 2 arguments."
+        $662 = call $622 with $659 $660 ($617 is responsible)
+        $663 = call $622 with $662 $661 ($617 is responsible)
+        $664 = panicking because $663 ($617 is at fault)
+      }
+      $666 = call $650 with $649 $657 $665 ($617 is responsible)
+    }
+    # Examples:file:35:5:calleeIsFunction:else
+    $671 = { (responsible $668) ->
+      $669 = "You can only call tags or functions."
+      $670 = panicking because $669 ($617 is at fault)
+    }
+    $672 = call $645 with $644 $667 $671 ($617 is responsible)
+  }
+  $674 = call $628 with $627 $641 $673 ($617 is responsible)
+  $675 = Examples:file:35:6
+  $676 = Match
+  $677 = NoMatch
+  $678 = List
+  $679 = builtinTypeOf
+  $680 = call $679 with $674 ($675 is responsible)
+  $681 = builtinEquals
+  $682 = call $681 with $678 $680 ($675 is responsible)
+  $683 = builtinIfElse
+  # Examples:file:35:6:equals:then
+  $721 = { (responsible $684) ->
+    $685 = 1
+    $686 = builtinListLength
+    $687 = call $686 with $674 ($675 is responsible)
+    $688 = builtinEquals
+    $689 = call $688 with $685 $687 ($675 is responsible)
+    $690 = builtinIfElse
+    # Examples:file:35:6:equals:then
+    $716 = { (responsible $691) ->
+      $692 = builtinListGet
+      $693 = 0
+      $694 = call $692 with $674 $693 ($675 is responsible)
+      $695 = ($694,)
+      $696 = call $676 with $695 ($675 is responsible)
+      $697 = builtinTagWithoutValue
+      $698 = call $697 with $696 ($675 is responsible)
+      $699 = builtinEquals
+      $700 = Match
+      $701 = call $699 with $698 $700 ($675 is responsible)
+      $702 = builtinIfElse
+      # Examples:file:35:6:isMatch:then
+      $711 = { (responsible $703) ->
+        $704 = builtinTagGetValue
+        $705 = call $704 with $696 ($675 is responsible)
+        $706 = builtinListGet
+        $707 = 0
+        $708 = call $706 with $705 $707 ($675 is responsible)
+        $709 = ($708,)
+        $710 = call $676 with $709 ($675 is responsible)
+      }
+      # Examples:file:35:6:isMatch:else
+      $714 = { (responsible $712) ->
+        $713 = $696
+      }
+      $715 = call $702 with $701 $711 $714 ($675 is responsible)
+    }
+    # Examples:file:35:6:equals:else
+    $719 = { (responsible $717) ->
+      $718 = $677
+    }
+    $720 = call $690 with $689 $716 $719 ($675 is responsible)
+  }
+  # Examples:file:35:6:equals:else
+  $724 = { (responsible $722) ->
+    $723 = $677
+  }
+  $725 = call $683 with $682 $721 $724 ($675 is responsible)
+  $726 = Nothing
+  $727 = builtinTagWithoutValue
+  $728 = call $727 with $725 ($675 is responsible)
+  $729 = builtinEquals
+  $730 = Match
+  $731 = call $729 with $728 $730 ($675 is responsible)
+  $732 = builtinIfElse
+  # Examples:file:35:6:isMatch:then
+  $735 = { (responsible $733) ->
+    $734 = $726
+  }
+  # Examples:file:35:6:isMatch:else
+  $739 = { (responsible $736) ->
+    $737 = "The value doesn't match the pattern on the left side of the destructuring."
+    $738 = panicking because $737 ($675 is at fault)
+  }
+  $740 = call $732 with $731 $735 $739 ($675 is responsible)
+  $741 = Examples:file:35:path
+  $742 = builtinTagGetValue
+  $743 = call $742 with $725 ($741 is responsible)
+  $744 = builtinListGet
+  $745 = 0
+  $746 = call $744 with $743 $745 ($741 is responsible)
+  $747 = Nothing
+  $748 = $246
+  $749 = builtinTextConcatenate
+  $750 = builtinTypeOf
+  $751 = Text
+  $752 = builtinEquals
+  $753 = builtinIfElse
+  $754 = builtinToDebugText
+  $755 = "Bytes: "
+  $756 = builtinStructGet
+  $757 = StructGet
+  $758 = Examples:file:35:18
+  $759 = builtinEquals
+  $760 = builtinGetArgumentCount
+  $761 = builtinTagHasValue
+  $762 = builtinTagWithValue
+  $763 = builtinTextConcatenate
+  $764 = builtinToDebugText
+  $765 = builtinTypeOf
+  $766 = call $765 with $756 ($758 is responsible)
+  $767 = Tag
+  $768 = call $759 with $766 $767 ($758 is responsible)
+  $769 = builtinIfElse
+  # Examples:file:35:18:calleeIsTag:then
+  $782 = { (responsible $770) ->
+    $771 = call $761 with $756 ($758 is responsible)
+    $772 = builtinIfElse
+    # Examples:file:35:18:doesTagHaveValue:then
+    $776 = { (responsible $773) ->
+      $774 = "You called a tag that already has a value."
+      $775 = panicking because $774 ($758 is at fault)
+    }
+    # Examples:file:35:18:doesTagHaveValue:else
+    $780 = { (responsible $777) ->
+      $778 = "Tags can only be created with one value."
+      $779 = panicking because $778 ($758 is at fault)
+    }
+    $781 = call $772 with $771 $776 $780 ($758 is responsible)
+  }
+  # Examples:file:35:18:calleeIsTag:else
+  $814 = { (responsible $783) ->
+    $784 = Function
+    $785 = call $759 with $766 $784 ($758 is responsible)
+    $786 = builtinIfElse
+    # Examples:file:35:18:calleeIsFunction:then
+    $808 = { (responsible $787) ->
+      $788 = call $760 with $756 ($758 is responsible)
+      $789 = 2
+      $790 = call $759 with $788 $789 ($758 is responsible)
+      $791 = builtinIfElse
+      # Examples:file:35:18:hasCorrectNumberOfArguments:then
+      $798 = { (responsible $792) ->
+        $793 = Examples:file:35:18
+        $794 = trace: start of call of $756 with $112 $757 ($758 is responsible, code is at $793)
+        $795 = call $756 with $112 $757 ($758 is responsible)
+        $796 = trace: end of call
+        $797 = $795
+      }
+      # Examples:file:35:18:hasCorrectNumberOfArguments:else
+      $806 = { (responsible $799) ->
+        $800 = "You called a function that expects "
+        $801 = call $764 with $788 ($758 is responsible)
+        $802 = " arguments with 2 arguments."
+        $803 = call $763 with $800 $801 ($758 is responsible)
+        $804 = call $763 with $803 $802 ($758 is responsible)
+        $805 = panicking because $804 ($758 is at fault)
+      }
+      $807 = call $791 with $790 $798 $806 ($758 is responsible)
+    }
+    # Examples:file:35:18:calleeIsFunction:else
+    $812 = { (responsible $809) ->
+      $810 = "You can only call tags or functions."
+      $811 = panicking because $810 ($758 is at fault)
+    }
+    $813 = call $786 with $785 $808 $812 ($758 is responsible)
+  }
+  $815 = call $769 with $768 $782 $814 ($758 is responsible)
+  $816 = $381
+  $817 = ReadBytes
+  $818 = Examples:file:35:21
+  $819 = builtinEquals
+  $820 = builtinGetArgumentCount
+  $821 = builtinTagHasValue
+  $822 = builtinTagWithValue
+  $823 = builtinTextConcatenate
+  $824 = builtinToDebugText
+  $825 = builtinTypeOf
+  $826 = call $825 with $815 ($818 is responsible)
+  $827 = Tag
+  $828 = call $819 with $826 $827 ($818 is responsible)
+  $829 = builtinIfElse
+  # Examples:file:35:21:calleeIsTag:then
+  $842 = { (responsible $830) ->
+    $831 = call $821 with $815 ($818 is responsible)
+    $832 = builtinIfElse
+    # Examples:file:35:21:doesTagHaveValue:then
+    $836 = { (responsible $833) ->
+      $834 = "You called a tag that already has a value."
+      $835 = panicking because $834 ($818 is at fault)
+    }
+    # Examples:file:35:21:doesTagHaveValue:else
+    $840 = { (responsible $837) ->
+      $838 = "Tags can only be created with one value."
+      $839 = panicking because $838 ($818 is at fault)
+    }
+    $841 = call $832 with $831 $836 $840 ($818 is responsible)
+  }
+  # Examples:file:35:21:calleeIsTag:else
+  $874 = { (responsible $843) ->
+    $844 = Function
+    $845 = call $819 with $826 $844 ($818 is responsible)
+    $846 = builtinIfElse
+    # Examples:file:35:21:calleeIsFunction:then
+    $868 = { (responsible $847) ->
+      $848 = call $820 with $815 ($818 is responsible)
+      $849 = 2
+      $850 = call $819 with $848 $849 ($818 is responsible)
+      $851 = builtinIfElse
+      # Examples:file:35:21:hasCorrectNumberOfArguments:then
+      $858 = { (responsible $852) ->
+        $853 = Examples:file:35:21
+        $854 = trace: start of call of $815 with $816 $817 ($818 is responsible, code is at $853)
+        $855 = call $815 with $816 $817 ($818 is responsible)
+        $856 = trace: end of call
+        $857 = $855
+      }
+      # Examples:file:35:21:hasCorrectNumberOfArguments:else
+      $866 = { (responsible $859) ->
+        $860 = "You called a function that expects "
+        $861 = call $824 with $848 ($818 is responsible)
+        $862 = " arguments with 2 arguments."
+        $863 = call $823 with $860 $861 ($818 is responsible)
+        $864 = call $823 with $863 $862 ($818 is responsible)
+        $865 = panicking because $864 ($818 is at fault)
+      }
+      $867 = call $851 with $850 $858 $866 ($818 is responsible)
+    }
+    # Examples:file:35:21:calleeIsFunction:else
+    $872 = { (responsible $869) ->
+      $870 = "You can only call tags or functions."
+      $871 = panicking because $870 ($818 is at fault)
+    }
+    $873 = call $846 with $845 $868 $872 ($818 is responsible)
+  }
+  $875 = call $829 with $828 $842 $874 ($818 is responsible)
+  $876 = builtinStructGet
+  $877 = StructGet
+  $878 = Examples:file:35:24
+  $879 = builtinEquals
+  $880 = builtinGetArgumentCount
+  $881 = builtinTagHasValue
+  $882 = builtinTagWithValue
+  $883 = builtinTextConcatenate
+  $884 = builtinToDebugText
+  $885 = builtinTypeOf
+  $886 = call $885 with $876 ($878 is responsible)
+  $887 = Tag
+  $888 = call $879 with $886 $887 ($878 is responsible)
+  $889 = builtinIfElse
+  # Examples:file:35:24:calleeIsTag:then
+  $902 = { (responsible $890) ->
+    $891 = call $881 with $876 ($878 is responsible)
+    $892 = builtinIfElse
+    # Examples:file:35:24:doesTagHaveValue:then
+    $896 = { (responsible $893) ->
+      $894 = "You called a tag that already has a value."
+      $895 = panicking because $894 ($878 is at fault)
+    }
+    # Examples:file:35:24:doesTagHaveValue:else
+    $900 = { (responsible $897) ->
+      $898 = "Tags can only be created with one value."
+      $899 = panicking because $898 ($878 is at fault)
+    }
+    $901 = call $892 with $891 $896 $900 ($878 is responsible)
+  }
+  # Examples:file:35:24:calleeIsTag:else
+  $934 = { (responsible $903) ->
+    $904 = Function
+    $905 = call $879 with $886 $904 ($878 is responsible)
+    $906 = builtinIfElse
+    # Examples:file:35:24:calleeIsFunction:then
+    $928 = { (responsible $907) ->
+      $908 = call $880 with $876 ($878 is responsible)
+      $909 = 2
+      $910 = call $879 with $908 $909 ($878 is responsible)
+      $911 = builtinIfElse
+      # Examples:file:35:24:hasCorrectNumberOfArguments:then
+      $918 = { (responsible $912) ->
+        $913 = Examples:file:35:24
+        $914 = trace: start of call of $876 with $112 $877 ($878 is responsible, code is at $913)
+        $915 = call $876 with $112 $877 ($878 is responsible)
+        $916 = trace: end of call
+        $917 = $915
+      }
+      # Examples:file:35:24:hasCorrectNumberOfArguments:else
+      $926 = { (responsible $919) ->
+        $920 = "You called a function that expects "
+        $921 = call $884 with $908 ($878 is responsible)
+        $922 = " arguments with 2 arguments."
+        $923 = call $883 with $920 $921 ($878 is responsible)
+        $924 = call $883 with $923 $922 ($878 is responsible)
+        $925 = panicking because $924 ($878 is at fault)
+      }
+      $927 = call $911 with $910 $918 $926 ($878 is responsible)
+    }
+    # Examples:file:35:24:calleeIsFunction:else
+    $932 = { (responsible $929) ->
+      $930 = "You can only call tags or functions."
+      $931 = panicking because $930 ($878 is at fault)
+    }
+    $933 = call $906 with $905 $928 $932 ($878 is responsible)
+  }
+  $935 = call $889 with $888 $902 $934 ($878 is responsible)
+  $936 = builtinStructGet
+  $937 = StructGet
+  $938 = Examples:file:35:27
+  $939 = builtinEquals
+  $940 = builtinGetArgumentCount
+  $941 = builtinTagHasValue
+  $942 = builtinTagWithValue
+  $943 = builtinTextConcatenate
+  $944 = builtinToDebugText
+  $945 = builtinTypeOf
+  $946 = call $945 with $936 ($938 is responsible)
+  $947 = Tag
+  $948 = call $939 with $946 $947 ($938 is responsible)
+  $949 = builtinIfElse
+  # Examples:file:35:27:calleeIsTag:then
+  $962 = { (responsible $950) ->
+    $951 = call $941 with $936 ($938 is responsible)
+    $952 = builtinIfElse
+    # Examples:file:35:27:doesTagHaveValue:then
+    $956 = { (responsible $953) ->
+      $954 = "You called a tag that already has a value."
+      $955 = panicking because $954 ($938 is at fault)
+    }
+    # Examples:file:35:27:doesTagHaveValue:else
+    $960 = { (responsible $957) ->
+      $958 = "Tags can only be created with one value."
+      $959 = panicking because $958 ($938 is at fault)
+    }
+    $961 = call $952 with $951 $956 $960 ($938 is responsible)
+  }
+  # Examples:file:35:27:calleeIsTag:else
+  $994 = { (responsible $963) ->
+    $964 = Function
+    $965 = call $939 with $946 $964 ($938 is responsible)
+    $966 = builtinIfElse
+    # Examples:file:35:27:calleeIsFunction:then
+    $988 = { (responsible $967) ->
+      $968 = call $940 with $936 ($938 is responsible)
+      $969 = 2
+      $970 = call $939 with $968 $969 ($938 is responsible)
+      $971 = builtinIfElse
+      # Examples:file:35:27:hasCorrectNumberOfArguments:then
+      $978 = { (responsible $972) ->
+        $973 = Examples:file:35:27
+        $974 = trace: start of call of $936 with $112 $937 ($938 is responsible, code is at $973)
+        $975 = call $936 with $112 $937 ($938 is responsible)
+        $976 = trace: end of call
+        $977 = $975
+      }
+      # Examples:file:35:27:hasCorrectNumberOfArguments:else
+      $986 = { (responsible $979) ->
+        $980 = "You called a function that expects "
+        $981 = call $944 with $968 ($938 is responsible)
+        $982 = " arguments with 2 arguments."
+        $983 = call $943 with $980 $981 ($938 is responsible)
+        $984 = call $943 with $983 $982 ($938 is responsible)
+        $985 = panicking because $984 ($938 is at fault)
+      }
+      $987 = call $971 with $970 $978 $986 ($938 is responsible)
+    }
+    # Examples:file:35:27:calleeIsFunction:else
+    $992 = { (responsible $989) ->
+      $990 = "You can only call tags or functions."
+      $991 = panicking because $990 ($938 is at fault)
+    }
+    $993 = call $966 with $965 $988 $992 ($938 is responsible)
+  }
+  $995 = call $949 with $948 $962 $994 ($938 is responsible)
+  $996 = $554
+  $997 = FileSystem
+  $998 = Examples:file:35:30
+  $999 = builtinEquals
+  $1000 = builtinGetArgumentCount
+  $1001 = builtinTagHasValue
+  $1002 = builtinTagWithValue
+  $1003 = builtinTextConcatenate
+  $1004 = builtinToDebugText
+  $1005 = builtinTypeOf
+  $1006 = call $1005 with $995 ($998 is responsible)
+  $1007 = Tag
+  $1008 = call $999 with $1006 $1007 ($998 is responsible)
+  $1009 = builtinIfElse
+  # Examples:file:35:30:calleeIsTag:then
+  $1022 = { (responsible $1010) ->
+    $1011 = call $1001 with $995 ($998 is responsible)
+    $1012 = builtinIfElse
+    # Examples:file:35:30:doesTagHaveValue:then
+    $1016 = { (responsible $1013) ->
+      $1014 = "You called a tag that already has a value."
+      $1015 = panicking because $1014 ($998 is at fault)
+    }
+    # Examples:file:35:30:doesTagHaveValue:else
+    $1020 = { (responsible $1017) ->
+      $1018 = "Tags can only be created with one value."
+      $1019 = panicking because $1018 ($998 is at fault)
+    }
+    $1021 = call $1012 with $1011 $1016 $1020 ($998 is responsible)
+  }
+  # Examples:file:35:30:calleeIsTag:else
+  $1054 = { (responsible $1023) ->
+    $1024 = Function
+    $1025 = call $999 with $1006 $1024 ($998 is responsible)
+    $1026 = builtinIfElse
+    # Examples:file:35:30:calleeIsFunction:then
+    $1048 = { (responsible $1027) ->
+      $1028 = call $1000 with $995 ($998 is responsible)
+      $1029 = 2
+      $1030 = call $999 with $1028 $1029 ($998 is responsible)
+      $1031 = builtinIfElse
+      # Examples:file:35:30:hasCorrectNumberOfArguments:then
+      $1038 = { (responsible $1032) ->
+        $1033 = Examples:file:35:30
+        $1034 = trace: start of call of $995 with $996 $997 ($998 is responsible, code is at $1033)
+        $1035 = call $995 with $996 $997 ($998 is responsible)
+        $1036 = trace: end of call
+        $1037 = $1035
+      }
+      # Examples:file:35:30:hasCorrectNumberOfArguments:else
+      $1046 = { (responsible $1039) ->
+        $1040 = "You called a function that expects "
+        $1041 = call $1004 with $1028 ($998 is responsible)
+        $1042 = " arguments with 2 arguments."
+        $1043 = call $1003 with $1040 $1041 ($998 is responsible)
+        $1044 = call $1003 with $1043 $1042 ($998 is responsible)
+        $1045 = panicking because $1044 ($998 is at fault)
+      }
+      $1047 = call $1031 with $1030 $1038 $1046 ($998 is responsible)
+    }
+    # Examples:file:35:30:calleeIsFunction:else
+    $1052 = { (responsible $1049) ->
+      $1050 = "You can only call tags or functions."
+      $1051 = panicking because $1050 ($998 is at fault)
+    }
+    $1053 = call $1026 with $1025 $1048 $1052 ($998 is responsible)
+  }
+  $1055 = call $1009 with $1008 $1022 $1054 ($998 is responsible)
+  $1056 = File
+  $1057 = Examples:file:35:32
+  $1058 = builtinEquals
+  $1059 = builtinGetArgumentCount
+  $1060 = builtinTagHasValue
+  $1061 = builtinTagWithValue
+  $1062 = builtinTextConcatenate
+  $1063 = builtinToDebugText
+  $1064 = builtinTypeOf
+  $1065 = call $1064 with $935 ($1057 is responsible)
+  $1066 = Tag
+  $1067 = call $1058 with $1065 $1066 ($1057 is responsible)
+  $1068 = builtinIfElse
+  # Examples:file:35:32:calleeIsTag:then
+  $1081 = { (responsible $1069) ->
+    $1070 = call $1060 with $935 ($1057 is responsible)
+    $1071 = builtinIfElse
+    # Examples:file:35:32:doesTagHaveValue:then
+    $1075 = { (responsible $1072) ->
+      $1073 = "You called a tag that already has a value."
+      $1074 = panicking because $1073 ($1057 is at fault)
+    }
+    # Examples:file:35:32:doesTagHaveValue:else
+    $1079 = { (responsible $1076) ->
+      $1077 = "Tags can only be created with one value."
+      $1078 = panicking because $1077 ($1057 is at fault)
+    }
+    $1080 = call $1071 with $1070 $1075 $1079 ($1057 is responsible)
+  }
+  # Examples:file:35:32:calleeIsTag:else
+  $1113 = { (responsible $1082) ->
+    $1083 = Function
+    $1084 = call $1058 with $1065 $1083 ($1057 is responsible)
+    $1085 = builtinIfElse
+    # Examples:file:35:32:calleeIsFunction:then
+    $1107 = { (responsible $1086) ->
+      $1087 = call $1059 with $935 ($1057 is responsible)
+      $1088 = 2
+      $1089 = call $1058 with $1087 $1088 ($1057 is responsible)
+      $1090 = builtinIfElse
+      # Examples:file:35:32:hasCorrectNumberOfArguments:then
+      $1097 = { (responsible $1091) ->
+        $1092 = Examples:file:35:32
+        $1093 = trace: start of call of $935 with $1055 $1056 ($1057 is responsible, code is at $1092)
+        $1094 = call $935 with $1055 $1056 ($1057 is responsible)
+        $1095 = trace: end of call
+        $1096 = $1094
+      }
+      # Examples:file:35:32:hasCorrectNumberOfArguments:else
+      $1105 = { (responsible $1098) ->
+        $1099 = "You called a function that expects "
+        $1100 = call $1063 with $1087 ($1057 is responsible)
+        $1101 = " arguments with 2 arguments."
+        $1102 = call $1062 with $1099 $1100 ($1057 is responsible)
+        $1103 = call $1062 with $1102 $1101 ($1057 is responsible)
+        $1104 = panicking because $1103 ($1057 is at fault)
+      }
+      $1106 = call $1090 with $1089 $1097 $1105 ($1057 is responsible)
+    }
+    # Examples:file:35:32:calleeIsFunction:else
+    $1111 = { (responsible $1108) ->
+      $1109 = "You can only call tags or functions."
+      $1110 = panicking because $1109 ($1057 is at fault)
+    }
+    $1112 = call $1085 with $1084 $1107 $1111 ($1057 is responsible)
+  }
+  $1114 = call $1068 with $1067 $1081 $1113 ($1057 is responsible)
+  $1115 = $746
+  $1116 = Examples:file:35:34
+  $1117 = builtinEquals
+  $1118 = builtinGetArgumentCount
+  $1119 = builtinTagHasValue
+  $1120 = builtinTagWithValue
+  $1121 = builtinTextConcatenate
+  $1122 = builtinToDebugText
+  $1123 = builtinTypeOf
+  $1124 = call $1123 with $875 ($1116 is responsible)
+  $1125 = Tag
+  $1126 = call $1117 with $1124 $1125 ($1116 is responsible)
+  $1127 = builtinIfElse
+  # Examples:file:35:34:calleeIsTag:then
+  $1140 = { (responsible $1128) ->
+    $1129 = call $1119 with $875 ($1116 is responsible)
+    $1130 = builtinIfElse
+    # Examples:file:35:34:doesTagHaveValue:then
+    $1134 = { (responsible $1131) ->
+      $1132 = "You called a tag that already has a value."
+      $1133 = panicking because $1132 ($1116 is at fault)
+    }
+    # Examples:file:35:34:doesTagHaveValue:else
+    $1138 = { (responsible $1135) ->
+      $1136 = "Tags can only be created with one value."
+      $1137 = panicking because $1136 ($1116 is at fault)
+    }
+    $1139 = call $1130 with $1129 $1134 $1138 ($1116 is responsible)
+  }
+  # Examples:file:35:34:calleeIsTag:else
+  $1172 = { (responsible $1141) ->
+    $1142 = Function
+    $1143 = call $1117 with $1124 $1142 ($1116 is responsible)
+    $1144 = builtinIfElse
+    # Examples:file:35:34:calleeIsFunction:then
+    $1166 = { (responsible $1145) ->
+      $1146 = call $1118 with $875 ($1116 is responsible)
+      $1147 = 2
+      $1148 = call $1117 with $1146 $1147 ($1116 is responsible)
+      $1149 = builtinIfElse
+      # Examples:file:35:34:hasCorrectNumberOfArguments:then
+      $1156 = { (responsible $1150) ->
+        $1151 = Examples:file:35:34
+        $1152 = trace: start of call of $875 with $1114 $1115 ($1116 is responsible, code is at $1151)
+        $1153 = call $875 with $1114 $1115 ($1116 is responsible)
+        $1154 = trace: end of call
+        $1155 = $1153
+      }
+      # Examples:file:35:34:hasCorrectNumberOfArguments:else
+      $1164 = { (responsible $1157) ->
+        $1158 = "You called a function that expects "
+        $1159 = call $1122 with $1146 ($1116 is responsible)
+        $1160 = " arguments with 2 arguments."
+        $1161 = call $1121 with $1158 $1159 ($1116 is responsible)
+        $1162 = call $1121 with $1161 $1160 ($1116 is responsible)
+        $1163 = panicking because $1162 ($1116 is at fault)
+      }
+      $1165 = call $1149 with $1148 $1156 $1164 ($1116 is responsible)
+    }
+    # Examples:file:35:34:calleeIsFunction:else
+    $1170 = { (responsible $1167) ->
+      $1168 = "You can only call tags or functions."
+      $1169 = panicking because $1168 ($1116 is at fault)
+    }
+    $1171 = call $1144 with $1143 $1166 $1170 ($1116 is responsible)
+  }
+  $1173 = call $1127 with $1126 $1140 $1172 ($1116 is responsible)
+  $1174 = builtinStructGet
+  $1175 = StructGet
+  $1176 = Examples:file:35:37
+  $1177 = builtinEquals
+  $1178 = builtinGetArgumentCount
+  $1179 = builtinTagHasValue
+  $1180 = builtinTagWithValue
+  $1181 = builtinTextConcatenate
+  $1182 = builtinToDebugText
+  $1183 = builtinTypeOf
+  $1184 = call $1183 with $1174 ($1176 is responsible)
+  $1185 = Tag
+  $1186 = call $1177 with $1184 $1185 ($1176 is responsible)
+  $1187 = builtinIfElse
+  # Examples:file:35:37:calleeIsTag:then
+  $1200 = { (responsible $1188) ->
+    $1189 = call $1179 with $1174 ($1176 is responsible)
+    $1190 = builtinIfElse
+    # Examples:file:35:37:doesTagHaveValue:then
+    $1194 = { (responsible $1191) ->
+      $1192 = "You called a tag that already has a value."
+      $1193 = panicking because $1192 ($1176 is at fault)
+    }
+    # Examples:file:35:37:doesTagHaveValue:else
+    $1198 = { (responsible $1195) ->
+      $1196 = "Tags can only be created with one value."
+      $1197 = panicking because $1196 ($1176 is at fault)
+    }
+    $1199 = call $1190 with $1189 $1194 $1198 ($1176 is responsible)
+  }
+  # Examples:file:35:37:calleeIsTag:else
+  $1232 = { (responsible $1201) ->
+    $1202 = Function
+    $1203 = call $1177 with $1184 $1202 ($1176 is responsible)
+    $1204 = builtinIfElse
+    # Examples:file:35:37:calleeIsFunction:then
+    $1226 = { (responsible $1205) ->
+      $1206 = call $1178 with $1174 ($1176 is responsible)
+      $1207 = 2
+      $1208 = call $1177 with $1206 $1207 ($1176 is responsible)
+      $1209 = builtinIfElse
+      # Examples:file:35:37:hasCorrectNumberOfArguments:then
+      $1216 = { (responsible $1210) ->
+        $1211 = Examples:file:35:37
+        $1212 = trace: start of call of $1174 with $112 $1175 ($1176 is responsible, code is at $1211)
+        $1213 = call $1174 with $112 $1175 ($1176 is responsible)
+        $1214 = trace: end of call
+        $1215 = $1213
+      }
+      # Examples:file:35:37:hasCorrectNumberOfArguments:else
+      $1224 = { (responsible $1217) ->
+        $1218 = "You called a function that expects "
+        $1219 = call $1182 with $1206 ($1176 is responsible)
+        $1220 = " arguments with 2 arguments."
+        $1221 = call $1181 with $1218 $1219 ($1176 is responsible)
+        $1222 = call $1181 with $1221 $1220 ($1176 is responsible)
+        $1223 = panicking because $1222 ($1176 is at fault)
+      }
+      $1225 = call $1209 with $1208 $1216 $1224 ($1176 is responsible)
+    }
+    # Examples:file:35:37:calleeIsFunction:else
+    $1230 = { (responsible $1227) ->
+      $1228 = "You can only call tags or functions."
+      $1229 = panicking because $1228 ($1176 is at fault)
+    }
+    $1231 = call $1204 with $1203 $1226 $1230 ($1176 is responsible)
+  }
+  $1233 = call $1187 with $1186 $1200 $1232 ($1176 is responsible)
+  $1234 = $545
+  $1235 = Unwrap
+  $1236 = Examples:file:35:40
+  $1237 = builtinEquals
+  $1238 = builtinGetArgumentCount
+  $1239 = builtinTagHasValue
+  $1240 = builtinTagWithValue
+  $1241 = builtinTextConcatenate
+  $1242 = builtinToDebugText
+  $1243 = builtinTypeOf
+  $1244 = call $1243 with $1233 ($1236 is responsible)
+  $1245 = Tag
+  $1246 = call $1237 with $1244 $1245 ($1236 is responsible)
+  $1247 = builtinIfElse
+  # Examples:file:35:40:calleeIsTag:then
+  $1260 = { (responsible $1248) ->
+    $1249 = call $1239 with $1233 ($1236 is responsible)
+    $1250 = builtinIfElse
+    # Examples:file:35:40:doesTagHaveValue:then
+    $1254 = { (responsible $1251) ->
+      $1252 = "You called a tag that already has a value."
+      $1253 = panicking because $1252 ($1236 is at fault)
+    }
+    # Examples:file:35:40:doesTagHaveValue:else
+    $1258 = { (responsible $1255) ->
+      $1256 = "Tags can only be created with one value."
+      $1257 = panicking because $1256 ($1236 is at fault)
+    }
+    $1259 = call $1250 with $1249 $1254 $1258 ($1236 is responsible)
+  }
+  # Examples:file:35:40:calleeIsTag:else
+  $1292 = { (responsible $1261) ->
+    $1262 = Function
+    $1263 = call $1237 with $1244 $1262 ($1236 is responsible)
+    $1264 = builtinIfElse
+    # Examples:file:35:40:calleeIsFunction:then
+    $1286 = { (responsible $1265) ->
+      $1266 = call $1238 with $1233 ($1236 is responsible)
+      $1267 = 2
+      $1268 = call $1237 with $1266 $1267 ($1236 is responsible)
+      $1269 = builtinIfElse
+      # Examples:file:35:40:hasCorrectNumberOfArguments:then
+      $1276 = { (responsible $1270) ->
+        $1271 = Examples:file:35:40
+        $1272 = trace: start of call of $1233 with $1234 $1235 ($1236 is responsible, code is at $1271)
+        $1273 = call $1233 with $1234 $1235 ($1236 is responsible)
+        $1274 = trace: end of call
+        $1275 = $1273
+      }
+      # Examples:file:35:40:hasCorrectNumberOfArguments:else
+      $1284 = { (responsible $1277) ->
+        $1278 = "You called a function that expects "
+        $1279 = call $1242 with $1266 ($1236 is responsible)
+        $1280 = " arguments with 2 arguments."
+        $1281 = call $1241 with $1278 $1279 ($1236 is responsible)
+        $1282 = call $1241 with $1281 $1280 ($1236 is responsible)
+        $1283 = panicking because $1282 ($1236 is at fault)
+      }
+      $1285 = call $1269 with $1268 $1276 $1284 ($1236 is responsible)
+    }
+    # Examples:file:35:40:calleeIsFunction:else
+    $1290 = { (responsible $1287) ->
+      $1288 = "You can only call tags or functions."
+      $1289 = panicking because $1288 ($1236 is at fault)
+    }
+    $1291 = call $1264 with $1263 $1286 $1290 ($1236 is responsible)
+  }
+  $1293 = call $1247 with $1246 $1260 $1292 ($1236 is responsible)
+  $1294 = Examples:file:35:41
+  $1295 = builtinEquals
+  $1296 = builtinGetArgumentCount
+  $1297 = builtinTagHasValue
+  $1298 = builtinTagWithValue
+  $1299 = builtinTextConcatenate
+  $1300 = builtinToDebugText
+  $1301 = builtinTypeOf
+  $1302 = call $1301 with $1293 ($1294 is responsible)
+  $1303 = Tag
+  $1304 = call $1295 with $1302 $1303 ($1294 is responsible)
+  $1305 = builtinIfElse
+  # Examples:file:35:41:calleeIsTag:then
+  $1317 = { (responsible $1306) ->
+    $1307 = call $1297 with $1293 ($1294 is responsible)
+    $1308 = builtinIfElse
+    # Examples:file:35:41:doesTagHaveValue:then
+    $1312 = { (responsible $1309) ->
+      $1310 = "You called a tag that already has a value."
+      $1311 = panicking because $1310 ($1294 is at fault)
+    }
+    # Examples:file:35:41:doesTagHaveValue:else
+    $1315 = { (responsible $1313) ->
+      $1314 = call $1298 with $1293 $1173 ($1294 is responsible)
+    }
+    $1316 = call $1308 with $1307 $1312 $1315 ($1294 is responsible)
+  }
+  # Examples:file:35:41:calleeIsTag:else
+  $1349 = { (responsible $1318) ->
+    $1319 = Function
+    $1320 = call $1295 with $1302 $1319 ($1294 is responsible)
+    $1321 = builtinIfElse
+    # Examples:file:35:41:calleeIsFunction:then
+    $1343 = { (responsible $1322) ->
+      $1323 = call $1296 with $1293 ($1294 is responsible)
+      $1324 = 1
+      $1325 = call $1295 with $1323 $1324 ($1294 is responsible)
+      $1326 = builtinIfElse
+      # Examples:file:35:41:hasCorrectNumberOfArguments:then
+      $1333 = { (responsible $1327) ->
+        $1328 = Examples:file:35:41
+        $1329 = trace: start of call of $1293 with $1173 ($1294 is responsible, code is at $1328)
+        $1330 = call $1293 with $1173 ($1294 is responsible)
+        $1331 = trace: end of call
+        $1332 = $1330
+      }
+      # Examples:file:35:41:hasCorrectNumberOfArguments:else
+      $1341 = { (responsible $1334) ->
+        $1335 = "You called a function that expects "
+        $1336 = call $1300 with $1323 ($1294 is responsible)
+        $1337 = " arguments with 1 arguments."
+        $1338 = call $1299 with $1335 $1336 ($1294 is responsible)
+        $1339 = call $1299 with $1338 $1337 ($1294 is responsible)
+        $1340 = panicking because $1339 ($1294 is at fault)
+      }
+      $1342 = call $1326 with $1325 $1333 $1341 ($1294 is responsible)
+    }
+    # Examples:file:35:41:calleeIsFunction:else
+    $1347 = { (responsible $1344) ->
+      $1345 = "You can only call tags or functions."
+      $1346 = panicking because $1345 ($1294 is at fault)
+    }
+    $1348 = call $1321 with $1320 $1343 $1347 ($1294 is responsible)
+  }
+  $1350 = call $1305 with $1304 $1317 $1349 ($1294 is responsible)
+  $1351 = Examples:file:35:42
+  $1352 = builtinEquals
+  $1353 = builtinGetArgumentCount
+  $1354 = builtinTagHasValue
+  $1355 = builtinTagWithValue
+  $1356 = builtinTextConcatenate
+  $1357 = builtinToDebugText
+  $1358 = builtinTypeOf
+  $1359 = call $1358 with $750 ($1351 is responsible)
+  $1360 = Tag
+  $1361 = call $1352 with $1359 $1360 ($1351 is responsible)
+  $1362 = builtinIfElse
+  # Examples:file:35:42:calleeIsTag:then
+  $1374 = { (responsible $1363) ->
+    $1364 = call $1354 with $750 ($1351 is responsible)
+    $1365 = builtinIfElse
+    # Examples:file:35:42:doesTagHaveValue:then
+    $1369 = { (responsible $1366) ->
+      $1367 = "You called a tag that already has a value."
+      $1368 = panicking because $1367 ($1351 is at fault)
+    }
+    # Examples:file:35:42:doesTagHaveValue:else
+    $1372 = { (responsible $1370) ->
+      $1371 = call $1355 with $750 $1350 ($1351 is responsible)
+    }
+    $1373 = call $1365 with $1364 $1369 $1372 ($1351 is responsible)
+  }
+  # Examples:file:35:42:calleeIsTag:else
+  $1406 = { (responsible $1375) ->
+    $1376 = Function
+    $1377 = call $1352 with $1359 $1376 ($1351 is responsible)
+    $1378 = builtinIfElse
+    # Examples:file:35:42:calleeIsFunction:then
+    $1400 = { (responsible $1379) ->
+      $1380 = call $1353 with $750 ($1351 is responsible)
+      $1381 = 1
+      $1382 = call $1352 with $1380 $1381 ($1351 is responsible)
+      $1383 = builtinIfElse
+      # Examples:file:35:42:hasCorrectNumberOfArguments:then
+      $1390 = { (responsible $1384) ->
+        $1385 = Examples:file:35:42
+        $1386 = trace: start of call of $750 with $1350 ($1351 is responsible, code is at $1385)
+        $1387 = call $750 with $1350 ($1351 is responsible)
+        $1388 = trace: end of call
+        $1389 = $1387
+      }
+      # Examples:file:35:42:hasCorrectNumberOfArguments:else
+      $1398 = { (responsible $1391) ->
+        $1392 = "You called a function that expects "
+        $1393 = call $1357 with $1380 ($1351 is responsible)
+        $1394 = " arguments with 1 arguments."
+        $1395 = call $1356 with $1392 $1393 ($1351 is responsible)
+        $1396 = call $1356 with $1395 $1394 ($1351 is responsible)
+        $1397 = panicking because $1396 ($1351 is at fault)
+      }
+      $1399 = call $1383 with $1382 $1390 $1398 ($1351 is responsible)
+    }
+    # Examples:file:35:42:calleeIsFunction:else
+    $1404 = { (responsible $1401) ->
+      $1402 = "You can only call tags or functions."
+      $1403 = panicking because $1402 ($1351 is at fault)
+    }
+    $1405 = call $1378 with $1377 $1400 $1404 ($1351 is responsible)
+  }
+  $1407 = call $1362 with $1361 $1374 $1406 ($1351 is responsible)
+  $1408 = Examples:file:35:43
+  $1409 = builtinEquals
+  $1410 = builtinGetArgumentCount
+  $1411 = builtinTagHasValue
+  $1412 = builtinTagWithValue
+  $1413 = builtinTextConcatenate
+  $1414 = builtinToDebugText
+  $1415 = builtinTypeOf
+  $1416 = call $1415 with $752 ($1408 is responsible)
+  $1417 = Tag
+  $1418 = call $1409 with $1416 $1417 ($1408 is responsible)
+  $1419 = builtinIfElse
+  # Examples:file:35:43:calleeIsTag:then
+  $1432 = { (responsible $1420) ->
+    $1421 = call $1411 with $752 ($1408 is responsible)
+    $1422 = builtinIfElse
+    # Examples:file:35:43:doesTagHaveValue:then
+    $1426 = { (responsible $1423) ->
+      $1424 = "You called a tag that already has a value."
+      $1425 = panicking because $1424 ($1408 is at fault)
+    }
+    # Examples:file:35:43:doesTagHaveValue:else
+    $1430 = { (responsible $1427) ->
+      $1428 = "Tags can only be created with one value."
+      $1429 = panicking because $1428 ($1408 is at fault)
+    }
+    $1431 = call $1422 with $1421 $1426 $1430 ($1408 is responsible)
+  }
+  # Examples:file:35:43:calleeIsTag:else
+  $1464 = { (responsible $1433) ->
+    $1434 = Function
+    $1435 = call $1409 with $1416 $1434 ($1408 is responsible)
+    $1436 = builtinIfElse
+    # Examples:file:35:43:calleeIsFunction:then
+    $1458 = { (responsible $1437) ->
+      $1438 = call $1410 with $752 ($1408 is responsible)
+      $1439 = 2
+      $1440 = call $1409 with $1438 $1439 ($1408 is responsible)
+      $1441 = builtinIfElse
+      # Examples:file:35:43:hasCorrectNumberOfArguments:then
+      $1448 = { (responsible $1442) ->
+        $1443 = Examples:file:35:43
+        $1444 = trace: start of call of $752 with $1407 $751 ($1408 is responsible, code is at $1443)
+        $1445 = call $752 with $1407 $751 ($1408 is responsible)
+        $1446 = trace: end of call
+        $1447 = $1445
+      }
+      # Examples:file:35:43:hasCorrectNumberOfArguments:else
+      $1456 = { (responsible $1449) ->
+        $1450 = "You called a function that expects "
+        $1451 = call $1414 with $1438 ($1408 is responsible)
+        $1452 = " arguments with 2 arguments."
+        $1453 = call $1413 with $1450 $1451 ($1408 is responsible)
+        $1454 = call $1413 with $1453 $1452 ($1408 is responsible)
+        $1455 = panicking because $1454 ($1408 is at fault)
+      }
+      $1457 = call $1441 with $1440 $1448 $1456 ($1408 is responsible)
+    }
+    # Examples:file:35:43:calleeIsFunction:else
+    $1462 = { (responsible $1459) ->
+      $1460 = "You can only call tags or functions."
+      $1461 = panicking because $1460 ($1408 is at fault)
+    }
+    $1463 = call $1436 with $1435 $1458 $1462 ($1408 is responsible)
+  }
+  $1465 = call $1419 with $1418 $1432 $1464 ($1408 is responsible)
+  # Examples:file:35:44
+  $1468 = { (responsible $1466) ->
+    $1467 = $1350
+  }
+  # Examples:file:35:45
+  $1527 = { (responsible $1469) ->
+    $1470 = Examples:file:35:45:0
+    $1471 = builtinEquals
+    $1472 = builtinGetArgumentCount
+    $1473 = builtinTagHasValue
+    $1474 = builtinTagWithValue
+    $1475 = builtinTextConcatenate
+    $1476 = builtinToDebugText
+    $1477 = builtinTypeOf
+    $1478 = call $1477 with $754 ($1470 is responsible)
+    $1479 = Tag
+    $1480 = call $1471 with $1478 $1479 ($1470 is responsible)
+    $1481 = builtinIfElse
+    # Examples:file:35:45:0:calleeIsTag:then
+    $1493 = { (responsible $1482) ->
+      $1483 = call $1473 with $754 ($1470 is responsible)
+      $1484 = builtinIfElse
+      # Examples:file:35:45:0:doesTagHaveValue:then
+      $1488 = { (responsible $1485) ->
+        $1486 = "You called a tag that already has a value."
+        $1487 = panicking because $1486 ($1470 is at fault)
+      }
+      # Examples:file:35:45:0:doesTagHaveValue:else
+      $1491 = { (responsible $1489) ->
+        $1490 = call $1474 with $754 $1350 ($1470 is responsible)
+      }
+      $1492 = call $1484 with $1483 $1488 $1491 ($1470 is responsible)
+    }
+    # Examples:file:35:45:0:calleeIsTag:else
+    $1525 = { (responsible $1494) ->
+      $1495 = Function
+      $1496 = call $1471 with $1478 $1495 ($1470 is responsible)
+      $1497 = builtinIfElse
+      # Examples:file:35:45:0:calleeIsFunction:then
+      $1519 = { (responsible $1498) ->
+        $1499 = call $1472 with $754 ($1470 is responsible)
+        $1500 = 1
+        $1501 = call $1471 with $1499 $1500 ($1470 is responsible)
+        $1502 = builtinIfElse
+        # Examples:file:35:45:0:hasCorrectNumberOfArguments:then
+        $1509 = { (responsible $1503) ->
+          $1504 = Examples:file:35:45:0
+          $1505 = trace: start of call of $754 with $1350 ($1470 is responsible, code is at $1504)
+          $1506 = call $754 with $1350 ($1470 is responsible)
+          $1507 = trace: end of call
+          $1508 = $1506
+        }
+        # Examples:file:35:45:0:hasCorrectNumberOfArguments:else
+        $1517 = { (responsible $1510) ->
+          $1511 = "You called a function that expects "
+          $1512 = call $1476 with $1499 ($1470 is responsible)
+          $1513 = " arguments with 1 arguments."
+          $1514 = call $1475 with $1511 $1512 ($1470 is responsible)
+          $1515 = call $1475 with $1514 $1513 ($1470 is responsible)
+          $1516 = panicking because $1515 ($1470 is at fault)
+        }
+        $1518 = call $1502 with $1501 $1509 $1517 ($1470 is responsible)
+      }
+      # Examples:file:35:45:0:calleeIsFunction:else
+      $1523 = { (responsible $1520) ->
+        $1521 = "You can only call tags or functions."
+        $1522 = panicking because $1521 ($1470 is at fault)
+      }
+      $1524 = call $1497 with $1496 $1519 $1523 ($1470 is responsible)
+    }
+    $1526 = call $1481 with $1480 $1493 $1525 ($1470 is responsible)
+  }
+  $1528 = Examples:file:35:46
+  $1529 = builtinEquals
+  $1530 = builtinGetArgumentCount
+  $1531 = builtinTagHasValue
+  $1532 = builtinTagWithValue
+  $1533 = builtinTextConcatenate
+  $1534 = builtinToDebugText
+  $1535 = builtinTypeOf
+  $1536 = call $1535 with $753 ($1528 is responsible)
+  $1537 = Tag
+  $1538 = call $1529 with $1536 $1537 ($1528 is responsible)
+  $1539 = builtinIfElse
+  # Examples:file:35:46:calleeIsTag:then
+  $1552 = { (responsible $1540) ->
+    $1541 = call $1531 with $753 ($1528 is responsible)
+    $1542 = builtinIfElse
+    # Examples:file:35:46:doesTagHaveValue:then
+    $1546 = { (responsible $1543) ->
+      $1544 = "You called a tag that already has a value."
+      $1545 = panicking because $1544 ($1528 is at fault)
+    }
+    # Examples:file:35:46:doesTagHaveValue:else
+    $1550 = { (responsible $1547) ->
+      $1548 = "Tags can only be created with one value."
+      $1549 = panicking because $1548 ($1528 is at fault)
+    }
+    $1551 = call $1542 with $1541 $1546 $1550 ($1528 is responsible)
+  }
+  # Examples:file:35:46:calleeIsTag:else
+  $1584 = { (responsible $1553) ->
+    $1554 = Function
+    $1555 = call $1529 with $1536 $1554 ($1528 is responsible)
+    $1556 = builtinIfElse
+    # Examples:file:35:46:calleeIsFunction:then
+    $1578 = { (responsible $1557) ->
+      $1558 = call $1530 with $753 ($1528 is responsible)
+      $1559 = 3
+      $1560 = call $1529 with $1558 $1559 ($1528 is responsible)
+      $1561 = builtinIfElse
+      # Examples:file:35:46:hasCorrectNumberOfArguments:then
+      $1568 = { (responsible $1562) ->
+        $1563 = Examples:file:35:46
+        $1564 = trace: start of call of $753 with $1465 $1468 $1527 ($1528 is responsible, code is at $1563)
+        $1565 = call $753 with $1465 $1468 $1527 ($1528 is responsible)
+        $1566 = trace: end of call
+        $1567 = $1565
+      }
+      # Examples:file:35:46:hasCorrectNumberOfArguments:else
+      $1576 = { (responsible $1569) ->
+        $1570 = "You called a function that expects "
+        $1571 = call $1534 with $1558 ($1528 is responsible)
+        $1572 = " arguments with 3 arguments."
+        $1573 = call $1533 with $1570 $1571 ($1528 is responsible)
+        $1574 = call $1533 with $1573 $1572 ($1528 is responsible)
+        $1575 = panicking because $1574 ($1528 is at fault)
+      }
+      $1577 = call $1561 with $1560 $1568 $1576 ($1528 is responsible)
+    }
+    # Examples:file:35:46:calleeIsFunction:else
+    $1582 = { (responsible $1579) ->
+      $1580 = "You can only call tags or functions."
+      $1581 = panicking because $1580 ($1528 is at fault)
+    }
+    $1583 = call $1556 with $1555 $1578 $1582 ($1528 is responsible)
+  }
+  $1585 = call $1539 with $1538 $1552 $1584 ($1528 is responsible)
+  $1586 = Examples:file:35:47
+  $1587 = builtinEquals
+  $1588 = builtinGetArgumentCount
+  $1589 = builtinTagHasValue
+  $1590 = builtinTagWithValue
+  $1591 = builtinTextConcatenate
+  $1592 = builtinToDebugText
+  $1593 = builtinTypeOf
+  $1594 = call $1593 with $749 ($1586 is responsible)
+  $1595 = Tag
+  $1596 = call $1587 with $1594 $1595 ($1586 is responsible)
+  $1597 = builtinIfElse
+  # Examples:file:35:47:calleeIsTag:then
+  $1610 = { (responsible $1598) ->
+    $1599 = call $1589 with $749 ($1586 is responsible)
+    $1600 = builtinIfElse
+    # Examples:file:35:47:doesTagHaveValue:then
+    $1604 = { (responsible $1601) ->
+      $1602 = "You called a tag that already has a value."
+      $1603 = panicking because $1602 ($1586 is at fault)
+    }
+    # Examples:file:35:47:doesTagHaveValue:else
+    $1608 = { (responsible $1605) ->
+      $1606 = "Tags can only be created with one value."
+      $1607 = panicking because $1606 ($1586 is at fault)
+    }
+    $1609 = call $1600 with $1599 $1604 $1608 ($1586 is responsible)
+  }
+  # Examples:file:35:47:calleeIsTag:else
+  $1642 = { (responsible $1611) ->
+    $1612 = Function
+    $1613 = call $1587 with $1594 $1612 ($1586 is responsible)
+    $1614 = builtinIfElse
+    # Examples:file:35:47:calleeIsFunction:then
+    $1636 = { (responsible $1615) ->
+      $1616 = call $1588 with $749 ($1586 is responsible)
+      $1617 = 2
+      $1618 = call $1587 with $1616 $1617 ($1586 is responsible)
+      $1619 = builtinIfElse
+      # Examples:file:35:47:hasCorrectNumberOfArguments:then
+      $1626 = { (responsible $1620) ->
+        $1621 = Examples:file:35:47
+        $1622 = trace: start of call of $749 with $755 $1585 ($1586 is responsible, code is at $1621)
+        $1623 = call $749 with $755 $1585 ($1586 is responsible)
+        $1624 = trace: end of call
+        $1625 = $1623
+      }
+      # Examples:file:35:47:hasCorrectNumberOfArguments:else
+      $1634 = { (responsible $1627) ->
+        $1628 = "You called a function that expects "
+        $1629 = call $1592 with $1616 ($1586 is responsible)
+        $1630 = " arguments with 2 arguments."
+        $1631 = call $1591 with $1628 $1629 ($1586 is responsible)
+        $1632 = call $1591 with $1631 $1630 ($1586 is responsible)
+        $1633 = panicking because $1632 ($1586 is at fault)
+      }
+      $1635 = call $1619 with $1618 $1626 $1634 ($1586 is responsible)
+    }
+    # Examples:file:35:47:calleeIsFunction:else
+    $1640 = { (responsible $1637) ->
+      $1638 = "You can only call tags or functions."
+      $1639 = panicking because $1638 ($1586 is at fault)
+    }
+    $1641 = call $1614 with $1613 $1636 $1640 ($1586 is responsible)
+  }
+  $1643 = call $1597 with $1596 $1610 $1642 ($1586 is responsible)
+  $1644 = Examples:file:35:48
+  $1645 = builtinEquals
+  $1646 = builtinGetArgumentCount
+  $1647 = builtinTagHasValue
+  $1648 = builtinTagWithValue
+  $1649 = builtinTextConcatenate
+  $1650 = builtinToDebugText
+  $1651 = builtinTypeOf
+  $1652 = call $1651 with $748 ($1644 is responsible)
+  $1653 = Tag
+  $1654 = call $1645 with $1652 $1653 ($1644 is responsible)
+  $1655 = builtinIfElse
+  # Examples:file:35:48:calleeIsTag:then
+  $1667 = { (responsible $1656) ->
+    $1657 = call $1647 with $748 ($1644 is responsible)
+    $1658 = builtinIfElse
+    # Examples:file:35:48:doesTagHaveValue:then
+    $1662 = { (responsible $1659) ->
+      $1660 = "You called a tag that already has a value."
+      $1661 = panicking because $1660 ($1644 is at fault)
+    }
+    # Examples:file:35:48:doesTagHaveValue:else
+    $1665 = { (responsible $1663) ->
+      $1664 = call $1648 with $748 $1643 ($1644 is responsible)
+    }
+    $1666 = call $1658 with $1657 $1662 $1665 ($1644 is responsible)
+  }
+  # Examples:file:35:48:calleeIsTag:else
+  $1699 = { (responsible $1668) ->
+    $1669 = Function
+    $1670 = call $1645 with $1652 $1669 ($1644 is responsible)
+    $1671 = builtinIfElse
+    # Examples:file:35:48:calleeIsFunction:then
+    $1693 = { (responsible $1672) ->
+      $1673 = call $1646 with $748 ($1644 is responsible)
+      $1674 = 1
+      $1675 = call $1645 with $1673 $1674 ($1644 is responsible)
+      $1676 = builtinIfElse
+      # Examples:file:35:48:hasCorrectNumberOfArguments:then
+      $1683 = { (responsible $1677) ->
+        $1678 = Examples:file:35:48
+        $1679 = trace: start of call of $748 with $1643 ($1644 is responsible, code is at $1678)
+        $1680 = call $748 with $1643 ($1644 is responsible)
+        $1681 = trace: end of call
+        $1682 = $1680
+      }
+      # Examples:file:35:48:hasCorrectNumberOfArguments:else
+      $1691 = { (responsible $1684) ->
+        $1685 = "You called a function that expects "
+        $1686 = call $1650 with $1673 ($1644 is responsible)
+        $1687 = " arguments with 1 arguments."
+        $1688 = call $1649 with $1685 $1686 ($1644 is responsible)
+        $1689 = call $1649 with $1688 $1687 ($1644 is responsible)
+        $1690 = panicking because $1689 ($1644 is at fault)
+      }
+      $1692 = call $1676 with $1675 $1683 $1691 ($1644 is responsible)
+    }
+    # Examples:file:35:48:calleeIsFunction:else
+    $1697 = { (responsible $1694) ->
+      $1695 = "You can only call tags or functions."
+      $1696 = panicking because $1695 ($1644 is at fault)
+    }
+    $1698 = call $1671 with $1670 $1693 $1697 ($1644 is responsible)
+  }
+  $1700 = call $1655 with $1654 $1667 $1699 ($1644 is responsible)
+  $1701 = $246
+  $1702 = builtinTextConcatenate
+  $1703 = builtinTypeOf
+  $1704 = Text
+  $1705 = builtinEquals
+  $1706 = builtinIfElse
+  $1707 = builtinToDebugText
+  $1708 = "Text: "
+  $1709 = builtinStructGet
+  $1710 = StructGet
+  $1711 = Examples:file:35:59
+  $1712 = builtinEquals
+  $1713 = builtinGetArgumentCount
+  $1714 = builtinTagHasValue
+  $1715 = builtinTagWithValue
+  $1716 = builtinTextConcatenate
+  $1717 = builtinToDebugText
+  $1718 = builtinTypeOf
+  $1719 = call $1718 with $1709 ($1711 is responsible)
+  $1720 = Tag
+  $1721 = call $1712 with $1719 $1720 ($1711 is responsible)
+  $1722 = builtinIfElse
+  # Examples:file:35:59:calleeIsTag:then
+  $1735 = { (responsible $1723) ->
+    $1724 = call $1714 with $1709 ($1711 is responsible)
+    $1725 = builtinIfElse
+    # Examples:file:35:59:doesTagHaveValue:then
+    $1729 = { (responsible $1726) ->
+      $1727 = "You called a tag that already has a value."
+      $1728 = panicking because $1727 ($1711 is at fault)
+    }
+    # Examples:file:35:59:doesTagHaveValue:else
+    $1733 = { (responsible $1730) ->
+      $1731 = "Tags can only be created with one value."
+      $1732 = panicking because $1731 ($1711 is at fault)
+    }
+    $1734 = call $1725 with $1724 $1729 $1733 ($1711 is responsible)
+  }
+  # Examples:file:35:59:calleeIsTag:else
+  $1767 = { (responsible $1736) ->
+    $1737 = Function
+    $1738 = call $1712 with $1719 $1737 ($1711 is responsible)
+    $1739 = builtinIfElse
+    # Examples:file:35:59:calleeIsFunction:then
+    $1761 = { (responsible $1740) ->
+      $1741 = call $1713 with $1709 ($1711 is responsible)
+      $1742 = 2
+      $1743 = call $1712 with $1741 $1742 ($1711 is responsible)
+      $1744 = builtinIfElse
+      # Examples:file:35:59:hasCorrectNumberOfArguments:then
+      $1751 = { (responsible $1745) ->
+        $1746 = Examples:file:35:59
+        $1747 = trace: start of call of $1709 with $112 $1710 ($1711 is responsible, code is at $1746)
+        $1748 = call $1709 with $112 $1710 ($1711 is responsible)
+        $1749 = trace: end of call
+        $1750 = $1748
+      }
+      # Examples:file:35:59:hasCorrectNumberOfArguments:else
+      $1759 = { (responsible $1752) ->
+        $1753 = "You called a function that expects "
+        $1754 = call $1717 with $1741 ($1711 is responsible)
+        $1755 = " arguments with 2 arguments."
+        $1756 = call $1716 with $1753 $1754 ($1711 is responsible)
+        $1757 = call $1716 with $1756 $1755 ($1711 is responsible)
+        $1758 = panicking because $1757 ($1711 is at fault)
+      }
+      $1760 = call $1744 with $1743 $1751 $1759 ($1711 is responsible)
+    }
+    # Examples:file:35:59:calleeIsFunction:else
+    $1765 = { (responsible $1762) ->
+      $1763 = "You can only call tags or functions."
+      $1764 = panicking because $1763 ($1711 is at fault)
+    }
+    $1766 = call $1739 with $1738 $1761 $1765 ($1711 is responsible)
+  }
+  $1768 = call $1722 with $1721 $1735 $1767 ($1711 is responsible)
+  $1769 = $381
+  $1770 = ReadText
+  $1771 = Examples:file:35:62
+  $1772 = builtinEquals
+  $1773 = builtinGetArgumentCount
+  $1774 = builtinTagHasValue
+  $1775 = builtinTagWithValue
+  $1776 = builtinTextConcatenate
+  $1777 = builtinToDebugText
+  $1778 = builtinTypeOf
+  $1779 = call $1778 with $1768 ($1771 is responsible)
+  $1780 = Tag
+  $1781 = call $1772 with $1779 $1780 ($1771 is responsible)
+  $1782 = builtinIfElse
+  # Examples:file:35:62:calleeIsTag:then
+  $1795 = { (responsible $1783) ->
+    $1784 = call $1774 with $1768 ($1771 is responsible)
+    $1785 = builtinIfElse
+    # Examples:file:35:62:doesTagHaveValue:then
+    $1789 = { (responsible $1786) ->
+      $1787 = "You called a tag that already has a value."
+      $1788 = panicking because $1787 ($1771 is at fault)
+    }
+    # Examples:file:35:62:doesTagHaveValue:else
+    $1793 = { (responsible $1790) ->
+      $1791 = "Tags can only be created with one value."
+      $1792 = panicking because $1791 ($1771 is at fault)
+    }
+    $1794 = call $1785 with $1784 $1789 $1793 ($1771 is responsible)
+  }
+  # Examples:file:35:62:calleeIsTag:else
+  $1827 = { (responsible $1796) ->
+    $1797 = Function
+    $1798 = call $1772 with $1779 $1797 ($1771 is responsible)
+    $1799 = builtinIfElse
+    # Examples:file:35:62:calleeIsFunction:then
+    $1821 = { (responsible $1800) ->
+      $1801 = call $1773 with $1768 ($1771 is responsible)
+      $1802 = 2
+      $1803 = call $1772 with $1801 $1802 ($1771 is responsible)
+      $1804 = builtinIfElse
+      # Examples:file:35:62:hasCorrectNumberOfArguments:then
+      $1811 = { (responsible $1805) ->
+        $1806 = Examples:file:35:62
+        $1807 = trace: start of call of $1768 with $1769 $1770 ($1771 is responsible, code is at $1806)
+        $1808 = call $1768 with $1769 $1770 ($1771 is responsible)
+        $1809 = trace: end of call
+        $1810 = $1808
+      }
+      # Examples:file:35:62:hasCorrectNumberOfArguments:else
+      $1819 = { (responsible $1812) ->
+        $1813 = "You called a function that expects "
+        $1814 = call $1777 with $1801 ($1771 is responsible)
+        $1815 = " arguments with 2 arguments."
+        $1816 = call $1776 with $1813 $1814 ($1771 is responsible)
+        $1817 = call $1776 with $1816 $1815 ($1771 is responsible)
+        $1818 = panicking because $1817 ($1771 is at fault)
+      }
+      $1820 = call $1804 with $1803 $1811 $1819 ($1771 is responsible)
+    }
+    # Examples:file:35:62:calleeIsFunction:else
+    $1825 = { (responsible $1822) ->
+      $1823 = "You can only call tags or functions."
+      $1824 = panicking because $1823 ($1771 is at fault)
+    }
+    $1826 = call $1799 with $1798 $1821 $1825 ($1771 is responsible)
+  }
+  $1828 = call $1782 with $1781 $1795 $1827 ($1771 is responsible)
+  $1829 = builtinStructGet
+  $1830 = StructGet
+  $1831 = Examples:file:35:65
+  $1832 = builtinEquals
+  $1833 = builtinGetArgumentCount
+  $1834 = builtinTagHasValue
+  $1835 = builtinTagWithValue
+  $1836 = builtinTextConcatenate
+  $1837 = builtinToDebugText
+  $1838 = builtinTypeOf
+  $1839 = call $1838 with $1829 ($1831 is responsible)
+  $1840 = Tag
+  $1841 = call $1832 with $1839 $1840 ($1831 is responsible)
+  $1842 = builtinIfElse
+  # Examples:file:35:65:calleeIsTag:then
+  $1855 = { (responsible $1843) ->
+    $1844 = call $1834 with $1829 ($1831 is responsible)
+    $1845 = builtinIfElse
+    # Examples:file:35:65:doesTagHaveValue:then
+    $1849 = { (responsible $1846) ->
+      $1847 = "You called a tag that already has a value."
+      $1848 = panicking because $1847 ($1831 is at fault)
+    }
+    # Examples:file:35:65:doesTagHaveValue:else
+    $1853 = { (responsible $1850) ->
+      $1851 = "Tags can only be created with one value."
+      $1852 = panicking because $1851 ($1831 is at fault)
+    }
+    $1854 = call $1845 with $1844 $1849 $1853 ($1831 is responsible)
+  }
+  # Examples:file:35:65:calleeIsTag:else
+  $1887 = { (responsible $1856) ->
+    $1857 = Function
+    $1858 = call $1832 with $1839 $1857 ($1831 is responsible)
+    $1859 = builtinIfElse
+    # Examples:file:35:65:calleeIsFunction:then
+    $1881 = { (responsible $1860) ->
+      $1861 = call $1833 with $1829 ($1831 is responsible)
+      $1862 = 2
+      $1863 = call $1832 with $1861 $1862 ($1831 is responsible)
+      $1864 = builtinIfElse
+      # Examples:file:35:65:hasCorrectNumberOfArguments:then
+      $1871 = { (responsible $1865) ->
+        $1866 = Examples:file:35:65
+        $1867 = trace: start of call of $1829 with $112 $1830 ($1831 is responsible, code is at $1866)
+        $1868 = call $1829 with $112 $1830 ($1831 is responsible)
+        $1869 = trace: end of call
+        $1870 = $1868
+      }
+      # Examples:file:35:65:hasCorrectNumberOfArguments:else
+      $1879 = { (responsible $1872) ->
+        $1873 = "You called a function that expects "
+        $1874 = call $1837 with $1861 ($1831 is responsible)
+        $1875 = " arguments with 2 arguments."
+        $1876 = call $1836 with $1873 $1874 ($1831 is responsible)
+        $1877 = call $1836 with $1876 $1875 ($1831 is responsible)
+        $1878 = panicking because $1877 ($1831 is at fault)
+      }
+      $1880 = call $1864 with $1863 $1871 $1879 ($1831 is responsible)
+    }
+    # Examples:file:35:65:calleeIsFunction:else
+    $1885 = { (responsible $1882) ->
+      $1883 = "You can only call tags or functions."
+      $1884 = panicking because $1883 ($1831 is at fault)
+    }
+    $1886 = call $1859 with $1858 $1881 $1885 ($1831 is responsible)
+  }
+  $1888 = call $1842 with $1841 $1855 $1887 ($1831 is responsible)
+  $1889 = builtinStructGet
+  $1890 = StructGet
+  $1891 = Examples:file:35:68
+  $1892 = builtinEquals
+  $1893 = builtinGetArgumentCount
+  $1894 = builtinTagHasValue
+  $1895 = builtinTagWithValue
+  $1896 = builtinTextConcatenate
+  $1897 = builtinToDebugText
+  $1898 = builtinTypeOf
+  $1899 = call $1898 with $1889 ($1891 is responsible)
+  $1900 = Tag
+  $1901 = call $1892 with $1899 $1900 ($1891 is responsible)
+  $1902 = builtinIfElse
+  # Examples:file:35:68:calleeIsTag:then
+  $1915 = { (responsible $1903) ->
+    $1904 = call $1894 with $1889 ($1891 is responsible)
+    $1905 = builtinIfElse
+    # Examples:file:35:68:doesTagHaveValue:then
+    $1909 = { (responsible $1906) ->
+      $1907 = "You called a tag that already has a value."
+      $1908 = panicking because $1907 ($1891 is at fault)
+    }
+    # Examples:file:35:68:doesTagHaveValue:else
+    $1913 = { (responsible $1910) ->
+      $1911 = "Tags can only be created with one value."
+      $1912 = panicking because $1911 ($1891 is at fault)
+    }
+    $1914 = call $1905 with $1904 $1909 $1913 ($1891 is responsible)
+  }
+  # Examples:file:35:68:calleeIsTag:else
+  $1947 = { (responsible $1916) ->
+    $1917 = Function
+    $1918 = call $1892 with $1899 $1917 ($1891 is responsible)
+    $1919 = builtinIfElse
+    # Examples:file:35:68:calleeIsFunction:then
+    $1941 = { (responsible $1920) ->
+      $1921 = call $1893 with $1889 ($1891 is responsible)
+      $1922 = 2
+      $1923 = call $1892 with $1921 $1922 ($1891 is responsible)
+      $1924 = builtinIfElse
+      # Examples:file:35:68:hasCorrectNumberOfArguments:then
+      $1931 = { (responsible $1925) ->
+        $1926 = Examples:file:35:68
+        $1927 = trace: start of call of $1889 with $112 $1890 ($1891 is responsible, code is at $1926)
+        $1928 = call $1889 with $112 $1890 ($1891 is responsible)
+        $1929 = trace: end of call
+        $1930 = $1928
+      }
+      # Examples:file:35:68:hasCorrectNumberOfArguments:else
+      $1939 = { (responsible $1932) ->
+        $1933 = "You called a function that expects "
+        $1934 = call $1897 with $1921 ($1891 is responsible)
+        $1935 = " arguments with 2 arguments."
+        $1936 = call $1896 with $1933 $1934 ($1891 is responsible)
+        $1937 = call $1896 with $1936 $1935 ($1891 is responsible)
+        $1938 = panicking because $1937 ($1891 is at fault)
+      }
+      $1940 = call $1924 with $1923 $1931 $1939 ($1891 is responsible)
+    }
+    # Examples:file:35:68:calleeIsFunction:else
+    $1945 = { (responsible $1942) ->
+      $1943 = "You can only call tags or functions."
+      $1944 = panicking because $1943 ($1891 is at fault)
+    }
+    $1946 = call $1919 with $1918 $1941 $1945 ($1891 is responsible)
+  }
+  $1948 = call $1902 with $1901 $1915 $1947 ($1891 is responsible)
+  $1949 = $554
+  $1950 = FileSystem
+  $1951 = Examples:file:35:71
+  $1952 = builtinEquals
+  $1953 = builtinGetArgumentCount
+  $1954 = builtinTagHasValue
+  $1955 = builtinTagWithValue
+  $1956 = builtinTextConcatenate
+  $1957 = builtinToDebugText
+  $1958 = builtinTypeOf
+  $1959 = call $1958 with $1948 ($1951 is responsible)
+  $1960 = Tag
+  $1961 = call $1952 with $1959 $1960 ($1951 is responsible)
+  $1962 = builtinIfElse
+  # Examples:file:35:71:calleeIsTag:then
+  $1975 = { (responsible $1963) ->
+    $1964 = call $1954 with $1948 ($1951 is responsible)
+    $1965 = builtinIfElse
+    # Examples:file:35:71:doesTagHaveValue:then
+    $1969 = { (responsible $1966) ->
+      $1967 = "You called a tag that already has a value."
+      $1968 = panicking because $1967 ($1951 is at fault)
+    }
+    # Examples:file:35:71:doesTagHaveValue:else
+    $1973 = { (responsible $1970) ->
+      $1971 = "Tags can only be created with one value."
+      $1972 = panicking because $1971 ($1951 is at fault)
+    }
+    $1974 = call $1965 with $1964 $1969 $1973 ($1951 is responsible)
+  }
+  # Examples:file:35:71:calleeIsTag:else
+  $2007 = { (responsible $1976) ->
+    $1977 = Function
+    $1978 = call $1952 with $1959 $1977 ($1951 is responsible)
+    $1979 = builtinIfElse
+    # Examples:file:35:71:calleeIsFunction:then
+    $2001 = { (responsible $1980) ->
+      $1981 = call $1953 with $1948 ($1951 is responsible)
+      $1982 = 2
+      $1983 = call $1952 with $1981 $1982 ($1951 is responsible)
+      $1984 = builtinIfElse
+      # Examples:file:35:71:hasCorrectNumberOfArguments:then
+      $1991 = { (responsible $1985) ->
+        $1986 = Examples:file:35:71
+        $1987 = trace: start of call of $1948 with $1949 $1950 ($1951 is responsible, code is at $1986)
+        $1988 = call $1948 with $1949 $1950 ($1951 is responsible)
+        $1989 = trace: end of call
+        $1990 = $1988
+      }
+      # Examples:file:35:71:hasCorrectNumberOfArguments:else
+      $1999 = { (responsible $1992) ->
+        $1993 = "You called a function that expects "
+        $1994 = call $1957 with $1981 ($1951 is responsible)
+        $1995 = " arguments with 2 arguments."
+        $1996 = call $1956 with $1993 $1994 ($1951 is responsible)
+        $1997 = call $1956 with $1996 $1995 ($1951 is responsible)
+        $1998 = panicking because $1997 ($1951 is at fault)
+      }
+      $2000 = call $1984 with $1983 $1991 $1999 ($1951 is responsible)
+    }
+    # Examples:file:35:71:calleeIsFunction:else
+    $2005 = { (responsible $2002) ->
+      $2003 = "You can only call tags or functions."
+      $2004 = panicking because $2003 ($1951 is at fault)
+    }
+    $2006 = call $1979 with $1978 $2001 $2005 ($1951 is responsible)
+  }
+  $2008 = call $1962 with $1961 $1975 $2007 ($1951 is responsible)
+  $2009 = File
+  $2010 = Examples:file:35:73
+  $2011 = builtinEquals
+  $2012 = builtinGetArgumentCount
+  $2013 = builtinTagHasValue
+  $2014 = builtinTagWithValue
+  $2015 = builtinTextConcatenate
+  $2016 = builtinToDebugText
+  $2017 = builtinTypeOf
+  $2018 = call $2017 with $1888 ($2010 is responsible)
+  $2019 = Tag
+  $2020 = call $2011 with $2018 $2019 ($2010 is responsible)
+  $2021 = builtinIfElse
+  # Examples:file:35:73:calleeIsTag:then
+  $2034 = { (responsible $2022) ->
+    $2023 = call $2013 with $1888 ($2010 is responsible)
+    $2024 = builtinIfElse
+    # Examples:file:35:73:doesTagHaveValue:then
+    $2028 = { (responsible $2025) ->
+      $2026 = "You called a tag that already has a value."
+      $2027 = panicking because $2026 ($2010 is at fault)
+    }
+    # Examples:file:35:73:doesTagHaveValue:else
+    $2032 = { (responsible $2029) ->
+      $2030 = "Tags can only be created with one value."
+      $2031 = panicking because $2030 ($2010 is at fault)
+    }
+    $2033 = call $2024 with $2023 $2028 $2032 ($2010 is responsible)
+  }
+  # Examples:file:35:73:calleeIsTag:else
+  $2066 = { (responsible $2035) ->
+    $2036 = Function
+    $2037 = call $2011 with $2018 $2036 ($2010 is responsible)
+    $2038 = builtinIfElse
+    # Examples:file:35:73:calleeIsFunction:then
+    $2060 = { (responsible $2039) ->
+      $2040 = call $2012 with $1888 ($2010 is responsible)
+      $2041 = 2
+      $2042 = call $2011 with $2040 $2041 ($2010 is responsible)
+      $2043 = builtinIfElse
+      # Examples:file:35:73:hasCorrectNumberOfArguments:then
+      $2050 = { (responsible $2044) ->
+        $2045 = Examples:file:35:73
+        $2046 = trace: start of call of $1888 with $2008 $2009 ($2010 is responsible, code is at $2045)
+        $2047 = call $1888 with $2008 $2009 ($2010 is responsible)
+        $2048 = trace: end of call
+        $2049 = $2047
+      }
+      # Examples:file:35:73:hasCorrectNumberOfArguments:else
+      $2058 = { (responsible $2051) ->
+        $2052 = "You called a function that expects "
+        $2053 = call $2016 with $2040 ($2010 is responsible)
+        $2054 = " arguments with 2 arguments."
+        $2055 = call $2015 with $2052 $2053 ($2010 is responsible)
+        $2056 = call $2015 with $2055 $2054 ($2010 is responsible)
+        $2057 = panicking because $2056 ($2010 is at fault)
+      }
+      $2059 = call $2043 with $2042 $2050 $2058 ($2010 is responsible)
+    }
+    # Examples:file:35:73:calleeIsFunction:else
+    $2064 = { (responsible $2061) ->
+      $2062 = "You can only call tags or functions."
+      $2063 = panicking because $2062 ($2010 is at fault)
+    }
+    $2065 = call $2038 with $2037 $2060 $2064 ($2010 is responsible)
+  }
+  $2067 = call $2021 with $2020 $2034 $2066 ($2010 is responsible)
+  $2068 = $746
+  $2069 = Examples:file:35:75
+  $2070 = builtinEquals
+  $2071 = builtinGetArgumentCount
+  $2072 = builtinTagHasValue
+  $2073 = builtinTagWithValue
+  $2074 = builtinTextConcatenate
+  $2075 = builtinToDebugText
+  $2076 = builtinTypeOf
+  $2077 = call $2076 with $1828 ($2069 is responsible)
+  $2078 = Tag
+  $2079 = call $2070 with $2077 $2078 ($2069 is responsible)
+  $2080 = builtinIfElse
+  # Examples:file:35:75:calleeIsTag:then
+  $2093 = { (responsible $2081) ->
+    $2082 = call $2072 with $1828 ($2069 is responsible)
+    $2083 = builtinIfElse
+    # Examples:file:35:75:doesTagHaveValue:then
+    $2087 = { (responsible $2084) ->
+      $2085 = "You called a tag that already has a value."
+      $2086 = panicking because $2085 ($2069 is at fault)
+    }
+    # Examples:file:35:75:doesTagHaveValue:else
+    $2091 = { (responsible $2088) ->
+      $2089 = "Tags can only be created with one value."
+      $2090 = panicking because $2089 ($2069 is at fault)
+    }
+    $2092 = call $2083 with $2082 $2087 $2091 ($2069 is responsible)
+  }
+  # Examples:file:35:75:calleeIsTag:else
+  $2125 = { (responsible $2094) ->
+    $2095 = Function
+    $2096 = call $2070 with $2077 $2095 ($2069 is responsible)
+    $2097 = builtinIfElse
+    # Examples:file:35:75:calleeIsFunction:then
+    $2119 = { (responsible $2098) ->
+      $2099 = call $2071 with $1828 ($2069 is responsible)
+      $2100 = 2
+      $2101 = call $2070 with $2099 $2100 ($2069 is responsible)
+      $2102 = builtinIfElse
+      # Examples:file:35:75:hasCorrectNumberOfArguments:then
+      $2109 = { (responsible $2103) ->
+        $2104 = Examples:file:35:75
+        $2105 = trace: start of call of $1828 with $2067 $2068 ($2069 is responsible, code is at $2104)
+        $2106 = call $1828 with $2067 $2068 ($2069 is responsible)
+        $2107 = trace: end of call
+        $2108 = $2106
+      }
+      # Examples:file:35:75:hasCorrectNumberOfArguments:else
+      $2117 = { (responsible $2110) ->
+        $2111 = "You called a function that expects "
+        $2112 = call $2075 with $2099 ($2069 is responsible)
+        $2113 = " arguments with 2 arguments."
+        $2114 = call $2074 with $2111 $2112 ($2069 is responsible)
+        $2115 = call $2074 with $2114 $2113 ($2069 is responsible)
+        $2116 = panicking because $2115 ($2069 is at fault)
+      }
+      $2118 = call $2102 with $2101 $2109 $2117 ($2069 is responsible)
+    }
+    # Examples:file:35:75:calleeIsFunction:else
+    $2123 = { (responsible $2120) ->
+      $2121 = "You can only call tags or functions."
+      $2122 = panicking because $2121 ($2069 is at fault)
+    }
+    $2124 = call $2097 with $2096 $2119 $2123 ($2069 is responsible)
+  }
+  $2126 = call $2080 with $2079 $2093 $2125 ($2069 is responsible)
+  $2127 = builtinStructGet
+  $2128 = StructGet
+  $2129 = Examples:file:35:78
+  $2130 = builtinEquals
+  $2131 = builtinGetArgumentCount
+  $2132 = builtinTagHasValue
+  $2133 = builtinTagWithValue
+  $2134 = builtinTextConcatenate
+  $2135 = builtinToDebugText
+  $2136 = builtinTypeOf
+  $2137 = call $2136 with $2127 ($2129 is responsible)
+  $2138 = Tag
+  $2139 = call $2130 with $2137 $2138 ($2129 is responsible)
+  $2140 = builtinIfElse
+  # Examples:file:35:78:calleeIsTag:then
+  $2153 = { (responsible $2141) ->
+    $2142 = call $2132 with $2127 ($2129 is responsible)
+    $2143 = builtinIfElse
+    # Examples:file:35:78:doesTagHaveValue:then
+    $2147 = { (responsible $2144) ->
+      $2145 = "You called a tag that already has a value."
+      $2146 = panicking because $2145 ($2129 is at fault)
+    }
+    # Examples:file:35:78:doesTagHaveValue:else
+    $2151 = { (responsible $2148) ->
+      $2149 = "Tags can only be created with one value."
+      $2150 = panicking because $2149 ($2129 is at fault)
+    }
+    $2152 = call $2143 with $2142 $2147 $2151 ($2129 is responsible)
+  }
+  # Examples:file:35:78:calleeIsTag:else
+  $2185 = { (responsible $2154) ->
+    $2155 = Function
+    $2156 = call $2130 with $2137 $2155 ($2129 is responsible)
+    $2157 = builtinIfElse
+    # Examples:file:35:78:calleeIsFunction:then
+    $2179 = { (responsible $2158) ->
+      $2159 = call $2131 with $2127 ($2129 is responsible)
+      $2160 = 2
+      $2161 = call $2130 with $2159 $2160 ($2129 is responsible)
+      $2162 = builtinIfElse
+      # Examples:file:35:78:hasCorrectNumberOfArguments:then
+      $2169 = { (responsible $2163) ->
+        $2164 = Examples:file:35:78
+        $2165 = trace: start of call of $2127 with $112 $2128 ($2129 is responsible, code is at $2164)
+        $2166 = call $2127 with $112 $2128 ($2129 is responsible)
+        $2167 = trace: end of call
+        $2168 = $2166
+      }
+      # Examples:file:35:78:hasCorrectNumberOfArguments:else
+      $2177 = { (responsible $2170) ->
+        $2171 = "You called a function that expects "
+        $2172 = call $2135 with $2159 ($2129 is responsible)
+        $2173 = " arguments with 2 arguments."
+        $2174 = call $2134 with $2171 $2172 ($2129 is responsible)
+        $2175 = call $2134 with $2174 $2173 ($2129 is responsible)
+        $2176 = panicking because $2175 ($2129 is at fault)
+      }
+      $2178 = call $2162 with $2161 $2169 $2177 ($2129 is responsible)
+    }
+    # Examples:file:35:78:calleeIsFunction:else
+    $2183 = { (responsible $2180) ->
+      $2181 = "You can only call tags or functions."
+      $2182 = panicking because $2181 ($2129 is at fault)
+    }
+    $2184 = call $2157 with $2156 $2179 $2183 ($2129 is responsible)
+  }
+  $2186 = call $2140 with $2139 $2153 $2185 ($2129 is responsible)
+  $2187 = $545
+  $2188 = Unwrap
+  $2189 = Examples:file:35:81
+  $2190 = builtinEquals
+  $2191 = builtinGetArgumentCount
+  $2192 = builtinTagHasValue
+  $2193 = builtinTagWithValue
+  $2194 = builtinTextConcatenate
+  $2195 = builtinToDebugText
+  $2196 = builtinTypeOf
+  $2197 = call $2196 with $2186 ($2189 is responsible)
+  $2198 = Tag
+  $2199 = call $2190 with $2197 $2198 ($2189 is responsible)
+  $2200 = builtinIfElse
+  # Examples:file:35:81:calleeIsTag:then
+  $2213 = { (responsible $2201) ->
+    $2202 = call $2192 with $2186 ($2189 is responsible)
+    $2203 = builtinIfElse
+    # Examples:file:35:81:doesTagHaveValue:then
+    $2207 = { (responsible $2204) ->
+      $2205 = "You called a tag that already has a value."
+      $2206 = panicking because $2205 ($2189 is at fault)
+    }
+    # Examples:file:35:81:doesTagHaveValue:else
+    $2211 = { (responsible $2208) ->
+      $2209 = "Tags can only be created with one value."
+      $2210 = panicking because $2209 ($2189 is at fault)
+    }
+    $2212 = call $2203 with $2202 $2207 $2211 ($2189 is responsible)
+  }
+  # Examples:file:35:81:calleeIsTag:else
+  $2245 = { (responsible $2214) ->
+    $2215 = Function
+    $2216 = call $2190 with $2197 $2215 ($2189 is responsible)
+    $2217 = builtinIfElse
+    # Examples:file:35:81:calleeIsFunction:then
+    $2239 = { (responsible $2218) ->
+      $2219 = call $2191 with $2186 ($2189 is responsible)
+      $2220 = 2
+      $2221 = call $2190 with $2219 $2220 ($2189 is responsible)
+      $2222 = builtinIfElse
+      # Examples:file:35:81:hasCorrectNumberOfArguments:then
+      $2229 = { (responsible $2223) ->
+        $2224 = Examples:file:35:81
+        $2225 = trace: start of call of $2186 with $2187 $2188 ($2189 is responsible, code is at $2224)
+        $2226 = call $2186 with $2187 $2188 ($2189 is responsible)
+        $2227 = trace: end of call
+        $2228 = $2226
+      }
+      # Examples:file:35:81:hasCorrectNumberOfArguments:else
+      $2237 = { (responsible $2230) ->
+        $2231 = "You called a function that expects "
+        $2232 = call $2195 with $2219 ($2189 is responsible)
+        $2233 = " arguments with 2 arguments."
+        $2234 = call $2194 with $2231 $2232 ($2189 is responsible)
+        $2235 = call $2194 with $2234 $2233 ($2189 is responsible)
+        $2236 = panicking because $2235 ($2189 is at fault)
+      }
+      $2238 = call $2222 with $2221 $2229 $2237 ($2189 is responsible)
+    }
+    # Examples:file:35:81:calleeIsFunction:else
+    $2243 = { (responsible $2240) ->
+      $2241 = "You can only call tags or functions."
+      $2242 = panicking because $2241 ($2189 is at fault)
+    }
+    $2244 = call $2217 with $2216 $2239 $2243 ($2189 is responsible)
+  }
+  $2246 = call $2200 with $2199 $2213 $2245 ($2189 is responsible)
+  $2247 = Examples:file:35:82
+  $2248 = builtinEquals
+  $2249 = builtinGetArgumentCount
+  $2250 = builtinTagHasValue
+  $2251 = builtinTagWithValue
+  $2252 = builtinTextConcatenate
+  $2253 = builtinToDebugText
+  $2254 = builtinTypeOf
+  $2255 = call $2254 with $2246 ($2247 is responsible)
+  $2256 = Tag
+  $2257 = call $2248 with $2255 $2256 ($2247 is responsible)
+  $2258 = builtinIfElse
+  # Examples:file:35:82:calleeIsTag:then
+  $2270 = { (responsible $2259) ->
+    $2260 = call $2250 with $2246 ($2247 is responsible)
+    $2261 = builtinIfElse
+    # Examples:file:35:82:doesTagHaveValue:then
+    $2265 = { (responsible $2262) ->
+      $2263 = "You called a tag that already has a value."
+      $2264 = panicking because $2263 ($2247 is at fault)
+    }
+    # Examples:file:35:82:doesTagHaveValue:else
+    $2268 = { (responsible $2266) ->
+      $2267 = call $2251 with $2246 $2126 ($2247 is responsible)
+    }
+    $2269 = call $2261 with $2260 $2265 $2268 ($2247 is responsible)
+  }
+  # Examples:file:35:82:calleeIsTag:else
+  $2302 = { (responsible $2271) ->
+    $2272 = Function
+    $2273 = call $2248 with $2255 $2272 ($2247 is responsible)
+    $2274 = builtinIfElse
+    # Examples:file:35:82:calleeIsFunction:then
+    $2296 = { (responsible $2275) ->
+      $2276 = call $2249 with $2246 ($2247 is responsible)
+      $2277 = 1
+      $2278 = call $2248 with $2276 $2277 ($2247 is responsible)
+      $2279 = builtinIfElse
+      # Examples:file:35:82:hasCorrectNumberOfArguments:then
+      $2286 = { (responsible $2280) ->
+        $2281 = Examples:file:35:82
+        $2282 = trace: start of call of $2246 with $2126 ($2247 is responsible, code is at $2281)
+        $2283 = call $2246 with $2126 ($2247 is responsible)
+        $2284 = trace: end of call
+        $2285 = $2283
+      }
+      # Examples:file:35:82:hasCorrectNumberOfArguments:else
+      $2294 = { (responsible $2287) ->
+        $2288 = "You called a function that expects "
+        $2289 = call $2253 with $2276 ($2247 is responsible)
+        $2290 = " arguments with 1 arguments."
+        $2291 = call $2252 with $2288 $2289 ($2247 is responsible)
+        $2292 = call $2252 with $2291 $2290 ($2247 is responsible)
+        $2293 = panicking because $2292 ($2247 is at fault)
+      }
+      $2295 = call $2279 with $2278 $2286 $2294 ($2247 is responsible)
+    }
+    # Examples:file:35:82:calleeIsFunction:else
+    $2300 = { (responsible $2297) ->
+      $2298 = "You can only call tags or functions."
+      $2299 = panicking because $2298 ($2247 is at fault)
+    }
+    $2301 = call $2274 with $2273 $2296 $2300 ($2247 is responsible)
+  }
+  $2303 = call $2258 with $2257 $2270 $2302 ($2247 is responsible)
+  $2304 = Examples:file:35:83
+  $2305 = builtinEquals
+  $2306 = builtinGetArgumentCount
+  $2307 = builtinTagHasValue
+  $2308 = builtinTagWithValue
+  $2309 = builtinTextConcatenate
+  $2310 = builtinToDebugText
+  $2311 = builtinTypeOf
+  $2312 = call $2311 with $1703 ($2304 is responsible)
+  $2313 = Tag
+  $2314 = call $2305 with $2312 $2313 ($2304 is responsible)
+  $2315 = builtinIfElse
+  # Examples:file:35:83:calleeIsTag:then
+  $2327 = { (responsible $2316) ->
+    $2317 = call $2307 with $1703 ($2304 is responsible)
+    $2318 = builtinIfElse
+    # Examples:file:35:83:doesTagHaveValue:then
+    $2322 = { (responsible $2319) ->
+      $2320 = "You called a tag that already has a value."
+      $2321 = panicking because $2320 ($2304 is at fault)
+    }
+    # Examples:file:35:83:doesTagHaveValue:else
+    $2325 = { (responsible $2323) ->
+      $2324 = call $2308 with $1703 $2303 ($2304 is responsible)
+    }
+    $2326 = call $2318 with $2317 $2322 $2325 ($2304 is responsible)
+  }
+  # Examples:file:35:83:calleeIsTag:else
+  $2359 = { (responsible $2328) ->
+    $2329 = Function
+    $2330 = call $2305 with $2312 $2329 ($2304 is responsible)
+    $2331 = builtinIfElse
+    # Examples:file:35:83:calleeIsFunction:then
+    $2353 = { (responsible $2332) ->
+      $2333 = call $2306 with $1703 ($2304 is responsible)
+      $2334 = 1
+      $2335 = call $2305 with $2333 $2334 ($2304 is responsible)
+      $2336 = builtinIfElse
+      # Examples:file:35:83:hasCorrectNumberOfArguments:then
+      $2343 = { (responsible $2337) ->
+        $2338 = Examples:file:35:83
+        $2339 = trace: start of call of $1703 with $2303 ($2304 is responsible, code is at $2338)
+        $2340 = call $1703 with $2303 ($2304 is responsible)
+        $2341 = trace: end of call
+        $2342 = $2340
+      }
+      # Examples:file:35:83:hasCorrectNumberOfArguments:else
+      $2351 = { (responsible $2344) ->
+        $2345 = "You called a function that expects "
+        $2346 = call $2310 with $2333 ($2304 is responsible)
+        $2347 = " arguments with 1 arguments."
+        $2348 = call $2309 with $2345 $2346 ($2304 is responsible)
+        $2349 = call $2309 with $2348 $2347 ($2304 is responsible)
+        $2350 = panicking because $2349 ($2304 is at fault)
+      }
+      $2352 = call $2336 with $2335 $2343 $2351 ($2304 is responsible)
+    }
+    # Examples:file:35:83:calleeIsFunction:else
+    $2357 = { (responsible $2354) ->
+      $2355 = "You can only call tags or functions."
+      $2356 = panicking because $2355 ($2304 is at fault)
+    }
+    $2358 = call $2331 with $2330 $2353 $2357 ($2304 is responsible)
+  }
+  $2360 = call $2315 with $2314 $2327 $2359 ($2304 is responsible)
+  $2361 = Examples:file:35:84
+  $2362 = builtinEquals
+  $2363 = builtinGetArgumentCount
+  $2364 = builtinTagHasValue
+  $2365 = builtinTagWithValue
+  $2366 = builtinTextConcatenate
+  $2367 = builtinToDebugText
+  $2368 = builtinTypeOf
+  $2369 = call $2368 with $1705 ($2361 is responsible)
+  $2370 = Tag
+  $2371 = call $2362 with $2369 $2370 ($2361 is responsible)
+  $2372 = builtinIfElse
+  # Examples:file:35:84:calleeIsTag:then
+  $2385 = { (responsible $2373) ->
+    $2374 = call $2364 with $1705 ($2361 is responsible)
+    $2375 = builtinIfElse
+    # Examples:file:35:84:doesTagHaveValue:then
+    $2379 = { (responsible $2376) ->
+      $2377 = "You called a tag that already has a value."
+      $2378 = panicking because $2377 ($2361 is at fault)
+    }
+    # Examples:file:35:84:doesTagHaveValue:else
+    $2383 = { (responsible $2380) ->
+      $2381 = "Tags can only be created with one value."
+      $2382 = panicking because $2381 ($2361 is at fault)
+    }
+    $2384 = call $2375 with $2374 $2379 $2383 ($2361 is responsible)
+  }
+  # Examples:file:35:84:calleeIsTag:else
+  $2417 = { (responsible $2386) ->
+    $2387 = Function
+    $2388 = call $2362 with $2369 $2387 ($2361 is responsible)
+    $2389 = builtinIfElse
+    # Examples:file:35:84:calleeIsFunction:then
+    $2411 = { (responsible $2390) ->
+      $2391 = call $2363 with $1705 ($2361 is responsible)
+      $2392 = 2
+      $2393 = call $2362 with $2391 $2392 ($2361 is responsible)
+      $2394 = builtinIfElse
+      # Examples:file:35:84:hasCorrectNumberOfArguments:then
+      $2401 = { (responsible $2395) ->
+        $2396 = Examples:file:35:84
+        $2397 = trace: start of call of $1705 with $2360 $1704 ($2361 is responsible, code is at $2396)
+        $2398 = call $1705 with $2360 $1704 ($2361 is responsible)
+        $2399 = trace: end of call
+        $2400 = $2398
+      }
+      # Examples:file:35:84:hasCorrectNumberOfArguments:else
+      $2409 = { (responsible $2402) ->
+        $2403 = "You called a function that expects "
+        $2404 = call $2367 with $2391 ($2361 is responsible)
+        $2405 = " arguments with 2 arguments."
+        $2406 = call $2366 with $2403 $2404 ($2361 is responsible)
+        $2407 = call $2366 with $2406 $2405 ($2361 is responsible)
+        $2408 = panicking because $2407 ($2361 is at fault)
+      }
+      $2410 = call $2394 with $2393 $2401 $2409 ($2361 is responsible)
+    }
+    # Examples:file:35:84:calleeIsFunction:else
+    $2415 = { (responsible $2412) ->
+      $2413 = "You can only call tags or functions."
+      $2414 = panicking because $2413 ($2361 is at fault)
+    }
+    $2416 = call $2389 with $2388 $2411 $2415 ($2361 is responsible)
+  }
+  $2418 = call $2372 with $2371 $2385 $2417 ($2361 is responsible)
+  # Examples:file:35:85
+  $2421 = { (responsible $2419) ->
+    $2420 = $2303
+  }
+  # Examples:file:35:86
+  $2480 = { (responsible $2422) ->
+    $2423 = Examples:file:35:86:0
+    $2424 = builtinEquals
+    $2425 = builtinGetArgumentCount
+    $2426 = builtinTagHasValue
+    $2427 = builtinTagWithValue
+    $2428 = builtinTextConcatenate
+    $2429 = builtinToDebugText
+    $2430 = builtinTypeOf
+    $2431 = call $2430 with $1707 ($2423 is responsible)
+    $2432 = Tag
+    $2433 = call $2424 with $2431 $2432 ($2423 is responsible)
+    $2434 = builtinIfElse
+    # Examples:file:35:86:0:calleeIsTag:then
+    $2446 = { (responsible $2435) ->
+      $2436 = call $2426 with $1707 ($2423 is responsible)
+      $2437 = builtinIfElse
+      # Examples:file:35:86:0:doesTagHaveValue:then
+      $2441 = { (responsible $2438) ->
+        $2439 = "You called a tag that already has a value."
+        $2440 = panicking because $2439 ($2423 is at fault)
+      }
+      # Examples:file:35:86:0:doesTagHaveValue:else
+      $2444 = { (responsible $2442) ->
+        $2443 = call $2427 with $1707 $2303 ($2423 is responsible)
+      }
+      $2445 = call $2437 with $2436 $2441 $2444 ($2423 is responsible)
+    }
+    # Examples:file:35:86:0:calleeIsTag:else
+    $2478 = { (responsible $2447) ->
+      $2448 = Function
+      $2449 = call $2424 with $2431 $2448 ($2423 is responsible)
+      $2450 = builtinIfElse
+      # Examples:file:35:86:0:calleeIsFunction:then
+      $2472 = { (responsible $2451) ->
+        $2452 = call $2425 with $1707 ($2423 is responsible)
+        $2453 = 1
+        $2454 = call $2424 with $2452 $2453 ($2423 is responsible)
+        $2455 = builtinIfElse
+        # Examples:file:35:86:0:hasCorrectNumberOfArguments:then
+        $2462 = { (responsible $2456) ->
+          $2457 = Examples:file:35:86:0
+          $2458 = trace: start of call of $1707 with $2303 ($2423 is responsible, code is at $2457)
+          $2459 = call $1707 with $2303 ($2423 is responsible)
+          $2460 = trace: end of call
+          $2461 = $2459
+        }
+        # Examples:file:35:86:0:hasCorrectNumberOfArguments:else
+        $2470 = { (responsible $2463) ->
+          $2464 = "You called a function that expects "
+          $2465 = call $2429 with $2452 ($2423 is responsible)
+          $2466 = " arguments with 1 arguments."
+          $2467 = call $2428 with $2464 $2465 ($2423 is responsible)
+          $2468 = call $2428 with $2467 $2466 ($2423 is responsible)
+          $2469 = panicking because $2468 ($2423 is at fault)
+        }
+        $2471 = call $2455 with $2454 $2462 $2470 ($2423 is responsible)
+      }
+      # Examples:file:35:86:0:calleeIsFunction:else
+      $2476 = { (responsible $2473) ->
+        $2474 = "You can only call tags or functions."
+        $2475 = panicking because $2474 ($2423 is at fault)
+      }
+      $2477 = call $2450 with $2449 $2472 $2476 ($2423 is responsible)
+    }
+    $2479 = call $2434 with $2433 $2446 $2478 ($2423 is responsible)
+  }
+  $2481 = Examples:file:35:87
+  $2482 = builtinEquals
+  $2483 = builtinGetArgumentCount
+  $2484 = builtinTagHasValue
+  $2485 = builtinTagWithValue
+  $2486 = builtinTextConcatenate
+  $2487 = builtinToDebugText
+  $2488 = builtinTypeOf
+  $2489 = call $2488 with $1706 ($2481 is responsible)
+  $2490 = Tag
+  $2491 = call $2482 with $2489 $2490 ($2481 is responsible)
+  $2492 = builtinIfElse
+  # Examples:file:35:87:calleeIsTag:then
+  $2505 = { (responsible $2493) ->
+    $2494 = call $2484 with $1706 ($2481 is responsible)
+    $2495 = builtinIfElse
+    # Examples:file:35:87:doesTagHaveValue:then
+    $2499 = { (responsible $2496) ->
+      $2497 = "You called a tag that already has a value."
+      $2498 = panicking because $2497 ($2481 is at fault)
+    }
+    # Examples:file:35:87:doesTagHaveValue:else
+    $2503 = { (responsible $2500) ->
+      $2501 = "Tags can only be created with one value."
+      $2502 = panicking because $2501 ($2481 is at fault)
+    }
+    $2504 = call $2495 with $2494 $2499 $2503 ($2481 is responsible)
+  }
+  # Examples:file:35:87:calleeIsTag:else
+  $2537 = { (responsible $2506) ->
+    $2507 = Function
+    $2508 = call $2482 with $2489 $2507 ($2481 is responsible)
+    $2509 = builtinIfElse
+    # Examples:file:35:87:calleeIsFunction:then
+    $2531 = { (responsible $2510) ->
+      $2511 = call $2483 with $1706 ($2481 is responsible)
+      $2512 = 3
+      $2513 = call $2482 with $2511 $2512 ($2481 is responsible)
+      $2514 = builtinIfElse
+      # Examples:file:35:87:hasCorrectNumberOfArguments:then
+      $2521 = { (responsible $2515) ->
+        $2516 = Examples:file:35:87
+        $2517 = trace: start of call of $1706 with $2418 $2421 $2480 ($2481 is responsible, code is at $2516)
+        $2518 = call $1706 with $2418 $2421 $2480 ($2481 is responsible)
+        $2519 = trace: end of call
+        $2520 = $2518
+      }
+      # Examples:file:35:87:hasCorrectNumberOfArguments:else
+      $2529 = { (responsible $2522) ->
+        $2523 = "You called a function that expects "
+        $2524 = call $2487 with $2511 ($2481 is responsible)
+        $2525 = " arguments with 3 arguments."
+        $2526 = call $2486 with $2523 $2524 ($2481 is responsible)
+        $2527 = call $2486 with $2526 $2525 ($2481 is responsible)
+        $2528 = panicking because $2527 ($2481 is at fault)
+      }
+      $2530 = call $2514 with $2513 $2521 $2529 ($2481 is responsible)
+    }
+    # Examples:file:35:87:calleeIsFunction:else
+    $2535 = { (responsible $2532) ->
+      $2533 = "You can only call tags or functions."
+      $2534 = panicking because $2533 ($2481 is at fault)
+    }
+    $2536 = call $2509 with $2508 $2531 $2535 ($2481 is responsible)
+  }
+  $2538 = call $2492 with $2491 $2505 $2537 ($2481 is responsible)
+  $2539 = Examples:file:35:88
+  $2540 = builtinEquals
+  $2541 = builtinGetArgumentCount
+  $2542 = builtinTagHasValue
+  $2543 = builtinTagWithValue
+  $2544 = builtinTextConcatenate
+  $2545 = builtinToDebugText
+  $2546 = builtinTypeOf
+  $2547 = call $2546 with $1702 ($2539 is responsible)
+  $2548 = Tag
+  $2549 = call $2540 with $2547 $2548 ($2539 is responsible)
+  $2550 = builtinIfElse
+  # Examples:file:35:88:calleeIsTag:then
+  $2563 = { (responsible $2551) ->
+    $2552 = call $2542 with $1702 ($2539 is responsible)
+    $2553 = builtinIfElse
+    # Examples:file:35:88:doesTagHaveValue:then
+    $2557 = { (responsible $2554) ->
+      $2555 = "You called a tag that already has a value."
+      $2556 = panicking because $2555 ($2539 is at fault)
+    }
+    # Examples:file:35:88:doesTagHaveValue:else
+    $2561 = { (responsible $2558) ->
+      $2559 = "Tags can only be created with one value."
+      $2560 = panicking because $2559 ($2539 is at fault)
+    }
+    $2562 = call $2553 with $2552 $2557 $2561 ($2539 is responsible)
+  }
+  # Examples:file:35:88:calleeIsTag:else
+  $2595 = { (responsible $2564) ->
+    $2565 = Function
+    $2566 = call $2540 with $2547 $2565 ($2539 is responsible)
+    $2567 = builtinIfElse
+    # Examples:file:35:88:calleeIsFunction:then
+    $2589 = { (responsible $2568) ->
+      $2569 = call $2541 with $1702 ($2539 is responsible)
+      $2570 = 2
+      $2571 = call $2540 with $2569 $2570 ($2539 is responsible)
+      $2572 = builtinIfElse
+      # Examples:file:35:88:hasCorrectNumberOfArguments:then
+      $2579 = { (responsible $2573) ->
+        $2574 = Examples:file:35:88
+        $2575 = trace: start of call of $1702 with $1708 $2538 ($2539 is responsible, code is at $2574)
+        $2576 = call $1702 with $1708 $2538 ($2539 is responsible)
+        $2577 = trace: end of call
+        $2578 = $2576
+      }
+      # Examples:file:35:88:hasCorrectNumberOfArguments:else
+      $2587 = { (responsible $2580) ->
+        $2581 = "You called a function that expects "
+        $2582 = call $2545 with $2569 ($2539 is responsible)
+        $2583 = " arguments with 2 arguments."
+        $2584 = call $2544 with $2581 $2582 ($2539 is responsible)
+        $2585 = call $2544 with $2584 $2583 ($2539 is responsible)
+        $2586 = panicking because $2585 ($2539 is at fault)
+      }
+      $2588 = call $2572 with $2571 $2579 $2587 ($2539 is responsible)
+    }
+    # Examples:file:35:88:calleeIsFunction:else
+    $2593 = { (responsible $2590) ->
+      $2591 = "You can only call tags or functions."
+      $2592 = panicking because $2591 ($2539 is at fault)
+    }
+    $2594 = call $2567 with $2566 $2589 $2593 ($2539 is responsible)
+  }
+  $2596 = call $2550 with $2549 $2563 $2595 ($2539 is responsible)
+  $2597 = Examples:file:35:89
+  $2598 = builtinEquals
+  $2599 = builtinGetArgumentCount
+  $2600 = builtinTagHasValue
+  $2601 = builtinTagWithValue
+  $2602 = builtinTextConcatenate
+  $2603 = builtinToDebugText
+  $2604 = builtinTypeOf
+  $2605 = call $2604 with $1701 ($2597 is responsible)
+  $2606 = Tag
+  $2607 = call $2598 with $2605 $2606 ($2597 is responsible)
+  $2608 = builtinIfElse
+  # Examples:file:35:89:calleeIsTag:then
+  $2620 = { (responsible $2609) ->
+    $2610 = call $2600 with $1701 ($2597 is responsible)
+    $2611 = builtinIfElse
+    # Examples:file:35:89:doesTagHaveValue:then
+    $2615 = { (responsible $2612) ->
+      $2613 = "You called a tag that already has a value."
+      $2614 = panicking because $2613 ($2597 is at fault)
+    }
+    # Examples:file:35:89:doesTagHaveValue:else
+    $2618 = { (responsible $2616) ->
+      $2617 = call $2601 with $1701 $2596 ($2597 is responsible)
+    }
+    $2619 = call $2611 with $2610 $2615 $2618 ($2597 is responsible)
+  }
+  # Examples:file:35:89:calleeIsTag:else
+  $2652 = { (responsible $2621) ->
+    $2622 = Function
+    $2623 = call $2598 with $2605 $2622 ($2597 is responsible)
+    $2624 = builtinIfElse
+    # Examples:file:35:89:calleeIsFunction:then
+    $2646 = { (responsible $2625) ->
+      $2626 = call $2599 with $1701 ($2597 is responsible)
+      $2627 = 1
+      $2628 = call $2598 with $2626 $2627 ($2597 is responsible)
+      $2629 = builtinIfElse
+      # Examples:file:35:89:hasCorrectNumberOfArguments:then
+      $2636 = { (responsible $2630) ->
+        $2631 = Examples:file:35:89
+        $2632 = trace: start of call of $1701 with $2596 ($2597 is responsible, code is at $2631)
+        $2633 = call $1701 with $2596 ($2597 is responsible)
+        $2634 = trace: end of call
+        $2635 = $2633
+      }
+      # Examples:file:35:89:hasCorrectNumberOfArguments:else
+      $2644 = { (responsible $2637) ->
+        $2638 = "You called a function that expects "
+        $2639 = call $2603 with $2626 ($2597 is responsible)
+        $2640 = " arguments with 1 arguments."
+        $2641 = call $2602 with $2638 $2639 ($2597 is responsible)
+        $2642 = call $2602 with $2641 $2640 ($2597 is responsible)
+        $2643 = panicking because $2642 ($2597 is at fault)
+      }
+      $2645 = call $2629 with $2628 $2636 $2644 ($2597 is responsible)
+    }
+    # Examples:file:35:89:calleeIsFunction:else
+    $2650 = { (responsible $2647) ->
+      $2648 = "You can only call tags or functions."
+      $2649 = panicking because $2648 ($2597 is at fault)
+    }
+    $2651 = call $2624 with $2623 $2646 $2650 ($2597 is responsible)
+  }
+  $2653 = call $2608 with $2607 $2620 $2652 ($2597 is responsible)
+}
+$2655 = $2654
+$2656 = $2655
+$2657 = Nothing
+$2658 = Main
+$2659 = [$2658: $2656]
+$2660 = builtinStructHasKey
+$2661 = Main
+$2662 = call $2660 with $2659 $2661 ($50 is responsible)
+$2663 = "The module doesn't export a main function."
+$2664 = builtinIfElse
+# Examples:file:then
+$2667 = { (responsible $2665) ->
+  $2666 = Nothing
+}
+# Examples:file:else
+$2670 = { (responsible $2668) ->
+  $2669 = panicking because $2663 ($50 is at fault)
+}
+$2671 = call $2664 with $2662 $2667 $2670 ($50 is responsible)
+$2672 = builtinStructGet
+$2673 = call $2672 with $2659 $2661 ($50 is responsible)
+$2674 = builtinTypeOf
+$2675 = call $2674 with $2673 ($50 is responsible)
+$2676 = builtinEquals
+$2677 = Function
+$2678 = call $2676 with $2675 $2677 ($50 is responsible)
+$2679 = "The exported main value is not a function."
+$2680 = builtinIfElse
+# Examples:file:then
+$2683 = { (responsible $2681) ->
+  $2682 = Nothing
+}
+# Examples:file:else
+$2686 = { (responsible $2684) ->
+  $2685 = panicking because $2679 ($50 is at fault)
+}
+$2687 = call $2680 with $2678 $2683 $2686 ($50 is responsible)
+$2688 = builtinGetArgumentCount
+$2689 = call $2688 with $2673 ($50 is responsible)
+$2690 = 1
+$2691 = call $2676 with $2689 $2690 ($50 is responsible)
+$2692 = "The exported main function doesn't accept exactly one parameter."
+$2693 = builtinIfElse
+# Examples:file:then
+$2696 = { (responsible $2694) ->
+  $2695 = Nothing
+}
+# Examples:file:else
+$2699 = { (responsible $2697) ->
+  $2698 = panicking because $2692 ($50 is at fault)
+}
+$2700 = call $2693 with $2691 $2696 $2699 ($50 is responsible)
+$2701 = $2673
