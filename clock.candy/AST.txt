@@ -1,0 +1,34 @@
+# AST for module Examples:clock
+assignment: struct
+  identifier $6@"clock"
+  identifier $8@"duration"
+  identifier $10@"instant" = 
+  call identifier $0@"use" with these arguments:
+    text
+      textPart $2@"Chrono"
+assignment: struct
+  identifier $20@"tag"
+  identifier $22@"fixedDecimal" = 
+  call identifier $14@"use" with these arguments:
+    text
+      textPart $16@"Core"
+assignment: identifier $82@"main" := 
+  function (non-fuzzable) { identifier $26@"environment" ->
+    assignment: $35@"print" = function (fuzzable) { identifier $36@"message" ->
+      call struct access identifier $28@"environment".$30@"Stdout" with these arguments:
+        identifier $32@"message"
+    }
+    assignment: identifier $48@"c" = 
+      call struct access identifier $39@"clock".$41@"FromSystemClock" with these arguments:
+        struct access identifier $43@"environment".$45@"SystemClock"
+    assignment: identifier $58@"now" = 
+      call struct access identifier $51@"clock".$53@"Now" with these arguments:
+        identifier $55@"c"
+    call identifier $61@"print" with these arguments:
+      text
+        textPart $63@"It has been "
+        call struct access identifier $72@"duration".$74@"ToText" with these arguments:
+          call struct access identifier $67@"instant".$69@"ToUnixTimeDuration" with these arguments:
+            identifier $65@"now"
+        textPart $77@" since the start the of Unix epoch"
+  }
