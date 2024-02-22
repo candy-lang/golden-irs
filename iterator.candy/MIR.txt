@@ -1,0 +1,3738 @@
+# MIR for module Examples:iterator
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? Only for panic traces
+# • Include tracing of evaluated expressions? No
+
+# anonymous:$generated::needs
+$49 = { $2 $3 $4 (+ responsible $1) ->
+  $5 = anonymous:$generated::needs
+  $6 = builtinEquals
+  $7 = Nothing
+  $8 = True
+  $9 = False
+  $10 = call $6 with $2 $8 ($5 is responsible)
+  $11 = builtinIfElse
+  # anonymous:$generated::needs:isConditionTrue:then
+  $14 = { (responsible $12) ->
+    $13 = $8
+  }
+  # anonymous:$generated::needs:isConditionTrue:else
+  $17 = { (responsible $15) ->
+    $16 = call $6 with $2 $9 ($5 is responsible)
+  }
+  $18 = call $11 with $10 $14 $17 ($5 is responsible)
+  $19 = builtinIfElse
+  # anonymous:$generated::needs:isConditionBool:then
+  $22 = { (responsible $20) ->
+    $21 = $7
+  }
+  # anonymous:$generated::needs:isConditionBool:else
+  $26 = { (responsible $23) ->
+    $24 = "The `condition` must be either `True` or `False`."
+    $25 = panicking because $24 ($1 is at fault)
+  }
+  $27 = call $19 with $18 $22 $26 ($5 is responsible)
+  $28 = builtinTypeOf
+  $29 = call $28 with $3 ($1 is responsible)
+  $30 = Text
+  $31 = call $6 with $29 $30 ($1 is responsible)
+  $32 = builtinIfElse
+  # anonymous:$generated::needs:isReasonText:then
+  $35 = { (responsible $33) ->
+    $34 = $7
+  }
+  # anonymous:$generated::needs:isReasonText:else
+  $39 = { (responsible $36) ->
+    $37 = "The `reason` must be a text."
+    $38 = panicking because $37 ($1 is at fault)
+  }
+  $40 = call $32 with $31 $35 $39 ($5 is responsible)
+  $41 = builtinIfElse
+  # anonymous:$generated::needs:condition:then
+  $44 = { (responsible $42) ->
+    $43 = $7
+  }
+  # anonymous:$generated::needs:condition:else
+  $47 = { (responsible $45) ->
+    $46 = panicking because $3 ($4 is at fault)
+  }
+  $48 = call $41 with $2 $44 $47 ($5 is responsible)
+}
+$50 = Examples:iterator:
+# Examples:iterator:use
+$54 = { $52 (+ responsible $51) ->
+  $53 = use $52 (relative to Examples:iterator; $51 is responsible)
+}
+$55 = "Builtins"
+$56 = Examples:iterator:1
+$57 = builtinEquals
+$58 = builtinGetArgumentCount
+$59 = builtinTagHasValue
+$60 = builtinTagWithValue
+$61 = builtinTextConcatenate
+$62 = builtinToDebugText
+$63 = builtinTypeOf
+$64 = call $63 with $54 ($56 is responsible)
+$65 = Tag
+$66 = call $57 with $64 $65 ($56 is responsible)
+$67 = builtinIfElse
+# Examples:iterator:1:calleeIsTag:then
+$79 = { (responsible $68) ->
+  $69 = call $59 with $54 ($56 is responsible)
+  $70 = builtinIfElse
+  # Examples:iterator:1:doesTagHaveValue:then
+  $74 = { (responsible $71) ->
+    $72 = "You called a tag that already has a value."
+    $73 = panicking because $72 ($56 is at fault)
+  }
+  # Examples:iterator:1:doesTagHaveValue:else
+  $77 = { (responsible $75) ->
+    $76 = call $60 with $54 $55 ($56 is responsible)
+  }
+  $78 = call $70 with $69 $74 $77 ($56 is responsible)
+}
+# Examples:iterator:1:calleeIsTag:else
+$111 = { (responsible $80) ->
+  $81 = Function
+  $82 = call $57 with $64 $81 ($56 is responsible)
+  $83 = builtinIfElse
+  # Examples:iterator:1:calleeIsFunction:then
+  $105 = { (responsible $84) ->
+    $85 = call $58 with $54 ($56 is responsible)
+    $86 = 1
+    $87 = call $57 with $85 $86 ($56 is responsible)
+    $88 = builtinIfElse
+    # Examples:iterator:1:hasCorrectNumberOfArguments:then
+    $95 = { (responsible $89) ->
+      $90 = Examples:iterator:1
+      $91 = trace: start of call of $54 with $55 ($56 is responsible, code is at $90)
+      $92 = call $54 with $55 ($56 is responsible)
+      $93 = trace: end of call
+      $94 = $92
+    }
+    # Examples:iterator:1:hasCorrectNumberOfArguments:else
+    $103 = { (responsible $96) ->
+      $97 = "You called a function that expects "
+      $98 = call $62 with $85 ($56 is responsible)
+      $99 = " arguments with 1 arguments."
+      $100 = call $61 with $97 $98 ($56 is responsible)
+      $101 = call $61 with $100 $99 ($56 is responsible)
+      $102 = panicking because $101 ($56 is at fault)
+    }
+    $104 = call $88 with $87 $95 $103 ($56 is responsible)
+  }
+  # Examples:iterator:1:calleeIsFunction:else
+  $109 = { (responsible $106) ->
+    $107 = "You can only call tags or functions."
+    $108 = panicking because $107 ($56 is at fault)
+  }
+  $110 = call $83 with $82 $105 $109 ($56 is responsible)
+}
+$112 = call $67 with $66 $79 $111 ($56 is responsible)
+$113 = $54
+$114 = builtinTextConcatenate
+$115 = builtinTypeOf
+$116 = Text
+$117 = builtinEquals
+$118 = builtinIfElse
+$119 = builtinToDebugText
+$120 = "Builtins"
+$121 = Examples:iterator:10
+$122 = builtinEquals
+$123 = builtinGetArgumentCount
+$124 = builtinTagHasValue
+$125 = builtinTagWithValue
+$126 = builtinTextConcatenate
+$127 = builtinToDebugText
+$128 = builtinTypeOf
+$129 = call $128 with $113 ($121 is responsible)
+$130 = Tag
+$131 = call $122 with $129 $130 ($121 is responsible)
+$132 = builtinIfElse
+# Examples:iterator:10:calleeIsTag:then
+$144 = { (responsible $133) ->
+  $134 = call $124 with $113 ($121 is responsible)
+  $135 = builtinIfElse
+  # Examples:iterator:10:doesTagHaveValue:then
+  $139 = { (responsible $136) ->
+    $137 = "You called a tag that already has a value."
+    $138 = panicking because $137 ($121 is at fault)
+  }
+  # Examples:iterator:10:doesTagHaveValue:else
+  $142 = { (responsible $140) ->
+    $141 = call $125 with $113 $120 ($121 is responsible)
+  }
+  $143 = call $135 with $134 $139 $142 ($121 is responsible)
+}
+# Examples:iterator:10:calleeIsTag:else
+$176 = { (responsible $145) ->
+  $146 = Function
+  $147 = call $122 with $129 $146 ($121 is responsible)
+  $148 = builtinIfElse
+  # Examples:iterator:10:calleeIsFunction:then
+  $170 = { (responsible $149) ->
+    $150 = call $123 with $113 ($121 is responsible)
+    $151 = 1
+    $152 = call $122 with $150 $151 ($121 is responsible)
+    $153 = builtinIfElse
+    # Examples:iterator:10:hasCorrectNumberOfArguments:then
+    $160 = { (responsible $154) ->
+      $155 = Examples:iterator:10
+      $156 = trace: start of call of $113 with $120 ($121 is responsible, code is at $155)
+      $157 = call $113 with $120 ($121 is responsible)
+      $158 = trace: end of call
+      $159 = $157
+    }
+    # Examples:iterator:10:hasCorrectNumberOfArguments:else
+    $168 = { (responsible $161) ->
+      $162 = "You called a function that expects "
+      $163 = call $127 with $150 ($121 is responsible)
+      $164 = " arguments with 1 arguments."
+      $165 = call $126 with $162 $163 ($121 is responsible)
+      $166 = call $126 with $165 $164 ($121 is responsible)
+      $167 = panicking because $166 ($121 is at fault)
+    }
+    $169 = call $153 with $152 $160 $168 ($121 is responsible)
+  }
+  # Examples:iterator:10:calleeIsFunction:else
+  $174 = { (responsible $171) ->
+    $172 = "You can only call tags or functions."
+    $173 = panicking because $172 ($121 is at fault)
+  }
+  $175 = call $148 with $147 $170 $174 ($121 is responsible)
+}
+$177 = call $132 with $131 $144 $176 ($121 is responsible)
+$178 = $177
+$179 = $178
+$180 = Nothing
+$181 = $54
+$182 = builtinTextConcatenate
+$183 = builtinTypeOf
+$184 = Text
+$185 = builtinEquals
+$186 = builtinIfElse
+$187 = builtinToDebugText
+$188 = "Core"
+$189 = Examples:iterator:20
+$190 = builtinEquals
+$191 = builtinGetArgumentCount
+$192 = builtinTagHasValue
+$193 = builtinTagWithValue
+$194 = builtinTextConcatenate
+$195 = builtinToDebugText
+$196 = builtinTypeOf
+$197 = call $196 with $181 ($189 is responsible)
+$198 = Tag
+$199 = call $190 with $197 $198 ($189 is responsible)
+$200 = builtinIfElse
+# Examples:iterator:20:calleeIsTag:then
+$212 = { (responsible $201) ->
+  $202 = call $192 with $181 ($189 is responsible)
+  $203 = builtinIfElse
+  # Examples:iterator:20:doesTagHaveValue:then
+  $207 = { (responsible $204) ->
+    $205 = "You called a tag that already has a value."
+    $206 = panicking because $205 ($189 is at fault)
+  }
+  # Examples:iterator:20:doesTagHaveValue:else
+  $210 = { (responsible $208) ->
+    $209 = call $193 with $181 $188 ($189 is responsible)
+  }
+  $211 = call $203 with $202 $207 $210 ($189 is responsible)
+}
+# Examples:iterator:20:calleeIsTag:else
+$244 = { (responsible $213) ->
+  $214 = Function
+  $215 = call $190 with $197 $214 ($189 is responsible)
+  $216 = builtinIfElse
+  # Examples:iterator:20:calleeIsFunction:then
+  $238 = { (responsible $217) ->
+    $218 = call $191 with $181 ($189 is responsible)
+    $219 = 1
+    $220 = call $190 with $218 $219 ($189 is responsible)
+    $221 = builtinIfElse
+    # Examples:iterator:20:hasCorrectNumberOfArguments:then
+    $228 = { (responsible $222) ->
+      $223 = Examples:iterator:20
+      $224 = trace: start of call of $181 with $188 ($189 is responsible, code is at $223)
+      $225 = call $181 with $188 ($189 is responsible)
+      $226 = trace: end of call
+      $227 = $225
+    }
+    # Examples:iterator:20:hasCorrectNumberOfArguments:else
+    $236 = { (responsible $229) ->
+      $230 = "You called a function that expects "
+      $231 = call $195 with $218 ($189 is responsible)
+      $232 = " arguments with 1 arguments."
+      $233 = call $194 with $230 $231 ($189 is responsible)
+      $234 = call $194 with $233 $232 ($189 is responsible)
+      $235 = panicking because $234 ($189 is at fault)
+    }
+    $237 = call $221 with $220 $228 $236 ($189 is responsible)
+  }
+  # Examples:iterator:20:calleeIsFunction:else
+  $242 = { (responsible $239) ->
+    $240 = "You can only call tags or functions."
+    $241 = panicking because $240 ($189 is at fault)
+  }
+  $243 = call $216 with $215 $238 $242 ($189 is responsible)
+}
+$245 = call $200 with $199 $212 $244 ($189 is responsible)
+$246 = Examples:iterator:21
+$247 = Match
+$248 = NoMatch
+$249 = Struct
+$250 = builtinTypeOf
+$251 = call $250 with $245 ($246 is responsible)
+$252 = builtinEquals
+$253 = call $252 with $249 $251 ($246 is responsible)
+$254 = builtinIfElse
+# Examples:iterator:21:equals:then
+$463 = { (responsible $255) ->
+  $256 = builtinStructHasKey
+  $257 = builtinStructGet
+  $258 = Bool
+  $259 = call $256 with $245 $258 ($246 is responsible)
+  $260 = builtinIfElse
+  # Examples:iterator:21:hasKey:then
+  $265 = { (responsible $261) ->
+    $262 = call $257 with $245 $258 ($246 is responsible)
+    $263 = ($262,)
+    $264 = call $247 with $263 ($246 is responsible)
+  }
+  # Examples:iterator:21:hasKey:else
+  $268 = { (responsible $266) ->
+    $267 = $248
+  }
+  $269 = call $260 with $259 $265 $268 ($246 is responsible)
+  $270 = builtinTagWithoutValue
+  $271 = call $270 with $269 ($246 is responsible)
+  $272 = builtinEquals
+  $273 = Match
+  $274 = call $272 with $271 $273 ($246 is responsible)
+  $275 = builtinIfElse
+  # Examples:iterator:21:isMatch:then
+  $458 = { (responsible $276) ->
+    $277 = builtinTagGetValue
+    $278 = call $277 with $269 ($246 is responsible)
+    $279 = builtinListGet
+    $280 = 0
+    $281 = call $279 with $278 $280 ($246 is responsible)
+    $282 = Equals
+    $283 = call $256 with $245 $282 ($246 is responsible)
+    $284 = builtinIfElse
+    # Examples:iterator:21:hasKey:then
+    $289 = { (responsible $285) ->
+      $286 = call $257 with $245 $282 ($246 is responsible)
+      $287 = ($286,)
+      $288 = call $247 with $287 ($246 is responsible)
+    }
+    # Examples:iterator:21:hasKey:else
+    $292 = { (responsible $290) ->
+      $291 = $248
+    }
+    $293 = call $284 with $283 $289 $292 ($246 is responsible)
+    $294 = builtinTagWithoutValue
+    $295 = call $294 with $293 ($246 is responsible)
+    $296 = builtinEquals
+    $297 = Match
+    $298 = call $296 with $295 $297 ($246 is responsible)
+    $299 = builtinIfElse
+    # Examples:iterator:21:isMatch:then
+    $453 = { (responsible $300) ->
+      $301 = builtinTagGetValue
+      $302 = call $301 with $293 ($246 is responsible)
+      $303 = builtinListGet
+      $304 = 0
+      $305 = call $303 with $302 $304 ($246 is responsible)
+      $306 = IfElse
+      $307 = call $256 with $245 $306 ($246 is responsible)
+      $308 = builtinIfElse
+      # Examples:iterator:21:hasKey:then
+      $313 = { (responsible $309) ->
+        $310 = call $257 with $245 $306 ($246 is responsible)
+        $311 = ($310,)
+        $312 = call $247 with $311 ($246 is responsible)
+      }
+      # Examples:iterator:21:hasKey:else
+      $316 = { (responsible $314) ->
+        $315 = $248
+      }
+      $317 = call $308 with $307 $313 $316 ($246 is responsible)
+      $318 = builtinTagWithoutValue
+      $319 = call $318 with $317 ($246 is responsible)
+      $320 = builtinEquals
+      $321 = Match
+      $322 = call $320 with $319 $321 ($246 is responsible)
+      $323 = builtinIfElse
+      # Examples:iterator:21:isMatch:then
+      $448 = { (responsible $324) ->
+        $325 = builtinTagGetValue
+        $326 = call $325 with $317 ($246 is responsible)
+        $327 = builtinListGet
+        $328 = 0
+        $329 = call $327 with $326 $328 ($246 is responsible)
+        $330 = Iterator
+        $331 = call $256 with $245 $330 ($246 is responsible)
+        $332 = builtinIfElse
+        # Examples:iterator:21:hasKey:then
+        $337 = { (responsible $333) ->
+          $334 = call $257 with $245 $330 ($246 is responsible)
+          $335 = ($334,)
+          $336 = call $247 with $335 ($246 is responsible)
+        }
+        # Examples:iterator:21:hasKey:else
+        $340 = { (responsible $338) ->
+          $339 = $248
+        }
+        $341 = call $332 with $331 $337 $340 ($246 is responsible)
+        $342 = builtinTagWithoutValue
+        $343 = call $342 with $341 ($246 is responsible)
+        $344 = builtinEquals
+        $345 = Match
+        $346 = call $344 with $343 $345 ($246 is responsible)
+        $347 = builtinIfElse
+        # Examples:iterator:21:isMatch:then
+        $443 = { (responsible $348) ->
+          $349 = builtinTagGetValue
+          $350 = call $349 with $341 ($246 is responsible)
+          $351 = builtinListGet
+          $352 = 0
+          $353 = call $351 with $350 $352 ($246 is responsible)
+          $354 = List
+          $355 = call $256 with $245 $354 ($246 is responsible)
+          $356 = builtinIfElse
+          # Examples:iterator:21:hasKey:then
+          $361 = { (responsible $357) ->
+            $358 = call $257 with $245 $354 ($246 is responsible)
+            $359 = ($358,)
+            $360 = call $247 with $359 ($246 is responsible)
+          }
+          # Examples:iterator:21:hasKey:else
+          $364 = { (responsible $362) ->
+            $363 = $248
+          }
+          $365 = call $356 with $355 $361 $364 ($246 is responsible)
+          $366 = builtinTagWithoutValue
+          $367 = call $366 with $365 ($246 is responsible)
+          $368 = builtinEquals
+          $369 = Match
+          $370 = call $368 with $367 $369 ($246 is responsible)
+          $371 = builtinIfElse
+          # Examples:iterator:21:isMatch:then
+          $438 = { (responsible $372) ->
+            $373 = builtinTagGetValue
+            $374 = call $373 with $365 ($246 is responsible)
+            $375 = builtinListGet
+            $376 = 0
+            $377 = call $375 with $374 $376 ($246 is responsible)
+            $378 = Result
+            $379 = call $256 with $245 $378 ($246 is responsible)
+            $380 = builtinIfElse
+            # Examples:iterator:21:hasKey:then
+            $385 = { (responsible $381) ->
+              $382 = call $257 with $245 $378 ($246 is responsible)
+              $383 = ($382,)
+              $384 = call $247 with $383 ($246 is responsible)
+            }
+            # Examples:iterator:21:hasKey:else
+            $388 = { (responsible $386) ->
+              $387 = $248
+            }
+            $389 = call $380 with $379 $385 $388 ($246 is responsible)
+            $390 = builtinTagWithoutValue
+            $391 = call $390 with $389 ($246 is responsible)
+            $392 = builtinEquals
+            $393 = Match
+            $394 = call $392 with $391 $393 ($246 is responsible)
+            $395 = builtinIfElse
+            # Examples:iterator:21:isMatch:then
+            $433 = { (responsible $396) ->
+              $397 = builtinTagGetValue
+              $398 = call $397 with $389 ($246 is responsible)
+              $399 = builtinListGet
+              $400 = 0
+              $401 = call $399 with $398 $400 ($246 is responsible)
+              $402 = Text
+              $403 = call $256 with $245 $402 ($246 is responsible)
+              $404 = builtinIfElse
+              # Examples:iterator:21:hasKey:then
+              $409 = { (responsible $405) ->
+                $406 = call $257 with $245 $402 ($246 is responsible)
+                $407 = ($406,)
+                $408 = call $247 with $407 ($246 is responsible)
+              }
+              # Examples:iterator:21:hasKey:else
+              $412 = { (responsible $410) ->
+                $411 = $248
+              }
+              $413 = call $404 with $403 $409 $412 ($246 is responsible)
+              $414 = builtinTagWithoutValue
+              $415 = call $414 with $413 ($246 is responsible)
+              $416 = builtinEquals
+              $417 = Match
+              $418 = call $416 with $415 $417 ($246 is responsible)
+              $419 = builtinIfElse
+              # Examples:iterator:21:isMatch:then
+              $428 = { (responsible $420) ->
+                $421 = builtinTagGetValue
+                $422 = call $421 with $413 ($246 is responsible)
+                $423 = builtinListGet
+                $424 = 0
+                $425 = call $423 with $422 $424 ($246 is responsible)
+                $426 = ($281, $305, $329, $353, $377, $401, $425)
+                $427 = call $247 with $426 ($246 is responsible)
+              }
+              # Examples:iterator:21:isMatch:else
+              $431 = { (responsible $429) ->
+                $430 = $413
+              }
+              $432 = call $419 with $418 $428 $431 ($246 is responsible)
+            }
+            # Examples:iterator:21:isMatch:else
+            $436 = { (responsible $434) ->
+              $435 = $389
+            }
+            $437 = call $395 with $394 $433 $436 ($246 is responsible)
+          }
+          # Examples:iterator:21:isMatch:else
+          $441 = { (responsible $439) ->
+            $440 = $365
+          }
+          $442 = call $371 with $370 $438 $441 ($246 is responsible)
+        }
+        # Examples:iterator:21:isMatch:else
+        $446 = { (responsible $444) ->
+          $445 = $341
+        }
+        $447 = call $347 with $346 $443 $446 ($246 is responsible)
+      }
+      # Examples:iterator:21:isMatch:else
+      $451 = { (responsible $449) ->
+        $450 = $317
+      }
+      $452 = call $323 with $322 $448 $451 ($246 is responsible)
+    }
+    # Examples:iterator:21:isMatch:else
+    $456 = { (responsible $454) ->
+      $455 = $293
+    }
+    $457 = call $299 with $298 $453 $456 ($246 is responsible)
+  }
+  # Examples:iterator:21:isMatch:else
+  $461 = { (responsible $459) ->
+    $460 = $269
+  }
+  $462 = call $275 with $274 $458 $461 ($246 is responsible)
+}
+# Examples:iterator:21:equals:else
+$466 = { (responsible $464) ->
+  $465 = $248
+}
+$467 = call $254 with $253 $463 $466 ($246 is responsible)
+$468 = Nothing
+$469 = builtinTagWithoutValue
+$470 = call $469 with $467 ($246 is responsible)
+$471 = builtinEquals
+$472 = Match
+$473 = call $471 with $470 $472 ($246 is responsible)
+$474 = builtinIfElse
+# Examples:iterator:21:isMatch:then
+$477 = { (responsible $475) ->
+  $476 = $468
+}
+# Examples:iterator:21:isMatch:else
+$481 = { (responsible $478) ->
+  $479 = "The value doesn't match the pattern on the left side of the destructuring."
+  $480 = panicking because $479 ($246 is at fault)
+}
+$482 = call $474 with $473 $477 $481 ($246 is responsible)
+$483 = Examples:iterator:bool
+$484 = builtinTagGetValue
+$485 = call $484 with $467 ($483 is responsible)
+$486 = builtinListGet
+$487 = 0
+$488 = call $486 with $485 $487 ($483 is responsible)
+$489 = Examples:iterator:equals
+$490 = builtinTagGetValue
+$491 = call $490 with $467 ($489 is responsible)
+$492 = builtinListGet
+$493 = 1
+$494 = call $492 with $491 $493 ($489 is responsible)
+$495 = Examples:iterator:ifElse
+$496 = builtinTagGetValue
+$497 = call $496 with $467 ($495 is responsible)
+$498 = builtinListGet
+$499 = 2
+$500 = call $498 with $497 $499 ($495 is responsible)
+$501 = Examples:iterator:iterator
+$502 = builtinTagGetValue
+$503 = call $502 with $467 ($501 is responsible)
+$504 = builtinListGet
+$505 = 3
+$506 = call $504 with $503 $505 ($501 is responsible)
+$507 = Examples:iterator:list
+$508 = builtinTagGetValue
+$509 = call $508 with $467 ($507 is responsible)
+$510 = builtinListGet
+$511 = 4
+$512 = call $510 with $509 $511 ($507 is responsible)
+$513 = Examples:iterator:result
+$514 = builtinTagGetValue
+$515 = call $514 with $467 ($513 is responsible)
+$516 = builtinListGet
+$517 = 5
+$518 = call $516 with $515 $517 ($513 is responsible)
+$519 = Examples:iterator:text
+$520 = builtinTagGetValue
+$521 = call $520 with $467 ($519 is responsible)
+$522 = builtinListGet
+$523 = 6
+$524 = call $522 with $521 $523 ($519 is responsible)
+$525 = Nothing
+# Examples:iterator:splitWhereFirst
+$1677 = { $527 $528 (+ responsible $526) ->
+  $529 = builtinStructGet
+  $530 = StructGet
+  $531 = Examples:iterator:splitWhereFirst:2
+  $532 = builtinEquals
+  $533 = builtinGetArgumentCount
+  $534 = builtinTagHasValue
+  $535 = builtinTagWithValue
+  $536 = builtinTextConcatenate
+  $537 = builtinToDebugText
+  $538 = builtinTypeOf
+  $539 = call $538 with $529 ($531 is responsible)
+  $540 = Tag
+  $541 = call $532 with $539 $540 ($531 is responsible)
+  $542 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:2:calleeIsTag:then
+  $555 = { (responsible $543) ->
+    $544 = call $534 with $529 ($531 is responsible)
+    $545 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:2:doesTagHaveValue:then
+    $549 = { (responsible $546) ->
+      $547 = "You called a tag that already has a value."
+      $548 = panicking because $547 ($531 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:2:doesTagHaveValue:else
+    $553 = { (responsible $550) ->
+      $551 = "Tags can only be created with one value."
+      $552 = panicking because $551 ($531 is at fault)
+    }
+    $554 = call $545 with $544 $549 $553 ($531 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:2:calleeIsTag:else
+  $587 = { (responsible $556) ->
+    $557 = Function
+    $558 = call $532 with $539 $557 ($531 is responsible)
+    $559 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:2:calleeIsFunction:then
+    $581 = { (responsible $560) ->
+      $561 = call $533 with $529 ($531 is responsible)
+      $562 = 2
+      $563 = call $532 with $561 $562 ($531 is responsible)
+      $564 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:2:hasCorrectNumberOfArguments:then
+      $571 = { (responsible $565) ->
+        $566 = Examples:iterator:splitWhereFirst:2
+        $567 = trace: start of call of $529 with $112 $530 ($531 is responsible, code is at $566)
+        $568 = call $529 with $112 $530 ($531 is responsible)
+        $569 = trace: end of call
+        $570 = $568
+      }
+      # Examples:iterator:splitWhereFirst:2:hasCorrectNumberOfArguments:else
+      $579 = { (responsible $572) ->
+        $573 = "You called a function that expects "
+        $574 = call $537 with $561 ($531 is responsible)
+        $575 = " arguments with 2 arguments."
+        $576 = call $536 with $573 $574 ($531 is responsible)
+        $577 = call $536 with $576 $575 ($531 is responsible)
+        $578 = panicking because $577 ($531 is at fault)
+      }
+      $580 = call $564 with $563 $571 $579 ($531 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:2:calleeIsFunction:else
+    $585 = { (responsible $582) ->
+      $583 = "You can only call tags or functions."
+      $584 = panicking because $583 ($531 is at fault)
+    }
+    $586 = call $559 with $558 $581 $585 ($531 is responsible)
+  }
+  $588 = call $542 with $541 $555 $587 ($531 is responsible)
+  $589 = $179
+  $590 = Print
+  $591 = Examples:iterator:splitWhereFirst:5
+  $592 = builtinEquals
+  $593 = builtinGetArgumentCount
+  $594 = builtinTagHasValue
+  $595 = builtinTagWithValue
+  $596 = builtinTextConcatenate
+  $597 = builtinToDebugText
+  $598 = builtinTypeOf
+  $599 = call $598 with $588 ($591 is responsible)
+  $600 = Tag
+  $601 = call $592 with $599 $600 ($591 is responsible)
+  $602 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:5:calleeIsTag:then
+  $615 = { (responsible $603) ->
+    $604 = call $594 with $588 ($591 is responsible)
+    $605 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:5:doesTagHaveValue:then
+    $609 = { (responsible $606) ->
+      $607 = "You called a tag that already has a value."
+      $608 = panicking because $607 ($591 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:5:doesTagHaveValue:else
+    $613 = { (responsible $610) ->
+      $611 = "Tags can only be created with one value."
+      $612 = panicking because $611 ($591 is at fault)
+    }
+    $614 = call $605 with $604 $609 $613 ($591 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:5:calleeIsTag:else
+  $647 = { (responsible $616) ->
+    $617 = Function
+    $618 = call $592 with $599 $617 ($591 is responsible)
+    $619 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:5:calleeIsFunction:then
+    $641 = { (responsible $620) ->
+      $621 = call $593 with $588 ($591 is responsible)
+      $622 = 2
+      $623 = call $592 with $621 $622 ($591 is responsible)
+      $624 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:5:hasCorrectNumberOfArguments:then
+      $631 = { (responsible $625) ->
+        $626 = Examples:iterator:splitWhereFirst:5
+        $627 = trace: start of call of $588 with $589 $590 ($591 is responsible, code is at $626)
+        $628 = call $588 with $589 $590 ($591 is responsible)
+        $629 = trace: end of call
+        $630 = $628
+      }
+      # Examples:iterator:splitWhereFirst:5:hasCorrectNumberOfArguments:else
+      $639 = { (responsible $632) ->
+        $633 = "You called a function that expects "
+        $634 = call $597 with $621 ($591 is responsible)
+        $635 = " arguments with 2 arguments."
+        $636 = call $596 with $633 $634 ($591 is responsible)
+        $637 = call $596 with $636 $635 ($591 is responsible)
+        $638 = panicking because $637 ($591 is at fault)
+      }
+      $640 = call $624 with $623 $631 $639 ($591 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:5:calleeIsFunction:else
+    $645 = { (responsible $642) ->
+      $643 = "You can only call tags or functions."
+      $644 = panicking because $643 ($591 is at fault)
+    }
+    $646 = call $619 with $618 $641 $645 ($591 is responsible)
+  }
+  $648 = call $602 with $601 $615 $647 ($591 is responsible)
+  $649 = builtinTextConcatenate
+  $650 = builtinTypeOf
+  $651 = Text
+  $652 = builtinEquals
+  $653 = builtinIfElse
+  $654 = builtinToDebugText
+  $655 = "Getting leading items"
+  $656 = Examples:iterator:splitWhereFirst:13
+  $657 = builtinEquals
+  $658 = builtinGetArgumentCount
+  $659 = builtinTagHasValue
+  $660 = builtinTagWithValue
+  $661 = builtinTextConcatenate
+  $662 = builtinToDebugText
+  $663 = builtinTypeOf
+  $664 = call $663 with $648 ($656 is responsible)
+  $665 = Tag
+  $666 = call $657 with $664 $665 ($656 is responsible)
+  $667 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:13:calleeIsTag:then
+  $679 = { (responsible $668) ->
+    $669 = call $659 with $648 ($656 is responsible)
+    $670 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:13:doesTagHaveValue:then
+    $674 = { (responsible $671) ->
+      $672 = "You called a tag that already has a value."
+      $673 = panicking because $672 ($656 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:13:doesTagHaveValue:else
+    $677 = { (responsible $675) ->
+      $676 = call $660 with $648 $655 ($656 is responsible)
+    }
+    $678 = call $670 with $669 $674 $677 ($656 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:13:calleeIsTag:else
+  $711 = { (responsible $680) ->
+    $681 = Function
+    $682 = call $657 with $664 $681 ($656 is responsible)
+    $683 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:13:calleeIsFunction:then
+    $705 = { (responsible $684) ->
+      $685 = call $658 with $648 ($656 is responsible)
+      $686 = 1
+      $687 = call $657 with $685 $686 ($656 is responsible)
+      $688 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:13:hasCorrectNumberOfArguments:then
+      $695 = { (responsible $689) ->
+        $690 = Examples:iterator:splitWhereFirst:13
+        $691 = trace: start of call of $648 with $655 ($656 is responsible, code is at $690)
+        $692 = call $648 with $655 ($656 is responsible)
+        $693 = trace: end of call
+        $694 = $692
+      }
+      # Examples:iterator:splitWhereFirst:13:hasCorrectNumberOfArguments:else
+      $703 = { (responsible $696) ->
+        $697 = "You called a function that expects "
+        $698 = call $662 with $685 ($656 is responsible)
+        $699 = " arguments with 1 arguments."
+        $700 = call $661 with $697 $698 ($656 is responsible)
+        $701 = call $661 with $700 $699 ($656 is responsible)
+        $702 = panicking because $701 ($656 is at fault)
+      }
+      $704 = call $688 with $687 $695 $703 ($656 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:13:calleeIsFunction:else
+    $709 = { (responsible $706) ->
+      $707 = "You can only call tags or functions."
+      $708 = panicking because $707 ($656 is at fault)
+    }
+    $710 = call $683 with $682 $705 $709 ($656 is responsible)
+  }
+  $712 = call $667 with $666 $679 $711 ($656 is responsible)
+  $713 = $527
+  $714 = builtinStructGet
+  $715 = StructGet
+  $716 = Examples:iterator:splitWhereFirst:17
+  $717 = builtinEquals
+  $718 = builtinGetArgumentCount
+  $719 = builtinTagHasValue
+  $720 = builtinTagWithValue
+  $721 = builtinTextConcatenate
+  $722 = builtinToDebugText
+  $723 = builtinTypeOf
+  $724 = call $723 with $714 ($716 is responsible)
+  $725 = Tag
+  $726 = call $717 with $724 $725 ($716 is responsible)
+  $727 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:17:calleeIsTag:then
+  $740 = { (responsible $728) ->
+    $729 = call $719 with $714 ($716 is responsible)
+    $730 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:17:doesTagHaveValue:then
+    $734 = { (responsible $731) ->
+      $732 = "You called a tag that already has a value."
+      $733 = panicking because $732 ($716 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:17:doesTagHaveValue:else
+    $738 = { (responsible $735) ->
+      $736 = "Tags can only be created with one value."
+      $737 = panicking because $736 ($716 is at fault)
+    }
+    $739 = call $730 with $729 $734 $738 ($716 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:17:calleeIsTag:else
+  $772 = { (responsible $741) ->
+    $742 = Function
+    $743 = call $717 with $724 $742 ($716 is responsible)
+    $744 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:17:calleeIsFunction:then
+    $766 = { (responsible $745) ->
+      $746 = call $718 with $714 ($716 is responsible)
+      $747 = 2
+      $748 = call $717 with $746 $747 ($716 is responsible)
+      $749 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:17:hasCorrectNumberOfArguments:then
+      $756 = { (responsible $750) ->
+        $751 = Examples:iterator:splitWhereFirst:17
+        $752 = trace: start of call of $714 with $112 $715 ($716 is responsible, code is at $751)
+        $753 = call $714 with $112 $715 ($716 is responsible)
+        $754 = trace: end of call
+        $755 = $753
+      }
+      # Examples:iterator:splitWhereFirst:17:hasCorrectNumberOfArguments:else
+      $764 = { (responsible $757) ->
+        $758 = "You called a function that expects "
+        $759 = call $722 with $746 ($716 is responsible)
+        $760 = " arguments with 2 arguments."
+        $761 = call $721 with $758 $759 ($716 is responsible)
+        $762 = call $721 with $761 $760 ($716 is responsible)
+        $763 = panicking because $762 ($716 is at fault)
+      }
+      $765 = call $749 with $748 $756 $764 ($716 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:17:calleeIsFunction:else
+    $770 = { (responsible $767) ->
+      $768 = "You can only call tags or functions."
+      $769 = panicking because $768 ($716 is at fault)
+    }
+    $771 = call $744 with $743 $766 $770 ($716 is responsible)
+  }
+  $773 = call $727 with $726 $740 $772 ($716 is responsible)
+  $774 = $506
+  $775 = TakeUntil
+  $776 = Examples:iterator:splitWhereFirst:20
+  $777 = builtinEquals
+  $778 = builtinGetArgumentCount
+  $779 = builtinTagHasValue
+  $780 = builtinTagWithValue
+  $781 = builtinTextConcatenate
+  $782 = builtinToDebugText
+  $783 = builtinTypeOf
+  $784 = call $783 with $773 ($776 is responsible)
+  $785 = Tag
+  $786 = call $777 with $784 $785 ($776 is responsible)
+  $787 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:20:calleeIsTag:then
+  $800 = { (responsible $788) ->
+    $789 = call $779 with $773 ($776 is responsible)
+    $790 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:20:doesTagHaveValue:then
+    $794 = { (responsible $791) ->
+      $792 = "You called a tag that already has a value."
+      $793 = panicking because $792 ($776 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:20:doesTagHaveValue:else
+    $798 = { (responsible $795) ->
+      $796 = "Tags can only be created with one value."
+      $797 = panicking because $796 ($776 is at fault)
+    }
+    $799 = call $790 with $789 $794 $798 ($776 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:20:calleeIsTag:else
+  $832 = { (responsible $801) ->
+    $802 = Function
+    $803 = call $777 with $784 $802 ($776 is responsible)
+    $804 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:20:calleeIsFunction:then
+    $826 = { (responsible $805) ->
+      $806 = call $778 with $773 ($776 is responsible)
+      $807 = 2
+      $808 = call $777 with $806 $807 ($776 is responsible)
+      $809 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:20:hasCorrectNumberOfArguments:then
+      $816 = { (responsible $810) ->
+        $811 = Examples:iterator:splitWhereFirst:20
+        $812 = trace: start of call of $773 with $774 $775 ($776 is responsible, code is at $811)
+        $813 = call $773 with $774 $775 ($776 is responsible)
+        $814 = trace: end of call
+        $815 = $813
+      }
+      # Examples:iterator:splitWhereFirst:20:hasCorrectNumberOfArguments:else
+      $824 = { (responsible $817) ->
+        $818 = "You called a function that expects "
+        $819 = call $782 with $806 ($776 is responsible)
+        $820 = " arguments with 2 arguments."
+        $821 = call $781 with $818 $819 ($776 is responsible)
+        $822 = call $781 with $821 $820 ($776 is responsible)
+        $823 = panicking because $822 ($776 is at fault)
+      }
+      $825 = call $809 with $808 $816 $824 ($776 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:20:calleeIsFunction:else
+    $830 = { (responsible $827) ->
+      $828 = "You can only call tags or functions."
+      $829 = panicking because $828 ($776 is at fault)
+    }
+    $831 = call $804 with $803 $826 $830 ($776 is responsible)
+  }
+  $833 = call $787 with $786 $800 $832 ($776 is responsible)
+  # Examples:iterator:splitWhereFirst:21
+  $895 = { $835 (+ responsible $834) ->
+    $836 = $528
+    $837 = $835
+    $838 = Examples:iterator:splitWhereFirst:21:2
+    $839 = builtinEquals
+    $840 = builtinGetArgumentCount
+    $841 = builtinTagHasValue
+    $842 = builtinTagWithValue
+    $843 = builtinTextConcatenate
+    $844 = builtinToDebugText
+    $845 = builtinTypeOf
+    $846 = call $845 with $836 ($838 is responsible)
+    $847 = Tag
+    $848 = call $839 with $846 $847 ($838 is responsible)
+    $849 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:21:2:calleeIsTag:then
+    $861 = { (responsible $850) ->
+      $851 = call $841 with $836 ($838 is responsible)
+      $852 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:21:2:doesTagHaveValue:then
+      $856 = { (responsible $853) ->
+        $854 = "You called a tag that already has a value."
+        $855 = panicking because $854 ($838 is at fault)
+      }
+      # Examples:iterator:splitWhereFirst:21:2:doesTagHaveValue:else
+      $859 = { (responsible $857) ->
+        $858 = call $842 with $836 $837 ($838 is responsible)
+      }
+      $860 = call $852 with $851 $856 $859 ($838 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:21:2:calleeIsTag:else
+    $893 = { (responsible $862) ->
+      $863 = Function
+      $864 = call $839 with $846 $863 ($838 is responsible)
+      $865 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:21:2:calleeIsFunction:then
+      $887 = { (responsible $866) ->
+        $867 = call $840 with $836 ($838 is responsible)
+        $868 = 1
+        $869 = call $839 with $867 $868 ($838 is responsible)
+        $870 = builtinIfElse
+        # Examples:iterator:splitWhereFirst:21:2:hasCorrectNumberOfArguments:then
+        $877 = { (responsible $871) ->
+          $872 = Examples:iterator:splitWhereFirst:21:2
+          $873 = trace: start of call of $836 with $837 ($838 is responsible, code is at $872)
+          $874 = call $836 with $837 ($838 is responsible)
+          $875 = trace: end of call
+          $876 = $874
+        }
+        # Examples:iterator:splitWhereFirst:21:2:hasCorrectNumberOfArguments:else
+        $885 = { (responsible $878) ->
+          $879 = "You called a function that expects "
+          $880 = call $844 with $867 ($838 is responsible)
+          $881 = " arguments with 1 arguments."
+          $882 = call $843 with $879 $880 ($838 is responsible)
+          $883 = call $843 with $882 $881 ($838 is responsible)
+          $884 = panicking because $883 ($838 is at fault)
+        }
+        $886 = call $870 with $869 $877 $885 ($838 is responsible)
+      }
+      # Examples:iterator:splitWhereFirst:21:2:calleeIsFunction:else
+      $891 = { (responsible $888) ->
+        $889 = "You can only call tags or functions."
+        $890 = panicking because $889 ($838 is at fault)
+      }
+      $892 = call $865 with $864 $887 $891 ($838 is responsible)
+    }
+    $894 = call $849 with $848 $861 $893 ($838 is responsible)
+  }
+  $896 = Examples:iterator:splitWhereFirst:22
+  $897 = builtinEquals
+  $898 = builtinGetArgumentCount
+  $899 = builtinTagHasValue
+  $900 = builtinTagWithValue
+  $901 = builtinTextConcatenate
+  $902 = builtinToDebugText
+  $903 = builtinTypeOf
+  $904 = call $903 with $833 ($896 is responsible)
+  $905 = Tag
+  $906 = call $897 with $904 $905 ($896 is responsible)
+  $907 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:22:calleeIsTag:then
+  $920 = { (responsible $908) ->
+    $909 = call $899 with $833 ($896 is responsible)
+    $910 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:22:doesTagHaveValue:then
+    $914 = { (responsible $911) ->
+      $912 = "You called a tag that already has a value."
+      $913 = panicking because $912 ($896 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:22:doesTagHaveValue:else
+    $918 = { (responsible $915) ->
+      $916 = "Tags can only be created with one value."
+      $917 = panicking because $916 ($896 is at fault)
+    }
+    $919 = call $910 with $909 $914 $918 ($896 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:22:calleeIsTag:else
+  $952 = { (responsible $921) ->
+    $922 = Function
+    $923 = call $897 with $904 $922 ($896 is responsible)
+    $924 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:22:calleeIsFunction:then
+    $946 = { (responsible $925) ->
+      $926 = call $898 with $833 ($896 is responsible)
+      $927 = 2
+      $928 = call $897 with $926 $927 ($896 is responsible)
+      $929 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:22:hasCorrectNumberOfArguments:then
+      $936 = { (responsible $930) ->
+        $931 = Examples:iterator:splitWhereFirst:22
+        $932 = trace: start of call of $833 with $713 $895 ($896 is responsible, code is at $931)
+        $933 = call $833 with $713 $895 ($896 is responsible)
+        $934 = trace: end of call
+        $935 = $933
+      }
+      # Examples:iterator:splitWhereFirst:22:hasCorrectNumberOfArguments:else
+      $944 = { (responsible $937) ->
+        $938 = "You called a function that expects "
+        $939 = call $902 with $926 ($896 is responsible)
+        $940 = " arguments with 2 arguments."
+        $941 = call $901 with $938 $939 ($896 is responsible)
+        $942 = call $901 with $941 $940 ($896 is responsible)
+        $943 = panicking because $942 ($896 is at fault)
+      }
+      $945 = call $929 with $928 $936 $944 ($896 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:22:calleeIsFunction:else
+    $950 = { (responsible $947) ->
+      $948 = "You can only call tags or functions."
+      $949 = panicking because $948 ($896 is at fault)
+    }
+    $951 = call $924 with $923 $946 $950 ($896 is responsible)
+  }
+  $953 = call $907 with $906 $920 $952 ($896 is responsible)
+  $954 = builtinStructGet
+  $955 = StructGet
+  $956 = Examples:iterator:splitWhereFirst:25
+  $957 = builtinEquals
+  $958 = builtinGetArgumentCount
+  $959 = builtinTagHasValue
+  $960 = builtinTagWithValue
+  $961 = builtinTextConcatenate
+  $962 = builtinToDebugText
+  $963 = builtinTypeOf
+  $964 = call $963 with $954 ($956 is responsible)
+  $965 = Tag
+  $966 = call $957 with $964 $965 ($956 is responsible)
+  $967 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:25:calleeIsTag:then
+  $980 = { (responsible $968) ->
+    $969 = call $959 with $954 ($956 is responsible)
+    $970 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:25:doesTagHaveValue:then
+    $974 = { (responsible $971) ->
+      $972 = "You called a tag that already has a value."
+      $973 = panicking because $972 ($956 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:25:doesTagHaveValue:else
+    $978 = { (responsible $975) ->
+      $976 = "Tags can only be created with one value."
+      $977 = panicking because $976 ($956 is at fault)
+    }
+    $979 = call $970 with $969 $974 $978 ($956 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:25:calleeIsTag:else
+  $1012 = { (responsible $981) ->
+    $982 = Function
+    $983 = call $957 with $964 $982 ($956 is responsible)
+    $984 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:25:calleeIsFunction:then
+    $1006 = { (responsible $985) ->
+      $986 = call $958 with $954 ($956 is responsible)
+      $987 = 2
+      $988 = call $957 with $986 $987 ($956 is responsible)
+      $989 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:25:hasCorrectNumberOfArguments:then
+      $996 = { (responsible $990) ->
+        $991 = Examples:iterator:splitWhereFirst:25
+        $992 = trace: start of call of $954 with $112 $955 ($956 is responsible, code is at $991)
+        $993 = call $954 with $112 $955 ($956 is responsible)
+        $994 = trace: end of call
+        $995 = $993
+      }
+      # Examples:iterator:splitWhereFirst:25:hasCorrectNumberOfArguments:else
+      $1004 = { (responsible $997) ->
+        $998 = "You called a function that expects "
+        $999 = call $962 with $986 ($956 is responsible)
+        $1000 = " arguments with 2 arguments."
+        $1001 = call $961 with $998 $999 ($956 is responsible)
+        $1002 = call $961 with $1001 $1000 ($956 is responsible)
+        $1003 = panicking because $1002 ($956 is at fault)
+      }
+      $1005 = call $989 with $988 $996 $1004 ($956 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:25:calleeIsFunction:else
+    $1010 = { (responsible $1007) ->
+      $1008 = "You can only call tags or functions."
+      $1009 = panicking because $1008 ($956 is at fault)
+    }
+    $1011 = call $984 with $983 $1006 $1010 ($956 is responsible)
+  }
+  $1013 = call $967 with $966 $980 $1012 ($956 is responsible)
+  $1014 = $506
+  $1015 = ToList
+  $1016 = Examples:iterator:splitWhereFirst:28
+  $1017 = builtinEquals
+  $1018 = builtinGetArgumentCount
+  $1019 = builtinTagHasValue
+  $1020 = builtinTagWithValue
+  $1021 = builtinTextConcatenate
+  $1022 = builtinToDebugText
+  $1023 = builtinTypeOf
+  $1024 = call $1023 with $1013 ($1016 is responsible)
+  $1025 = Tag
+  $1026 = call $1017 with $1024 $1025 ($1016 is responsible)
+  $1027 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:28:calleeIsTag:then
+  $1040 = { (responsible $1028) ->
+    $1029 = call $1019 with $1013 ($1016 is responsible)
+    $1030 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:28:doesTagHaveValue:then
+    $1034 = { (responsible $1031) ->
+      $1032 = "You called a tag that already has a value."
+      $1033 = panicking because $1032 ($1016 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:28:doesTagHaveValue:else
+    $1038 = { (responsible $1035) ->
+      $1036 = "Tags can only be created with one value."
+      $1037 = panicking because $1036 ($1016 is at fault)
+    }
+    $1039 = call $1030 with $1029 $1034 $1038 ($1016 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:28:calleeIsTag:else
+  $1072 = { (responsible $1041) ->
+    $1042 = Function
+    $1043 = call $1017 with $1024 $1042 ($1016 is responsible)
+    $1044 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:28:calleeIsFunction:then
+    $1066 = { (responsible $1045) ->
+      $1046 = call $1018 with $1013 ($1016 is responsible)
+      $1047 = 2
+      $1048 = call $1017 with $1046 $1047 ($1016 is responsible)
+      $1049 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:28:hasCorrectNumberOfArguments:then
+      $1056 = { (responsible $1050) ->
+        $1051 = Examples:iterator:splitWhereFirst:28
+        $1052 = trace: start of call of $1013 with $1014 $1015 ($1016 is responsible, code is at $1051)
+        $1053 = call $1013 with $1014 $1015 ($1016 is responsible)
+        $1054 = trace: end of call
+        $1055 = $1053
+      }
+      # Examples:iterator:splitWhereFirst:28:hasCorrectNumberOfArguments:else
+      $1064 = { (responsible $1057) ->
+        $1058 = "You called a function that expects "
+        $1059 = call $1022 with $1046 ($1016 is responsible)
+        $1060 = " arguments with 2 arguments."
+        $1061 = call $1021 with $1058 $1059 ($1016 is responsible)
+        $1062 = call $1021 with $1061 $1060 ($1016 is responsible)
+        $1063 = panicking because $1062 ($1016 is at fault)
+      }
+      $1065 = call $1049 with $1048 $1056 $1064 ($1016 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:28:calleeIsFunction:else
+    $1070 = { (responsible $1067) ->
+      $1068 = "You can only call tags or functions."
+      $1069 = panicking because $1068 ($1016 is at fault)
+    }
+    $1071 = call $1044 with $1043 $1066 $1070 ($1016 is responsible)
+  }
+  $1073 = call $1027 with $1026 $1040 $1072 ($1016 is responsible)
+  $1074 = Examples:iterator:splitWhereFirst:29
+  $1075 = builtinEquals
+  $1076 = builtinGetArgumentCount
+  $1077 = builtinTagHasValue
+  $1078 = builtinTagWithValue
+  $1079 = builtinTextConcatenate
+  $1080 = builtinToDebugText
+  $1081 = builtinTypeOf
+  $1082 = call $1081 with $1073 ($1074 is responsible)
+  $1083 = Tag
+  $1084 = call $1075 with $1082 $1083 ($1074 is responsible)
+  $1085 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:29:calleeIsTag:then
+  $1097 = { (responsible $1086) ->
+    $1087 = call $1077 with $1073 ($1074 is responsible)
+    $1088 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:29:doesTagHaveValue:then
+    $1092 = { (responsible $1089) ->
+      $1090 = "You called a tag that already has a value."
+      $1091 = panicking because $1090 ($1074 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:29:doesTagHaveValue:else
+    $1095 = { (responsible $1093) ->
+      $1094 = call $1078 with $1073 $953 ($1074 is responsible)
+    }
+    $1096 = call $1088 with $1087 $1092 $1095 ($1074 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:29:calleeIsTag:else
+  $1129 = { (responsible $1098) ->
+    $1099 = Function
+    $1100 = call $1075 with $1082 $1099 ($1074 is responsible)
+    $1101 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:29:calleeIsFunction:then
+    $1123 = { (responsible $1102) ->
+      $1103 = call $1076 with $1073 ($1074 is responsible)
+      $1104 = 1
+      $1105 = call $1075 with $1103 $1104 ($1074 is responsible)
+      $1106 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:29:hasCorrectNumberOfArguments:then
+      $1113 = { (responsible $1107) ->
+        $1108 = Examples:iterator:splitWhereFirst:29
+        $1109 = trace: start of call of $1073 with $953 ($1074 is responsible, code is at $1108)
+        $1110 = call $1073 with $953 ($1074 is responsible)
+        $1111 = trace: end of call
+        $1112 = $1110
+      }
+      # Examples:iterator:splitWhereFirst:29:hasCorrectNumberOfArguments:else
+      $1121 = { (responsible $1114) ->
+        $1115 = "You called a function that expects "
+        $1116 = call $1080 with $1103 ($1074 is responsible)
+        $1117 = " arguments with 1 arguments."
+        $1118 = call $1079 with $1115 $1116 ($1074 is responsible)
+        $1119 = call $1079 with $1118 $1117 ($1074 is responsible)
+        $1120 = panicking because $1119 ($1074 is at fault)
+      }
+      $1122 = call $1106 with $1105 $1113 $1121 ($1074 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:29:calleeIsFunction:else
+    $1127 = { (responsible $1124) ->
+      $1125 = "You can only call tags or functions."
+      $1126 = panicking because $1125 ($1074 is at fault)
+    }
+    $1128 = call $1101 with $1100 $1123 $1127 ($1074 is responsible)
+  }
+  $1130 = call $1085 with $1084 $1097 $1129 ($1074 is responsible)
+  $1131 = $1130
+  $1132 = $1131
+  $1133 = Nothing
+  $1134 = builtinStructGet
+  $1135 = StructGet
+  $1136 = Examples:iterator:splitWhereFirst:33
+  $1137 = builtinEquals
+  $1138 = builtinGetArgumentCount
+  $1139 = builtinTagHasValue
+  $1140 = builtinTagWithValue
+  $1141 = builtinTextConcatenate
+  $1142 = builtinToDebugText
+  $1143 = builtinTypeOf
+  $1144 = call $1143 with $1134 ($1136 is responsible)
+  $1145 = Tag
+  $1146 = call $1137 with $1144 $1145 ($1136 is responsible)
+  $1147 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:33:calleeIsTag:then
+  $1160 = { (responsible $1148) ->
+    $1149 = call $1139 with $1134 ($1136 is responsible)
+    $1150 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:33:doesTagHaveValue:then
+    $1154 = { (responsible $1151) ->
+      $1152 = "You called a tag that already has a value."
+      $1153 = panicking because $1152 ($1136 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:33:doesTagHaveValue:else
+    $1158 = { (responsible $1155) ->
+      $1156 = "Tags can only be created with one value."
+      $1157 = panicking because $1156 ($1136 is at fault)
+    }
+    $1159 = call $1150 with $1149 $1154 $1158 ($1136 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:33:calleeIsTag:else
+  $1192 = { (responsible $1161) ->
+    $1162 = Function
+    $1163 = call $1137 with $1144 $1162 ($1136 is responsible)
+    $1164 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:33:calleeIsFunction:then
+    $1186 = { (responsible $1165) ->
+      $1166 = call $1138 with $1134 ($1136 is responsible)
+      $1167 = 2
+      $1168 = call $1137 with $1166 $1167 ($1136 is responsible)
+      $1169 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:33:hasCorrectNumberOfArguments:then
+      $1176 = { (responsible $1170) ->
+        $1171 = Examples:iterator:splitWhereFirst:33
+        $1172 = trace: start of call of $1134 with $112 $1135 ($1136 is responsible, code is at $1171)
+        $1173 = call $1134 with $112 $1135 ($1136 is responsible)
+        $1174 = trace: end of call
+        $1175 = $1173
+      }
+      # Examples:iterator:splitWhereFirst:33:hasCorrectNumberOfArguments:else
+      $1184 = { (responsible $1177) ->
+        $1178 = "You called a function that expects "
+        $1179 = call $1142 with $1166 ($1136 is responsible)
+        $1180 = " arguments with 2 arguments."
+        $1181 = call $1141 with $1178 $1179 ($1136 is responsible)
+        $1182 = call $1141 with $1181 $1180 ($1136 is responsible)
+        $1183 = panicking because $1182 ($1136 is at fault)
+      }
+      $1185 = call $1169 with $1168 $1176 $1184 ($1136 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:33:calleeIsFunction:else
+    $1190 = { (responsible $1187) ->
+      $1188 = "You can only call tags or functions."
+      $1189 = panicking because $1188 ($1136 is at fault)
+    }
+    $1191 = call $1164 with $1163 $1186 $1190 ($1136 is responsible)
+  }
+  $1193 = call $1147 with $1146 $1160 $1192 ($1136 is responsible)
+  $1194 = $179
+  $1195 = Print
+  $1196 = Examples:iterator:splitWhereFirst:36
+  $1197 = builtinEquals
+  $1198 = builtinGetArgumentCount
+  $1199 = builtinTagHasValue
+  $1200 = builtinTagWithValue
+  $1201 = builtinTextConcatenate
+  $1202 = builtinToDebugText
+  $1203 = builtinTypeOf
+  $1204 = call $1203 with $1193 ($1196 is responsible)
+  $1205 = Tag
+  $1206 = call $1197 with $1204 $1205 ($1196 is responsible)
+  $1207 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:36:calleeIsTag:then
+  $1220 = { (responsible $1208) ->
+    $1209 = call $1199 with $1193 ($1196 is responsible)
+    $1210 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:36:doesTagHaveValue:then
+    $1214 = { (responsible $1211) ->
+      $1212 = "You called a tag that already has a value."
+      $1213 = panicking because $1212 ($1196 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:36:doesTagHaveValue:else
+    $1218 = { (responsible $1215) ->
+      $1216 = "Tags can only be created with one value."
+      $1217 = panicking because $1216 ($1196 is at fault)
+    }
+    $1219 = call $1210 with $1209 $1214 $1218 ($1196 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:36:calleeIsTag:else
+  $1252 = { (responsible $1221) ->
+    $1222 = Function
+    $1223 = call $1197 with $1204 $1222 ($1196 is responsible)
+    $1224 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:36:calleeIsFunction:then
+    $1246 = { (responsible $1225) ->
+      $1226 = call $1198 with $1193 ($1196 is responsible)
+      $1227 = 2
+      $1228 = call $1197 with $1226 $1227 ($1196 is responsible)
+      $1229 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:36:hasCorrectNumberOfArguments:then
+      $1236 = { (responsible $1230) ->
+        $1231 = Examples:iterator:splitWhereFirst:36
+        $1232 = trace: start of call of $1193 with $1194 $1195 ($1196 is responsible, code is at $1231)
+        $1233 = call $1193 with $1194 $1195 ($1196 is responsible)
+        $1234 = trace: end of call
+        $1235 = $1233
+      }
+      # Examples:iterator:splitWhereFirst:36:hasCorrectNumberOfArguments:else
+      $1244 = { (responsible $1237) ->
+        $1238 = "You called a function that expects "
+        $1239 = call $1202 with $1226 ($1196 is responsible)
+        $1240 = " arguments with 2 arguments."
+        $1241 = call $1201 with $1238 $1239 ($1196 is responsible)
+        $1242 = call $1201 with $1241 $1240 ($1196 is responsible)
+        $1243 = panicking because $1242 ($1196 is at fault)
+      }
+      $1245 = call $1229 with $1228 $1236 $1244 ($1196 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:36:calleeIsFunction:else
+    $1250 = { (responsible $1247) ->
+      $1248 = "You can only call tags or functions."
+      $1249 = panicking because $1248 ($1196 is at fault)
+    }
+    $1251 = call $1224 with $1223 $1246 $1250 ($1196 is responsible)
+  }
+  $1253 = call $1207 with $1206 $1220 $1252 ($1196 is responsible)
+  $1254 = builtinTextConcatenate
+  $1255 = builtinTypeOf
+  $1256 = Text
+  $1257 = builtinEquals
+  $1258 = builtinIfElse
+  $1259 = builtinToDebugText
+  $1260 = "Turned into list"
+  $1261 = Examples:iterator:splitWhereFirst:44
+  $1262 = builtinEquals
+  $1263 = builtinGetArgumentCount
+  $1264 = builtinTagHasValue
+  $1265 = builtinTagWithValue
+  $1266 = builtinTextConcatenate
+  $1267 = builtinToDebugText
+  $1268 = builtinTypeOf
+  $1269 = call $1268 with $1253 ($1261 is responsible)
+  $1270 = Tag
+  $1271 = call $1262 with $1269 $1270 ($1261 is responsible)
+  $1272 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:44:calleeIsTag:then
+  $1284 = { (responsible $1273) ->
+    $1274 = call $1264 with $1253 ($1261 is responsible)
+    $1275 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:44:doesTagHaveValue:then
+    $1279 = { (responsible $1276) ->
+      $1277 = "You called a tag that already has a value."
+      $1278 = panicking because $1277 ($1261 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:44:doesTagHaveValue:else
+    $1282 = { (responsible $1280) ->
+      $1281 = call $1265 with $1253 $1260 ($1261 is responsible)
+    }
+    $1283 = call $1275 with $1274 $1279 $1282 ($1261 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:44:calleeIsTag:else
+  $1316 = { (responsible $1285) ->
+    $1286 = Function
+    $1287 = call $1262 with $1269 $1286 ($1261 is responsible)
+    $1288 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:44:calleeIsFunction:then
+    $1310 = { (responsible $1289) ->
+      $1290 = call $1263 with $1253 ($1261 is responsible)
+      $1291 = 1
+      $1292 = call $1262 with $1290 $1291 ($1261 is responsible)
+      $1293 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:44:hasCorrectNumberOfArguments:then
+      $1300 = { (responsible $1294) ->
+        $1295 = Examples:iterator:splitWhereFirst:44
+        $1296 = trace: start of call of $1253 with $1260 ($1261 is responsible, code is at $1295)
+        $1297 = call $1253 with $1260 ($1261 is responsible)
+        $1298 = trace: end of call
+        $1299 = $1297
+      }
+      # Examples:iterator:splitWhereFirst:44:hasCorrectNumberOfArguments:else
+      $1308 = { (responsible $1301) ->
+        $1302 = "You called a function that expects "
+        $1303 = call $1267 with $1290 ($1261 is responsible)
+        $1304 = " arguments with 1 arguments."
+        $1305 = call $1266 with $1302 $1303 ($1261 is responsible)
+        $1306 = call $1266 with $1305 $1304 ($1261 is responsible)
+        $1307 = panicking because $1306 ($1261 is at fault)
+      }
+      $1309 = call $1293 with $1292 $1300 $1308 ($1261 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:44:calleeIsFunction:else
+    $1314 = { (responsible $1311) ->
+      $1312 = "You can only call tags or functions."
+      $1313 = panicking because $1312 ($1261 is at fault)
+    }
+    $1315 = call $1288 with $1287 $1310 $1314 ($1261 is responsible)
+  }
+  $1317 = call $1272 with $1271 $1284 $1316 ($1261 is responsible)
+  $1318 = $1132
+  $1319 = $527
+  $1320 = builtinStructGet
+  $1321 = StructGet
+  $1322 = Examples:iterator:splitWhereFirst:49
+  $1323 = builtinEquals
+  $1324 = builtinGetArgumentCount
+  $1325 = builtinTagHasValue
+  $1326 = builtinTagWithValue
+  $1327 = builtinTextConcatenate
+  $1328 = builtinToDebugText
+  $1329 = builtinTypeOf
+  $1330 = call $1329 with $1320 ($1322 is responsible)
+  $1331 = Tag
+  $1332 = call $1323 with $1330 $1331 ($1322 is responsible)
+  $1333 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:49:calleeIsTag:then
+  $1346 = { (responsible $1334) ->
+    $1335 = call $1325 with $1320 ($1322 is responsible)
+    $1336 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:49:doesTagHaveValue:then
+    $1340 = { (responsible $1337) ->
+      $1338 = "You called a tag that already has a value."
+      $1339 = panicking because $1338 ($1322 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:49:doesTagHaveValue:else
+    $1344 = { (responsible $1341) ->
+      $1342 = "Tags can only be created with one value."
+      $1343 = panicking because $1342 ($1322 is at fault)
+    }
+    $1345 = call $1336 with $1335 $1340 $1344 ($1322 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:49:calleeIsTag:else
+  $1378 = { (responsible $1347) ->
+    $1348 = Function
+    $1349 = call $1323 with $1330 $1348 ($1322 is responsible)
+    $1350 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:49:calleeIsFunction:then
+    $1372 = { (responsible $1351) ->
+      $1352 = call $1324 with $1320 ($1322 is responsible)
+      $1353 = 2
+      $1354 = call $1323 with $1352 $1353 ($1322 is responsible)
+      $1355 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:49:hasCorrectNumberOfArguments:then
+      $1362 = { (responsible $1356) ->
+        $1357 = Examples:iterator:splitWhereFirst:49
+        $1358 = trace: start of call of $1320 with $112 $1321 ($1322 is responsible, code is at $1357)
+        $1359 = call $1320 with $112 $1321 ($1322 is responsible)
+        $1360 = trace: end of call
+        $1361 = $1359
+      }
+      # Examples:iterator:splitWhereFirst:49:hasCorrectNumberOfArguments:else
+      $1370 = { (responsible $1363) ->
+        $1364 = "You called a function that expects "
+        $1365 = call $1328 with $1352 ($1322 is responsible)
+        $1366 = " arguments with 2 arguments."
+        $1367 = call $1327 with $1364 $1365 ($1322 is responsible)
+        $1368 = call $1327 with $1367 $1366 ($1322 is responsible)
+        $1369 = panicking because $1368 ($1322 is at fault)
+      }
+      $1371 = call $1355 with $1354 $1362 $1370 ($1322 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:49:calleeIsFunction:else
+    $1376 = { (responsible $1373) ->
+      $1374 = "You can only call tags or functions."
+      $1375 = panicking because $1374 ($1322 is at fault)
+    }
+    $1377 = call $1350 with $1349 $1372 $1376 ($1322 is responsible)
+  }
+  $1379 = call $1333 with $1332 $1346 $1378 ($1322 is responsible)
+  $1380 = $506
+  $1381 = Skip
+  $1382 = Examples:iterator:splitWhereFirst:52
+  $1383 = builtinEquals
+  $1384 = builtinGetArgumentCount
+  $1385 = builtinTagHasValue
+  $1386 = builtinTagWithValue
+  $1387 = builtinTextConcatenate
+  $1388 = builtinToDebugText
+  $1389 = builtinTypeOf
+  $1390 = call $1389 with $1379 ($1382 is responsible)
+  $1391 = Tag
+  $1392 = call $1383 with $1390 $1391 ($1382 is responsible)
+  $1393 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:52:calleeIsTag:then
+  $1406 = { (responsible $1394) ->
+    $1395 = call $1385 with $1379 ($1382 is responsible)
+    $1396 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:52:doesTagHaveValue:then
+    $1400 = { (responsible $1397) ->
+      $1398 = "You called a tag that already has a value."
+      $1399 = panicking because $1398 ($1382 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:52:doesTagHaveValue:else
+    $1404 = { (responsible $1401) ->
+      $1402 = "Tags can only be created with one value."
+      $1403 = panicking because $1402 ($1382 is at fault)
+    }
+    $1405 = call $1396 with $1395 $1400 $1404 ($1382 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:52:calleeIsTag:else
+  $1438 = { (responsible $1407) ->
+    $1408 = Function
+    $1409 = call $1383 with $1390 $1408 ($1382 is responsible)
+    $1410 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:52:calleeIsFunction:then
+    $1432 = { (responsible $1411) ->
+      $1412 = call $1384 with $1379 ($1382 is responsible)
+      $1413 = 2
+      $1414 = call $1383 with $1412 $1413 ($1382 is responsible)
+      $1415 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:52:hasCorrectNumberOfArguments:then
+      $1422 = { (responsible $1416) ->
+        $1417 = Examples:iterator:splitWhereFirst:52
+        $1418 = trace: start of call of $1379 with $1380 $1381 ($1382 is responsible, code is at $1417)
+        $1419 = call $1379 with $1380 $1381 ($1382 is responsible)
+        $1420 = trace: end of call
+        $1421 = $1419
+      }
+      # Examples:iterator:splitWhereFirst:52:hasCorrectNumberOfArguments:else
+      $1430 = { (responsible $1423) ->
+        $1424 = "You called a function that expects "
+        $1425 = call $1388 with $1412 ($1382 is responsible)
+        $1426 = " arguments with 2 arguments."
+        $1427 = call $1387 with $1424 $1425 ($1382 is responsible)
+        $1428 = call $1387 with $1427 $1426 ($1382 is responsible)
+        $1429 = panicking because $1428 ($1382 is at fault)
+      }
+      $1431 = call $1415 with $1414 $1422 $1430 ($1382 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:52:calleeIsFunction:else
+    $1436 = { (responsible $1433) ->
+      $1434 = "You can only call tags or functions."
+      $1435 = panicking because $1434 ($1382 is at fault)
+    }
+    $1437 = call $1410 with $1409 $1432 $1436 ($1382 is responsible)
+  }
+  $1439 = call $1393 with $1392 $1406 $1438 ($1382 is responsible)
+  $1440 = $1132
+  $1441 = builtinStructGet
+  $1442 = StructGet
+  $1443 = Examples:iterator:splitWhereFirst:56
+  $1444 = builtinEquals
+  $1445 = builtinGetArgumentCount
+  $1446 = builtinTagHasValue
+  $1447 = builtinTagWithValue
+  $1448 = builtinTextConcatenate
+  $1449 = builtinToDebugText
+  $1450 = builtinTypeOf
+  $1451 = call $1450 with $1441 ($1443 is responsible)
+  $1452 = Tag
+  $1453 = call $1444 with $1451 $1452 ($1443 is responsible)
+  $1454 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:56:calleeIsTag:then
+  $1467 = { (responsible $1455) ->
+    $1456 = call $1446 with $1441 ($1443 is responsible)
+    $1457 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:56:doesTagHaveValue:then
+    $1461 = { (responsible $1458) ->
+      $1459 = "You called a tag that already has a value."
+      $1460 = panicking because $1459 ($1443 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:56:doesTagHaveValue:else
+    $1465 = { (responsible $1462) ->
+      $1463 = "Tags can only be created with one value."
+      $1464 = panicking because $1463 ($1443 is at fault)
+    }
+    $1466 = call $1457 with $1456 $1461 $1465 ($1443 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:56:calleeIsTag:else
+  $1499 = { (responsible $1468) ->
+    $1469 = Function
+    $1470 = call $1444 with $1451 $1469 ($1443 is responsible)
+    $1471 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:56:calleeIsFunction:then
+    $1493 = { (responsible $1472) ->
+      $1473 = call $1445 with $1441 ($1443 is responsible)
+      $1474 = 2
+      $1475 = call $1444 with $1473 $1474 ($1443 is responsible)
+      $1476 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:56:hasCorrectNumberOfArguments:then
+      $1483 = { (responsible $1477) ->
+        $1478 = Examples:iterator:splitWhereFirst:56
+        $1479 = trace: start of call of $1441 with $112 $1442 ($1443 is responsible, code is at $1478)
+        $1480 = call $1441 with $112 $1442 ($1443 is responsible)
+        $1481 = trace: end of call
+        $1482 = $1480
+      }
+      # Examples:iterator:splitWhereFirst:56:hasCorrectNumberOfArguments:else
+      $1491 = { (responsible $1484) ->
+        $1485 = "You called a function that expects "
+        $1486 = call $1449 with $1473 ($1443 is responsible)
+        $1487 = " arguments with 2 arguments."
+        $1488 = call $1448 with $1485 $1486 ($1443 is responsible)
+        $1489 = call $1448 with $1488 $1487 ($1443 is responsible)
+        $1490 = panicking because $1489 ($1443 is at fault)
+      }
+      $1492 = call $1476 with $1475 $1483 $1491 ($1443 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:56:calleeIsFunction:else
+    $1497 = { (responsible $1494) ->
+      $1495 = "You can only call tags or functions."
+      $1496 = panicking because $1495 ($1443 is at fault)
+    }
+    $1498 = call $1471 with $1470 $1493 $1497 ($1443 is responsible)
+  }
+  $1500 = call $1454 with $1453 $1467 $1499 ($1443 is responsible)
+  $1501 = $512
+  $1502 = Length
+  $1503 = Examples:iterator:splitWhereFirst:59
+  $1504 = builtinEquals
+  $1505 = builtinGetArgumentCount
+  $1506 = builtinTagHasValue
+  $1507 = builtinTagWithValue
+  $1508 = builtinTextConcatenate
+  $1509 = builtinToDebugText
+  $1510 = builtinTypeOf
+  $1511 = call $1510 with $1500 ($1503 is responsible)
+  $1512 = Tag
+  $1513 = call $1504 with $1511 $1512 ($1503 is responsible)
+  $1514 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:59:calleeIsTag:then
+  $1527 = { (responsible $1515) ->
+    $1516 = call $1506 with $1500 ($1503 is responsible)
+    $1517 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:59:doesTagHaveValue:then
+    $1521 = { (responsible $1518) ->
+      $1519 = "You called a tag that already has a value."
+      $1520 = panicking because $1519 ($1503 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:59:doesTagHaveValue:else
+    $1525 = { (responsible $1522) ->
+      $1523 = "Tags can only be created with one value."
+      $1524 = panicking because $1523 ($1503 is at fault)
+    }
+    $1526 = call $1517 with $1516 $1521 $1525 ($1503 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:59:calleeIsTag:else
+  $1559 = { (responsible $1528) ->
+    $1529 = Function
+    $1530 = call $1504 with $1511 $1529 ($1503 is responsible)
+    $1531 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:59:calleeIsFunction:then
+    $1553 = { (responsible $1532) ->
+      $1533 = call $1505 with $1500 ($1503 is responsible)
+      $1534 = 2
+      $1535 = call $1504 with $1533 $1534 ($1503 is responsible)
+      $1536 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:59:hasCorrectNumberOfArguments:then
+      $1543 = { (responsible $1537) ->
+        $1538 = Examples:iterator:splitWhereFirst:59
+        $1539 = trace: start of call of $1500 with $1501 $1502 ($1503 is responsible, code is at $1538)
+        $1540 = call $1500 with $1501 $1502 ($1503 is responsible)
+        $1541 = trace: end of call
+        $1542 = $1540
+      }
+      # Examples:iterator:splitWhereFirst:59:hasCorrectNumberOfArguments:else
+      $1551 = { (responsible $1544) ->
+        $1545 = "You called a function that expects "
+        $1546 = call $1509 with $1533 ($1503 is responsible)
+        $1547 = " arguments with 2 arguments."
+        $1548 = call $1508 with $1545 $1546 ($1503 is responsible)
+        $1549 = call $1508 with $1548 $1547 ($1503 is responsible)
+        $1550 = panicking because $1549 ($1503 is at fault)
+      }
+      $1552 = call $1536 with $1535 $1543 $1551 ($1503 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:59:calleeIsFunction:else
+    $1557 = { (responsible $1554) ->
+      $1555 = "You can only call tags or functions."
+      $1556 = panicking because $1555 ($1503 is at fault)
+    }
+    $1558 = call $1531 with $1530 $1553 $1557 ($1503 is responsible)
+  }
+  $1560 = call $1514 with $1513 $1527 $1559 ($1503 is responsible)
+  $1561 = Examples:iterator:splitWhereFirst:60
+  $1562 = builtinEquals
+  $1563 = builtinGetArgumentCount
+  $1564 = builtinTagHasValue
+  $1565 = builtinTagWithValue
+  $1566 = builtinTextConcatenate
+  $1567 = builtinToDebugText
+  $1568 = builtinTypeOf
+  $1569 = call $1568 with $1560 ($1561 is responsible)
+  $1570 = Tag
+  $1571 = call $1562 with $1569 $1570 ($1561 is responsible)
+  $1572 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:60:calleeIsTag:then
+  $1584 = { (responsible $1573) ->
+    $1574 = call $1564 with $1560 ($1561 is responsible)
+    $1575 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:60:doesTagHaveValue:then
+    $1579 = { (responsible $1576) ->
+      $1577 = "You called a tag that already has a value."
+      $1578 = panicking because $1577 ($1561 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:60:doesTagHaveValue:else
+    $1582 = { (responsible $1580) ->
+      $1581 = call $1565 with $1560 $1440 ($1561 is responsible)
+    }
+    $1583 = call $1575 with $1574 $1579 $1582 ($1561 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:60:calleeIsTag:else
+  $1616 = { (responsible $1585) ->
+    $1586 = Function
+    $1587 = call $1562 with $1569 $1586 ($1561 is responsible)
+    $1588 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:60:calleeIsFunction:then
+    $1610 = { (responsible $1589) ->
+      $1590 = call $1563 with $1560 ($1561 is responsible)
+      $1591 = 1
+      $1592 = call $1562 with $1590 $1591 ($1561 is responsible)
+      $1593 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:60:hasCorrectNumberOfArguments:then
+      $1600 = { (responsible $1594) ->
+        $1595 = Examples:iterator:splitWhereFirst:60
+        $1596 = trace: start of call of $1560 with $1440 ($1561 is responsible, code is at $1595)
+        $1597 = call $1560 with $1440 ($1561 is responsible)
+        $1598 = trace: end of call
+        $1599 = $1597
+      }
+      # Examples:iterator:splitWhereFirst:60:hasCorrectNumberOfArguments:else
+      $1608 = { (responsible $1601) ->
+        $1602 = "You called a function that expects "
+        $1603 = call $1567 with $1590 ($1561 is responsible)
+        $1604 = " arguments with 1 arguments."
+        $1605 = call $1566 with $1602 $1603 ($1561 is responsible)
+        $1606 = call $1566 with $1605 $1604 ($1561 is responsible)
+        $1607 = panicking because $1606 ($1561 is at fault)
+      }
+      $1609 = call $1593 with $1592 $1600 $1608 ($1561 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:60:calleeIsFunction:else
+    $1614 = { (responsible $1611) ->
+      $1612 = "You can only call tags or functions."
+      $1613 = panicking because $1612 ($1561 is at fault)
+    }
+    $1615 = call $1588 with $1587 $1610 $1614 ($1561 is responsible)
+  }
+  $1617 = call $1572 with $1571 $1584 $1616 ($1561 is responsible)
+  $1618 = Examples:iterator:splitWhereFirst:61
+  $1619 = builtinEquals
+  $1620 = builtinGetArgumentCount
+  $1621 = builtinTagHasValue
+  $1622 = builtinTagWithValue
+  $1623 = builtinTextConcatenate
+  $1624 = builtinToDebugText
+  $1625 = builtinTypeOf
+  $1626 = call $1625 with $1439 ($1618 is responsible)
+  $1627 = Tag
+  $1628 = call $1619 with $1626 $1627 ($1618 is responsible)
+  $1629 = builtinIfElse
+  # Examples:iterator:splitWhereFirst:61:calleeIsTag:then
+  $1642 = { (responsible $1630) ->
+    $1631 = call $1621 with $1439 ($1618 is responsible)
+    $1632 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:61:doesTagHaveValue:then
+    $1636 = { (responsible $1633) ->
+      $1634 = "You called a tag that already has a value."
+      $1635 = panicking because $1634 ($1618 is at fault)
+    }
+    # Examples:iterator:splitWhereFirst:61:doesTagHaveValue:else
+    $1640 = { (responsible $1637) ->
+      $1638 = "Tags can only be created with one value."
+      $1639 = panicking because $1638 ($1618 is at fault)
+    }
+    $1641 = call $1632 with $1631 $1636 $1640 ($1618 is responsible)
+  }
+  # Examples:iterator:splitWhereFirst:61:calleeIsTag:else
+  $1674 = { (responsible $1643) ->
+    $1644 = Function
+    $1645 = call $1619 with $1626 $1644 ($1618 is responsible)
+    $1646 = builtinIfElse
+    # Examples:iterator:splitWhereFirst:61:calleeIsFunction:then
+    $1668 = { (responsible $1647) ->
+      $1648 = call $1620 with $1439 ($1618 is responsible)
+      $1649 = 2
+      $1650 = call $1619 with $1648 $1649 ($1618 is responsible)
+      $1651 = builtinIfElse
+      # Examples:iterator:splitWhereFirst:61:hasCorrectNumberOfArguments:then
+      $1658 = { (responsible $1652) ->
+        $1653 = Examples:iterator:splitWhereFirst:61
+        $1654 = trace: start of call of $1439 with $1319 $1617 ($1618 is responsible, code is at $1653)
+        $1655 = call $1439 with $1319 $1617 ($1618 is responsible)
+        $1656 = trace: end of call
+        $1657 = $1655
+      }
+      # Examples:iterator:splitWhereFirst:61:hasCorrectNumberOfArguments:else
+      $1666 = { (responsible $1659) ->
+        $1660 = "You called a function that expects "
+        $1661 = call $1624 with $1648 ($1618 is responsible)
+        $1662 = " arguments with 2 arguments."
+        $1663 = call $1623 with $1660 $1661 ($1618 is responsible)
+        $1664 = call $1623 with $1663 $1662 ($1618 is responsible)
+        $1665 = panicking because $1664 ($1618 is at fault)
+      }
+      $1667 = call $1651 with $1650 $1658 $1666 ($1618 is responsible)
+    }
+    # Examples:iterator:splitWhereFirst:61:calleeIsFunction:else
+    $1672 = { (responsible $1669) ->
+      $1670 = "You can only call tags or functions."
+      $1671 = panicking because $1670 ($1618 is at fault)
+    }
+    $1673 = call $1646 with $1645 $1668 $1672 ($1618 is responsible)
+  }
+  $1675 = call $1629 with $1628 $1642 $1674 ($1618 is responsible)
+  $1676 = ($1318, $1675)
+}
+$1678 = $1677
+# Examples:iterator:split
+$2466 = { $1680 $1681 (+ responsible $1679) ->
+  $1682 = builtinStructGet
+  $1683 = StructGet
+  $1684 = Examples:iterator:split:2
+  $1685 = builtinEquals
+  $1686 = builtinGetArgumentCount
+  $1687 = builtinTagHasValue
+  $1688 = builtinTagWithValue
+  $1689 = builtinTextConcatenate
+  $1690 = builtinToDebugText
+  $1691 = builtinTypeOf
+  $1692 = call $1691 with $1682 ($1684 is responsible)
+  $1693 = Tag
+  $1694 = call $1685 with $1692 $1693 ($1684 is responsible)
+  $1695 = builtinIfElse
+  # Examples:iterator:split:2:calleeIsTag:then
+  $1708 = { (responsible $1696) ->
+    $1697 = call $1687 with $1682 ($1684 is responsible)
+    $1698 = builtinIfElse
+    # Examples:iterator:split:2:doesTagHaveValue:then
+    $1702 = { (responsible $1699) ->
+      $1700 = "You called a tag that already has a value."
+      $1701 = panicking because $1700 ($1684 is at fault)
+    }
+    # Examples:iterator:split:2:doesTagHaveValue:else
+    $1706 = { (responsible $1703) ->
+      $1704 = "Tags can only be created with one value."
+      $1705 = panicking because $1704 ($1684 is at fault)
+    }
+    $1707 = call $1698 with $1697 $1702 $1706 ($1684 is responsible)
+  }
+  # Examples:iterator:split:2:calleeIsTag:else
+  $1740 = { (responsible $1709) ->
+    $1710 = Function
+    $1711 = call $1685 with $1692 $1710 ($1684 is responsible)
+    $1712 = builtinIfElse
+    # Examples:iterator:split:2:calleeIsFunction:then
+    $1734 = { (responsible $1713) ->
+      $1714 = call $1686 with $1682 ($1684 is responsible)
+      $1715 = 2
+      $1716 = call $1685 with $1714 $1715 ($1684 is responsible)
+      $1717 = builtinIfElse
+      # Examples:iterator:split:2:hasCorrectNumberOfArguments:then
+      $1724 = { (responsible $1718) ->
+        $1719 = Examples:iterator:split:2
+        $1720 = trace: start of call of $1682 with $112 $1683 ($1684 is responsible, code is at $1719)
+        $1721 = call $1682 with $112 $1683 ($1684 is responsible)
+        $1722 = trace: end of call
+        $1723 = $1721
+      }
+      # Examples:iterator:split:2:hasCorrectNumberOfArguments:else
+      $1732 = { (responsible $1725) ->
+        $1726 = "You called a function that expects "
+        $1727 = call $1690 with $1714 ($1684 is responsible)
+        $1728 = " arguments with 2 arguments."
+        $1729 = call $1689 with $1726 $1727 ($1684 is responsible)
+        $1730 = call $1689 with $1729 $1728 ($1684 is responsible)
+        $1731 = panicking because $1730 ($1684 is at fault)
+      }
+      $1733 = call $1717 with $1716 $1724 $1732 ($1684 is responsible)
+    }
+    # Examples:iterator:split:2:calleeIsFunction:else
+    $1738 = { (responsible $1735) ->
+      $1736 = "You can only call tags or functions."
+      $1737 = panicking because $1736 ($1684 is at fault)
+    }
+    $1739 = call $1712 with $1711 $1734 $1738 ($1684 is responsible)
+  }
+  $1741 = call $1695 with $1694 $1708 $1740 ($1684 is responsible)
+  $1742 = $506
+  $1743 = GenerateWithState
+  $1744 = Examples:iterator:split:5
+  $1745 = builtinEquals
+  $1746 = builtinGetArgumentCount
+  $1747 = builtinTagHasValue
+  $1748 = builtinTagWithValue
+  $1749 = builtinTextConcatenate
+  $1750 = builtinToDebugText
+  $1751 = builtinTypeOf
+  $1752 = call $1751 with $1741 ($1744 is responsible)
+  $1753 = Tag
+  $1754 = call $1745 with $1752 $1753 ($1744 is responsible)
+  $1755 = builtinIfElse
+  # Examples:iterator:split:5:calleeIsTag:then
+  $1768 = { (responsible $1756) ->
+    $1757 = call $1747 with $1741 ($1744 is responsible)
+    $1758 = builtinIfElse
+    # Examples:iterator:split:5:doesTagHaveValue:then
+    $1762 = { (responsible $1759) ->
+      $1760 = "You called a tag that already has a value."
+      $1761 = panicking because $1760 ($1744 is at fault)
+    }
+    # Examples:iterator:split:5:doesTagHaveValue:else
+    $1766 = { (responsible $1763) ->
+      $1764 = "Tags can only be created with one value."
+      $1765 = panicking because $1764 ($1744 is at fault)
+    }
+    $1767 = call $1758 with $1757 $1762 $1766 ($1744 is responsible)
+  }
+  # Examples:iterator:split:5:calleeIsTag:else
+  $1800 = { (responsible $1769) ->
+    $1770 = Function
+    $1771 = call $1745 with $1752 $1770 ($1744 is responsible)
+    $1772 = builtinIfElse
+    # Examples:iterator:split:5:calleeIsFunction:then
+    $1794 = { (responsible $1773) ->
+      $1774 = call $1746 with $1741 ($1744 is responsible)
+      $1775 = 2
+      $1776 = call $1745 with $1774 $1775 ($1744 is responsible)
+      $1777 = builtinIfElse
+      # Examples:iterator:split:5:hasCorrectNumberOfArguments:then
+      $1784 = { (responsible $1778) ->
+        $1779 = Examples:iterator:split:5
+        $1780 = trace: start of call of $1741 with $1742 $1743 ($1744 is responsible, code is at $1779)
+        $1781 = call $1741 with $1742 $1743 ($1744 is responsible)
+        $1782 = trace: end of call
+        $1783 = $1781
+      }
+      # Examples:iterator:split:5:hasCorrectNumberOfArguments:else
+      $1792 = { (responsible $1785) ->
+        $1786 = "You called a function that expects "
+        $1787 = call $1750 with $1774 ($1744 is responsible)
+        $1788 = " arguments with 2 arguments."
+        $1789 = call $1749 with $1786 $1787 ($1744 is responsible)
+        $1790 = call $1749 with $1789 $1788 ($1744 is responsible)
+        $1791 = panicking because $1790 ($1744 is at fault)
+      }
+      $1793 = call $1777 with $1776 $1784 $1792 ($1744 is responsible)
+    }
+    # Examples:iterator:split:5:calleeIsFunction:else
+    $1798 = { (responsible $1795) ->
+      $1796 = "You can only call tags or functions."
+      $1797 = panicking because $1796 ($1744 is at fault)
+    }
+    $1799 = call $1772 with $1771 $1794 $1798 ($1744 is responsible)
+  }
+  $1801 = call $1755 with $1754 $1768 $1800 ($1744 is responsible)
+  $1802 = $1680
+  # Examples:iterator:split:7
+  $2407 = { $1804 (+ responsible $1803) ->
+    $1805 = $1804
+    $1806 = builtinStructGet
+    $1807 = StructGet
+    $1808 = Examples:iterator:split:7:3
+    $1809 = builtinEquals
+    $1810 = builtinGetArgumentCount
+    $1811 = builtinTagHasValue
+    $1812 = builtinTagWithValue
+    $1813 = builtinTextConcatenate
+    $1814 = builtinToDebugText
+    $1815 = builtinTypeOf
+    $1816 = call $1815 with $1806 ($1808 is responsible)
+    $1817 = Tag
+    $1818 = call $1809 with $1816 $1817 ($1808 is responsible)
+    $1819 = builtinIfElse
+    # Examples:iterator:split:7:3:calleeIsTag:then
+    $1832 = { (responsible $1820) ->
+      $1821 = call $1811 with $1806 ($1808 is responsible)
+      $1822 = builtinIfElse
+      # Examples:iterator:split:7:3:doesTagHaveValue:then
+      $1826 = { (responsible $1823) ->
+        $1824 = "You called a tag that already has a value."
+        $1825 = panicking because $1824 ($1808 is at fault)
+      }
+      # Examples:iterator:split:7:3:doesTagHaveValue:else
+      $1830 = { (responsible $1827) ->
+        $1828 = "Tags can only be created with one value."
+        $1829 = panicking because $1828 ($1808 is at fault)
+      }
+      $1831 = call $1822 with $1821 $1826 $1830 ($1808 is responsible)
+    }
+    # Examples:iterator:split:7:3:calleeIsTag:else
+    $1864 = { (responsible $1833) ->
+      $1834 = Function
+      $1835 = call $1809 with $1816 $1834 ($1808 is responsible)
+      $1836 = builtinIfElse
+      # Examples:iterator:split:7:3:calleeIsFunction:then
+      $1858 = { (responsible $1837) ->
+        $1838 = call $1810 with $1806 ($1808 is responsible)
+        $1839 = 2
+        $1840 = call $1809 with $1838 $1839 ($1808 is responsible)
+        $1841 = builtinIfElse
+        # Examples:iterator:split:7:3:hasCorrectNumberOfArguments:then
+        $1848 = { (responsible $1842) ->
+          $1843 = Examples:iterator:split:7:3
+          $1844 = trace: start of call of $1806 with $112 $1807 ($1808 is responsible, code is at $1843)
+          $1845 = call $1806 with $112 $1807 ($1808 is responsible)
+          $1846 = trace: end of call
+          $1847 = $1845
+        }
+        # Examples:iterator:split:7:3:hasCorrectNumberOfArguments:else
+        $1856 = { (responsible $1849) ->
+          $1850 = "You called a function that expects "
+          $1851 = call $1814 with $1838 ($1808 is responsible)
+          $1852 = " arguments with 2 arguments."
+          $1853 = call $1813 with $1850 $1851 ($1808 is responsible)
+          $1854 = call $1813 with $1853 $1852 ($1808 is responsible)
+          $1855 = panicking because $1854 ($1808 is at fault)
+        }
+        $1857 = call $1841 with $1840 $1848 $1856 ($1808 is responsible)
+      }
+      # Examples:iterator:split:7:3:calleeIsFunction:else
+      $1862 = { (responsible $1859) ->
+        $1860 = "You can only call tags or functions."
+        $1861 = panicking because $1860 ($1808 is at fault)
+      }
+      $1863 = call $1836 with $1835 $1858 $1862 ($1808 is responsible)
+    }
+    $1865 = call $1819 with $1818 $1832 $1864 ($1808 is responsible)
+    $1866 = $506
+    $1867 = TakeUntil
+    $1868 = Examples:iterator:split:7:6
+    $1869 = builtinEquals
+    $1870 = builtinGetArgumentCount
+    $1871 = builtinTagHasValue
+    $1872 = builtinTagWithValue
+    $1873 = builtinTextConcatenate
+    $1874 = builtinToDebugText
+    $1875 = builtinTypeOf
+    $1876 = call $1875 with $1865 ($1868 is responsible)
+    $1877 = Tag
+    $1878 = call $1869 with $1876 $1877 ($1868 is responsible)
+    $1879 = builtinIfElse
+    # Examples:iterator:split:7:6:calleeIsTag:then
+    $1892 = { (responsible $1880) ->
+      $1881 = call $1871 with $1865 ($1868 is responsible)
+      $1882 = builtinIfElse
+      # Examples:iterator:split:7:6:doesTagHaveValue:then
+      $1886 = { (responsible $1883) ->
+        $1884 = "You called a tag that already has a value."
+        $1885 = panicking because $1884 ($1868 is at fault)
+      }
+      # Examples:iterator:split:7:6:doesTagHaveValue:else
+      $1890 = { (responsible $1887) ->
+        $1888 = "Tags can only be created with one value."
+        $1889 = panicking because $1888 ($1868 is at fault)
+      }
+      $1891 = call $1882 with $1881 $1886 $1890 ($1868 is responsible)
+    }
+    # Examples:iterator:split:7:6:calleeIsTag:else
+    $1924 = { (responsible $1893) ->
+      $1894 = Function
+      $1895 = call $1869 with $1876 $1894 ($1868 is responsible)
+      $1896 = builtinIfElse
+      # Examples:iterator:split:7:6:calleeIsFunction:then
+      $1918 = { (responsible $1897) ->
+        $1898 = call $1870 with $1865 ($1868 is responsible)
+        $1899 = 2
+        $1900 = call $1869 with $1898 $1899 ($1868 is responsible)
+        $1901 = builtinIfElse
+        # Examples:iterator:split:7:6:hasCorrectNumberOfArguments:then
+        $1908 = { (responsible $1902) ->
+          $1903 = Examples:iterator:split:7:6
+          $1904 = trace: start of call of $1865 with $1866 $1867 ($1868 is responsible, code is at $1903)
+          $1905 = call $1865 with $1866 $1867 ($1868 is responsible)
+          $1906 = trace: end of call
+          $1907 = $1905
+        }
+        # Examples:iterator:split:7:6:hasCorrectNumberOfArguments:else
+        $1916 = { (responsible $1909) ->
+          $1910 = "You called a function that expects "
+          $1911 = call $1874 with $1898 ($1868 is responsible)
+          $1912 = " arguments with 2 arguments."
+          $1913 = call $1873 with $1910 $1911 ($1868 is responsible)
+          $1914 = call $1873 with $1913 $1912 ($1868 is responsible)
+          $1915 = panicking because $1914 ($1868 is at fault)
+        }
+        $1917 = call $1901 with $1900 $1908 $1916 ($1868 is responsible)
+      }
+      # Examples:iterator:split:7:6:calleeIsFunction:else
+      $1922 = { (responsible $1919) ->
+        $1920 = "You can only call tags or functions."
+        $1921 = panicking because $1920 ($1868 is at fault)
+      }
+      $1923 = call $1896 with $1895 $1918 $1922 ($1868 is responsible)
+    }
+    $1925 = call $1879 with $1878 $1892 $1924 ($1868 is responsible)
+    # Examples:iterator:split:7:7
+    $1989 = { $1927 (+ responsible $1926) ->
+      $1928 = $494
+      $1929 = $1927
+      $1930 = $1681
+      $1931 = Examples:iterator:split:7:7:3
+      $1932 = builtinEquals
+      $1933 = builtinGetArgumentCount
+      $1934 = builtinTagHasValue
+      $1935 = builtinTagWithValue
+      $1936 = builtinTextConcatenate
+      $1937 = builtinToDebugText
+      $1938 = builtinTypeOf
+      $1939 = call $1938 with $1928 ($1931 is responsible)
+      $1940 = Tag
+      $1941 = call $1932 with $1939 $1940 ($1931 is responsible)
+      $1942 = builtinIfElse
+      # Examples:iterator:split:7:7:3:calleeIsTag:then
+      $1955 = { (responsible $1943) ->
+        $1944 = call $1934 with $1928 ($1931 is responsible)
+        $1945 = builtinIfElse
+        # Examples:iterator:split:7:7:3:doesTagHaveValue:then
+        $1949 = { (responsible $1946) ->
+          $1947 = "You called a tag that already has a value."
+          $1948 = panicking because $1947 ($1931 is at fault)
+        }
+        # Examples:iterator:split:7:7:3:doesTagHaveValue:else
+        $1953 = { (responsible $1950) ->
+          $1951 = "Tags can only be created with one value."
+          $1952 = panicking because $1951 ($1931 is at fault)
+        }
+        $1954 = call $1945 with $1944 $1949 $1953 ($1931 is responsible)
+      }
+      # Examples:iterator:split:7:7:3:calleeIsTag:else
+      $1987 = { (responsible $1956) ->
+        $1957 = Function
+        $1958 = call $1932 with $1939 $1957 ($1931 is responsible)
+        $1959 = builtinIfElse
+        # Examples:iterator:split:7:7:3:calleeIsFunction:then
+        $1981 = { (responsible $1960) ->
+          $1961 = call $1933 with $1928 ($1931 is responsible)
+          $1962 = 2
+          $1963 = call $1932 with $1961 $1962 ($1931 is responsible)
+          $1964 = builtinIfElse
+          # Examples:iterator:split:7:7:3:hasCorrectNumberOfArguments:then
+          $1971 = { (responsible $1965) ->
+            $1966 = Examples:iterator:split:7:7:3
+            $1967 = trace: start of call of $1928 with $1929 $1930 ($1931 is responsible, code is at $1966)
+            $1968 = call $1928 with $1929 $1930 ($1931 is responsible)
+            $1969 = trace: end of call
+            $1970 = $1968
+          }
+          # Examples:iterator:split:7:7:3:hasCorrectNumberOfArguments:else
+          $1979 = { (responsible $1972) ->
+            $1973 = "You called a function that expects "
+            $1974 = call $1937 with $1961 ($1931 is responsible)
+            $1975 = " arguments with 2 arguments."
+            $1976 = call $1936 with $1973 $1974 ($1931 is responsible)
+            $1977 = call $1936 with $1976 $1975 ($1931 is responsible)
+            $1978 = panicking because $1977 ($1931 is at fault)
+          }
+          $1980 = call $1964 with $1963 $1971 $1979 ($1931 is responsible)
+        }
+        # Examples:iterator:split:7:7:3:calleeIsFunction:else
+        $1985 = { (responsible $1982) ->
+          $1983 = "You can only call tags or functions."
+          $1984 = panicking because $1983 ($1931 is at fault)
+        }
+        $1986 = call $1959 with $1958 $1981 $1985 ($1931 is responsible)
+      }
+      $1988 = call $1942 with $1941 $1955 $1987 ($1931 is responsible)
+    }
+    $1990 = Examples:iterator:split:7:8
+    $1991 = builtinEquals
+    $1992 = builtinGetArgumentCount
+    $1993 = builtinTagHasValue
+    $1994 = builtinTagWithValue
+    $1995 = builtinTextConcatenate
+    $1996 = builtinToDebugText
+    $1997 = builtinTypeOf
+    $1998 = call $1997 with $1925 ($1990 is responsible)
+    $1999 = Tag
+    $2000 = call $1991 with $1998 $1999 ($1990 is responsible)
+    $2001 = builtinIfElse
+    # Examples:iterator:split:7:8:calleeIsTag:then
+    $2014 = { (responsible $2002) ->
+      $2003 = call $1993 with $1925 ($1990 is responsible)
+      $2004 = builtinIfElse
+      # Examples:iterator:split:7:8:doesTagHaveValue:then
+      $2008 = { (responsible $2005) ->
+        $2006 = "You called a tag that already has a value."
+        $2007 = panicking because $2006 ($1990 is at fault)
+      }
+      # Examples:iterator:split:7:8:doesTagHaveValue:else
+      $2012 = { (responsible $2009) ->
+        $2010 = "Tags can only be created with one value."
+        $2011 = panicking because $2010 ($1990 is at fault)
+      }
+      $2013 = call $2004 with $2003 $2008 $2012 ($1990 is responsible)
+    }
+    # Examples:iterator:split:7:8:calleeIsTag:else
+    $2046 = { (responsible $2015) ->
+      $2016 = Function
+      $2017 = call $1991 with $1998 $2016 ($1990 is responsible)
+      $2018 = builtinIfElse
+      # Examples:iterator:split:7:8:calleeIsFunction:then
+      $2040 = { (responsible $2019) ->
+        $2020 = call $1992 with $1925 ($1990 is responsible)
+        $2021 = 2
+        $2022 = call $1991 with $2020 $2021 ($1990 is responsible)
+        $2023 = builtinIfElse
+        # Examples:iterator:split:7:8:hasCorrectNumberOfArguments:then
+        $2030 = { (responsible $2024) ->
+          $2025 = Examples:iterator:split:7:8
+          $2026 = trace: start of call of $1925 with $1805 $1989 ($1990 is responsible, code is at $2025)
+          $2027 = call $1925 with $1805 $1989 ($1990 is responsible)
+          $2028 = trace: end of call
+          $2029 = $2027
+        }
+        # Examples:iterator:split:7:8:hasCorrectNumberOfArguments:else
+        $2038 = { (responsible $2031) ->
+          $2032 = "You called a function that expects "
+          $2033 = call $1996 with $2020 ($1990 is responsible)
+          $2034 = " arguments with 2 arguments."
+          $2035 = call $1995 with $2032 $2033 ($1990 is responsible)
+          $2036 = call $1995 with $2035 $2034 ($1990 is responsible)
+          $2037 = panicking because $2036 ($1990 is at fault)
+        }
+        $2039 = call $2023 with $2022 $2030 $2038 ($1990 is responsible)
+      }
+      # Examples:iterator:split:7:8:calleeIsFunction:else
+      $2044 = { (responsible $2041) ->
+        $2042 = "You can only call tags or functions."
+        $2043 = panicking because $2042 ($1990 is at fault)
+      }
+      $2045 = call $2018 with $2017 $2040 $2044 ($1990 is responsible)
+    }
+    $2047 = call $2001 with $2000 $2014 $2046 ($1990 is responsible)
+    $2048 = $1804
+    $2049 = builtinStructGet
+    $2050 = StructGet
+    $2051 = Examples:iterator:split:7:12
+    $2052 = builtinEquals
+    $2053 = builtinGetArgumentCount
+    $2054 = builtinTagHasValue
+    $2055 = builtinTagWithValue
+    $2056 = builtinTextConcatenate
+    $2057 = builtinToDebugText
+    $2058 = builtinTypeOf
+    $2059 = call $2058 with $2049 ($2051 is responsible)
+    $2060 = Tag
+    $2061 = call $2052 with $2059 $2060 ($2051 is responsible)
+    $2062 = builtinIfElse
+    # Examples:iterator:split:7:12:calleeIsTag:then
+    $2075 = { (responsible $2063) ->
+      $2064 = call $2054 with $2049 ($2051 is responsible)
+      $2065 = builtinIfElse
+      # Examples:iterator:split:7:12:doesTagHaveValue:then
+      $2069 = { (responsible $2066) ->
+        $2067 = "You called a tag that already has a value."
+        $2068 = panicking because $2067 ($2051 is at fault)
+      }
+      # Examples:iterator:split:7:12:doesTagHaveValue:else
+      $2073 = { (responsible $2070) ->
+        $2071 = "Tags can only be created with one value."
+        $2072 = panicking because $2071 ($2051 is at fault)
+      }
+      $2074 = call $2065 with $2064 $2069 $2073 ($2051 is responsible)
+    }
+    # Examples:iterator:split:7:12:calleeIsTag:else
+    $2107 = { (responsible $2076) ->
+      $2077 = Function
+      $2078 = call $2052 with $2059 $2077 ($2051 is responsible)
+      $2079 = builtinIfElse
+      # Examples:iterator:split:7:12:calleeIsFunction:then
+      $2101 = { (responsible $2080) ->
+        $2081 = call $2053 with $2049 ($2051 is responsible)
+        $2082 = 2
+        $2083 = call $2052 with $2081 $2082 ($2051 is responsible)
+        $2084 = builtinIfElse
+        # Examples:iterator:split:7:12:hasCorrectNumberOfArguments:then
+        $2091 = { (responsible $2085) ->
+          $2086 = Examples:iterator:split:7:12
+          $2087 = trace: start of call of $2049 with $112 $2050 ($2051 is responsible, code is at $2086)
+          $2088 = call $2049 with $112 $2050 ($2051 is responsible)
+          $2089 = trace: end of call
+          $2090 = $2088
+        }
+        # Examples:iterator:split:7:12:hasCorrectNumberOfArguments:else
+        $2099 = { (responsible $2092) ->
+          $2093 = "You called a function that expects "
+          $2094 = call $2057 with $2081 ($2051 is responsible)
+          $2095 = " arguments with 2 arguments."
+          $2096 = call $2056 with $2093 $2094 ($2051 is responsible)
+          $2097 = call $2056 with $2096 $2095 ($2051 is responsible)
+          $2098 = panicking because $2097 ($2051 is at fault)
+        }
+        $2100 = call $2084 with $2083 $2091 $2099 ($2051 is responsible)
+      }
+      # Examples:iterator:split:7:12:calleeIsFunction:else
+      $2105 = { (responsible $2102) ->
+        $2103 = "You can only call tags or functions."
+        $2104 = panicking because $2103 ($2051 is at fault)
+      }
+      $2106 = call $2079 with $2078 $2101 $2105 ($2051 is responsible)
+    }
+    $2108 = call $2062 with $2061 $2075 $2107 ($2051 is responsible)
+    $2109 = $506
+    $2110 = Next
+    $2111 = Examples:iterator:split:7:15
+    $2112 = builtinEquals
+    $2113 = builtinGetArgumentCount
+    $2114 = builtinTagHasValue
+    $2115 = builtinTagWithValue
+    $2116 = builtinTextConcatenate
+    $2117 = builtinToDebugText
+    $2118 = builtinTypeOf
+    $2119 = call $2118 with $2108 ($2111 is responsible)
+    $2120 = Tag
+    $2121 = call $2112 with $2119 $2120 ($2111 is responsible)
+    $2122 = builtinIfElse
+    # Examples:iterator:split:7:15:calleeIsTag:then
+    $2135 = { (responsible $2123) ->
+      $2124 = call $2114 with $2108 ($2111 is responsible)
+      $2125 = builtinIfElse
+      # Examples:iterator:split:7:15:doesTagHaveValue:then
+      $2129 = { (responsible $2126) ->
+        $2127 = "You called a tag that already has a value."
+        $2128 = panicking because $2127 ($2111 is at fault)
+      }
+      # Examples:iterator:split:7:15:doesTagHaveValue:else
+      $2133 = { (responsible $2130) ->
+        $2131 = "Tags can only be created with one value."
+        $2132 = panicking because $2131 ($2111 is at fault)
+      }
+      $2134 = call $2125 with $2124 $2129 $2133 ($2111 is responsible)
+    }
+    # Examples:iterator:split:7:15:calleeIsTag:else
+    $2167 = { (responsible $2136) ->
+      $2137 = Function
+      $2138 = call $2112 with $2119 $2137 ($2111 is responsible)
+      $2139 = builtinIfElse
+      # Examples:iterator:split:7:15:calleeIsFunction:then
+      $2161 = { (responsible $2140) ->
+        $2141 = call $2113 with $2108 ($2111 is responsible)
+        $2142 = 2
+        $2143 = call $2112 with $2141 $2142 ($2111 is responsible)
+        $2144 = builtinIfElse
+        # Examples:iterator:split:7:15:hasCorrectNumberOfArguments:then
+        $2151 = { (responsible $2145) ->
+          $2146 = Examples:iterator:split:7:15
+          $2147 = trace: start of call of $2108 with $2109 $2110 ($2111 is responsible, code is at $2146)
+          $2148 = call $2108 with $2109 $2110 ($2111 is responsible)
+          $2149 = trace: end of call
+          $2150 = $2148
+        }
+        # Examples:iterator:split:7:15:hasCorrectNumberOfArguments:else
+        $2159 = { (responsible $2152) ->
+          $2153 = "You called a function that expects "
+          $2154 = call $2117 with $2141 ($2111 is responsible)
+          $2155 = " arguments with 2 arguments."
+          $2156 = call $2116 with $2153 $2154 ($2111 is responsible)
+          $2157 = call $2116 with $2156 $2155 ($2111 is responsible)
+          $2158 = panicking because $2157 ($2111 is at fault)
+        }
+        $2160 = call $2144 with $2143 $2151 $2159 ($2111 is responsible)
+      }
+      # Examples:iterator:split:7:15:calleeIsFunction:else
+      $2165 = { (responsible $2162) ->
+        $2163 = "You can only call tags or functions."
+        $2164 = panicking because $2163 ($2111 is at fault)
+      }
+      $2166 = call $2139 with $2138 $2161 $2165 ($2111 is responsible)
+    }
+    $2168 = call $2122 with $2121 $2135 $2167 ($2111 is responsible)
+    $2169 = Examples:iterator:split:7:16
+    $2170 = builtinEquals
+    $2171 = builtinGetArgumentCount
+    $2172 = builtinTagHasValue
+    $2173 = builtinTagWithValue
+    $2174 = builtinTextConcatenate
+    $2175 = builtinToDebugText
+    $2176 = builtinTypeOf
+    $2177 = call $2176 with $2168 ($2169 is responsible)
+    $2178 = Tag
+    $2179 = call $2170 with $2177 $2178 ($2169 is responsible)
+    $2180 = builtinIfElse
+    # Examples:iterator:split:7:16:calleeIsTag:then
+    $2192 = { (responsible $2181) ->
+      $2182 = call $2172 with $2168 ($2169 is responsible)
+      $2183 = builtinIfElse
+      # Examples:iterator:split:7:16:doesTagHaveValue:then
+      $2187 = { (responsible $2184) ->
+        $2185 = "You called a tag that already has a value."
+        $2186 = panicking because $2185 ($2169 is at fault)
+      }
+      # Examples:iterator:split:7:16:doesTagHaveValue:else
+      $2190 = { (responsible $2188) ->
+        $2189 = call $2173 with $2168 $2048 ($2169 is responsible)
+      }
+      $2191 = call $2183 with $2182 $2187 $2190 ($2169 is responsible)
+    }
+    # Examples:iterator:split:7:16:calleeIsTag:else
+    $2224 = { (responsible $2193) ->
+      $2194 = Function
+      $2195 = call $2170 with $2177 $2194 ($2169 is responsible)
+      $2196 = builtinIfElse
+      # Examples:iterator:split:7:16:calleeIsFunction:then
+      $2218 = { (responsible $2197) ->
+        $2198 = call $2171 with $2168 ($2169 is responsible)
+        $2199 = 1
+        $2200 = call $2170 with $2198 $2199 ($2169 is responsible)
+        $2201 = builtinIfElse
+        # Examples:iterator:split:7:16:hasCorrectNumberOfArguments:then
+        $2208 = { (responsible $2202) ->
+          $2203 = Examples:iterator:split:7:16
+          $2204 = trace: start of call of $2168 with $2048 ($2169 is responsible, code is at $2203)
+          $2205 = call $2168 with $2048 ($2169 is responsible)
+          $2206 = trace: end of call
+          $2207 = $2205
+        }
+        # Examples:iterator:split:7:16:hasCorrectNumberOfArguments:else
+        $2216 = { (responsible $2209) ->
+          $2210 = "You called a function that expects "
+          $2211 = call $2175 with $2198 ($2169 is responsible)
+          $2212 = " arguments with 1 arguments."
+          $2213 = call $2174 with $2210 $2211 ($2169 is responsible)
+          $2214 = call $2174 with $2213 $2212 ($2169 is responsible)
+          $2215 = panicking because $2214 ($2169 is at fault)
+        }
+        $2217 = call $2201 with $2200 $2208 $2216 ($2169 is responsible)
+      }
+      # Examples:iterator:split:7:16:calleeIsFunction:else
+      $2222 = { (responsible $2219) ->
+        $2220 = "You can only call tags or functions."
+        $2221 = panicking because $2220 ($2169 is at fault)
+      }
+      $2223 = call $2196 with $2195 $2218 $2222 ($2169 is responsible)
+    }
+    $2225 = call $2180 with $2179 $2192 $2224 ($2169 is responsible)
+    $2226 = builtinStructGet
+    $2227 = StructGet
+    $2228 = Examples:iterator:split:7:19
+    $2229 = builtinEquals
+    $2230 = builtinGetArgumentCount
+    $2231 = builtinTagHasValue
+    $2232 = builtinTagWithValue
+    $2233 = builtinTextConcatenate
+    $2234 = builtinToDebugText
+    $2235 = builtinTypeOf
+    $2236 = call $2235 with $2226 ($2228 is responsible)
+    $2237 = Tag
+    $2238 = call $2229 with $2236 $2237 ($2228 is responsible)
+    $2239 = builtinIfElse
+    # Examples:iterator:split:7:19:calleeIsTag:then
+    $2252 = { (responsible $2240) ->
+      $2241 = call $2231 with $2226 ($2228 is responsible)
+      $2242 = builtinIfElse
+      # Examples:iterator:split:7:19:doesTagHaveValue:then
+      $2246 = { (responsible $2243) ->
+        $2244 = "You called a tag that already has a value."
+        $2245 = panicking because $2244 ($2228 is at fault)
+      }
+      # Examples:iterator:split:7:19:doesTagHaveValue:else
+      $2250 = { (responsible $2247) ->
+        $2248 = "Tags can only be created with one value."
+        $2249 = panicking because $2248 ($2228 is at fault)
+      }
+      $2251 = call $2242 with $2241 $2246 $2250 ($2228 is responsible)
+    }
+    # Examples:iterator:split:7:19:calleeIsTag:else
+    $2284 = { (responsible $2253) ->
+      $2254 = Function
+      $2255 = call $2229 with $2236 $2254 ($2228 is responsible)
+      $2256 = builtinIfElse
+      # Examples:iterator:split:7:19:calleeIsFunction:then
+      $2278 = { (responsible $2257) ->
+        $2258 = call $2230 with $2226 ($2228 is responsible)
+        $2259 = 2
+        $2260 = call $2229 with $2258 $2259 ($2228 is responsible)
+        $2261 = builtinIfElse
+        # Examples:iterator:split:7:19:hasCorrectNumberOfArguments:then
+        $2268 = { (responsible $2262) ->
+          $2263 = Examples:iterator:split:7:19
+          $2264 = trace: start of call of $2226 with $112 $2227 ($2228 is responsible, code is at $2263)
+          $2265 = call $2226 with $112 $2227 ($2228 is responsible)
+          $2266 = trace: end of call
+          $2267 = $2265
+        }
+        # Examples:iterator:split:7:19:hasCorrectNumberOfArguments:else
+        $2276 = { (responsible $2269) ->
+          $2270 = "You called a function that expects "
+          $2271 = call $2234 with $2258 ($2228 is responsible)
+          $2272 = " arguments with 2 arguments."
+          $2273 = call $2233 with $2270 $2271 ($2228 is responsible)
+          $2274 = call $2233 with $2273 $2272 ($2228 is responsible)
+          $2275 = panicking because $2274 ($2228 is at fault)
+        }
+        $2277 = call $2261 with $2260 $2268 $2276 ($2228 is responsible)
+      }
+      # Examples:iterator:split:7:19:calleeIsFunction:else
+      $2282 = { (responsible $2279) ->
+        $2280 = "You can only call tags or functions."
+        $2281 = panicking because $2280 ($2228 is at fault)
+      }
+      $2283 = call $2256 with $2255 $2278 $2282 ($2228 is responsible)
+    }
+    $2285 = call $2239 with $2238 $2252 $2284 ($2228 is responsible)
+    $2286 = $518
+    $2287 = Map
+    $2288 = Examples:iterator:split:7:22
+    $2289 = builtinEquals
+    $2290 = builtinGetArgumentCount
+    $2291 = builtinTagHasValue
+    $2292 = builtinTagWithValue
+    $2293 = builtinTextConcatenate
+    $2294 = builtinToDebugText
+    $2295 = builtinTypeOf
+    $2296 = call $2295 with $2285 ($2288 is responsible)
+    $2297 = Tag
+    $2298 = call $2289 with $2296 $2297 ($2288 is responsible)
+    $2299 = builtinIfElse
+    # Examples:iterator:split:7:22:calleeIsTag:then
+    $2312 = { (responsible $2300) ->
+      $2301 = call $2291 with $2285 ($2288 is responsible)
+      $2302 = builtinIfElse
+      # Examples:iterator:split:7:22:doesTagHaveValue:then
+      $2306 = { (responsible $2303) ->
+        $2304 = "You called a tag that already has a value."
+        $2305 = panicking because $2304 ($2288 is at fault)
+      }
+      # Examples:iterator:split:7:22:doesTagHaveValue:else
+      $2310 = { (responsible $2307) ->
+        $2308 = "Tags can only be created with one value."
+        $2309 = panicking because $2308 ($2288 is at fault)
+      }
+      $2311 = call $2302 with $2301 $2306 $2310 ($2288 is responsible)
+    }
+    # Examples:iterator:split:7:22:calleeIsTag:else
+    $2344 = { (responsible $2313) ->
+      $2314 = Function
+      $2315 = call $2289 with $2296 $2314 ($2288 is responsible)
+      $2316 = builtinIfElse
+      # Examples:iterator:split:7:22:calleeIsFunction:then
+      $2338 = { (responsible $2317) ->
+        $2318 = call $2290 with $2285 ($2288 is responsible)
+        $2319 = 2
+        $2320 = call $2289 with $2318 $2319 ($2288 is responsible)
+        $2321 = builtinIfElse
+        # Examples:iterator:split:7:22:hasCorrectNumberOfArguments:then
+        $2328 = { (responsible $2322) ->
+          $2323 = Examples:iterator:split:7:22
+          $2324 = trace: start of call of $2285 with $2286 $2287 ($2288 is responsible, code is at $2323)
+          $2325 = call $2285 with $2286 $2287 ($2288 is responsible)
+          $2326 = trace: end of call
+          $2327 = $2325
+        }
+        # Examples:iterator:split:7:22:hasCorrectNumberOfArguments:else
+        $2336 = { (responsible $2329) ->
+          $2330 = "You called a function that expects "
+          $2331 = call $2294 with $2318 ($2288 is responsible)
+          $2332 = " arguments with 2 arguments."
+          $2333 = call $2293 with $2330 $2331 ($2288 is responsible)
+          $2334 = call $2293 with $2333 $2332 ($2288 is responsible)
+          $2335 = panicking because $2334 ($2288 is at fault)
+        }
+        $2337 = call $2321 with $2320 $2328 $2336 ($2288 is responsible)
+      }
+      # Examples:iterator:split:7:22:calleeIsFunction:else
+      $2342 = { (responsible $2339) ->
+        $2340 = "You can only call tags or functions."
+        $2341 = panicking because $2340 ($2288 is at fault)
+      }
+      $2343 = call $2316 with $2315 $2338 $2342 ($2288 is responsible)
+    }
+    $2345 = call $2299 with $2298 $2312 $2344 ($2288 is responsible)
+    # Examples:iterator:split:7:23
+    $2348 = { (responsible $2346) ->
+      $2347 = Nothing
+    }
+    $2349 = Examples:iterator:split:7:24
+    $2350 = builtinEquals
+    $2351 = builtinGetArgumentCount
+    $2352 = builtinTagHasValue
+    $2353 = builtinTagWithValue
+    $2354 = builtinTextConcatenate
+    $2355 = builtinToDebugText
+    $2356 = builtinTypeOf
+    $2357 = call $2356 with $2345 ($2349 is responsible)
+    $2358 = Tag
+    $2359 = call $2350 with $2357 $2358 ($2349 is responsible)
+    $2360 = builtinIfElse
+    # Examples:iterator:split:7:24:calleeIsTag:then
+    $2373 = { (responsible $2361) ->
+      $2362 = call $2352 with $2345 ($2349 is responsible)
+      $2363 = builtinIfElse
+      # Examples:iterator:split:7:24:doesTagHaveValue:then
+      $2367 = { (responsible $2364) ->
+        $2365 = "You called a tag that already has a value."
+        $2366 = panicking because $2365 ($2349 is at fault)
+      }
+      # Examples:iterator:split:7:24:doesTagHaveValue:else
+      $2371 = { (responsible $2368) ->
+        $2369 = "Tags can only be created with one value."
+        $2370 = panicking because $2369 ($2349 is at fault)
+      }
+      $2372 = call $2363 with $2362 $2367 $2371 ($2349 is responsible)
+    }
+    # Examples:iterator:split:7:24:calleeIsTag:else
+    $2405 = { (responsible $2374) ->
+      $2375 = Function
+      $2376 = call $2350 with $2357 $2375 ($2349 is responsible)
+      $2377 = builtinIfElse
+      # Examples:iterator:split:7:24:calleeIsFunction:then
+      $2399 = { (responsible $2378) ->
+        $2379 = call $2351 with $2345 ($2349 is responsible)
+        $2380 = 2
+        $2381 = call $2350 with $2379 $2380 ($2349 is responsible)
+        $2382 = builtinIfElse
+        # Examples:iterator:split:7:24:hasCorrectNumberOfArguments:then
+        $2389 = { (responsible $2383) ->
+          $2384 = Examples:iterator:split:7:24
+          $2385 = trace: start of call of $2345 with $2225 $2348 ($2349 is responsible, code is at $2384)
+          $2386 = call $2345 with $2225 $2348 ($2349 is responsible)
+          $2387 = trace: end of call
+          $2388 = $2386
+        }
+        # Examples:iterator:split:7:24:hasCorrectNumberOfArguments:else
+        $2397 = { (responsible $2390) ->
+          $2391 = "You called a function that expects "
+          $2392 = call $2355 with $2379 ($2349 is responsible)
+          $2393 = " arguments with 2 arguments."
+          $2394 = call $2354 with $2391 $2392 ($2349 is responsible)
+          $2395 = call $2354 with $2394 $2393 ($2349 is responsible)
+          $2396 = panicking because $2395 ($2349 is at fault)
+        }
+        $2398 = call $2382 with $2381 $2389 $2397 ($2349 is responsible)
+      }
+      # Examples:iterator:split:7:24:calleeIsFunction:else
+      $2403 = { (responsible $2400) ->
+        $2401 = "You can only call tags or functions."
+        $2402 = panicking because $2401 ($2349 is at fault)
+      }
+      $2404 = call $2377 with $2376 $2399 $2403 ($2349 is responsible)
+    }
+    $2406 = call $2360 with $2359 $2373 $2405 ($2349 is responsible)
+  }
+  $2408 = Examples:iterator:split:8
+  $2409 = builtinEquals
+  $2410 = builtinGetArgumentCount
+  $2411 = builtinTagHasValue
+  $2412 = builtinTagWithValue
+  $2413 = builtinTextConcatenate
+  $2414 = builtinToDebugText
+  $2415 = builtinTypeOf
+  $2416 = call $2415 with $1801 ($2408 is responsible)
+  $2417 = Tag
+  $2418 = call $2409 with $2416 $2417 ($2408 is responsible)
+  $2419 = builtinIfElse
+  # Examples:iterator:split:8:calleeIsTag:then
+  $2432 = { (responsible $2420) ->
+    $2421 = call $2411 with $1801 ($2408 is responsible)
+    $2422 = builtinIfElse
+    # Examples:iterator:split:8:doesTagHaveValue:then
+    $2426 = { (responsible $2423) ->
+      $2424 = "You called a tag that already has a value."
+      $2425 = panicking because $2424 ($2408 is at fault)
+    }
+    # Examples:iterator:split:8:doesTagHaveValue:else
+    $2430 = { (responsible $2427) ->
+      $2428 = "Tags can only be created with one value."
+      $2429 = panicking because $2428 ($2408 is at fault)
+    }
+    $2431 = call $2422 with $2421 $2426 $2430 ($2408 is responsible)
+  }
+  # Examples:iterator:split:8:calleeIsTag:else
+  $2464 = { (responsible $2433) ->
+    $2434 = Function
+    $2435 = call $2409 with $2416 $2434 ($2408 is responsible)
+    $2436 = builtinIfElse
+    # Examples:iterator:split:8:calleeIsFunction:then
+    $2458 = { (responsible $2437) ->
+      $2438 = call $2410 with $1801 ($2408 is responsible)
+      $2439 = 2
+      $2440 = call $2409 with $2438 $2439 ($2408 is responsible)
+      $2441 = builtinIfElse
+      # Examples:iterator:split:8:hasCorrectNumberOfArguments:then
+      $2448 = { (responsible $2442) ->
+        $2443 = Examples:iterator:split:8
+        $2444 = trace: start of call of $1801 with $1802 $2407 ($2408 is responsible, code is at $2443)
+        $2445 = call $1801 with $1802 $2407 ($2408 is responsible)
+        $2446 = trace: end of call
+        $2447 = $2445
+      }
+      # Examples:iterator:split:8:hasCorrectNumberOfArguments:else
+      $2456 = { (responsible $2449) ->
+        $2450 = "You called a function that expects "
+        $2451 = call $2414 with $2438 ($2408 is responsible)
+        $2452 = " arguments with 2 arguments."
+        $2453 = call $2413 with $2450 $2451 ($2408 is responsible)
+        $2454 = call $2413 with $2453 $2452 ($2408 is responsible)
+        $2455 = panicking because $2454 ($2408 is at fault)
+      }
+      $2457 = call $2441 with $2440 $2448 $2456 ($2408 is responsible)
+    }
+    # Examples:iterator:split:8:calleeIsFunction:else
+    $2462 = { (responsible $2459) ->
+      $2460 = "You can only call tags or functions."
+      $2461 = panicking because $2460 ($2408 is at fault)
+    }
+    $2463 = call $2436 with $2435 $2458 $2462 ($2408 is responsible)
+  }
+  $2465 = call $2419 with $2418 $2432 $2464 ($2408 is responsible)
+}
+$2467 = $2466
+# Examples:iterator:23
+$3256 = { $2469 (+ responsible $2468) ->
+  # Examples:iterator:23:print
+  $2650 = { $2471 (+ responsible $2470) ->
+    $2472 = builtinStructGet
+    $2473 = StructGet
+    $2474 = Examples:iterator:23:print:2
+    $2475 = builtinEquals
+    $2476 = builtinGetArgumentCount
+    $2477 = builtinTagHasValue
+    $2478 = builtinTagWithValue
+    $2479 = builtinTextConcatenate
+    $2480 = builtinToDebugText
+    $2481 = builtinTypeOf
+    $2482 = call $2481 with $2472 ($2474 is responsible)
+    $2483 = Tag
+    $2484 = call $2475 with $2482 $2483 ($2474 is responsible)
+    $2485 = builtinIfElse
+    # Examples:iterator:23:print:2:calleeIsTag:then
+    $2498 = { (responsible $2486) ->
+      $2487 = call $2477 with $2472 ($2474 is responsible)
+      $2488 = builtinIfElse
+      # Examples:iterator:23:print:2:doesTagHaveValue:then
+      $2492 = { (responsible $2489) ->
+        $2490 = "You called a tag that already has a value."
+        $2491 = panicking because $2490 ($2474 is at fault)
+      }
+      # Examples:iterator:23:print:2:doesTagHaveValue:else
+      $2496 = { (responsible $2493) ->
+        $2494 = "Tags can only be created with one value."
+        $2495 = panicking because $2494 ($2474 is at fault)
+      }
+      $2497 = call $2488 with $2487 $2492 $2496 ($2474 is responsible)
+    }
+    # Examples:iterator:23:print:2:calleeIsTag:else
+    $2530 = { (responsible $2499) ->
+      $2500 = Function
+      $2501 = call $2475 with $2482 $2500 ($2474 is responsible)
+      $2502 = builtinIfElse
+      # Examples:iterator:23:print:2:calleeIsFunction:then
+      $2524 = { (responsible $2503) ->
+        $2504 = call $2476 with $2472 ($2474 is responsible)
+        $2505 = 2
+        $2506 = call $2475 with $2504 $2505 ($2474 is responsible)
+        $2507 = builtinIfElse
+        # Examples:iterator:23:print:2:hasCorrectNumberOfArguments:then
+        $2514 = { (responsible $2508) ->
+          $2509 = Examples:iterator:23:print:2
+          $2510 = trace: start of call of $2472 with $112 $2473 ($2474 is responsible, code is at $2509)
+          $2511 = call $2472 with $112 $2473 ($2474 is responsible)
+          $2512 = trace: end of call
+          $2513 = $2511
+        }
+        # Examples:iterator:23:print:2:hasCorrectNumberOfArguments:else
+        $2522 = { (responsible $2515) ->
+          $2516 = "You called a function that expects "
+          $2517 = call $2480 with $2504 ($2474 is responsible)
+          $2518 = " arguments with 2 arguments."
+          $2519 = call $2479 with $2516 $2517 ($2474 is responsible)
+          $2520 = call $2479 with $2519 $2518 ($2474 is responsible)
+          $2521 = panicking because $2520 ($2474 is at fault)
+        }
+        $2523 = call $2507 with $2506 $2514 $2522 ($2474 is responsible)
+      }
+      # Examples:iterator:23:print:2:calleeIsFunction:else
+      $2528 = { (responsible $2525) ->
+        $2526 = "You can only call tags or functions."
+        $2527 = panicking because $2526 ($2474 is at fault)
+      }
+      $2529 = call $2502 with $2501 $2524 $2528 ($2474 is responsible)
+    }
+    $2531 = call $2485 with $2484 $2498 $2530 ($2474 is responsible)
+    $2532 = $2469
+    $2533 = Stdout
+    $2534 = Examples:iterator:23:print:5
+    $2535 = builtinEquals
+    $2536 = builtinGetArgumentCount
+    $2537 = builtinTagHasValue
+    $2538 = builtinTagWithValue
+    $2539 = builtinTextConcatenate
+    $2540 = builtinToDebugText
+    $2541 = builtinTypeOf
+    $2542 = call $2541 with $2531 ($2534 is responsible)
+    $2543 = Tag
+    $2544 = call $2535 with $2542 $2543 ($2534 is responsible)
+    $2545 = builtinIfElse
+    # Examples:iterator:23:print:5:calleeIsTag:then
+    $2558 = { (responsible $2546) ->
+      $2547 = call $2537 with $2531 ($2534 is responsible)
+      $2548 = builtinIfElse
+      # Examples:iterator:23:print:5:doesTagHaveValue:then
+      $2552 = { (responsible $2549) ->
+        $2550 = "You called a tag that already has a value."
+        $2551 = panicking because $2550 ($2534 is at fault)
+      }
+      # Examples:iterator:23:print:5:doesTagHaveValue:else
+      $2556 = { (responsible $2553) ->
+        $2554 = "Tags can only be created with one value."
+        $2555 = panicking because $2554 ($2534 is at fault)
+      }
+      $2557 = call $2548 with $2547 $2552 $2556 ($2534 is responsible)
+    }
+    # Examples:iterator:23:print:5:calleeIsTag:else
+    $2590 = { (responsible $2559) ->
+      $2560 = Function
+      $2561 = call $2535 with $2542 $2560 ($2534 is responsible)
+      $2562 = builtinIfElse
+      # Examples:iterator:23:print:5:calleeIsFunction:then
+      $2584 = { (responsible $2563) ->
+        $2564 = call $2536 with $2531 ($2534 is responsible)
+        $2565 = 2
+        $2566 = call $2535 with $2564 $2565 ($2534 is responsible)
+        $2567 = builtinIfElse
+        # Examples:iterator:23:print:5:hasCorrectNumberOfArguments:then
+        $2574 = { (responsible $2568) ->
+          $2569 = Examples:iterator:23:print:5
+          $2570 = trace: start of call of $2531 with $2532 $2533 ($2534 is responsible, code is at $2569)
+          $2571 = call $2531 with $2532 $2533 ($2534 is responsible)
+          $2572 = trace: end of call
+          $2573 = $2571
+        }
+        # Examples:iterator:23:print:5:hasCorrectNumberOfArguments:else
+        $2582 = { (responsible $2575) ->
+          $2576 = "You called a function that expects "
+          $2577 = call $2540 with $2564 ($2534 is responsible)
+          $2578 = " arguments with 2 arguments."
+          $2579 = call $2539 with $2576 $2577 ($2534 is responsible)
+          $2580 = call $2539 with $2579 $2578 ($2534 is responsible)
+          $2581 = panicking because $2580 ($2534 is at fault)
+        }
+        $2583 = call $2567 with $2566 $2574 $2582 ($2534 is responsible)
+      }
+      # Examples:iterator:23:print:5:calleeIsFunction:else
+      $2588 = { (responsible $2585) ->
+        $2586 = "You can only call tags or functions."
+        $2587 = panicking because $2586 ($2534 is at fault)
+      }
+      $2589 = call $2562 with $2561 $2584 $2588 ($2534 is responsible)
+    }
+    $2591 = call $2545 with $2544 $2558 $2590 ($2534 is responsible)
+    $2592 = $2471
+    $2593 = Examples:iterator:23:print:7
+    $2594 = builtinEquals
+    $2595 = builtinGetArgumentCount
+    $2596 = builtinTagHasValue
+    $2597 = builtinTagWithValue
+    $2598 = builtinTextConcatenate
+    $2599 = builtinToDebugText
+    $2600 = builtinTypeOf
+    $2601 = call $2600 with $2591 ($2593 is responsible)
+    $2602 = Tag
+    $2603 = call $2594 with $2601 $2602 ($2593 is responsible)
+    $2604 = builtinIfElse
+    # Examples:iterator:23:print:7:calleeIsTag:then
+    $2616 = { (responsible $2605) ->
+      $2606 = call $2596 with $2591 ($2593 is responsible)
+      $2607 = builtinIfElse
+      # Examples:iterator:23:print:7:doesTagHaveValue:then
+      $2611 = { (responsible $2608) ->
+        $2609 = "You called a tag that already has a value."
+        $2610 = panicking because $2609 ($2593 is at fault)
+      }
+      # Examples:iterator:23:print:7:doesTagHaveValue:else
+      $2614 = { (responsible $2612) ->
+        $2613 = call $2597 with $2591 $2592 ($2593 is responsible)
+      }
+      $2615 = call $2607 with $2606 $2611 $2614 ($2593 is responsible)
+    }
+    # Examples:iterator:23:print:7:calleeIsTag:else
+    $2648 = { (responsible $2617) ->
+      $2618 = Function
+      $2619 = call $2594 with $2601 $2618 ($2593 is responsible)
+      $2620 = builtinIfElse
+      # Examples:iterator:23:print:7:calleeIsFunction:then
+      $2642 = { (responsible $2621) ->
+        $2622 = call $2595 with $2591 ($2593 is responsible)
+        $2623 = 1
+        $2624 = call $2594 with $2622 $2623 ($2593 is responsible)
+        $2625 = builtinIfElse
+        # Examples:iterator:23:print:7:hasCorrectNumberOfArguments:then
+        $2632 = { (responsible $2626) ->
+          $2627 = Examples:iterator:23:print:7
+          $2628 = trace: start of call of $2591 with $2592 ($2593 is responsible, code is at $2627)
+          $2629 = call $2591 with $2592 ($2593 is responsible)
+          $2630 = trace: end of call
+          $2631 = $2629
+        }
+        # Examples:iterator:23:print:7:hasCorrectNumberOfArguments:else
+        $2640 = { (responsible $2633) ->
+          $2634 = "You called a function that expects "
+          $2635 = call $2599 with $2622 ($2593 is responsible)
+          $2636 = " arguments with 1 arguments."
+          $2637 = call $2598 with $2634 $2635 ($2593 is responsible)
+          $2638 = call $2598 with $2637 $2636 ($2593 is responsible)
+          $2639 = panicking because $2638 ($2593 is at fault)
+        }
+        $2641 = call $2625 with $2624 $2632 $2640 ($2593 is responsible)
+      }
+      # Examples:iterator:23:print:7:calleeIsFunction:else
+      $2646 = { (responsible $2643) ->
+        $2644 = "You can only call tags or functions."
+        $2645 = panicking because $2644 ($2593 is at fault)
+      }
+      $2647 = call $2620 with $2619 $2642 $2646 ($2593 is responsible)
+    }
+    $2649 = call $2604 with $2603 $2616 $2648 ($2593 is responsible)
+  }
+  $2651 = $2650
+  $2652 = builtinTextConcatenate
+  $2653 = builtinTypeOf
+  $2654 = Text
+  $2655 = builtinEquals
+  $2656 = builtinIfElse
+  $2657 = builtinToDebugText
+  $2658 = "Hello, world! This is some long text. Bla bla blub."
+  $2659 = builtinStructGet
+  $2660 = StructGet
+  $2661 = Examples:iterator:23:9
+  $2662 = builtinEquals
+  $2663 = builtinGetArgumentCount
+  $2664 = builtinTagHasValue
+  $2665 = builtinTagWithValue
+  $2666 = builtinTextConcatenate
+  $2667 = builtinToDebugText
+  $2668 = builtinTypeOf
+  $2669 = call $2668 with $2659 ($2661 is responsible)
+  $2670 = Tag
+  $2671 = call $2662 with $2669 $2670 ($2661 is responsible)
+  $2672 = builtinIfElse
+  # Examples:iterator:23:9:calleeIsTag:then
+  $2685 = { (responsible $2673) ->
+    $2674 = call $2664 with $2659 ($2661 is responsible)
+    $2675 = builtinIfElse
+    # Examples:iterator:23:9:doesTagHaveValue:then
+    $2679 = { (responsible $2676) ->
+      $2677 = "You called a tag that already has a value."
+      $2678 = panicking because $2677 ($2661 is at fault)
+    }
+    # Examples:iterator:23:9:doesTagHaveValue:else
+    $2683 = { (responsible $2680) ->
+      $2681 = "Tags can only be created with one value."
+      $2682 = panicking because $2681 ($2661 is at fault)
+    }
+    $2684 = call $2675 with $2674 $2679 $2683 ($2661 is responsible)
+  }
+  # Examples:iterator:23:9:calleeIsTag:else
+  $2717 = { (responsible $2686) ->
+    $2687 = Function
+    $2688 = call $2662 with $2669 $2687 ($2661 is responsible)
+    $2689 = builtinIfElse
+    # Examples:iterator:23:9:calleeIsFunction:then
+    $2711 = { (responsible $2690) ->
+      $2691 = call $2663 with $2659 ($2661 is responsible)
+      $2692 = 2
+      $2693 = call $2662 with $2691 $2692 ($2661 is responsible)
+      $2694 = builtinIfElse
+      # Examples:iterator:23:9:hasCorrectNumberOfArguments:then
+      $2701 = { (responsible $2695) ->
+        $2696 = Examples:iterator:23:9
+        $2697 = trace: start of call of $2659 with $112 $2660 ($2661 is responsible, code is at $2696)
+        $2698 = call $2659 with $112 $2660 ($2661 is responsible)
+        $2699 = trace: end of call
+        $2700 = $2698
+      }
+      # Examples:iterator:23:9:hasCorrectNumberOfArguments:else
+      $2709 = { (responsible $2702) ->
+        $2703 = "You called a function that expects "
+        $2704 = call $2667 with $2691 ($2661 is responsible)
+        $2705 = " arguments with 2 arguments."
+        $2706 = call $2666 with $2703 $2704 ($2661 is responsible)
+        $2707 = call $2666 with $2706 $2705 ($2661 is responsible)
+        $2708 = panicking because $2707 ($2661 is at fault)
+      }
+      $2710 = call $2694 with $2693 $2701 $2709 ($2661 is responsible)
+    }
+    # Examples:iterator:23:9:calleeIsFunction:else
+    $2715 = { (responsible $2712) ->
+      $2713 = "You can only call tags or functions."
+      $2714 = panicking because $2713 ($2661 is at fault)
+    }
+    $2716 = call $2689 with $2688 $2711 $2715 ($2661 is responsible)
+  }
+  $2718 = call $2672 with $2671 $2685 $2717 ($2661 is responsible)
+  $2719 = $524
+  $2720 = Characters
+  $2721 = Examples:iterator:23:12
+  $2722 = builtinEquals
+  $2723 = builtinGetArgumentCount
+  $2724 = builtinTagHasValue
+  $2725 = builtinTagWithValue
+  $2726 = builtinTextConcatenate
+  $2727 = builtinToDebugText
+  $2728 = builtinTypeOf
+  $2729 = call $2728 with $2718 ($2721 is responsible)
+  $2730 = Tag
+  $2731 = call $2722 with $2729 $2730 ($2721 is responsible)
+  $2732 = builtinIfElse
+  # Examples:iterator:23:12:calleeIsTag:then
+  $2745 = { (responsible $2733) ->
+    $2734 = call $2724 with $2718 ($2721 is responsible)
+    $2735 = builtinIfElse
+    # Examples:iterator:23:12:doesTagHaveValue:then
+    $2739 = { (responsible $2736) ->
+      $2737 = "You called a tag that already has a value."
+      $2738 = panicking because $2737 ($2721 is at fault)
+    }
+    # Examples:iterator:23:12:doesTagHaveValue:else
+    $2743 = { (responsible $2740) ->
+      $2741 = "Tags can only be created with one value."
+      $2742 = panicking because $2741 ($2721 is at fault)
+    }
+    $2744 = call $2735 with $2734 $2739 $2743 ($2721 is responsible)
+  }
+  # Examples:iterator:23:12:calleeIsTag:else
+  $2777 = { (responsible $2746) ->
+    $2747 = Function
+    $2748 = call $2722 with $2729 $2747 ($2721 is responsible)
+    $2749 = builtinIfElse
+    # Examples:iterator:23:12:calleeIsFunction:then
+    $2771 = { (responsible $2750) ->
+      $2751 = call $2723 with $2718 ($2721 is responsible)
+      $2752 = 2
+      $2753 = call $2722 with $2751 $2752 ($2721 is responsible)
+      $2754 = builtinIfElse
+      # Examples:iterator:23:12:hasCorrectNumberOfArguments:then
+      $2761 = { (responsible $2755) ->
+        $2756 = Examples:iterator:23:12
+        $2757 = trace: start of call of $2718 with $2719 $2720 ($2721 is responsible, code is at $2756)
+        $2758 = call $2718 with $2719 $2720 ($2721 is responsible)
+        $2759 = trace: end of call
+        $2760 = $2758
+      }
+      # Examples:iterator:23:12:hasCorrectNumberOfArguments:else
+      $2769 = { (responsible $2762) ->
+        $2763 = "You called a function that expects "
+        $2764 = call $2727 with $2751 ($2721 is responsible)
+        $2765 = " arguments with 2 arguments."
+        $2766 = call $2726 with $2763 $2764 ($2721 is responsible)
+        $2767 = call $2726 with $2766 $2765 ($2721 is responsible)
+        $2768 = panicking because $2767 ($2721 is at fault)
+      }
+      $2770 = call $2754 with $2753 $2761 $2769 ($2721 is responsible)
+    }
+    # Examples:iterator:23:12:calleeIsFunction:else
+    $2775 = { (responsible $2772) ->
+      $2773 = "You can only call tags or functions."
+      $2774 = panicking because $2773 ($2721 is at fault)
+    }
+    $2776 = call $2749 with $2748 $2771 $2775 ($2721 is responsible)
+  }
+  $2778 = call $2732 with $2731 $2745 $2777 ($2721 is responsible)
+  $2779 = Examples:iterator:23:13
+  $2780 = builtinEquals
+  $2781 = builtinGetArgumentCount
+  $2782 = builtinTagHasValue
+  $2783 = builtinTagWithValue
+  $2784 = builtinTextConcatenate
+  $2785 = builtinToDebugText
+  $2786 = builtinTypeOf
+  $2787 = call $2786 with $2778 ($2779 is responsible)
+  $2788 = Tag
+  $2789 = call $2780 with $2787 $2788 ($2779 is responsible)
+  $2790 = builtinIfElse
+  # Examples:iterator:23:13:calleeIsTag:then
+  $2802 = { (responsible $2791) ->
+    $2792 = call $2782 with $2778 ($2779 is responsible)
+    $2793 = builtinIfElse
+    # Examples:iterator:23:13:doesTagHaveValue:then
+    $2797 = { (responsible $2794) ->
+      $2795 = "You called a tag that already has a value."
+      $2796 = panicking because $2795 ($2779 is at fault)
+    }
+    # Examples:iterator:23:13:doesTagHaveValue:else
+    $2800 = { (responsible $2798) ->
+      $2799 = call $2783 with $2778 $2658 ($2779 is responsible)
+    }
+    $2801 = call $2793 with $2792 $2797 $2800 ($2779 is responsible)
+  }
+  # Examples:iterator:23:13:calleeIsTag:else
+  $2834 = { (responsible $2803) ->
+    $2804 = Function
+    $2805 = call $2780 with $2787 $2804 ($2779 is responsible)
+    $2806 = builtinIfElse
+    # Examples:iterator:23:13:calleeIsFunction:then
+    $2828 = { (responsible $2807) ->
+      $2808 = call $2781 with $2778 ($2779 is responsible)
+      $2809 = 1
+      $2810 = call $2780 with $2808 $2809 ($2779 is responsible)
+      $2811 = builtinIfElse
+      # Examples:iterator:23:13:hasCorrectNumberOfArguments:then
+      $2818 = { (responsible $2812) ->
+        $2813 = Examples:iterator:23:13
+        $2814 = trace: start of call of $2778 with $2658 ($2779 is responsible, code is at $2813)
+        $2815 = call $2778 with $2658 ($2779 is responsible)
+        $2816 = trace: end of call
+        $2817 = $2815
+      }
+      # Examples:iterator:23:13:hasCorrectNumberOfArguments:else
+      $2826 = { (responsible $2819) ->
+        $2820 = "You called a function that expects "
+        $2821 = call $2785 with $2808 ($2779 is responsible)
+        $2822 = " arguments with 1 arguments."
+        $2823 = call $2784 with $2820 $2821 ($2779 is responsible)
+        $2824 = call $2784 with $2823 $2822 ($2779 is responsible)
+        $2825 = panicking because $2824 ($2779 is at fault)
+      }
+      $2827 = call $2811 with $2810 $2818 $2826 ($2779 is responsible)
+    }
+    # Examples:iterator:23:13:calleeIsFunction:else
+    $2832 = { (responsible $2829) ->
+      $2830 = "You can only call tags or functions."
+      $2831 = panicking because $2830 ($2779 is at fault)
+    }
+    $2833 = call $2806 with $2805 $2828 $2832 ($2779 is responsible)
+  }
+  $2835 = call $2790 with $2789 $2802 $2834 ($2779 is responsible)
+  $2836 = builtinStructGet
+  $2837 = StructGet
+  $2838 = Examples:iterator:23:16
+  $2839 = builtinEquals
+  $2840 = builtinGetArgumentCount
+  $2841 = builtinTagHasValue
+  $2842 = builtinTagWithValue
+  $2843 = builtinTextConcatenate
+  $2844 = builtinToDebugText
+  $2845 = builtinTypeOf
+  $2846 = call $2845 with $2836 ($2838 is responsible)
+  $2847 = Tag
+  $2848 = call $2839 with $2846 $2847 ($2838 is responsible)
+  $2849 = builtinIfElse
+  # Examples:iterator:23:16:calleeIsTag:then
+  $2862 = { (responsible $2850) ->
+    $2851 = call $2841 with $2836 ($2838 is responsible)
+    $2852 = builtinIfElse
+    # Examples:iterator:23:16:doesTagHaveValue:then
+    $2856 = { (responsible $2853) ->
+      $2854 = "You called a tag that already has a value."
+      $2855 = panicking because $2854 ($2838 is at fault)
+    }
+    # Examples:iterator:23:16:doesTagHaveValue:else
+    $2860 = { (responsible $2857) ->
+      $2858 = "Tags can only be created with one value."
+      $2859 = panicking because $2858 ($2838 is at fault)
+    }
+    $2861 = call $2852 with $2851 $2856 $2860 ($2838 is responsible)
+  }
+  # Examples:iterator:23:16:calleeIsTag:else
+  $2894 = { (responsible $2863) ->
+    $2864 = Function
+    $2865 = call $2839 with $2846 $2864 ($2838 is responsible)
+    $2866 = builtinIfElse
+    # Examples:iterator:23:16:calleeIsFunction:then
+    $2888 = { (responsible $2867) ->
+      $2868 = call $2840 with $2836 ($2838 is responsible)
+      $2869 = 2
+      $2870 = call $2839 with $2868 $2869 ($2838 is responsible)
+      $2871 = builtinIfElse
+      # Examples:iterator:23:16:hasCorrectNumberOfArguments:then
+      $2878 = { (responsible $2872) ->
+        $2873 = Examples:iterator:23:16
+        $2874 = trace: start of call of $2836 with $112 $2837 ($2838 is responsible, code is at $2873)
+        $2875 = call $2836 with $112 $2837 ($2838 is responsible)
+        $2876 = trace: end of call
+        $2877 = $2875
+      }
+      # Examples:iterator:23:16:hasCorrectNumberOfArguments:else
+      $2886 = { (responsible $2879) ->
+        $2880 = "You called a function that expects "
+        $2881 = call $2844 with $2868 ($2838 is responsible)
+        $2882 = " arguments with 2 arguments."
+        $2883 = call $2843 with $2880 $2881 ($2838 is responsible)
+        $2884 = call $2843 with $2883 $2882 ($2838 is responsible)
+        $2885 = panicking because $2884 ($2838 is at fault)
+      }
+      $2887 = call $2871 with $2870 $2878 $2886 ($2838 is responsible)
+    }
+    # Examples:iterator:23:16:calleeIsFunction:else
+    $2892 = { (responsible $2889) ->
+      $2890 = "You can only call tags or functions."
+      $2891 = panicking because $2890 ($2838 is at fault)
+    }
+    $2893 = call $2866 with $2865 $2888 $2892 ($2838 is responsible)
+  }
+  $2895 = call $2849 with $2848 $2862 $2894 ($2838 is responsible)
+  $2896 = $506
+  $2897 = FromList
+  $2898 = Examples:iterator:23:19
+  $2899 = builtinEquals
+  $2900 = builtinGetArgumentCount
+  $2901 = builtinTagHasValue
+  $2902 = builtinTagWithValue
+  $2903 = builtinTextConcatenate
+  $2904 = builtinToDebugText
+  $2905 = builtinTypeOf
+  $2906 = call $2905 with $2895 ($2898 is responsible)
+  $2907 = Tag
+  $2908 = call $2899 with $2906 $2907 ($2898 is responsible)
+  $2909 = builtinIfElse
+  # Examples:iterator:23:19:calleeIsTag:then
+  $2922 = { (responsible $2910) ->
+    $2911 = call $2901 with $2895 ($2898 is responsible)
+    $2912 = builtinIfElse
+    # Examples:iterator:23:19:doesTagHaveValue:then
+    $2916 = { (responsible $2913) ->
+      $2914 = "You called a tag that already has a value."
+      $2915 = panicking because $2914 ($2898 is at fault)
+    }
+    # Examples:iterator:23:19:doesTagHaveValue:else
+    $2920 = { (responsible $2917) ->
+      $2918 = "Tags can only be created with one value."
+      $2919 = panicking because $2918 ($2898 is at fault)
+    }
+    $2921 = call $2912 with $2911 $2916 $2920 ($2898 is responsible)
+  }
+  # Examples:iterator:23:19:calleeIsTag:else
+  $2954 = { (responsible $2923) ->
+    $2924 = Function
+    $2925 = call $2899 with $2906 $2924 ($2898 is responsible)
+    $2926 = builtinIfElse
+    # Examples:iterator:23:19:calleeIsFunction:then
+    $2948 = { (responsible $2927) ->
+      $2928 = call $2900 with $2895 ($2898 is responsible)
+      $2929 = 2
+      $2930 = call $2899 with $2928 $2929 ($2898 is responsible)
+      $2931 = builtinIfElse
+      # Examples:iterator:23:19:hasCorrectNumberOfArguments:then
+      $2938 = { (responsible $2932) ->
+        $2933 = Examples:iterator:23:19
+        $2934 = trace: start of call of $2895 with $2896 $2897 ($2898 is responsible, code is at $2933)
+        $2935 = call $2895 with $2896 $2897 ($2898 is responsible)
+        $2936 = trace: end of call
+        $2937 = $2935
+      }
+      # Examples:iterator:23:19:hasCorrectNumberOfArguments:else
+      $2946 = { (responsible $2939) ->
+        $2940 = "You called a function that expects "
+        $2941 = call $2904 with $2928 ($2898 is responsible)
+        $2942 = " arguments with 2 arguments."
+        $2943 = call $2903 with $2940 $2941 ($2898 is responsible)
+        $2944 = call $2903 with $2943 $2942 ($2898 is responsible)
+        $2945 = panicking because $2944 ($2898 is at fault)
+      }
+      $2947 = call $2931 with $2930 $2938 $2946 ($2898 is responsible)
+    }
+    # Examples:iterator:23:19:calleeIsFunction:else
+    $2952 = { (responsible $2949) ->
+      $2950 = "You can only call tags or functions."
+      $2951 = panicking because $2950 ($2898 is at fault)
+    }
+    $2953 = call $2926 with $2925 $2948 $2952 ($2898 is responsible)
+  }
+  $2955 = call $2909 with $2908 $2922 $2954 ($2898 is responsible)
+  $2956 = Examples:iterator:23:20
+  $2957 = builtinEquals
+  $2958 = builtinGetArgumentCount
+  $2959 = builtinTagHasValue
+  $2960 = builtinTagWithValue
+  $2961 = builtinTextConcatenate
+  $2962 = builtinToDebugText
+  $2963 = builtinTypeOf
+  $2964 = call $2963 with $2955 ($2956 is responsible)
+  $2965 = Tag
+  $2966 = call $2957 with $2964 $2965 ($2956 is responsible)
+  $2967 = builtinIfElse
+  # Examples:iterator:23:20:calleeIsTag:then
+  $2979 = { (responsible $2968) ->
+    $2969 = call $2959 with $2955 ($2956 is responsible)
+    $2970 = builtinIfElse
+    # Examples:iterator:23:20:doesTagHaveValue:then
+    $2974 = { (responsible $2971) ->
+      $2972 = "You called a tag that already has a value."
+      $2973 = panicking because $2972 ($2956 is at fault)
+    }
+    # Examples:iterator:23:20:doesTagHaveValue:else
+    $2977 = { (responsible $2975) ->
+      $2976 = call $2960 with $2955 $2835 ($2956 is responsible)
+    }
+    $2978 = call $2970 with $2969 $2974 $2977 ($2956 is responsible)
+  }
+  # Examples:iterator:23:20:calleeIsTag:else
+  $3011 = { (responsible $2980) ->
+    $2981 = Function
+    $2982 = call $2957 with $2964 $2981 ($2956 is responsible)
+    $2983 = builtinIfElse
+    # Examples:iterator:23:20:calleeIsFunction:then
+    $3005 = { (responsible $2984) ->
+      $2985 = call $2958 with $2955 ($2956 is responsible)
+      $2986 = 1
+      $2987 = call $2957 with $2985 $2986 ($2956 is responsible)
+      $2988 = builtinIfElse
+      # Examples:iterator:23:20:hasCorrectNumberOfArguments:then
+      $2995 = { (responsible $2989) ->
+        $2990 = Examples:iterator:23:20
+        $2991 = trace: start of call of $2955 with $2835 ($2956 is responsible, code is at $2990)
+        $2992 = call $2955 with $2835 ($2956 is responsible)
+        $2993 = trace: end of call
+        $2994 = $2992
+      }
+      # Examples:iterator:23:20:hasCorrectNumberOfArguments:else
+      $3003 = { (responsible $2996) ->
+        $2997 = "You called a function that expects "
+        $2998 = call $2962 with $2985 ($2956 is responsible)
+        $2999 = " arguments with 1 arguments."
+        $3000 = call $2961 with $2997 $2998 ($2956 is responsible)
+        $3001 = call $2961 with $3000 $2999 ($2956 is responsible)
+        $3002 = panicking because $3001 ($2956 is at fault)
+      }
+      $3004 = call $2988 with $2987 $2995 $3003 ($2956 is responsible)
+    }
+    # Examples:iterator:23:20:calleeIsFunction:else
+    $3009 = { (responsible $3006) ->
+      $3007 = "You can only call tags or functions."
+      $3008 = panicking because $3007 ($2956 is at fault)
+    }
+    $3010 = call $2983 with $2982 $3005 $3009 ($2956 is responsible)
+  }
+  $3012 = call $2967 with $2966 $2979 $3011 ($2956 is responsible)
+  $3013 = builtinStructGet
+  $3014 = StructGet
+  $3015 = Examples:iterator:23:23
+  $3016 = builtinEquals
+  $3017 = builtinGetArgumentCount
+  $3018 = builtinTagHasValue
+  $3019 = builtinTagWithValue
+  $3020 = builtinTextConcatenate
+  $3021 = builtinToDebugText
+  $3022 = builtinTypeOf
+  $3023 = call $3022 with $3013 ($3015 is responsible)
+  $3024 = Tag
+  $3025 = call $3016 with $3023 $3024 ($3015 is responsible)
+  $3026 = builtinIfElse
+  # Examples:iterator:23:23:calleeIsTag:then
+  $3039 = { (responsible $3027) ->
+    $3028 = call $3018 with $3013 ($3015 is responsible)
+    $3029 = builtinIfElse
+    # Examples:iterator:23:23:doesTagHaveValue:then
+    $3033 = { (responsible $3030) ->
+      $3031 = "You called a tag that already has a value."
+      $3032 = panicking because $3031 ($3015 is at fault)
+    }
+    # Examples:iterator:23:23:doesTagHaveValue:else
+    $3037 = { (responsible $3034) ->
+      $3035 = "Tags can only be created with one value."
+      $3036 = panicking because $3035 ($3015 is at fault)
+    }
+    $3038 = call $3029 with $3028 $3033 $3037 ($3015 is responsible)
+  }
+  # Examples:iterator:23:23:calleeIsTag:else
+  $3071 = { (responsible $3040) ->
+    $3041 = Function
+    $3042 = call $3016 with $3023 $3041 ($3015 is responsible)
+    $3043 = builtinIfElse
+    # Examples:iterator:23:23:calleeIsFunction:then
+    $3065 = { (responsible $3044) ->
+      $3045 = call $3017 with $3013 ($3015 is responsible)
+      $3046 = 2
+      $3047 = call $3016 with $3045 $3046 ($3015 is responsible)
+      $3048 = builtinIfElse
+      # Examples:iterator:23:23:hasCorrectNumberOfArguments:then
+      $3055 = { (responsible $3049) ->
+        $3050 = Examples:iterator:23:23
+        $3051 = trace: start of call of $3013 with $112 $3014 ($3015 is responsible, code is at $3050)
+        $3052 = call $3013 with $112 $3014 ($3015 is responsible)
+        $3053 = trace: end of call
+        $3054 = $3052
+      }
+      # Examples:iterator:23:23:hasCorrectNumberOfArguments:else
+      $3063 = { (responsible $3056) ->
+        $3057 = "You called a function that expects "
+        $3058 = call $3021 with $3045 ($3015 is responsible)
+        $3059 = " arguments with 2 arguments."
+        $3060 = call $3020 with $3057 $3058 ($3015 is responsible)
+        $3061 = call $3020 with $3060 $3059 ($3015 is responsible)
+        $3062 = panicking because $3061 ($3015 is at fault)
+      }
+      $3064 = call $3048 with $3047 $3055 $3063 ($3015 is responsible)
+    }
+    # Examples:iterator:23:23:calleeIsFunction:else
+    $3069 = { (responsible $3066) ->
+      $3067 = "You can only call tags or functions."
+      $3068 = panicking because $3067 ($3015 is at fault)
+    }
+    $3070 = call $3043 with $3042 $3065 $3069 ($3015 is responsible)
+  }
+  $3072 = call $3026 with $3025 $3039 $3071 ($3015 is responsible)
+  $3073 = $506
+  $3074 = ForEach
+  $3075 = Examples:iterator:23:26
+  $3076 = builtinEquals
+  $3077 = builtinGetArgumentCount
+  $3078 = builtinTagHasValue
+  $3079 = builtinTagWithValue
+  $3080 = builtinTextConcatenate
+  $3081 = builtinToDebugText
+  $3082 = builtinTypeOf
+  $3083 = call $3082 with $3072 ($3075 is responsible)
+  $3084 = Tag
+  $3085 = call $3076 with $3083 $3084 ($3075 is responsible)
+  $3086 = builtinIfElse
+  # Examples:iterator:23:26:calleeIsTag:then
+  $3099 = { (responsible $3087) ->
+    $3088 = call $3078 with $3072 ($3075 is responsible)
+    $3089 = builtinIfElse
+    # Examples:iterator:23:26:doesTagHaveValue:then
+    $3093 = { (responsible $3090) ->
+      $3091 = "You called a tag that already has a value."
+      $3092 = panicking because $3091 ($3075 is at fault)
+    }
+    # Examples:iterator:23:26:doesTagHaveValue:else
+    $3097 = { (responsible $3094) ->
+      $3095 = "Tags can only be created with one value."
+      $3096 = panicking because $3095 ($3075 is at fault)
+    }
+    $3098 = call $3089 with $3088 $3093 $3097 ($3075 is responsible)
+  }
+  # Examples:iterator:23:26:calleeIsTag:else
+  $3131 = { (responsible $3100) ->
+    $3101 = Function
+    $3102 = call $3076 with $3083 $3101 ($3075 is responsible)
+    $3103 = builtinIfElse
+    # Examples:iterator:23:26:calleeIsFunction:then
+    $3125 = { (responsible $3104) ->
+      $3105 = call $3077 with $3072 ($3075 is responsible)
+      $3106 = 2
+      $3107 = call $3076 with $3105 $3106 ($3075 is responsible)
+      $3108 = builtinIfElse
+      # Examples:iterator:23:26:hasCorrectNumberOfArguments:then
+      $3115 = { (responsible $3109) ->
+        $3110 = Examples:iterator:23:26
+        $3111 = trace: start of call of $3072 with $3073 $3074 ($3075 is responsible, code is at $3110)
+        $3112 = call $3072 with $3073 $3074 ($3075 is responsible)
+        $3113 = trace: end of call
+        $3114 = $3112
+      }
+      # Examples:iterator:23:26:hasCorrectNumberOfArguments:else
+      $3123 = { (responsible $3116) ->
+        $3117 = "You called a function that expects "
+        $3118 = call $3081 with $3105 ($3075 is responsible)
+        $3119 = " arguments with 2 arguments."
+        $3120 = call $3080 with $3117 $3118 ($3075 is responsible)
+        $3121 = call $3080 with $3120 $3119 ($3075 is responsible)
+        $3122 = panicking because $3121 ($3075 is at fault)
+      }
+      $3124 = call $3108 with $3107 $3115 $3123 ($3075 is responsible)
+    }
+    # Examples:iterator:23:26:calleeIsFunction:else
+    $3129 = { (responsible $3126) ->
+      $3127 = "You can only call tags or functions."
+      $3128 = panicking because $3127 ($3075 is at fault)
+    }
+    $3130 = call $3103 with $3102 $3125 $3129 ($3075 is responsible)
+  }
+  $3132 = call $3086 with $3085 $3099 $3131 ($3075 is responsible)
+  # Examples:iterator:23:27
+  $3194 = { $3134 (+ responsible $3133) ->
+    $3135 = $2651
+    $3136 = $3134
+    $3137 = Examples:iterator:23:27:2
+    $3138 = builtinEquals
+    $3139 = builtinGetArgumentCount
+    $3140 = builtinTagHasValue
+    $3141 = builtinTagWithValue
+    $3142 = builtinTextConcatenate
+    $3143 = builtinToDebugText
+    $3144 = builtinTypeOf
+    $3145 = call $3144 with $3135 ($3137 is responsible)
+    $3146 = Tag
+    $3147 = call $3138 with $3145 $3146 ($3137 is responsible)
+    $3148 = builtinIfElse
+    # Examples:iterator:23:27:2:calleeIsTag:then
+    $3160 = { (responsible $3149) ->
+      $3150 = call $3140 with $3135 ($3137 is responsible)
+      $3151 = builtinIfElse
+      # Examples:iterator:23:27:2:doesTagHaveValue:then
+      $3155 = { (responsible $3152) ->
+        $3153 = "You called a tag that already has a value."
+        $3154 = panicking because $3153 ($3137 is at fault)
+      }
+      # Examples:iterator:23:27:2:doesTagHaveValue:else
+      $3158 = { (responsible $3156) ->
+        $3157 = call $3141 with $3135 $3136 ($3137 is responsible)
+      }
+      $3159 = call $3151 with $3150 $3155 $3158 ($3137 is responsible)
+    }
+    # Examples:iterator:23:27:2:calleeIsTag:else
+    $3192 = { (responsible $3161) ->
+      $3162 = Function
+      $3163 = call $3138 with $3145 $3162 ($3137 is responsible)
+      $3164 = builtinIfElse
+      # Examples:iterator:23:27:2:calleeIsFunction:then
+      $3186 = { (responsible $3165) ->
+        $3166 = call $3139 with $3135 ($3137 is responsible)
+        $3167 = 1
+        $3168 = call $3138 with $3166 $3167 ($3137 is responsible)
+        $3169 = builtinIfElse
+        # Examples:iterator:23:27:2:hasCorrectNumberOfArguments:then
+        $3176 = { (responsible $3170) ->
+          $3171 = Examples:iterator:23:27:2
+          $3172 = trace: start of call of $3135 with $3136 ($3137 is responsible, code is at $3171)
+          $3173 = call $3135 with $3136 ($3137 is responsible)
+          $3174 = trace: end of call
+          $3175 = $3173
+        }
+        # Examples:iterator:23:27:2:hasCorrectNumberOfArguments:else
+        $3184 = { (responsible $3177) ->
+          $3178 = "You called a function that expects "
+          $3179 = call $3143 with $3166 ($3137 is responsible)
+          $3180 = " arguments with 1 arguments."
+          $3181 = call $3142 with $3178 $3179 ($3137 is responsible)
+          $3182 = call $3142 with $3181 $3180 ($3137 is responsible)
+          $3183 = panicking because $3182 ($3137 is at fault)
+        }
+        $3185 = call $3169 with $3168 $3176 $3184 ($3137 is responsible)
+      }
+      # Examples:iterator:23:27:2:calleeIsFunction:else
+      $3190 = { (responsible $3187) ->
+        $3188 = "You can only call tags or functions."
+        $3189 = panicking because $3188 ($3137 is at fault)
+      }
+      $3191 = call $3164 with $3163 $3186 $3190 ($3137 is responsible)
+    }
+    $3193 = call $3148 with $3147 $3160 $3192 ($3137 is responsible)
+  }
+  $3195 = Examples:iterator:23:28
+  $3196 = builtinEquals
+  $3197 = builtinGetArgumentCount
+  $3198 = builtinTagHasValue
+  $3199 = builtinTagWithValue
+  $3200 = builtinTextConcatenate
+  $3201 = builtinToDebugText
+  $3202 = builtinTypeOf
+  $3203 = call $3202 with $3132 ($3195 is responsible)
+  $3204 = Tag
+  $3205 = call $3196 with $3203 $3204 ($3195 is responsible)
+  $3206 = builtinIfElse
+  # Examples:iterator:23:28:calleeIsTag:then
+  $3219 = { (responsible $3207) ->
+    $3208 = call $3198 with $3132 ($3195 is responsible)
+    $3209 = builtinIfElse
+    # Examples:iterator:23:28:doesTagHaveValue:then
+    $3213 = { (responsible $3210) ->
+      $3211 = "You called a tag that already has a value."
+      $3212 = panicking because $3211 ($3195 is at fault)
+    }
+    # Examples:iterator:23:28:doesTagHaveValue:else
+    $3217 = { (responsible $3214) ->
+      $3215 = "Tags can only be created with one value."
+      $3216 = panicking because $3215 ($3195 is at fault)
+    }
+    $3218 = call $3209 with $3208 $3213 $3217 ($3195 is responsible)
+  }
+  # Examples:iterator:23:28:calleeIsTag:else
+  $3251 = { (responsible $3220) ->
+    $3221 = Function
+    $3222 = call $3196 with $3203 $3221 ($3195 is responsible)
+    $3223 = builtinIfElse
+    # Examples:iterator:23:28:calleeIsFunction:then
+    $3245 = { (responsible $3224) ->
+      $3225 = call $3197 with $3132 ($3195 is responsible)
+      $3226 = 2
+      $3227 = call $3196 with $3225 $3226 ($3195 is responsible)
+      $3228 = builtinIfElse
+      # Examples:iterator:23:28:hasCorrectNumberOfArguments:then
+      $3235 = { (responsible $3229) ->
+        $3230 = Examples:iterator:23:28
+        $3231 = trace: start of call of $3132 with $3012 $3194 ($3195 is responsible, code is at $3230)
+        $3232 = call $3132 with $3012 $3194 ($3195 is responsible)
+        $3233 = trace: end of call
+        $3234 = $3232
+      }
+      # Examples:iterator:23:28:hasCorrectNumberOfArguments:else
+      $3243 = { (responsible $3236) ->
+        $3237 = "You called a function that expects "
+        $3238 = call $3201 with $3225 ($3195 is responsible)
+        $3239 = " arguments with 2 arguments."
+        $3240 = call $3200 with $3237 $3238 ($3195 is responsible)
+        $3241 = call $3200 with $3240 $3239 ($3195 is responsible)
+        $3242 = panicking because $3241 ($3195 is at fault)
+      }
+      $3244 = call $3228 with $3227 $3235 $3243 ($3195 is responsible)
+    }
+    # Examples:iterator:23:28:calleeIsFunction:else
+    $3249 = { (responsible $3246) ->
+      $3247 = "You can only call tags or functions."
+      $3248 = panicking because $3247 ($3195 is at fault)
+    }
+    $3250 = call $3223 with $3222 $3245 $3249 ($3195 is responsible)
+  }
+  $3252 = call $3206 with $3205 $3219 $3251 ($3195 is responsible)
+  $3253 = $3252
+  $3254 = $3253
+  $3255 = Nothing
+}
+$3257 = $3256
+$3258 = $3257
+$3259 = Nothing
+$3260 = Main
+$3261 = [$3260: $3258]
+$3262 = builtinStructHasKey
+$3263 = Main
+$3264 = call $3262 with $3261 $3263 ($50 is responsible)
+$3265 = "The module doesn't export a main function."
+$3266 = builtinIfElse
+# Examples:iterator:then
+$3269 = { (responsible $3267) ->
+  $3268 = Nothing
+}
+# Examples:iterator:else
+$3272 = { (responsible $3270) ->
+  $3271 = panicking because $3265 ($50 is at fault)
+}
+$3273 = call $3266 with $3264 $3269 $3272 ($50 is responsible)
+$3274 = builtinStructGet
+$3275 = call $3274 with $3261 $3263 ($50 is responsible)
+$3276 = builtinTypeOf
+$3277 = call $3276 with $3275 ($50 is responsible)
+$3278 = builtinEquals
+$3279 = Function
+$3280 = call $3278 with $3277 $3279 ($50 is responsible)
+$3281 = "The exported main value is not a function."
+$3282 = builtinIfElse
+# Examples:iterator:then
+$3285 = { (responsible $3283) ->
+  $3284 = Nothing
+}
+# Examples:iterator:else
+$3288 = { (responsible $3286) ->
+  $3287 = panicking because $3281 ($50 is at fault)
+}
+$3289 = call $3282 with $3280 $3285 $3288 ($50 is responsible)
+$3290 = builtinGetArgumentCount
+$3291 = call $3290 with $3275 ($50 is responsible)
+$3292 = 1
+$3293 = call $3278 with $3291 $3292 ($50 is responsible)
+$3294 = "The exported main function doesn't accept exactly one parameter."
+$3295 = builtinIfElse
+# Examples:iterator:then
+$3298 = { (responsible $3296) ->
+  $3297 = Nothing
+}
+# Examples:iterator:else
+$3301 = { (responsible $3299) ->
+  $3300 = panicking because $3294 ($50 is at fault)
+}
+$3302 = call $3295 with $3293 $3298 $3301 ($50 is responsible)
+$3303 = $3275
