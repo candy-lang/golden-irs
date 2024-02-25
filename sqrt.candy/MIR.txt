@@ -1,0 +1,4682 @@
+# MIR for module Examples:sqrt
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? Only for panic traces
+# • Include tracing of evaluated expressions? No
+
+# anonymous:$generated::needs
+$49 = { $2 $3 $4 (+ responsible $1) ->
+  $5 = anonymous:$generated::needs
+  $6 = builtinEquals
+  $7 = Nothing
+  $8 = True
+  $9 = False
+  $10 = call $6 with $2 $8 ($5 is responsible)
+  $11 = builtinIfElse
+  # anonymous:$generated::needs:isConditionTrue:then
+  $14 = { (responsible $12) ->
+    $13 = $8
+  }
+  # anonymous:$generated::needs:isConditionTrue:else
+  $17 = { (responsible $15) ->
+    $16 = call $6 with $2 $9 ($5 is responsible)
+  }
+  $18 = call $11 with $10 $14 $17 ($5 is responsible)
+  $19 = builtinIfElse
+  # anonymous:$generated::needs:isConditionBool:then
+  $22 = { (responsible $20) ->
+    $21 = $7
+  }
+  # anonymous:$generated::needs:isConditionBool:else
+  $26 = { (responsible $23) ->
+    $24 = "The `condition` must be either `True` or `False`."
+    $25 = panicking because $24 ($1 is at fault)
+  }
+  $27 = call $19 with $18 $22 $26 ($5 is responsible)
+  $28 = builtinTypeOf
+  $29 = call $28 with $3 ($1 is responsible)
+  $30 = Text
+  $31 = call $6 with $29 $30 ($1 is responsible)
+  $32 = builtinIfElse
+  # anonymous:$generated::needs:isReasonText:then
+  $35 = { (responsible $33) ->
+    $34 = $7
+  }
+  # anonymous:$generated::needs:isReasonText:else
+  $39 = { (responsible $36) ->
+    $37 = "The `reason` must be a text."
+    $38 = panicking because $37 ($1 is at fault)
+  }
+  $40 = call $32 with $31 $35 $39 ($5 is responsible)
+  $41 = builtinIfElse
+  # anonymous:$generated::needs:condition:then
+  $44 = { (responsible $42) ->
+    $43 = $7
+  }
+  # anonymous:$generated::needs:condition:else
+  $47 = { (responsible $45) ->
+    $46 = panicking because $3 ($4 is at fault)
+  }
+  $48 = call $41 with $2 $44 $47 ($5 is responsible)
+}
+$50 = Examples:sqrt:
+# Examples:sqrt:use
+$54 = { $52 (+ responsible $51) ->
+  $53 = use $52 (relative to Examples:sqrt; $51 is responsible)
+}
+$55 = "Builtins"
+$56 = Examples:sqrt:1
+$57 = builtinEquals
+$58 = builtinGetArgumentCount
+$59 = builtinTagHasValue
+$60 = builtinTagWithValue
+$61 = builtinTextConcatenate
+$62 = builtinToDebugText
+$63 = builtinTypeOf
+$64 = call $63 with $54 ($56 is responsible)
+$65 = Tag
+$66 = call $57 with $64 $65 ($56 is responsible)
+$67 = builtinIfElse
+# Examples:sqrt:1:calleeIsTag:then
+$79 = { (responsible $68) ->
+  $69 = call $59 with $54 ($56 is responsible)
+  $70 = builtinIfElse
+  # Examples:sqrt:1:doesTagHaveValue:then
+  $74 = { (responsible $71) ->
+    $72 = "You called a tag that already has a value."
+    $73 = panicking because $72 ($56 is at fault)
+  }
+  # Examples:sqrt:1:doesTagHaveValue:else
+  $77 = { (responsible $75) ->
+    $76 = call $60 with $54 $55 ($56 is responsible)
+  }
+  $78 = call $70 with $69 $74 $77 ($56 is responsible)
+}
+# Examples:sqrt:1:calleeIsTag:else
+$111 = { (responsible $80) ->
+  $81 = Function
+  $82 = call $57 with $64 $81 ($56 is responsible)
+  $83 = builtinIfElse
+  # Examples:sqrt:1:calleeIsFunction:then
+  $105 = { (responsible $84) ->
+    $85 = call $58 with $54 ($56 is responsible)
+    $86 = 1
+    $87 = call $57 with $85 $86 ($56 is responsible)
+    $88 = builtinIfElse
+    # Examples:sqrt:1:hasCorrectNumberOfArguments:then
+    $95 = { (responsible $89) ->
+      $90 = Examples:sqrt:1
+      $91 = trace: start of call of $54 with $55 ($56 is responsible, code is at $90)
+      $92 = call $54 with $55 ($56 is responsible)
+      $93 = trace: end of call
+      $94 = $92
+    }
+    # Examples:sqrt:1:hasCorrectNumberOfArguments:else
+    $103 = { (responsible $96) ->
+      $97 = "You called a function that expects "
+      $98 = call $62 with $85 ($56 is responsible)
+      $99 = " arguments with 1 arguments."
+      $100 = call $61 with $97 $98 ($56 is responsible)
+      $101 = call $61 with $100 $99 ($56 is responsible)
+      $102 = panicking because $101 ($56 is at fault)
+    }
+    $104 = call $88 with $87 $95 $103 ($56 is responsible)
+  }
+  # Examples:sqrt:1:calleeIsFunction:else
+  $109 = { (responsible $106) ->
+    $107 = "You can only call tags or functions."
+    $108 = panicking because $107 ($56 is at fault)
+  }
+  $110 = call $83 with $82 $105 $109 ($56 is responsible)
+}
+$112 = call $67 with $66 $79 $111 ($56 is responsible)
+$113 = $54
+$114 = builtinTextConcatenate
+$115 = builtinTypeOf
+$116 = Text
+$117 = builtinEquals
+$118 = builtinIfElse
+$119 = builtinToDebugText
+$120 = "Builtins"
+$121 = Examples:sqrt:10
+$122 = builtinEquals
+$123 = builtinGetArgumentCount
+$124 = builtinTagHasValue
+$125 = builtinTagWithValue
+$126 = builtinTextConcatenate
+$127 = builtinToDebugText
+$128 = builtinTypeOf
+$129 = call $128 with $113 ($121 is responsible)
+$130 = Tag
+$131 = call $122 with $129 $130 ($121 is responsible)
+$132 = builtinIfElse
+# Examples:sqrt:10:calleeIsTag:then
+$144 = { (responsible $133) ->
+  $134 = call $124 with $113 ($121 is responsible)
+  $135 = builtinIfElse
+  # Examples:sqrt:10:doesTagHaveValue:then
+  $139 = { (responsible $136) ->
+    $137 = "You called a tag that already has a value."
+    $138 = panicking because $137 ($121 is at fault)
+  }
+  # Examples:sqrt:10:doesTagHaveValue:else
+  $142 = { (responsible $140) ->
+    $141 = call $125 with $113 $120 ($121 is responsible)
+  }
+  $143 = call $135 with $134 $139 $142 ($121 is responsible)
+}
+# Examples:sqrt:10:calleeIsTag:else
+$176 = { (responsible $145) ->
+  $146 = Function
+  $147 = call $122 with $129 $146 ($121 is responsible)
+  $148 = builtinIfElse
+  # Examples:sqrt:10:calleeIsFunction:then
+  $170 = { (responsible $149) ->
+    $150 = call $123 with $113 ($121 is responsible)
+    $151 = 1
+    $152 = call $122 with $150 $151 ($121 is responsible)
+    $153 = builtinIfElse
+    # Examples:sqrt:10:hasCorrectNumberOfArguments:then
+    $160 = { (responsible $154) ->
+      $155 = Examples:sqrt:10
+      $156 = trace: start of call of $113 with $120 ($121 is responsible, code is at $155)
+      $157 = call $113 with $120 ($121 is responsible)
+      $158 = trace: end of call
+      $159 = $157
+    }
+    # Examples:sqrt:10:hasCorrectNumberOfArguments:else
+    $168 = { (responsible $161) ->
+      $162 = "You called a function that expects "
+      $163 = call $127 with $150 ($121 is responsible)
+      $164 = " arguments with 1 arguments."
+      $165 = call $126 with $162 $163 ($121 is responsible)
+      $166 = call $126 with $165 $164 ($121 is responsible)
+      $167 = panicking because $166 ($121 is at fault)
+    }
+    $169 = call $153 with $152 $160 $168 ($121 is responsible)
+  }
+  # Examples:sqrt:10:calleeIsFunction:else
+  $174 = { (responsible $171) ->
+    $172 = "You can only call tags or functions."
+    $173 = panicking because $172 ($121 is at fault)
+  }
+  $175 = call $148 with $147 $170 $174 ($121 is responsible)
+}
+$177 = call $132 with $131 $144 $176 ($121 is responsible)
+$178 = $177
+$179 = $178
+$180 = Nothing
+$181 = $54
+$182 = builtinTextConcatenate
+$183 = builtinTypeOf
+$184 = Text
+$185 = builtinEquals
+$186 = builtinIfElse
+$187 = builtinToDebugText
+$188 = "Core"
+$189 = Examples:sqrt:20
+$190 = builtinEquals
+$191 = builtinGetArgumentCount
+$192 = builtinTagHasValue
+$193 = builtinTagWithValue
+$194 = builtinTextConcatenate
+$195 = builtinToDebugText
+$196 = builtinTypeOf
+$197 = call $196 with $181 ($189 is responsible)
+$198 = Tag
+$199 = call $190 with $197 $198 ($189 is responsible)
+$200 = builtinIfElse
+# Examples:sqrt:20:calleeIsTag:then
+$212 = { (responsible $201) ->
+  $202 = call $192 with $181 ($189 is responsible)
+  $203 = builtinIfElse
+  # Examples:sqrt:20:doesTagHaveValue:then
+  $207 = { (responsible $204) ->
+    $205 = "You called a tag that already has a value."
+    $206 = panicking because $205 ($189 is at fault)
+  }
+  # Examples:sqrt:20:doesTagHaveValue:else
+  $210 = { (responsible $208) ->
+    $209 = call $193 with $181 $188 ($189 is responsible)
+  }
+  $211 = call $203 with $202 $207 $210 ($189 is responsible)
+}
+# Examples:sqrt:20:calleeIsTag:else
+$244 = { (responsible $213) ->
+  $214 = Function
+  $215 = call $190 with $197 $214 ($189 is responsible)
+  $216 = builtinIfElse
+  # Examples:sqrt:20:calleeIsFunction:then
+  $238 = { (responsible $217) ->
+    $218 = call $191 with $181 ($189 is responsible)
+    $219 = 1
+    $220 = call $190 with $218 $219 ($189 is responsible)
+    $221 = builtinIfElse
+    # Examples:sqrt:20:hasCorrectNumberOfArguments:then
+    $228 = { (responsible $222) ->
+      $223 = Examples:sqrt:20
+      $224 = trace: start of call of $181 with $188 ($189 is responsible, code is at $223)
+      $225 = call $181 with $188 ($189 is responsible)
+      $226 = trace: end of call
+      $227 = $225
+    }
+    # Examples:sqrt:20:hasCorrectNumberOfArguments:else
+    $236 = { (responsible $229) ->
+      $230 = "You called a function that expects "
+      $231 = call $195 with $218 ($189 is responsible)
+      $232 = " arguments with 1 arguments."
+      $233 = call $194 with $230 $231 ($189 is responsible)
+      $234 = call $194 with $233 $232 ($189 is responsible)
+      $235 = panicking because $234 ($189 is at fault)
+    }
+    $237 = call $221 with $220 $228 $236 ($189 is responsible)
+  }
+  # Examples:sqrt:20:calleeIsFunction:else
+  $242 = { (responsible $239) ->
+    $240 = "You can only call tags or functions."
+    $241 = panicking because $240 ($189 is at fault)
+  }
+  $243 = call $216 with $215 $238 $242 ($189 is responsible)
+}
+$245 = call $200 with $199 $212 $244 ($189 is responsible)
+$246 = Examples:sqrt:21
+$247 = Match
+$248 = NoMatch
+$249 = Struct
+$250 = builtinTypeOf
+$251 = call $250 with $245 ($246 is responsible)
+$252 = builtinEquals
+$253 = call $252 with $249 $251 ($246 is responsible)
+$254 = builtinIfElse
+# Examples:sqrt:21:equals:then
+$405 = { (responsible $255) ->
+  $256 = builtinStructHasKey
+  $257 = builtinStructGet
+  $258 = Equals
+  $259 = call $256 with $245 $258 ($246 is responsible)
+  $260 = builtinIfElse
+  # Examples:sqrt:21:hasKey:then
+  $265 = { (responsible $261) ->
+    $262 = call $257 with $245 $258 ($246 is responsible)
+    $263 = ($262,)
+    $264 = call $247 with $263 ($246 is responsible)
+  }
+  # Examples:sqrt:21:hasKey:else
+  $268 = { (responsible $266) ->
+    $267 = $248
+  }
+  $269 = call $260 with $259 $265 $268 ($246 is responsible)
+  $270 = builtinTagWithoutValue
+  $271 = call $270 with $269 ($246 is responsible)
+  $272 = builtinEquals
+  $273 = Match
+  $274 = call $272 with $271 $273 ($246 is responsible)
+  $275 = builtinIfElse
+  # Examples:sqrt:21:isMatch:then
+  $400 = { (responsible $276) ->
+    $277 = builtinTagGetValue
+    $278 = call $277 with $269 ($246 is responsible)
+    $279 = builtinListGet
+    $280 = 0
+    $281 = call $279 with $278 $280 ($246 is responsible)
+    $282 = FixedDecimal
+    $283 = call $256 with $245 $282 ($246 is responsible)
+    $284 = builtinIfElse
+    # Examples:sqrt:21:hasKey:then
+    $289 = { (responsible $285) ->
+      $286 = call $257 with $245 $282 ($246 is responsible)
+      $287 = ($286,)
+      $288 = call $247 with $287 ($246 is responsible)
+    }
+    # Examples:sqrt:21:hasKey:else
+    $292 = { (responsible $290) ->
+      $291 = $248
+    }
+    $293 = call $284 with $283 $289 $292 ($246 is responsible)
+    $294 = builtinTagWithoutValue
+    $295 = call $294 with $293 ($246 is responsible)
+    $296 = builtinEquals
+    $297 = Match
+    $298 = call $296 with $295 $297 ($246 is responsible)
+    $299 = builtinIfElse
+    # Examples:sqrt:21:isMatch:then
+    $395 = { (responsible $300) ->
+      $301 = builtinTagGetValue
+      $302 = call $301 with $293 ($246 is responsible)
+      $303 = builtinListGet
+      $304 = 0
+      $305 = call $303 with $302 $304 ($246 is responsible)
+      $306 = IfElse
+      $307 = call $256 with $245 $306 ($246 is responsible)
+      $308 = builtinIfElse
+      # Examples:sqrt:21:hasKey:then
+      $313 = { (responsible $309) ->
+        $310 = call $257 with $245 $306 ($246 is responsible)
+        $311 = ($310,)
+        $312 = call $247 with $311 ($246 is responsible)
+      }
+      # Examples:sqrt:21:hasKey:else
+      $316 = { (responsible $314) ->
+        $315 = $248
+      }
+      $317 = call $308 with $307 $313 $316 ($246 is responsible)
+      $318 = builtinTagWithoutValue
+      $319 = call $318 with $317 ($246 is responsible)
+      $320 = builtinEquals
+      $321 = Match
+      $322 = call $320 with $319 $321 ($246 is responsible)
+      $323 = builtinIfElse
+      # Examples:sqrt:21:isMatch:then
+      $390 = { (responsible $324) ->
+        $325 = builtinTagGetValue
+        $326 = call $325 with $317 ($246 is responsible)
+        $327 = builtinListGet
+        $328 = 0
+        $329 = call $327 with $326 $328 ($246 is responsible)
+        $330 = Int
+        $331 = call $256 with $245 $330 ($246 is responsible)
+        $332 = builtinIfElse
+        # Examples:sqrt:21:hasKey:then
+        $337 = { (responsible $333) ->
+          $334 = call $257 with $245 $330 ($246 is responsible)
+          $335 = ($334,)
+          $336 = call $247 with $335 ($246 is responsible)
+        }
+        # Examples:sqrt:21:hasKey:else
+        $340 = { (responsible $338) ->
+          $339 = $248
+        }
+        $341 = call $332 with $331 $337 $340 ($246 is responsible)
+        $342 = builtinTagWithoutValue
+        $343 = call $342 with $341 ($246 is responsible)
+        $344 = builtinEquals
+        $345 = Match
+        $346 = call $344 with $343 $345 ($246 is responsible)
+        $347 = builtinIfElse
+        # Examples:sqrt:21:isMatch:then
+        $385 = { (responsible $348) ->
+          $349 = builtinTagGetValue
+          $350 = call $349 with $341 ($246 is responsible)
+          $351 = builtinListGet
+          $352 = 0
+          $353 = call $351 with $350 $352 ($246 is responsible)
+          $354 = Recursive
+          $355 = call $256 with $245 $354 ($246 is responsible)
+          $356 = builtinIfElse
+          # Examples:sqrt:21:hasKey:then
+          $361 = { (responsible $357) ->
+            $358 = call $257 with $245 $354 ($246 is responsible)
+            $359 = ($358,)
+            $360 = call $247 with $359 ($246 is responsible)
+          }
+          # Examples:sqrt:21:hasKey:else
+          $364 = { (responsible $362) ->
+            $363 = $248
+          }
+          $365 = call $356 with $355 $361 $364 ($246 is responsible)
+          $366 = builtinTagWithoutValue
+          $367 = call $366 with $365 ($246 is responsible)
+          $368 = builtinEquals
+          $369 = Match
+          $370 = call $368 with $367 $369 ($246 is responsible)
+          $371 = builtinIfElse
+          # Examples:sqrt:21:isMatch:then
+          $380 = { (responsible $372) ->
+            $373 = builtinTagGetValue
+            $374 = call $373 with $365 ($246 is responsible)
+            $375 = builtinListGet
+            $376 = 0
+            $377 = call $375 with $374 $376 ($246 is responsible)
+            $378 = ($281, $305, $329, $353, $377)
+            $379 = call $247 with $378 ($246 is responsible)
+          }
+          # Examples:sqrt:21:isMatch:else
+          $383 = { (responsible $381) ->
+            $382 = $365
+          }
+          $384 = call $371 with $370 $380 $383 ($246 is responsible)
+        }
+        # Examples:sqrt:21:isMatch:else
+        $388 = { (responsible $386) ->
+          $387 = $341
+        }
+        $389 = call $347 with $346 $385 $388 ($246 is responsible)
+      }
+      # Examples:sqrt:21:isMatch:else
+      $393 = { (responsible $391) ->
+        $392 = $317
+      }
+      $394 = call $323 with $322 $390 $393 ($246 is responsible)
+    }
+    # Examples:sqrt:21:isMatch:else
+    $398 = { (responsible $396) ->
+      $397 = $293
+    }
+    $399 = call $299 with $298 $395 $398 ($246 is responsible)
+  }
+  # Examples:sqrt:21:isMatch:else
+  $403 = { (responsible $401) ->
+    $402 = $269
+  }
+  $404 = call $275 with $274 $400 $403 ($246 is responsible)
+}
+# Examples:sqrt:21:equals:else
+$408 = { (responsible $406) ->
+  $407 = $248
+}
+$409 = call $254 with $253 $405 $408 ($246 is responsible)
+$410 = Nothing
+$411 = builtinTagWithoutValue
+$412 = call $411 with $409 ($246 is responsible)
+$413 = builtinEquals
+$414 = Match
+$415 = call $413 with $412 $414 ($246 is responsible)
+$416 = builtinIfElse
+# Examples:sqrt:21:isMatch:then
+$419 = { (responsible $417) ->
+  $418 = $410
+}
+# Examples:sqrt:21:isMatch:else
+$423 = { (responsible $420) ->
+  $421 = "The value doesn't match the pattern on the left side of the destructuring."
+  $422 = panicking because $421 ($246 is at fault)
+}
+$424 = call $416 with $415 $419 $423 ($246 is responsible)
+$425 = Examples:sqrt:equals
+$426 = builtinTagGetValue
+$427 = call $426 with $409 ($425 is responsible)
+$428 = builtinListGet
+$429 = 0
+$430 = call $428 with $427 $429 ($425 is responsible)
+$431 = Examples:sqrt:fixedDecimal
+$432 = builtinTagGetValue
+$433 = call $432 with $409 ($431 is responsible)
+$434 = builtinListGet
+$435 = 1
+$436 = call $434 with $433 $435 ($431 is responsible)
+$437 = Examples:sqrt:ifElse
+$438 = builtinTagGetValue
+$439 = call $438 with $409 ($437 is responsible)
+$440 = builtinListGet
+$441 = 2
+$442 = call $440 with $439 $441 ($437 is responsible)
+$443 = Examples:sqrt:int
+$444 = builtinTagGetValue
+$445 = call $444 with $409 ($443 is responsible)
+$446 = builtinListGet
+$447 = 3
+$448 = call $446 with $445 $447 ($443 is responsible)
+$449 = Examples:sqrt:recursive
+$450 = builtinTagGetValue
+$451 = call $450 with $409 ($449 is responsible)
+$452 = builtinListGet
+$453 = 4
+$454 = call $452 with $451 $453 ($449 is responsible)
+$455 = Nothing
+# Examples:sqrt:sqrt
+$2827 = { $457 $458 (+ responsible $456) ->
+  $459 = builtinStructGet
+  $460 = StructGet
+  $461 = Examples:sqrt:sqrt:2
+  $462 = builtinEquals
+  $463 = builtinGetArgumentCount
+  $464 = builtinTagHasValue
+  $465 = builtinTagWithValue
+  $466 = builtinTextConcatenate
+  $467 = builtinToDebugText
+  $468 = builtinTypeOf
+  $469 = call $468 with $459 ($461 is responsible)
+  $470 = Tag
+  $471 = call $462 with $469 $470 ($461 is responsible)
+  $472 = builtinIfElse
+  # Examples:sqrt:sqrt:2:calleeIsTag:then
+  $485 = { (responsible $473) ->
+    $474 = call $464 with $459 ($461 is responsible)
+    $475 = builtinIfElse
+    # Examples:sqrt:sqrt:2:doesTagHaveValue:then
+    $479 = { (responsible $476) ->
+      $477 = "You called a tag that already has a value."
+      $478 = panicking because $477 ($461 is at fault)
+    }
+    # Examples:sqrt:sqrt:2:doesTagHaveValue:else
+    $483 = { (responsible $480) ->
+      $481 = "Tags can only be created with one value."
+      $482 = panicking because $481 ($461 is at fault)
+    }
+    $484 = call $475 with $474 $479 $483 ($461 is responsible)
+  }
+  # Examples:sqrt:sqrt:2:calleeIsTag:else
+  $517 = { (responsible $486) ->
+    $487 = Function
+    $488 = call $462 with $469 $487 ($461 is responsible)
+    $489 = builtinIfElse
+    # Examples:sqrt:sqrt:2:calleeIsFunction:then
+    $511 = { (responsible $490) ->
+      $491 = call $463 with $459 ($461 is responsible)
+      $492 = 2
+      $493 = call $462 with $491 $492 ($461 is responsible)
+      $494 = builtinIfElse
+      # Examples:sqrt:sqrt:2:hasCorrectNumberOfArguments:then
+      $501 = { (responsible $495) ->
+        $496 = Examples:sqrt:sqrt:2
+        $497 = trace: start of call of $459 with $112 $460 ($461 is responsible, code is at $496)
+        $498 = call $459 with $112 $460 ($461 is responsible)
+        $499 = trace: end of call
+        $500 = $498
+      }
+      # Examples:sqrt:sqrt:2:hasCorrectNumberOfArguments:else
+      $509 = { (responsible $502) ->
+        $503 = "You called a function that expects "
+        $504 = call $467 with $491 ($461 is responsible)
+        $505 = " arguments with 2 arguments."
+        $506 = call $466 with $503 $504 ($461 is responsible)
+        $507 = call $466 with $506 $505 ($461 is responsible)
+        $508 = panicking because $507 ($461 is at fault)
+      }
+      $510 = call $494 with $493 $501 $509 ($461 is responsible)
+    }
+    # Examples:sqrt:sqrt:2:calleeIsFunction:else
+    $515 = { (responsible $512) ->
+      $513 = "You can only call tags or functions."
+      $514 = panicking because $513 ($461 is at fault)
+    }
+    $516 = call $489 with $488 $511 $515 ($461 is responsible)
+  }
+  $518 = call $472 with $471 $485 $517 ($461 is responsible)
+  $519 = $436
+  $520 = Is
+  $521 = Examples:sqrt:sqrt:5
+  $522 = builtinEquals
+  $523 = builtinGetArgumentCount
+  $524 = builtinTagHasValue
+  $525 = builtinTagWithValue
+  $526 = builtinTextConcatenate
+  $527 = builtinToDebugText
+  $528 = builtinTypeOf
+  $529 = call $528 with $518 ($521 is responsible)
+  $530 = Tag
+  $531 = call $522 with $529 $530 ($521 is responsible)
+  $532 = builtinIfElse
+  # Examples:sqrt:sqrt:5:calleeIsTag:then
+  $545 = { (responsible $533) ->
+    $534 = call $524 with $518 ($521 is responsible)
+    $535 = builtinIfElse
+    # Examples:sqrt:sqrt:5:doesTagHaveValue:then
+    $539 = { (responsible $536) ->
+      $537 = "You called a tag that already has a value."
+      $538 = panicking because $537 ($521 is at fault)
+    }
+    # Examples:sqrt:sqrt:5:doesTagHaveValue:else
+    $543 = { (responsible $540) ->
+      $541 = "Tags can only be created with one value."
+      $542 = panicking because $541 ($521 is at fault)
+    }
+    $544 = call $535 with $534 $539 $543 ($521 is responsible)
+  }
+  # Examples:sqrt:sqrt:5:calleeIsTag:else
+  $577 = { (responsible $546) ->
+    $547 = Function
+    $548 = call $522 with $529 $547 ($521 is responsible)
+    $549 = builtinIfElse
+    # Examples:sqrt:sqrt:5:calleeIsFunction:then
+    $571 = { (responsible $550) ->
+      $551 = call $523 with $518 ($521 is responsible)
+      $552 = 2
+      $553 = call $522 with $551 $552 ($521 is responsible)
+      $554 = builtinIfElse
+      # Examples:sqrt:sqrt:5:hasCorrectNumberOfArguments:then
+      $561 = { (responsible $555) ->
+        $556 = Examples:sqrt:sqrt:5
+        $557 = trace: start of call of $518 with $519 $520 ($521 is responsible, code is at $556)
+        $558 = call $518 with $519 $520 ($521 is responsible)
+        $559 = trace: end of call
+        $560 = $558
+      }
+      # Examples:sqrt:sqrt:5:hasCorrectNumberOfArguments:else
+      $569 = { (responsible $562) ->
+        $563 = "You called a function that expects "
+        $564 = call $527 with $551 ($521 is responsible)
+        $565 = " arguments with 2 arguments."
+        $566 = call $526 with $563 $564 ($521 is responsible)
+        $567 = call $526 with $566 $565 ($521 is responsible)
+        $568 = panicking because $567 ($521 is at fault)
+      }
+      $570 = call $554 with $553 $561 $569 ($521 is responsible)
+    }
+    # Examples:sqrt:sqrt:5:calleeIsFunction:else
+    $575 = { (responsible $572) ->
+      $573 = "You can only call tags or functions."
+      $574 = panicking because $573 ($521 is at fault)
+    }
+    $576 = call $549 with $548 $571 $575 ($521 is responsible)
+  }
+  $578 = call $532 with $531 $545 $577 ($521 is responsible)
+  $579 = $457
+  $580 = Examples:sqrt:sqrt:7
+  $581 = builtinEquals
+  $582 = builtinGetArgumentCount
+  $583 = builtinTagHasValue
+  $584 = builtinTagWithValue
+  $585 = builtinTextConcatenate
+  $586 = builtinToDebugText
+  $587 = builtinTypeOf
+  $588 = call $587 with $578 ($580 is responsible)
+  $589 = Tag
+  $590 = call $581 with $588 $589 ($580 is responsible)
+  $591 = builtinIfElse
+  # Examples:sqrt:sqrt:7:calleeIsTag:then
+  $603 = { (responsible $592) ->
+    $593 = call $583 with $578 ($580 is responsible)
+    $594 = builtinIfElse
+    # Examples:sqrt:sqrt:7:doesTagHaveValue:then
+    $598 = { (responsible $595) ->
+      $596 = "You called a tag that already has a value."
+      $597 = panicking because $596 ($580 is at fault)
+    }
+    # Examples:sqrt:sqrt:7:doesTagHaveValue:else
+    $601 = { (responsible $599) ->
+      $600 = call $584 with $578 $579 ($580 is responsible)
+    }
+    $602 = call $594 with $593 $598 $601 ($580 is responsible)
+  }
+  # Examples:sqrt:sqrt:7:calleeIsTag:else
+  $635 = { (responsible $604) ->
+    $605 = Function
+    $606 = call $581 with $588 $605 ($580 is responsible)
+    $607 = builtinIfElse
+    # Examples:sqrt:sqrt:7:calleeIsFunction:then
+    $629 = { (responsible $608) ->
+      $609 = call $582 with $578 ($580 is responsible)
+      $610 = 1
+      $611 = call $581 with $609 $610 ($580 is responsible)
+      $612 = builtinIfElse
+      # Examples:sqrt:sqrt:7:hasCorrectNumberOfArguments:then
+      $619 = { (responsible $613) ->
+        $614 = Examples:sqrt:sqrt:7
+        $615 = trace: start of call of $578 with $579 ($580 is responsible, code is at $614)
+        $616 = call $578 with $579 ($580 is responsible)
+        $617 = trace: end of call
+        $618 = $616
+      }
+      # Examples:sqrt:sqrt:7:hasCorrectNumberOfArguments:else
+      $627 = { (responsible $620) ->
+        $621 = "You called a function that expects "
+        $622 = call $586 with $609 ($580 is responsible)
+        $623 = " arguments with 1 arguments."
+        $624 = call $585 with $621 $622 ($580 is responsible)
+        $625 = call $585 with $624 $623 ($580 is responsible)
+        $626 = panicking because $625 ($580 is at fault)
+      }
+      $628 = call $612 with $611 $619 $627 ($580 is responsible)
+    }
+    # Examples:sqrt:sqrt:7:calleeIsFunction:else
+    $633 = { (responsible $630) ->
+      $631 = "You can only call tags or functions."
+      $632 = panicking because $631 ($580 is at fault)
+    }
+    $634 = call $607 with $606 $629 $633 ($580 is responsible)
+  }
+  $636 = call $591 with $590 $603 $635 ($580 is responsible)
+  $637 = "`fixedDecimal.is x` was not satisfied"
+  $638 = Examples:sqrt:sqrt:9
+  $639 = Examples:sqrt:sqrt:9
+  $640 = trace: start of call of $49 with $636 $637 $456 ($638 is responsible, code is at $639)
+  $641 = call $49 with $636 $637 $456 ($638 is responsible)
+  $642 = trace: end of call
+  $643 = $641
+  $644 = builtinStructGet
+  $645 = StructGet
+  $646 = Examples:sqrt:sqrt:12
+  $647 = builtinEquals
+  $648 = builtinGetArgumentCount
+  $649 = builtinTagHasValue
+  $650 = builtinTagWithValue
+  $651 = builtinTextConcatenate
+  $652 = builtinToDebugText
+  $653 = builtinTypeOf
+  $654 = call $653 with $644 ($646 is responsible)
+  $655 = Tag
+  $656 = call $647 with $654 $655 ($646 is responsible)
+  $657 = builtinIfElse
+  # Examples:sqrt:sqrt:12:calleeIsTag:then
+  $670 = { (responsible $658) ->
+    $659 = call $649 with $644 ($646 is responsible)
+    $660 = builtinIfElse
+    # Examples:sqrt:sqrt:12:doesTagHaveValue:then
+    $664 = { (responsible $661) ->
+      $662 = "You called a tag that already has a value."
+      $663 = panicking because $662 ($646 is at fault)
+    }
+    # Examples:sqrt:sqrt:12:doesTagHaveValue:else
+    $668 = { (responsible $665) ->
+      $666 = "Tags can only be created with one value."
+      $667 = panicking because $666 ($646 is at fault)
+    }
+    $669 = call $660 with $659 $664 $668 ($646 is responsible)
+  }
+  # Examples:sqrt:sqrt:12:calleeIsTag:else
+  $702 = { (responsible $671) ->
+    $672 = Function
+    $673 = call $647 with $654 $672 ($646 is responsible)
+    $674 = builtinIfElse
+    # Examples:sqrt:sqrt:12:calleeIsFunction:then
+    $696 = { (responsible $675) ->
+      $676 = call $648 with $644 ($646 is responsible)
+      $677 = 2
+      $678 = call $647 with $676 $677 ($646 is responsible)
+      $679 = builtinIfElse
+      # Examples:sqrt:sqrt:12:hasCorrectNumberOfArguments:then
+      $686 = { (responsible $680) ->
+        $681 = Examples:sqrt:sqrt:12
+        $682 = trace: start of call of $644 with $112 $645 ($646 is responsible, code is at $681)
+        $683 = call $644 with $112 $645 ($646 is responsible)
+        $684 = trace: end of call
+        $685 = $683
+      }
+      # Examples:sqrt:sqrt:12:hasCorrectNumberOfArguments:else
+      $694 = { (responsible $687) ->
+        $688 = "You called a function that expects "
+        $689 = call $652 with $676 ($646 is responsible)
+        $690 = " arguments with 2 arguments."
+        $691 = call $651 with $688 $689 ($646 is responsible)
+        $692 = call $651 with $691 $690 ($646 is responsible)
+        $693 = panicking because $692 ($646 is at fault)
+      }
+      $695 = call $679 with $678 $686 $694 ($646 is responsible)
+    }
+    # Examples:sqrt:sqrt:12:calleeIsFunction:else
+    $700 = { (responsible $697) ->
+      $698 = "You can only call tags or functions."
+      $699 = panicking because $698 ($646 is at fault)
+    }
+    $701 = call $674 with $673 $696 $700 ($646 is responsible)
+  }
+  $703 = call $657 with $656 $670 $702 ($646 is responsible)
+  $704 = $436
+  $705 = IsNonNegative
+  $706 = Examples:sqrt:sqrt:15
+  $707 = builtinEquals
+  $708 = builtinGetArgumentCount
+  $709 = builtinTagHasValue
+  $710 = builtinTagWithValue
+  $711 = builtinTextConcatenate
+  $712 = builtinToDebugText
+  $713 = builtinTypeOf
+  $714 = call $713 with $703 ($706 is responsible)
+  $715 = Tag
+  $716 = call $707 with $714 $715 ($706 is responsible)
+  $717 = builtinIfElse
+  # Examples:sqrt:sqrt:15:calleeIsTag:then
+  $730 = { (responsible $718) ->
+    $719 = call $709 with $703 ($706 is responsible)
+    $720 = builtinIfElse
+    # Examples:sqrt:sqrt:15:doesTagHaveValue:then
+    $724 = { (responsible $721) ->
+      $722 = "You called a tag that already has a value."
+      $723 = panicking because $722 ($706 is at fault)
+    }
+    # Examples:sqrt:sqrt:15:doesTagHaveValue:else
+    $728 = { (responsible $725) ->
+      $726 = "Tags can only be created with one value."
+      $727 = panicking because $726 ($706 is at fault)
+    }
+    $729 = call $720 with $719 $724 $728 ($706 is responsible)
+  }
+  # Examples:sqrt:sqrt:15:calleeIsTag:else
+  $762 = { (responsible $731) ->
+    $732 = Function
+    $733 = call $707 with $714 $732 ($706 is responsible)
+    $734 = builtinIfElse
+    # Examples:sqrt:sqrt:15:calleeIsFunction:then
+    $756 = { (responsible $735) ->
+      $736 = call $708 with $703 ($706 is responsible)
+      $737 = 2
+      $738 = call $707 with $736 $737 ($706 is responsible)
+      $739 = builtinIfElse
+      # Examples:sqrt:sqrt:15:hasCorrectNumberOfArguments:then
+      $746 = { (responsible $740) ->
+        $741 = Examples:sqrt:sqrt:15
+        $742 = trace: start of call of $703 with $704 $705 ($706 is responsible, code is at $741)
+        $743 = call $703 with $704 $705 ($706 is responsible)
+        $744 = trace: end of call
+        $745 = $743
+      }
+      # Examples:sqrt:sqrt:15:hasCorrectNumberOfArguments:else
+      $754 = { (responsible $747) ->
+        $748 = "You called a function that expects "
+        $749 = call $712 with $736 ($706 is responsible)
+        $750 = " arguments with 2 arguments."
+        $751 = call $711 with $748 $749 ($706 is responsible)
+        $752 = call $711 with $751 $750 ($706 is responsible)
+        $753 = panicking because $752 ($706 is at fault)
+      }
+      $755 = call $739 with $738 $746 $754 ($706 is responsible)
+    }
+    # Examples:sqrt:sqrt:15:calleeIsFunction:else
+    $760 = { (responsible $757) ->
+      $758 = "You can only call tags or functions."
+      $759 = panicking because $758 ($706 is at fault)
+    }
+    $761 = call $734 with $733 $756 $760 ($706 is responsible)
+  }
+  $763 = call $717 with $716 $730 $762 ($706 is responsible)
+  $764 = $457
+  $765 = Examples:sqrt:sqrt:17
+  $766 = builtinEquals
+  $767 = builtinGetArgumentCount
+  $768 = builtinTagHasValue
+  $769 = builtinTagWithValue
+  $770 = builtinTextConcatenate
+  $771 = builtinToDebugText
+  $772 = builtinTypeOf
+  $773 = call $772 with $763 ($765 is responsible)
+  $774 = Tag
+  $775 = call $766 with $773 $774 ($765 is responsible)
+  $776 = builtinIfElse
+  # Examples:sqrt:sqrt:17:calleeIsTag:then
+  $788 = { (responsible $777) ->
+    $778 = call $768 with $763 ($765 is responsible)
+    $779 = builtinIfElse
+    # Examples:sqrt:sqrt:17:doesTagHaveValue:then
+    $783 = { (responsible $780) ->
+      $781 = "You called a tag that already has a value."
+      $782 = panicking because $781 ($765 is at fault)
+    }
+    # Examples:sqrt:sqrt:17:doesTagHaveValue:else
+    $786 = { (responsible $784) ->
+      $785 = call $769 with $763 $764 ($765 is responsible)
+    }
+    $787 = call $779 with $778 $783 $786 ($765 is responsible)
+  }
+  # Examples:sqrt:sqrt:17:calleeIsTag:else
+  $820 = { (responsible $789) ->
+    $790 = Function
+    $791 = call $766 with $773 $790 ($765 is responsible)
+    $792 = builtinIfElse
+    # Examples:sqrt:sqrt:17:calleeIsFunction:then
+    $814 = { (responsible $793) ->
+      $794 = call $767 with $763 ($765 is responsible)
+      $795 = 1
+      $796 = call $766 with $794 $795 ($765 is responsible)
+      $797 = builtinIfElse
+      # Examples:sqrt:sqrt:17:hasCorrectNumberOfArguments:then
+      $804 = { (responsible $798) ->
+        $799 = Examples:sqrt:sqrt:17
+        $800 = trace: start of call of $763 with $764 ($765 is responsible, code is at $799)
+        $801 = call $763 with $764 ($765 is responsible)
+        $802 = trace: end of call
+        $803 = $801
+      }
+      # Examples:sqrt:sqrt:17:hasCorrectNumberOfArguments:else
+      $812 = { (responsible $805) ->
+        $806 = "You called a function that expects "
+        $807 = call $771 with $794 ($765 is responsible)
+        $808 = " arguments with 1 arguments."
+        $809 = call $770 with $806 $807 ($765 is responsible)
+        $810 = call $770 with $809 $808 ($765 is responsible)
+        $811 = panicking because $810 ($765 is at fault)
+      }
+      $813 = call $797 with $796 $804 $812 ($765 is responsible)
+    }
+    # Examples:sqrt:sqrt:17:calleeIsFunction:else
+    $818 = { (responsible $815) ->
+      $816 = "You can only call tags or functions."
+      $817 = panicking because $816 ($765 is at fault)
+    }
+    $819 = call $792 with $791 $814 $818 ($765 is responsible)
+  }
+  $821 = call $776 with $775 $788 $820 ($765 is responsible)
+  $822 = "`fixedDecimal.isNonNegative x` was not satisfied"
+  $823 = Examples:sqrt:sqrt:19
+  $824 = Examples:sqrt:sqrt:19
+  $825 = trace: start of call of $49 with $821 $822 $456 ($823 is responsible, code is at $824)
+  $826 = call $49 with $821 $822 $456 ($823 is responsible)
+  $827 = trace: end of call
+  $828 = $826
+  $829 = builtinStructGet
+  $830 = StructGet
+  $831 = Examples:sqrt:sqrt:22
+  $832 = builtinEquals
+  $833 = builtinGetArgumentCount
+  $834 = builtinTagHasValue
+  $835 = builtinTagWithValue
+  $836 = builtinTextConcatenate
+  $837 = builtinToDebugText
+  $838 = builtinTypeOf
+  $839 = call $838 with $829 ($831 is responsible)
+  $840 = Tag
+  $841 = call $832 with $839 $840 ($831 is responsible)
+  $842 = builtinIfElse
+  # Examples:sqrt:sqrt:22:calleeIsTag:then
+  $855 = { (responsible $843) ->
+    $844 = call $834 with $829 ($831 is responsible)
+    $845 = builtinIfElse
+    # Examples:sqrt:sqrt:22:doesTagHaveValue:then
+    $849 = { (responsible $846) ->
+      $847 = "You called a tag that already has a value."
+      $848 = panicking because $847 ($831 is at fault)
+    }
+    # Examples:sqrt:sqrt:22:doesTagHaveValue:else
+    $853 = { (responsible $850) ->
+      $851 = "Tags can only be created with one value."
+      $852 = panicking because $851 ($831 is at fault)
+    }
+    $854 = call $845 with $844 $849 $853 ($831 is responsible)
+  }
+  # Examples:sqrt:sqrt:22:calleeIsTag:else
+  $887 = { (responsible $856) ->
+    $857 = Function
+    $858 = call $832 with $839 $857 ($831 is responsible)
+    $859 = builtinIfElse
+    # Examples:sqrt:sqrt:22:calleeIsFunction:then
+    $881 = { (responsible $860) ->
+      $861 = call $833 with $829 ($831 is responsible)
+      $862 = 2
+      $863 = call $832 with $861 $862 ($831 is responsible)
+      $864 = builtinIfElse
+      # Examples:sqrt:sqrt:22:hasCorrectNumberOfArguments:then
+      $871 = { (responsible $865) ->
+        $866 = Examples:sqrt:sqrt:22
+        $867 = trace: start of call of $829 with $112 $830 ($831 is responsible, code is at $866)
+        $868 = call $829 with $112 $830 ($831 is responsible)
+        $869 = trace: end of call
+        $870 = $868
+      }
+      # Examples:sqrt:sqrt:22:hasCorrectNumberOfArguments:else
+      $879 = { (responsible $872) ->
+        $873 = "You called a function that expects "
+        $874 = call $837 with $861 ($831 is responsible)
+        $875 = " arguments with 2 arguments."
+        $876 = call $836 with $873 $874 ($831 is responsible)
+        $877 = call $836 with $876 $875 ($831 is responsible)
+        $878 = panicking because $877 ($831 is at fault)
+      }
+      $880 = call $864 with $863 $871 $879 ($831 is responsible)
+    }
+    # Examples:sqrt:sqrt:22:calleeIsFunction:else
+    $885 = { (responsible $882) ->
+      $883 = "You can only call tags or functions."
+      $884 = panicking because $883 ($831 is at fault)
+    }
+    $886 = call $859 with $858 $881 $885 ($831 is responsible)
+  }
+  $888 = call $842 with $841 $855 $887 ($831 is responsible)
+  $889 = $448
+  $890 = Is
+  $891 = Examples:sqrt:sqrt:25
+  $892 = builtinEquals
+  $893 = builtinGetArgumentCount
+  $894 = builtinTagHasValue
+  $895 = builtinTagWithValue
+  $896 = builtinTextConcatenate
+  $897 = builtinToDebugText
+  $898 = builtinTypeOf
+  $899 = call $898 with $888 ($891 is responsible)
+  $900 = Tag
+  $901 = call $892 with $899 $900 ($891 is responsible)
+  $902 = builtinIfElse
+  # Examples:sqrt:sqrt:25:calleeIsTag:then
+  $915 = { (responsible $903) ->
+    $904 = call $894 with $888 ($891 is responsible)
+    $905 = builtinIfElse
+    # Examples:sqrt:sqrt:25:doesTagHaveValue:then
+    $909 = { (responsible $906) ->
+      $907 = "You called a tag that already has a value."
+      $908 = panicking because $907 ($891 is at fault)
+    }
+    # Examples:sqrt:sqrt:25:doesTagHaveValue:else
+    $913 = { (responsible $910) ->
+      $911 = "Tags can only be created with one value."
+      $912 = panicking because $911 ($891 is at fault)
+    }
+    $914 = call $905 with $904 $909 $913 ($891 is responsible)
+  }
+  # Examples:sqrt:sqrt:25:calleeIsTag:else
+  $947 = { (responsible $916) ->
+    $917 = Function
+    $918 = call $892 with $899 $917 ($891 is responsible)
+    $919 = builtinIfElse
+    # Examples:sqrt:sqrt:25:calleeIsFunction:then
+    $941 = { (responsible $920) ->
+      $921 = call $893 with $888 ($891 is responsible)
+      $922 = 2
+      $923 = call $892 with $921 $922 ($891 is responsible)
+      $924 = builtinIfElse
+      # Examples:sqrt:sqrt:25:hasCorrectNumberOfArguments:then
+      $931 = { (responsible $925) ->
+        $926 = Examples:sqrt:sqrt:25
+        $927 = trace: start of call of $888 with $889 $890 ($891 is responsible, code is at $926)
+        $928 = call $888 with $889 $890 ($891 is responsible)
+        $929 = trace: end of call
+        $930 = $928
+      }
+      # Examples:sqrt:sqrt:25:hasCorrectNumberOfArguments:else
+      $939 = { (responsible $932) ->
+        $933 = "You called a function that expects "
+        $934 = call $897 with $921 ($891 is responsible)
+        $935 = " arguments with 2 arguments."
+        $936 = call $896 with $933 $934 ($891 is responsible)
+        $937 = call $896 with $936 $935 ($891 is responsible)
+        $938 = panicking because $937 ($891 is at fault)
+      }
+      $940 = call $924 with $923 $931 $939 ($891 is responsible)
+    }
+    # Examples:sqrt:sqrt:25:calleeIsFunction:else
+    $945 = { (responsible $942) ->
+      $943 = "You can only call tags or functions."
+      $944 = panicking because $943 ($891 is at fault)
+    }
+    $946 = call $919 with $918 $941 $945 ($891 is responsible)
+  }
+  $948 = call $902 with $901 $915 $947 ($891 is responsible)
+  $949 = $458
+  $950 = Examples:sqrt:sqrt:27
+  $951 = builtinEquals
+  $952 = builtinGetArgumentCount
+  $953 = builtinTagHasValue
+  $954 = builtinTagWithValue
+  $955 = builtinTextConcatenate
+  $956 = builtinToDebugText
+  $957 = builtinTypeOf
+  $958 = call $957 with $948 ($950 is responsible)
+  $959 = Tag
+  $960 = call $951 with $958 $959 ($950 is responsible)
+  $961 = builtinIfElse
+  # Examples:sqrt:sqrt:27:calleeIsTag:then
+  $973 = { (responsible $962) ->
+    $963 = call $953 with $948 ($950 is responsible)
+    $964 = builtinIfElse
+    # Examples:sqrt:sqrt:27:doesTagHaveValue:then
+    $968 = { (responsible $965) ->
+      $966 = "You called a tag that already has a value."
+      $967 = panicking because $966 ($950 is at fault)
+    }
+    # Examples:sqrt:sqrt:27:doesTagHaveValue:else
+    $971 = { (responsible $969) ->
+      $970 = call $954 with $948 $949 ($950 is responsible)
+    }
+    $972 = call $964 with $963 $968 $971 ($950 is responsible)
+  }
+  # Examples:sqrt:sqrt:27:calleeIsTag:else
+  $1005 = { (responsible $974) ->
+    $975 = Function
+    $976 = call $951 with $958 $975 ($950 is responsible)
+    $977 = builtinIfElse
+    # Examples:sqrt:sqrt:27:calleeIsFunction:then
+    $999 = { (responsible $978) ->
+      $979 = call $952 with $948 ($950 is responsible)
+      $980 = 1
+      $981 = call $951 with $979 $980 ($950 is responsible)
+      $982 = builtinIfElse
+      # Examples:sqrt:sqrt:27:hasCorrectNumberOfArguments:then
+      $989 = { (responsible $983) ->
+        $984 = Examples:sqrt:sqrt:27
+        $985 = trace: start of call of $948 with $949 ($950 is responsible, code is at $984)
+        $986 = call $948 with $949 ($950 is responsible)
+        $987 = trace: end of call
+        $988 = $986
+      }
+      # Examples:sqrt:sqrt:27:hasCorrectNumberOfArguments:else
+      $997 = { (responsible $990) ->
+        $991 = "You called a function that expects "
+        $992 = call $956 with $979 ($950 is responsible)
+        $993 = " arguments with 1 arguments."
+        $994 = call $955 with $991 $992 ($950 is responsible)
+        $995 = call $955 with $994 $993 ($950 is responsible)
+        $996 = panicking because $995 ($950 is at fault)
+      }
+      $998 = call $982 with $981 $989 $997 ($950 is responsible)
+    }
+    # Examples:sqrt:sqrt:27:calleeIsFunction:else
+    $1003 = { (responsible $1000) ->
+      $1001 = "You can only call tags or functions."
+      $1002 = panicking because $1001 ($950 is at fault)
+    }
+    $1004 = call $977 with $976 $999 $1003 ($950 is responsible)
+  }
+  $1006 = call $961 with $960 $973 $1005 ($950 is responsible)
+  $1007 = "`int.is precision` was not satisfied"
+  $1008 = Examples:sqrt:sqrt:29
+  $1009 = Examples:sqrt:sqrt:29
+  $1010 = trace: start of call of $49 with $1006 $1007 $456 ($1008 is responsible, code is at $1009)
+  $1011 = call $49 with $1006 $1007 $456 ($1008 is responsible)
+  $1012 = trace: end of call
+  $1013 = $1011
+  $1014 = builtinStructGet
+  $1015 = StructGet
+  $1016 = Examples:sqrt:sqrt:32
+  $1017 = builtinEquals
+  $1018 = builtinGetArgumentCount
+  $1019 = builtinTagHasValue
+  $1020 = builtinTagWithValue
+  $1021 = builtinTextConcatenate
+  $1022 = builtinToDebugText
+  $1023 = builtinTypeOf
+  $1024 = call $1023 with $1014 ($1016 is responsible)
+  $1025 = Tag
+  $1026 = call $1017 with $1024 $1025 ($1016 is responsible)
+  $1027 = builtinIfElse
+  # Examples:sqrt:sqrt:32:calleeIsTag:then
+  $1040 = { (responsible $1028) ->
+    $1029 = call $1019 with $1014 ($1016 is responsible)
+    $1030 = builtinIfElse
+    # Examples:sqrt:sqrt:32:doesTagHaveValue:then
+    $1034 = { (responsible $1031) ->
+      $1032 = "You called a tag that already has a value."
+      $1033 = panicking because $1032 ($1016 is at fault)
+    }
+    # Examples:sqrt:sqrt:32:doesTagHaveValue:else
+    $1038 = { (responsible $1035) ->
+      $1036 = "Tags can only be created with one value."
+      $1037 = panicking because $1036 ($1016 is at fault)
+    }
+    $1039 = call $1030 with $1029 $1034 $1038 ($1016 is responsible)
+  }
+  # Examples:sqrt:sqrt:32:calleeIsTag:else
+  $1072 = { (responsible $1041) ->
+    $1042 = Function
+    $1043 = call $1017 with $1024 $1042 ($1016 is responsible)
+    $1044 = builtinIfElse
+    # Examples:sqrt:sqrt:32:calleeIsFunction:then
+    $1066 = { (responsible $1045) ->
+      $1046 = call $1018 with $1014 ($1016 is responsible)
+      $1047 = 2
+      $1048 = call $1017 with $1046 $1047 ($1016 is responsible)
+      $1049 = builtinIfElse
+      # Examples:sqrt:sqrt:32:hasCorrectNumberOfArguments:then
+      $1056 = { (responsible $1050) ->
+        $1051 = Examples:sqrt:sqrt:32
+        $1052 = trace: start of call of $1014 with $112 $1015 ($1016 is responsible, code is at $1051)
+        $1053 = call $1014 with $112 $1015 ($1016 is responsible)
+        $1054 = trace: end of call
+        $1055 = $1053
+      }
+      # Examples:sqrt:sqrt:32:hasCorrectNumberOfArguments:else
+      $1064 = { (responsible $1057) ->
+        $1058 = "You called a function that expects "
+        $1059 = call $1022 with $1046 ($1016 is responsible)
+        $1060 = " arguments with 2 arguments."
+        $1061 = call $1021 with $1058 $1059 ($1016 is responsible)
+        $1062 = call $1021 with $1061 $1060 ($1016 is responsible)
+        $1063 = panicking because $1062 ($1016 is at fault)
+      }
+      $1065 = call $1049 with $1048 $1056 $1064 ($1016 is responsible)
+    }
+    # Examples:sqrt:sqrt:32:calleeIsFunction:else
+    $1070 = { (responsible $1067) ->
+      $1068 = "You can only call tags or functions."
+      $1069 = panicking because $1068 ($1016 is at fault)
+    }
+    $1071 = call $1044 with $1043 $1066 $1070 ($1016 is responsible)
+  }
+  $1073 = call $1027 with $1026 $1040 $1072 ($1016 is responsible)
+  $1074 = $448
+  $1075 = IsNonNegative
+  $1076 = Examples:sqrt:sqrt:35
+  $1077 = builtinEquals
+  $1078 = builtinGetArgumentCount
+  $1079 = builtinTagHasValue
+  $1080 = builtinTagWithValue
+  $1081 = builtinTextConcatenate
+  $1082 = builtinToDebugText
+  $1083 = builtinTypeOf
+  $1084 = call $1083 with $1073 ($1076 is responsible)
+  $1085 = Tag
+  $1086 = call $1077 with $1084 $1085 ($1076 is responsible)
+  $1087 = builtinIfElse
+  # Examples:sqrt:sqrt:35:calleeIsTag:then
+  $1100 = { (responsible $1088) ->
+    $1089 = call $1079 with $1073 ($1076 is responsible)
+    $1090 = builtinIfElse
+    # Examples:sqrt:sqrt:35:doesTagHaveValue:then
+    $1094 = { (responsible $1091) ->
+      $1092 = "You called a tag that already has a value."
+      $1093 = panicking because $1092 ($1076 is at fault)
+    }
+    # Examples:sqrt:sqrt:35:doesTagHaveValue:else
+    $1098 = { (responsible $1095) ->
+      $1096 = "Tags can only be created with one value."
+      $1097 = panicking because $1096 ($1076 is at fault)
+    }
+    $1099 = call $1090 with $1089 $1094 $1098 ($1076 is responsible)
+  }
+  # Examples:sqrt:sqrt:35:calleeIsTag:else
+  $1132 = { (responsible $1101) ->
+    $1102 = Function
+    $1103 = call $1077 with $1084 $1102 ($1076 is responsible)
+    $1104 = builtinIfElse
+    # Examples:sqrt:sqrt:35:calleeIsFunction:then
+    $1126 = { (responsible $1105) ->
+      $1106 = call $1078 with $1073 ($1076 is responsible)
+      $1107 = 2
+      $1108 = call $1077 with $1106 $1107 ($1076 is responsible)
+      $1109 = builtinIfElse
+      # Examples:sqrt:sqrt:35:hasCorrectNumberOfArguments:then
+      $1116 = { (responsible $1110) ->
+        $1111 = Examples:sqrt:sqrt:35
+        $1112 = trace: start of call of $1073 with $1074 $1075 ($1076 is responsible, code is at $1111)
+        $1113 = call $1073 with $1074 $1075 ($1076 is responsible)
+        $1114 = trace: end of call
+        $1115 = $1113
+      }
+      # Examples:sqrt:sqrt:35:hasCorrectNumberOfArguments:else
+      $1124 = { (responsible $1117) ->
+        $1118 = "You called a function that expects "
+        $1119 = call $1082 with $1106 ($1076 is responsible)
+        $1120 = " arguments with 2 arguments."
+        $1121 = call $1081 with $1118 $1119 ($1076 is responsible)
+        $1122 = call $1081 with $1121 $1120 ($1076 is responsible)
+        $1123 = panicking because $1122 ($1076 is at fault)
+      }
+      $1125 = call $1109 with $1108 $1116 $1124 ($1076 is responsible)
+    }
+    # Examples:sqrt:sqrt:35:calleeIsFunction:else
+    $1130 = { (responsible $1127) ->
+      $1128 = "You can only call tags or functions."
+      $1129 = panicking because $1128 ($1076 is at fault)
+    }
+    $1131 = call $1104 with $1103 $1126 $1130 ($1076 is responsible)
+  }
+  $1133 = call $1087 with $1086 $1100 $1132 ($1076 is responsible)
+  $1134 = $458
+  $1135 = Examples:sqrt:sqrt:37
+  $1136 = builtinEquals
+  $1137 = builtinGetArgumentCount
+  $1138 = builtinTagHasValue
+  $1139 = builtinTagWithValue
+  $1140 = builtinTextConcatenate
+  $1141 = builtinToDebugText
+  $1142 = builtinTypeOf
+  $1143 = call $1142 with $1133 ($1135 is responsible)
+  $1144 = Tag
+  $1145 = call $1136 with $1143 $1144 ($1135 is responsible)
+  $1146 = builtinIfElse
+  # Examples:sqrt:sqrt:37:calleeIsTag:then
+  $1158 = { (responsible $1147) ->
+    $1148 = call $1138 with $1133 ($1135 is responsible)
+    $1149 = builtinIfElse
+    # Examples:sqrt:sqrt:37:doesTagHaveValue:then
+    $1153 = { (responsible $1150) ->
+      $1151 = "You called a tag that already has a value."
+      $1152 = panicking because $1151 ($1135 is at fault)
+    }
+    # Examples:sqrt:sqrt:37:doesTagHaveValue:else
+    $1156 = { (responsible $1154) ->
+      $1155 = call $1139 with $1133 $1134 ($1135 is responsible)
+    }
+    $1157 = call $1149 with $1148 $1153 $1156 ($1135 is responsible)
+  }
+  # Examples:sqrt:sqrt:37:calleeIsTag:else
+  $1190 = { (responsible $1159) ->
+    $1160 = Function
+    $1161 = call $1136 with $1143 $1160 ($1135 is responsible)
+    $1162 = builtinIfElse
+    # Examples:sqrt:sqrt:37:calleeIsFunction:then
+    $1184 = { (responsible $1163) ->
+      $1164 = call $1137 with $1133 ($1135 is responsible)
+      $1165 = 1
+      $1166 = call $1136 with $1164 $1165 ($1135 is responsible)
+      $1167 = builtinIfElse
+      # Examples:sqrt:sqrt:37:hasCorrectNumberOfArguments:then
+      $1174 = { (responsible $1168) ->
+        $1169 = Examples:sqrt:sqrt:37
+        $1170 = trace: start of call of $1133 with $1134 ($1135 is responsible, code is at $1169)
+        $1171 = call $1133 with $1134 ($1135 is responsible)
+        $1172 = trace: end of call
+        $1173 = $1171
+      }
+      # Examples:sqrt:sqrt:37:hasCorrectNumberOfArguments:else
+      $1182 = { (responsible $1175) ->
+        $1176 = "You called a function that expects "
+        $1177 = call $1141 with $1164 ($1135 is responsible)
+        $1178 = " arguments with 1 arguments."
+        $1179 = call $1140 with $1176 $1177 ($1135 is responsible)
+        $1180 = call $1140 with $1179 $1178 ($1135 is responsible)
+        $1181 = panicking because $1180 ($1135 is at fault)
+      }
+      $1183 = call $1167 with $1166 $1174 $1182 ($1135 is responsible)
+    }
+    # Examples:sqrt:sqrt:37:calleeIsFunction:else
+    $1188 = { (responsible $1185) ->
+      $1186 = "You can only call tags or functions."
+      $1187 = panicking because $1186 ($1135 is at fault)
+    }
+    $1189 = call $1162 with $1161 $1184 $1188 ($1135 is responsible)
+  }
+  $1191 = call $1146 with $1145 $1158 $1190 ($1135 is responsible)
+  $1192 = "`int.isNonNegative precision` was not satisfied"
+  $1193 = Examples:sqrt:sqrt:39
+  $1194 = Examples:sqrt:sqrt:39
+  $1195 = trace: start of call of $49 with $1191 $1192 $456 ($1193 is responsible, code is at $1194)
+  $1196 = call $49 with $1191 $1192 $456 ($1193 is responsible)
+  $1197 = trace: end of call
+  $1198 = $1196
+  $1199 = 10
+  $1200 = builtinStructGet
+  $1201 = StructGet
+  $1202 = Examples:sqrt:sqrt:43
+  $1203 = builtinEquals
+  $1204 = builtinGetArgumentCount
+  $1205 = builtinTagHasValue
+  $1206 = builtinTagWithValue
+  $1207 = builtinTextConcatenate
+  $1208 = builtinToDebugText
+  $1209 = builtinTypeOf
+  $1210 = call $1209 with $1200 ($1202 is responsible)
+  $1211 = Tag
+  $1212 = call $1203 with $1210 $1211 ($1202 is responsible)
+  $1213 = builtinIfElse
+  # Examples:sqrt:sqrt:43:calleeIsTag:then
+  $1226 = { (responsible $1214) ->
+    $1215 = call $1205 with $1200 ($1202 is responsible)
+    $1216 = builtinIfElse
+    # Examples:sqrt:sqrt:43:doesTagHaveValue:then
+    $1220 = { (responsible $1217) ->
+      $1218 = "You called a tag that already has a value."
+      $1219 = panicking because $1218 ($1202 is at fault)
+    }
+    # Examples:sqrt:sqrt:43:doesTagHaveValue:else
+    $1224 = { (responsible $1221) ->
+      $1222 = "Tags can only be created with one value."
+      $1223 = panicking because $1222 ($1202 is at fault)
+    }
+    $1225 = call $1216 with $1215 $1220 $1224 ($1202 is responsible)
+  }
+  # Examples:sqrt:sqrt:43:calleeIsTag:else
+  $1258 = { (responsible $1227) ->
+    $1228 = Function
+    $1229 = call $1203 with $1210 $1228 ($1202 is responsible)
+    $1230 = builtinIfElse
+    # Examples:sqrt:sqrt:43:calleeIsFunction:then
+    $1252 = { (responsible $1231) ->
+      $1232 = call $1204 with $1200 ($1202 is responsible)
+      $1233 = 2
+      $1234 = call $1203 with $1232 $1233 ($1202 is responsible)
+      $1235 = builtinIfElse
+      # Examples:sqrt:sqrt:43:hasCorrectNumberOfArguments:then
+      $1242 = { (responsible $1236) ->
+        $1237 = Examples:sqrt:sqrt:43
+        $1238 = trace: start of call of $1200 with $112 $1201 ($1202 is responsible, code is at $1237)
+        $1239 = call $1200 with $112 $1201 ($1202 is responsible)
+        $1240 = trace: end of call
+        $1241 = $1239
+      }
+      # Examples:sqrt:sqrt:43:hasCorrectNumberOfArguments:else
+      $1250 = { (responsible $1243) ->
+        $1244 = "You called a function that expects "
+        $1245 = call $1208 with $1232 ($1202 is responsible)
+        $1246 = " arguments with 2 arguments."
+        $1247 = call $1207 with $1244 $1245 ($1202 is responsible)
+        $1248 = call $1207 with $1247 $1246 ($1202 is responsible)
+        $1249 = panicking because $1248 ($1202 is at fault)
+      }
+      $1251 = call $1235 with $1234 $1242 $1250 ($1202 is responsible)
+    }
+    # Examples:sqrt:sqrt:43:calleeIsFunction:else
+    $1256 = { (responsible $1253) ->
+      $1254 = "You can only call tags or functions."
+      $1255 = panicking because $1254 ($1202 is at fault)
+    }
+    $1257 = call $1230 with $1229 $1252 $1256 ($1202 is responsible)
+  }
+  $1259 = call $1213 with $1212 $1226 $1258 ($1202 is responsible)
+  $1260 = $436
+  $1261 = FromIntScaled
+  $1262 = Examples:sqrt:sqrt:46
+  $1263 = builtinEquals
+  $1264 = builtinGetArgumentCount
+  $1265 = builtinTagHasValue
+  $1266 = builtinTagWithValue
+  $1267 = builtinTextConcatenate
+  $1268 = builtinToDebugText
+  $1269 = builtinTypeOf
+  $1270 = call $1269 with $1259 ($1262 is responsible)
+  $1271 = Tag
+  $1272 = call $1263 with $1270 $1271 ($1262 is responsible)
+  $1273 = builtinIfElse
+  # Examples:sqrt:sqrt:46:calleeIsTag:then
+  $1286 = { (responsible $1274) ->
+    $1275 = call $1265 with $1259 ($1262 is responsible)
+    $1276 = builtinIfElse
+    # Examples:sqrt:sqrt:46:doesTagHaveValue:then
+    $1280 = { (responsible $1277) ->
+      $1278 = "You called a tag that already has a value."
+      $1279 = panicking because $1278 ($1262 is at fault)
+    }
+    # Examples:sqrt:sqrt:46:doesTagHaveValue:else
+    $1284 = { (responsible $1281) ->
+      $1282 = "Tags can only be created with one value."
+      $1283 = panicking because $1282 ($1262 is at fault)
+    }
+    $1285 = call $1276 with $1275 $1280 $1284 ($1262 is responsible)
+  }
+  # Examples:sqrt:sqrt:46:calleeIsTag:else
+  $1318 = { (responsible $1287) ->
+    $1288 = Function
+    $1289 = call $1263 with $1270 $1288 ($1262 is responsible)
+    $1290 = builtinIfElse
+    # Examples:sqrt:sqrt:46:calleeIsFunction:then
+    $1312 = { (responsible $1291) ->
+      $1292 = call $1264 with $1259 ($1262 is responsible)
+      $1293 = 2
+      $1294 = call $1263 with $1292 $1293 ($1262 is responsible)
+      $1295 = builtinIfElse
+      # Examples:sqrt:sqrt:46:hasCorrectNumberOfArguments:then
+      $1302 = { (responsible $1296) ->
+        $1297 = Examples:sqrt:sqrt:46
+        $1298 = trace: start of call of $1259 with $1260 $1261 ($1262 is responsible, code is at $1297)
+        $1299 = call $1259 with $1260 $1261 ($1262 is responsible)
+        $1300 = trace: end of call
+        $1301 = $1299
+      }
+      # Examples:sqrt:sqrt:46:hasCorrectNumberOfArguments:else
+      $1310 = { (responsible $1303) ->
+        $1304 = "You called a function that expects "
+        $1305 = call $1268 with $1292 ($1262 is responsible)
+        $1306 = " arguments with 2 arguments."
+        $1307 = call $1267 with $1304 $1305 ($1262 is responsible)
+        $1308 = call $1267 with $1307 $1306 ($1262 is responsible)
+        $1309 = panicking because $1308 ($1262 is at fault)
+      }
+      $1311 = call $1295 with $1294 $1302 $1310 ($1262 is responsible)
+    }
+    # Examples:sqrt:sqrt:46:calleeIsFunction:else
+    $1316 = { (responsible $1313) ->
+      $1314 = "You can only call tags or functions."
+      $1315 = panicking because $1314 ($1262 is at fault)
+    }
+    $1317 = call $1290 with $1289 $1312 $1316 ($1262 is responsible)
+  }
+  $1319 = call $1273 with $1272 $1286 $1318 ($1262 is responsible)
+  $1320 = $458
+  $1321 = Examples:sqrt:sqrt:48
+  $1322 = builtinEquals
+  $1323 = builtinGetArgumentCount
+  $1324 = builtinTagHasValue
+  $1325 = builtinTagWithValue
+  $1326 = builtinTextConcatenate
+  $1327 = builtinToDebugText
+  $1328 = builtinTypeOf
+  $1329 = call $1328 with $1319 ($1321 is responsible)
+  $1330 = Tag
+  $1331 = call $1322 with $1329 $1330 ($1321 is responsible)
+  $1332 = builtinIfElse
+  # Examples:sqrt:sqrt:48:calleeIsTag:then
+  $1345 = { (responsible $1333) ->
+    $1334 = call $1324 with $1319 ($1321 is responsible)
+    $1335 = builtinIfElse
+    # Examples:sqrt:sqrt:48:doesTagHaveValue:then
+    $1339 = { (responsible $1336) ->
+      $1337 = "You called a tag that already has a value."
+      $1338 = panicking because $1337 ($1321 is at fault)
+    }
+    # Examples:sqrt:sqrt:48:doesTagHaveValue:else
+    $1343 = { (responsible $1340) ->
+      $1341 = "Tags can only be created with one value."
+      $1342 = panicking because $1341 ($1321 is at fault)
+    }
+    $1344 = call $1335 with $1334 $1339 $1343 ($1321 is responsible)
+  }
+  # Examples:sqrt:sqrt:48:calleeIsTag:else
+  $1377 = { (responsible $1346) ->
+    $1347 = Function
+    $1348 = call $1322 with $1329 $1347 ($1321 is responsible)
+    $1349 = builtinIfElse
+    # Examples:sqrt:sqrt:48:calleeIsFunction:then
+    $1371 = { (responsible $1350) ->
+      $1351 = call $1323 with $1319 ($1321 is responsible)
+      $1352 = 2
+      $1353 = call $1322 with $1351 $1352 ($1321 is responsible)
+      $1354 = builtinIfElse
+      # Examples:sqrt:sqrt:48:hasCorrectNumberOfArguments:then
+      $1361 = { (responsible $1355) ->
+        $1356 = Examples:sqrt:sqrt:48
+        $1357 = trace: start of call of $1319 with $1199 $1320 ($1321 is responsible, code is at $1356)
+        $1358 = call $1319 with $1199 $1320 ($1321 is responsible)
+        $1359 = trace: end of call
+        $1360 = $1358
+      }
+      # Examples:sqrt:sqrt:48:hasCorrectNumberOfArguments:else
+      $1369 = { (responsible $1362) ->
+        $1363 = "You called a function that expects "
+        $1364 = call $1327 with $1351 ($1321 is responsible)
+        $1365 = " arguments with 2 arguments."
+        $1366 = call $1326 with $1363 $1364 ($1321 is responsible)
+        $1367 = call $1326 with $1366 $1365 ($1321 is responsible)
+        $1368 = panicking because $1367 ($1321 is at fault)
+      }
+      $1370 = call $1354 with $1353 $1361 $1369 ($1321 is responsible)
+    }
+    # Examples:sqrt:sqrt:48:calleeIsFunction:else
+    $1375 = { (responsible $1372) ->
+      $1373 = "You can only call tags or functions."
+      $1374 = panicking because $1373 ($1321 is at fault)
+    }
+    $1376 = call $1349 with $1348 $1371 $1375 ($1321 is responsible)
+  }
+  $1378 = call $1332 with $1331 $1345 $1377 ($1321 is responsible)
+  $1379 = $1378
+  $1380 = $1379
+  $1381 = Nothing
+  $1382 = $454
+  $1383 = $457
+  $1384 = builtinStructGet
+  $1385 = StructGet
+  $1386 = Examples:sqrt:sqrt:54
+  $1387 = builtinEquals
+  $1388 = builtinGetArgumentCount
+  $1389 = builtinTagHasValue
+  $1390 = builtinTagWithValue
+  $1391 = builtinTextConcatenate
+  $1392 = builtinToDebugText
+  $1393 = builtinTypeOf
+  $1394 = call $1393 with $1384 ($1386 is responsible)
+  $1395 = Tag
+  $1396 = call $1387 with $1394 $1395 ($1386 is responsible)
+  $1397 = builtinIfElse
+  # Examples:sqrt:sqrt:54:calleeIsTag:then
+  $1410 = { (responsible $1398) ->
+    $1399 = call $1389 with $1384 ($1386 is responsible)
+    $1400 = builtinIfElse
+    # Examples:sqrt:sqrt:54:doesTagHaveValue:then
+    $1404 = { (responsible $1401) ->
+      $1402 = "You called a tag that already has a value."
+      $1403 = panicking because $1402 ($1386 is at fault)
+    }
+    # Examples:sqrt:sqrt:54:doesTagHaveValue:else
+    $1408 = { (responsible $1405) ->
+      $1406 = "Tags can only be created with one value."
+      $1407 = panicking because $1406 ($1386 is at fault)
+    }
+    $1409 = call $1400 with $1399 $1404 $1408 ($1386 is responsible)
+  }
+  # Examples:sqrt:sqrt:54:calleeIsTag:else
+  $1442 = { (responsible $1411) ->
+    $1412 = Function
+    $1413 = call $1387 with $1394 $1412 ($1386 is responsible)
+    $1414 = builtinIfElse
+    # Examples:sqrt:sqrt:54:calleeIsFunction:then
+    $1436 = { (responsible $1415) ->
+      $1416 = call $1388 with $1384 ($1386 is responsible)
+      $1417 = 2
+      $1418 = call $1387 with $1416 $1417 ($1386 is responsible)
+      $1419 = builtinIfElse
+      # Examples:sqrt:sqrt:54:hasCorrectNumberOfArguments:then
+      $1426 = { (responsible $1420) ->
+        $1421 = Examples:sqrt:sqrt:54
+        $1422 = trace: start of call of $1384 with $112 $1385 ($1386 is responsible, code is at $1421)
+        $1423 = call $1384 with $112 $1385 ($1386 is responsible)
+        $1424 = trace: end of call
+        $1425 = $1423
+      }
+      # Examples:sqrt:sqrt:54:hasCorrectNumberOfArguments:else
+      $1434 = { (responsible $1427) ->
+        $1428 = "You called a function that expects "
+        $1429 = call $1392 with $1416 ($1386 is responsible)
+        $1430 = " arguments with 2 arguments."
+        $1431 = call $1391 with $1428 $1429 ($1386 is responsible)
+        $1432 = call $1391 with $1431 $1430 ($1386 is responsible)
+        $1433 = panicking because $1432 ($1386 is at fault)
+      }
+      $1435 = call $1419 with $1418 $1426 $1434 ($1386 is responsible)
+    }
+    # Examples:sqrt:sqrt:54:calleeIsFunction:else
+    $1440 = { (responsible $1437) ->
+      $1438 = "You can only call tags or functions."
+      $1439 = panicking because $1438 ($1386 is at fault)
+    }
+    $1441 = call $1414 with $1413 $1436 $1440 ($1386 is responsible)
+  }
+  $1443 = call $1397 with $1396 $1410 $1442 ($1386 is responsible)
+  $1444 = $436
+  $1445 = DivideTruncatingAtScale
+  $1446 = Examples:sqrt:sqrt:57
+  $1447 = builtinEquals
+  $1448 = builtinGetArgumentCount
+  $1449 = builtinTagHasValue
+  $1450 = builtinTagWithValue
+  $1451 = builtinTextConcatenate
+  $1452 = builtinToDebugText
+  $1453 = builtinTypeOf
+  $1454 = call $1453 with $1443 ($1446 is responsible)
+  $1455 = Tag
+  $1456 = call $1447 with $1454 $1455 ($1446 is responsible)
+  $1457 = builtinIfElse
+  # Examples:sqrt:sqrt:57:calleeIsTag:then
+  $1470 = { (responsible $1458) ->
+    $1459 = call $1449 with $1443 ($1446 is responsible)
+    $1460 = builtinIfElse
+    # Examples:sqrt:sqrt:57:doesTagHaveValue:then
+    $1464 = { (responsible $1461) ->
+      $1462 = "You called a tag that already has a value."
+      $1463 = panicking because $1462 ($1446 is at fault)
+    }
+    # Examples:sqrt:sqrt:57:doesTagHaveValue:else
+    $1468 = { (responsible $1465) ->
+      $1466 = "Tags can only be created with one value."
+      $1467 = panicking because $1466 ($1446 is at fault)
+    }
+    $1469 = call $1460 with $1459 $1464 $1468 ($1446 is responsible)
+  }
+  # Examples:sqrt:sqrt:57:calleeIsTag:else
+  $1502 = { (responsible $1471) ->
+    $1472 = Function
+    $1473 = call $1447 with $1454 $1472 ($1446 is responsible)
+    $1474 = builtinIfElse
+    # Examples:sqrt:sqrt:57:calleeIsFunction:then
+    $1496 = { (responsible $1475) ->
+      $1476 = call $1448 with $1443 ($1446 is responsible)
+      $1477 = 2
+      $1478 = call $1447 with $1476 $1477 ($1446 is responsible)
+      $1479 = builtinIfElse
+      # Examples:sqrt:sqrt:57:hasCorrectNumberOfArguments:then
+      $1486 = { (responsible $1480) ->
+        $1481 = Examples:sqrt:sqrt:57
+        $1482 = trace: start of call of $1443 with $1444 $1445 ($1446 is responsible, code is at $1481)
+        $1483 = call $1443 with $1444 $1445 ($1446 is responsible)
+        $1484 = trace: end of call
+        $1485 = $1483
+      }
+      # Examples:sqrt:sqrt:57:hasCorrectNumberOfArguments:else
+      $1494 = { (responsible $1487) ->
+        $1488 = "You called a function that expects "
+        $1489 = call $1452 with $1476 ($1446 is responsible)
+        $1490 = " arguments with 2 arguments."
+        $1491 = call $1451 with $1488 $1489 ($1446 is responsible)
+        $1492 = call $1451 with $1491 $1490 ($1446 is responsible)
+        $1493 = panicking because $1492 ($1446 is at fault)
+      }
+      $1495 = call $1479 with $1478 $1486 $1494 ($1446 is responsible)
+    }
+    # Examples:sqrt:sqrt:57:calleeIsFunction:else
+    $1500 = { (responsible $1497) ->
+      $1498 = "You can only call tags or functions."
+      $1499 = panicking because $1498 ($1446 is at fault)
+    }
+    $1501 = call $1474 with $1473 $1496 $1500 ($1446 is responsible)
+  }
+  $1503 = call $1457 with $1456 $1470 $1502 ($1446 is responsible)
+  $1504 = 2
+  $1505 = builtinStructGet
+  $1506 = StructGet
+  $1507 = Examples:sqrt:sqrt:61
+  $1508 = builtinEquals
+  $1509 = builtinGetArgumentCount
+  $1510 = builtinTagHasValue
+  $1511 = builtinTagWithValue
+  $1512 = builtinTextConcatenate
+  $1513 = builtinToDebugText
+  $1514 = builtinTypeOf
+  $1515 = call $1514 with $1505 ($1507 is responsible)
+  $1516 = Tag
+  $1517 = call $1508 with $1515 $1516 ($1507 is responsible)
+  $1518 = builtinIfElse
+  # Examples:sqrt:sqrt:61:calleeIsTag:then
+  $1531 = { (responsible $1519) ->
+    $1520 = call $1510 with $1505 ($1507 is responsible)
+    $1521 = builtinIfElse
+    # Examples:sqrt:sqrt:61:doesTagHaveValue:then
+    $1525 = { (responsible $1522) ->
+      $1523 = "You called a tag that already has a value."
+      $1524 = panicking because $1523 ($1507 is at fault)
+    }
+    # Examples:sqrt:sqrt:61:doesTagHaveValue:else
+    $1529 = { (responsible $1526) ->
+      $1527 = "Tags can only be created with one value."
+      $1528 = panicking because $1527 ($1507 is at fault)
+    }
+    $1530 = call $1521 with $1520 $1525 $1529 ($1507 is responsible)
+  }
+  # Examples:sqrt:sqrt:61:calleeIsTag:else
+  $1563 = { (responsible $1532) ->
+    $1533 = Function
+    $1534 = call $1508 with $1515 $1533 ($1507 is responsible)
+    $1535 = builtinIfElse
+    # Examples:sqrt:sqrt:61:calleeIsFunction:then
+    $1557 = { (responsible $1536) ->
+      $1537 = call $1509 with $1505 ($1507 is responsible)
+      $1538 = 2
+      $1539 = call $1508 with $1537 $1538 ($1507 is responsible)
+      $1540 = builtinIfElse
+      # Examples:sqrt:sqrt:61:hasCorrectNumberOfArguments:then
+      $1547 = { (responsible $1541) ->
+        $1542 = Examples:sqrt:sqrt:61
+        $1543 = trace: start of call of $1505 with $112 $1506 ($1507 is responsible, code is at $1542)
+        $1544 = call $1505 with $112 $1506 ($1507 is responsible)
+        $1545 = trace: end of call
+        $1546 = $1544
+      }
+      # Examples:sqrt:sqrt:61:hasCorrectNumberOfArguments:else
+      $1555 = { (responsible $1548) ->
+        $1549 = "You called a function that expects "
+        $1550 = call $1513 with $1537 ($1507 is responsible)
+        $1551 = " arguments with 2 arguments."
+        $1552 = call $1512 with $1549 $1550 ($1507 is responsible)
+        $1553 = call $1512 with $1552 $1551 ($1507 is responsible)
+        $1554 = panicking because $1553 ($1507 is at fault)
+      }
+      $1556 = call $1540 with $1539 $1547 $1555 ($1507 is responsible)
+    }
+    # Examples:sqrt:sqrt:61:calleeIsFunction:else
+    $1561 = { (responsible $1558) ->
+      $1559 = "You can only call tags or functions."
+      $1560 = panicking because $1559 ($1507 is at fault)
+    }
+    $1562 = call $1535 with $1534 $1557 $1561 ($1507 is responsible)
+  }
+  $1564 = call $1518 with $1517 $1531 $1563 ($1507 is responsible)
+  $1565 = $436
+  $1566 = FromInt
+  $1567 = Examples:sqrt:sqrt:64
+  $1568 = builtinEquals
+  $1569 = builtinGetArgumentCount
+  $1570 = builtinTagHasValue
+  $1571 = builtinTagWithValue
+  $1572 = builtinTextConcatenate
+  $1573 = builtinToDebugText
+  $1574 = builtinTypeOf
+  $1575 = call $1574 with $1564 ($1567 is responsible)
+  $1576 = Tag
+  $1577 = call $1568 with $1575 $1576 ($1567 is responsible)
+  $1578 = builtinIfElse
+  # Examples:sqrt:sqrt:64:calleeIsTag:then
+  $1591 = { (responsible $1579) ->
+    $1580 = call $1570 with $1564 ($1567 is responsible)
+    $1581 = builtinIfElse
+    # Examples:sqrt:sqrt:64:doesTagHaveValue:then
+    $1585 = { (responsible $1582) ->
+      $1583 = "You called a tag that already has a value."
+      $1584 = panicking because $1583 ($1567 is at fault)
+    }
+    # Examples:sqrt:sqrt:64:doesTagHaveValue:else
+    $1589 = { (responsible $1586) ->
+      $1587 = "Tags can only be created with one value."
+      $1588 = panicking because $1587 ($1567 is at fault)
+    }
+    $1590 = call $1581 with $1580 $1585 $1589 ($1567 is responsible)
+  }
+  # Examples:sqrt:sqrt:64:calleeIsTag:else
+  $1623 = { (responsible $1592) ->
+    $1593 = Function
+    $1594 = call $1568 with $1575 $1593 ($1567 is responsible)
+    $1595 = builtinIfElse
+    # Examples:sqrt:sqrt:64:calleeIsFunction:then
+    $1617 = { (responsible $1596) ->
+      $1597 = call $1569 with $1564 ($1567 is responsible)
+      $1598 = 2
+      $1599 = call $1568 with $1597 $1598 ($1567 is responsible)
+      $1600 = builtinIfElse
+      # Examples:sqrt:sqrt:64:hasCorrectNumberOfArguments:then
+      $1607 = { (responsible $1601) ->
+        $1602 = Examples:sqrt:sqrt:64
+        $1603 = trace: start of call of $1564 with $1565 $1566 ($1567 is responsible, code is at $1602)
+        $1604 = call $1564 with $1565 $1566 ($1567 is responsible)
+        $1605 = trace: end of call
+        $1606 = $1604
+      }
+      # Examples:sqrt:sqrt:64:hasCorrectNumberOfArguments:else
+      $1615 = { (responsible $1608) ->
+        $1609 = "You called a function that expects "
+        $1610 = call $1573 with $1597 ($1567 is responsible)
+        $1611 = " arguments with 2 arguments."
+        $1612 = call $1572 with $1609 $1610 ($1567 is responsible)
+        $1613 = call $1572 with $1612 $1611 ($1567 is responsible)
+        $1614 = panicking because $1613 ($1567 is at fault)
+      }
+      $1616 = call $1600 with $1599 $1607 $1615 ($1567 is responsible)
+    }
+    # Examples:sqrt:sqrt:64:calleeIsFunction:else
+    $1621 = { (responsible $1618) ->
+      $1619 = "You can only call tags or functions."
+      $1620 = panicking because $1619 ($1567 is at fault)
+    }
+    $1622 = call $1595 with $1594 $1617 $1621 ($1567 is responsible)
+  }
+  $1624 = call $1578 with $1577 $1591 $1623 ($1567 is responsible)
+  $1625 = Examples:sqrt:sqrt:65
+  $1626 = builtinEquals
+  $1627 = builtinGetArgumentCount
+  $1628 = builtinTagHasValue
+  $1629 = builtinTagWithValue
+  $1630 = builtinTextConcatenate
+  $1631 = builtinToDebugText
+  $1632 = builtinTypeOf
+  $1633 = call $1632 with $1624 ($1625 is responsible)
+  $1634 = Tag
+  $1635 = call $1626 with $1633 $1634 ($1625 is responsible)
+  $1636 = builtinIfElse
+  # Examples:sqrt:sqrt:65:calleeIsTag:then
+  $1648 = { (responsible $1637) ->
+    $1638 = call $1628 with $1624 ($1625 is responsible)
+    $1639 = builtinIfElse
+    # Examples:sqrt:sqrt:65:doesTagHaveValue:then
+    $1643 = { (responsible $1640) ->
+      $1641 = "You called a tag that already has a value."
+      $1642 = panicking because $1641 ($1625 is at fault)
+    }
+    # Examples:sqrt:sqrt:65:doesTagHaveValue:else
+    $1646 = { (responsible $1644) ->
+      $1645 = call $1629 with $1624 $1504 ($1625 is responsible)
+    }
+    $1647 = call $1639 with $1638 $1643 $1646 ($1625 is responsible)
+  }
+  # Examples:sqrt:sqrt:65:calleeIsTag:else
+  $1680 = { (responsible $1649) ->
+    $1650 = Function
+    $1651 = call $1626 with $1633 $1650 ($1625 is responsible)
+    $1652 = builtinIfElse
+    # Examples:sqrt:sqrt:65:calleeIsFunction:then
+    $1674 = { (responsible $1653) ->
+      $1654 = call $1627 with $1624 ($1625 is responsible)
+      $1655 = 1
+      $1656 = call $1626 with $1654 $1655 ($1625 is responsible)
+      $1657 = builtinIfElse
+      # Examples:sqrt:sqrt:65:hasCorrectNumberOfArguments:then
+      $1664 = { (responsible $1658) ->
+        $1659 = Examples:sqrt:sqrt:65
+        $1660 = trace: start of call of $1624 with $1504 ($1625 is responsible, code is at $1659)
+        $1661 = call $1624 with $1504 ($1625 is responsible)
+        $1662 = trace: end of call
+        $1663 = $1661
+      }
+      # Examples:sqrt:sqrt:65:hasCorrectNumberOfArguments:else
+      $1672 = { (responsible $1665) ->
+        $1666 = "You called a function that expects "
+        $1667 = call $1631 with $1654 ($1625 is responsible)
+        $1668 = " arguments with 1 arguments."
+        $1669 = call $1630 with $1666 $1667 ($1625 is responsible)
+        $1670 = call $1630 with $1669 $1668 ($1625 is responsible)
+        $1671 = panicking because $1670 ($1625 is at fault)
+      }
+      $1673 = call $1657 with $1656 $1664 $1672 ($1625 is responsible)
+    }
+    # Examples:sqrt:sqrt:65:calleeIsFunction:else
+    $1678 = { (responsible $1675) ->
+      $1676 = "You can only call tags or functions."
+      $1677 = panicking because $1676 ($1625 is at fault)
+    }
+    $1679 = call $1652 with $1651 $1674 $1678 ($1625 is responsible)
+  }
+  $1681 = call $1636 with $1635 $1648 $1680 ($1625 is responsible)
+  $1682 = $458
+  $1683 = Examples:sqrt:sqrt:67
+  $1684 = builtinEquals
+  $1685 = builtinGetArgumentCount
+  $1686 = builtinTagHasValue
+  $1687 = builtinTagWithValue
+  $1688 = builtinTextConcatenate
+  $1689 = builtinToDebugText
+  $1690 = builtinTypeOf
+  $1691 = call $1690 with $1503 ($1683 is responsible)
+  $1692 = Tag
+  $1693 = call $1684 with $1691 $1692 ($1683 is responsible)
+  $1694 = builtinIfElse
+  # Examples:sqrt:sqrt:67:calleeIsTag:then
+  $1707 = { (responsible $1695) ->
+    $1696 = call $1686 with $1503 ($1683 is responsible)
+    $1697 = builtinIfElse
+    # Examples:sqrt:sqrt:67:doesTagHaveValue:then
+    $1701 = { (responsible $1698) ->
+      $1699 = "You called a tag that already has a value."
+      $1700 = panicking because $1699 ($1683 is at fault)
+    }
+    # Examples:sqrt:sqrt:67:doesTagHaveValue:else
+    $1705 = { (responsible $1702) ->
+      $1703 = "Tags can only be created with one value."
+      $1704 = panicking because $1703 ($1683 is at fault)
+    }
+    $1706 = call $1697 with $1696 $1701 $1705 ($1683 is responsible)
+  }
+  # Examples:sqrt:sqrt:67:calleeIsTag:else
+  $1739 = { (responsible $1708) ->
+    $1709 = Function
+    $1710 = call $1684 with $1691 $1709 ($1683 is responsible)
+    $1711 = builtinIfElse
+    # Examples:sqrt:sqrt:67:calleeIsFunction:then
+    $1733 = { (responsible $1712) ->
+      $1713 = call $1685 with $1503 ($1683 is responsible)
+      $1714 = 3
+      $1715 = call $1684 with $1713 $1714 ($1683 is responsible)
+      $1716 = builtinIfElse
+      # Examples:sqrt:sqrt:67:hasCorrectNumberOfArguments:then
+      $1723 = { (responsible $1717) ->
+        $1718 = Examples:sqrt:sqrt:67
+        $1719 = trace: start of call of $1503 with $1383 $1681 $1682 ($1683 is responsible, code is at $1718)
+        $1720 = call $1503 with $1383 $1681 $1682 ($1683 is responsible)
+        $1721 = trace: end of call
+        $1722 = $1720
+      }
+      # Examples:sqrt:sqrt:67:hasCorrectNumberOfArguments:else
+      $1731 = { (responsible $1724) ->
+        $1725 = "You called a function that expects "
+        $1726 = call $1689 with $1713 ($1683 is responsible)
+        $1727 = " arguments with 3 arguments."
+        $1728 = call $1688 with $1725 $1726 ($1683 is responsible)
+        $1729 = call $1688 with $1728 $1727 ($1683 is responsible)
+        $1730 = panicking because $1729 ($1683 is at fault)
+      }
+      $1732 = call $1716 with $1715 $1723 $1731 ($1683 is responsible)
+    }
+    # Examples:sqrt:sqrt:67:calleeIsFunction:else
+    $1737 = { (responsible $1734) ->
+      $1735 = "You can only call tags or functions."
+      $1736 = panicking because $1735 ($1683 is at fault)
+    }
+    $1738 = call $1711 with $1710 $1733 $1737 ($1683 is responsible)
+  }
+  $1740 = call $1694 with $1693 $1707 $1739 ($1683 is responsible)
+  # Examples:sqrt:sqrt:68
+  $2768 = { $1742 $1743 (+ responsible $1741) ->
+    $1744 = builtinStructGet
+    $1745 = StructGet
+    $1746 = Examples:sqrt:sqrt:68:2
+    $1747 = builtinEquals
+    $1748 = builtinGetArgumentCount
+    $1749 = builtinTagHasValue
+    $1750 = builtinTagWithValue
+    $1751 = builtinTextConcatenate
+    $1752 = builtinToDebugText
+    $1753 = builtinTypeOf
+    $1754 = call $1753 with $1744 ($1746 is responsible)
+    $1755 = Tag
+    $1756 = call $1747 with $1754 $1755 ($1746 is responsible)
+    $1757 = builtinIfElse
+    # Examples:sqrt:sqrt:68:2:calleeIsTag:then
+    $1770 = { (responsible $1758) ->
+      $1759 = call $1749 with $1744 ($1746 is responsible)
+      $1760 = builtinIfElse
+      # Examples:sqrt:sqrt:68:2:doesTagHaveValue:then
+      $1764 = { (responsible $1761) ->
+        $1762 = "You called a tag that already has a value."
+        $1763 = panicking because $1762 ($1746 is at fault)
+      }
+      # Examples:sqrt:sqrt:68:2:doesTagHaveValue:else
+      $1768 = { (responsible $1765) ->
+        $1766 = "Tags can only be created with one value."
+        $1767 = panicking because $1766 ($1746 is at fault)
+      }
+      $1769 = call $1760 with $1759 $1764 $1768 ($1746 is responsible)
+    }
+    # Examples:sqrt:sqrt:68:2:calleeIsTag:else
+    $1802 = { (responsible $1771) ->
+      $1772 = Function
+      $1773 = call $1747 with $1754 $1772 ($1746 is responsible)
+      $1774 = builtinIfElse
+      # Examples:sqrt:sqrt:68:2:calleeIsFunction:then
+      $1796 = { (responsible $1775) ->
+        $1776 = call $1748 with $1744 ($1746 is responsible)
+        $1777 = 2
+        $1778 = call $1747 with $1776 $1777 ($1746 is responsible)
+        $1779 = builtinIfElse
+        # Examples:sqrt:sqrt:68:2:hasCorrectNumberOfArguments:then
+        $1786 = { (responsible $1780) ->
+          $1781 = Examples:sqrt:sqrt:68:2
+          $1782 = trace: start of call of $1744 with $112 $1745 ($1746 is responsible, code is at $1781)
+          $1783 = call $1744 with $112 $1745 ($1746 is responsible)
+          $1784 = trace: end of call
+          $1785 = $1783
+        }
+        # Examples:sqrt:sqrt:68:2:hasCorrectNumberOfArguments:else
+        $1794 = { (responsible $1787) ->
+          $1788 = "You called a function that expects "
+          $1789 = call $1752 with $1776 ($1746 is responsible)
+          $1790 = " arguments with 2 arguments."
+          $1791 = call $1751 with $1788 $1789 ($1746 is responsible)
+          $1792 = call $1751 with $1791 $1790 ($1746 is responsible)
+          $1793 = panicking because $1792 ($1746 is at fault)
+        }
+        $1795 = call $1779 with $1778 $1786 $1794 ($1746 is responsible)
+      }
+      # Examples:sqrt:sqrt:68:2:calleeIsFunction:else
+      $1800 = { (responsible $1797) ->
+        $1798 = "You can only call tags or functions."
+        $1799 = panicking because $1798 ($1746 is at fault)
+      }
+      $1801 = call $1774 with $1773 $1796 $1800 ($1746 is responsible)
+    }
+    $1803 = call $1757 with $1756 $1770 $1802 ($1746 is responsible)
+    $1804 = $436
+    $1805 = DivideTruncatingAtScale
+    $1806 = Examples:sqrt:sqrt:68:5
+    $1807 = builtinEquals
+    $1808 = builtinGetArgumentCount
+    $1809 = builtinTagHasValue
+    $1810 = builtinTagWithValue
+    $1811 = builtinTextConcatenate
+    $1812 = builtinToDebugText
+    $1813 = builtinTypeOf
+    $1814 = call $1813 with $1803 ($1806 is responsible)
+    $1815 = Tag
+    $1816 = call $1807 with $1814 $1815 ($1806 is responsible)
+    $1817 = builtinIfElse
+    # Examples:sqrt:sqrt:68:5:calleeIsTag:then
+    $1830 = { (responsible $1818) ->
+      $1819 = call $1809 with $1803 ($1806 is responsible)
+      $1820 = builtinIfElse
+      # Examples:sqrt:sqrt:68:5:doesTagHaveValue:then
+      $1824 = { (responsible $1821) ->
+        $1822 = "You called a tag that already has a value."
+        $1823 = panicking because $1822 ($1806 is at fault)
+      }
+      # Examples:sqrt:sqrt:68:5:doesTagHaveValue:else
+      $1828 = { (responsible $1825) ->
+        $1826 = "Tags can only be created with one value."
+        $1827 = panicking because $1826 ($1806 is at fault)
+      }
+      $1829 = call $1820 with $1819 $1824 $1828 ($1806 is responsible)
+    }
+    # Examples:sqrt:sqrt:68:5:calleeIsTag:else
+    $1862 = { (responsible $1831) ->
+      $1832 = Function
+      $1833 = call $1807 with $1814 $1832 ($1806 is responsible)
+      $1834 = builtinIfElse
+      # Examples:sqrt:sqrt:68:5:calleeIsFunction:then
+      $1856 = { (responsible $1835) ->
+        $1836 = call $1808 with $1803 ($1806 is responsible)
+        $1837 = 2
+        $1838 = call $1807 with $1836 $1837 ($1806 is responsible)
+        $1839 = builtinIfElse
+        # Examples:sqrt:sqrt:68:5:hasCorrectNumberOfArguments:then
+        $1846 = { (responsible $1840) ->
+          $1841 = Examples:sqrt:sqrt:68:5
+          $1842 = trace: start of call of $1803 with $1804 $1805 ($1806 is responsible, code is at $1841)
+          $1843 = call $1803 with $1804 $1805 ($1806 is responsible)
+          $1844 = trace: end of call
+          $1845 = $1843
+        }
+        # Examples:sqrt:sqrt:68:5:hasCorrectNumberOfArguments:else
+        $1854 = { (responsible $1847) ->
+          $1848 = "You called a function that expects "
+          $1849 = call $1812 with $1836 ($1806 is responsible)
+          $1850 = " arguments with 2 arguments."
+          $1851 = call $1811 with $1848 $1849 ($1806 is responsible)
+          $1852 = call $1811 with $1851 $1850 ($1806 is responsible)
+          $1853 = panicking because $1852 ($1806 is at fault)
+        }
+        $1855 = call $1839 with $1838 $1846 $1854 ($1806 is responsible)
+      }
+      # Examples:sqrt:sqrt:68:5:calleeIsFunction:else
+      $1860 = { (responsible $1857) ->
+        $1858 = "You can only call tags or functions."
+        $1859 = panicking because $1858 ($1806 is at fault)
+      }
+      $1861 = call $1834 with $1833 $1856 $1860 ($1806 is responsible)
+    }
+    $1863 = call $1817 with $1816 $1830 $1862 ($1806 is responsible)
+    $1864 = $1743
+    $1865 = builtinStructGet
+    $1866 = StructGet
+    $1867 = Examples:sqrt:sqrt:68:9
+    $1868 = builtinEquals
+    $1869 = builtinGetArgumentCount
+    $1870 = builtinTagHasValue
+    $1871 = builtinTagWithValue
+    $1872 = builtinTextConcatenate
+    $1873 = builtinToDebugText
+    $1874 = builtinTypeOf
+    $1875 = call $1874 with $1865 ($1867 is responsible)
+    $1876 = Tag
+    $1877 = call $1868 with $1875 $1876 ($1867 is responsible)
+    $1878 = builtinIfElse
+    # Examples:sqrt:sqrt:68:9:calleeIsTag:then
+    $1891 = { (responsible $1879) ->
+      $1880 = call $1870 with $1865 ($1867 is responsible)
+      $1881 = builtinIfElse
+      # Examples:sqrt:sqrt:68:9:doesTagHaveValue:then
+      $1885 = { (responsible $1882) ->
+        $1883 = "You called a tag that already has a value."
+        $1884 = panicking because $1883 ($1867 is at fault)
+      }
+      # Examples:sqrt:sqrt:68:9:doesTagHaveValue:else
+      $1889 = { (responsible $1886) ->
+        $1887 = "Tags can only be created with one value."
+        $1888 = panicking because $1887 ($1867 is at fault)
+      }
+      $1890 = call $1881 with $1880 $1885 $1889 ($1867 is responsible)
+    }
+    # Examples:sqrt:sqrt:68:9:calleeIsTag:else
+    $1923 = { (responsible $1892) ->
+      $1893 = Function
+      $1894 = call $1868 with $1875 $1893 ($1867 is responsible)
+      $1895 = builtinIfElse
+      # Examples:sqrt:sqrt:68:9:calleeIsFunction:then
+      $1917 = { (responsible $1896) ->
+        $1897 = call $1869 with $1865 ($1867 is responsible)
+        $1898 = 2
+        $1899 = call $1868 with $1897 $1898 ($1867 is responsible)
+        $1900 = builtinIfElse
+        # Examples:sqrt:sqrt:68:9:hasCorrectNumberOfArguments:then
+        $1907 = { (responsible $1901) ->
+          $1902 = Examples:sqrt:sqrt:68:9
+          $1903 = trace: start of call of $1865 with $112 $1866 ($1867 is responsible, code is at $1902)
+          $1904 = call $1865 with $112 $1866 ($1867 is responsible)
+          $1905 = trace: end of call
+          $1906 = $1904
+        }
+        # Examples:sqrt:sqrt:68:9:hasCorrectNumberOfArguments:else
+        $1915 = { (responsible $1908) ->
+          $1909 = "You called a function that expects "
+          $1910 = call $1873 with $1897 ($1867 is responsible)
+          $1911 = " arguments with 2 arguments."
+          $1912 = call $1872 with $1909 $1910 ($1867 is responsible)
+          $1913 = call $1872 with $1912 $1911 ($1867 is responsible)
+          $1914 = panicking because $1913 ($1867 is at fault)
+        }
+        $1916 = call $1900 with $1899 $1907 $1915 ($1867 is responsible)
+      }
+      # Examples:sqrt:sqrt:68:9:calleeIsFunction:else
+      $1921 = { (responsible $1918) ->
+        $1919 = "You can only call tags or functions."
+        $1920 = panicking because $1919 ($1867 is at fault)
+      }
+      $1922 = call $1895 with $1894 $1917 $1921 ($1867 is responsible)
+    }
+    $1924 = call $1878 with $1877 $1891 $1923 ($1867 is responsible)
+    $1925 = $436
+    $1926 = Add
+    $1927 = Examples:sqrt:sqrt:68:12
+    $1928 = builtinEquals
+    $1929 = builtinGetArgumentCount
+    $1930 = builtinTagHasValue
+    $1931 = builtinTagWithValue
+    $1932 = builtinTextConcatenate
+    $1933 = builtinToDebugText
+    $1934 = builtinTypeOf
+    $1935 = call $1934 with $1924 ($1927 is responsible)
+    $1936 = Tag
+    $1937 = call $1928 with $1935 $1936 ($1927 is responsible)
+    $1938 = builtinIfElse
+    # Examples:sqrt:sqrt:68:12:calleeIsTag:then
+    $1951 = { (responsible $1939) ->
+      $1940 = call $1930 with $1924 ($1927 is responsible)
+      $1941 = builtinIfElse
+      # Examples:sqrt:sqrt:68:12:doesTagHaveValue:then
+      $1945 = { (responsible $1942) ->
+        $1943 = "You called a tag that already has a value."
+        $1944 = panicking because $1943 ($1927 is at fault)
+      }
+      # Examples:sqrt:sqrt:68:12:doesTagHaveValue:else
+      $1949 = { (responsible $1946) ->
+        $1947 = "Tags can only be created with one value."
+        $1948 = panicking because $1947 ($1927 is at fault)
+      }
+      $1950 = call $1941 with $1940 $1945 $1949 ($1927 is responsible)
+    }
+    # Examples:sqrt:sqrt:68:12:calleeIsTag:else
+    $1983 = { (responsible $1952) ->
+      $1953 = Function
+      $1954 = call $1928 with $1935 $1953 ($1927 is responsible)
+      $1955 = builtinIfElse
+      # Examples:sqrt:sqrt:68:12:calleeIsFunction:then
+      $1977 = { (responsible $1956) ->
+        $1957 = call $1929 with $1924 ($1927 is responsible)
+        $1958 = 2
+        $1959 = call $1928 with $1957 $1958 ($1927 is responsible)
+        $1960 = builtinIfElse
+        # Examples:sqrt:sqrt:68:12:hasCorrectNumberOfArguments:then
+        $1967 = { (responsible $1961) ->
+          $1962 = Examples:sqrt:sqrt:68:12
+          $1963 = trace: start of call of $1924 with $1925 $1926 ($1927 is responsible, code is at $1962)
+          $1964 = call $1924 with $1925 $1926 ($1927 is responsible)
+          $1965 = trace: end of call
+          $1966 = $1964
+        }
+        # Examples:sqrt:sqrt:68:12:hasCorrectNumberOfArguments:else
+        $1975 = { (responsible $1968) ->
+          $1969 = "You called a function that expects "
+          $1970 = call $1933 with $1957 ($1927 is responsible)
+          $1971 = " arguments with 2 arguments."
+          $1972 = call $1932 with $1969 $1970 ($1927 is responsible)
+          $1973 = call $1932 with $1972 $1971 ($1927 is responsible)
+          $1974 = panicking because $1973 ($1927 is at fault)
+        }
+        $1976 = call $1960 with $1959 $1967 $1975 ($1927 is responsible)
+      }
+      # Examples:sqrt:sqrt:68:12:calleeIsFunction:else
+      $1981 = { (responsible $1978) ->
+        $1979 = "You can only call tags or functions."
+        $1980 = panicking because $1979 ($1927 is at fault)
+      }
+      $1982 = call $1955 with $1954 $1977 $1981 ($1927 is responsible)
+    }
+    $1984 = call $1938 with $1937 $1951 $1983 ($1927 is responsible)
+    $1985 = $457
+    $1986 = builtinStructGet
+    $1987 = StructGet
+    $1988 = Examples:sqrt:sqrt:68:16
+    $1989 = builtinEquals
+    $1990 = builtinGetArgumentCount
+    $1991 = builtinTagHasValue
+    $1992 = builtinTagWithValue
+    $1993 = builtinTextConcatenate
+    $1994 = builtinToDebugText
+    $1995 = builtinTypeOf
+    $1996 = call $1995 with $1986 ($1988 is responsible)
+    $1997 = Tag
+    $1998 = call $1989 with $1996 $1997 ($1988 is responsible)
+    $1999 = builtinIfElse
+    # Examples:sqrt:sqrt:68:16:calleeIsTag:then
+    $2012 = { (responsible $2000) ->
+      $2001 = call $1991 with $1986 ($1988 is responsible)
+      $2002 = builtinIfElse
+      # Examples:sqrt:sqrt:68:16:doesTagHaveValue:then
+      $2006 = { (responsible $2003) ->
+        $2004 = "You called a tag that already has a value."
+        $2005 = panicking because $2004 ($1988 is at fault)
+      }
+      # Examples:sqrt:sqrt:68:16:doesTagHaveValue:else
+      $2010 = { (responsible $2007) ->
+        $2008 = "Tags can only be created with one value."
+        $2009 = panicking because $2008 ($1988 is at fault)
+      }
+      $2011 = call $2002 with $2001 $2006 $2010 ($1988 is responsible)
+    }
+    # Examples:sqrt:sqrt:68:16:calleeIsTag:else
+    $2044 = { (responsible $2013) ->
+      $2014 = Function
+      $2015 = call $1989 with $1996 $2014 ($1988 is responsible)
+      $2016 = builtinIfElse
+      # Examples:sqrt:sqrt:68:16:calleeIsFunction:then
+      $2038 = { (responsible $2017) ->
+        $2018 = call $1990 with $1986 ($1988 is responsible)
+        $2019 = 2
+        $2020 = call $1989 with $2018 $2019 ($1988 is responsible)
+        $2021 = builtinIfElse
+        # Examples:sqrt:sqrt:68:16:hasCorrectNumberOfArguments:then
+        $2028 = { (responsible $2022) ->
+          $2023 = Examples:sqrt:sqrt:68:16
+          $2024 = trace: start of call of $1986 with $112 $1987 ($1988 is responsible, code is at $2023)
+          $2025 = call $1986 with $112 $1987 ($1988 is responsible)
+          $2026 = trace: end of call
+          $2027 = $2025
+        }
+        # Examples:sqrt:sqrt:68:16:hasCorrectNumberOfArguments:else
+        $2036 = { (responsible $2029) ->
+          $2030 = "You called a function that expects "
+          $2031 = call $1994 with $2018 ($1988 is responsible)
+          $2032 = " arguments with 2 arguments."
+          $2033 = call $1993 with $2030 $2031 ($1988 is responsible)
+          $2034 = call $1993 with $2033 $2032 ($1988 is responsible)
+          $2035 = panicking because $2034 ($1988 is at fault)
+        }
+        $2037 = call $2021 with $2020 $2028 $2036 ($1988 is responsible)
+      }
+      # Examples:sqrt:sqrt:68:16:calleeIsFunction:else
+      $2042 = { (responsible $2039) ->
+        $2040 = "You can only call tags or functions."
+        $2041 = panicking because $2040 ($1988 is at fault)
+      }
+      $2043 = call $2016 with $2015 $2038 $2042 ($1988 is responsible)
+    }
+    $2045 = call $1999 with $1998 $2012 $2044 ($1988 is responsible)
+    $2046 = $436
+    $2047 = DivideTruncatingAtScale
+    $2048 = Examples:sqrt:sqrt:68:19
+    $2049 = builtinEquals
+    $2050 = builtinGetArgumentCount
+    $2051 = builtinTagHasValue
+    $2052 = builtinTagWithValue
+    $2053 = builtinTextConcatenate
+    $2054 = builtinToDebugText
+    $2055 = builtinTypeOf
+    $2056 = call $2055 with $2045 ($2048 is responsible)
+    $2057 = Tag
+    $2058 = call $2049 with $2056 $2057 ($2048 is responsible)
+    $2059 = builtinIfElse
+    # Examples:sqrt:sqrt:68:19:calleeIsTag:then
+    $2072 = { (responsible $2060) ->
+      $2061 = call $2051 with $2045 ($2048 is responsible)
+      $2062 = builtinIfElse
+      # Examples:sqrt:sqrt:68:19:doesTagHaveValue:then
+      $2066 = { (responsible $2063) ->
+        $2064 = "You called a tag that already has a value."
+        $2065 = panicking because $2064 ($2048 is at fault)
+      }
+      # Examples:sqrt:sqrt:68:19:doesTagHaveValue:else
+      $2070 = { (responsible $2067) ->
+        $2068 = "Tags can only be created with one value."
+        $2069 = panicking because $2068 ($2048 is at fault)
+      }
+      $2071 = call $2062 with $2061 $2066 $2070 ($2048 is responsible)
+    }
+    # Examples:sqrt:sqrt:68:19:calleeIsTag:else
+    $2104 = { (responsible $2073) ->
+      $2074 = Function
+      $2075 = call $2049 with $2056 $2074 ($2048 is responsible)
+      $2076 = builtinIfElse
+      # Examples:sqrt:sqrt:68:19:calleeIsFunction:then
+      $2098 = { (responsible $2077) ->
+        $2078 = call $2050 with $2045 ($2048 is responsible)
+        $2079 = 2
+        $2080 = call $2049 with $2078 $2079 ($2048 is responsible)
+        $2081 = builtinIfElse
+        # Examples:sqrt:sqrt:68:19:hasCorrectNumberOfArguments:then
+        $2088 = { (responsible $2082) ->
+          $2083 = Examples:sqrt:sqrt:68:19
+          $2084 = trace: start of call of $2045 with $2046 $2047 ($2048 is responsible, code is at $2083)
+          $2085 = call $2045 with $2046 $2047 ($2048 is responsible)
+          $2086 = trace: end of call
+          $2087 = $2085
+        }
+        # Examples:sqrt:sqrt:68:19:hasCorrectNumberOfArguments:else
+        $2096 = { (responsible $2089) ->
+          $2090 = "You called a function that expects "
+          $2091 = call $2054 with $2078 ($2048 is responsible)
+          $2092 = " arguments with 2 arguments."
+          $2093 = call $2053 with $2090 $2091 ($2048 is responsible)
+          $2094 = call $2053 with $2093 $2092 ($2048 is responsible)
+          $2095 = panicking because $2094 ($2048 is at fault)
+        }
+        $2097 = call $2081 with $2080 $2088 $2096 ($2048 is responsible)
+      }
+      # Examples:sqrt:sqrt:68:19:calleeIsFunction:else
+      $2102 = { (responsible $2099) ->
+        $2100 = "You can only call tags or functions."
+        $2101 = panicking because $2100 ($2048 is at fault)
+      }
+      $2103 = call $2076 with $2075 $2098 $2102 ($2048 is responsible)
+    }
+    $2105 = call $2059 with $2058 $2072 $2104 ($2048 is responsible)
+    $2106 = $1743
+    $2107 = $458
+    $2108 = Examples:sqrt:sqrt:68:22
+    $2109 = builtinEquals
+    $2110 = builtinGetArgumentCount
+    $2111 = builtinTagHasValue
+    $2112 = builtinTagWithValue
+    $2113 = builtinTextConcatenate
+    $2114 = builtinToDebugText
+    $2115 = builtinTypeOf
+    $2116 = call $2115 with $2105 ($2108 is responsible)
+    $2117 = Tag
+    $2118 = call $2109 with $2116 $2117 ($2108 is responsible)
+    $2119 = builtinIfElse
+    # Examples:sqrt:sqrt:68:22:calleeIsTag:then
+    $2132 = { (responsible $2120) ->
+      $2121 = call $2111 with $2105 ($2108 is responsible)
+      $2122 = builtinIfElse
+      # Examples:sqrt:sqrt:68:22:doesTagHaveValue:then
+      $2126 = { (responsible $2123) ->
+        $2124 = "You called a tag that already has a value."
+        $2125 = panicking because $2124 ($2108 is at fault)
+      }
+      # Examples:sqrt:sqrt:68:22:doesTagHaveValue:else
+      $2130 = { (responsible $2127) ->
+        $2128 = "Tags can only be created with one value."
+        $2129 = panicking because $2128 ($2108 is at fault)
+      }
+      $2131 = call $2122 with $2121 $2126 $2130 ($2108 is responsible)
+    }
+    # Examples:sqrt:sqrt:68:22:calleeIsTag:else
+    $2164 = { (responsible $2133) ->
+      $2134 = Function
+      $2135 = call $2109 with $2116 $2134 ($2108 is responsible)
+      $2136 = builtinIfElse
+      # Examples:sqrt:sqrt:68:22:calleeIsFunction:then
+      $2158 = { (responsible $2137) ->
+        $2138 = call $2110 with $2105 ($2108 is responsible)
+        $2139 = 3
+        $2140 = call $2109 with $2138 $2139 ($2108 is responsible)
+        $2141 = builtinIfElse
+        # Examples:sqrt:sqrt:68:22:hasCorrectNumberOfArguments:then
+        $2148 = { (responsible $2142) ->
+          $2143 = Examples:sqrt:sqrt:68:22
+          $2144 = trace: start of call of $2105 with $1985 $2106 $2107 ($2108 is responsible, code is at $2143)
+          $2145 = call $2105 with $1985 $2106 $2107 ($2108 is responsible)
+          $2146 = trace: end of call
+          $2147 = $2145
+        }
+        # Examples:sqrt:sqrt:68:22:hasCorrectNumberOfArguments:else
+        $2156 = { (responsible $2149) ->
+          $2150 = "You called a function that expects "
+          $2151 = call $2114 with $2138 ($2108 is responsible)
+          $2152 = " arguments with 3 arguments."
+          $2153 = call $2113 with $2150 $2151 ($2108 is responsible)
+          $2154 = call $2113 with $2153 $2152 ($2108 is responsible)
+          $2155 = panicking because $2154 ($2108 is at fault)
+        }
+        $2157 = call $2141 with $2140 $2148 $2156 ($2108 is responsible)
+      }
+      # Examples:sqrt:sqrt:68:22:calleeIsFunction:else
+      $2162 = { (responsible $2159) ->
+        $2160 = "You can only call tags or functions."
+        $2161 = panicking because $2160 ($2108 is at fault)
+      }
+      $2163 = call $2136 with $2135 $2158 $2162 ($2108 is responsible)
+    }
+    $2165 = call $2119 with $2118 $2132 $2164 ($2108 is responsible)
+    $2166 = Examples:sqrt:sqrt:68:23
+    $2167 = builtinEquals
+    $2168 = builtinGetArgumentCount
+    $2169 = builtinTagHasValue
+    $2170 = builtinTagWithValue
+    $2171 = builtinTextConcatenate
+    $2172 = builtinToDebugText
+    $2173 = builtinTypeOf
+    $2174 = call $2173 with $1984 ($2166 is responsible)
+    $2175 = Tag
+    $2176 = call $2167 with $2174 $2175 ($2166 is responsible)
+    $2177 = builtinIfElse
+    # Examples:sqrt:sqrt:68:23:calleeIsTag:then
+    $2190 = { (responsible $2178) ->
+      $2179 = call $2169 with $1984 ($2166 is responsible)
+      $2180 = builtinIfElse
+      # Examples:sqrt:sqrt:68:23:doesTagHaveValue:then
+      $2184 = { (responsible $2181) ->
+        $2182 = "You called a tag that already has a value."
+        $2183 = panicking because $2182 ($2166 is at fault)
+      }
+      # Examples:sqrt:sqrt:68:23:doesTagHaveValue:else
+      $2188 = { (responsible $2185) ->
+        $2186 = "Tags can only be created with one value."
+        $2187 = panicking because $2186 ($2166 is at fault)
+      }
+      $2189 = call $2180 with $2179 $2184 $2188 ($2166 is responsible)
+    }
+    # Examples:sqrt:sqrt:68:23:calleeIsTag:else
+    $2222 = { (responsible $2191) ->
+      $2192 = Function
+      $2193 = call $2167 with $2174 $2192 ($2166 is responsible)
+      $2194 = builtinIfElse
+      # Examples:sqrt:sqrt:68:23:calleeIsFunction:then
+      $2216 = { (responsible $2195) ->
+        $2196 = call $2168 with $1984 ($2166 is responsible)
+        $2197 = 2
+        $2198 = call $2167 with $2196 $2197 ($2166 is responsible)
+        $2199 = builtinIfElse
+        # Examples:sqrt:sqrt:68:23:hasCorrectNumberOfArguments:then
+        $2206 = { (responsible $2200) ->
+          $2201 = Examples:sqrt:sqrt:68:23
+          $2202 = trace: start of call of $1984 with $1864 $2165 ($2166 is responsible, code is at $2201)
+          $2203 = call $1984 with $1864 $2165 ($2166 is responsible)
+          $2204 = trace: end of call
+          $2205 = $2203
+        }
+        # Examples:sqrt:sqrt:68:23:hasCorrectNumberOfArguments:else
+        $2214 = { (responsible $2207) ->
+          $2208 = "You called a function that expects "
+          $2209 = call $2172 with $2196 ($2166 is responsible)
+          $2210 = " arguments with 2 arguments."
+          $2211 = call $2171 with $2208 $2209 ($2166 is responsible)
+          $2212 = call $2171 with $2211 $2210 ($2166 is responsible)
+          $2213 = panicking because $2212 ($2166 is at fault)
+        }
+        $2215 = call $2199 with $2198 $2206 $2214 ($2166 is responsible)
+      }
+      # Examples:sqrt:sqrt:68:23:calleeIsFunction:else
+      $2220 = { (responsible $2217) ->
+        $2218 = "You can only call tags or functions."
+        $2219 = panicking because $2218 ($2166 is at fault)
+      }
+      $2221 = call $2194 with $2193 $2216 $2220 ($2166 is responsible)
+    }
+    $2223 = call $2177 with $2176 $2190 $2222 ($2166 is responsible)
+    $2224 = 2
+    $2225 = builtinStructGet
+    $2226 = StructGet
+    $2227 = Examples:sqrt:sqrt:68:27
+    $2228 = builtinEquals
+    $2229 = builtinGetArgumentCount
+    $2230 = builtinTagHasValue
+    $2231 = builtinTagWithValue
+    $2232 = builtinTextConcatenate
+    $2233 = builtinToDebugText
+    $2234 = builtinTypeOf
+    $2235 = call $2234 with $2225 ($2227 is responsible)
+    $2236 = Tag
+    $2237 = call $2228 with $2235 $2236 ($2227 is responsible)
+    $2238 = builtinIfElse
+    # Examples:sqrt:sqrt:68:27:calleeIsTag:then
+    $2251 = { (responsible $2239) ->
+      $2240 = call $2230 with $2225 ($2227 is responsible)
+      $2241 = builtinIfElse
+      # Examples:sqrt:sqrt:68:27:doesTagHaveValue:then
+      $2245 = { (responsible $2242) ->
+        $2243 = "You called a tag that already has a value."
+        $2244 = panicking because $2243 ($2227 is at fault)
+      }
+      # Examples:sqrt:sqrt:68:27:doesTagHaveValue:else
+      $2249 = { (responsible $2246) ->
+        $2247 = "Tags can only be created with one value."
+        $2248 = panicking because $2247 ($2227 is at fault)
+      }
+      $2250 = call $2241 with $2240 $2245 $2249 ($2227 is responsible)
+    }
+    # Examples:sqrt:sqrt:68:27:calleeIsTag:else
+    $2283 = { (responsible $2252) ->
+      $2253 = Function
+      $2254 = call $2228 with $2235 $2253 ($2227 is responsible)
+      $2255 = builtinIfElse
+      # Examples:sqrt:sqrt:68:27:calleeIsFunction:then
+      $2277 = { (responsible $2256) ->
+        $2257 = call $2229 with $2225 ($2227 is responsible)
+        $2258 = 2
+        $2259 = call $2228 with $2257 $2258 ($2227 is responsible)
+        $2260 = builtinIfElse
+        # Examples:sqrt:sqrt:68:27:hasCorrectNumberOfArguments:then
+        $2267 = { (responsible $2261) ->
+          $2262 = Examples:sqrt:sqrt:68:27
+          $2263 = trace: start of call of $2225 with $112 $2226 ($2227 is responsible, code is at $2262)
+          $2264 = call $2225 with $112 $2226 ($2227 is responsible)
+          $2265 = trace: end of call
+          $2266 = $2264
+        }
+        # Examples:sqrt:sqrt:68:27:hasCorrectNumberOfArguments:else
+        $2275 = { (responsible $2268) ->
+          $2269 = "You called a function that expects "
+          $2270 = call $2233 with $2257 ($2227 is responsible)
+          $2271 = " arguments with 2 arguments."
+          $2272 = call $2232 with $2269 $2270 ($2227 is responsible)
+          $2273 = call $2232 with $2272 $2271 ($2227 is responsible)
+          $2274 = panicking because $2273 ($2227 is at fault)
+        }
+        $2276 = call $2260 with $2259 $2267 $2275 ($2227 is responsible)
+      }
+      # Examples:sqrt:sqrt:68:27:calleeIsFunction:else
+      $2281 = { (responsible $2278) ->
+        $2279 = "You can only call tags or functions."
+        $2280 = panicking because $2279 ($2227 is at fault)
+      }
+      $2282 = call $2255 with $2254 $2277 $2281 ($2227 is responsible)
+    }
+    $2284 = call $2238 with $2237 $2251 $2283 ($2227 is responsible)
+    $2285 = $436
+    $2286 = FromInt
+    $2287 = Examples:sqrt:sqrt:68:30
+    $2288 = builtinEquals
+    $2289 = builtinGetArgumentCount
+    $2290 = builtinTagHasValue
+    $2291 = builtinTagWithValue
+    $2292 = builtinTextConcatenate
+    $2293 = builtinToDebugText
+    $2294 = builtinTypeOf
+    $2295 = call $2294 with $2284 ($2287 is responsible)
+    $2296 = Tag
+    $2297 = call $2288 with $2295 $2296 ($2287 is responsible)
+    $2298 = builtinIfElse
+    # Examples:sqrt:sqrt:68:30:calleeIsTag:then
+    $2311 = { (responsible $2299) ->
+      $2300 = call $2290 with $2284 ($2287 is responsible)
+      $2301 = builtinIfElse
+      # Examples:sqrt:sqrt:68:30:doesTagHaveValue:then
+      $2305 = { (responsible $2302) ->
+        $2303 = "You called a tag that already has a value."
+        $2304 = panicking because $2303 ($2287 is at fault)
+      }
+      # Examples:sqrt:sqrt:68:30:doesTagHaveValue:else
+      $2309 = { (responsible $2306) ->
+        $2307 = "Tags can only be created with one value."
+        $2308 = panicking because $2307 ($2287 is at fault)
+      }
+      $2310 = call $2301 with $2300 $2305 $2309 ($2287 is responsible)
+    }
+    # Examples:sqrt:sqrt:68:30:calleeIsTag:else
+    $2343 = { (responsible $2312) ->
+      $2313 = Function
+      $2314 = call $2288 with $2295 $2313 ($2287 is responsible)
+      $2315 = builtinIfElse
+      # Examples:sqrt:sqrt:68:30:calleeIsFunction:then
+      $2337 = { (responsible $2316) ->
+        $2317 = call $2289 with $2284 ($2287 is responsible)
+        $2318 = 2
+        $2319 = call $2288 with $2317 $2318 ($2287 is responsible)
+        $2320 = builtinIfElse
+        # Examples:sqrt:sqrt:68:30:hasCorrectNumberOfArguments:then
+        $2327 = { (responsible $2321) ->
+          $2322 = Examples:sqrt:sqrt:68:30
+          $2323 = trace: start of call of $2284 with $2285 $2286 ($2287 is responsible, code is at $2322)
+          $2324 = call $2284 with $2285 $2286 ($2287 is responsible)
+          $2325 = trace: end of call
+          $2326 = $2324
+        }
+        # Examples:sqrt:sqrt:68:30:hasCorrectNumberOfArguments:else
+        $2335 = { (responsible $2328) ->
+          $2329 = "You called a function that expects "
+          $2330 = call $2293 with $2317 ($2287 is responsible)
+          $2331 = " arguments with 2 arguments."
+          $2332 = call $2292 with $2329 $2330 ($2287 is responsible)
+          $2333 = call $2292 with $2332 $2331 ($2287 is responsible)
+          $2334 = panicking because $2333 ($2287 is at fault)
+        }
+        $2336 = call $2320 with $2319 $2327 $2335 ($2287 is responsible)
+      }
+      # Examples:sqrt:sqrt:68:30:calleeIsFunction:else
+      $2341 = { (responsible $2338) ->
+        $2339 = "You can only call tags or functions."
+        $2340 = panicking because $2339 ($2287 is at fault)
+      }
+      $2342 = call $2315 with $2314 $2337 $2341 ($2287 is responsible)
+    }
+    $2344 = call $2298 with $2297 $2311 $2343 ($2287 is responsible)
+    $2345 = Examples:sqrt:sqrt:68:31
+    $2346 = builtinEquals
+    $2347 = builtinGetArgumentCount
+    $2348 = builtinTagHasValue
+    $2349 = builtinTagWithValue
+    $2350 = builtinTextConcatenate
+    $2351 = builtinToDebugText
+    $2352 = builtinTypeOf
+    $2353 = call $2352 with $2344 ($2345 is responsible)
+    $2354 = Tag
+    $2355 = call $2346 with $2353 $2354 ($2345 is responsible)
+    $2356 = builtinIfElse
+    # Examples:sqrt:sqrt:68:31:calleeIsTag:then
+    $2368 = { (responsible $2357) ->
+      $2358 = call $2348 with $2344 ($2345 is responsible)
+      $2359 = builtinIfElse
+      # Examples:sqrt:sqrt:68:31:doesTagHaveValue:then
+      $2363 = { (responsible $2360) ->
+        $2361 = "You called a tag that already has a value."
+        $2362 = panicking because $2361 ($2345 is at fault)
+      }
+      # Examples:sqrt:sqrt:68:31:doesTagHaveValue:else
+      $2366 = { (responsible $2364) ->
+        $2365 = call $2349 with $2344 $2224 ($2345 is responsible)
+      }
+      $2367 = call $2359 with $2358 $2363 $2366 ($2345 is responsible)
+    }
+    # Examples:sqrt:sqrt:68:31:calleeIsTag:else
+    $2400 = { (responsible $2369) ->
+      $2370 = Function
+      $2371 = call $2346 with $2353 $2370 ($2345 is responsible)
+      $2372 = builtinIfElse
+      # Examples:sqrt:sqrt:68:31:calleeIsFunction:then
+      $2394 = { (responsible $2373) ->
+        $2374 = call $2347 with $2344 ($2345 is responsible)
+        $2375 = 1
+        $2376 = call $2346 with $2374 $2375 ($2345 is responsible)
+        $2377 = builtinIfElse
+        # Examples:sqrt:sqrt:68:31:hasCorrectNumberOfArguments:then
+        $2384 = { (responsible $2378) ->
+          $2379 = Examples:sqrt:sqrt:68:31
+          $2380 = trace: start of call of $2344 with $2224 ($2345 is responsible, code is at $2379)
+          $2381 = call $2344 with $2224 ($2345 is responsible)
+          $2382 = trace: end of call
+          $2383 = $2381
+        }
+        # Examples:sqrt:sqrt:68:31:hasCorrectNumberOfArguments:else
+        $2392 = { (responsible $2385) ->
+          $2386 = "You called a function that expects "
+          $2387 = call $2351 with $2374 ($2345 is responsible)
+          $2388 = " arguments with 1 arguments."
+          $2389 = call $2350 with $2386 $2387 ($2345 is responsible)
+          $2390 = call $2350 with $2389 $2388 ($2345 is responsible)
+          $2391 = panicking because $2390 ($2345 is at fault)
+        }
+        $2393 = call $2377 with $2376 $2384 $2392 ($2345 is responsible)
+      }
+      # Examples:sqrt:sqrt:68:31:calleeIsFunction:else
+      $2398 = { (responsible $2395) ->
+        $2396 = "You can only call tags or functions."
+        $2397 = panicking because $2396 ($2345 is at fault)
+      }
+      $2399 = call $2372 with $2371 $2394 $2398 ($2345 is responsible)
+    }
+    $2401 = call $2356 with $2355 $2368 $2400 ($2345 is responsible)
+    $2402 = $458
+    $2403 = Examples:sqrt:sqrt:68:33
+    $2404 = builtinEquals
+    $2405 = builtinGetArgumentCount
+    $2406 = builtinTagHasValue
+    $2407 = builtinTagWithValue
+    $2408 = builtinTextConcatenate
+    $2409 = builtinToDebugText
+    $2410 = builtinTypeOf
+    $2411 = call $2410 with $1863 ($2403 is responsible)
+    $2412 = Tag
+    $2413 = call $2404 with $2411 $2412 ($2403 is responsible)
+    $2414 = builtinIfElse
+    # Examples:sqrt:sqrt:68:33:calleeIsTag:then
+    $2427 = { (responsible $2415) ->
+      $2416 = call $2406 with $1863 ($2403 is responsible)
+      $2417 = builtinIfElse
+      # Examples:sqrt:sqrt:68:33:doesTagHaveValue:then
+      $2421 = { (responsible $2418) ->
+        $2419 = "You called a tag that already has a value."
+        $2420 = panicking because $2419 ($2403 is at fault)
+      }
+      # Examples:sqrt:sqrt:68:33:doesTagHaveValue:else
+      $2425 = { (responsible $2422) ->
+        $2423 = "Tags can only be created with one value."
+        $2424 = panicking because $2423 ($2403 is at fault)
+      }
+      $2426 = call $2417 with $2416 $2421 $2425 ($2403 is responsible)
+    }
+    # Examples:sqrt:sqrt:68:33:calleeIsTag:else
+    $2459 = { (responsible $2428) ->
+      $2429 = Function
+      $2430 = call $2404 with $2411 $2429 ($2403 is responsible)
+      $2431 = builtinIfElse
+      # Examples:sqrt:sqrt:68:33:calleeIsFunction:then
+      $2453 = { (responsible $2432) ->
+        $2433 = call $2405 with $1863 ($2403 is responsible)
+        $2434 = 3
+        $2435 = call $2404 with $2433 $2434 ($2403 is responsible)
+        $2436 = builtinIfElse
+        # Examples:sqrt:sqrt:68:33:hasCorrectNumberOfArguments:then
+        $2443 = { (responsible $2437) ->
+          $2438 = Examples:sqrt:sqrt:68:33
+          $2439 = trace: start of call of $1863 with $2223 $2401 $2402 ($2403 is responsible, code is at $2438)
+          $2440 = call $1863 with $2223 $2401 $2402 ($2403 is responsible)
+          $2441 = trace: end of call
+          $2442 = $2440
+        }
+        # Examples:sqrt:sqrt:68:33:hasCorrectNumberOfArguments:else
+        $2451 = { (responsible $2444) ->
+          $2445 = "You called a function that expects "
+          $2446 = call $2409 with $2433 ($2403 is responsible)
+          $2447 = " arguments with 3 arguments."
+          $2448 = call $2408 with $2445 $2446 ($2403 is responsible)
+          $2449 = call $2408 with $2448 $2447 ($2403 is responsible)
+          $2450 = panicking because $2449 ($2403 is at fault)
+        }
+        $2452 = call $2436 with $2435 $2443 $2451 ($2403 is responsible)
+      }
+      # Examples:sqrt:sqrt:68:33:calleeIsFunction:else
+      $2457 = { (responsible $2454) ->
+        $2455 = "You can only call tags or functions."
+        $2456 = panicking because $2455 ($2403 is at fault)
+      }
+      $2458 = call $2431 with $2430 $2453 $2457 ($2403 is responsible)
+    }
+    $2460 = call $2414 with $2413 $2427 $2459 ($2403 is responsible)
+    $2461 = $2460
+    $2462 = $2461
+    $2463 = Nothing
+    $2464 = $442
+    $2465 = builtinStructGet
+    $2466 = StructGet
+    $2467 = Examples:sqrt:sqrt:68:38
+    $2468 = builtinEquals
+    $2469 = builtinGetArgumentCount
+    $2470 = builtinTagHasValue
+    $2471 = builtinTagWithValue
+    $2472 = builtinTextConcatenate
+    $2473 = builtinToDebugText
+    $2474 = builtinTypeOf
+    $2475 = call $2474 with $2465 ($2467 is responsible)
+    $2476 = Tag
+    $2477 = call $2468 with $2475 $2476 ($2467 is responsible)
+    $2478 = builtinIfElse
+    # Examples:sqrt:sqrt:68:38:calleeIsTag:then
+    $2491 = { (responsible $2479) ->
+      $2480 = call $2470 with $2465 ($2467 is responsible)
+      $2481 = builtinIfElse
+      # Examples:sqrt:sqrt:68:38:doesTagHaveValue:then
+      $2485 = { (responsible $2482) ->
+        $2483 = "You called a tag that already has a value."
+        $2484 = panicking because $2483 ($2467 is at fault)
+      }
+      # Examples:sqrt:sqrt:68:38:doesTagHaveValue:else
+      $2489 = { (responsible $2486) ->
+        $2487 = "Tags can only be created with one value."
+        $2488 = panicking because $2487 ($2467 is at fault)
+      }
+      $2490 = call $2481 with $2480 $2485 $2489 ($2467 is responsible)
+    }
+    # Examples:sqrt:sqrt:68:38:calleeIsTag:else
+    $2523 = { (responsible $2492) ->
+      $2493 = Function
+      $2494 = call $2468 with $2475 $2493 ($2467 is responsible)
+      $2495 = builtinIfElse
+      # Examples:sqrt:sqrt:68:38:calleeIsFunction:then
+      $2517 = { (responsible $2496) ->
+        $2497 = call $2469 with $2465 ($2467 is responsible)
+        $2498 = 2
+        $2499 = call $2468 with $2497 $2498 ($2467 is responsible)
+        $2500 = builtinIfElse
+        # Examples:sqrt:sqrt:68:38:hasCorrectNumberOfArguments:then
+        $2507 = { (responsible $2501) ->
+          $2502 = Examples:sqrt:sqrt:68:38
+          $2503 = trace: start of call of $2465 with $112 $2466 ($2467 is responsible, code is at $2502)
+          $2504 = call $2465 with $112 $2466 ($2467 is responsible)
+          $2505 = trace: end of call
+          $2506 = $2504
+        }
+        # Examples:sqrt:sqrt:68:38:hasCorrectNumberOfArguments:else
+        $2515 = { (responsible $2508) ->
+          $2509 = "You called a function that expects "
+          $2510 = call $2473 with $2497 ($2467 is responsible)
+          $2511 = " arguments with 2 arguments."
+          $2512 = call $2472 with $2509 $2510 ($2467 is responsible)
+          $2513 = call $2472 with $2512 $2511 ($2467 is responsible)
+          $2514 = panicking because $2513 ($2467 is at fault)
+        }
+        $2516 = call $2500 with $2499 $2507 $2515 ($2467 is responsible)
+      }
+      # Examples:sqrt:sqrt:68:38:calleeIsFunction:else
+      $2521 = { (responsible $2518) ->
+        $2519 = "You can only call tags or functions."
+        $2520 = panicking because $2519 ($2467 is at fault)
+      }
+      $2522 = call $2495 with $2494 $2517 $2521 ($2467 is responsible)
+    }
+    $2524 = call $2478 with $2477 $2491 $2523 ($2467 is responsible)
+    $2525 = $436
+    $2526 = ApproxEquals
+    $2527 = Examples:sqrt:sqrt:68:41
+    $2528 = builtinEquals
+    $2529 = builtinGetArgumentCount
+    $2530 = builtinTagHasValue
+    $2531 = builtinTagWithValue
+    $2532 = builtinTextConcatenate
+    $2533 = builtinToDebugText
+    $2534 = builtinTypeOf
+    $2535 = call $2534 with $2524 ($2527 is responsible)
+    $2536 = Tag
+    $2537 = call $2528 with $2535 $2536 ($2527 is responsible)
+    $2538 = builtinIfElse
+    # Examples:sqrt:sqrt:68:41:calleeIsTag:then
+    $2551 = { (responsible $2539) ->
+      $2540 = call $2530 with $2524 ($2527 is responsible)
+      $2541 = builtinIfElse
+      # Examples:sqrt:sqrt:68:41:doesTagHaveValue:then
+      $2545 = { (responsible $2542) ->
+        $2543 = "You called a tag that already has a value."
+        $2544 = panicking because $2543 ($2527 is at fault)
+      }
+      # Examples:sqrt:sqrt:68:41:doesTagHaveValue:else
+      $2549 = { (responsible $2546) ->
+        $2547 = "Tags can only be created with one value."
+        $2548 = panicking because $2547 ($2527 is at fault)
+      }
+      $2550 = call $2541 with $2540 $2545 $2549 ($2527 is responsible)
+    }
+    # Examples:sqrt:sqrt:68:41:calleeIsTag:else
+    $2583 = { (responsible $2552) ->
+      $2553 = Function
+      $2554 = call $2528 with $2535 $2553 ($2527 is responsible)
+      $2555 = builtinIfElse
+      # Examples:sqrt:sqrt:68:41:calleeIsFunction:then
+      $2577 = { (responsible $2556) ->
+        $2557 = call $2529 with $2524 ($2527 is responsible)
+        $2558 = 2
+        $2559 = call $2528 with $2557 $2558 ($2527 is responsible)
+        $2560 = builtinIfElse
+        # Examples:sqrt:sqrt:68:41:hasCorrectNumberOfArguments:then
+        $2567 = { (responsible $2561) ->
+          $2562 = Examples:sqrt:sqrt:68:41
+          $2563 = trace: start of call of $2524 with $2525 $2526 ($2527 is responsible, code is at $2562)
+          $2564 = call $2524 with $2525 $2526 ($2527 is responsible)
+          $2565 = trace: end of call
+          $2566 = $2564
+        }
+        # Examples:sqrt:sqrt:68:41:hasCorrectNumberOfArguments:else
+        $2575 = { (responsible $2568) ->
+          $2569 = "You called a function that expects "
+          $2570 = call $2533 with $2557 ($2527 is responsible)
+          $2571 = " arguments with 2 arguments."
+          $2572 = call $2532 with $2569 $2570 ($2527 is responsible)
+          $2573 = call $2532 with $2572 $2571 ($2527 is responsible)
+          $2574 = panicking because $2573 ($2527 is at fault)
+        }
+        $2576 = call $2560 with $2559 $2567 $2575 ($2527 is responsible)
+      }
+      # Examples:sqrt:sqrt:68:41:calleeIsFunction:else
+      $2581 = { (responsible $2578) ->
+        $2579 = "You can only call tags or functions."
+        $2580 = panicking because $2579 ($2527 is at fault)
+      }
+      $2582 = call $2555 with $2554 $2577 $2581 ($2527 is responsible)
+    }
+    $2584 = call $2538 with $2537 $2551 $2583 ($2527 is responsible)
+    $2585 = $1743
+    $2586 = $2462
+    $2587 = $1380
+    $2588 = Examples:sqrt:sqrt:68:45
+    $2589 = builtinEquals
+    $2590 = builtinGetArgumentCount
+    $2591 = builtinTagHasValue
+    $2592 = builtinTagWithValue
+    $2593 = builtinTextConcatenate
+    $2594 = builtinToDebugText
+    $2595 = builtinTypeOf
+    $2596 = call $2595 with $2584 ($2588 is responsible)
+    $2597 = Tag
+    $2598 = call $2589 with $2596 $2597 ($2588 is responsible)
+    $2599 = builtinIfElse
+    # Examples:sqrt:sqrt:68:45:calleeIsTag:then
+    $2612 = { (responsible $2600) ->
+      $2601 = call $2591 with $2584 ($2588 is responsible)
+      $2602 = builtinIfElse
+      # Examples:sqrt:sqrt:68:45:doesTagHaveValue:then
+      $2606 = { (responsible $2603) ->
+        $2604 = "You called a tag that already has a value."
+        $2605 = panicking because $2604 ($2588 is at fault)
+      }
+      # Examples:sqrt:sqrt:68:45:doesTagHaveValue:else
+      $2610 = { (responsible $2607) ->
+        $2608 = "Tags can only be created with one value."
+        $2609 = panicking because $2608 ($2588 is at fault)
+      }
+      $2611 = call $2602 with $2601 $2606 $2610 ($2588 is responsible)
+    }
+    # Examples:sqrt:sqrt:68:45:calleeIsTag:else
+    $2644 = { (responsible $2613) ->
+      $2614 = Function
+      $2615 = call $2589 with $2596 $2614 ($2588 is responsible)
+      $2616 = builtinIfElse
+      # Examples:sqrt:sqrt:68:45:calleeIsFunction:then
+      $2638 = { (responsible $2617) ->
+        $2618 = call $2590 with $2584 ($2588 is responsible)
+        $2619 = 3
+        $2620 = call $2589 with $2618 $2619 ($2588 is responsible)
+        $2621 = builtinIfElse
+        # Examples:sqrt:sqrt:68:45:hasCorrectNumberOfArguments:then
+        $2628 = { (responsible $2622) ->
+          $2623 = Examples:sqrt:sqrt:68:45
+          $2624 = trace: start of call of $2584 with $2585 $2586 $2587 ($2588 is responsible, code is at $2623)
+          $2625 = call $2584 with $2585 $2586 $2587 ($2588 is responsible)
+          $2626 = trace: end of call
+          $2627 = $2625
+        }
+        # Examples:sqrt:sqrt:68:45:hasCorrectNumberOfArguments:else
+        $2636 = { (responsible $2629) ->
+          $2630 = "You called a function that expects "
+          $2631 = call $2594 with $2618 ($2588 is responsible)
+          $2632 = " arguments with 3 arguments."
+          $2633 = call $2593 with $2630 $2631 ($2588 is responsible)
+          $2634 = call $2593 with $2633 $2632 ($2588 is responsible)
+          $2635 = panicking because $2634 ($2588 is at fault)
+        }
+        $2637 = call $2621 with $2620 $2628 $2636 ($2588 is responsible)
+      }
+      # Examples:sqrt:sqrt:68:45:calleeIsFunction:else
+      $2642 = { (responsible $2639) ->
+        $2640 = "You can only call tags or functions."
+        $2641 = panicking because $2640 ($2588 is at fault)
+      }
+      $2643 = call $2616 with $2615 $2638 $2642 ($2588 is responsible)
+    }
+    $2645 = call $2599 with $2598 $2612 $2644 ($2588 is responsible)
+    # Examples:sqrt:sqrt:68:46
+    $2648 = { (responsible $2646) ->
+      $2647 = $1743
+    }
+    # Examples:sqrt:sqrt:68:47
+    $2709 = { (responsible $2649) ->
+      $2650 = $1742
+      $2651 = $2462
+      $2652 = Examples:sqrt:sqrt:68:47:2
+      $2653 = builtinEquals
+      $2654 = builtinGetArgumentCount
+      $2655 = builtinTagHasValue
+      $2656 = builtinTagWithValue
+      $2657 = builtinTextConcatenate
+      $2658 = builtinToDebugText
+      $2659 = builtinTypeOf
+      $2660 = call $2659 with $2650 ($2652 is responsible)
+      $2661 = Tag
+      $2662 = call $2653 with $2660 $2661 ($2652 is responsible)
+      $2663 = builtinIfElse
+      # Examples:sqrt:sqrt:68:47:2:calleeIsTag:then
+      $2675 = { (responsible $2664) ->
+        $2665 = call $2655 with $2650 ($2652 is responsible)
+        $2666 = builtinIfElse
+        # Examples:sqrt:sqrt:68:47:2:doesTagHaveValue:then
+        $2670 = { (responsible $2667) ->
+          $2668 = "You called a tag that already has a value."
+          $2669 = panicking because $2668 ($2652 is at fault)
+        }
+        # Examples:sqrt:sqrt:68:47:2:doesTagHaveValue:else
+        $2673 = { (responsible $2671) ->
+          $2672 = call $2656 with $2650 $2651 ($2652 is responsible)
+        }
+        $2674 = call $2666 with $2665 $2670 $2673 ($2652 is responsible)
+      }
+      # Examples:sqrt:sqrt:68:47:2:calleeIsTag:else
+      $2707 = { (responsible $2676) ->
+        $2677 = Function
+        $2678 = call $2653 with $2660 $2677 ($2652 is responsible)
+        $2679 = builtinIfElse
+        # Examples:sqrt:sqrt:68:47:2:calleeIsFunction:then
+        $2701 = { (responsible $2680) ->
+          $2681 = call $2654 with $2650 ($2652 is responsible)
+          $2682 = 1
+          $2683 = call $2653 with $2681 $2682 ($2652 is responsible)
+          $2684 = builtinIfElse
+          # Examples:sqrt:sqrt:68:47:2:hasCorrectNumberOfArguments:then
+          $2691 = { (responsible $2685) ->
+            $2686 = Examples:sqrt:sqrt:68:47:2
+            $2687 = trace: start of call of $2650 with $2651 ($2652 is responsible, code is at $2686)
+            $2688 = call $2650 with $2651 ($2652 is responsible)
+            $2689 = trace: end of call
+            $2690 = $2688
+          }
+          # Examples:sqrt:sqrt:68:47:2:hasCorrectNumberOfArguments:else
+          $2699 = { (responsible $2692) ->
+            $2693 = "You called a function that expects "
+            $2694 = call $2658 with $2681 ($2652 is responsible)
+            $2695 = " arguments with 1 arguments."
+            $2696 = call $2657 with $2693 $2694 ($2652 is responsible)
+            $2697 = call $2657 with $2696 $2695 ($2652 is responsible)
+            $2698 = panicking because $2697 ($2652 is at fault)
+          }
+          $2700 = call $2684 with $2683 $2691 $2699 ($2652 is responsible)
+        }
+        # Examples:sqrt:sqrt:68:47:2:calleeIsFunction:else
+        $2705 = { (responsible $2702) ->
+          $2703 = "You can only call tags or functions."
+          $2704 = panicking because $2703 ($2652 is at fault)
+        }
+        $2706 = call $2679 with $2678 $2701 $2705 ($2652 is responsible)
+      }
+      $2708 = call $2663 with $2662 $2675 $2707 ($2652 is responsible)
+    }
+    $2710 = Examples:sqrt:sqrt:68:48
+    $2711 = builtinEquals
+    $2712 = builtinGetArgumentCount
+    $2713 = builtinTagHasValue
+    $2714 = builtinTagWithValue
+    $2715 = builtinTextConcatenate
+    $2716 = builtinToDebugText
+    $2717 = builtinTypeOf
+    $2718 = call $2717 with $2464 ($2710 is responsible)
+    $2719 = Tag
+    $2720 = call $2711 with $2718 $2719 ($2710 is responsible)
+    $2721 = builtinIfElse
+    # Examples:sqrt:sqrt:68:48:calleeIsTag:then
+    $2734 = { (responsible $2722) ->
+      $2723 = call $2713 with $2464 ($2710 is responsible)
+      $2724 = builtinIfElse
+      # Examples:sqrt:sqrt:68:48:doesTagHaveValue:then
+      $2728 = { (responsible $2725) ->
+        $2726 = "You called a tag that already has a value."
+        $2727 = panicking because $2726 ($2710 is at fault)
+      }
+      # Examples:sqrt:sqrt:68:48:doesTagHaveValue:else
+      $2732 = { (responsible $2729) ->
+        $2730 = "Tags can only be created with one value."
+        $2731 = panicking because $2730 ($2710 is at fault)
+      }
+      $2733 = call $2724 with $2723 $2728 $2732 ($2710 is responsible)
+    }
+    # Examples:sqrt:sqrt:68:48:calleeIsTag:else
+    $2766 = { (responsible $2735) ->
+      $2736 = Function
+      $2737 = call $2711 with $2718 $2736 ($2710 is responsible)
+      $2738 = builtinIfElse
+      # Examples:sqrt:sqrt:68:48:calleeIsFunction:then
+      $2760 = { (responsible $2739) ->
+        $2740 = call $2712 with $2464 ($2710 is responsible)
+        $2741 = 3
+        $2742 = call $2711 with $2740 $2741 ($2710 is responsible)
+        $2743 = builtinIfElse
+        # Examples:sqrt:sqrt:68:48:hasCorrectNumberOfArguments:then
+        $2750 = { (responsible $2744) ->
+          $2745 = Examples:sqrt:sqrt:68:48
+          $2746 = trace: start of call of $2464 with $2645 $2648 $2709 ($2710 is responsible, code is at $2745)
+          $2747 = call $2464 with $2645 $2648 $2709 ($2710 is responsible)
+          $2748 = trace: end of call
+          $2749 = $2747
+        }
+        # Examples:sqrt:sqrt:68:48:hasCorrectNumberOfArguments:else
+        $2758 = { (responsible $2751) ->
+          $2752 = "You called a function that expects "
+          $2753 = call $2716 with $2740 ($2710 is responsible)
+          $2754 = " arguments with 3 arguments."
+          $2755 = call $2715 with $2752 $2753 ($2710 is responsible)
+          $2756 = call $2715 with $2755 $2754 ($2710 is responsible)
+          $2757 = panicking because $2756 ($2710 is at fault)
+        }
+        $2759 = call $2743 with $2742 $2750 $2758 ($2710 is responsible)
+      }
+      # Examples:sqrt:sqrt:68:48:calleeIsFunction:else
+      $2764 = { (responsible $2761) ->
+        $2762 = "You can only call tags or functions."
+        $2763 = panicking because $2762 ($2710 is at fault)
+      }
+      $2765 = call $2738 with $2737 $2760 $2764 ($2710 is responsible)
+    }
+    $2767 = call $2721 with $2720 $2734 $2766 ($2710 is responsible)
+  }
+  $2769 = Examples:sqrt:sqrt:69
+  $2770 = builtinEquals
+  $2771 = builtinGetArgumentCount
+  $2772 = builtinTagHasValue
+  $2773 = builtinTagWithValue
+  $2774 = builtinTextConcatenate
+  $2775 = builtinToDebugText
+  $2776 = builtinTypeOf
+  $2777 = call $2776 with $1382 ($2769 is responsible)
+  $2778 = Tag
+  $2779 = call $2770 with $2777 $2778 ($2769 is responsible)
+  $2780 = builtinIfElse
+  # Examples:sqrt:sqrt:69:calleeIsTag:then
+  $2793 = { (responsible $2781) ->
+    $2782 = call $2772 with $1382 ($2769 is responsible)
+    $2783 = builtinIfElse
+    # Examples:sqrt:sqrt:69:doesTagHaveValue:then
+    $2787 = { (responsible $2784) ->
+      $2785 = "You called a tag that already has a value."
+      $2786 = panicking because $2785 ($2769 is at fault)
+    }
+    # Examples:sqrt:sqrt:69:doesTagHaveValue:else
+    $2791 = { (responsible $2788) ->
+      $2789 = "Tags can only be created with one value."
+      $2790 = panicking because $2789 ($2769 is at fault)
+    }
+    $2792 = call $2783 with $2782 $2787 $2791 ($2769 is responsible)
+  }
+  # Examples:sqrt:sqrt:69:calleeIsTag:else
+  $2825 = { (responsible $2794) ->
+    $2795 = Function
+    $2796 = call $2770 with $2777 $2795 ($2769 is responsible)
+    $2797 = builtinIfElse
+    # Examples:sqrt:sqrt:69:calleeIsFunction:then
+    $2819 = { (responsible $2798) ->
+      $2799 = call $2771 with $1382 ($2769 is responsible)
+      $2800 = 2
+      $2801 = call $2770 with $2799 $2800 ($2769 is responsible)
+      $2802 = builtinIfElse
+      # Examples:sqrt:sqrt:69:hasCorrectNumberOfArguments:then
+      $2809 = { (responsible $2803) ->
+        $2804 = Examples:sqrt:sqrt:69
+        $2805 = trace: start of call of $1382 with $1740 $2768 ($2769 is responsible, code is at $2804)
+        $2806 = call $1382 with $1740 $2768 ($2769 is responsible)
+        $2807 = trace: end of call
+        $2808 = $2806
+      }
+      # Examples:sqrt:sqrt:69:hasCorrectNumberOfArguments:else
+      $2817 = { (responsible $2810) ->
+        $2811 = "You called a function that expects "
+        $2812 = call $2775 with $2799 ($2769 is responsible)
+        $2813 = " arguments with 2 arguments."
+        $2814 = call $2774 with $2811 $2812 ($2769 is responsible)
+        $2815 = call $2774 with $2814 $2813 ($2769 is responsible)
+        $2816 = panicking because $2815 ($2769 is at fault)
+      }
+      $2818 = call $2802 with $2801 $2809 $2817 ($2769 is responsible)
+    }
+    # Examples:sqrt:sqrt:69:calleeIsFunction:else
+    $2823 = { (responsible $2820) ->
+      $2821 = "You can only call tags or functions."
+      $2822 = panicking because $2821 ($2769 is at fault)
+    }
+    $2824 = call $2797 with $2796 $2819 $2823 ($2769 is responsible)
+  }
+  $2826 = call $2780 with $2779 $2793 $2825 ($2769 is responsible)
+}
+$2828 = $2827
+# Examples:sqrt:main
+$4084 = { $2830 (+ responsible $2829) ->
+  $2831 = 2
+  $2832 = $2831
+  $2833 = $2832
+  $2834 = Nothing
+  $2835 = $2833
+  $2836 = builtinStructGet
+  $2837 = StructGet
+  $2838 = Examples:sqrt:main:5
+  $2839 = builtinEquals
+  $2840 = builtinGetArgumentCount
+  $2841 = builtinTagHasValue
+  $2842 = builtinTagWithValue
+  $2843 = builtinTextConcatenate
+  $2844 = builtinToDebugText
+  $2845 = builtinTypeOf
+  $2846 = call $2845 with $2836 ($2838 is responsible)
+  $2847 = Tag
+  $2848 = call $2839 with $2846 $2847 ($2838 is responsible)
+  $2849 = builtinIfElse
+  # Examples:sqrt:main:5:calleeIsTag:then
+  $2862 = { (responsible $2850) ->
+    $2851 = call $2841 with $2836 ($2838 is responsible)
+    $2852 = builtinIfElse
+    # Examples:sqrt:main:5:doesTagHaveValue:then
+    $2856 = { (responsible $2853) ->
+      $2854 = "You called a tag that already has a value."
+      $2855 = panicking because $2854 ($2838 is at fault)
+    }
+    # Examples:sqrt:main:5:doesTagHaveValue:else
+    $2860 = { (responsible $2857) ->
+      $2858 = "Tags can only be created with one value."
+      $2859 = panicking because $2858 ($2838 is at fault)
+    }
+    $2861 = call $2852 with $2851 $2856 $2860 ($2838 is responsible)
+  }
+  # Examples:sqrt:main:5:calleeIsTag:else
+  $2894 = { (responsible $2863) ->
+    $2864 = Function
+    $2865 = call $2839 with $2846 $2864 ($2838 is responsible)
+    $2866 = builtinIfElse
+    # Examples:sqrt:main:5:calleeIsFunction:then
+    $2888 = { (responsible $2867) ->
+      $2868 = call $2840 with $2836 ($2838 is responsible)
+      $2869 = 2
+      $2870 = call $2839 with $2868 $2869 ($2838 is responsible)
+      $2871 = builtinIfElse
+      # Examples:sqrt:main:5:hasCorrectNumberOfArguments:then
+      $2878 = { (responsible $2872) ->
+        $2873 = Examples:sqrt:main:5
+        $2874 = trace: start of call of $2836 with $112 $2837 ($2838 is responsible, code is at $2873)
+        $2875 = call $2836 with $112 $2837 ($2838 is responsible)
+        $2876 = trace: end of call
+        $2877 = $2875
+      }
+      # Examples:sqrt:main:5:hasCorrectNumberOfArguments:else
+      $2886 = { (responsible $2879) ->
+        $2880 = "You called a function that expects "
+        $2881 = call $2844 with $2868 ($2838 is responsible)
+        $2882 = " arguments with 2 arguments."
+        $2883 = call $2843 with $2880 $2881 ($2838 is responsible)
+        $2884 = call $2843 with $2883 $2882 ($2838 is responsible)
+        $2885 = panicking because $2884 ($2838 is at fault)
+      }
+      $2887 = call $2871 with $2870 $2878 $2886 ($2838 is responsible)
+    }
+    # Examples:sqrt:main:5:calleeIsFunction:else
+    $2892 = { (responsible $2889) ->
+      $2890 = "You can only call tags or functions."
+      $2891 = panicking because $2890 ($2838 is at fault)
+    }
+    $2893 = call $2866 with $2865 $2888 $2892 ($2838 is responsible)
+  }
+  $2895 = call $2849 with $2848 $2862 $2894 ($2838 is responsible)
+  $2896 = $436
+  $2897 = FromInt
+  $2898 = Examples:sqrt:main:8
+  $2899 = builtinEquals
+  $2900 = builtinGetArgumentCount
+  $2901 = builtinTagHasValue
+  $2902 = builtinTagWithValue
+  $2903 = builtinTextConcatenate
+  $2904 = builtinToDebugText
+  $2905 = builtinTypeOf
+  $2906 = call $2905 with $2895 ($2898 is responsible)
+  $2907 = Tag
+  $2908 = call $2899 with $2906 $2907 ($2898 is responsible)
+  $2909 = builtinIfElse
+  # Examples:sqrt:main:8:calleeIsTag:then
+  $2922 = { (responsible $2910) ->
+    $2911 = call $2901 with $2895 ($2898 is responsible)
+    $2912 = builtinIfElse
+    # Examples:sqrt:main:8:doesTagHaveValue:then
+    $2916 = { (responsible $2913) ->
+      $2914 = "You called a tag that already has a value."
+      $2915 = panicking because $2914 ($2898 is at fault)
+    }
+    # Examples:sqrt:main:8:doesTagHaveValue:else
+    $2920 = { (responsible $2917) ->
+      $2918 = "Tags can only be created with one value."
+      $2919 = panicking because $2918 ($2898 is at fault)
+    }
+    $2921 = call $2912 with $2911 $2916 $2920 ($2898 is responsible)
+  }
+  # Examples:sqrt:main:8:calleeIsTag:else
+  $2954 = { (responsible $2923) ->
+    $2924 = Function
+    $2925 = call $2899 with $2906 $2924 ($2898 is responsible)
+    $2926 = builtinIfElse
+    # Examples:sqrt:main:8:calleeIsFunction:then
+    $2948 = { (responsible $2927) ->
+      $2928 = call $2900 with $2895 ($2898 is responsible)
+      $2929 = 2
+      $2930 = call $2899 with $2928 $2929 ($2898 is responsible)
+      $2931 = builtinIfElse
+      # Examples:sqrt:main:8:hasCorrectNumberOfArguments:then
+      $2938 = { (responsible $2932) ->
+        $2933 = Examples:sqrt:main:8
+        $2934 = trace: start of call of $2895 with $2896 $2897 ($2898 is responsible, code is at $2933)
+        $2935 = call $2895 with $2896 $2897 ($2898 is responsible)
+        $2936 = trace: end of call
+        $2937 = $2935
+      }
+      # Examples:sqrt:main:8:hasCorrectNumberOfArguments:else
+      $2946 = { (responsible $2939) ->
+        $2940 = "You called a function that expects "
+        $2941 = call $2904 with $2928 ($2898 is responsible)
+        $2942 = " arguments with 2 arguments."
+        $2943 = call $2903 with $2940 $2941 ($2898 is responsible)
+        $2944 = call $2903 with $2943 $2942 ($2898 is responsible)
+        $2945 = panicking because $2944 ($2898 is at fault)
+      }
+      $2947 = call $2931 with $2930 $2938 $2946 ($2898 is responsible)
+    }
+    # Examples:sqrt:main:8:calleeIsFunction:else
+    $2952 = { (responsible $2949) ->
+      $2950 = "You can only call tags or functions."
+      $2951 = panicking because $2950 ($2898 is at fault)
+    }
+    $2953 = call $2926 with $2925 $2948 $2952 ($2898 is responsible)
+  }
+  $2955 = call $2909 with $2908 $2922 $2954 ($2898 is responsible)
+  $2956 = Examples:sqrt:main:9
+  $2957 = builtinEquals
+  $2958 = builtinGetArgumentCount
+  $2959 = builtinTagHasValue
+  $2960 = builtinTagWithValue
+  $2961 = builtinTextConcatenate
+  $2962 = builtinToDebugText
+  $2963 = builtinTypeOf
+  $2964 = call $2963 with $2955 ($2956 is responsible)
+  $2965 = Tag
+  $2966 = call $2957 with $2964 $2965 ($2956 is responsible)
+  $2967 = builtinIfElse
+  # Examples:sqrt:main:9:calleeIsTag:then
+  $2979 = { (responsible $2968) ->
+    $2969 = call $2959 with $2955 ($2956 is responsible)
+    $2970 = builtinIfElse
+    # Examples:sqrt:main:9:doesTagHaveValue:then
+    $2974 = { (responsible $2971) ->
+      $2972 = "You called a tag that already has a value."
+      $2973 = panicking because $2972 ($2956 is at fault)
+    }
+    # Examples:sqrt:main:9:doesTagHaveValue:else
+    $2977 = { (responsible $2975) ->
+      $2976 = call $2960 with $2955 $2835 ($2956 is responsible)
+    }
+    $2978 = call $2970 with $2969 $2974 $2977 ($2956 is responsible)
+  }
+  # Examples:sqrt:main:9:calleeIsTag:else
+  $3011 = { (responsible $2980) ->
+    $2981 = Function
+    $2982 = call $2957 with $2964 $2981 ($2956 is responsible)
+    $2983 = builtinIfElse
+    # Examples:sqrt:main:9:calleeIsFunction:then
+    $3005 = { (responsible $2984) ->
+      $2985 = call $2958 with $2955 ($2956 is responsible)
+      $2986 = 1
+      $2987 = call $2957 with $2985 $2986 ($2956 is responsible)
+      $2988 = builtinIfElse
+      # Examples:sqrt:main:9:hasCorrectNumberOfArguments:then
+      $2995 = { (responsible $2989) ->
+        $2990 = Examples:sqrt:main:9
+        $2991 = trace: start of call of $2955 with $2835 ($2956 is responsible, code is at $2990)
+        $2992 = call $2955 with $2835 ($2956 is responsible)
+        $2993 = trace: end of call
+        $2994 = $2992
+      }
+      # Examples:sqrt:main:9:hasCorrectNumberOfArguments:else
+      $3003 = { (responsible $2996) ->
+        $2997 = "You called a function that expects "
+        $2998 = call $2962 with $2985 ($2956 is responsible)
+        $2999 = " arguments with 1 arguments."
+        $3000 = call $2961 with $2997 $2998 ($2956 is responsible)
+        $3001 = call $2961 with $3000 $2999 ($2956 is responsible)
+        $3002 = panicking because $3001 ($2956 is at fault)
+      }
+      $3004 = call $2988 with $2987 $2995 $3003 ($2956 is responsible)
+    }
+    # Examples:sqrt:main:9:calleeIsFunction:else
+    $3009 = { (responsible $3006) ->
+      $3007 = "You can only call tags or functions."
+      $3008 = panicking because $3007 ($2956 is at fault)
+    }
+    $3010 = call $2983 with $2982 $3005 $3009 ($2956 is responsible)
+  }
+  $3012 = call $2967 with $2966 $2979 $3011 ($2956 is responsible)
+  $3013 = $2828
+  $3014 = 65
+  $3015 = Examples:sqrt:main:12
+  $3016 = builtinEquals
+  $3017 = builtinGetArgumentCount
+  $3018 = builtinTagHasValue
+  $3019 = builtinTagWithValue
+  $3020 = builtinTextConcatenate
+  $3021 = builtinToDebugText
+  $3022 = builtinTypeOf
+  $3023 = call $3022 with $3013 ($3015 is responsible)
+  $3024 = Tag
+  $3025 = call $3016 with $3023 $3024 ($3015 is responsible)
+  $3026 = builtinIfElse
+  # Examples:sqrt:main:12:calleeIsTag:then
+  $3039 = { (responsible $3027) ->
+    $3028 = call $3018 with $3013 ($3015 is responsible)
+    $3029 = builtinIfElse
+    # Examples:sqrt:main:12:doesTagHaveValue:then
+    $3033 = { (responsible $3030) ->
+      $3031 = "You called a tag that already has a value."
+      $3032 = panicking because $3031 ($3015 is at fault)
+    }
+    # Examples:sqrt:main:12:doesTagHaveValue:else
+    $3037 = { (responsible $3034) ->
+      $3035 = "Tags can only be created with one value."
+      $3036 = panicking because $3035 ($3015 is at fault)
+    }
+    $3038 = call $3029 with $3028 $3033 $3037 ($3015 is responsible)
+  }
+  # Examples:sqrt:main:12:calleeIsTag:else
+  $3071 = { (responsible $3040) ->
+    $3041 = Function
+    $3042 = call $3016 with $3023 $3041 ($3015 is responsible)
+    $3043 = builtinIfElse
+    # Examples:sqrt:main:12:calleeIsFunction:then
+    $3065 = { (responsible $3044) ->
+      $3045 = call $3017 with $3013 ($3015 is responsible)
+      $3046 = 2
+      $3047 = call $3016 with $3045 $3046 ($3015 is responsible)
+      $3048 = builtinIfElse
+      # Examples:sqrt:main:12:hasCorrectNumberOfArguments:then
+      $3055 = { (responsible $3049) ->
+        $3050 = Examples:sqrt:main:12
+        $3051 = trace: start of call of $3013 with $3012 $3014 ($3015 is responsible, code is at $3050)
+        $3052 = call $3013 with $3012 $3014 ($3015 is responsible)
+        $3053 = trace: end of call
+        $3054 = $3052
+      }
+      # Examples:sqrt:main:12:hasCorrectNumberOfArguments:else
+      $3063 = { (responsible $3056) ->
+        $3057 = "You called a function that expects "
+        $3058 = call $3021 with $3045 ($3015 is responsible)
+        $3059 = " arguments with 2 arguments."
+        $3060 = call $3020 with $3057 $3058 ($3015 is responsible)
+        $3061 = call $3020 with $3060 $3059 ($3015 is responsible)
+        $3062 = panicking because $3061 ($3015 is at fault)
+      }
+      $3064 = call $3048 with $3047 $3055 $3063 ($3015 is responsible)
+    }
+    # Examples:sqrt:main:12:calleeIsFunction:else
+    $3069 = { (responsible $3066) ->
+      $3067 = "You can only call tags or functions."
+      $3068 = panicking because $3067 ($3015 is at fault)
+    }
+    $3070 = call $3043 with $3042 $3065 $3069 ($3015 is responsible)
+  }
+  $3072 = call $3026 with $3025 $3039 $3071 ($3015 is responsible)
+  $3073 = $3072
+  $3074 = $3073
+  $3075 = Nothing
+  $3076 = builtinStructGet
+  $3077 = StructGet
+  $3078 = Examples:sqrt:main:16
+  $3079 = builtinEquals
+  $3080 = builtinGetArgumentCount
+  $3081 = builtinTagHasValue
+  $3082 = builtinTagWithValue
+  $3083 = builtinTextConcatenate
+  $3084 = builtinToDebugText
+  $3085 = builtinTypeOf
+  $3086 = call $3085 with $3076 ($3078 is responsible)
+  $3087 = Tag
+  $3088 = call $3079 with $3086 $3087 ($3078 is responsible)
+  $3089 = builtinIfElse
+  # Examples:sqrt:main:16:calleeIsTag:then
+  $3102 = { (responsible $3090) ->
+    $3091 = call $3081 with $3076 ($3078 is responsible)
+    $3092 = builtinIfElse
+    # Examples:sqrt:main:16:doesTagHaveValue:then
+    $3096 = { (responsible $3093) ->
+      $3094 = "You called a tag that already has a value."
+      $3095 = panicking because $3094 ($3078 is at fault)
+    }
+    # Examples:sqrt:main:16:doesTagHaveValue:else
+    $3100 = { (responsible $3097) ->
+      $3098 = "Tags can only be created with one value."
+      $3099 = panicking because $3098 ($3078 is at fault)
+    }
+    $3101 = call $3092 with $3091 $3096 $3100 ($3078 is responsible)
+  }
+  # Examples:sqrt:main:16:calleeIsTag:else
+  $3134 = { (responsible $3103) ->
+    $3104 = Function
+    $3105 = call $3079 with $3086 $3104 ($3078 is responsible)
+    $3106 = builtinIfElse
+    # Examples:sqrt:main:16:calleeIsFunction:then
+    $3128 = { (responsible $3107) ->
+      $3108 = call $3080 with $3076 ($3078 is responsible)
+      $3109 = 2
+      $3110 = call $3079 with $3108 $3109 ($3078 is responsible)
+      $3111 = builtinIfElse
+      # Examples:sqrt:main:16:hasCorrectNumberOfArguments:then
+      $3118 = { (responsible $3112) ->
+        $3113 = Examples:sqrt:main:16
+        $3114 = trace: start of call of $3076 with $112 $3077 ($3078 is responsible, code is at $3113)
+        $3115 = call $3076 with $112 $3077 ($3078 is responsible)
+        $3116 = trace: end of call
+        $3117 = $3115
+      }
+      # Examples:sqrt:main:16:hasCorrectNumberOfArguments:else
+      $3126 = { (responsible $3119) ->
+        $3120 = "You called a function that expects "
+        $3121 = call $3084 with $3108 ($3078 is responsible)
+        $3122 = " arguments with 2 arguments."
+        $3123 = call $3083 with $3120 $3121 ($3078 is responsible)
+        $3124 = call $3083 with $3123 $3122 ($3078 is responsible)
+        $3125 = panicking because $3124 ($3078 is at fault)
+      }
+      $3127 = call $3111 with $3110 $3118 $3126 ($3078 is responsible)
+    }
+    # Examples:sqrt:main:16:calleeIsFunction:else
+    $3132 = { (responsible $3129) ->
+      $3130 = "You can only call tags or functions."
+      $3131 = panicking because $3130 ($3078 is at fault)
+    }
+    $3133 = call $3106 with $3105 $3128 $3132 ($3078 is responsible)
+  }
+  $3135 = call $3089 with $3088 $3102 $3134 ($3078 is responsible)
+  $3136 = $179
+  $3137 = Print
+  $3138 = Examples:sqrt:main:19
+  $3139 = builtinEquals
+  $3140 = builtinGetArgumentCount
+  $3141 = builtinTagHasValue
+  $3142 = builtinTagWithValue
+  $3143 = builtinTextConcatenate
+  $3144 = builtinToDebugText
+  $3145 = builtinTypeOf
+  $3146 = call $3145 with $3135 ($3138 is responsible)
+  $3147 = Tag
+  $3148 = call $3139 with $3146 $3147 ($3138 is responsible)
+  $3149 = builtinIfElse
+  # Examples:sqrt:main:19:calleeIsTag:then
+  $3162 = { (responsible $3150) ->
+    $3151 = call $3141 with $3135 ($3138 is responsible)
+    $3152 = builtinIfElse
+    # Examples:sqrt:main:19:doesTagHaveValue:then
+    $3156 = { (responsible $3153) ->
+      $3154 = "You called a tag that already has a value."
+      $3155 = panicking because $3154 ($3138 is at fault)
+    }
+    # Examples:sqrt:main:19:doesTagHaveValue:else
+    $3160 = { (responsible $3157) ->
+      $3158 = "Tags can only be created with one value."
+      $3159 = panicking because $3158 ($3138 is at fault)
+    }
+    $3161 = call $3152 with $3151 $3156 $3160 ($3138 is responsible)
+  }
+  # Examples:sqrt:main:19:calleeIsTag:else
+  $3194 = { (responsible $3163) ->
+    $3164 = Function
+    $3165 = call $3139 with $3146 $3164 ($3138 is responsible)
+    $3166 = builtinIfElse
+    # Examples:sqrt:main:19:calleeIsFunction:then
+    $3188 = { (responsible $3167) ->
+      $3168 = call $3140 with $3135 ($3138 is responsible)
+      $3169 = 2
+      $3170 = call $3139 with $3168 $3169 ($3138 is responsible)
+      $3171 = builtinIfElse
+      # Examples:sqrt:main:19:hasCorrectNumberOfArguments:then
+      $3178 = { (responsible $3172) ->
+        $3173 = Examples:sqrt:main:19
+        $3174 = trace: start of call of $3135 with $3136 $3137 ($3138 is responsible, code is at $3173)
+        $3175 = call $3135 with $3136 $3137 ($3138 is responsible)
+        $3176 = trace: end of call
+        $3177 = $3175
+      }
+      # Examples:sqrt:main:19:hasCorrectNumberOfArguments:else
+      $3186 = { (responsible $3179) ->
+        $3180 = "You called a function that expects "
+        $3181 = call $3144 with $3168 ($3138 is responsible)
+        $3182 = " arguments with 2 arguments."
+        $3183 = call $3143 with $3180 $3181 ($3138 is responsible)
+        $3184 = call $3143 with $3183 $3182 ($3138 is responsible)
+        $3185 = panicking because $3184 ($3138 is at fault)
+      }
+      $3187 = call $3171 with $3170 $3178 $3186 ($3138 is responsible)
+    }
+    # Examples:sqrt:main:19:calleeIsFunction:else
+    $3192 = { (responsible $3189) ->
+      $3190 = "You can only call tags or functions."
+      $3191 = panicking because $3190 ($3138 is at fault)
+    }
+    $3193 = call $3166 with $3165 $3188 $3192 ($3138 is responsible)
+  }
+  $3195 = call $3149 with $3148 $3162 $3194 ($3138 is responsible)
+  $3196 = builtinTextConcatenate
+  $3197 = builtinTypeOf
+  $3198 = Text
+  $3199 = builtinEquals
+  $3200 = builtinIfElse
+  $3201 = builtinToDebugText
+  $3202 = "The root of "
+  $3203 = $2833
+  $3204 = Examples:sqrt:main:28
+  $3205 = builtinEquals
+  $3206 = builtinGetArgumentCount
+  $3207 = builtinTagHasValue
+  $3208 = builtinTagWithValue
+  $3209 = builtinTextConcatenate
+  $3210 = builtinToDebugText
+  $3211 = builtinTypeOf
+  $3212 = call $3211 with $3197 ($3204 is responsible)
+  $3213 = Tag
+  $3214 = call $3205 with $3212 $3213 ($3204 is responsible)
+  $3215 = builtinIfElse
+  # Examples:sqrt:main:28:calleeIsTag:then
+  $3227 = { (responsible $3216) ->
+    $3217 = call $3207 with $3197 ($3204 is responsible)
+    $3218 = builtinIfElse
+    # Examples:sqrt:main:28:doesTagHaveValue:then
+    $3222 = { (responsible $3219) ->
+      $3220 = "You called a tag that already has a value."
+      $3221 = panicking because $3220 ($3204 is at fault)
+    }
+    # Examples:sqrt:main:28:doesTagHaveValue:else
+    $3225 = { (responsible $3223) ->
+      $3224 = call $3208 with $3197 $3203 ($3204 is responsible)
+    }
+    $3226 = call $3218 with $3217 $3222 $3225 ($3204 is responsible)
+  }
+  # Examples:sqrt:main:28:calleeIsTag:else
+  $3259 = { (responsible $3228) ->
+    $3229 = Function
+    $3230 = call $3205 with $3212 $3229 ($3204 is responsible)
+    $3231 = builtinIfElse
+    # Examples:sqrt:main:28:calleeIsFunction:then
+    $3253 = { (responsible $3232) ->
+      $3233 = call $3206 with $3197 ($3204 is responsible)
+      $3234 = 1
+      $3235 = call $3205 with $3233 $3234 ($3204 is responsible)
+      $3236 = builtinIfElse
+      # Examples:sqrt:main:28:hasCorrectNumberOfArguments:then
+      $3243 = { (responsible $3237) ->
+        $3238 = Examples:sqrt:main:28
+        $3239 = trace: start of call of $3197 with $3203 ($3204 is responsible, code is at $3238)
+        $3240 = call $3197 with $3203 ($3204 is responsible)
+        $3241 = trace: end of call
+        $3242 = $3240
+      }
+      # Examples:sqrt:main:28:hasCorrectNumberOfArguments:else
+      $3251 = { (responsible $3244) ->
+        $3245 = "You called a function that expects "
+        $3246 = call $3210 with $3233 ($3204 is responsible)
+        $3247 = " arguments with 1 arguments."
+        $3248 = call $3209 with $3245 $3246 ($3204 is responsible)
+        $3249 = call $3209 with $3248 $3247 ($3204 is responsible)
+        $3250 = panicking because $3249 ($3204 is at fault)
+      }
+      $3252 = call $3236 with $3235 $3243 $3251 ($3204 is responsible)
+    }
+    # Examples:sqrt:main:28:calleeIsFunction:else
+    $3257 = { (responsible $3254) ->
+      $3255 = "You can only call tags or functions."
+      $3256 = panicking because $3255 ($3204 is at fault)
+    }
+    $3258 = call $3231 with $3230 $3253 $3257 ($3204 is responsible)
+  }
+  $3260 = call $3215 with $3214 $3227 $3259 ($3204 is responsible)
+  $3261 = Examples:sqrt:main:29
+  $3262 = builtinEquals
+  $3263 = builtinGetArgumentCount
+  $3264 = builtinTagHasValue
+  $3265 = builtinTagWithValue
+  $3266 = builtinTextConcatenate
+  $3267 = builtinToDebugText
+  $3268 = builtinTypeOf
+  $3269 = call $3268 with $3199 ($3261 is responsible)
+  $3270 = Tag
+  $3271 = call $3262 with $3269 $3270 ($3261 is responsible)
+  $3272 = builtinIfElse
+  # Examples:sqrt:main:29:calleeIsTag:then
+  $3285 = { (responsible $3273) ->
+    $3274 = call $3264 with $3199 ($3261 is responsible)
+    $3275 = builtinIfElse
+    # Examples:sqrt:main:29:doesTagHaveValue:then
+    $3279 = { (responsible $3276) ->
+      $3277 = "You called a tag that already has a value."
+      $3278 = panicking because $3277 ($3261 is at fault)
+    }
+    # Examples:sqrt:main:29:doesTagHaveValue:else
+    $3283 = { (responsible $3280) ->
+      $3281 = "Tags can only be created with one value."
+      $3282 = panicking because $3281 ($3261 is at fault)
+    }
+    $3284 = call $3275 with $3274 $3279 $3283 ($3261 is responsible)
+  }
+  # Examples:sqrt:main:29:calleeIsTag:else
+  $3317 = { (responsible $3286) ->
+    $3287 = Function
+    $3288 = call $3262 with $3269 $3287 ($3261 is responsible)
+    $3289 = builtinIfElse
+    # Examples:sqrt:main:29:calleeIsFunction:then
+    $3311 = { (responsible $3290) ->
+      $3291 = call $3263 with $3199 ($3261 is responsible)
+      $3292 = 2
+      $3293 = call $3262 with $3291 $3292 ($3261 is responsible)
+      $3294 = builtinIfElse
+      # Examples:sqrt:main:29:hasCorrectNumberOfArguments:then
+      $3301 = { (responsible $3295) ->
+        $3296 = Examples:sqrt:main:29
+        $3297 = trace: start of call of $3199 with $3260 $3198 ($3261 is responsible, code is at $3296)
+        $3298 = call $3199 with $3260 $3198 ($3261 is responsible)
+        $3299 = trace: end of call
+        $3300 = $3298
+      }
+      # Examples:sqrt:main:29:hasCorrectNumberOfArguments:else
+      $3309 = { (responsible $3302) ->
+        $3303 = "You called a function that expects "
+        $3304 = call $3267 with $3291 ($3261 is responsible)
+        $3305 = " arguments with 2 arguments."
+        $3306 = call $3266 with $3303 $3304 ($3261 is responsible)
+        $3307 = call $3266 with $3306 $3305 ($3261 is responsible)
+        $3308 = panicking because $3307 ($3261 is at fault)
+      }
+      $3310 = call $3294 with $3293 $3301 $3309 ($3261 is responsible)
+    }
+    # Examples:sqrt:main:29:calleeIsFunction:else
+    $3315 = { (responsible $3312) ->
+      $3313 = "You can only call tags or functions."
+      $3314 = panicking because $3313 ($3261 is at fault)
+    }
+    $3316 = call $3289 with $3288 $3311 $3315 ($3261 is responsible)
+  }
+  $3318 = call $3272 with $3271 $3285 $3317 ($3261 is responsible)
+  # Examples:sqrt:main:30
+  $3321 = { (responsible $3319) ->
+    $3320 = $3203
+  }
+  # Examples:sqrt:main:31
+  $3380 = { (responsible $3322) ->
+    $3323 = Examples:sqrt:main:31:0
+    $3324 = builtinEquals
+    $3325 = builtinGetArgumentCount
+    $3326 = builtinTagHasValue
+    $3327 = builtinTagWithValue
+    $3328 = builtinTextConcatenate
+    $3329 = builtinToDebugText
+    $3330 = builtinTypeOf
+    $3331 = call $3330 with $3201 ($3323 is responsible)
+    $3332 = Tag
+    $3333 = call $3324 with $3331 $3332 ($3323 is responsible)
+    $3334 = builtinIfElse
+    # Examples:sqrt:main:31:0:calleeIsTag:then
+    $3346 = { (responsible $3335) ->
+      $3336 = call $3326 with $3201 ($3323 is responsible)
+      $3337 = builtinIfElse
+      # Examples:sqrt:main:31:0:doesTagHaveValue:then
+      $3341 = { (responsible $3338) ->
+        $3339 = "You called a tag that already has a value."
+        $3340 = panicking because $3339 ($3323 is at fault)
+      }
+      # Examples:sqrt:main:31:0:doesTagHaveValue:else
+      $3344 = { (responsible $3342) ->
+        $3343 = call $3327 with $3201 $3203 ($3323 is responsible)
+      }
+      $3345 = call $3337 with $3336 $3341 $3344 ($3323 is responsible)
+    }
+    # Examples:sqrt:main:31:0:calleeIsTag:else
+    $3378 = { (responsible $3347) ->
+      $3348 = Function
+      $3349 = call $3324 with $3331 $3348 ($3323 is responsible)
+      $3350 = builtinIfElse
+      # Examples:sqrt:main:31:0:calleeIsFunction:then
+      $3372 = { (responsible $3351) ->
+        $3352 = call $3325 with $3201 ($3323 is responsible)
+        $3353 = 1
+        $3354 = call $3324 with $3352 $3353 ($3323 is responsible)
+        $3355 = builtinIfElse
+        # Examples:sqrt:main:31:0:hasCorrectNumberOfArguments:then
+        $3362 = { (responsible $3356) ->
+          $3357 = Examples:sqrt:main:31:0
+          $3358 = trace: start of call of $3201 with $3203 ($3323 is responsible, code is at $3357)
+          $3359 = call $3201 with $3203 ($3323 is responsible)
+          $3360 = trace: end of call
+          $3361 = $3359
+        }
+        # Examples:sqrt:main:31:0:hasCorrectNumberOfArguments:else
+        $3370 = { (responsible $3363) ->
+          $3364 = "You called a function that expects "
+          $3365 = call $3329 with $3352 ($3323 is responsible)
+          $3366 = " arguments with 1 arguments."
+          $3367 = call $3328 with $3364 $3365 ($3323 is responsible)
+          $3368 = call $3328 with $3367 $3366 ($3323 is responsible)
+          $3369 = panicking because $3368 ($3323 is at fault)
+        }
+        $3371 = call $3355 with $3354 $3362 $3370 ($3323 is responsible)
+      }
+      # Examples:sqrt:main:31:0:calleeIsFunction:else
+      $3376 = { (responsible $3373) ->
+        $3374 = "You can only call tags or functions."
+        $3375 = panicking because $3374 ($3323 is at fault)
+      }
+      $3377 = call $3350 with $3349 $3372 $3376 ($3323 is responsible)
+    }
+    $3379 = call $3334 with $3333 $3346 $3378 ($3323 is responsible)
+  }
+  $3381 = Examples:sqrt:main:32
+  $3382 = builtinEquals
+  $3383 = builtinGetArgumentCount
+  $3384 = builtinTagHasValue
+  $3385 = builtinTagWithValue
+  $3386 = builtinTextConcatenate
+  $3387 = builtinToDebugText
+  $3388 = builtinTypeOf
+  $3389 = call $3388 with $3200 ($3381 is responsible)
+  $3390 = Tag
+  $3391 = call $3382 with $3389 $3390 ($3381 is responsible)
+  $3392 = builtinIfElse
+  # Examples:sqrt:main:32:calleeIsTag:then
+  $3405 = { (responsible $3393) ->
+    $3394 = call $3384 with $3200 ($3381 is responsible)
+    $3395 = builtinIfElse
+    # Examples:sqrt:main:32:doesTagHaveValue:then
+    $3399 = { (responsible $3396) ->
+      $3397 = "You called a tag that already has a value."
+      $3398 = panicking because $3397 ($3381 is at fault)
+    }
+    # Examples:sqrt:main:32:doesTagHaveValue:else
+    $3403 = { (responsible $3400) ->
+      $3401 = "Tags can only be created with one value."
+      $3402 = panicking because $3401 ($3381 is at fault)
+    }
+    $3404 = call $3395 with $3394 $3399 $3403 ($3381 is responsible)
+  }
+  # Examples:sqrt:main:32:calleeIsTag:else
+  $3437 = { (responsible $3406) ->
+    $3407 = Function
+    $3408 = call $3382 with $3389 $3407 ($3381 is responsible)
+    $3409 = builtinIfElse
+    # Examples:sqrt:main:32:calleeIsFunction:then
+    $3431 = { (responsible $3410) ->
+      $3411 = call $3383 with $3200 ($3381 is responsible)
+      $3412 = 3
+      $3413 = call $3382 with $3411 $3412 ($3381 is responsible)
+      $3414 = builtinIfElse
+      # Examples:sqrt:main:32:hasCorrectNumberOfArguments:then
+      $3421 = { (responsible $3415) ->
+        $3416 = Examples:sqrt:main:32
+        $3417 = trace: start of call of $3200 with $3318 $3321 $3380 ($3381 is responsible, code is at $3416)
+        $3418 = call $3200 with $3318 $3321 $3380 ($3381 is responsible)
+        $3419 = trace: end of call
+        $3420 = $3418
+      }
+      # Examples:sqrt:main:32:hasCorrectNumberOfArguments:else
+      $3429 = { (responsible $3422) ->
+        $3423 = "You called a function that expects "
+        $3424 = call $3387 with $3411 ($3381 is responsible)
+        $3425 = " arguments with 3 arguments."
+        $3426 = call $3386 with $3423 $3424 ($3381 is responsible)
+        $3427 = call $3386 with $3426 $3425 ($3381 is responsible)
+        $3428 = panicking because $3427 ($3381 is at fault)
+      }
+      $3430 = call $3414 with $3413 $3421 $3429 ($3381 is responsible)
+    }
+    # Examples:sqrt:main:32:calleeIsFunction:else
+    $3435 = { (responsible $3432) ->
+      $3433 = "You can only call tags or functions."
+      $3434 = panicking because $3433 ($3381 is at fault)
+    }
+    $3436 = call $3409 with $3408 $3431 $3435 ($3381 is responsible)
+  }
+  $3438 = call $3392 with $3391 $3405 $3437 ($3381 is responsible)
+  $3439 = " is "
+  $3440 = $3074
+  $3441 = builtinStructGet
+  $3442 = StructGet
+  $3443 = Examples:sqrt:main:37
+  $3444 = builtinEquals
+  $3445 = builtinGetArgumentCount
+  $3446 = builtinTagHasValue
+  $3447 = builtinTagWithValue
+  $3448 = builtinTextConcatenate
+  $3449 = builtinToDebugText
+  $3450 = builtinTypeOf
+  $3451 = call $3450 with $3441 ($3443 is responsible)
+  $3452 = Tag
+  $3453 = call $3444 with $3451 $3452 ($3443 is responsible)
+  $3454 = builtinIfElse
+  # Examples:sqrt:main:37:calleeIsTag:then
+  $3467 = { (responsible $3455) ->
+    $3456 = call $3446 with $3441 ($3443 is responsible)
+    $3457 = builtinIfElse
+    # Examples:sqrt:main:37:doesTagHaveValue:then
+    $3461 = { (responsible $3458) ->
+      $3459 = "You called a tag that already has a value."
+      $3460 = panicking because $3459 ($3443 is at fault)
+    }
+    # Examples:sqrt:main:37:doesTagHaveValue:else
+    $3465 = { (responsible $3462) ->
+      $3463 = "Tags can only be created with one value."
+      $3464 = panicking because $3463 ($3443 is at fault)
+    }
+    $3466 = call $3457 with $3456 $3461 $3465 ($3443 is responsible)
+  }
+  # Examples:sqrt:main:37:calleeIsTag:else
+  $3499 = { (responsible $3468) ->
+    $3469 = Function
+    $3470 = call $3444 with $3451 $3469 ($3443 is responsible)
+    $3471 = builtinIfElse
+    # Examples:sqrt:main:37:calleeIsFunction:then
+    $3493 = { (responsible $3472) ->
+      $3473 = call $3445 with $3441 ($3443 is responsible)
+      $3474 = 2
+      $3475 = call $3444 with $3473 $3474 ($3443 is responsible)
+      $3476 = builtinIfElse
+      # Examples:sqrt:main:37:hasCorrectNumberOfArguments:then
+      $3483 = { (responsible $3477) ->
+        $3478 = Examples:sqrt:main:37
+        $3479 = trace: start of call of $3441 with $112 $3442 ($3443 is responsible, code is at $3478)
+        $3480 = call $3441 with $112 $3442 ($3443 is responsible)
+        $3481 = trace: end of call
+        $3482 = $3480
+      }
+      # Examples:sqrt:main:37:hasCorrectNumberOfArguments:else
+      $3491 = { (responsible $3484) ->
+        $3485 = "You called a function that expects "
+        $3486 = call $3449 with $3473 ($3443 is responsible)
+        $3487 = " arguments with 2 arguments."
+        $3488 = call $3448 with $3485 $3486 ($3443 is responsible)
+        $3489 = call $3448 with $3488 $3487 ($3443 is responsible)
+        $3490 = panicking because $3489 ($3443 is at fault)
+      }
+      $3492 = call $3476 with $3475 $3483 $3491 ($3443 is responsible)
+    }
+    # Examples:sqrt:main:37:calleeIsFunction:else
+    $3497 = { (responsible $3494) ->
+      $3495 = "You can only call tags or functions."
+      $3496 = panicking because $3495 ($3443 is at fault)
+    }
+    $3498 = call $3471 with $3470 $3493 $3497 ($3443 is responsible)
+  }
+  $3500 = call $3454 with $3453 $3467 $3499 ($3443 is responsible)
+  $3501 = $436
+  $3502 = ToText
+  $3503 = Examples:sqrt:main:40
+  $3504 = builtinEquals
+  $3505 = builtinGetArgumentCount
+  $3506 = builtinTagHasValue
+  $3507 = builtinTagWithValue
+  $3508 = builtinTextConcatenate
+  $3509 = builtinToDebugText
+  $3510 = builtinTypeOf
+  $3511 = call $3510 with $3500 ($3503 is responsible)
+  $3512 = Tag
+  $3513 = call $3504 with $3511 $3512 ($3503 is responsible)
+  $3514 = builtinIfElse
+  # Examples:sqrt:main:40:calleeIsTag:then
+  $3527 = { (responsible $3515) ->
+    $3516 = call $3506 with $3500 ($3503 is responsible)
+    $3517 = builtinIfElse
+    # Examples:sqrt:main:40:doesTagHaveValue:then
+    $3521 = { (responsible $3518) ->
+      $3519 = "You called a tag that already has a value."
+      $3520 = panicking because $3519 ($3503 is at fault)
+    }
+    # Examples:sqrt:main:40:doesTagHaveValue:else
+    $3525 = { (responsible $3522) ->
+      $3523 = "Tags can only be created with one value."
+      $3524 = panicking because $3523 ($3503 is at fault)
+    }
+    $3526 = call $3517 with $3516 $3521 $3525 ($3503 is responsible)
+  }
+  # Examples:sqrt:main:40:calleeIsTag:else
+  $3559 = { (responsible $3528) ->
+    $3529 = Function
+    $3530 = call $3504 with $3511 $3529 ($3503 is responsible)
+    $3531 = builtinIfElse
+    # Examples:sqrt:main:40:calleeIsFunction:then
+    $3553 = { (responsible $3532) ->
+      $3533 = call $3505 with $3500 ($3503 is responsible)
+      $3534 = 2
+      $3535 = call $3504 with $3533 $3534 ($3503 is responsible)
+      $3536 = builtinIfElse
+      # Examples:sqrt:main:40:hasCorrectNumberOfArguments:then
+      $3543 = { (responsible $3537) ->
+        $3538 = Examples:sqrt:main:40
+        $3539 = trace: start of call of $3500 with $3501 $3502 ($3503 is responsible, code is at $3538)
+        $3540 = call $3500 with $3501 $3502 ($3503 is responsible)
+        $3541 = trace: end of call
+        $3542 = $3540
+      }
+      # Examples:sqrt:main:40:hasCorrectNumberOfArguments:else
+      $3551 = { (responsible $3544) ->
+        $3545 = "You called a function that expects "
+        $3546 = call $3509 with $3533 ($3503 is responsible)
+        $3547 = " arguments with 2 arguments."
+        $3548 = call $3508 with $3545 $3546 ($3503 is responsible)
+        $3549 = call $3508 with $3548 $3547 ($3503 is responsible)
+        $3550 = panicking because $3549 ($3503 is at fault)
+      }
+      $3552 = call $3536 with $3535 $3543 $3551 ($3503 is responsible)
+    }
+    # Examples:sqrt:main:40:calleeIsFunction:else
+    $3557 = { (responsible $3554) ->
+      $3555 = "You can only call tags or functions."
+      $3556 = panicking because $3555 ($3503 is at fault)
+    }
+    $3558 = call $3531 with $3530 $3553 $3557 ($3503 is responsible)
+  }
+  $3560 = call $3514 with $3513 $3527 $3559 ($3503 is responsible)
+  $3561 = Examples:sqrt:main:41
+  $3562 = builtinEquals
+  $3563 = builtinGetArgumentCount
+  $3564 = builtinTagHasValue
+  $3565 = builtinTagWithValue
+  $3566 = builtinTextConcatenate
+  $3567 = builtinToDebugText
+  $3568 = builtinTypeOf
+  $3569 = call $3568 with $3560 ($3561 is responsible)
+  $3570 = Tag
+  $3571 = call $3562 with $3569 $3570 ($3561 is responsible)
+  $3572 = builtinIfElse
+  # Examples:sqrt:main:41:calleeIsTag:then
+  $3584 = { (responsible $3573) ->
+    $3574 = call $3564 with $3560 ($3561 is responsible)
+    $3575 = builtinIfElse
+    # Examples:sqrt:main:41:doesTagHaveValue:then
+    $3579 = { (responsible $3576) ->
+      $3577 = "You called a tag that already has a value."
+      $3578 = panicking because $3577 ($3561 is at fault)
+    }
+    # Examples:sqrt:main:41:doesTagHaveValue:else
+    $3582 = { (responsible $3580) ->
+      $3581 = call $3565 with $3560 $3440 ($3561 is responsible)
+    }
+    $3583 = call $3575 with $3574 $3579 $3582 ($3561 is responsible)
+  }
+  # Examples:sqrt:main:41:calleeIsTag:else
+  $3616 = { (responsible $3585) ->
+    $3586 = Function
+    $3587 = call $3562 with $3569 $3586 ($3561 is responsible)
+    $3588 = builtinIfElse
+    # Examples:sqrt:main:41:calleeIsFunction:then
+    $3610 = { (responsible $3589) ->
+      $3590 = call $3563 with $3560 ($3561 is responsible)
+      $3591 = 1
+      $3592 = call $3562 with $3590 $3591 ($3561 is responsible)
+      $3593 = builtinIfElse
+      # Examples:sqrt:main:41:hasCorrectNumberOfArguments:then
+      $3600 = { (responsible $3594) ->
+        $3595 = Examples:sqrt:main:41
+        $3596 = trace: start of call of $3560 with $3440 ($3561 is responsible, code is at $3595)
+        $3597 = call $3560 with $3440 ($3561 is responsible)
+        $3598 = trace: end of call
+        $3599 = $3597
+      }
+      # Examples:sqrt:main:41:hasCorrectNumberOfArguments:else
+      $3608 = { (responsible $3601) ->
+        $3602 = "You called a function that expects "
+        $3603 = call $3567 with $3590 ($3561 is responsible)
+        $3604 = " arguments with 1 arguments."
+        $3605 = call $3566 with $3602 $3603 ($3561 is responsible)
+        $3606 = call $3566 with $3605 $3604 ($3561 is responsible)
+        $3607 = panicking because $3606 ($3561 is at fault)
+      }
+      $3609 = call $3593 with $3592 $3600 $3608 ($3561 is responsible)
+    }
+    # Examples:sqrt:main:41:calleeIsFunction:else
+    $3614 = { (responsible $3611) ->
+      $3612 = "You can only call tags or functions."
+      $3613 = panicking because $3612 ($3561 is at fault)
+    }
+    $3615 = call $3588 with $3587 $3610 $3614 ($3561 is responsible)
+  }
+  $3617 = call $3572 with $3571 $3584 $3616 ($3561 is responsible)
+  $3618 = Examples:sqrt:main:42
+  $3619 = builtinEquals
+  $3620 = builtinGetArgumentCount
+  $3621 = builtinTagHasValue
+  $3622 = builtinTagWithValue
+  $3623 = builtinTextConcatenate
+  $3624 = builtinToDebugText
+  $3625 = builtinTypeOf
+  $3626 = call $3625 with $3197 ($3618 is responsible)
+  $3627 = Tag
+  $3628 = call $3619 with $3626 $3627 ($3618 is responsible)
+  $3629 = builtinIfElse
+  # Examples:sqrt:main:42:calleeIsTag:then
+  $3641 = { (responsible $3630) ->
+    $3631 = call $3621 with $3197 ($3618 is responsible)
+    $3632 = builtinIfElse
+    # Examples:sqrt:main:42:doesTagHaveValue:then
+    $3636 = { (responsible $3633) ->
+      $3634 = "You called a tag that already has a value."
+      $3635 = panicking because $3634 ($3618 is at fault)
+    }
+    # Examples:sqrt:main:42:doesTagHaveValue:else
+    $3639 = { (responsible $3637) ->
+      $3638 = call $3622 with $3197 $3617 ($3618 is responsible)
+    }
+    $3640 = call $3632 with $3631 $3636 $3639 ($3618 is responsible)
+  }
+  # Examples:sqrt:main:42:calleeIsTag:else
+  $3673 = { (responsible $3642) ->
+    $3643 = Function
+    $3644 = call $3619 with $3626 $3643 ($3618 is responsible)
+    $3645 = builtinIfElse
+    # Examples:sqrt:main:42:calleeIsFunction:then
+    $3667 = { (responsible $3646) ->
+      $3647 = call $3620 with $3197 ($3618 is responsible)
+      $3648 = 1
+      $3649 = call $3619 with $3647 $3648 ($3618 is responsible)
+      $3650 = builtinIfElse
+      # Examples:sqrt:main:42:hasCorrectNumberOfArguments:then
+      $3657 = { (responsible $3651) ->
+        $3652 = Examples:sqrt:main:42
+        $3653 = trace: start of call of $3197 with $3617 ($3618 is responsible, code is at $3652)
+        $3654 = call $3197 with $3617 ($3618 is responsible)
+        $3655 = trace: end of call
+        $3656 = $3654
+      }
+      # Examples:sqrt:main:42:hasCorrectNumberOfArguments:else
+      $3665 = { (responsible $3658) ->
+        $3659 = "You called a function that expects "
+        $3660 = call $3624 with $3647 ($3618 is responsible)
+        $3661 = " arguments with 1 arguments."
+        $3662 = call $3623 with $3659 $3660 ($3618 is responsible)
+        $3663 = call $3623 with $3662 $3661 ($3618 is responsible)
+        $3664 = panicking because $3663 ($3618 is at fault)
+      }
+      $3666 = call $3650 with $3649 $3657 $3665 ($3618 is responsible)
+    }
+    # Examples:sqrt:main:42:calleeIsFunction:else
+    $3671 = { (responsible $3668) ->
+      $3669 = "You can only call tags or functions."
+      $3670 = panicking because $3669 ($3618 is at fault)
+    }
+    $3672 = call $3645 with $3644 $3667 $3671 ($3618 is responsible)
+  }
+  $3674 = call $3629 with $3628 $3641 $3673 ($3618 is responsible)
+  $3675 = Examples:sqrt:main:43
+  $3676 = builtinEquals
+  $3677 = builtinGetArgumentCount
+  $3678 = builtinTagHasValue
+  $3679 = builtinTagWithValue
+  $3680 = builtinTextConcatenate
+  $3681 = builtinToDebugText
+  $3682 = builtinTypeOf
+  $3683 = call $3682 with $3199 ($3675 is responsible)
+  $3684 = Tag
+  $3685 = call $3676 with $3683 $3684 ($3675 is responsible)
+  $3686 = builtinIfElse
+  # Examples:sqrt:main:43:calleeIsTag:then
+  $3699 = { (responsible $3687) ->
+    $3688 = call $3678 with $3199 ($3675 is responsible)
+    $3689 = builtinIfElse
+    # Examples:sqrt:main:43:doesTagHaveValue:then
+    $3693 = { (responsible $3690) ->
+      $3691 = "You called a tag that already has a value."
+      $3692 = panicking because $3691 ($3675 is at fault)
+    }
+    # Examples:sqrt:main:43:doesTagHaveValue:else
+    $3697 = { (responsible $3694) ->
+      $3695 = "Tags can only be created with one value."
+      $3696 = panicking because $3695 ($3675 is at fault)
+    }
+    $3698 = call $3689 with $3688 $3693 $3697 ($3675 is responsible)
+  }
+  # Examples:sqrt:main:43:calleeIsTag:else
+  $3731 = { (responsible $3700) ->
+    $3701 = Function
+    $3702 = call $3676 with $3683 $3701 ($3675 is responsible)
+    $3703 = builtinIfElse
+    # Examples:sqrt:main:43:calleeIsFunction:then
+    $3725 = { (responsible $3704) ->
+      $3705 = call $3677 with $3199 ($3675 is responsible)
+      $3706 = 2
+      $3707 = call $3676 with $3705 $3706 ($3675 is responsible)
+      $3708 = builtinIfElse
+      # Examples:sqrt:main:43:hasCorrectNumberOfArguments:then
+      $3715 = { (responsible $3709) ->
+        $3710 = Examples:sqrt:main:43
+        $3711 = trace: start of call of $3199 with $3674 $3198 ($3675 is responsible, code is at $3710)
+        $3712 = call $3199 with $3674 $3198 ($3675 is responsible)
+        $3713 = trace: end of call
+        $3714 = $3712
+      }
+      # Examples:sqrt:main:43:hasCorrectNumberOfArguments:else
+      $3723 = { (responsible $3716) ->
+        $3717 = "You called a function that expects "
+        $3718 = call $3681 with $3705 ($3675 is responsible)
+        $3719 = " arguments with 2 arguments."
+        $3720 = call $3680 with $3717 $3718 ($3675 is responsible)
+        $3721 = call $3680 with $3720 $3719 ($3675 is responsible)
+        $3722 = panicking because $3721 ($3675 is at fault)
+      }
+      $3724 = call $3708 with $3707 $3715 $3723 ($3675 is responsible)
+    }
+    # Examples:sqrt:main:43:calleeIsFunction:else
+    $3729 = { (responsible $3726) ->
+      $3727 = "You can only call tags or functions."
+      $3728 = panicking because $3727 ($3675 is at fault)
+    }
+    $3730 = call $3703 with $3702 $3725 $3729 ($3675 is responsible)
+  }
+  $3732 = call $3686 with $3685 $3699 $3731 ($3675 is responsible)
+  # Examples:sqrt:main:44
+  $3735 = { (responsible $3733) ->
+    $3734 = $3617
+  }
+  # Examples:sqrt:main:45
+  $3794 = { (responsible $3736) ->
+    $3737 = Examples:sqrt:main:45:0
+    $3738 = builtinEquals
+    $3739 = builtinGetArgumentCount
+    $3740 = builtinTagHasValue
+    $3741 = builtinTagWithValue
+    $3742 = builtinTextConcatenate
+    $3743 = builtinToDebugText
+    $3744 = builtinTypeOf
+    $3745 = call $3744 with $3201 ($3737 is responsible)
+    $3746 = Tag
+    $3747 = call $3738 with $3745 $3746 ($3737 is responsible)
+    $3748 = builtinIfElse
+    # Examples:sqrt:main:45:0:calleeIsTag:then
+    $3760 = { (responsible $3749) ->
+      $3750 = call $3740 with $3201 ($3737 is responsible)
+      $3751 = builtinIfElse
+      # Examples:sqrt:main:45:0:doesTagHaveValue:then
+      $3755 = { (responsible $3752) ->
+        $3753 = "You called a tag that already has a value."
+        $3754 = panicking because $3753 ($3737 is at fault)
+      }
+      # Examples:sqrt:main:45:0:doesTagHaveValue:else
+      $3758 = { (responsible $3756) ->
+        $3757 = call $3741 with $3201 $3617 ($3737 is responsible)
+      }
+      $3759 = call $3751 with $3750 $3755 $3758 ($3737 is responsible)
+    }
+    # Examples:sqrt:main:45:0:calleeIsTag:else
+    $3792 = { (responsible $3761) ->
+      $3762 = Function
+      $3763 = call $3738 with $3745 $3762 ($3737 is responsible)
+      $3764 = builtinIfElse
+      # Examples:sqrt:main:45:0:calleeIsFunction:then
+      $3786 = { (responsible $3765) ->
+        $3766 = call $3739 with $3201 ($3737 is responsible)
+        $3767 = 1
+        $3768 = call $3738 with $3766 $3767 ($3737 is responsible)
+        $3769 = builtinIfElse
+        # Examples:sqrt:main:45:0:hasCorrectNumberOfArguments:then
+        $3776 = { (responsible $3770) ->
+          $3771 = Examples:sqrt:main:45:0
+          $3772 = trace: start of call of $3201 with $3617 ($3737 is responsible, code is at $3771)
+          $3773 = call $3201 with $3617 ($3737 is responsible)
+          $3774 = trace: end of call
+          $3775 = $3773
+        }
+        # Examples:sqrt:main:45:0:hasCorrectNumberOfArguments:else
+        $3784 = { (responsible $3777) ->
+          $3778 = "You called a function that expects "
+          $3779 = call $3743 with $3766 ($3737 is responsible)
+          $3780 = " arguments with 1 arguments."
+          $3781 = call $3742 with $3778 $3779 ($3737 is responsible)
+          $3782 = call $3742 with $3781 $3780 ($3737 is responsible)
+          $3783 = panicking because $3782 ($3737 is at fault)
+        }
+        $3785 = call $3769 with $3768 $3776 $3784 ($3737 is responsible)
+      }
+      # Examples:sqrt:main:45:0:calleeIsFunction:else
+      $3790 = { (responsible $3787) ->
+        $3788 = "You can only call tags or functions."
+        $3789 = panicking because $3788 ($3737 is at fault)
+      }
+      $3791 = call $3764 with $3763 $3786 $3790 ($3737 is responsible)
+    }
+    $3793 = call $3748 with $3747 $3760 $3792 ($3737 is responsible)
+  }
+  $3795 = Examples:sqrt:main:46
+  $3796 = builtinEquals
+  $3797 = builtinGetArgumentCount
+  $3798 = builtinTagHasValue
+  $3799 = builtinTagWithValue
+  $3800 = builtinTextConcatenate
+  $3801 = builtinToDebugText
+  $3802 = builtinTypeOf
+  $3803 = call $3802 with $3200 ($3795 is responsible)
+  $3804 = Tag
+  $3805 = call $3796 with $3803 $3804 ($3795 is responsible)
+  $3806 = builtinIfElse
+  # Examples:sqrt:main:46:calleeIsTag:then
+  $3819 = { (responsible $3807) ->
+    $3808 = call $3798 with $3200 ($3795 is responsible)
+    $3809 = builtinIfElse
+    # Examples:sqrt:main:46:doesTagHaveValue:then
+    $3813 = { (responsible $3810) ->
+      $3811 = "You called a tag that already has a value."
+      $3812 = panicking because $3811 ($3795 is at fault)
+    }
+    # Examples:sqrt:main:46:doesTagHaveValue:else
+    $3817 = { (responsible $3814) ->
+      $3815 = "Tags can only be created with one value."
+      $3816 = panicking because $3815 ($3795 is at fault)
+    }
+    $3818 = call $3809 with $3808 $3813 $3817 ($3795 is responsible)
+  }
+  # Examples:sqrt:main:46:calleeIsTag:else
+  $3851 = { (responsible $3820) ->
+    $3821 = Function
+    $3822 = call $3796 with $3803 $3821 ($3795 is responsible)
+    $3823 = builtinIfElse
+    # Examples:sqrt:main:46:calleeIsFunction:then
+    $3845 = { (responsible $3824) ->
+      $3825 = call $3797 with $3200 ($3795 is responsible)
+      $3826 = 3
+      $3827 = call $3796 with $3825 $3826 ($3795 is responsible)
+      $3828 = builtinIfElse
+      # Examples:sqrt:main:46:hasCorrectNumberOfArguments:then
+      $3835 = { (responsible $3829) ->
+        $3830 = Examples:sqrt:main:46
+        $3831 = trace: start of call of $3200 with $3732 $3735 $3794 ($3795 is responsible, code is at $3830)
+        $3832 = call $3200 with $3732 $3735 $3794 ($3795 is responsible)
+        $3833 = trace: end of call
+        $3834 = $3832
+      }
+      # Examples:sqrt:main:46:hasCorrectNumberOfArguments:else
+      $3843 = { (responsible $3836) ->
+        $3837 = "You called a function that expects "
+        $3838 = call $3801 with $3825 ($3795 is responsible)
+        $3839 = " arguments with 3 arguments."
+        $3840 = call $3800 with $3837 $3838 ($3795 is responsible)
+        $3841 = call $3800 with $3840 $3839 ($3795 is responsible)
+        $3842 = panicking because $3841 ($3795 is at fault)
+      }
+      $3844 = call $3828 with $3827 $3835 $3843 ($3795 is responsible)
+    }
+    # Examples:sqrt:main:46:calleeIsFunction:else
+    $3849 = { (responsible $3846) ->
+      $3847 = "You can only call tags or functions."
+      $3848 = panicking because $3847 ($3795 is at fault)
+    }
+    $3850 = call $3823 with $3822 $3845 $3849 ($3795 is responsible)
+  }
+  $3852 = call $3806 with $3805 $3819 $3851 ($3795 is responsible)
+  $3853 = Examples:sqrt:main:47
+  $3854 = builtinEquals
+  $3855 = builtinGetArgumentCount
+  $3856 = builtinTagHasValue
+  $3857 = builtinTagWithValue
+  $3858 = builtinTextConcatenate
+  $3859 = builtinToDebugText
+  $3860 = builtinTypeOf
+  $3861 = call $3860 with $3196 ($3853 is responsible)
+  $3862 = Tag
+  $3863 = call $3854 with $3861 $3862 ($3853 is responsible)
+  $3864 = builtinIfElse
+  # Examples:sqrt:main:47:calleeIsTag:then
+  $3877 = { (responsible $3865) ->
+    $3866 = call $3856 with $3196 ($3853 is responsible)
+    $3867 = builtinIfElse
+    # Examples:sqrt:main:47:doesTagHaveValue:then
+    $3871 = { (responsible $3868) ->
+      $3869 = "You called a tag that already has a value."
+      $3870 = panicking because $3869 ($3853 is at fault)
+    }
+    # Examples:sqrt:main:47:doesTagHaveValue:else
+    $3875 = { (responsible $3872) ->
+      $3873 = "Tags can only be created with one value."
+      $3874 = panicking because $3873 ($3853 is at fault)
+    }
+    $3876 = call $3867 with $3866 $3871 $3875 ($3853 is responsible)
+  }
+  # Examples:sqrt:main:47:calleeIsTag:else
+  $3909 = { (responsible $3878) ->
+    $3879 = Function
+    $3880 = call $3854 with $3861 $3879 ($3853 is responsible)
+    $3881 = builtinIfElse
+    # Examples:sqrt:main:47:calleeIsFunction:then
+    $3903 = { (responsible $3882) ->
+      $3883 = call $3855 with $3196 ($3853 is responsible)
+      $3884 = 2
+      $3885 = call $3854 with $3883 $3884 ($3853 is responsible)
+      $3886 = builtinIfElse
+      # Examples:sqrt:main:47:hasCorrectNumberOfArguments:then
+      $3893 = { (responsible $3887) ->
+        $3888 = Examples:sqrt:main:47
+        $3889 = trace: start of call of $3196 with $3202 $3438 ($3853 is responsible, code is at $3888)
+        $3890 = call $3196 with $3202 $3438 ($3853 is responsible)
+        $3891 = trace: end of call
+        $3892 = $3890
+      }
+      # Examples:sqrt:main:47:hasCorrectNumberOfArguments:else
+      $3901 = { (responsible $3894) ->
+        $3895 = "You called a function that expects "
+        $3896 = call $3859 with $3883 ($3853 is responsible)
+        $3897 = " arguments with 2 arguments."
+        $3898 = call $3858 with $3895 $3896 ($3853 is responsible)
+        $3899 = call $3858 with $3898 $3897 ($3853 is responsible)
+        $3900 = panicking because $3899 ($3853 is at fault)
+      }
+      $3902 = call $3886 with $3885 $3893 $3901 ($3853 is responsible)
+    }
+    # Examples:sqrt:main:47:calleeIsFunction:else
+    $3907 = { (responsible $3904) ->
+      $3905 = "You can only call tags or functions."
+      $3906 = panicking because $3905 ($3853 is at fault)
+    }
+    $3908 = call $3881 with $3880 $3903 $3907 ($3853 is responsible)
+  }
+  $3910 = call $3864 with $3863 $3877 $3909 ($3853 is responsible)
+  $3911 = Examples:sqrt:main:48
+  $3912 = builtinEquals
+  $3913 = builtinGetArgumentCount
+  $3914 = builtinTagHasValue
+  $3915 = builtinTagWithValue
+  $3916 = builtinTextConcatenate
+  $3917 = builtinToDebugText
+  $3918 = builtinTypeOf
+  $3919 = call $3918 with $3196 ($3911 is responsible)
+  $3920 = Tag
+  $3921 = call $3912 with $3919 $3920 ($3911 is responsible)
+  $3922 = builtinIfElse
+  # Examples:sqrt:main:48:calleeIsTag:then
+  $3935 = { (responsible $3923) ->
+    $3924 = call $3914 with $3196 ($3911 is responsible)
+    $3925 = builtinIfElse
+    # Examples:sqrt:main:48:doesTagHaveValue:then
+    $3929 = { (responsible $3926) ->
+      $3927 = "You called a tag that already has a value."
+      $3928 = panicking because $3927 ($3911 is at fault)
+    }
+    # Examples:sqrt:main:48:doesTagHaveValue:else
+    $3933 = { (responsible $3930) ->
+      $3931 = "Tags can only be created with one value."
+      $3932 = panicking because $3931 ($3911 is at fault)
+    }
+    $3934 = call $3925 with $3924 $3929 $3933 ($3911 is responsible)
+  }
+  # Examples:sqrt:main:48:calleeIsTag:else
+  $3967 = { (responsible $3936) ->
+    $3937 = Function
+    $3938 = call $3912 with $3919 $3937 ($3911 is responsible)
+    $3939 = builtinIfElse
+    # Examples:sqrt:main:48:calleeIsFunction:then
+    $3961 = { (responsible $3940) ->
+      $3941 = call $3913 with $3196 ($3911 is responsible)
+      $3942 = 2
+      $3943 = call $3912 with $3941 $3942 ($3911 is responsible)
+      $3944 = builtinIfElse
+      # Examples:sqrt:main:48:hasCorrectNumberOfArguments:then
+      $3951 = { (responsible $3945) ->
+        $3946 = Examples:sqrt:main:48
+        $3947 = trace: start of call of $3196 with $3910 $3439 ($3911 is responsible, code is at $3946)
+        $3948 = call $3196 with $3910 $3439 ($3911 is responsible)
+        $3949 = trace: end of call
+        $3950 = $3948
+      }
+      # Examples:sqrt:main:48:hasCorrectNumberOfArguments:else
+      $3959 = { (responsible $3952) ->
+        $3953 = "You called a function that expects "
+        $3954 = call $3917 with $3941 ($3911 is responsible)
+        $3955 = " arguments with 2 arguments."
+        $3956 = call $3916 with $3953 $3954 ($3911 is responsible)
+        $3957 = call $3916 with $3956 $3955 ($3911 is responsible)
+        $3958 = panicking because $3957 ($3911 is at fault)
+      }
+      $3960 = call $3944 with $3943 $3951 $3959 ($3911 is responsible)
+    }
+    # Examples:sqrt:main:48:calleeIsFunction:else
+    $3965 = { (responsible $3962) ->
+      $3963 = "You can only call tags or functions."
+      $3964 = panicking because $3963 ($3911 is at fault)
+    }
+    $3966 = call $3939 with $3938 $3961 $3965 ($3911 is responsible)
+  }
+  $3968 = call $3922 with $3921 $3935 $3967 ($3911 is responsible)
+  $3969 = Examples:sqrt:main:49
+  $3970 = builtinEquals
+  $3971 = builtinGetArgumentCount
+  $3972 = builtinTagHasValue
+  $3973 = builtinTagWithValue
+  $3974 = builtinTextConcatenate
+  $3975 = builtinToDebugText
+  $3976 = builtinTypeOf
+  $3977 = call $3976 with $3196 ($3969 is responsible)
+  $3978 = Tag
+  $3979 = call $3970 with $3977 $3978 ($3969 is responsible)
+  $3980 = builtinIfElse
+  # Examples:sqrt:main:49:calleeIsTag:then
+  $3993 = { (responsible $3981) ->
+    $3982 = call $3972 with $3196 ($3969 is responsible)
+    $3983 = builtinIfElse
+    # Examples:sqrt:main:49:doesTagHaveValue:then
+    $3987 = { (responsible $3984) ->
+      $3985 = "You called a tag that already has a value."
+      $3986 = panicking because $3985 ($3969 is at fault)
+    }
+    # Examples:sqrt:main:49:doesTagHaveValue:else
+    $3991 = { (responsible $3988) ->
+      $3989 = "Tags can only be created with one value."
+      $3990 = panicking because $3989 ($3969 is at fault)
+    }
+    $3992 = call $3983 with $3982 $3987 $3991 ($3969 is responsible)
+  }
+  # Examples:sqrt:main:49:calleeIsTag:else
+  $4025 = { (responsible $3994) ->
+    $3995 = Function
+    $3996 = call $3970 with $3977 $3995 ($3969 is responsible)
+    $3997 = builtinIfElse
+    # Examples:sqrt:main:49:calleeIsFunction:then
+    $4019 = { (responsible $3998) ->
+      $3999 = call $3971 with $3196 ($3969 is responsible)
+      $4000 = 2
+      $4001 = call $3970 with $3999 $4000 ($3969 is responsible)
+      $4002 = builtinIfElse
+      # Examples:sqrt:main:49:hasCorrectNumberOfArguments:then
+      $4009 = { (responsible $4003) ->
+        $4004 = Examples:sqrt:main:49
+        $4005 = trace: start of call of $3196 with $3968 $3852 ($3969 is responsible, code is at $4004)
+        $4006 = call $3196 with $3968 $3852 ($3969 is responsible)
+        $4007 = trace: end of call
+        $4008 = $4006
+      }
+      # Examples:sqrt:main:49:hasCorrectNumberOfArguments:else
+      $4017 = { (responsible $4010) ->
+        $4011 = "You called a function that expects "
+        $4012 = call $3975 with $3999 ($3969 is responsible)
+        $4013 = " arguments with 2 arguments."
+        $4014 = call $3974 with $4011 $4012 ($3969 is responsible)
+        $4015 = call $3974 with $4014 $4013 ($3969 is responsible)
+        $4016 = panicking because $4015 ($3969 is at fault)
+      }
+      $4018 = call $4002 with $4001 $4009 $4017 ($3969 is responsible)
+    }
+    # Examples:sqrt:main:49:calleeIsFunction:else
+    $4023 = { (responsible $4020) ->
+      $4021 = "You can only call tags or functions."
+      $4022 = panicking because $4021 ($3969 is at fault)
+    }
+    $4024 = call $3997 with $3996 $4019 $4023 ($3969 is responsible)
+  }
+  $4026 = call $3980 with $3979 $3993 $4025 ($3969 is responsible)
+  $4027 = Examples:sqrt:main:50
+  $4028 = builtinEquals
+  $4029 = builtinGetArgumentCount
+  $4030 = builtinTagHasValue
+  $4031 = builtinTagWithValue
+  $4032 = builtinTextConcatenate
+  $4033 = builtinToDebugText
+  $4034 = builtinTypeOf
+  $4035 = call $4034 with $3195 ($4027 is responsible)
+  $4036 = Tag
+  $4037 = call $4028 with $4035 $4036 ($4027 is responsible)
+  $4038 = builtinIfElse
+  # Examples:sqrt:main:50:calleeIsTag:then
+  $4050 = { (responsible $4039) ->
+    $4040 = call $4030 with $3195 ($4027 is responsible)
+    $4041 = builtinIfElse
+    # Examples:sqrt:main:50:doesTagHaveValue:then
+    $4045 = { (responsible $4042) ->
+      $4043 = "You called a tag that already has a value."
+      $4044 = panicking because $4043 ($4027 is at fault)
+    }
+    # Examples:sqrt:main:50:doesTagHaveValue:else
+    $4048 = { (responsible $4046) ->
+      $4047 = call $4031 with $3195 $4026 ($4027 is responsible)
+    }
+    $4049 = call $4041 with $4040 $4045 $4048 ($4027 is responsible)
+  }
+  # Examples:sqrt:main:50:calleeIsTag:else
+  $4082 = { (responsible $4051) ->
+    $4052 = Function
+    $4053 = call $4028 with $4035 $4052 ($4027 is responsible)
+    $4054 = builtinIfElse
+    # Examples:sqrt:main:50:calleeIsFunction:then
+    $4076 = { (responsible $4055) ->
+      $4056 = call $4029 with $3195 ($4027 is responsible)
+      $4057 = 1
+      $4058 = call $4028 with $4056 $4057 ($4027 is responsible)
+      $4059 = builtinIfElse
+      # Examples:sqrt:main:50:hasCorrectNumberOfArguments:then
+      $4066 = { (responsible $4060) ->
+        $4061 = Examples:sqrt:main:50
+        $4062 = trace: start of call of $3195 with $4026 ($4027 is responsible, code is at $4061)
+        $4063 = call $3195 with $4026 ($4027 is responsible)
+        $4064 = trace: end of call
+        $4065 = $4063
+      }
+      # Examples:sqrt:main:50:hasCorrectNumberOfArguments:else
+      $4074 = { (responsible $4067) ->
+        $4068 = "You called a function that expects "
+        $4069 = call $4033 with $4056 ($4027 is responsible)
+        $4070 = " arguments with 1 arguments."
+        $4071 = call $4032 with $4068 $4069 ($4027 is responsible)
+        $4072 = call $4032 with $4071 $4070 ($4027 is responsible)
+        $4073 = panicking because $4072 ($4027 is at fault)
+      }
+      $4075 = call $4059 with $4058 $4066 $4074 ($4027 is responsible)
+    }
+    # Examples:sqrt:main:50:calleeIsFunction:else
+    $4080 = { (responsible $4077) ->
+      $4078 = "You can only call tags or functions."
+      $4079 = panicking because $4078 ($4027 is at fault)
+    }
+    $4081 = call $4054 with $4053 $4076 $4080 ($4027 is responsible)
+  }
+  $4083 = call $4038 with $4037 $4050 $4082 ($4027 is responsible)
+}
+$4085 = $4084
+$4086 = Main
+$4087 = Sqrt
+$4088 = [$4086: $4085, $4087: $2828]
+$4089 = builtinStructHasKey
+$4090 = Main
+$4091 = call $4089 with $4088 $4090 ($50 is responsible)
+$4092 = "The module doesn't export a main function."
+$4093 = builtinIfElse
+# Examples:sqrt:then
+$4096 = { (responsible $4094) ->
+  $4095 = Nothing
+}
+# Examples:sqrt:else
+$4099 = { (responsible $4097) ->
+  $4098 = panicking because $4092 ($50 is at fault)
+}
+$4100 = call $4093 with $4091 $4096 $4099 ($50 is responsible)
+$4101 = builtinStructGet
+$4102 = call $4101 with $4088 $4090 ($50 is responsible)
+$4103 = builtinTypeOf
+$4104 = call $4103 with $4102 ($50 is responsible)
+$4105 = builtinEquals
+$4106 = Function
+$4107 = call $4105 with $4104 $4106 ($50 is responsible)
+$4108 = "The exported main value is not a function."
+$4109 = builtinIfElse
+# Examples:sqrt:then
+$4112 = { (responsible $4110) ->
+  $4111 = Nothing
+}
+# Examples:sqrt:else
+$4115 = { (responsible $4113) ->
+  $4114 = panicking because $4108 ($50 is at fault)
+}
+$4116 = call $4109 with $4107 $4112 $4115 ($50 is responsible)
+$4117 = builtinGetArgumentCount
+$4118 = call $4117 with $4102 ($50 is responsible)
+$4119 = 1
+$4120 = call $4105 with $4118 $4119 ($50 is responsible)
+$4121 = "The exported main function doesn't accept exactly one parameter."
+$4122 = builtinIfElse
+# Examples:sqrt:then
+$4125 = { (responsible $4123) ->
+  $4124 = Nothing
+}
+# Examples:sqrt:else
+$4128 = { (responsible $4126) ->
+  $4127 = panicking because $4121 ($50 is at fault)
+}
+$4129 = call $4122 with $4120 $4125 $4128 ($50 is responsible)
+$4130 = $4102
