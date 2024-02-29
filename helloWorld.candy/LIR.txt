@@ -1,0 +1,517 @@
+# LIR for module Examples:helloWorld
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? Only for panic traces
+# • Include tracing of evaluated expressions? No
+
+# Constants
+%0 = Builtins::structGet:12
+%1 = Builtins::structGet:14
+%2 = Builtins::structGet:21
+%3 = Builtins::structGet:5
+%4 = Builtins::typeIs:19
+%5 = Builtins::typeIs:25
+%6 = Examples:helloWorld:2:13
+%7 = Examples:helloWorld:2:5
+%8 = anonymous:$generated::needs
+%9 = builtinEquals
+%10 = builtinGetArgumentCount
+%11 = builtinIfElse
+%12 = builtinStructGet
+%13 = builtinStructHasKey
+%14 = builtinTagHasValue
+%15 = builtinTagWithValue
+%16 = builtinTextConcatenate
+%17 = builtinToDebugText
+%18 = builtinTypeOf
+%19 = False
+%20 = Function
+%21 = Nothing
+%22 = Stdout
+%23 = Struct
+%24 = Tag
+%25 = Text
+%26 = True
+%27 = 1
+%28 = " arguments with 1 arguments."
+%29 = "Hello, world!"
+%30 = "The `condition` must be either `True` or `False`."
+%31 = "The `reason` must be a text."
+%32 = "You called a function that expects "
+%33 = "You called a tag that already has a value."
+%34 = "You can only call tags or functions."
+%35 = "`struct | typeIs Struct` was not satisfied"
+%36 = "`struct | ✨.structHasKey key` was not satisfied"
+%37 = { body_0 }
+%38 = { body_1 }
+%39 = { body_6 }
+%40 = { body_7 }
+%41 = { body_8 }
+%42 = { body_13 }
+%43 = { body_14 }
+%44 = { body_15 }
+%45 = { body_16 }
+%46 = { body_17 }
+%47 = { body_26 }
+
+# Bodies
+body_0 (responsible $0) =
+  # Original HIR IDs: Builtins::ifElse:1:case-0:matched, Builtins::isLessThanOrEqualTo:19:case-0:matched, Builtins::isNonNegative:13:case-0:matched, Builtins::not:1:case-1:matched, anonymous:$generated::needs:isConditionTrue:then
+  # Captured IDs: none
+  $1 = %26<True>
+body_1 (responsible $0) =
+  # Original HIR IDs: Examples:helloWorld:then, anonymous:$generated::needs:condition:then, anonymous:$generated::needs:isConditionBool:then, anonymous:$generated::needs:isReasonText:then
+  # Captured IDs: none
+  $1 = %21<Nothing>
+body_2 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionTrue:else
+  # Captured IDs: $0
+  $2 = %9<builtinEquals>
+  $3 = dup $0 by 1
+  $4 = %19<False>
+  $5 = %8<anonymous:$generated::needs>
+  $6 = call $2<%9<builtinEquals>> with $0 $4<%19<False>> ($5<%8<anonymous:$generated::needs>> is responsible)
+body_3 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionBool:else
+  # Captured IDs: $0
+  $2 = %30<"The `condition` must be either `True` or `False`.">
+  $3 = dup $0 by 1
+  $4 = panicking because $2<%30<"The `condition` must be either `True` or `False`.">> ($0 is at fault)
+body_4 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isReasonText:else
+  # Captured IDs: $0
+  $2 = %31<"The `reason` must be a text.">
+  $3 = dup $0 by 1
+  $4 = panicking because $2<%31<"The `reason` must be a text.">> ($0 is at fault)
+body_5 (responsible $2) =
+  # Original HIR IDs: anonymous:$generated::needs:condition:else
+  # Captured IDs: $0, $1
+  $3 = dup $0 by 1
+  $4 = dup $1 by 1
+  $5 = panicking because $0 ($1 is at fault)
+body_6 $0 $1 $2 (+ responsible $3) =
+  # Original HIR IDs: anonymous:$generated::needs
+  # Captured IDs: none
+  $4 = %9<builtinEquals>
+  $5 = dup $0 by 1
+  $6 = %26<True>
+  $7 = %8<anonymous:$generated::needs>
+  $8 = call $4<%9<builtinEquals>> with $0 $6<%26<True>> ($7<%8<anonymous:$generated::needs>> is responsible)
+  $9 = dup $0 by 1
+  $10 = { body_2 capturing $0 }
+  $11 = %11<builtinIfElse>
+  $12 = dup $8 by 1
+  $13 = %37<{ body_0 }>
+  $14 = dup $10 by 1
+  $15 = call $11<%11<builtinIfElse>> with $8 $13<%37<{ body_0 }>> $10 ($7<%8<anonymous:$generated::needs>> is responsible)
+  $16 = dup $3 by 1
+  $17 = { body_3 capturing $3 }
+  $18 = dup $15 by 1
+  $19 = %38<{ body_1 }>
+  $20 = dup $17 by 1
+  $21 = call $11<%11<builtinIfElse>> with $15 $19<%38<{ body_1 }>> $17 ($7<%8<anonymous:$generated::needs>> is responsible)
+  $22 = %18<builtinTypeOf>
+  $23 = dup $1 by 1
+  $24 = call $22<%18<builtinTypeOf>> with $1 ($3 is responsible)
+  $25 = dup $24 by 1
+  $26 = %25<Text>
+  $27 = call $4<%9<builtinEquals>> with $24 $26<%25<Text>> ($3 is responsible)
+  $28 = dup $3 by 1
+  $29 = { body_4 capturing $3 }
+  $30 = dup $27 by 1
+  $31 = dup $29 by 1
+  $32 = call $11<%11<builtinIfElse>> with $27 $19<%38<{ body_1 }>> $29 ($7<%8<anonymous:$generated::needs>> is responsible)
+  $33 = dup $1 by 1
+  $34 = dup $2 by 1
+  $35 = { body_5 capturing $1, $2 }
+  $36 = dup $0 by 1
+  $37 = dup $35 by 1
+  $38 = call $11<%11<builtinIfElse>> with $0 $19<%38<{ body_1 }>> $35 ($7<%8<anonymous:$generated::needs>> is responsible)
+  $39 = drop $35
+  $40 = drop $32
+  $41 = drop $29
+  $42 = drop $27
+  $43 = drop $24
+  $44 = drop $21
+  $45 = drop $17
+  $46 = drop $15
+  $47 = drop $10
+  $48 = drop $8
+  $49 = drop $2
+  $50 = drop $1
+  $51 = drop $0
+  $52 = $38
+body_7 (responsible $0) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionBool:else
+  # Captured IDs: none
+  $1 = %30<"The `condition` must be either `True` or `False`.">
+  $2 = %3<Builtins::structGet:5>
+  $3 = panicking because $1<%30<"The `condition` must be either `True` or `False`.">> ($2<%3<Builtins::structGet:5>> is at fault)
+body_8 (responsible $0) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionBool:else
+  # Captured IDs: none
+  $1 = %30<"The `condition` must be either `True` or `False`.">
+  $2 = %1<Builtins::structGet:14>
+  $3 = panicking because $1<%30<"The `condition` must be either `True` or `False`.">> ($2<%1<Builtins::structGet:14>> is at fault)
+body_9 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionTrue:else
+  # Captured IDs: $0
+  $2 = %9<builtinEquals>
+  $3 = dup $0 by 1
+  $4 = %19<False>
+  $5 = %8<anonymous:$generated::needs>
+  $6 = call $2<%9<builtinEquals>> with $0 $4<%19<False>> ($5<%8<anonymous:$generated::needs>> is responsible)
+body_10 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:condition:else
+  # Captured IDs: $0
+  $2 = %35<"`struct | typeIs Struct` was not satisfied">
+  $3 = dup $0 by 1
+  $4 = panicking because $2<%35<"`struct | typeIs Struct` was not satisfied">> ($0 is at fault)
+body_11 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionTrue:else
+  # Captured IDs: $0
+  $2 = %9<builtinEquals>
+  $3 = dup $0 by 1
+  $4 = %19<False>
+  $5 = %8<anonymous:$generated::needs>
+  $6 = call $2<%9<builtinEquals>> with $0 $4<%19<False>> ($5<%8<anonymous:$generated::needs>> is responsible)
+body_12 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:condition:else
+  # Captured IDs: $0
+  $2 = %36<"`struct | ✨.structHasKey key` was not satisfied">
+  $3 = dup $0 by 1
+  $4 = panicking because $2<%36<"`struct | ✨.structHasKey key` was not satisfied">> ($0 is at fault)
+body_13 $0 $1 (+ responsible $2) =
+  # Original HIR IDs: Builtins::structGet
+  # Captured IDs: none
+  $3 = %18<builtinTypeOf>
+  $4 = dup $0 by 1
+  $5 = %4<Builtins::typeIs:19>
+  $6 = call $3<%18<builtinTypeOf>> with $0 ($5<%4<Builtins::typeIs:19>> is responsible)
+  $7 = %9<builtinEquals>
+  $8 = dup $6 by 1
+  $9 = %23<Struct>
+  $10 = %5<Builtins::typeIs:25>
+  $11 = call $7<%9<builtinEquals>> with $6 $9<%23<Struct>> ($10<%5<Builtins::typeIs:25>> is responsible)
+  $12 = %3<Builtins::structGet:5>
+  $13 = %39<{ body_6 }>
+  $14 = dup $11 by 1
+  $15 = %35<"`struct | typeIs Struct` was not satisfied">
+  $16 = dup $2 by 1
+  $17 = trace: start of call of $13<%39<{ body_6 }>> with $11 $15<%35<"`struct | typeIs Struct` was not satisfied">> $2 ($12<%3<Builtins::structGet:5>> is responsible, code is at $12<%3<Builtins::structGet:5>>)
+  $18 = dup $11 by 1
+  $19 = %26<True>
+  $20 = %8<anonymous:$generated::needs>
+  $21 = call $7<%9<builtinEquals>> with $11 $19<%26<True>> ($20<%8<anonymous:$generated::needs>> is responsible)
+  $22 = dup $11 by 1
+  $23 = { body_9 capturing $11 }
+  $24 = %11<builtinIfElse>
+  $25 = dup $21 by 1
+  $26 = %37<{ body_0 }>
+  $27 = dup $23 by 1
+  $28 = call $24<%11<builtinIfElse>> with $21 $26<%37<{ body_0 }>> $23 ($20<%8<anonymous:$generated::needs>> is responsible)
+  $29 = dup $28 by 1
+  $30 = %38<{ body_1 }>
+  $31 = %40<{ body_7 }>
+  $32 = call $24<%11<builtinIfElse>> with $28 $30<%38<{ body_1 }>> $31<%40<{ body_7 }>> ($20<%8<anonymous:$generated::needs>> is responsible)
+  $33 = dup $2 by 1
+  $34 = { body_10 capturing $2 }
+  $35 = dup $11 by 1
+  $36 = dup $34 by 1
+  $37 = call $24<%11<builtinIfElse>> with $11 $30<%38<{ body_1 }>> $34 ($20<%8<anonymous:$generated::needs>> is responsible)
+  $38 = trace: end of call
+  $39 = %13<builtinStructHasKey>
+  $40 = dup $0 by 1
+  $41 = dup $1 by 1
+  $42 = %0<Builtins::structGet:12>
+  $43 = call $39<%13<builtinStructHasKey>> with $0 $1 ($42<%0<Builtins::structGet:12>> is responsible)
+  $44 = %1<Builtins::structGet:14>
+  $45 = dup $43 by 1
+  $46 = %36<"`struct | ✨.structHasKey key` was not satisfied">
+  $47 = dup $2 by 1
+  $48 = trace: start of call of $13<%39<{ body_6 }>> with $43 $46<%36<"`struct | ✨.structHasKey key` was not satisfied">> $2 ($44<%1<Builtins::structGet:14>> is responsible, code is at $44<%1<Builtins::structGet:14>>)
+  $49 = dup $43 by 1
+  $50 = call $7<%9<builtinEquals>> with $43 $19<%26<True>> ($20<%8<anonymous:$generated::needs>> is responsible)
+  $51 = dup $43 by 1
+  $52 = { body_11 capturing $43 }
+  $53 = dup $50 by 1
+  $54 = dup $52 by 1
+  $55 = call $24<%11<builtinIfElse>> with $50 $26<%37<{ body_0 }>> $52 ($20<%8<anonymous:$generated::needs>> is responsible)
+  $56 = dup $55 by 1
+  $57 = %41<{ body_8 }>
+  $58 = call $24<%11<builtinIfElse>> with $55 $30<%38<{ body_1 }>> $57<%41<{ body_8 }>> ($20<%8<anonymous:$generated::needs>> is responsible)
+  $59 = dup $2 by 1
+  $60 = { body_12 capturing $2 }
+  $61 = dup $43 by 1
+  $62 = dup $60 by 1
+  $63 = call $24<%11<builtinIfElse>> with $43 $30<%38<{ body_1 }>> $60 ($20<%8<anonymous:$generated::needs>> is responsible)
+  $64 = trace: end of call
+  $65 = %12<builtinStructGet>
+  $66 = dup $0 by 1
+  $67 = dup $1 by 1
+  $68 = %2<Builtins::structGet:21>
+  $69 = call $65<%12<builtinStructGet>> with $0 $1 ($68<%2<Builtins::structGet:21>> is responsible)
+  $70 = drop $63
+  $71 = drop $60
+  $72 = drop $58
+  $73 = drop $55
+  $74 = drop $52
+  $75 = drop $50
+  $76 = drop $43
+  $77 = drop $37
+  $78 = drop $34
+  $79 = drop $32
+  $80 = drop $28
+  $81 = drop $23
+  $82 = drop $21
+  $83 = drop $11
+  $84 = drop $6
+  $85 = drop $1
+  $86 = drop $0
+  $87 = $69
+body_14 (responsible $0) =
+  # Original HIR IDs: anonymous:$generated::needs:condition:else
+  # Captured IDs: none
+  $1 = %35<"`struct | typeIs Struct` was not satisfied">
+  $2 = %7<Examples:helloWorld:2:5>
+  $3 = panicking because $1<%35<"`struct | typeIs Struct` was not satisfied">> ($2<%7<Examples:helloWorld:2:5>> is at fault)
+body_15 (responsible $0) =
+  # Original HIR IDs: anonymous:$generated::needs:condition:else
+  # Captured IDs: none
+  $1 = %36<"`struct | ✨.structHasKey key` was not satisfied">
+  $2 = %7<Examples:helloWorld:2:5>
+  $3 = panicking because $1<%36<"`struct | ✨.structHasKey key` was not satisfied">> ($2<%7<Examples:helloWorld:2:5>> is at fault)
+body_16 (responsible $0) =
+  # Original HIR IDs: Examples:helloWorld:2:13:doesTagHaveValue:then
+  # Captured IDs: none
+  $1 = %33<"You called a tag that already has a value.">
+  $2 = %6<Examples:helloWorld:2:13>
+  $3 = panicking because $1<%33<"You called a tag that already has a value.">> ($2<%6<Examples:helloWorld:2:13>> is at fault)
+body_17 (responsible $0) =
+  # Original HIR IDs: Examples:helloWorld:2:13:calleeIsFunction:else
+  # Captured IDs: none
+  $1 = %34<"You can only call tags or functions.">
+  $2 = %6<Examples:helloWorld:2:13>
+  $3 = panicking because $1<%34<"You can only call tags or functions.">> ($2<%6<Examples:helloWorld:2:13>> is at fault)
+body_18 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionTrue:else
+  # Captured IDs: $0
+  $2 = %9<builtinEquals>
+  $3 = dup $0 by 1
+  $4 = %19<False>
+  $5 = %8<anonymous:$generated::needs>
+  $6 = call $2<%9<builtinEquals>> with $0 $4<%19<False>> ($5<%8<anonymous:$generated::needs>> is responsible)
+body_19 (responsible $1) =
+  # Original HIR IDs: anonymous:$generated::needs:isConditionTrue:else
+  # Captured IDs: $0
+  $2 = %9<builtinEquals>
+  $3 = dup $0 by 1
+  $4 = %19<False>
+  $5 = %8<anonymous:$generated::needs>
+  $6 = call $2<%9<builtinEquals>> with $0 $4<%19<False>> ($5<%8<anonymous:$generated::needs>> is responsible)
+body_20 (responsible $1) =
+  # Original HIR IDs: Examples:helloWorld:2:13:doesTagHaveValue:else
+  # Captured IDs: $0
+  $2 = %15<builtinTagWithValue>
+  $3 = dup $0 by 1
+  $4 = %29<"Hello, world!">
+  $5 = %6<Examples:helloWorld:2:13>
+  $6 = call $2<%15<builtinTagWithValue>> with $0 $4<%29<"Hello, world!">> ($5<%6<Examples:helloWorld:2:13>> is responsible)
+body_21 (responsible $1) =
+  # Original HIR IDs: Examples:helloWorld:2:13:calleeIsTag:then
+  # Captured IDs: $0
+  $2 = %14<builtinTagHasValue>
+  $3 = dup $0 by 1
+  $4 = %6<Examples:helloWorld:2:13>
+  $5 = call $2<%14<builtinTagHasValue>> with $0 ($4<%6<Examples:helloWorld:2:13>> is responsible)
+  $6 = dup $0 by 1
+  $7 = { body_20 capturing $0 }
+  $8 = %11<builtinIfElse>
+  $9 = dup $5 by 1
+  $10 = %45<{ body_16 }>
+  $11 = dup $7 by 1
+  $12 = call $8<%11<builtinIfElse>> with $5 $10<%45<{ body_16 }>> $7 ($4<%6<Examples:helloWorld:2:13>> is responsible)
+  $13 = drop $7
+  $14 = drop $5
+  $15 = $12
+body_22 (responsible $1) =
+  # Original HIR IDs: Examples:helloWorld:2:13:hasCorrectNumberOfArguments:then
+  # Captured IDs: $0
+  $2 = %6<Examples:helloWorld:2:13>
+  $3 = dup $0 by 1
+  $4 = %29<"Hello, world!">
+  $5 = trace: tail call of $0 with $4<%29<"Hello, world!">> ($2<%6<Examples:helloWorld:2:13>> is responsible, code is at $2<%6<Examples:helloWorld:2:13>>)
+  $6 = dup $0 by 1
+  $7 = call $0 with $4<%29<"Hello, world!">> ($2<%6<Examples:helloWorld:2:13>> is responsible)
+body_23 (responsible $1) =
+  # Original HIR IDs: Examples:helloWorld:2:13:hasCorrectNumberOfArguments:else
+  # Captured IDs: $0
+  $2 = %17<builtinToDebugText>
+  $3 = dup $0 by 1
+  $4 = %6<Examples:helloWorld:2:13>
+  $5 = call $2<%17<builtinToDebugText>> with $0 ($4<%6<Examples:helloWorld:2:13>> is responsible)
+  $6 = %16<builtinTextConcatenate>
+  $7 = %32<"You called a function that expects ">
+  $8 = dup $5 by 1
+  $9 = call $6<%16<builtinTextConcatenate>> with $7<%32<"You called a function that expects ">> $5 ($4<%6<Examples:helloWorld:2:13>> is responsible)
+  $10 = dup $9 by 1
+  $11 = %28<" arguments with 1 arguments.">
+  $12 = call $6<%16<builtinTextConcatenate>> with $9 $11<%28<" arguments with 1 arguments.">> ($4<%6<Examples:helloWorld:2:13>> is responsible)
+  $13 = dup $12 by 1
+  $14 = panicking because $12 ($4<%6<Examples:helloWorld:2:13>> is at fault)
+  $15 = drop $12
+  $16 = drop $9
+  $17 = drop $5
+  $18 = $14
+body_24 (responsible $1) =
+  # Original HIR IDs: Examples:helloWorld:2:13:calleeIsFunction:then
+  # Captured IDs: $0
+  $2 = %10<builtinGetArgumentCount>
+  $3 = dup $0 by 1
+  $4 = %6<Examples:helloWorld:2:13>
+  $5 = call $2<%10<builtinGetArgumentCount>> with $0 ($4<%6<Examples:helloWorld:2:13>> is responsible)
+  $6 = %9<builtinEquals>
+  $7 = dup $5 by 1
+  $8 = %27<1>
+  $9 = call $6<%9<builtinEquals>> with $5 $8<%27<1>> ($4<%6<Examples:helloWorld:2:13>> is responsible)
+  $10 = dup $0 by 1
+  $11 = { body_22 capturing $0 }
+  $12 = dup $5 by 1
+  $13 = { body_23 capturing $5 }
+  $14 = %11<builtinIfElse>
+  $15 = dup $9 by 1
+  $16 = dup $11 by 1
+  $17 = dup $13 by 1
+  $18 = call $14<%11<builtinIfElse>> with $9 $11 $13 ($4<%6<Examples:helloWorld:2:13>> is responsible)
+  $19 = drop $13
+  $20 = drop $11
+  $21 = drop $9
+  $22 = drop $5
+  $23 = $18
+body_25 (responsible $2) =
+  # Original HIR IDs: Examples:helloWorld:2:13:calleeIsTag:else
+  # Captured IDs: $0, $1
+  $3 = %9<builtinEquals>
+  $4 = dup $1 by 1
+  $5 = %20<Function>
+  $6 = %6<Examples:helloWorld:2:13>
+  $7 = call $3<%9<builtinEquals>> with $1 $5<%20<Function>> ($6<%6<Examples:helloWorld:2:13>> is responsible)
+  $8 = dup $0 by 1
+  $9 = { body_24 capturing $0 }
+  $10 = %11<builtinIfElse>
+  $11 = dup $7 by 1
+  $12 = dup $9 by 1
+  $13 = %46<{ body_17 }>
+  $14 = call $10<%11<builtinIfElse>> with $7 $9 $13<%46<{ body_17 }>> ($6<%6<Examples:helloWorld:2:13>> is responsible)
+  $15 = drop $9
+  $16 = drop $7
+  $17 = $14
+body_26 $0 (+ responsible $1) =
+  # Original HIR IDs: Examples:helloWorld:2
+  # Captured IDs: none
+  $2 = %7<Examples:helloWorld:2:5>
+  $3 = %42<{ body_13 }>
+  $4 = dup $0 by 1
+  $5 = %22<Stdout>
+  $6 = trace: start of call of $3<%42<{ body_13 }>> with $0 $5<%22<Stdout>> ($2<%7<Examples:helloWorld:2:5>> is responsible, code is at $2<%7<Examples:helloWorld:2:5>>)
+  $7 = %18<builtinTypeOf>
+  $8 = dup $0 by 1
+  $9 = %4<Builtins::typeIs:19>
+  $10 = call $7<%18<builtinTypeOf>> with $0 ($9<%4<Builtins::typeIs:19>> is responsible)
+  $11 = %9<builtinEquals>
+  $12 = dup $10 by 1
+  $13 = %23<Struct>
+  $14 = %5<Builtins::typeIs:25>
+  $15 = call $11<%9<builtinEquals>> with $10 $13<%23<Struct>> ($14<%5<Builtins::typeIs:25>> is responsible)
+  $16 = %3<Builtins::structGet:5>
+  $17 = %39<{ body_6 }>
+  $18 = dup $15 by 1
+  $19 = %35<"`struct | typeIs Struct` was not satisfied">
+  $20 = trace: start of call of $17<%39<{ body_6 }>> with $15 $19<%35<"`struct | typeIs Struct` was not satisfied">> $2<%7<Examples:helloWorld:2:5>> ($16<%3<Builtins::structGet:5>> is responsible, code is at $16<%3<Builtins::structGet:5>>)
+  $21 = dup $15 by 1
+  $22 = %26<True>
+  $23 = %8<anonymous:$generated::needs>
+  $24 = call $11<%9<builtinEquals>> with $15 $22<%26<True>> ($23<%8<anonymous:$generated::needs>> is responsible)
+  $25 = dup $15 by 1
+  $26 = { body_18 capturing $15 }
+  $27 = %11<builtinIfElse>
+  $28 = dup $24 by 1
+  $29 = %37<{ body_0 }>
+  $30 = dup $26 by 1
+  $31 = call $27<%11<builtinIfElse>> with $24 $29<%37<{ body_0 }>> $26 ($23<%8<anonymous:$generated::needs>> is responsible)
+  $32 = dup $31 by 1
+  $33 = %38<{ body_1 }>
+  $34 = %40<{ body_7 }>
+  $35 = call $27<%11<builtinIfElse>> with $31 $33<%38<{ body_1 }>> $34<%40<{ body_7 }>> ($23<%8<anonymous:$generated::needs>> is responsible)
+  $36 = dup $15 by 1
+  $37 = %43<{ body_14 }>
+  $38 = call $27<%11<builtinIfElse>> with $15 $33<%38<{ body_1 }>> $37<%43<{ body_14 }>> ($23<%8<anonymous:$generated::needs>> is responsible)
+  $39 = trace: end of call
+  $40 = %13<builtinStructHasKey>
+  $41 = dup $0 by 1
+  $42 = %0<Builtins::structGet:12>
+  $43 = call $40<%13<builtinStructHasKey>> with $0 $5<%22<Stdout>> ($42<%0<Builtins::structGet:12>> is responsible)
+  $44 = %1<Builtins::structGet:14>
+  $45 = dup $43 by 1
+  $46 = %36<"`struct | ✨.structHasKey key` was not satisfied">
+  $47 = trace: start of call of $17<%39<{ body_6 }>> with $43 $46<%36<"`struct | ✨.structHasKey key` was not satisfied">> $2<%7<Examples:helloWorld:2:5>> ($44<%1<Builtins::structGet:14>> is responsible, code is at $44<%1<Builtins::structGet:14>>)
+  $48 = dup $43 by 1
+  $49 = call $11<%9<builtinEquals>> with $43 $22<%26<True>> ($23<%8<anonymous:$generated::needs>> is responsible)
+  $50 = dup $43 by 1
+  $51 = { body_19 capturing $43 }
+  $52 = dup $49 by 1
+  $53 = dup $51 by 1
+  $54 = call $27<%11<builtinIfElse>> with $49 $29<%37<{ body_0 }>> $51 ($23<%8<anonymous:$generated::needs>> is responsible)
+  $55 = dup $54 by 1
+  $56 = %41<{ body_8 }>
+  $57 = call $27<%11<builtinIfElse>> with $54 $33<%38<{ body_1 }>> $56<%41<{ body_8 }>> ($23<%8<anonymous:$generated::needs>> is responsible)
+  $58 = dup $43 by 1
+  $59 = %44<{ body_15 }>
+  $60 = call $27<%11<builtinIfElse>> with $43 $33<%38<{ body_1 }>> $59<%44<{ body_15 }>> ($23<%8<anonymous:$generated::needs>> is responsible)
+  $61 = trace: end of call
+  $62 = %12<builtinStructGet>
+  $63 = dup $0 by 1
+  $64 = %2<Builtins::structGet:21>
+  $65 = call $62<%12<builtinStructGet>> with $0 $5<%22<Stdout>> ($64<%2<Builtins::structGet:21>> is responsible)
+  $66 = trace: end of call
+  $67 = dup $65 by 1
+  $68 = %6<Examples:helloWorld:2:13>
+  $69 = call $7<%18<builtinTypeOf>> with $65 ($68<%6<Examples:helloWorld:2:13>> is responsible)
+  $70 = dup $69 by 1
+  $71 = %24<Tag>
+  $72 = call $11<%9<builtinEquals>> with $69 $71<%24<Tag>> ($68<%6<Examples:helloWorld:2:13>> is responsible)
+  $73 = dup $65 by 1
+  $74 = { body_21 capturing $65 }
+  $75 = dup $65 by 1
+  $76 = dup $69 by 1
+  $77 = { body_25 capturing $65, $69 }
+  $78 = dup $72 by 1
+  $79 = dup $74 by 1
+  $80 = dup $77 by 1
+  $81 = call $27<%11<builtinIfElse>> with $72 $74 $77 ($68<%6<Examples:helloWorld:2:13>> is responsible)
+  $82 = drop $77
+  $83 = drop $74
+  $84 = drop $72
+  $85 = drop $69
+  $86 = drop $65
+  $87 = drop $60
+  $88 = drop $57
+  $89 = drop $54
+  $90 = drop $51
+  $91 = drop $49
+  $92 = drop $43
+  $93 = drop $38
+  $94 = drop $35
+  $95 = drop $31
+  $96 = drop $26
+  $97 = drop $24
+  $98 = drop $15
+  $99 = drop $10
+  $100 = drop $0
+  $101 = $81
+body_27 (responsible $0) =
+  # Original HIR IDs: Examples:helloWorld:
+  # Captured IDs: none
+  $1 = %47<{ body_26 }>
