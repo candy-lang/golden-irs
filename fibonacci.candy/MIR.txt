@@ -1,0 +1,3487 @@
+# MIR for module Examples:fibonacci
+#
+# Tracing Config:
+#
+# • Include tracing of fuzzable functions? No
+# • Include tracing of calls? Only for panic traces
+# • Include tracing of evaluated expressions? No
+
+# anonymous:$generated::needs
+$49 = { $2 $3 $4 (+ responsible $1) ->
+  $5 = anonymous:$generated::needs
+  $6 = builtinEquals
+  $7 = Nothing
+  $8 = True
+  $9 = False
+  $10 = call $6 with $2 $8 ($5 is responsible)
+  $11 = builtinIfElse
+  # anonymous:$generated::needs:isConditionTrue:then
+  $14 = { (responsible $12) ->
+    $13 = $8
+  }
+  # anonymous:$generated::needs:isConditionTrue:else
+  $17 = { (responsible $15) ->
+    $16 = call $6 with $2 $9 ($5 is responsible)
+  }
+  $18 = call $11 with $10 $14 $17 ($5 is responsible)
+  $19 = builtinIfElse
+  # anonymous:$generated::needs:isConditionBool:then
+  $22 = { (responsible $20) ->
+    $21 = $7
+  }
+  # anonymous:$generated::needs:isConditionBool:else
+  $26 = { (responsible $23) ->
+    $24 = "The `condition` must be either `True` or `False`."
+    $25 = panicking because $24 ($1 is at fault)
+  }
+  $27 = call $19 with $18 $22 $26 ($5 is responsible)
+  $28 = builtinTypeOf
+  $29 = call $28 with $3 ($1 is responsible)
+  $30 = Text
+  $31 = call $6 with $29 $30 ($1 is responsible)
+  $32 = builtinIfElse
+  # anonymous:$generated::needs:isReasonText:then
+  $35 = { (responsible $33) ->
+    $34 = $7
+  }
+  # anonymous:$generated::needs:isReasonText:else
+  $39 = { (responsible $36) ->
+    $37 = "The `reason` must be a text."
+    $38 = panicking because $37 ($1 is at fault)
+  }
+  $40 = call $32 with $31 $35 $39 ($5 is responsible)
+  $41 = builtinIfElse
+  # anonymous:$generated::needs:condition:then
+  $44 = { (responsible $42) ->
+    $43 = $7
+  }
+  # anonymous:$generated::needs:condition:else
+  $47 = { (responsible $45) ->
+    $46 = panicking because $3 ($4 is at fault)
+  }
+  $48 = call $41 with $2 $44 $47 ($5 is responsible)
+}
+$50 = Examples:fibonacci:
+# Examples:fibonacci:use
+$54 = { $52 (+ responsible $51) ->
+  $53 = use $52 (relative to Examples:fibonacci; $51 is responsible)
+}
+$55 = "Builtins"
+$56 = Examples:fibonacci:1
+$57 = builtinEquals
+$58 = builtinGetArgumentCount
+$59 = builtinTagHasValue
+$60 = builtinTagWithValue
+$61 = builtinTextConcatenate
+$62 = builtinToDebugText
+$63 = builtinTypeOf
+$64 = call $63 with $54 ($56 is responsible)
+$65 = Tag
+$66 = call $57 with $64 $65 ($56 is responsible)
+$67 = builtinIfElse
+# Examples:fibonacci:1:calleeIsTag:then
+$79 = { (responsible $68) ->
+  $69 = call $59 with $54 ($56 is responsible)
+  $70 = builtinIfElse
+  # Examples:fibonacci:1:doesTagHaveValue:then
+  $74 = { (responsible $71) ->
+    $72 = "You called a tag that already has a value."
+    $73 = panicking because $72 ($56 is at fault)
+  }
+  # Examples:fibonacci:1:doesTagHaveValue:else
+  $77 = { (responsible $75) ->
+    $76 = call $60 with $54 $55 ($56 is responsible)
+  }
+  $78 = call $70 with $69 $74 $77 ($56 is responsible)
+}
+# Examples:fibonacci:1:calleeIsTag:else
+$111 = { (responsible $80) ->
+  $81 = Function
+  $82 = call $57 with $64 $81 ($56 is responsible)
+  $83 = builtinIfElse
+  # Examples:fibonacci:1:calleeIsFunction:then
+  $105 = { (responsible $84) ->
+    $85 = call $58 with $54 ($56 is responsible)
+    $86 = 1
+    $87 = call $57 with $85 $86 ($56 is responsible)
+    $88 = builtinIfElse
+    # Examples:fibonacci:1:hasCorrectNumberOfArguments:then
+    $95 = { (responsible $89) ->
+      $90 = Examples:fibonacci:1
+      $91 = trace: start of call of $54 with $55 ($56 is responsible, code is at $90)
+      $92 = call $54 with $55 ($56 is responsible)
+      $93 = trace: end of call
+      $94 = $92
+    }
+    # Examples:fibonacci:1:hasCorrectNumberOfArguments:else
+    $103 = { (responsible $96) ->
+      $97 = "You called a function that expects "
+      $98 = call $62 with $85 ($56 is responsible)
+      $99 = " arguments with 1 arguments."
+      $100 = call $61 with $97 $98 ($56 is responsible)
+      $101 = call $61 with $100 $99 ($56 is responsible)
+      $102 = panicking because $101 ($56 is at fault)
+    }
+    $104 = call $88 with $87 $95 $103 ($56 is responsible)
+  }
+  # Examples:fibonacci:1:calleeIsFunction:else
+  $109 = { (responsible $106) ->
+    $107 = "You can only call tags or functions."
+    $108 = panicking because $107 ($56 is at fault)
+  }
+  $110 = call $83 with $82 $105 $109 ($56 is responsible)
+}
+$112 = call $67 with $66 $79 $111 ($56 is responsible)
+$113 = $54
+$114 = builtinTextConcatenate
+$115 = builtinTypeOf
+$116 = Text
+$117 = builtinEquals
+$118 = builtinIfElse
+$119 = builtinToDebugText
+$120 = "Builtins"
+$121 = Examples:fibonacci:10
+$122 = builtinEquals
+$123 = builtinGetArgumentCount
+$124 = builtinTagHasValue
+$125 = builtinTagWithValue
+$126 = builtinTextConcatenate
+$127 = builtinToDebugText
+$128 = builtinTypeOf
+$129 = call $128 with $113 ($121 is responsible)
+$130 = Tag
+$131 = call $122 with $129 $130 ($121 is responsible)
+$132 = builtinIfElse
+# Examples:fibonacci:10:calleeIsTag:then
+$144 = { (responsible $133) ->
+  $134 = call $124 with $113 ($121 is responsible)
+  $135 = builtinIfElse
+  # Examples:fibonacci:10:doesTagHaveValue:then
+  $139 = { (responsible $136) ->
+    $137 = "You called a tag that already has a value."
+    $138 = panicking because $137 ($121 is at fault)
+  }
+  # Examples:fibonacci:10:doesTagHaveValue:else
+  $142 = { (responsible $140) ->
+    $141 = call $125 with $113 $120 ($121 is responsible)
+  }
+  $143 = call $135 with $134 $139 $142 ($121 is responsible)
+}
+# Examples:fibonacci:10:calleeIsTag:else
+$176 = { (responsible $145) ->
+  $146 = Function
+  $147 = call $122 with $129 $146 ($121 is responsible)
+  $148 = builtinIfElse
+  # Examples:fibonacci:10:calleeIsFunction:then
+  $170 = { (responsible $149) ->
+    $150 = call $123 with $113 ($121 is responsible)
+    $151 = 1
+    $152 = call $122 with $150 $151 ($121 is responsible)
+    $153 = builtinIfElse
+    # Examples:fibonacci:10:hasCorrectNumberOfArguments:then
+    $160 = { (responsible $154) ->
+      $155 = Examples:fibonacci:10
+      $156 = trace: start of call of $113 with $120 ($121 is responsible, code is at $155)
+      $157 = call $113 with $120 ($121 is responsible)
+      $158 = trace: end of call
+      $159 = $157
+    }
+    # Examples:fibonacci:10:hasCorrectNumberOfArguments:else
+    $168 = { (responsible $161) ->
+      $162 = "You called a function that expects "
+      $163 = call $127 with $150 ($121 is responsible)
+      $164 = " arguments with 1 arguments."
+      $165 = call $126 with $162 $163 ($121 is responsible)
+      $166 = call $126 with $165 $164 ($121 is responsible)
+      $167 = panicking because $166 ($121 is at fault)
+    }
+    $169 = call $153 with $152 $160 $168 ($121 is responsible)
+  }
+  # Examples:fibonacci:10:calleeIsFunction:else
+  $174 = { (responsible $171) ->
+    $172 = "You can only call tags or functions."
+    $173 = panicking because $172 ($121 is at fault)
+  }
+  $175 = call $148 with $147 $170 $174 ($121 is responsible)
+}
+$177 = call $132 with $131 $144 $176 ($121 is responsible)
+$178 = $177
+$179 = $178
+$180 = Nothing
+$181 = $54
+$182 = builtinTextConcatenate
+$183 = builtinTypeOf
+$184 = Text
+$185 = builtinEquals
+$186 = builtinIfElse
+$187 = builtinToDebugText
+$188 = "Core"
+$189 = Examples:fibonacci:20
+$190 = builtinEquals
+$191 = builtinGetArgumentCount
+$192 = builtinTagHasValue
+$193 = builtinTagWithValue
+$194 = builtinTextConcatenate
+$195 = builtinToDebugText
+$196 = builtinTypeOf
+$197 = call $196 with $181 ($189 is responsible)
+$198 = Tag
+$199 = call $190 with $197 $198 ($189 is responsible)
+$200 = builtinIfElse
+# Examples:fibonacci:20:calleeIsTag:then
+$212 = { (responsible $201) ->
+  $202 = call $192 with $181 ($189 is responsible)
+  $203 = builtinIfElse
+  # Examples:fibonacci:20:doesTagHaveValue:then
+  $207 = { (responsible $204) ->
+    $205 = "You called a tag that already has a value."
+    $206 = panicking because $205 ($189 is at fault)
+  }
+  # Examples:fibonacci:20:doesTagHaveValue:else
+  $210 = { (responsible $208) ->
+    $209 = call $193 with $181 $188 ($189 is responsible)
+  }
+  $211 = call $203 with $202 $207 $210 ($189 is responsible)
+}
+# Examples:fibonacci:20:calleeIsTag:else
+$244 = { (responsible $213) ->
+  $214 = Function
+  $215 = call $190 with $197 $214 ($189 is responsible)
+  $216 = builtinIfElse
+  # Examples:fibonacci:20:calleeIsFunction:then
+  $238 = { (responsible $217) ->
+    $218 = call $191 with $181 ($189 is responsible)
+    $219 = 1
+    $220 = call $190 with $218 $219 ($189 is responsible)
+    $221 = builtinIfElse
+    # Examples:fibonacci:20:hasCorrectNumberOfArguments:then
+    $228 = { (responsible $222) ->
+      $223 = Examples:fibonacci:20
+      $224 = trace: start of call of $181 with $188 ($189 is responsible, code is at $223)
+      $225 = call $181 with $188 ($189 is responsible)
+      $226 = trace: end of call
+      $227 = $225
+    }
+    # Examples:fibonacci:20:hasCorrectNumberOfArguments:else
+    $236 = { (responsible $229) ->
+      $230 = "You called a function that expects "
+      $231 = call $195 with $218 ($189 is responsible)
+      $232 = " arguments with 1 arguments."
+      $233 = call $194 with $230 $231 ($189 is responsible)
+      $234 = call $194 with $233 $232 ($189 is responsible)
+      $235 = panicking because $234 ($189 is at fault)
+    }
+    $237 = call $221 with $220 $228 $236 ($189 is responsible)
+  }
+  # Examples:fibonacci:20:calleeIsFunction:else
+  $242 = { (responsible $239) ->
+    $240 = "You can only call tags or functions."
+    $241 = panicking because $240 ($189 is at fault)
+  }
+  $243 = call $216 with $215 $238 $242 ($189 is responsible)
+}
+$245 = call $200 with $199 $212 $244 ($189 is responsible)
+$246 = Examples:fibonacci:21
+$247 = Match
+$248 = NoMatch
+$249 = Struct
+$250 = builtinTypeOf
+$251 = call $250 with $245 ($246 is responsible)
+$252 = builtinEquals
+$253 = call $252 with $249 $251 ($246 is responsible)
+$254 = builtinIfElse
+# Examples:fibonacci:21:equals:then
+$347 = { (responsible $255) ->
+  $256 = builtinStructHasKey
+  $257 = builtinStructGet
+  $258 = Int
+  $259 = call $256 with $245 $258 ($246 is responsible)
+  $260 = builtinIfElse
+  # Examples:fibonacci:21:hasKey:then
+  $265 = { (responsible $261) ->
+    $262 = call $257 with $245 $258 ($246 is responsible)
+    $263 = ($262,)
+    $264 = call $247 with $263 ($246 is responsible)
+  }
+  # Examples:fibonacci:21:hasKey:else
+  $268 = { (responsible $266) ->
+    $267 = $248
+  }
+  $269 = call $260 with $259 $265 $268 ($246 is responsible)
+  $270 = builtinTagWithoutValue
+  $271 = call $270 with $269 ($246 is responsible)
+  $272 = builtinEquals
+  $273 = Match
+  $274 = call $272 with $271 $273 ($246 is responsible)
+  $275 = builtinIfElse
+  # Examples:fibonacci:21:isMatch:then
+  $342 = { (responsible $276) ->
+    $277 = builtinTagGetValue
+    $278 = call $277 with $269 ($246 is responsible)
+    $279 = builtinListGet
+    $280 = 0
+    $281 = call $279 with $278 $280 ($246 is responsible)
+    $282 = Result
+    $283 = call $256 with $245 $282 ($246 is responsible)
+    $284 = builtinIfElse
+    # Examples:fibonacci:21:hasKey:then
+    $289 = { (responsible $285) ->
+      $286 = call $257 with $245 $282 ($246 is responsible)
+      $287 = ($286,)
+      $288 = call $247 with $287 ($246 is responsible)
+    }
+    # Examples:fibonacci:21:hasKey:else
+    $292 = { (responsible $290) ->
+      $291 = $248
+    }
+    $293 = call $284 with $283 $289 $292 ($246 is responsible)
+    $294 = builtinTagWithoutValue
+    $295 = call $294 with $293 ($246 is responsible)
+    $296 = builtinEquals
+    $297 = Match
+    $298 = call $296 with $295 $297 ($246 is responsible)
+    $299 = builtinIfElse
+    # Examples:fibonacci:21:isMatch:then
+    $337 = { (responsible $300) ->
+      $301 = builtinTagGetValue
+      $302 = call $301 with $293 ($246 is responsible)
+      $303 = builtinListGet
+      $304 = 0
+      $305 = call $303 with $302 $304 ($246 is responsible)
+      $306 = ToDebugText
+      $307 = call $256 with $245 $306 ($246 is responsible)
+      $308 = builtinIfElse
+      # Examples:fibonacci:21:hasKey:then
+      $313 = { (responsible $309) ->
+        $310 = call $257 with $245 $306 ($246 is responsible)
+        $311 = ($310,)
+        $312 = call $247 with $311 ($246 is responsible)
+      }
+      # Examples:fibonacci:21:hasKey:else
+      $316 = { (responsible $314) ->
+        $315 = $248
+      }
+      $317 = call $308 with $307 $313 $316 ($246 is responsible)
+      $318 = builtinTagWithoutValue
+      $319 = call $318 with $317 ($246 is responsible)
+      $320 = builtinEquals
+      $321 = Match
+      $322 = call $320 with $319 $321 ($246 is responsible)
+      $323 = builtinIfElse
+      # Examples:fibonacci:21:isMatch:then
+      $332 = { (responsible $324) ->
+        $325 = builtinTagGetValue
+        $326 = call $325 with $317 ($246 is responsible)
+        $327 = builtinListGet
+        $328 = 0
+        $329 = call $327 with $326 $328 ($246 is responsible)
+        $330 = ($281, $305, $329)
+        $331 = call $247 with $330 ($246 is responsible)
+      }
+      # Examples:fibonacci:21:isMatch:else
+      $335 = { (responsible $333) ->
+        $334 = $317
+      }
+      $336 = call $323 with $322 $332 $335 ($246 is responsible)
+    }
+    # Examples:fibonacci:21:isMatch:else
+    $340 = { (responsible $338) ->
+      $339 = $293
+    }
+    $341 = call $299 with $298 $337 $340 ($246 is responsible)
+  }
+  # Examples:fibonacci:21:isMatch:else
+  $345 = { (responsible $343) ->
+    $344 = $269
+  }
+  $346 = call $275 with $274 $342 $345 ($246 is responsible)
+}
+# Examples:fibonacci:21:equals:else
+$350 = { (responsible $348) ->
+  $349 = $248
+}
+$351 = call $254 with $253 $347 $350 ($246 is responsible)
+$352 = Nothing
+$353 = builtinTagWithoutValue
+$354 = call $353 with $351 ($246 is responsible)
+$355 = builtinEquals
+$356 = Match
+$357 = call $355 with $354 $356 ($246 is responsible)
+$358 = builtinIfElse
+# Examples:fibonacci:21:isMatch:then
+$361 = { (responsible $359) ->
+  $360 = $352
+}
+# Examples:fibonacci:21:isMatch:else
+$365 = { (responsible $362) ->
+  $363 = "The value doesn't match the pattern on the left side of the destructuring."
+  $364 = panicking because $363 ($246 is at fault)
+}
+$366 = call $358 with $357 $361 $365 ($246 is responsible)
+$367 = Examples:fibonacci:int
+$368 = builtinTagGetValue
+$369 = call $368 with $351 ($367 is responsible)
+$370 = builtinListGet
+$371 = 0
+$372 = call $370 with $369 $371 ($367 is responsible)
+$373 = Examples:fibonacci:result
+$374 = builtinTagGetValue
+$375 = call $374 with $351 ($373 is responsible)
+$376 = builtinListGet
+$377 = 1
+$378 = call $376 with $375 $377 ($373 is responsible)
+$379 = Examples:fibonacci:toDebugText
+$380 = builtinTagGetValue
+$381 = call $380 with $351 ($379 is responsible)
+$382 = builtinListGet
+$383 = 2
+$384 = call $382 with $381 $383 ($379 is responsible)
+$385 = Nothing
+# Examples:fibonacci:recursive
+$585 = { $387 $388 (+ responsible $386) ->
+  # Examples:fibonacci:recursive:0
+  $520 = { $390 $391 (+ responsible $389) ->
+    # Examples:fibonacci:recursive:0:0
+    $455 = { $393 (+ responsible $392) ->
+      $394 = $390
+      $395 = $390
+      $396 = $393
+      $397 = Examples:fibonacci:recursive:0:0:3
+      $398 = builtinEquals
+      $399 = builtinGetArgumentCount
+      $400 = builtinTagHasValue
+      $401 = builtinTagWithValue
+      $402 = builtinTextConcatenate
+      $403 = builtinToDebugText
+      $404 = builtinTypeOf
+      $405 = call $404 with $394 ($397 is responsible)
+      $406 = Tag
+      $407 = call $398 with $405 $406 ($397 is responsible)
+      $408 = builtinIfElse
+      # Examples:fibonacci:recursive:0:0:3:calleeIsTag:then
+      $421 = { (responsible $409) ->
+        $410 = call $400 with $394 ($397 is responsible)
+        $411 = builtinIfElse
+        # Examples:fibonacci:recursive:0:0:3:doesTagHaveValue:then
+        $415 = { (responsible $412) ->
+          $413 = "You called a tag that already has a value."
+          $414 = panicking because $413 ($397 is at fault)
+        }
+        # Examples:fibonacci:recursive:0:0:3:doesTagHaveValue:else
+        $419 = { (responsible $416) ->
+          $417 = "Tags can only be created with one value."
+          $418 = panicking because $417 ($397 is at fault)
+        }
+        $420 = call $411 with $410 $415 $419 ($397 is responsible)
+      }
+      # Examples:fibonacci:recursive:0:0:3:calleeIsTag:else
+      $453 = { (responsible $422) ->
+        $423 = Function
+        $424 = call $398 with $405 $423 ($397 is responsible)
+        $425 = builtinIfElse
+        # Examples:fibonacci:recursive:0:0:3:calleeIsFunction:then
+        $447 = { (responsible $426) ->
+          $427 = call $399 with $394 ($397 is responsible)
+          $428 = 2
+          $429 = call $398 with $427 $428 ($397 is responsible)
+          $430 = builtinIfElse
+          # Examples:fibonacci:recursive:0:0:3:hasCorrectNumberOfArguments:then
+          $437 = { (responsible $431) ->
+            $432 = Examples:fibonacci:recursive:0:0:3
+            $433 = trace: start of call of $394 with $395 $396 ($397 is responsible, code is at $432)
+            $434 = call $394 with $395 $396 ($397 is responsible)
+            $435 = trace: end of call
+            $436 = $434
+          }
+          # Examples:fibonacci:recursive:0:0:3:hasCorrectNumberOfArguments:else
+          $445 = { (responsible $438) ->
+            $439 = "You called a function that expects "
+            $440 = call $403 with $427 ($397 is responsible)
+            $441 = " arguments with 2 arguments."
+            $442 = call $402 with $439 $440 ($397 is responsible)
+            $443 = call $402 with $442 $441 ($397 is responsible)
+            $444 = panicking because $443 ($397 is at fault)
+          }
+          $446 = call $430 with $429 $437 $445 ($397 is responsible)
+        }
+        # Examples:fibonacci:recursive:0:0:3:calleeIsFunction:else
+        $451 = { (responsible $448) ->
+          $449 = "You can only call tags or functions."
+          $450 = panicking because $449 ($397 is at fault)
+        }
+        $452 = call $425 with $424 $447 $451 ($397 is responsible)
+      }
+      $454 = call $408 with $407 $421 $453 ($397 is responsible)
+    }
+    $456 = $455
+    $457 = $456
+    $458 = Nothing
+    $459 = $388
+    $460 = $457
+    $461 = $391
+    $462 = Examples:fibonacci:recursive:0:5
+    $463 = builtinEquals
+    $464 = builtinGetArgumentCount
+    $465 = builtinTagHasValue
+    $466 = builtinTagWithValue
+    $467 = builtinTextConcatenate
+    $468 = builtinToDebugText
+    $469 = builtinTypeOf
+    $470 = call $469 with $459 ($462 is responsible)
+    $471 = Tag
+    $472 = call $463 with $470 $471 ($462 is responsible)
+    $473 = builtinIfElse
+    # Examples:fibonacci:recursive:0:5:calleeIsTag:then
+    $486 = { (responsible $474) ->
+      $475 = call $465 with $459 ($462 is responsible)
+      $476 = builtinIfElse
+      # Examples:fibonacci:recursive:0:5:doesTagHaveValue:then
+      $480 = { (responsible $477) ->
+        $478 = "You called a tag that already has a value."
+        $479 = panicking because $478 ($462 is at fault)
+      }
+      # Examples:fibonacci:recursive:0:5:doesTagHaveValue:else
+      $484 = { (responsible $481) ->
+        $482 = "Tags can only be created with one value."
+        $483 = panicking because $482 ($462 is at fault)
+      }
+      $485 = call $476 with $475 $480 $484 ($462 is responsible)
+    }
+    # Examples:fibonacci:recursive:0:5:calleeIsTag:else
+    $518 = { (responsible $487) ->
+      $488 = Function
+      $489 = call $463 with $470 $488 ($462 is responsible)
+      $490 = builtinIfElse
+      # Examples:fibonacci:recursive:0:5:calleeIsFunction:then
+      $512 = { (responsible $491) ->
+        $492 = call $464 with $459 ($462 is responsible)
+        $493 = 2
+        $494 = call $463 with $492 $493 ($462 is responsible)
+        $495 = builtinIfElse
+        # Examples:fibonacci:recursive:0:5:hasCorrectNumberOfArguments:then
+        $502 = { (responsible $496) ->
+          $497 = Examples:fibonacci:recursive:0:5
+          $498 = trace: start of call of $459 with $460 $461 ($462 is responsible, code is at $497)
+          $499 = call $459 with $460 $461 ($462 is responsible)
+          $500 = trace: end of call
+          $501 = $499
+        }
+        # Examples:fibonacci:recursive:0:5:hasCorrectNumberOfArguments:else
+        $510 = { (responsible $503) ->
+          $504 = "You called a function that expects "
+          $505 = call $468 with $492 ($462 is responsible)
+          $506 = " arguments with 2 arguments."
+          $507 = call $467 with $504 $505 ($462 is responsible)
+          $508 = call $467 with $507 $506 ($462 is responsible)
+          $509 = panicking because $508 ($462 is at fault)
+        }
+        $511 = call $495 with $494 $502 $510 ($462 is responsible)
+      }
+      # Examples:fibonacci:recursive:0:5:calleeIsFunction:else
+      $516 = { (responsible $513) ->
+        $514 = "You can only call tags or functions."
+        $515 = panicking because $514 ($462 is at fault)
+      }
+      $517 = call $490 with $489 $512 $516 ($462 is responsible)
+    }
+    $519 = call $473 with $472 $486 $518 ($462 is responsible)
+  }
+  $521 = $520
+  $522 = $521
+  $523 = Nothing
+  $524 = $522
+  $525 = $522
+  $526 = $387
+  $527 = Examples:fibonacci:recursive:5
+  $528 = builtinEquals
+  $529 = builtinGetArgumentCount
+  $530 = builtinTagHasValue
+  $531 = builtinTagWithValue
+  $532 = builtinTextConcatenate
+  $533 = builtinToDebugText
+  $534 = builtinTypeOf
+  $535 = call $534 with $524 ($527 is responsible)
+  $536 = Tag
+  $537 = call $528 with $535 $536 ($527 is responsible)
+  $538 = builtinIfElse
+  # Examples:fibonacci:recursive:5:calleeIsTag:then
+  $551 = { (responsible $539) ->
+    $540 = call $530 with $524 ($527 is responsible)
+    $541 = builtinIfElse
+    # Examples:fibonacci:recursive:5:doesTagHaveValue:then
+    $545 = { (responsible $542) ->
+      $543 = "You called a tag that already has a value."
+      $544 = panicking because $543 ($527 is at fault)
+    }
+    # Examples:fibonacci:recursive:5:doesTagHaveValue:else
+    $549 = { (responsible $546) ->
+      $547 = "Tags can only be created with one value."
+      $548 = panicking because $547 ($527 is at fault)
+    }
+    $550 = call $541 with $540 $545 $549 ($527 is responsible)
+  }
+  # Examples:fibonacci:recursive:5:calleeIsTag:else
+  $583 = { (responsible $552) ->
+    $553 = Function
+    $554 = call $528 with $535 $553 ($527 is responsible)
+    $555 = builtinIfElse
+    # Examples:fibonacci:recursive:5:calleeIsFunction:then
+    $577 = { (responsible $556) ->
+      $557 = call $529 with $524 ($527 is responsible)
+      $558 = 2
+      $559 = call $528 with $557 $558 ($527 is responsible)
+      $560 = builtinIfElse
+      # Examples:fibonacci:recursive:5:hasCorrectNumberOfArguments:then
+      $567 = { (responsible $561) ->
+        $562 = Examples:fibonacci:recursive:5
+        $563 = trace: start of call of $524 with $525 $526 ($527 is responsible, code is at $562)
+        $564 = call $524 with $525 $526 ($527 is responsible)
+        $565 = trace: end of call
+        $566 = $564
+      }
+      # Examples:fibonacci:recursive:5:hasCorrectNumberOfArguments:else
+      $575 = { (responsible $568) ->
+        $569 = "You called a function that expects "
+        $570 = call $533 with $557 ($527 is responsible)
+        $571 = " arguments with 2 arguments."
+        $572 = call $532 with $569 $570 ($527 is responsible)
+        $573 = call $532 with $572 $571 ($527 is responsible)
+        $574 = panicking because $573 ($527 is at fault)
+      }
+      $576 = call $560 with $559 $567 $575 ($527 is responsible)
+    }
+    # Examples:fibonacci:recursive:5:calleeIsFunction:else
+    $581 = { (responsible $578) ->
+      $579 = "You can only call tags or functions."
+      $580 = panicking because $579 ($527 is at fault)
+    }
+    $582 = call $555 with $554 $577 $581 ($527 is responsible)
+  }
+  $584 = call $538 with $537 $551 $583 ($527 is responsible)
+}
+$586 = $585
+# Examples:fibonacci:compareTo
+$774 = { $588 $589 (+ responsible $587) ->
+  $590 = $588
+  $591 = builtinStructGet
+  $592 = StructGet
+  $593 = Examples:fibonacci:compareTo:3
+  $594 = builtinEquals
+  $595 = builtinGetArgumentCount
+  $596 = builtinTagHasValue
+  $597 = builtinTagWithValue
+  $598 = builtinTextConcatenate
+  $599 = builtinToDebugText
+  $600 = builtinTypeOf
+  $601 = call $600 with $591 ($593 is responsible)
+  $602 = Tag
+  $603 = call $594 with $601 $602 ($593 is responsible)
+  $604 = builtinIfElse
+  # Examples:fibonacci:compareTo:3:calleeIsTag:then
+  $617 = { (responsible $605) ->
+    $606 = call $596 with $591 ($593 is responsible)
+    $607 = builtinIfElse
+    # Examples:fibonacci:compareTo:3:doesTagHaveValue:then
+    $611 = { (responsible $608) ->
+      $609 = "You called a tag that already has a value."
+      $610 = panicking because $609 ($593 is at fault)
+    }
+    # Examples:fibonacci:compareTo:3:doesTagHaveValue:else
+    $615 = { (responsible $612) ->
+      $613 = "Tags can only be created with one value."
+      $614 = panicking because $613 ($593 is at fault)
+    }
+    $616 = call $607 with $606 $611 $615 ($593 is responsible)
+  }
+  # Examples:fibonacci:compareTo:3:calleeIsTag:else
+  $649 = { (responsible $618) ->
+    $619 = Function
+    $620 = call $594 with $601 $619 ($593 is responsible)
+    $621 = builtinIfElse
+    # Examples:fibonacci:compareTo:3:calleeIsFunction:then
+    $643 = { (responsible $622) ->
+      $623 = call $595 with $591 ($593 is responsible)
+      $624 = 2
+      $625 = call $594 with $623 $624 ($593 is responsible)
+      $626 = builtinIfElse
+      # Examples:fibonacci:compareTo:3:hasCorrectNumberOfArguments:then
+      $633 = { (responsible $627) ->
+        $628 = Examples:fibonacci:compareTo:3
+        $629 = trace: start of call of $591 with $112 $592 ($593 is responsible, code is at $628)
+        $630 = call $591 with $112 $592 ($593 is responsible)
+        $631 = trace: end of call
+        $632 = $630
+      }
+      # Examples:fibonacci:compareTo:3:hasCorrectNumberOfArguments:else
+      $641 = { (responsible $634) ->
+        $635 = "You called a function that expects "
+        $636 = call $599 with $623 ($593 is responsible)
+        $637 = " arguments with 2 arguments."
+        $638 = call $598 with $635 $636 ($593 is responsible)
+        $639 = call $598 with $638 $637 ($593 is responsible)
+        $640 = panicking because $639 ($593 is at fault)
+      }
+      $642 = call $626 with $625 $633 $641 ($593 is responsible)
+    }
+    # Examples:fibonacci:compareTo:3:calleeIsFunction:else
+    $647 = { (responsible $644) ->
+      $645 = "You can only call tags or functions."
+      $646 = panicking because $645 ($593 is at fault)
+    }
+    $648 = call $621 with $620 $643 $647 ($593 is responsible)
+  }
+  $650 = call $604 with $603 $617 $649 ($593 is responsible)
+  $651 = $179
+  $652 = IntCompareTo
+  $653 = Examples:fibonacci:compareTo:6
+  $654 = builtinEquals
+  $655 = builtinGetArgumentCount
+  $656 = builtinTagHasValue
+  $657 = builtinTagWithValue
+  $658 = builtinTextConcatenate
+  $659 = builtinToDebugText
+  $660 = builtinTypeOf
+  $661 = call $660 with $650 ($653 is responsible)
+  $662 = Tag
+  $663 = call $654 with $661 $662 ($653 is responsible)
+  $664 = builtinIfElse
+  # Examples:fibonacci:compareTo:6:calleeIsTag:then
+  $677 = { (responsible $665) ->
+    $666 = call $656 with $650 ($653 is responsible)
+    $667 = builtinIfElse
+    # Examples:fibonacci:compareTo:6:doesTagHaveValue:then
+    $671 = { (responsible $668) ->
+      $669 = "You called a tag that already has a value."
+      $670 = panicking because $669 ($653 is at fault)
+    }
+    # Examples:fibonacci:compareTo:6:doesTagHaveValue:else
+    $675 = { (responsible $672) ->
+      $673 = "Tags can only be created with one value."
+      $674 = panicking because $673 ($653 is at fault)
+    }
+    $676 = call $667 with $666 $671 $675 ($653 is responsible)
+  }
+  # Examples:fibonacci:compareTo:6:calleeIsTag:else
+  $709 = { (responsible $678) ->
+    $679 = Function
+    $680 = call $654 with $661 $679 ($653 is responsible)
+    $681 = builtinIfElse
+    # Examples:fibonacci:compareTo:6:calleeIsFunction:then
+    $703 = { (responsible $682) ->
+      $683 = call $655 with $650 ($653 is responsible)
+      $684 = 2
+      $685 = call $654 with $683 $684 ($653 is responsible)
+      $686 = builtinIfElse
+      # Examples:fibonacci:compareTo:6:hasCorrectNumberOfArguments:then
+      $693 = { (responsible $687) ->
+        $688 = Examples:fibonacci:compareTo:6
+        $689 = trace: start of call of $650 with $651 $652 ($653 is responsible, code is at $688)
+        $690 = call $650 with $651 $652 ($653 is responsible)
+        $691 = trace: end of call
+        $692 = $690
+      }
+      # Examples:fibonacci:compareTo:6:hasCorrectNumberOfArguments:else
+      $701 = { (responsible $694) ->
+        $695 = "You called a function that expects "
+        $696 = call $659 with $683 ($653 is responsible)
+        $697 = " arguments with 2 arguments."
+        $698 = call $658 with $695 $696 ($653 is responsible)
+        $699 = call $658 with $698 $697 ($653 is responsible)
+        $700 = panicking because $699 ($653 is at fault)
+      }
+      $702 = call $686 with $685 $693 $701 ($653 is responsible)
+    }
+    # Examples:fibonacci:compareTo:6:calleeIsFunction:else
+    $707 = { (responsible $704) ->
+      $705 = "You can only call tags or functions."
+      $706 = panicking because $705 ($653 is at fault)
+    }
+    $708 = call $681 with $680 $703 $707 ($653 is responsible)
+  }
+  $710 = call $664 with $663 $677 $709 ($653 is responsible)
+  $711 = $589
+  $712 = Examples:fibonacci:compareTo:8
+  $713 = builtinEquals
+  $714 = builtinGetArgumentCount
+  $715 = builtinTagHasValue
+  $716 = builtinTagWithValue
+  $717 = builtinTextConcatenate
+  $718 = builtinToDebugText
+  $719 = builtinTypeOf
+  $720 = call $719 with $710 ($712 is responsible)
+  $721 = Tag
+  $722 = call $713 with $720 $721 ($712 is responsible)
+  $723 = builtinIfElse
+  # Examples:fibonacci:compareTo:8:calleeIsTag:then
+  $736 = { (responsible $724) ->
+    $725 = call $715 with $710 ($712 is responsible)
+    $726 = builtinIfElse
+    # Examples:fibonacci:compareTo:8:doesTagHaveValue:then
+    $730 = { (responsible $727) ->
+      $728 = "You called a tag that already has a value."
+      $729 = panicking because $728 ($712 is at fault)
+    }
+    # Examples:fibonacci:compareTo:8:doesTagHaveValue:else
+    $734 = { (responsible $731) ->
+      $732 = "Tags can only be created with one value."
+      $733 = panicking because $732 ($712 is at fault)
+    }
+    $735 = call $726 with $725 $730 $734 ($712 is responsible)
+  }
+  # Examples:fibonacci:compareTo:8:calleeIsTag:else
+  $768 = { (responsible $737) ->
+    $738 = Function
+    $739 = call $713 with $720 $738 ($712 is responsible)
+    $740 = builtinIfElse
+    # Examples:fibonacci:compareTo:8:calleeIsFunction:then
+    $762 = { (responsible $741) ->
+      $742 = call $714 with $710 ($712 is responsible)
+      $743 = 2
+      $744 = call $713 with $742 $743 ($712 is responsible)
+      $745 = builtinIfElse
+      # Examples:fibonacci:compareTo:8:hasCorrectNumberOfArguments:then
+      $752 = { (responsible $746) ->
+        $747 = Examples:fibonacci:compareTo:8
+        $748 = trace: start of call of $710 with $590 $711 ($712 is responsible, code is at $747)
+        $749 = call $710 with $590 $711 ($712 is responsible)
+        $750 = trace: end of call
+        $751 = $749
+      }
+      # Examples:fibonacci:compareTo:8:hasCorrectNumberOfArguments:else
+      $760 = { (responsible $753) ->
+        $754 = "You called a function that expects "
+        $755 = call $718 with $742 ($712 is responsible)
+        $756 = " arguments with 2 arguments."
+        $757 = call $717 with $754 $755 ($712 is responsible)
+        $758 = call $717 with $757 $756 ($712 is responsible)
+        $759 = panicking because $758 ($712 is at fault)
+      }
+      $761 = call $745 with $744 $752 $760 ($712 is responsible)
+    }
+    # Examples:fibonacci:compareTo:8:calleeIsFunction:else
+    $766 = { (responsible $763) ->
+      $764 = "You can only call tags or functions."
+      $765 = panicking because $764 ($712 is at fault)
+    }
+    $767 = call $740 with $739 $762 $766 ($712 is responsible)
+  }
+  $769 = call $723 with $722 $736 $768 ($712 is responsible)
+  $770 = $769
+  $771 = $770
+  $772 = Nothing
+  $773 = $771
+}
+$775 = $774
+# Examples:fibonacci:isLessThan
+$1019 = { $777 $778 (+ responsible $776) ->
+  $779 = builtinStructGet
+  $780 = StructGet
+  $781 = Examples:fibonacci:isLessThan:2
+  $782 = builtinEquals
+  $783 = builtinGetArgumentCount
+  $784 = builtinTagHasValue
+  $785 = builtinTagWithValue
+  $786 = builtinTextConcatenate
+  $787 = builtinToDebugText
+  $788 = builtinTypeOf
+  $789 = call $788 with $779 ($781 is responsible)
+  $790 = Tag
+  $791 = call $782 with $789 $790 ($781 is responsible)
+  $792 = builtinIfElse
+  # Examples:fibonacci:isLessThan:2:calleeIsTag:then
+  $805 = { (responsible $793) ->
+    $794 = call $784 with $779 ($781 is responsible)
+    $795 = builtinIfElse
+    # Examples:fibonacci:isLessThan:2:doesTagHaveValue:then
+    $799 = { (responsible $796) ->
+      $797 = "You called a tag that already has a value."
+      $798 = panicking because $797 ($781 is at fault)
+    }
+    # Examples:fibonacci:isLessThan:2:doesTagHaveValue:else
+    $803 = { (responsible $800) ->
+      $801 = "Tags can only be created with one value."
+      $802 = panicking because $801 ($781 is at fault)
+    }
+    $804 = call $795 with $794 $799 $803 ($781 is responsible)
+  }
+  # Examples:fibonacci:isLessThan:2:calleeIsTag:else
+  $837 = { (responsible $806) ->
+    $807 = Function
+    $808 = call $782 with $789 $807 ($781 is responsible)
+    $809 = builtinIfElse
+    # Examples:fibonacci:isLessThan:2:calleeIsFunction:then
+    $831 = { (responsible $810) ->
+      $811 = call $783 with $779 ($781 is responsible)
+      $812 = 2
+      $813 = call $782 with $811 $812 ($781 is responsible)
+      $814 = builtinIfElse
+      # Examples:fibonacci:isLessThan:2:hasCorrectNumberOfArguments:then
+      $821 = { (responsible $815) ->
+        $816 = Examples:fibonacci:isLessThan:2
+        $817 = trace: start of call of $779 with $112 $780 ($781 is responsible, code is at $816)
+        $818 = call $779 with $112 $780 ($781 is responsible)
+        $819 = trace: end of call
+        $820 = $818
+      }
+      # Examples:fibonacci:isLessThan:2:hasCorrectNumberOfArguments:else
+      $829 = { (responsible $822) ->
+        $823 = "You called a function that expects "
+        $824 = call $787 with $811 ($781 is responsible)
+        $825 = " arguments with 2 arguments."
+        $826 = call $786 with $823 $824 ($781 is responsible)
+        $827 = call $786 with $826 $825 ($781 is responsible)
+        $828 = panicking because $827 ($781 is at fault)
+      }
+      $830 = call $814 with $813 $821 $829 ($781 is responsible)
+    }
+    # Examples:fibonacci:isLessThan:2:calleeIsFunction:else
+    $835 = { (responsible $832) ->
+      $833 = "You can only call tags or functions."
+      $834 = panicking because $833 ($781 is at fault)
+    }
+    $836 = call $809 with $808 $831 $835 ($781 is responsible)
+  }
+  $838 = call $792 with $791 $805 $837 ($781 is responsible)
+  $839 = $179
+  $840 = Equals
+  $841 = Examples:fibonacci:isLessThan:5
+  $842 = builtinEquals
+  $843 = builtinGetArgumentCount
+  $844 = builtinTagHasValue
+  $845 = builtinTagWithValue
+  $846 = builtinTextConcatenate
+  $847 = builtinToDebugText
+  $848 = builtinTypeOf
+  $849 = call $848 with $838 ($841 is responsible)
+  $850 = Tag
+  $851 = call $842 with $849 $850 ($841 is responsible)
+  $852 = builtinIfElse
+  # Examples:fibonacci:isLessThan:5:calleeIsTag:then
+  $865 = { (responsible $853) ->
+    $854 = call $844 with $838 ($841 is responsible)
+    $855 = builtinIfElse
+    # Examples:fibonacci:isLessThan:5:doesTagHaveValue:then
+    $859 = { (responsible $856) ->
+      $857 = "You called a tag that already has a value."
+      $858 = panicking because $857 ($841 is at fault)
+    }
+    # Examples:fibonacci:isLessThan:5:doesTagHaveValue:else
+    $863 = { (responsible $860) ->
+      $861 = "Tags can only be created with one value."
+      $862 = panicking because $861 ($841 is at fault)
+    }
+    $864 = call $855 with $854 $859 $863 ($841 is responsible)
+  }
+  # Examples:fibonacci:isLessThan:5:calleeIsTag:else
+  $897 = { (responsible $866) ->
+    $867 = Function
+    $868 = call $842 with $849 $867 ($841 is responsible)
+    $869 = builtinIfElse
+    # Examples:fibonacci:isLessThan:5:calleeIsFunction:then
+    $891 = { (responsible $870) ->
+      $871 = call $843 with $838 ($841 is responsible)
+      $872 = 2
+      $873 = call $842 with $871 $872 ($841 is responsible)
+      $874 = builtinIfElse
+      # Examples:fibonacci:isLessThan:5:hasCorrectNumberOfArguments:then
+      $881 = { (responsible $875) ->
+        $876 = Examples:fibonacci:isLessThan:5
+        $877 = trace: start of call of $838 with $839 $840 ($841 is responsible, code is at $876)
+        $878 = call $838 with $839 $840 ($841 is responsible)
+        $879 = trace: end of call
+        $880 = $878
+      }
+      # Examples:fibonacci:isLessThan:5:hasCorrectNumberOfArguments:else
+      $889 = { (responsible $882) ->
+        $883 = "You called a function that expects "
+        $884 = call $847 with $871 ($841 is responsible)
+        $885 = " arguments with 2 arguments."
+        $886 = call $846 with $883 $884 ($841 is responsible)
+        $887 = call $846 with $886 $885 ($841 is responsible)
+        $888 = panicking because $887 ($841 is at fault)
+      }
+      $890 = call $874 with $873 $881 $889 ($841 is responsible)
+    }
+    # Examples:fibonacci:isLessThan:5:calleeIsFunction:else
+    $895 = { (responsible $892) ->
+      $893 = "You can only call tags or functions."
+      $894 = panicking because $893 ($841 is at fault)
+    }
+    $896 = call $869 with $868 $891 $895 ($841 is responsible)
+  }
+  $898 = call $852 with $851 $865 $897 ($841 is responsible)
+  $899 = $775
+  $900 = $777
+  $901 = $778
+  $902 = Examples:fibonacci:isLessThan:9
+  $903 = builtinEquals
+  $904 = builtinGetArgumentCount
+  $905 = builtinTagHasValue
+  $906 = builtinTagWithValue
+  $907 = builtinTextConcatenate
+  $908 = builtinToDebugText
+  $909 = builtinTypeOf
+  $910 = call $909 with $899 ($902 is responsible)
+  $911 = Tag
+  $912 = call $903 with $910 $911 ($902 is responsible)
+  $913 = builtinIfElse
+  # Examples:fibonacci:isLessThan:9:calleeIsTag:then
+  $926 = { (responsible $914) ->
+    $915 = call $905 with $899 ($902 is responsible)
+    $916 = builtinIfElse
+    # Examples:fibonacci:isLessThan:9:doesTagHaveValue:then
+    $920 = { (responsible $917) ->
+      $918 = "You called a tag that already has a value."
+      $919 = panicking because $918 ($902 is at fault)
+    }
+    # Examples:fibonacci:isLessThan:9:doesTagHaveValue:else
+    $924 = { (responsible $921) ->
+      $922 = "Tags can only be created with one value."
+      $923 = panicking because $922 ($902 is at fault)
+    }
+    $925 = call $916 with $915 $920 $924 ($902 is responsible)
+  }
+  # Examples:fibonacci:isLessThan:9:calleeIsTag:else
+  $958 = { (responsible $927) ->
+    $928 = Function
+    $929 = call $903 with $910 $928 ($902 is responsible)
+    $930 = builtinIfElse
+    # Examples:fibonacci:isLessThan:9:calleeIsFunction:then
+    $952 = { (responsible $931) ->
+      $932 = call $904 with $899 ($902 is responsible)
+      $933 = 2
+      $934 = call $903 with $932 $933 ($902 is responsible)
+      $935 = builtinIfElse
+      # Examples:fibonacci:isLessThan:9:hasCorrectNumberOfArguments:then
+      $942 = { (responsible $936) ->
+        $937 = Examples:fibonacci:isLessThan:9
+        $938 = trace: start of call of $899 with $900 $901 ($902 is responsible, code is at $937)
+        $939 = call $899 with $900 $901 ($902 is responsible)
+        $940 = trace: end of call
+        $941 = $939
+      }
+      # Examples:fibonacci:isLessThan:9:hasCorrectNumberOfArguments:else
+      $950 = { (responsible $943) ->
+        $944 = "You called a function that expects "
+        $945 = call $908 with $932 ($902 is responsible)
+        $946 = " arguments with 2 arguments."
+        $947 = call $907 with $944 $945 ($902 is responsible)
+        $948 = call $907 with $947 $946 ($902 is responsible)
+        $949 = panicking because $948 ($902 is at fault)
+      }
+      $951 = call $935 with $934 $942 $950 ($902 is responsible)
+    }
+    # Examples:fibonacci:isLessThan:9:calleeIsFunction:else
+    $956 = { (responsible $953) ->
+      $954 = "You can only call tags or functions."
+      $955 = panicking because $954 ($902 is at fault)
+    }
+    $957 = call $930 with $929 $952 $956 ($902 is responsible)
+  }
+  $959 = call $913 with $912 $926 $958 ($902 is responsible)
+  $960 = Less
+  $961 = Examples:fibonacci:isLessThan:11
+  $962 = builtinEquals
+  $963 = builtinGetArgumentCount
+  $964 = builtinTagHasValue
+  $965 = builtinTagWithValue
+  $966 = builtinTextConcatenate
+  $967 = builtinToDebugText
+  $968 = builtinTypeOf
+  $969 = call $968 with $898 ($961 is responsible)
+  $970 = Tag
+  $971 = call $962 with $969 $970 ($961 is responsible)
+  $972 = builtinIfElse
+  # Examples:fibonacci:isLessThan:11:calleeIsTag:then
+  $985 = { (responsible $973) ->
+    $974 = call $964 with $898 ($961 is responsible)
+    $975 = builtinIfElse
+    # Examples:fibonacci:isLessThan:11:doesTagHaveValue:then
+    $979 = { (responsible $976) ->
+      $977 = "You called a tag that already has a value."
+      $978 = panicking because $977 ($961 is at fault)
+    }
+    # Examples:fibonacci:isLessThan:11:doesTagHaveValue:else
+    $983 = { (responsible $980) ->
+      $981 = "Tags can only be created with one value."
+      $982 = panicking because $981 ($961 is at fault)
+    }
+    $984 = call $975 with $974 $979 $983 ($961 is responsible)
+  }
+  # Examples:fibonacci:isLessThan:11:calleeIsTag:else
+  $1017 = { (responsible $986) ->
+    $987 = Function
+    $988 = call $962 with $969 $987 ($961 is responsible)
+    $989 = builtinIfElse
+    # Examples:fibonacci:isLessThan:11:calleeIsFunction:then
+    $1011 = { (responsible $990) ->
+      $991 = call $963 with $898 ($961 is responsible)
+      $992 = 2
+      $993 = call $962 with $991 $992 ($961 is responsible)
+      $994 = builtinIfElse
+      # Examples:fibonacci:isLessThan:11:hasCorrectNumberOfArguments:then
+      $1001 = { (responsible $995) ->
+        $996 = Examples:fibonacci:isLessThan:11
+        $997 = trace: start of call of $898 with $959 $960 ($961 is responsible, code is at $996)
+        $998 = call $898 with $959 $960 ($961 is responsible)
+        $999 = trace: end of call
+        $1000 = $998
+      }
+      # Examples:fibonacci:isLessThan:11:hasCorrectNumberOfArguments:else
+      $1009 = { (responsible $1002) ->
+        $1003 = "You called a function that expects "
+        $1004 = call $967 with $991 ($961 is responsible)
+        $1005 = " arguments with 2 arguments."
+        $1006 = call $966 with $1003 $1004 ($961 is responsible)
+        $1007 = call $966 with $1006 $1005 ($961 is responsible)
+        $1008 = panicking because $1007 ($961 is at fault)
+      }
+      $1010 = call $994 with $993 $1001 $1009 ($961 is responsible)
+    }
+    # Examples:fibonacci:isLessThan:11:calleeIsFunction:else
+    $1015 = { (responsible $1012) ->
+      $1013 = "You can only call tags or functions."
+      $1014 = panicking because $1013 ($961 is at fault)
+    }
+    $1016 = call $989 with $988 $1011 $1015 ($961 is responsible)
+  }
+  $1018 = call $972 with $971 $985 $1017 ($961 is responsible)
+}
+$1020 = $1019
+# Examples:fibonacci:fibonacci
+$1985 = { $1022 (+ responsible $1021) ->
+  $1023 = $586
+  $1024 = $1022
+  # Examples:fibonacci:fibonacci:2
+  $1926 = { $1026 $1027 (+ responsible $1025) ->
+    $1028 = builtinStructGet
+    $1029 = StructGet
+    $1030 = Examples:fibonacci:fibonacci:2:2
+    $1031 = builtinEquals
+    $1032 = builtinGetArgumentCount
+    $1033 = builtinTagHasValue
+    $1034 = builtinTagWithValue
+    $1035 = builtinTextConcatenate
+    $1036 = builtinToDebugText
+    $1037 = builtinTypeOf
+    $1038 = call $1037 with $1028 ($1030 is responsible)
+    $1039 = Tag
+    $1040 = call $1031 with $1038 $1039 ($1030 is responsible)
+    $1041 = builtinIfElse
+    # Examples:fibonacci:fibonacci:2:2:calleeIsTag:then
+    $1054 = { (responsible $1042) ->
+      $1043 = call $1033 with $1028 ($1030 is responsible)
+      $1044 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:2:doesTagHaveValue:then
+      $1048 = { (responsible $1045) ->
+        $1046 = "You called a tag that already has a value."
+        $1047 = panicking because $1046 ($1030 is at fault)
+      }
+      # Examples:fibonacci:fibonacci:2:2:doesTagHaveValue:else
+      $1052 = { (responsible $1049) ->
+        $1050 = "Tags can only be created with one value."
+        $1051 = panicking because $1050 ($1030 is at fault)
+      }
+      $1053 = call $1044 with $1043 $1048 $1052 ($1030 is responsible)
+    }
+    # Examples:fibonacci:fibonacci:2:2:calleeIsTag:else
+    $1086 = { (responsible $1055) ->
+      $1056 = Function
+      $1057 = call $1031 with $1038 $1056 ($1030 is responsible)
+      $1058 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:2:calleeIsFunction:then
+      $1080 = { (responsible $1059) ->
+        $1060 = call $1032 with $1028 ($1030 is responsible)
+        $1061 = 2
+        $1062 = call $1031 with $1060 $1061 ($1030 is responsible)
+        $1063 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:2:hasCorrectNumberOfArguments:then
+        $1070 = { (responsible $1064) ->
+          $1065 = Examples:fibonacci:fibonacci:2:2
+          $1066 = trace: start of call of $1028 with $112 $1029 ($1030 is responsible, code is at $1065)
+          $1067 = call $1028 with $112 $1029 ($1030 is responsible)
+          $1068 = trace: end of call
+          $1069 = $1067
+        }
+        # Examples:fibonacci:fibonacci:2:2:hasCorrectNumberOfArguments:else
+        $1078 = { (responsible $1071) ->
+          $1072 = "You called a function that expects "
+          $1073 = call $1036 with $1060 ($1030 is responsible)
+          $1074 = " arguments with 2 arguments."
+          $1075 = call $1035 with $1072 $1073 ($1030 is responsible)
+          $1076 = call $1035 with $1075 $1074 ($1030 is responsible)
+          $1077 = panicking because $1076 ($1030 is at fault)
+        }
+        $1079 = call $1063 with $1062 $1070 $1078 ($1030 is responsible)
+      }
+      # Examples:fibonacci:fibonacci:2:2:calleeIsFunction:else
+      $1084 = { (responsible $1081) ->
+        $1082 = "You can only call tags or functions."
+        $1083 = panicking because $1082 ($1030 is at fault)
+      }
+      $1085 = call $1058 with $1057 $1080 $1084 ($1030 is responsible)
+    }
+    $1087 = call $1041 with $1040 $1054 $1086 ($1030 is responsible)
+    $1088 = $179
+    $1089 = IfElse
+    $1090 = Examples:fibonacci:fibonacci:2:5
+    $1091 = builtinEquals
+    $1092 = builtinGetArgumentCount
+    $1093 = builtinTagHasValue
+    $1094 = builtinTagWithValue
+    $1095 = builtinTextConcatenate
+    $1096 = builtinToDebugText
+    $1097 = builtinTypeOf
+    $1098 = call $1097 with $1087 ($1090 is responsible)
+    $1099 = Tag
+    $1100 = call $1091 with $1098 $1099 ($1090 is responsible)
+    $1101 = builtinIfElse
+    # Examples:fibonacci:fibonacci:2:5:calleeIsTag:then
+    $1114 = { (responsible $1102) ->
+      $1103 = call $1093 with $1087 ($1090 is responsible)
+      $1104 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:5:doesTagHaveValue:then
+      $1108 = { (responsible $1105) ->
+        $1106 = "You called a tag that already has a value."
+        $1107 = panicking because $1106 ($1090 is at fault)
+      }
+      # Examples:fibonacci:fibonacci:2:5:doesTagHaveValue:else
+      $1112 = { (responsible $1109) ->
+        $1110 = "Tags can only be created with one value."
+        $1111 = panicking because $1110 ($1090 is at fault)
+      }
+      $1113 = call $1104 with $1103 $1108 $1112 ($1090 is responsible)
+    }
+    # Examples:fibonacci:fibonacci:2:5:calleeIsTag:else
+    $1146 = { (responsible $1115) ->
+      $1116 = Function
+      $1117 = call $1091 with $1098 $1116 ($1090 is responsible)
+      $1118 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:5:calleeIsFunction:then
+      $1140 = { (responsible $1119) ->
+        $1120 = call $1092 with $1087 ($1090 is responsible)
+        $1121 = 2
+        $1122 = call $1091 with $1120 $1121 ($1090 is responsible)
+        $1123 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:5:hasCorrectNumberOfArguments:then
+        $1130 = { (responsible $1124) ->
+          $1125 = Examples:fibonacci:fibonacci:2:5
+          $1126 = trace: start of call of $1087 with $1088 $1089 ($1090 is responsible, code is at $1125)
+          $1127 = call $1087 with $1088 $1089 ($1090 is responsible)
+          $1128 = trace: end of call
+          $1129 = $1127
+        }
+        # Examples:fibonacci:fibonacci:2:5:hasCorrectNumberOfArguments:else
+        $1138 = { (responsible $1131) ->
+          $1132 = "You called a function that expects "
+          $1133 = call $1096 with $1120 ($1090 is responsible)
+          $1134 = " arguments with 2 arguments."
+          $1135 = call $1095 with $1132 $1133 ($1090 is responsible)
+          $1136 = call $1095 with $1135 $1134 ($1090 is responsible)
+          $1137 = panicking because $1136 ($1090 is at fault)
+        }
+        $1139 = call $1123 with $1122 $1130 $1138 ($1090 is responsible)
+      }
+      # Examples:fibonacci:fibonacci:2:5:calleeIsFunction:else
+      $1144 = { (responsible $1141) ->
+        $1142 = "You can only call tags or functions."
+        $1143 = panicking because $1142 ($1090 is at fault)
+      }
+      $1145 = call $1118 with $1117 $1140 $1144 ($1090 is responsible)
+    }
+    $1147 = call $1101 with $1100 $1114 $1146 ($1090 is responsible)
+    $1148 = $1027
+    $1149 = $1020
+    $1150 = 2
+    $1151 = Examples:fibonacci:fibonacci:2:9
+    $1152 = builtinEquals
+    $1153 = builtinGetArgumentCount
+    $1154 = builtinTagHasValue
+    $1155 = builtinTagWithValue
+    $1156 = builtinTextConcatenate
+    $1157 = builtinToDebugText
+    $1158 = builtinTypeOf
+    $1159 = call $1158 with $1149 ($1151 is responsible)
+    $1160 = Tag
+    $1161 = call $1152 with $1159 $1160 ($1151 is responsible)
+    $1162 = builtinIfElse
+    # Examples:fibonacci:fibonacci:2:9:calleeIsTag:then
+    $1175 = { (responsible $1163) ->
+      $1164 = call $1154 with $1149 ($1151 is responsible)
+      $1165 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:9:doesTagHaveValue:then
+      $1169 = { (responsible $1166) ->
+        $1167 = "You called a tag that already has a value."
+        $1168 = panicking because $1167 ($1151 is at fault)
+      }
+      # Examples:fibonacci:fibonacci:2:9:doesTagHaveValue:else
+      $1173 = { (responsible $1170) ->
+        $1171 = "Tags can only be created with one value."
+        $1172 = panicking because $1171 ($1151 is at fault)
+      }
+      $1174 = call $1165 with $1164 $1169 $1173 ($1151 is responsible)
+    }
+    # Examples:fibonacci:fibonacci:2:9:calleeIsTag:else
+    $1207 = { (responsible $1176) ->
+      $1177 = Function
+      $1178 = call $1152 with $1159 $1177 ($1151 is responsible)
+      $1179 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:9:calleeIsFunction:then
+      $1201 = { (responsible $1180) ->
+        $1181 = call $1153 with $1149 ($1151 is responsible)
+        $1182 = 2
+        $1183 = call $1152 with $1181 $1182 ($1151 is responsible)
+        $1184 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:9:hasCorrectNumberOfArguments:then
+        $1191 = { (responsible $1185) ->
+          $1186 = Examples:fibonacci:fibonacci:2:9
+          $1187 = trace: start of call of $1149 with $1148 $1150 ($1151 is responsible, code is at $1186)
+          $1188 = call $1149 with $1148 $1150 ($1151 is responsible)
+          $1189 = trace: end of call
+          $1190 = $1188
+        }
+        # Examples:fibonacci:fibonacci:2:9:hasCorrectNumberOfArguments:else
+        $1199 = { (responsible $1192) ->
+          $1193 = "You called a function that expects "
+          $1194 = call $1157 with $1181 ($1151 is responsible)
+          $1195 = " arguments with 2 arguments."
+          $1196 = call $1156 with $1193 $1194 ($1151 is responsible)
+          $1197 = call $1156 with $1196 $1195 ($1151 is responsible)
+          $1198 = panicking because $1197 ($1151 is at fault)
+        }
+        $1200 = call $1184 with $1183 $1191 $1199 ($1151 is responsible)
+      }
+      # Examples:fibonacci:fibonacci:2:9:calleeIsFunction:else
+      $1205 = { (responsible $1202) ->
+        $1203 = "You can only call tags or functions."
+        $1204 = panicking because $1203 ($1151 is at fault)
+      }
+      $1206 = call $1179 with $1178 $1201 $1205 ($1151 is responsible)
+    }
+    $1208 = call $1162 with $1161 $1175 $1207 ($1151 is responsible)
+    # Examples:fibonacci:fibonacci:2:10
+    $1211 = { (responsible $1209) ->
+      $1210 = $1027
+    }
+    # Examples:fibonacci:fibonacci:2:11
+    $1867 = { (responsible $1212) ->
+      $1213 = $1026
+      $1214 = $1027
+      $1215 = builtinStructGet
+      $1216 = StructGet
+      $1217 = Examples:fibonacci:fibonacci:2:11:4
+      $1218 = builtinEquals
+      $1219 = builtinGetArgumentCount
+      $1220 = builtinTagHasValue
+      $1221 = builtinTagWithValue
+      $1222 = builtinTextConcatenate
+      $1223 = builtinToDebugText
+      $1224 = builtinTypeOf
+      $1225 = call $1224 with $1215 ($1217 is responsible)
+      $1226 = Tag
+      $1227 = call $1218 with $1225 $1226 ($1217 is responsible)
+      $1228 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:11:4:calleeIsTag:then
+      $1241 = { (responsible $1229) ->
+        $1230 = call $1220 with $1215 ($1217 is responsible)
+        $1231 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:4:doesTagHaveValue:then
+        $1235 = { (responsible $1232) ->
+          $1233 = "You called a tag that already has a value."
+          $1234 = panicking because $1233 ($1217 is at fault)
+        }
+        # Examples:fibonacci:fibonacci:2:11:4:doesTagHaveValue:else
+        $1239 = { (responsible $1236) ->
+          $1237 = "Tags can only be created with one value."
+          $1238 = panicking because $1237 ($1217 is at fault)
+        }
+        $1240 = call $1231 with $1230 $1235 $1239 ($1217 is responsible)
+      }
+      # Examples:fibonacci:fibonacci:2:11:4:calleeIsTag:else
+      $1273 = { (responsible $1242) ->
+        $1243 = Function
+        $1244 = call $1218 with $1225 $1243 ($1217 is responsible)
+        $1245 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:4:calleeIsFunction:then
+        $1267 = { (responsible $1246) ->
+          $1247 = call $1219 with $1215 ($1217 is responsible)
+          $1248 = 2
+          $1249 = call $1218 with $1247 $1248 ($1217 is responsible)
+          $1250 = builtinIfElse
+          # Examples:fibonacci:fibonacci:2:11:4:hasCorrectNumberOfArguments:then
+          $1257 = { (responsible $1251) ->
+            $1252 = Examples:fibonacci:fibonacci:2:11:4
+            $1253 = trace: start of call of $1215 with $112 $1216 ($1217 is responsible, code is at $1252)
+            $1254 = call $1215 with $112 $1216 ($1217 is responsible)
+            $1255 = trace: end of call
+            $1256 = $1254
+          }
+          # Examples:fibonacci:fibonacci:2:11:4:hasCorrectNumberOfArguments:else
+          $1265 = { (responsible $1258) ->
+            $1259 = "You called a function that expects "
+            $1260 = call $1223 with $1247 ($1217 is responsible)
+            $1261 = " arguments with 2 arguments."
+            $1262 = call $1222 with $1259 $1260 ($1217 is responsible)
+            $1263 = call $1222 with $1262 $1261 ($1217 is responsible)
+            $1264 = panicking because $1263 ($1217 is at fault)
+          }
+          $1266 = call $1250 with $1249 $1257 $1265 ($1217 is responsible)
+        }
+        # Examples:fibonacci:fibonacci:2:11:4:calleeIsFunction:else
+        $1271 = { (responsible $1268) ->
+          $1269 = "You can only call tags or functions."
+          $1270 = panicking because $1269 ($1217 is at fault)
+        }
+        $1272 = call $1245 with $1244 $1267 $1271 ($1217 is responsible)
+      }
+      $1274 = call $1228 with $1227 $1241 $1273 ($1217 is responsible)
+      $1275 = $179
+      $1276 = IntSubtract
+      $1277 = Examples:fibonacci:fibonacci:2:11:7
+      $1278 = builtinEquals
+      $1279 = builtinGetArgumentCount
+      $1280 = builtinTagHasValue
+      $1281 = builtinTagWithValue
+      $1282 = builtinTextConcatenate
+      $1283 = builtinToDebugText
+      $1284 = builtinTypeOf
+      $1285 = call $1284 with $1274 ($1277 is responsible)
+      $1286 = Tag
+      $1287 = call $1278 with $1285 $1286 ($1277 is responsible)
+      $1288 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:11:7:calleeIsTag:then
+      $1301 = { (responsible $1289) ->
+        $1290 = call $1280 with $1274 ($1277 is responsible)
+        $1291 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:7:doesTagHaveValue:then
+        $1295 = { (responsible $1292) ->
+          $1293 = "You called a tag that already has a value."
+          $1294 = panicking because $1293 ($1277 is at fault)
+        }
+        # Examples:fibonacci:fibonacci:2:11:7:doesTagHaveValue:else
+        $1299 = { (responsible $1296) ->
+          $1297 = "Tags can only be created with one value."
+          $1298 = panicking because $1297 ($1277 is at fault)
+        }
+        $1300 = call $1291 with $1290 $1295 $1299 ($1277 is responsible)
+      }
+      # Examples:fibonacci:fibonacci:2:11:7:calleeIsTag:else
+      $1333 = { (responsible $1302) ->
+        $1303 = Function
+        $1304 = call $1278 with $1285 $1303 ($1277 is responsible)
+        $1305 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:7:calleeIsFunction:then
+        $1327 = { (responsible $1306) ->
+          $1307 = call $1279 with $1274 ($1277 is responsible)
+          $1308 = 2
+          $1309 = call $1278 with $1307 $1308 ($1277 is responsible)
+          $1310 = builtinIfElse
+          # Examples:fibonacci:fibonacci:2:11:7:hasCorrectNumberOfArguments:then
+          $1317 = { (responsible $1311) ->
+            $1312 = Examples:fibonacci:fibonacci:2:11:7
+            $1313 = trace: start of call of $1274 with $1275 $1276 ($1277 is responsible, code is at $1312)
+            $1314 = call $1274 with $1275 $1276 ($1277 is responsible)
+            $1315 = trace: end of call
+            $1316 = $1314
+          }
+          # Examples:fibonacci:fibonacci:2:11:7:hasCorrectNumberOfArguments:else
+          $1325 = { (responsible $1318) ->
+            $1319 = "You called a function that expects "
+            $1320 = call $1283 with $1307 ($1277 is responsible)
+            $1321 = " arguments with 2 arguments."
+            $1322 = call $1282 with $1319 $1320 ($1277 is responsible)
+            $1323 = call $1282 with $1322 $1321 ($1277 is responsible)
+            $1324 = panicking because $1323 ($1277 is at fault)
+          }
+          $1326 = call $1310 with $1309 $1317 $1325 ($1277 is responsible)
+        }
+        # Examples:fibonacci:fibonacci:2:11:7:calleeIsFunction:else
+        $1331 = { (responsible $1328) ->
+          $1329 = "You can only call tags or functions."
+          $1330 = panicking because $1329 ($1277 is at fault)
+        }
+        $1332 = call $1305 with $1304 $1327 $1331 ($1277 is responsible)
+      }
+      $1334 = call $1288 with $1287 $1301 $1333 ($1277 is responsible)
+      $1335 = 1
+      $1336 = Examples:fibonacci:fibonacci:2:11:9
+      $1337 = builtinEquals
+      $1338 = builtinGetArgumentCount
+      $1339 = builtinTagHasValue
+      $1340 = builtinTagWithValue
+      $1341 = builtinTextConcatenate
+      $1342 = builtinToDebugText
+      $1343 = builtinTypeOf
+      $1344 = call $1343 with $1334 ($1336 is responsible)
+      $1345 = Tag
+      $1346 = call $1337 with $1344 $1345 ($1336 is responsible)
+      $1347 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:11:9:calleeIsTag:then
+      $1360 = { (responsible $1348) ->
+        $1349 = call $1339 with $1334 ($1336 is responsible)
+        $1350 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:9:doesTagHaveValue:then
+        $1354 = { (responsible $1351) ->
+          $1352 = "You called a tag that already has a value."
+          $1353 = panicking because $1352 ($1336 is at fault)
+        }
+        # Examples:fibonacci:fibonacci:2:11:9:doesTagHaveValue:else
+        $1358 = { (responsible $1355) ->
+          $1356 = "Tags can only be created with one value."
+          $1357 = panicking because $1356 ($1336 is at fault)
+        }
+        $1359 = call $1350 with $1349 $1354 $1358 ($1336 is responsible)
+      }
+      # Examples:fibonacci:fibonacci:2:11:9:calleeIsTag:else
+      $1392 = { (responsible $1361) ->
+        $1362 = Function
+        $1363 = call $1337 with $1344 $1362 ($1336 is responsible)
+        $1364 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:9:calleeIsFunction:then
+        $1386 = { (responsible $1365) ->
+          $1366 = call $1338 with $1334 ($1336 is responsible)
+          $1367 = 2
+          $1368 = call $1337 with $1366 $1367 ($1336 is responsible)
+          $1369 = builtinIfElse
+          # Examples:fibonacci:fibonacci:2:11:9:hasCorrectNumberOfArguments:then
+          $1376 = { (responsible $1370) ->
+            $1371 = Examples:fibonacci:fibonacci:2:11:9
+            $1372 = trace: start of call of $1334 with $1214 $1335 ($1336 is responsible, code is at $1371)
+            $1373 = call $1334 with $1214 $1335 ($1336 is responsible)
+            $1374 = trace: end of call
+            $1375 = $1373
+          }
+          # Examples:fibonacci:fibonacci:2:11:9:hasCorrectNumberOfArguments:else
+          $1384 = { (responsible $1377) ->
+            $1378 = "You called a function that expects "
+            $1379 = call $1342 with $1366 ($1336 is responsible)
+            $1380 = " arguments with 2 arguments."
+            $1381 = call $1341 with $1378 $1379 ($1336 is responsible)
+            $1382 = call $1341 with $1381 $1380 ($1336 is responsible)
+            $1383 = panicking because $1382 ($1336 is at fault)
+          }
+          $1385 = call $1369 with $1368 $1376 $1384 ($1336 is responsible)
+        }
+        # Examples:fibonacci:fibonacci:2:11:9:calleeIsFunction:else
+        $1390 = { (responsible $1387) ->
+          $1388 = "You can only call tags or functions."
+          $1389 = panicking because $1388 ($1336 is at fault)
+        }
+        $1391 = call $1364 with $1363 $1386 $1390 ($1336 is responsible)
+      }
+      $1393 = call $1347 with $1346 $1360 $1392 ($1336 is responsible)
+      $1394 = Examples:fibonacci:fibonacci:2:11:10
+      $1395 = builtinEquals
+      $1396 = builtinGetArgumentCount
+      $1397 = builtinTagHasValue
+      $1398 = builtinTagWithValue
+      $1399 = builtinTextConcatenate
+      $1400 = builtinToDebugText
+      $1401 = builtinTypeOf
+      $1402 = call $1401 with $1213 ($1394 is responsible)
+      $1403 = Tag
+      $1404 = call $1395 with $1402 $1403 ($1394 is responsible)
+      $1405 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:11:10:calleeIsTag:then
+      $1417 = { (responsible $1406) ->
+        $1407 = call $1397 with $1213 ($1394 is responsible)
+        $1408 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:10:doesTagHaveValue:then
+        $1412 = { (responsible $1409) ->
+          $1410 = "You called a tag that already has a value."
+          $1411 = panicking because $1410 ($1394 is at fault)
+        }
+        # Examples:fibonacci:fibonacci:2:11:10:doesTagHaveValue:else
+        $1415 = { (responsible $1413) ->
+          $1414 = call $1398 with $1213 $1393 ($1394 is responsible)
+        }
+        $1416 = call $1408 with $1407 $1412 $1415 ($1394 is responsible)
+      }
+      # Examples:fibonacci:fibonacci:2:11:10:calleeIsTag:else
+      $1449 = { (responsible $1418) ->
+        $1419 = Function
+        $1420 = call $1395 with $1402 $1419 ($1394 is responsible)
+        $1421 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:10:calleeIsFunction:then
+        $1443 = { (responsible $1422) ->
+          $1423 = call $1396 with $1213 ($1394 is responsible)
+          $1424 = 1
+          $1425 = call $1395 with $1423 $1424 ($1394 is responsible)
+          $1426 = builtinIfElse
+          # Examples:fibonacci:fibonacci:2:11:10:hasCorrectNumberOfArguments:then
+          $1433 = { (responsible $1427) ->
+            $1428 = Examples:fibonacci:fibonacci:2:11:10
+            $1429 = trace: start of call of $1213 with $1393 ($1394 is responsible, code is at $1428)
+            $1430 = call $1213 with $1393 ($1394 is responsible)
+            $1431 = trace: end of call
+            $1432 = $1430
+          }
+          # Examples:fibonacci:fibonacci:2:11:10:hasCorrectNumberOfArguments:else
+          $1441 = { (responsible $1434) ->
+            $1435 = "You called a function that expects "
+            $1436 = call $1400 with $1423 ($1394 is responsible)
+            $1437 = " arguments with 1 arguments."
+            $1438 = call $1399 with $1435 $1436 ($1394 is responsible)
+            $1439 = call $1399 with $1438 $1437 ($1394 is responsible)
+            $1440 = panicking because $1439 ($1394 is at fault)
+          }
+          $1442 = call $1426 with $1425 $1433 $1441 ($1394 is responsible)
+        }
+        # Examples:fibonacci:fibonacci:2:11:10:calleeIsFunction:else
+        $1447 = { (responsible $1444) ->
+          $1445 = "You can only call tags or functions."
+          $1446 = panicking because $1445 ($1394 is at fault)
+        }
+        $1448 = call $1421 with $1420 $1443 $1447 ($1394 is responsible)
+      }
+      $1450 = call $1405 with $1404 $1417 $1449 ($1394 is responsible)
+      $1451 = builtinStructGet
+      $1452 = StructGet
+      $1453 = Examples:fibonacci:fibonacci:2:11:13
+      $1454 = builtinEquals
+      $1455 = builtinGetArgumentCount
+      $1456 = builtinTagHasValue
+      $1457 = builtinTagWithValue
+      $1458 = builtinTextConcatenate
+      $1459 = builtinToDebugText
+      $1460 = builtinTypeOf
+      $1461 = call $1460 with $1451 ($1453 is responsible)
+      $1462 = Tag
+      $1463 = call $1454 with $1461 $1462 ($1453 is responsible)
+      $1464 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:11:13:calleeIsTag:then
+      $1477 = { (responsible $1465) ->
+        $1466 = call $1456 with $1451 ($1453 is responsible)
+        $1467 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:13:doesTagHaveValue:then
+        $1471 = { (responsible $1468) ->
+          $1469 = "You called a tag that already has a value."
+          $1470 = panicking because $1469 ($1453 is at fault)
+        }
+        # Examples:fibonacci:fibonacci:2:11:13:doesTagHaveValue:else
+        $1475 = { (responsible $1472) ->
+          $1473 = "Tags can only be created with one value."
+          $1474 = panicking because $1473 ($1453 is at fault)
+        }
+        $1476 = call $1467 with $1466 $1471 $1475 ($1453 is responsible)
+      }
+      # Examples:fibonacci:fibonacci:2:11:13:calleeIsTag:else
+      $1509 = { (responsible $1478) ->
+        $1479 = Function
+        $1480 = call $1454 with $1461 $1479 ($1453 is responsible)
+        $1481 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:13:calleeIsFunction:then
+        $1503 = { (responsible $1482) ->
+          $1483 = call $1455 with $1451 ($1453 is responsible)
+          $1484 = 2
+          $1485 = call $1454 with $1483 $1484 ($1453 is responsible)
+          $1486 = builtinIfElse
+          # Examples:fibonacci:fibonacci:2:11:13:hasCorrectNumberOfArguments:then
+          $1493 = { (responsible $1487) ->
+            $1488 = Examples:fibonacci:fibonacci:2:11:13
+            $1489 = trace: start of call of $1451 with $112 $1452 ($1453 is responsible, code is at $1488)
+            $1490 = call $1451 with $112 $1452 ($1453 is responsible)
+            $1491 = trace: end of call
+            $1492 = $1490
+          }
+          # Examples:fibonacci:fibonacci:2:11:13:hasCorrectNumberOfArguments:else
+          $1501 = { (responsible $1494) ->
+            $1495 = "You called a function that expects "
+            $1496 = call $1459 with $1483 ($1453 is responsible)
+            $1497 = " arguments with 2 arguments."
+            $1498 = call $1458 with $1495 $1496 ($1453 is responsible)
+            $1499 = call $1458 with $1498 $1497 ($1453 is responsible)
+            $1500 = panicking because $1499 ($1453 is at fault)
+          }
+          $1502 = call $1486 with $1485 $1493 $1501 ($1453 is responsible)
+        }
+        # Examples:fibonacci:fibonacci:2:11:13:calleeIsFunction:else
+        $1507 = { (responsible $1504) ->
+          $1505 = "You can only call tags or functions."
+          $1506 = panicking because $1505 ($1453 is at fault)
+        }
+        $1508 = call $1481 with $1480 $1503 $1507 ($1453 is responsible)
+      }
+      $1510 = call $1464 with $1463 $1477 $1509 ($1453 is responsible)
+      $1511 = $179
+      $1512 = IntAdd
+      $1513 = Examples:fibonacci:fibonacci:2:11:16
+      $1514 = builtinEquals
+      $1515 = builtinGetArgumentCount
+      $1516 = builtinTagHasValue
+      $1517 = builtinTagWithValue
+      $1518 = builtinTextConcatenate
+      $1519 = builtinToDebugText
+      $1520 = builtinTypeOf
+      $1521 = call $1520 with $1510 ($1513 is responsible)
+      $1522 = Tag
+      $1523 = call $1514 with $1521 $1522 ($1513 is responsible)
+      $1524 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:11:16:calleeIsTag:then
+      $1537 = { (responsible $1525) ->
+        $1526 = call $1516 with $1510 ($1513 is responsible)
+        $1527 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:16:doesTagHaveValue:then
+        $1531 = { (responsible $1528) ->
+          $1529 = "You called a tag that already has a value."
+          $1530 = panicking because $1529 ($1513 is at fault)
+        }
+        # Examples:fibonacci:fibonacci:2:11:16:doesTagHaveValue:else
+        $1535 = { (responsible $1532) ->
+          $1533 = "Tags can only be created with one value."
+          $1534 = panicking because $1533 ($1513 is at fault)
+        }
+        $1536 = call $1527 with $1526 $1531 $1535 ($1513 is responsible)
+      }
+      # Examples:fibonacci:fibonacci:2:11:16:calleeIsTag:else
+      $1569 = { (responsible $1538) ->
+        $1539 = Function
+        $1540 = call $1514 with $1521 $1539 ($1513 is responsible)
+        $1541 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:16:calleeIsFunction:then
+        $1563 = { (responsible $1542) ->
+          $1543 = call $1515 with $1510 ($1513 is responsible)
+          $1544 = 2
+          $1545 = call $1514 with $1543 $1544 ($1513 is responsible)
+          $1546 = builtinIfElse
+          # Examples:fibonacci:fibonacci:2:11:16:hasCorrectNumberOfArguments:then
+          $1553 = { (responsible $1547) ->
+            $1548 = Examples:fibonacci:fibonacci:2:11:16
+            $1549 = trace: start of call of $1510 with $1511 $1512 ($1513 is responsible, code is at $1548)
+            $1550 = call $1510 with $1511 $1512 ($1513 is responsible)
+            $1551 = trace: end of call
+            $1552 = $1550
+          }
+          # Examples:fibonacci:fibonacci:2:11:16:hasCorrectNumberOfArguments:else
+          $1561 = { (responsible $1554) ->
+            $1555 = "You called a function that expects "
+            $1556 = call $1519 with $1543 ($1513 is responsible)
+            $1557 = " arguments with 2 arguments."
+            $1558 = call $1518 with $1555 $1556 ($1513 is responsible)
+            $1559 = call $1518 with $1558 $1557 ($1513 is responsible)
+            $1560 = panicking because $1559 ($1513 is at fault)
+          }
+          $1562 = call $1546 with $1545 $1553 $1561 ($1513 is responsible)
+        }
+        # Examples:fibonacci:fibonacci:2:11:16:calleeIsFunction:else
+        $1567 = { (responsible $1564) ->
+          $1565 = "You can only call tags or functions."
+          $1566 = panicking because $1565 ($1513 is at fault)
+        }
+        $1568 = call $1541 with $1540 $1563 $1567 ($1513 is responsible)
+      }
+      $1570 = call $1524 with $1523 $1537 $1569 ($1513 is responsible)
+      $1571 = $1026
+      $1572 = $1027
+      $1573 = builtinStructGet
+      $1574 = StructGet
+      $1575 = Examples:fibonacci:fibonacci:2:11:21
+      $1576 = builtinEquals
+      $1577 = builtinGetArgumentCount
+      $1578 = builtinTagHasValue
+      $1579 = builtinTagWithValue
+      $1580 = builtinTextConcatenate
+      $1581 = builtinToDebugText
+      $1582 = builtinTypeOf
+      $1583 = call $1582 with $1573 ($1575 is responsible)
+      $1584 = Tag
+      $1585 = call $1576 with $1583 $1584 ($1575 is responsible)
+      $1586 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:11:21:calleeIsTag:then
+      $1599 = { (responsible $1587) ->
+        $1588 = call $1578 with $1573 ($1575 is responsible)
+        $1589 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:21:doesTagHaveValue:then
+        $1593 = { (responsible $1590) ->
+          $1591 = "You called a tag that already has a value."
+          $1592 = panicking because $1591 ($1575 is at fault)
+        }
+        # Examples:fibonacci:fibonacci:2:11:21:doesTagHaveValue:else
+        $1597 = { (responsible $1594) ->
+          $1595 = "Tags can only be created with one value."
+          $1596 = panicking because $1595 ($1575 is at fault)
+        }
+        $1598 = call $1589 with $1588 $1593 $1597 ($1575 is responsible)
+      }
+      # Examples:fibonacci:fibonacci:2:11:21:calleeIsTag:else
+      $1631 = { (responsible $1600) ->
+        $1601 = Function
+        $1602 = call $1576 with $1583 $1601 ($1575 is responsible)
+        $1603 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:21:calleeIsFunction:then
+        $1625 = { (responsible $1604) ->
+          $1605 = call $1577 with $1573 ($1575 is responsible)
+          $1606 = 2
+          $1607 = call $1576 with $1605 $1606 ($1575 is responsible)
+          $1608 = builtinIfElse
+          # Examples:fibonacci:fibonacci:2:11:21:hasCorrectNumberOfArguments:then
+          $1615 = { (responsible $1609) ->
+            $1610 = Examples:fibonacci:fibonacci:2:11:21
+            $1611 = trace: start of call of $1573 with $112 $1574 ($1575 is responsible, code is at $1610)
+            $1612 = call $1573 with $112 $1574 ($1575 is responsible)
+            $1613 = trace: end of call
+            $1614 = $1612
+          }
+          # Examples:fibonacci:fibonacci:2:11:21:hasCorrectNumberOfArguments:else
+          $1623 = { (responsible $1616) ->
+            $1617 = "You called a function that expects "
+            $1618 = call $1581 with $1605 ($1575 is responsible)
+            $1619 = " arguments with 2 arguments."
+            $1620 = call $1580 with $1617 $1618 ($1575 is responsible)
+            $1621 = call $1580 with $1620 $1619 ($1575 is responsible)
+            $1622 = panicking because $1621 ($1575 is at fault)
+          }
+          $1624 = call $1608 with $1607 $1615 $1623 ($1575 is responsible)
+        }
+        # Examples:fibonacci:fibonacci:2:11:21:calleeIsFunction:else
+        $1629 = { (responsible $1626) ->
+          $1627 = "You can only call tags or functions."
+          $1628 = panicking because $1627 ($1575 is at fault)
+        }
+        $1630 = call $1603 with $1602 $1625 $1629 ($1575 is responsible)
+      }
+      $1632 = call $1586 with $1585 $1599 $1631 ($1575 is responsible)
+      $1633 = $179
+      $1634 = IntSubtract
+      $1635 = Examples:fibonacci:fibonacci:2:11:24
+      $1636 = builtinEquals
+      $1637 = builtinGetArgumentCount
+      $1638 = builtinTagHasValue
+      $1639 = builtinTagWithValue
+      $1640 = builtinTextConcatenate
+      $1641 = builtinToDebugText
+      $1642 = builtinTypeOf
+      $1643 = call $1642 with $1632 ($1635 is responsible)
+      $1644 = Tag
+      $1645 = call $1636 with $1643 $1644 ($1635 is responsible)
+      $1646 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:11:24:calleeIsTag:then
+      $1659 = { (responsible $1647) ->
+        $1648 = call $1638 with $1632 ($1635 is responsible)
+        $1649 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:24:doesTagHaveValue:then
+        $1653 = { (responsible $1650) ->
+          $1651 = "You called a tag that already has a value."
+          $1652 = panicking because $1651 ($1635 is at fault)
+        }
+        # Examples:fibonacci:fibonacci:2:11:24:doesTagHaveValue:else
+        $1657 = { (responsible $1654) ->
+          $1655 = "Tags can only be created with one value."
+          $1656 = panicking because $1655 ($1635 is at fault)
+        }
+        $1658 = call $1649 with $1648 $1653 $1657 ($1635 is responsible)
+      }
+      # Examples:fibonacci:fibonacci:2:11:24:calleeIsTag:else
+      $1691 = { (responsible $1660) ->
+        $1661 = Function
+        $1662 = call $1636 with $1643 $1661 ($1635 is responsible)
+        $1663 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:24:calleeIsFunction:then
+        $1685 = { (responsible $1664) ->
+          $1665 = call $1637 with $1632 ($1635 is responsible)
+          $1666 = 2
+          $1667 = call $1636 with $1665 $1666 ($1635 is responsible)
+          $1668 = builtinIfElse
+          # Examples:fibonacci:fibonacci:2:11:24:hasCorrectNumberOfArguments:then
+          $1675 = { (responsible $1669) ->
+            $1670 = Examples:fibonacci:fibonacci:2:11:24
+            $1671 = trace: start of call of $1632 with $1633 $1634 ($1635 is responsible, code is at $1670)
+            $1672 = call $1632 with $1633 $1634 ($1635 is responsible)
+            $1673 = trace: end of call
+            $1674 = $1672
+          }
+          # Examples:fibonacci:fibonacci:2:11:24:hasCorrectNumberOfArguments:else
+          $1683 = { (responsible $1676) ->
+            $1677 = "You called a function that expects "
+            $1678 = call $1641 with $1665 ($1635 is responsible)
+            $1679 = " arguments with 2 arguments."
+            $1680 = call $1640 with $1677 $1678 ($1635 is responsible)
+            $1681 = call $1640 with $1680 $1679 ($1635 is responsible)
+            $1682 = panicking because $1681 ($1635 is at fault)
+          }
+          $1684 = call $1668 with $1667 $1675 $1683 ($1635 is responsible)
+        }
+        # Examples:fibonacci:fibonacci:2:11:24:calleeIsFunction:else
+        $1689 = { (responsible $1686) ->
+          $1687 = "You can only call tags or functions."
+          $1688 = panicking because $1687 ($1635 is at fault)
+        }
+        $1690 = call $1663 with $1662 $1685 $1689 ($1635 is responsible)
+      }
+      $1692 = call $1646 with $1645 $1659 $1691 ($1635 is responsible)
+      $1693 = 2
+      $1694 = Examples:fibonacci:fibonacci:2:11:26
+      $1695 = builtinEquals
+      $1696 = builtinGetArgumentCount
+      $1697 = builtinTagHasValue
+      $1698 = builtinTagWithValue
+      $1699 = builtinTextConcatenate
+      $1700 = builtinToDebugText
+      $1701 = builtinTypeOf
+      $1702 = call $1701 with $1692 ($1694 is responsible)
+      $1703 = Tag
+      $1704 = call $1695 with $1702 $1703 ($1694 is responsible)
+      $1705 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:11:26:calleeIsTag:then
+      $1718 = { (responsible $1706) ->
+        $1707 = call $1697 with $1692 ($1694 is responsible)
+        $1708 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:26:doesTagHaveValue:then
+        $1712 = { (responsible $1709) ->
+          $1710 = "You called a tag that already has a value."
+          $1711 = panicking because $1710 ($1694 is at fault)
+        }
+        # Examples:fibonacci:fibonacci:2:11:26:doesTagHaveValue:else
+        $1716 = { (responsible $1713) ->
+          $1714 = "Tags can only be created with one value."
+          $1715 = panicking because $1714 ($1694 is at fault)
+        }
+        $1717 = call $1708 with $1707 $1712 $1716 ($1694 is responsible)
+      }
+      # Examples:fibonacci:fibonacci:2:11:26:calleeIsTag:else
+      $1750 = { (responsible $1719) ->
+        $1720 = Function
+        $1721 = call $1695 with $1702 $1720 ($1694 is responsible)
+        $1722 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:26:calleeIsFunction:then
+        $1744 = { (responsible $1723) ->
+          $1724 = call $1696 with $1692 ($1694 is responsible)
+          $1725 = 2
+          $1726 = call $1695 with $1724 $1725 ($1694 is responsible)
+          $1727 = builtinIfElse
+          # Examples:fibonacci:fibonacci:2:11:26:hasCorrectNumberOfArguments:then
+          $1734 = { (responsible $1728) ->
+            $1729 = Examples:fibonacci:fibonacci:2:11:26
+            $1730 = trace: start of call of $1692 with $1572 $1693 ($1694 is responsible, code is at $1729)
+            $1731 = call $1692 with $1572 $1693 ($1694 is responsible)
+            $1732 = trace: end of call
+            $1733 = $1731
+          }
+          # Examples:fibonacci:fibonacci:2:11:26:hasCorrectNumberOfArguments:else
+          $1742 = { (responsible $1735) ->
+            $1736 = "You called a function that expects "
+            $1737 = call $1700 with $1724 ($1694 is responsible)
+            $1738 = " arguments with 2 arguments."
+            $1739 = call $1699 with $1736 $1737 ($1694 is responsible)
+            $1740 = call $1699 with $1739 $1738 ($1694 is responsible)
+            $1741 = panicking because $1740 ($1694 is at fault)
+          }
+          $1743 = call $1727 with $1726 $1734 $1742 ($1694 is responsible)
+        }
+        # Examples:fibonacci:fibonacci:2:11:26:calleeIsFunction:else
+        $1748 = { (responsible $1745) ->
+          $1746 = "You can only call tags or functions."
+          $1747 = panicking because $1746 ($1694 is at fault)
+        }
+        $1749 = call $1722 with $1721 $1744 $1748 ($1694 is responsible)
+      }
+      $1751 = call $1705 with $1704 $1718 $1750 ($1694 is responsible)
+      $1752 = Examples:fibonacci:fibonacci:2:11:27
+      $1753 = builtinEquals
+      $1754 = builtinGetArgumentCount
+      $1755 = builtinTagHasValue
+      $1756 = builtinTagWithValue
+      $1757 = builtinTextConcatenate
+      $1758 = builtinToDebugText
+      $1759 = builtinTypeOf
+      $1760 = call $1759 with $1571 ($1752 is responsible)
+      $1761 = Tag
+      $1762 = call $1753 with $1760 $1761 ($1752 is responsible)
+      $1763 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:11:27:calleeIsTag:then
+      $1775 = { (responsible $1764) ->
+        $1765 = call $1755 with $1571 ($1752 is responsible)
+        $1766 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:27:doesTagHaveValue:then
+        $1770 = { (responsible $1767) ->
+          $1768 = "You called a tag that already has a value."
+          $1769 = panicking because $1768 ($1752 is at fault)
+        }
+        # Examples:fibonacci:fibonacci:2:11:27:doesTagHaveValue:else
+        $1773 = { (responsible $1771) ->
+          $1772 = call $1756 with $1571 $1751 ($1752 is responsible)
+        }
+        $1774 = call $1766 with $1765 $1770 $1773 ($1752 is responsible)
+      }
+      # Examples:fibonacci:fibonacci:2:11:27:calleeIsTag:else
+      $1807 = { (responsible $1776) ->
+        $1777 = Function
+        $1778 = call $1753 with $1760 $1777 ($1752 is responsible)
+        $1779 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:27:calleeIsFunction:then
+        $1801 = { (responsible $1780) ->
+          $1781 = call $1754 with $1571 ($1752 is responsible)
+          $1782 = 1
+          $1783 = call $1753 with $1781 $1782 ($1752 is responsible)
+          $1784 = builtinIfElse
+          # Examples:fibonacci:fibonacci:2:11:27:hasCorrectNumberOfArguments:then
+          $1791 = { (responsible $1785) ->
+            $1786 = Examples:fibonacci:fibonacci:2:11:27
+            $1787 = trace: start of call of $1571 with $1751 ($1752 is responsible, code is at $1786)
+            $1788 = call $1571 with $1751 ($1752 is responsible)
+            $1789 = trace: end of call
+            $1790 = $1788
+          }
+          # Examples:fibonacci:fibonacci:2:11:27:hasCorrectNumberOfArguments:else
+          $1799 = { (responsible $1792) ->
+            $1793 = "You called a function that expects "
+            $1794 = call $1758 with $1781 ($1752 is responsible)
+            $1795 = " arguments with 1 arguments."
+            $1796 = call $1757 with $1793 $1794 ($1752 is responsible)
+            $1797 = call $1757 with $1796 $1795 ($1752 is responsible)
+            $1798 = panicking because $1797 ($1752 is at fault)
+          }
+          $1800 = call $1784 with $1783 $1791 $1799 ($1752 is responsible)
+        }
+        # Examples:fibonacci:fibonacci:2:11:27:calleeIsFunction:else
+        $1805 = { (responsible $1802) ->
+          $1803 = "You can only call tags or functions."
+          $1804 = panicking because $1803 ($1752 is at fault)
+        }
+        $1806 = call $1779 with $1778 $1801 $1805 ($1752 is responsible)
+      }
+      $1808 = call $1763 with $1762 $1775 $1807 ($1752 is responsible)
+      $1809 = Examples:fibonacci:fibonacci:2:11:28
+      $1810 = builtinEquals
+      $1811 = builtinGetArgumentCount
+      $1812 = builtinTagHasValue
+      $1813 = builtinTagWithValue
+      $1814 = builtinTextConcatenate
+      $1815 = builtinToDebugText
+      $1816 = builtinTypeOf
+      $1817 = call $1816 with $1570 ($1809 is responsible)
+      $1818 = Tag
+      $1819 = call $1810 with $1817 $1818 ($1809 is responsible)
+      $1820 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:11:28:calleeIsTag:then
+      $1833 = { (responsible $1821) ->
+        $1822 = call $1812 with $1570 ($1809 is responsible)
+        $1823 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:28:doesTagHaveValue:then
+        $1827 = { (responsible $1824) ->
+          $1825 = "You called a tag that already has a value."
+          $1826 = panicking because $1825 ($1809 is at fault)
+        }
+        # Examples:fibonacci:fibonacci:2:11:28:doesTagHaveValue:else
+        $1831 = { (responsible $1828) ->
+          $1829 = "Tags can only be created with one value."
+          $1830 = panicking because $1829 ($1809 is at fault)
+        }
+        $1832 = call $1823 with $1822 $1827 $1831 ($1809 is responsible)
+      }
+      # Examples:fibonacci:fibonacci:2:11:28:calleeIsTag:else
+      $1865 = { (responsible $1834) ->
+        $1835 = Function
+        $1836 = call $1810 with $1817 $1835 ($1809 is responsible)
+        $1837 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:11:28:calleeIsFunction:then
+        $1859 = { (responsible $1838) ->
+          $1839 = call $1811 with $1570 ($1809 is responsible)
+          $1840 = 2
+          $1841 = call $1810 with $1839 $1840 ($1809 is responsible)
+          $1842 = builtinIfElse
+          # Examples:fibonacci:fibonacci:2:11:28:hasCorrectNumberOfArguments:then
+          $1849 = { (responsible $1843) ->
+            $1844 = Examples:fibonacci:fibonacci:2:11:28
+            $1845 = trace: start of call of $1570 with $1450 $1808 ($1809 is responsible, code is at $1844)
+            $1846 = call $1570 with $1450 $1808 ($1809 is responsible)
+            $1847 = trace: end of call
+            $1848 = $1846
+          }
+          # Examples:fibonacci:fibonacci:2:11:28:hasCorrectNumberOfArguments:else
+          $1857 = { (responsible $1850) ->
+            $1851 = "You called a function that expects "
+            $1852 = call $1815 with $1839 ($1809 is responsible)
+            $1853 = " arguments with 2 arguments."
+            $1854 = call $1814 with $1851 $1852 ($1809 is responsible)
+            $1855 = call $1814 with $1854 $1853 ($1809 is responsible)
+            $1856 = panicking because $1855 ($1809 is at fault)
+          }
+          $1858 = call $1842 with $1841 $1849 $1857 ($1809 is responsible)
+        }
+        # Examples:fibonacci:fibonacci:2:11:28:calleeIsFunction:else
+        $1863 = { (responsible $1860) ->
+          $1861 = "You can only call tags or functions."
+          $1862 = panicking because $1861 ($1809 is at fault)
+        }
+        $1864 = call $1837 with $1836 $1859 $1863 ($1809 is responsible)
+      }
+      $1866 = call $1820 with $1819 $1833 $1865 ($1809 is responsible)
+    }
+    $1868 = Examples:fibonacci:fibonacci:2:12
+    $1869 = builtinEquals
+    $1870 = builtinGetArgumentCount
+    $1871 = builtinTagHasValue
+    $1872 = builtinTagWithValue
+    $1873 = builtinTextConcatenate
+    $1874 = builtinToDebugText
+    $1875 = builtinTypeOf
+    $1876 = call $1875 with $1147 ($1868 is responsible)
+    $1877 = Tag
+    $1878 = call $1869 with $1876 $1877 ($1868 is responsible)
+    $1879 = builtinIfElse
+    # Examples:fibonacci:fibonacci:2:12:calleeIsTag:then
+    $1892 = { (responsible $1880) ->
+      $1881 = call $1871 with $1147 ($1868 is responsible)
+      $1882 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:12:doesTagHaveValue:then
+      $1886 = { (responsible $1883) ->
+        $1884 = "You called a tag that already has a value."
+        $1885 = panicking because $1884 ($1868 is at fault)
+      }
+      # Examples:fibonacci:fibonacci:2:12:doesTagHaveValue:else
+      $1890 = { (responsible $1887) ->
+        $1888 = "Tags can only be created with one value."
+        $1889 = panicking because $1888 ($1868 is at fault)
+      }
+      $1891 = call $1882 with $1881 $1886 $1890 ($1868 is responsible)
+    }
+    # Examples:fibonacci:fibonacci:2:12:calleeIsTag:else
+    $1924 = { (responsible $1893) ->
+      $1894 = Function
+      $1895 = call $1869 with $1876 $1894 ($1868 is responsible)
+      $1896 = builtinIfElse
+      # Examples:fibonacci:fibonacci:2:12:calleeIsFunction:then
+      $1918 = { (responsible $1897) ->
+        $1898 = call $1870 with $1147 ($1868 is responsible)
+        $1899 = 3
+        $1900 = call $1869 with $1898 $1899 ($1868 is responsible)
+        $1901 = builtinIfElse
+        # Examples:fibonacci:fibonacci:2:12:hasCorrectNumberOfArguments:then
+        $1908 = { (responsible $1902) ->
+          $1903 = Examples:fibonacci:fibonacci:2:12
+          $1904 = trace: start of call of $1147 with $1208 $1211 $1867 ($1868 is responsible, code is at $1903)
+          $1905 = call $1147 with $1208 $1211 $1867 ($1868 is responsible)
+          $1906 = trace: end of call
+          $1907 = $1905
+        }
+        # Examples:fibonacci:fibonacci:2:12:hasCorrectNumberOfArguments:else
+        $1916 = { (responsible $1909) ->
+          $1910 = "You called a function that expects "
+          $1911 = call $1874 with $1898 ($1868 is responsible)
+          $1912 = " arguments with 3 arguments."
+          $1913 = call $1873 with $1910 $1911 ($1868 is responsible)
+          $1914 = call $1873 with $1913 $1912 ($1868 is responsible)
+          $1915 = panicking because $1914 ($1868 is at fault)
+        }
+        $1917 = call $1901 with $1900 $1908 $1916 ($1868 is responsible)
+      }
+      # Examples:fibonacci:fibonacci:2:12:calleeIsFunction:else
+      $1922 = { (responsible $1919) ->
+        $1920 = "You can only call tags or functions."
+        $1921 = panicking because $1920 ($1868 is at fault)
+      }
+      $1923 = call $1896 with $1895 $1918 $1922 ($1868 is responsible)
+    }
+    $1925 = call $1879 with $1878 $1892 $1924 ($1868 is responsible)
+  }
+  $1927 = Examples:fibonacci:fibonacci:3
+  $1928 = builtinEquals
+  $1929 = builtinGetArgumentCount
+  $1930 = builtinTagHasValue
+  $1931 = builtinTagWithValue
+  $1932 = builtinTextConcatenate
+  $1933 = builtinToDebugText
+  $1934 = builtinTypeOf
+  $1935 = call $1934 with $1023 ($1927 is responsible)
+  $1936 = Tag
+  $1937 = call $1928 with $1935 $1936 ($1927 is responsible)
+  $1938 = builtinIfElse
+  # Examples:fibonacci:fibonacci:3:calleeIsTag:then
+  $1951 = { (responsible $1939) ->
+    $1940 = call $1930 with $1023 ($1927 is responsible)
+    $1941 = builtinIfElse
+    # Examples:fibonacci:fibonacci:3:doesTagHaveValue:then
+    $1945 = { (responsible $1942) ->
+      $1943 = "You called a tag that already has a value."
+      $1944 = panicking because $1943 ($1927 is at fault)
+    }
+    # Examples:fibonacci:fibonacci:3:doesTagHaveValue:else
+    $1949 = { (responsible $1946) ->
+      $1947 = "Tags can only be created with one value."
+      $1948 = panicking because $1947 ($1927 is at fault)
+    }
+    $1950 = call $1941 with $1940 $1945 $1949 ($1927 is responsible)
+  }
+  # Examples:fibonacci:fibonacci:3:calleeIsTag:else
+  $1983 = { (responsible $1952) ->
+    $1953 = Function
+    $1954 = call $1928 with $1935 $1953 ($1927 is responsible)
+    $1955 = builtinIfElse
+    # Examples:fibonacci:fibonacci:3:calleeIsFunction:then
+    $1977 = { (responsible $1956) ->
+      $1957 = call $1929 with $1023 ($1927 is responsible)
+      $1958 = 2
+      $1959 = call $1928 with $1957 $1958 ($1927 is responsible)
+      $1960 = builtinIfElse
+      # Examples:fibonacci:fibonacci:3:hasCorrectNumberOfArguments:then
+      $1967 = { (responsible $1961) ->
+        $1962 = Examples:fibonacci:fibonacci:3
+        $1963 = trace: start of call of $1023 with $1024 $1926 ($1927 is responsible, code is at $1962)
+        $1964 = call $1023 with $1024 $1926 ($1927 is responsible)
+        $1965 = trace: end of call
+        $1966 = $1964
+      }
+      # Examples:fibonacci:fibonacci:3:hasCorrectNumberOfArguments:else
+      $1975 = { (responsible $1968) ->
+        $1969 = "You called a function that expects "
+        $1970 = call $1933 with $1957 ($1927 is responsible)
+        $1971 = " arguments with 2 arguments."
+        $1972 = call $1932 with $1969 $1970 ($1927 is responsible)
+        $1973 = call $1932 with $1972 $1971 ($1927 is responsible)
+        $1974 = panicking because $1973 ($1927 is at fault)
+      }
+      $1976 = call $1960 with $1959 $1967 $1975 ($1927 is responsible)
+    }
+    # Examples:fibonacci:fibonacci:3:calleeIsFunction:else
+    $1981 = { (responsible $1978) ->
+      $1979 = "You can only call tags or functions."
+      $1980 = panicking because $1979 ($1927 is at fault)
+    }
+    $1982 = call $1955 with $1954 $1977 $1981 ($1927 is responsible)
+  }
+  $1984 = call $1938 with $1937 $1951 $1983 ($1927 is responsible)
+}
+$1986 = $1985
+# Examples:fibonacci:23
+$3037 = { $1988 (+ responsible $1987) ->
+  $1989 = builtinStructGet
+  $1990 = StructGet
+  $1991 = Examples:fibonacci:23:2
+  $1992 = builtinEquals
+  $1993 = builtinGetArgumentCount
+  $1994 = builtinTagHasValue
+  $1995 = builtinTagWithValue
+  $1996 = builtinTextConcatenate
+  $1997 = builtinToDebugText
+  $1998 = builtinTypeOf
+  $1999 = call $1998 with $1989 ($1991 is responsible)
+  $2000 = Tag
+  $2001 = call $1992 with $1999 $2000 ($1991 is responsible)
+  $2002 = builtinIfElse
+  # Examples:fibonacci:23:2:calleeIsTag:then
+  $2015 = { (responsible $2003) ->
+    $2004 = call $1994 with $1989 ($1991 is responsible)
+    $2005 = builtinIfElse
+    # Examples:fibonacci:23:2:doesTagHaveValue:then
+    $2009 = { (responsible $2006) ->
+      $2007 = "You called a tag that already has a value."
+      $2008 = panicking because $2007 ($1991 is at fault)
+    }
+    # Examples:fibonacci:23:2:doesTagHaveValue:else
+    $2013 = { (responsible $2010) ->
+      $2011 = "Tags can only be created with one value."
+      $2012 = panicking because $2011 ($1991 is at fault)
+    }
+    $2014 = call $2005 with $2004 $2009 $2013 ($1991 is responsible)
+  }
+  # Examples:fibonacci:23:2:calleeIsTag:else
+  $2047 = { (responsible $2016) ->
+    $2017 = Function
+    $2018 = call $1992 with $1999 $2017 ($1991 is responsible)
+    $2019 = builtinIfElse
+    # Examples:fibonacci:23:2:calleeIsFunction:then
+    $2041 = { (responsible $2020) ->
+      $2021 = call $1993 with $1989 ($1991 is responsible)
+      $2022 = 2
+      $2023 = call $1992 with $2021 $2022 ($1991 is responsible)
+      $2024 = builtinIfElse
+      # Examples:fibonacci:23:2:hasCorrectNumberOfArguments:then
+      $2031 = { (responsible $2025) ->
+        $2026 = Examples:fibonacci:23:2
+        $2027 = trace: start of call of $1989 with $112 $1990 ($1991 is responsible, code is at $2026)
+        $2028 = call $1989 with $112 $1990 ($1991 is responsible)
+        $2029 = trace: end of call
+        $2030 = $2028
+      }
+      # Examples:fibonacci:23:2:hasCorrectNumberOfArguments:else
+      $2039 = { (responsible $2032) ->
+        $2033 = "You called a function that expects "
+        $2034 = call $1997 with $2021 ($1991 is responsible)
+        $2035 = " arguments with 2 arguments."
+        $2036 = call $1996 with $2033 $2034 ($1991 is responsible)
+        $2037 = call $1996 with $2036 $2035 ($1991 is responsible)
+        $2038 = panicking because $2037 ($1991 is at fault)
+      }
+      $2040 = call $2024 with $2023 $2031 $2039 ($1991 is responsible)
+    }
+    # Examples:fibonacci:23:2:calleeIsFunction:else
+    $2045 = { (responsible $2042) ->
+      $2043 = "You can only call tags or functions."
+      $2044 = panicking because $2043 ($1991 is at fault)
+    }
+    $2046 = call $2019 with $2018 $2041 $2045 ($1991 is responsible)
+  }
+  $2048 = call $2002 with $2001 $2015 $2047 ($1991 is responsible)
+  $2049 = $1988
+  $2050 = Arguments
+  $2051 = Examples:fibonacci:23:5
+  $2052 = builtinEquals
+  $2053 = builtinGetArgumentCount
+  $2054 = builtinTagHasValue
+  $2055 = builtinTagWithValue
+  $2056 = builtinTextConcatenate
+  $2057 = builtinToDebugText
+  $2058 = builtinTypeOf
+  $2059 = call $2058 with $2048 ($2051 is responsible)
+  $2060 = Tag
+  $2061 = call $2052 with $2059 $2060 ($2051 is responsible)
+  $2062 = builtinIfElse
+  # Examples:fibonacci:23:5:calleeIsTag:then
+  $2075 = { (responsible $2063) ->
+    $2064 = call $2054 with $2048 ($2051 is responsible)
+    $2065 = builtinIfElse
+    # Examples:fibonacci:23:5:doesTagHaveValue:then
+    $2069 = { (responsible $2066) ->
+      $2067 = "You called a tag that already has a value."
+      $2068 = panicking because $2067 ($2051 is at fault)
+    }
+    # Examples:fibonacci:23:5:doesTagHaveValue:else
+    $2073 = { (responsible $2070) ->
+      $2071 = "Tags can only be created with one value."
+      $2072 = panicking because $2071 ($2051 is at fault)
+    }
+    $2074 = call $2065 with $2064 $2069 $2073 ($2051 is responsible)
+  }
+  # Examples:fibonacci:23:5:calleeIsTag:else
+  $2107 = { (responsible $2076) ->
+    $2077 = Function
+    $2078 = call $2052 with $2059 $2077 ($2051 is responsible)
+    $2079 = builtinIfElse
+    # Examples:fibonacci:23:5:calleeIsFunction:then
+    $2101 = { (responsible $2080) ->
+      $2081 = call $2053 with $2048 ($2051 is responsible)
+      $2082 = 2
+      $2083 = call $2052 with $2081 $2082 ($2051 is responsible)
+      $2084 = builtinIfElse
+      # Examples:fibonacci:23:5:hasCorrectNumberOfArguments:then
+      $2091 = { (responsible $2085) ->
+        $2086 = Examples:fibonacci:23:5
+        $2087 = trace: start of call of $2048 with $2049 $2050 ($2051 is responsible, code is at $2086)
+        $2088 = call $2048 with $2049 $2050 ($2051 is responsible)
+        $2089 = trace: end of call
+        $2090 = $2088
+      }
+      # Examples:fibonacci:23:5:hasCorrectNumberOfArguments:else
+      $2099 = { (responsible $2092) ->
+        $2093 = "You called a function that expects "
+        $2094 = call $2057 with $2081 ($2051 is responsible)
+        $2095 = " arguments with 2 arguments."
+        $2096 = call $2056 with $2093 $2094 ($2051 is responsible)
+        $2097 = call $2056 with $2096 $2095 ($2051 is responsible)
+        $2098 = panicking because $2097 ($2051 is at fault)
+      }
+      $2100 = call $2084 with $2083 $2091 $2099 ($2051 is responsible)
+    }
+    # Examples:fibonacci:23:5:calleeIsFunction:else
+    $2105 = { (responsible $2102) ->
+      $2103 = "You can only call tags or functions."
+      $2104 = panicking because $2103 ($2051 is at fault)
+    }
+    $2106 = call $2079 with $2078 $2101 $2105 ($2051 is responsible)
+  }
+  $2108 = call $2062 with $2061 $2075 $2107 ($2051 is responsible)
+  $2109 = Examples:fibonacci:23:6
+  $2110 = Match
+  $2111 = NoMatch
+  $2112 = List
+  $2113 = builtinTypeOf
+  $2114 = call $2113 with $2108 ($2109 is responsible)
+  $2115 = builtinEquals
+  $2116 = call $2115 with $2112 $2114 ($2109 is responsible)
+  $2117 = builtinIfElse
+  # Examples:fibonacci:23:6:equals:then
+  $2155 = { (responsible $2118) ->
+    $2119 = 1
+    $2120 = builtinListLength
+    $2121 = call $2120 with $2108 ($2109 is responsible)
+    $2122 = builtinEquals
+    $2123 = call $2122 with $2119 $2121 ($2109 is responsible)
+    $2124 = builtinIfElse
+    # Examples:fibonacci:23:6:equals:then
+    $2150 = { (responsible $2125) ->
+      $2126 = builtinListGet
+      $2127 = 0
+      $2128 = call $2126 with $2108 $2127 ($2109 is responsible)
+      $2129 = ($2128,)
+      $2130 = call $2110 with $2129 ($2109 is responsible)
+      $2131 = builtinTagWithoutValue
+      $2132 = call $2131 with $2130 ($2109 is responsible)
+      $2133 = builtinEquals
+      $2134 = Match
+      $2135 = call $2133 with $2132 $2134 ($2109 is responsible)
+      $2136 = builtinIfElse
+      # Examples:fibonacci:23:6:isMatch:then
+      $2145 = { (responsible $2137) ->
+        $2138 = builtinTagGetValue
+        $2139 = call $2138 with $2130 ($2109 is responsible)
+        $2140 = builtinListGet
+        $2141 = 0
+        $2142 = call $2140 with $2139 $2141 ($2109 is responsible)
+        $2143 = ($2142,)
+        $2144 = call $2110 with $2143 ($2109 is responsible)
+      }
+      # Examples:fibonacci:23:6:isMatch:else
+      $2148 = { (responsible $2146) ->
+        $2147 = $2130
+      }
+      $2149 = call $2136 with $2135 $2145 $2148 ($2109 is responsible)
+    }
+    # Examples:fibonacci:23:6:equals:else
+    $2153 = { (responsible $2151) ->
+      $2152 = $2111
+    }
+    $2154 = call $2124 with $2123 $2150 $2153 ($2109 is responsible)
+  }
+  # Examples:fibonacci:23:6:equals:else
+  $2158 = { (responsible $2156) ->
+    $2157 = $2111
+  }
+  $2159 = call $2117 with $2116 $2155 $2158 ($2109 is responsible)
+  $2160 = builtinTagWithoutValue
+  $2161 = call $2160 with $2159 ($2109 is responsible)
+  $2162 = builtinEquals
+  $2163 = Match
+  $2164 = call $2162 with $2161 $2163 ($2109 is responsible)
+  $2165 = builtinIfElse
+  # Examples:fibonacci:23:6:case-0:matched
+  $2826 = { (responsible $2166) ->
+    $2167 = Examples:fibonacci:23:6:n
+    $2168 = builtinTagGetValue
+    $2169 = call $2168 with $2159 ($2167 is responsible)
+    $2170 = builtinListGet
+    $2171 = 0
+    $2172 = call $2170 with $2169 $2171 ($2167 is responsible)
+    $2173 = $2172
+    $2174 = builtinStructGet
+    $2175 = StructGet
+    $2176 = Examples:fibonacci:23:6:3
+    $2177 = builtinEquals
+    $2178 = builtinGetArgumentCount
+    $2179 = builtinTagHasValue
+    $2180 = builtinTagWithValue
+    $2181 = builtinTextConcatenate
+    $2182 = builtinToDebugText
+    $2183 = builtinTypeOf
+    $2184 = call $2183 with $2174 ($2176 is responsible)
+    $2185 = Tag
+    $2186 = call $2177 with $2184 $2185 ($2176 is responsible)
+    $2187 = builtinIfElse
+    # Examples:fibonacci:23:6:3:calleeIsTag:then
+    $2200 = { (responsible $2188) ->
+      $2189 = call $2179 with $2174 ($2176 is responsible)
+      $2190 = builtinIfElse
+      # Examples:fibonacci:23:6:3:doesTagHaveValue:then
+      $2194 = { (responsible $2191) ->
+        $2192 = "You called a tag that already has a value."
+        $2193 = panicking because $2192 ($2176 is at fault)
+      }
+      # Examples:fibonacci:23:6:3:doesTagHaveValue:else
+      $2198 = { (responsible $2195) ->
+        $2196 = "Tags can only be created with one value."
+        $2197 = panicking because $2196 ($2176 is at fault)
+      }
+      $2199 = call $2190 with $2189 $2194 $2198 ($2176 is responsible)
+    }
+    # Examples:fibonacci:23:6:3:calleeIsTag:else
+    $2232 = { (responsible $2201) ->
+      $2202 = Function
+      $2203 = call $2177 with $2184 $2202 ($2176 is responsible)
+      $2204 = builtinIfElse
+      # Examples:fibonacci:23:6:3:calleeIsFunction:then
+      $2226 = { (responsible $2205) ->
+        $2206 = call $2178 with $2174 ($2176 is responsible)
+        $2207 = 2
+        $2208 = call $2177 with $2206 $2207 ($2176 is responsible)
+        $2209 = builtinIfElse
+        # Examples:fibonacci:23:6:3:hasCorrectNumberOfArguments:then
+        $2216 = { (responsible $2210) ->
+          $2211 = Examples:fibonacci:23:6:3
+          $2212 = trace: start of call of $2174 with $112 $2175 ($2176 is responsible, code is at $2211)
+          $2213 = call $2174 with $112 $2175 ($2176 is responsible)
+          $2214 = trace: end of call
+          $2215 = $2213
+        }
+        # Examples:fibonacci:23:6:3:hasCorrectNumberOfArguments:else
+        $2224 = { (responsible $2217) ->
+          $2218 = "You called a function that expects "
+          $2219 = call $2182 with $2206 ($2176 is responsible)
+          $2220 = " arguments with 2 arguments."
+          $2221 = call $2181 with $2218 $2219 ($2176 is responsible)
+          $2222 = call $2181 with $2221 $2220 ($2176 is responsible)
+          $2223 = panicking because $2222 ($2176 is at fault)
+        }
+        $2225 = call $2209 with $2208 $2216 $2224 ($2176 is responsible)
+      }
+      # Examples:fibonacci:23:6:3:calleeIsFunction:else
+      $2230 = { (responsible $2227) ->
+        $2228 = "You can only call tags or functions."
+        $2229 = panicking because $2228 ($2176 is at fault)
+      }
+      $2231 = call $2204 with $2203 $2226 $2230 ($2176 is responsible)
+    }
+    $2233 = call $2187 with $2186 $2200 $2232 ($2176 is responsible)
+    $2234 = $372
+    $2235 = Parse
+    $2236 = Examples:fibonacci:23:6:6
+    $2237 = builtinEquals
+    $2238 = builtinGetArgumentCount
+    $2239 = builtinTagHasValue
+    $2240 = builtinTagWithValue
+    $2241 = builtinTextConcatenate
+    $2242 = builtinToDebugText
+    $2243 = builtinTypeOf
+    $2244 = call $2243 with $2233 ($2236 is responsible)
+    $2245 = Tag
+    $2246 = call $2237 with $2244 $2245 ($2236 is responsible)
+    $2247 = builtinIfElse
+    # Examples:fibonacci:23:6:6:calleeIsTag:then
+    $2260 = { (responsible $2248) ->
+      $2249 = call $2239 with $2233 ($2236 is responsible)
+      $2250 = builtinIfElse
+      # Examples:fibonacci:23:6:6:doesTagHaveValue:then
+      $2254 = { (responsible $2251) ->
+        $2252 = "You called a tag that already has a value."
+        $2253 = panicking because $2252 ($2236 is at fault)
+      }
+      # Examples:fibonacci:23:6:6:doesTagHaveValue:else
+      $2258 = { (responsible $2255) ->
+        $2256 = "Tags can only be created with one value."
+        $2257 = panicking because $2256 ($2236 is at fault)
+      }
+      $2259 = call $2250 with $2249 $2254 $2258 ($2236 is responsible)
+    }
+    # Examples:fibonacci:23:6:6:calleeIsTag:else
+    $2292 = { (responsible $2261) ->
+      $2262 = Function
+      $2263 = call $2237 with $2244 $2262 ($2236 is responsible)
+      $2264 = builtinIfElse
+      # Examples:fibonacci:23:6:6:calleeIsFunction:then
+      $2286 = { (responsible $2265) ->
+        $2266 = call $2238 with $2233 ($2236 is responsible)
+        $2267 = 2
+        $2268 = call $2237 with $2266 $2267 ($2236 is responsible)
+        $2269 = builtinIfElse
+        # Examples:fibonacci:23:6:6:hasCorrectNumberOfArguments:then
+        $2276 = { (responsible $2270) ->
+          $2271 = Examples:fibonacci:23:6:6
+          $2272 = trace: start of call of $2233 with $2234 $2235 ($2236 is responsible, code is at $2271)
+          $2273 = call $2233 with $2234 $2235 ($2236 is responsible)
+          $2274 = trace: end of call
+          $2275 = $2273
+        }
+        # Examples:fibonacci:23:6:6:hasCorrectNumberOfArguments:else
+        $2284 = { (responsible $2277) ->
+          $2278 = "You called a function that expects "
+          $2279 = call $2242 with $2266 ($2236 is responsible)
+          $2280 = " arguments with 2 arguments."
+          $2281 = call $2241 with $2278 $2279 ($2236 is responsible)
+          $2282 = call $2241 with $2281 $2280 ($2236 is responsible)
+          $2283 = panicking because $2282 ($2236 is at fault)
+        }
+        $2285 = call $2269 with $2268 $2276 $2284 ($2236 is responsible)
+      }
+      # Examples:fibonacci:23:6:6:calleeIsFunction:else
+      $2290 = { (responsible $2287) ->
+        $2288 = "You can only call tags or functions."
+        $2289 = panicking because $2288 ($2236 is at fault)
+      }
+      $2291 = call $2264 with $2263 $2286 $2290 ($2236 is responsible)
+    }
+    $2293 = call $2247 with $2246 $2260 $2292 ($2236 is responsible)
+    $2294 = Examples:fibonacci:23:6:7
+    $2295 = builtinEquals
+    $2296 = builtinGetArgumentCount
+    $2297 = builtinTagHasValue
+    $2298 = builtinTagWithValue
+    $2299 = builtinTextConcatenate
+    $2300 = builtinToDebugText
+    $2301 = builtinTypeOf
+    $2302 = call $2301 with $2293 ($2294 is responsible)
+    $2303 = Tag
+    $2304 = call $2295 with $2302 $2303 ($2294 is responsible)
+    $2305 = builtinIfElse
+    # Examples:fibonacci:23:6:7:calleeIsTag:then
+    $2317 = { (responsible $2306) ->
+      $2307 = call $2297 with $2293 ($2294 is responsible)
+      $2308 = builtinIfElse
+      # Examples:fibonacci:23:6:7:doesTagHaveValue:then
+      $2312 = { (responsible $2309) ->
+        $2310 = "You called a tag that already has a value."
+        $2311 = panicking because $2310 ($2294 is at fault)
+      }
+      # Examples:fibonacci:23:6:7:doesTagHaveValue:else
+      $2315 = { (responsible $2313) ->
+        $2314 = call $2298 with $2293 $2173 ($2294 is responsible)
+      }
+      $2316 = call $2308 with $2307 $2312 $2315 ($2294 is responsible)
+    }
+    # Examples:fibonacci:23:6:7:calleeIsTag:else
+    $2349 = { (responsible $2318) ->
+      $2319 = Function
+      $2320 = call $2295 with $2302 $2319 ($2294 is responsible)
+      $2321 = builtinIfElse
+      # Examples:fibonacci:23:6:7:calleeIsFunction:then
+      $2343 = { (responsible $2322) ->
+        $2323 = call $2296 with $2293 ($2294 is responsible)
+        $2324 = 1
+        $2325 = call $2295 with $2323 $2324 ($2294 is responsible)
+        $2326 = builtinIfElse
+        # Examples:fibonacci:23:6:7:hasCorrectNumberOfArguments:then
+        $2333 = { (responsible $2327) ->
+          $2328 = Examples:fibonacci:23:6:7
+          $2329 = trace: start of call of $2293 with $2173 ($2294 is responsible, code is at $2328)
+          $2330 = call $2293 with $2173 ($2294 is responsible)
+          $2331 = trace: end of call
+          $2332 = $2330
+        }
+        # Examples:fibonacci:23:6:7:hasCorrectNumberOfArguments:else
+        $2341 = { (responsible $2334) ->
+          $2335 = "You called a function that expects "
+          $2336 = call $2300 with $2323 ($2294 is responsible)
+          $2337 = " arguments with 1 arguments."
+          $2338 = call $2299 with $2335 $2336 ($2294 is responsible)
+          $2339 = call $2299 with $2338 $2337 ($2294 is responsible)
+          $2340 = panicking because $2339 ($2294 is at fault)
+        }
+        $2342 = call $2326 with $2325 $2333 $2341 ($2294 is responsible)
+      }
+      # Examples:fibonacci:23:6:7:calleeIsFunction:else
+      $2347 = { (responsible $2344) ->
+        $2345 = "You can only call tags or functions."
+        $2346 = panicking because $2345 ($2294 is at fault)
+      }
+      $2348 = call $2321 with $2320 $2343 $2347 ($2294 is responsible)
+    }
+    $2350 = call $2305 with $2304 $2317 $2349 ($2294 is responsible)
+    $2351 = builtinStructGet
+    $2352 = StructGet
+    $2353 = Examples:fibonacci:23:6:10
+    $2354 = builtinEquals
+    $2355 = builtinGetArgumentCount
+    $2356 = builtinTagHasValue
+    $2357 = builtinTagWithValue
+    $2358 = builtinTextConcatenate
+    $2359 = builtinToDebugText
+    $2360 = builtinTypeOf
+    $2361 = call $2360 with $2351 ($2353 is responsible)
+    $2362 = Tag
+    $2363 = call $2354 with $2361 $2362 ($2353 is responsible)
+    $2364 = builtinIfElse
+    # Examples:fibonacci:23:6:10:calleeIsTag:then
+    $2377 = { (responsible $2365) ->
+      $2366 = call $2356 with $2351 ($2353 is responsible)
+      $2367 = builtinIfElse
+      # Examples:fibonacci:23:6:10:doesTagHaveValue:then
+      $2371 = { (responsible $2368) ->
+        $2369 = "You called a tag that already has a value."
+        $2370 = panicking because $2369 ($2353 is at fault)
+      }
+      # Examples:fibonacci:23:6:10:doesTagHaveValue:else
+      $2375 = { (responsible $2372) ->
+        $2373 = "Tags can only be created with one value."
+        $2374 = panicking because $2373 ($2353 is at fault)
+      }
+      $2376 = call $2367 with $2366 $2371 $2375 ($2353 is responsible)
+    }
+    # Examples:fibonacci:23:6:10:calleeIsTag:else
+    $2409 = { (responsible $2378) ->
+      $2379 = Function
+      $2380 = call $2354 with $2361 $2379 ($2353 is responsible)
+      $2381 = builtinIfElse
+      # Examples:fibonacci:23:6:10:calleeIsFunction:then
+      $2403 = { (responsible $2382) ->
+        $2383 = call $2355 with $2351 ($2353 is responsible)
+        $2384 = 2
+        $2385 = call $2354 with $2383 $2384 ($2353 is responsible)
+        $2386 = builtinIfElse
+        # Examples:fibonacci:23:6:10:hasCorrectNumberOfArguments:then
+        $2393 = { (responsible $2387) ->
+          $2388 = Examples:fibonacci:23:6:10
+          $2389 = trace: start of call of $2351 with $112 $2352 ($2353 is responsible, code is at $2388)
+          $2390 = call $2351 with $112 $2352 ($2353 is responsible)
+          $2391 = trace: end of call
+          $2392 = $2390
+        }
+        # Examples:fibonacci:23:6:10:hasCorrectNumberOfArguments:else
+        $2401 = { (responsible $2394) ->
+          $2395 = "You called a function that expects "
+          $2396 = call $2359 with $2383 ($2353 is responsible)
+          $2397 = " arguments with 2 arguments."
+          $2398 = call $2358 with $2395 $2396 ($2353 is responsible)
+          $2399 = call $2358 with $2398 $2397 ($2353 is responsible)
+          $2400 = panicking because $2399 ($2353 is at fault)
+        }
+        $2402 = call $2386 with $2385 $2393 $2401 ($2353 is responsible)
+      }
+      # Examples:fibonacci:23:6:10:calleeIsFunction:else
+      $2407 = { (responsible $2404) ->
+        $2405 = "You can only call tags or functions."
+        $2406 = panicking because $2405 ($2353 is at fault)
+      }
+      $2408 = call $2381 with $2380 $2403 $2407 ($2353 is responsible)
+    }
+    $2410 = call $2364 with $2363 $2377 $2409 ($2353 is responsible)
+    $2411 = $378
+    $2412 = Map
+    $2413 = Examples:fibonacci:23:6:13
+    $2414 = builtinEquals
+    $2415 = builtinGetArgumentCount
+    $2416 = builtinTagHasValue
+    $2417 = builtinTagWithValue
+    $2418 = builtinTextConcatenate
+    $2419 = builtinToDebugText
+    $2420 = builtinTypeOf
+    $2421 = call $2420 with $2410 ($2413 is responsible)
+    $2422 = Tag
+    $2423 = call $2414 with $2421 $2422 ($2413 is responsible)
+    $2424 = builtinIfElse
+    # Examples:fibonacci:23:6:13:calleeIsTag:then
+    $2437 = { (responsible $2425) ->
+      $2426 = call $2416 with $2410 ($2413 is responsible)
+      $2427 = builtinIfElse
+      # Examples:fibonacci:23:6:13:doesTagHaveValue:then
+      $2431 = { (responsible $2428) ->
+        $2429 = "You called a tag that already has a value."
+        $2430 = panicking because $2429 ($2413 is at fault)
+      }
+      # Examples:fibonacci:23:6:13:doesTagHaveValue:else
+      $2435 = { (responsible $2432) ->
+        $2433 = "Tags can only be created with one value."
+        $2434 = panicking because $2433 ($2413 is at fault)
+      }
+      $2436 = call $2427 with $2426 $2431 $2435 ($2413 is responsible)
+    }
+    # Examples:fibonacci:23:6:13:calleeIsTag:else
+    $2469 = { (responsible $2438) ->
+      $2439 = Function
+      $2440 = call $2414 with $2421 $2439 ($2413 is responsible)
+      $2441 = builtinIfElse
+      # Examples:fibonacci:23:6:13:calleeIsFunction:then
+      $2463 = { (responsible $2442) ->
+        $2443 = call $2415 with $2410 ($2413 is responsible)
+        $2444 = 2
+        $2445 = call $2414 with $2443 $2444 ($2413 is responsible)
+        $2446 = builtinIfElse
+        # Examples:fibonacci:23:6:13:hasCorrectNumberOfArguments:then
+        $2453 = { (responsible $2447) ->
+          $2448 = Examples:fibonacci:23:6:13
+          $2449 = trace: start of call of $2410 with $2411 $2412 ($2413 is responsible, code is at $2448)
+          $2450 = call $2410 with $2411 $2412 ($2413 is responsible)
+          $2451 = trace: end of call
+          $2452 = $2450
+        }
+        # Examples:fibonacci:23:6:13:hasCorrectNumberOfArguments:else
+        $2461 = { (responsible $2454) ->
+          $2455 = "You called a function that expects "
+          $2456 = call $2419 with $2443 ($2413 is responsible)
+          $2457 = " arguments with 2 arguments."
+          $2458 = call $2418 with $2455 $2456 ($2413 is responsible)
+          $2459 = call $2418 with $2458 $2457 ($2413 is responsible)
+          $2460 = panicking because $2459 ($2413 is at fault)
+        }
+        $2462 = call $2446 with $2445 $2453 $2461 ($2413 is responsible)
+      }
+      # Examples:fibonacci:23:6:13:calleeIsFunction:else
+      $2467 = { (responsible $2464) ->
+        $2465 = "You can only call tags or functions."
+        $2466 = panicking because $2465 ($2413 is at fault)
+      }
+      $2468 = call $2441 with $2440 $2463 $2467 ($2413 is responsible)
+    }
+    $2470 = call $2424 with $2423 $2437 $2469 ($2413 is responsible)
+    # Examples:fibonacci:23:6:14
+    $2590 = { $2472 (+ responsible $2471) ->
+      $2473 = $1986
+      $2474 = $2472
+      $2475 = Examples:fibonacci:23:6:14:2
+      $2476 = builtinEquals
+      $2477 = builtinGetArgumentCount
+      $2478 = builtinTagHasValue
+      $2479 = builtinTagWithValue
+      $2480 = builtinTextConcatenate
+      $2481 = builtinToDebugText
+      $2482 = builtinTypeOf
+      $2483 = call $2482 with $2473 ($2475 is responsible)
+      $2484 = Tag
+      $2485 = call $2476 with $2483 $2484 ($2475 is responsible)
+      $2486 = builtinIfElse
+      # Examples:fibonacci:23:6:14:2:calleeIsTag:then
+      $2498 = { (responsible $2487) ->
+        $2488 = call $2478 with $2473 ($2475 is responsible)
+        $2489 = builtinIfElse
+        # Examples:fibonacci:23:6:14:2:doesTagHaveValue:then
+        $2493 = { (responsible $2490) ->
+          $2491 = "You called a tag that already has a value."
+          $2492 = panicking because $2491 ($2475 is at fault)
+        }
+        # Examples:fibonacci:23:6:14:2:doesTagHaveValue:else
+        $2496 = { (responsible $2494) ->
+          $2495 = call $2479 with $2473 $2474 ($2475 is responsible)
+        }
+        $2497 = call $2489 with $2488 $2493 $2496 ($2475 is responsible)
+      }
+      # Examples:fibonacci:23:6:14:2:calleeIsTag:else
+      $2530 = { (responsible $2499) ->
+        $2500 = Function
+        $2501 = call $2476 with $2483 $2500 ($2475 is responsible)
+        $2502 = builtinIfElse
+        # Examples:fibonacci:23:6:14:2:calleeIsFunction:then
+        $2524 = { (responsible $2503) ->
+          $2504 = call $2477 with $2473 ($2475 is responsible)
+          $2505 = 1
+          $2506 = call $2476 with $2504 $2505 ($2475 is responsible)
+          $2507 = builtinIfElse
+          # Examples:fibonacci:23:6:14:2:hasCorrectNumberOfArguments:then
+          $2514 = { (responsible $2508) ->
+            $2509 = Examples:fibonacci:23:6:14:2
+            $2510 = trace: start of call of $2473 with $2474 ($2475 is responsible, code is at $2509)
+            $2511 = call $2473 with $2474 ($2475 is responsible)
+            $2512 = trace: end of call
+            $2513 = $2511
+          }
+          # Examples:fibonacci:23:6:14:2:hasCorrectNumberOfArguments:else
+          $2522 = { (responsible $2515) ->
+            $2516 = "You called a function that expects "
+            $2517 = call $2481 with $2504 ($2475 is responsible)
+            $2518 = " arguments with 1 arguments."
+            $2519 = call $2480 with $2516 $2517 ($2475 is responsible)
+            $2520 = call $2480 with $2519 $2518 ($2475 is responsible)
+            $2521 = panicking because $2520 ($2475 is at fault)
+          }
+          $2523 = call $2507 with $2506 $2514 $2522 ($2475 is responsible)
+        }
+        # Examples:fibonacci:23:6:14:2:calleeIsFunction:else
+        $2528 = { (responsible $2525) ->
+          $2526 = "You can only call tags or functions."
+          $2527 = panicking because $2526 ($2475 is at fault)
+        }
+        $2529 = call $2502 with $2501 $2524 $2528 ($2475 is responsible)
+      }
+      $2531 = call $2486 with $2485 $2498 $2530 ($2475 is responsible)
+      $2532 = $384
+      $2533 = Examples:fibonacci:23:6:14:4
+      $2534 = builtinEquals
+      $2535 = builtinGetArgumentCount
+      $2536 = builtinTagHasValue
+      $2537 = builtinTagWithValue
+      $2538 = builtinTextConcatenate
+      $2539 = builtinToDebugText
+      $2540 = builtinTypeOf
+      $2541 = call $2540 with $2532 ($2533 is responsible)
+      $2542 = Tag
+      $2543 = call $2534 with $2541 $2542 ($2533 is responsible)
+      $2544 = builtinIfElse
+      # Examples:fibonacci:23:6:14:4:calleeIsTag:then
+      $2556 = { (responsible $2545) ->
+        $2546 = call $2536 with $2532 ($2533 is responsible)
+        $2547 = builtinIfElse
+        # Examples:fibonacci:23:6:14:4:doesTagHaveValue:then
+        $2551 = { (responsible $2548) ->
+          $2549 = "You called a tag that already has a value."
+          $2550 = panicking because $2549 ($2533 is at fault)
+        }
+        # Examples:fibonacci:23:6:14:4:doesTagHaveValue:else
+        $2554 = { (responsible $2552) ->
+          $2553 = call $2537 with $2532 $2531 ($2533 is responsible)
+        }
+        $2555 = call $2547 with $2546 $2551 $2554 ($2533 is responsible)
+      }
+      # Examples:fibonacci:23:6:14:4:calleeIsTag:else
+      $2588 = { (responsible $2557) ->
+        $2558 = Function
+        $2559 = call $2534 with $2541 $2558 ($2533 is responsible)
+        $2560 = builtinIfElse
+        # Examples:fibonacci:23:6:14:4:calleeIsFunction:then
+        $2582 = { (responsible $2561) ->
+          $2562 = call $2535 with $2532 ($2533 is responsible)
+          $2563 = 1
+          $2564 = call $2534 with $2562 $2563 ($2533 is responsible)
+          $2565 = builtinIfElse
+          # Examples:fibonacci:23:6:14:4:hasCorrectNumberOfArguments:then
+          $2572 = { (responsible $2566) ->
+            $2567 = Examples:fibonacci:23:6:14:4
+            $2568 = trace: start of call of $2532 with $2531 ($2533 is responsible, code is at $2567)
+            $2569 = call $2532 with $2531 ($2533 is responsible)
+            $2570 = trace: end of call
+            $2571 = $2569
+          }
+          # Examples:fibonacci:23:6:14:4:hasCorrectNumberOfArguments:else
+          $2580 = { (responsible $2573) ->
+            $2574 = "You called a function that expects "
+            $2575 = call $2539 with $2562 ($2533 is responsible)
+            $2576 = " arguments with 1 arguments."
+            $2577 = call $2538 with $2574 $2575 ($2533 is responsible)
+            $2578 = call $2538 with $2577 $2576 ($2533 is responsible)
+            $2579 = panicking because $2578 ($2533 is at fault)
+          }
+          $2581 = call $2565 with $2564 $2572 $2580 ($2533 is responsible)
+        }
+        # Examples:fibonacci:23:6:14:4:calleeIsFunction:else
+        $2586 = { (responsible $2583) ->
+          $2584 = "You can only call tags or functions."
+          $2585 = panicking because $2584 ($2533 is at fault)
+        }
+        $2587 = call $2560 with $2559 $2582 $2586 ($2533 is responsible)
+      }
+      $2589 = call $2544 with $2543 $2556 $2588 ($2533 is responsible)
+    }
+    $2591 = Examples:fibonacci:23:6:15
+    $2592 = builtinEquals
+    $2593 = builtinGetArgumentCount
+    $2594 = builtinTagHasValue
+    $2595 = builtinTagWithValue
+    $2596 = builtinTextConcatenate
+    $2597 = builtinToDebugText
+    $2598 = builtinTypeOf
+    $2599 = call $2598 with $2470 ($2591 is responsible)
+    $2600 = Tag
+    $2601 = call $2592 with $2599 $2600 ($2591 is responsible)
+    $2602 = builtinIfElse
+    # Examples:fibonacci:23:6:15:calleeIsTag:then
+    $2615 = { (responsible $2603) ->
+      $2604 = call $2594 with $2470 ($2591 is responsible)
+      $2605 = builtinIfElse
+      # Examples:fibonacci:23:6:15:doesTagHaveValue:then
+      $2609 = { (responsible $2606) ->
+        $2607 = "You called a tag that already has a value."
+        $2608 = panicking because $2607 ($2591 is at fault)
+      }
+      # Examples:fibonacci:23:6:15:doesTagHaveValue:else
+      $2613 = { (responsible $2610) ->
+        $2611 = "Tags can only be created with one value."
+        $2612 = panicking because $2611 ($2591 is at fault)
+      }
+      $2614 = call $2605 with $2604 $2609 $2613 ($2591 is responsible)
+    }
+    # Examples:fibonacci:23:6:15:calleeIsTag:else
+    $2647 = { (responsible $2616) ->
+      $2617 = Function
+      $2618 = call $2592 with $2599 $2617 ($2591 is responsible)
+      $2619 = builtinIfElse
+      # Examples:fibonacci:23:6:15:calleeIsFunction:then
+      $2641 = { (responsible $2620) ->
+        $2621 = call $2593 with $2470 ($2591 is responsible)
+        $2622 = 2
+        $2623 = call $2592 with $2621 $2622 ($2591 is responsible)
+        $2624 = builtinIfElse
+        # Examples:fibonacci:23:6:15:hasCorrectNumberOfArguments:then
+        $2631 = { (responsible $2625) ->
+          $2626 = Examples:fibonacci:23:6:15
+          $2627 = trace: start of call of $2470 with $2350 $2590 ($2591 is responsible, code is at $2626)
+          $2628 = call $2470 with $2350 $2590 ($2591 is responsible)
+          $2629 = trace: end of call
+          $2630 = $2628
+        }
+        # Examples:fibonacci:23:6:15:hasCorrectNumberOfArguments:else
+        $2639 = { (responsible $2632) ->
+          $2633 = "You called a function that expects "
+          $2634 = call $2597 with $2621 ($2591 is responsible)
+          $2635 = " arguments with 2 arguments."
+          $2636 = call $2596 with $2633 $2634 ($2591 is responsible)
+          $2637 = call $2596 with $2636 $2635 ($2591 is responsible)
+          $2638 = panicking because $2637 ($2591 is at fault)
+        }
+        $2640 = call $2624 with $2623 $2631 $2639 ($2591 is responsible)
+      }
+      # Examples:fibonacci:23:6:15:calleeIsFunction:else
+      $2645 = { (responsible $2642) ->
+        $2643 = "You can only call tags or functions."
+        $2644 = panicking because $2643 ($2591 is at fault)
+      }
+      $2646 = call $2619 with $2618 $2641 $2645 ($2591 is responsible)
+    }
+    $2648 = call $2602 with $2601 $2615 $2647 ($2591 is responsible)
+    $2649 = builtinStructGet
+    $2650 = StructGet
+    $2651 = Examples:fibonacci:23:6:18
+    $2652 = builtinEquals
+    $2653 = builtinGetArgumentCount
+    $2654 = builtinTagHasValue
+    $2655 = builtinTagWithValue
+    $2656 = builtinTextConcatenate
+    $2657 = builtinToDebugText
+    $2658 = builtinTypeOf
+    $2659 = call $2658 with $2649 ($2651 is responsible)
+    $2660 = Tag
+    $2661 = call $2652 with $2659 $2660 ($2651 is responsible)
+    $2662 = builtinIfElse
+    # Examples:fibonacci:23:6:18:calleeIsTag:then
+    $2675 = { (responsible $2663) ->
+      $2664 = call $2654 with $2649 ($2651 is responsible)
+      $2665 = builtinIfElse
+      # Examples:fibonacci:23:6:18:doesTagHaveValue:then
+      $2669 = { (responsible $2666) ->
+        $2667 = "You called a tag that already has a value."
+        $2668 = panicking because $2667 ($2651 is at fault)
+      }
+      # Examples:fibonacci:23:6:18:doesTagHaveValue:else
+      $2673 = { (responsible $2670) ->
+        $2671 = "Tags can only be created with one value."
+        $2672 = panicking because $2671 ($2651 is at fault)
+      }
+      $2674 = call $2665 with $2664 $2669 $2673 ($2651 is responsible)
+    }
+    # Examples:fibonacci:23:6:18:calleeIsTag:else
+    $2707 = { (responsible $2676) ->
+      $2677 = Function
+      $2678 = call $2652 with $2659 $2677 ($2651 is responsible)
+      $2679 = builtinIfElse
+      # Examples:fibonacci:23:6:18:calleeIsFunction:then
+      $2701 = { (responsible $2680) ->
+        $2681 = call $2653 with $2649 ($2651 is responsible)
+        $2682 = 2
+        $2683 = call $2652 with $2681 $2682 ($2651 is responsible)
+        $2684 = builtinIfElse
+        # Examples:fibonacci:23:6:18:hasCorrectNumberOfArguments:then
+        $2691 = { (responsible $2685) ->
+          $2686 = Examples:fibonacci:23:6:18
+          $2687 = trace: start of call of $2649 with $112 $2650 ($2651 is responsible, code is at $2686)
+          $2688 = call $2649 with $112 $2650 ($2651 is responsible)
+          $2689 = trace: end of call
+          $2690 = $2688
+        }
+        # Examples:fibonacci:23:6:18:hasCorrectNumberOfArguments:else
+        $2699 = { (responsible $2692) ->
+          $2693 = "You called a function that expects "
+          $2694 = call $2657 with $2681 ($2651 is responsible)
+          $2695 = " arguments with 2 arguments."
+          $2696 = call $2656 with $2693 $2694 ($2651 is responsible)
+          $2697 = call $2656 with $2696 $2695 ($2651 is responsible)
+          $2698 = panicking because $2697 ($2651 is at fault)
+        }
+        $2700 = call $2684 with $2683 $2691 $2699 ($2651 is responsible)
+      }
+      # Examples:fibonacci:23:6:18:calleeIsFunction:else
+      $2705 = { (responsible $2702) ->
+        $2703 = "You can only call tags or functions."
+        $2704 = panicking because $2703 ($2651 is at fault)
+      }
+      $2706 = call $2679 with $2678 $2701 $2705 ($2651 is responsible)
+    }
+    $2708 = call $2662 with $2661 $2675 $2707 ($2651 is responsible)
+    $2709 = $378
+    $2710 = GetValue
+    $2711 = Examples:fibonacci:23:6:21
+    $2712 = builtinEquals
+    $2713 = builtinGetArgumentCount
+    $2714 = builtinTagHasValue
+    $2715 = builtinTagWithValue
+    $2716 = builtinTextConcatenate
+    $2717 = builtinToDebugText
+    $2718 = builtinTypeOf
+    $2719 = call $2718 with $2708 ($2711 is responsible)
+    $2720 = Tag
+    $2721 = call $2712 with $2719 $2720 ($2711 is responsible)
+    $2722 = builtinIfElse
+    # Examples:fibonacci:23:6:21:calleeIsTag:then
+    $2735 = { (responsible $2723) ->
+      $2724 = call $2714 with $2708 ($2711 is responsible)
+      $2725 = builtinIfElse
+      # Examples:fibonacci:23:6:21:doesTagHaveValue:then
+      $2729 = { (responsible $2726) ->
+        $2727 = "You called a tag that already has a value."
+        $2728 = panicking because $2727 ($2711 is at fault)
+      }
+      # Examples:fibonacci:23:6:21:doesTagHaveValue:else
+      $2733 = { (responsible $2730) ->
+        $2731 = "Tags can only be created with one value."
+        $2732 = panicking because $2731 ($2711 is at fault)
+      }
+      $2734 = call $2725 with $2724 $2729 $2733 ($2711 is responsible)
+    }
+    # Examples:fibonacci:23:6:21:calleeIsTag:else
+    $2767 = { (responsible $2736) ->
+      $2737 = Function
+      $2738 = call $2712 with $2719 $2737 ($2711 is responsible)
+      $2739 = builtinIfElse
+      # Examples:fibonacci:23:6:21:calleeIsFunction:then
+      $2761 = { (responsible $2740) ->
+        $2741 = call $2713 with $2708 ($2711 is responsible)
+        $2742 = 2
+        $2743 = call $2712 with $2741 $2742 ($2711 is responsible)
+        $2744 = builtinIfElse
+        # Examples:fibonacci:23:6:21:hasCorrectNumberOfArguments:then
+        $2751 = { (responsible $2745) ->
+          $2746 = Examples:fibonacci:23:6:21
+          $2747 = trace: start of call of $2708 with $2709 $2710 ($2711 is responsible, code is at $2746)
+          $2748 = call $2708 with $2709 $2710 ($2711 is responsible)
+          $2749 = trace: end of call
+          $2750 = $2748
+        }
+        # Examples:fibonacci:23:6:21:hasCorrectNumberOfArguments:else
+        $2759 = { (responsible $2752) ->
+          $2753 = "You called a function that expects "
+          $2754 = call $2717 with $2741 ($2711 is responsible)
+          $2755 = " arguments with 2 arguments."
+          $2756 = call $2716 with $2753 $2754 ($2711 is responsible)
+          $2757 = call $2716 with $2756 $2755 ($2711 is responsible)
+          $2758 = panicking because $2757 ($2711 is at fault)
+        }
+        $2760 = call $2744 with $2743 $2751 $2759 ($2711 is responsible)
+      }
+      # Examples:fibonacci:23:6:21:calleeIsFunction:else
+      $2765 = { (responsible $2762) ->
+        $2763 = "You can only call tags or functions."
+        $2764 = panicking because $2763 ($2711 is at fault)
+      }
+      $2766 = call $2739 with $2738 $2761 $2765 ($2711 is responsible)
+    }
+    $2768 = call $2722 with $2721 $2735 $2767 ($2711 is responsible)
+    $2769 = Examples:fibonacci:23:6:22
+    $2770 = builtinEquals
+    $2771 = builtinGetArgumentCount
+    $2772 = builtinTagHasValue
+    $2773 = builtinTagWithValue
+    $2774 = builtinTextConcatenate
+    $2775 = builtinToDebugText
+    $2776 = builtinTypeOf
+    $2777 = call $2776 with $2768 ($2769 is responsible)
+    $2778 = Tag
+    $2779 = call $2770 with $2777 $2778 ($2769 is responsible)
+    $2780 = builtinIfElse
+    # Examples:fibonacci:23:6:22:calleeIsTag:then
+    $2792 = { (responsible $2781) ->
+      $2782 = call $2772 with $2768 ($2769 is responsible)
+      $2783 = builtinIfElse
+      # Examples:fibonacci:23:6:22:doesTagHaveValue:then
+      $2787 = { (responsible $2784) ->
+        $2785 = "You called a tag that already has a value."
+        $2786 = panicking because $2785 ($2769 is at fault)
+      }
+      # Examples:fibonacci:23:6:22:doesTagHaveValue:else
+      $2790 = { (responsible $2788) ->
+        $2789 = call $2773 with $2768 $2648 ($2769 is responsible)
+      }
+      $2791 = call $2783 with $2782 $2787 $2790 ($2769 is responsible)
+    }
+    # Examples:fibonacci:23:6:22:calleeIsTag:else
+    $2824 = { (responsible $2793) ->
+      $2794 = Function
+      $2795 = call $2770 with $2777 $2794 ($2769 is responsible)
+      $2796 = builtinIfElse
+      # Examples:fibonacci:23:6:22:calleeIsFunction:then
+      $2818 = { (responsible $2797) ->
+        $2798 = call $2771 with $2768 ($2769 is responsible)
+        $2799 = 1
+        $2800 = call $2770 with $2798 $2799 ($2769 is responsible)
+        $2801 = builtinIfElse
+        # Examples:fibonacci:23:6:22:hasCorrectNumberOfArguments:then
+        $2808 = { (responsible $2802) ->
+          $2803 = Examples:fibonacci:23:6:22
+          $2804 = trace: start of call of $2768 with $2648 ($2769 is responsible, code is at $2803)
+          $2805 = call $2768 with $2648 ($2769 is responsible)
+          $2806 = trace: end of call
+          $2807 = $2805
+        }
+        # Examples:fibonacci:23:6:22:hasCorrectNumberOfArguments:else
+        $2816 = { (responsible $2809) ->
+          $2810 = "You called a function that expects "
+          $2811 = call $2775 with $2798 ($2769 is responsible)
+          $2812 = " arguments with 1 arguments."
+          $2813 = call $2774 with $2810 $2811 ($2769 is responsible)
+          $2814 = call $2774 with $2813 $2812 ($2769 is responsible)
+          $2815 = panicking because $2814 ($2769 is at fault)
+        }
+        $2817 = call $2801 with $2800 $2808 $2816 ($2769 is responsible)
+      }
+      # Examples:fibonacci:23:6:22:calleeIsFunction:else
+      $2822 = { (responsible $2819) ->
+        $2820 = "You can only call tags or functions."
+        $2821 = panicking because $2820 ($2769 is at fault)
+      }
+      $2823 = call $2796 with $2795 $2818 $2822 ($2769 is responsible)
+    }
+    $2825 = call $2780 with $2779 $2792 $2824 ($2769 is responsible)
+  }
+  # Examples:fibonacci:23:6:case-0:didNotMatch
+  $2858 = { (responsible $2827) ->
+    $2828 = Match
+    $2829 = NoMatch
+    $2830 = ($2108,)
+    $2831 = call $2828 with $2830 ($2109 is responsible)
+    $2832 = builtinTagWithoutValue
+    $2833 = call $2832 with $2831 ($2109 is responsible)
+    $2834 = builtinEquals
+    $2835 = Match
+    $2836 = call $2834 with $2833 $2835 ($2109 is responsible)
+    $2837 = builtinIfElse
+    # Examples:fibonacci:23:6:case-1:matched
+    $2852 = { (responsible $2838) ->
+      $2839 = Examples:fibonacci:23:6:_
+      $2840 = builtinTagGetValue
+      $2841 = call $2840 with $2831 ($2839 is responsible)
+      $2842 = builtinListGet
+      $2843 = 0
+      $2844 = call $2842 with $2841 $2843 ($2839 is responsible)
+      $2845 = builtinTextConcatenate
+      $2846 = builtinTypeOf
+      $2847 = Text
+      $2848 = builtinEquals
+      $2849 = builtinIfElse
+      $2850 = builtinToDebugText
+      $2851 = "Usage: `cargo run -- run fibonacci.candy -- <number>`"
+    }
+    # Examples:fibonacci:23:6:case-1:didNotMatch
+    $2856 = { (responsible $2853) ->
+      $2854 = "No case matched the given expression."
+      $2855 = panicking because $2854 ($2109 is at fault)
+    }
+    $2857 = call $2837 with $2836 $2852 $2856 ($2109 is responsible)
+  }
+  $2859 = call $2165 with $2164 $2826 $2858 ($2109 is responsible)
+  $2860 = builtinStructGet
+  $2861 = StructGet
+  $2862 = Examples:fibonacci:23:9
+  $2863 = builtinEquals
+  $2864 = builtinGetArgumentCount
+  $2865 = builtinTagHasValue
+  $2866 = builtinTagWithValue
+  $2867 = builtinTextConcatenate
+  $2868 = builtinToDebugText
+  $2869 = builtinTypeOf
+  $2870 = call $2869 with $2860 ($2862 is responsible)
+  $2871 = Tag
+  $2872 = call $2863 with $2870 $2871 ($2862 is responsible)
+  $2873 = builtinIfElse
+  # Examples:fibonacci:23:9:calleeIsTag:then
+  $2886 = { (responsible $2874) ->
+    $2875 = call $2865 with $2860 ($2862 is responsible)
+    $2876 = builtinIfElse
+    # Examples:fibonacci:23:9:doesTagHaveValue:then
+    $2880 = { (responsible $2877) ->
+      $2878 = "You called a tag that already has a value."
+      $2879 = panicking because $2878 ($2862 is at fault)
+    }
+    # Examples:fibonacci:23:9:doesTagHaveValue:else
+    $2884 = { (responsible $2881) ->
+      $2882 = "Tags can only be created with one value."
+      $2883 = panicking because $2882 ($2862 is at fault)
+    }
+    $2885 = call $2876 with $2875 $2880 $2884 ($2862 is responsible)
+  }
+  # Examples:fibonacci:23:9:calleeIsTag:else
+  $2918 = { (responsible $2887) ->
+    $2888 = Function
+    $2889 = call $2863 with $2870 $2888 ($2862 is responsible)
+    $2890 = builtinIfElse
+    # Examples:fibonacci:23:9:calleeIsFunction:then
+    $2912 = { (responsible $2891) ->
+      $2892 = call $2864 with $2860 ($2862 is responsible)
+      $2893 = 2
+      $2894 = call $2863 with $2892 $2893 ($2862 is responsible)
+      $2895 = builtinIfElse
+      # Examples:fibonacci:23:9:hasCorrectNumberOfArguments:then
+      $2902 = { (responsible $2896) ->
+        $2897 = Examples:fibonacci:23:9
+        $2898 = trace: start of call of $2860 with $112 $2861 ($2862 is responsible, code is at $2897)
+        $2899 = call $2860 with $112 $2861 ($2862 is responsible)
+        $2900 = trace: end of call
+        $2901 = $2899
+      }
+      # Examples:fibonacci:23:9:hasCorrectNumberOfArguments:else
+      $2910 = { (responsible $2903) ->
+        $2904 = "You called a function that expects "
+        $2905 = call $2868 with $2892 ($2862 is responsible)
+        $2906 = " arguments with 2 arguments."
+        $2907 = call $2867 with $2904 $2905 ($2862 is responsible)
+        $2908 = call $2867 with $2907 $2906 ($2862 is responsible)
+        $2909 = panicking because $2908 ($2862 is at fault)
+      }
+      $2911 = call $2895 with $2894 $2902 $2910 ($2862 is responsible)
+    }
+    # Examples:fibonacci:23:9:calleeIsFunction:else
+    $2916 = { (responsible $2913) ->
+      $2914 = "You can only call tags or functions."
+      $2915 = panicking because $2914 ($2862 is at fault)
+    }
+    $2917 = call $2890 with $2889 $2912 $2916 ($2862 is responsible)
+  }
+  $2919 = call $2873 with $2872 $2886 $2918 ($2862 is responsible)
+  $2920 = $1988
+  $2921 = Stdout
+  $2922 = Examples:fibonacci:23:12
+  $2923 = builtinEquals
+  $2924 = builtinGetArgumentCount
+  $2925 = builtinTagHasValue
+  $2926 = builtinTagWithValue
+  $2927 = builtinTextConcatenate
+  $2928 = builtinToDebugText
+  $2929 = builtinTypeOf
+  $2930 = call $2929 with $2919 ($2922 is responsible)
+  $2931 = Tag
+  $2932 = call $2923 with $2930 $2931 ($2922 is responsible)
+  $2933 = builtinIfElse
+  # Examples:fibonacci:23:12:calleeIsTag:then
+  $2946 = { (responsible $2934) ->
+    $2935 = call $2925 with $2919 ($2922 is responsible)
+    $2936 = builtinIfElse
+    # Examples:fibonacci:23:12:doesTagHaveValue:then
+    $2940 = { (responsible $2937) ->
+      $2938 = "You called a tag that already has a value."
+      $2939 = panicking because $2938 ($2922 is at fault)
+    }
+    # Examples:fibonacci:23:12:doesTagHaveValue:else
+    $2944 = { (responsible $2941) ->
+      $2942 = "Tags can only be created with one value."
+      $2943 = panicking because $2942 ($2922 is at fault)
+    }
+    $2945 = call $2936 with $2935 $2940 $2944 ($2922 is responsible)
+  }
+  # Examples:fibonacci:23:12:calleeIsTag:else
+  $2978 = { (responsible $2947) ->
+    $2948 = Function
+    $2949 = call $2923 with $2930 $2948 ($2922 is responsible)
+    $2950 = builtinIfElse
+    # Examples:fibonacci:23:12:calleeIsFunction:then
+    $2972 = { (responsible $2951) ->
+      $2952 = call $2924 with $2919 ($2922 is responsible)
+      $2953 = 2
+      $2954 = call $2923 with $2952 $2953 ($2922 is responsible)
+      $2955 = builtinIfElse
+      # Examples:fibonacci:23:12:hasCorrectNumberOfArguments:then
+      $2962 = { (responsible $2956) ->
+        $2957 = Examples:fibonacci:23:12
+        $2958 = trace: start of call of $2919 with $2920 $2921 ($2922 is responsible, code is at $2957)
+        $2959 = call $2919 with $2920 $2921 ($2922 is responsible)
+        $2960 = trace: end of call
+        $2961 = $2959
+      }
+      # Examples:fibonacci:23:12:hasCorrectNumberOfArguments:else
+      $2970 = { (responsible $2963) ->
+        $2964 = "You called a function that expects "
+        $2965 = call $2928 with $2952 ($2922 is responsible)
+        $2966 = " arguments with 2 arguments."
+        $2967 = call $2927 with $2964 $2965 ($2922 is responsible)
+        $2968 = call $2927 with $2967 $2966 ($2922 is responsible)
+        $2969 = panicking because $2968 ($2922 is at fault)
+      }
+      $2971 = call $2955 with $2954 $2962 $2970 ($2922 is responsible)
+    }
+    # Examples:fibonacci:23:12:calleeIsFunction:else
+    $2976 = { (responsible $2973) ->
+      $2974 = "You can only call tags or functions."
+      $2975 = panicking because $2974 ($2922 is at fault)
+    }
+    $2977 = call $2950 with $2949 $2972 $2976 ($2922 is responsible)
+  }
+  $2979 = call $2933 with $2932 $2946 $2978 ($2922 is responsible)
+  $2980 = Examples:fibonacci:23:13
+  $2981 = builtinEquals
+  $2982 = builtinGetArgumentCount
+  $2983 = builtinTagHasValue
+  $2984 = builtinTagWithValue
+  $2985 = builtinTextConcatenate
+  $2986 = builtinToDebugText
+  $2987 = builtinTypeOf
+  $2988 = call $2987 with $2979 ($2980 is responsible)
+  $2989 = Tag
+  $2990 = call $2981 with $2988 $2989 ($2980 is responsible)
+  $2991 = builtinIfElse
+  # Examples:fibonacci:23:13:calleeIsTag:then
+  $3003 = { (responsible $2992) ->
+    $2993 = call $2983 with $2979 ($2980 is responsible)
+    $2994 = builtinIfElse
+    # Examples:fibonacci:23:13:doesTagHaveValue:then
+    $2998 = { (responsible $2995) ->
+      $2996 = "You called a tag that already has a value."
+      $2997 = panicking because $2996 ($2980 is at fault)
+    }
+    # Examples:fibonacci:23:13:doesTagHaveValue:else
+    $3001 = { (responsible $2999) ->
+      $3000 = call $2984 with $2979 $2859 ($2980 is responsible)
+    }
+    $3002 = call $2994 with $2993 $2998 $3001 ($2980 is responsible)
+  }
+  # Examples:fibonacci:23:13:calleeIsTag:else
+  $3035 = { (responsible $3004) ->
+    $3005 = Function
+    $3006 = call $2981 with $2988 $3005 ($2980 is responsible)
+    $3007 = builtinIfElse
+    # Examples:fibonacci:23:13:calleeIsFunction:then
+    $3029 = { (responsible $3008) ->
+      $3009 = call $2982 with $2979 ($2980 is responsible)
+      $3010 = 1
+      $3011 = call $2981 with $3009 $3010 ($2980 is responsible)
+      $3012 = builtinIfElse
+      # Examples:fibonacci:23:13:hasCorrectNumberOfArguments:then
+      $3019 = { (responsible $3013) ->
+        $3014 = Examples:fibonacci:23:13
+        $3015 = trace: start of call of $2979 with $2859 ($2980 is responsible, code is at $3014)
+        $3016 = call $2979 with $2859 ($2980 is responsible)
+        $3017 = trace: end of call
+        $3018 = $3016
+      }
+      # Examples:fibonacci:23:13:hasCorrectNumberOfArguments:else
+      $3027 = { (responsible $3020) ->
+        $3021 = "You called a function that expects "
+        $3022 = call $2986 with $3009 ($2980 is responsible)
+        $3023 = " arguments with 1 arguments."
+        $3024 = call $2985 with $3021 $3022 ($2980 is responsible)
+        $3025 = call $2985 with $3024 $3023 ($2980 is responsible)
+        $3026 = panicking because $3025 ($2980 is at fault)
+      }
+      $3028 = call $3012 with $3011 $3019 $3027 ($2980 is responsible)
+    }
+    # Examples:fibonacci:23:13:calleeIsFunction:else
+    $3033 = { (responsible $3030) ->
+      $3031 = "You can only call tags or functions."
+      $3032 = panicking because $3031 ($2980 is at fault)
+    }
+    $3034 = call $3007 with $3006 $3029 $3033 ($2980 is responsible)
+  }
+  $3036 = call $2991 with $2990 $3003 $3035 ($2980 is responsible)
+}
+$3038 = $3037
+$3039 = $3038
+$3040 = Nothing
+$3041 = Main
+$3042 = [$3041: $3039]
+$3043 = builtinStructHasKey
+$3044 = Main
+$3045 = call $3043 with $3042 $3044 ($50 is responsible)
+$3046 = "The module doesn't export a main function."
+$3047 = builtinIfElse
+# Examples:fibonacci:then
+$3050 = { (responsible $3048) ->
+  $3049 = Nothing
+}
+# Examples:fibonacci:else
+$3053 = { (responsible $3051) ->
+  $3052 = panicking because $3046 ($50 is at fault)
+}
+$3054 = call $3047 with $3045 $3050 $3053 ($50 is responsible)
+$3055 = builtinStructGet
+$3056 = call $3055 with $3042 $3044 ($50 is responsible)
+$3057 = builtinTypeOf
+$3058 = call $3057 with $3056 ($50 is responsible)
+$3059 = builtinEquals
+$3060 = Function
+$3061 = call $3059 with $3058 $3060 ($50 is responsible)
+$3062 = "The exported main value is not a function."
+$3063 = builtinIfElse
+# Examples:fibonacci:then
+$3066 = { (responsible $3064) ->
+  $3065 = Nothing
+}
+# Examples:fibonacci:else
+$3069 = { (responsible $3067) ->
+  $3068 = panicking because $3062 ($50 is at fault)
+}
+$3070 = call $3063 with $3061 $3066 $3069 ($50 is responsible)
+$3071 = builtinGetArgumentCount
+$3072 = call $3071 with $3056 ($50 is responsible)
+$3073 = 1
+$3074 = call $3059 with $3072 $3073 ($50 is responsible)
+$3075 = "The exported main function doesn't accept exactly one parameter."
+$3076 = builtinIfElse
+# Examples:fibonacci:then
+$3079 = { (responsible $3077) ->
+  $3078 = Nothing
+}
+# Examples:fibonacci:else
+$3082 = { (responsible $3080) ->
+  $3081 = panicking because $3075 ($50 is at fault)
+}
+$3083 = call $3076 with $3074 $3079 $3082 ($50 is responsible)
+$3084 = $3056
