@@ -1,0 +1,185 @@
+# CST for module Examples:echo
+Cst $0 at 0..42: Comment:
+  octothorpe:Cst $1 at 0..1: Octothorpe
+  comment:" Echoes whatever you send to it on stdin."
+Cst $2 at 42..43: Newline "\n"
+Cst $3 at 43..44: Newline "\n"
+Cst $4 at 44..73: Assignment:
+  left:Cst $5 at 44..61: TrailingWhitespace:
+    child:Cst $6 at 44..60: Struct:
+      opening_bracket:Cst $7 at 44..45: OpeningBracket
+      fields: 
+        Cst $8 at 45..55: TrailingWhitespace:
+          child:Cst $9 at 45..54: StructField:
+            key_and_colon: None
+            value:Cst $10 at 45..53: Identifier "function"
+            comma: Cst $11 at 53..54: Comma
+          whitespace: 
+            Cst $12 at 54..55: Whitespace " "
+        Cst $13 at 55..59: StructField:
+          key_and_colon: None
+          value:Cst $14 at 55..59: Identifier "text"
+          comma: None
+      closing_bracket:Cst $15 at 59..60: ClosingBracket
+    whitespace: 
+      Cst $16 at 60..61: Whitespace " "
+  assignment_sign:Cst $17 at 61..63: TrailingWhitespace:
+    child:Cst $18 at 61..62: EqualsSign
+    whitespace: 
+      Cst $19 at 62..63: Whitespace " "
+  body: 
+    Cst $20 at 63..73: Call:
+      receiver:Cst $21 at 63..67: TrailingWhitespace:
+        child:Cst $22 at 63..66: Identifier "use"
+        whitespace: 
+          Cst $23 at 66..67: Whitespace " "
+      arguments: 
+        Cst $24 at 67..73: Text:
+          opening:Cst $25 at 67..68: OpeningText:
+            opening_single_quotes: 
+            opening_double_quote:Cst $26 at 67..68: DoubleQuote
+          parts: 
+            Cst $27 at 68..72: TextPart "Core"
+          closing:Cst $28 at 72..73: ClosingText:
+            closing_double_quote:Cst $29 at 72..73: DoubleQuote
+            closing_single_quotes: 
+Cst $30 at 73..74: Newline "\n"
+Cst $31 at 74..75: Newline "\n"
+Cst $32 at 75..252: Assignment:
+  left:Cst $33 at 75..80: TrailingWhitespace:
+    child:Cst $34 at 75..79: Identifier "main"
+    whitespace: 
+      Cst $35 at 79..80: Whitespace " "
+  assignment_sign:Cst $36 at 80..83: TrailingWhitespace:
+    child:Cst $37 at 80..82: ColonEqualsSign
+    whitespace: 
+      Cst $38 at 82..83: Whitespace " "
+  body: 
+    Cst $39 at 83..252: Function:
+      opening_curly_brace:Cst $40 at 83..85: TrailingWhitespace:
+        child:Cst $41 at 83..84: OpeningCurlyBrace
+        whitespace: 
+          Cst $42 at 84..85: Whitespace " "
+      parameters_and_arrow: 
+        parameters: 
+          Cst $43 at 85..97: TrailingWhitespace:
+            child:Cst $44 at 85..96: Identifier "environment"
+            whitespace: 
+              Cst $45 at 96..97: Whitespace " "
+        arrow:Cst $46 at 97..102: TrailingWhitespace:
+          child:Cst $47 at 97..99: Arrow
+          whitespace: 
+            Cst $48 at 99..100: Newline "\n"
+            Cst $49 at 100..102: Whitespace "  "
+      body: 
+        Cst $50 at 102..144: Assignment:
+          left:Cst $51 at 102..116: TrailingWhitespace:
+            child:Cst $52 at 102..115: Call:
+              receiver:Cst $53 at 102..108: TrailingWhitespace:
+                child:Cst $54 at 102..107: Identifier "print"
+                whitespace: 
+                  Cst $55 at 107..108: Whitespace " "
+              arguments: 
+                Cst $56 at 108..115: Identifier "message"
+            whitespace: 
+              Cst $57 at 115..116: Whitespace " "
+          assignment_sign:Cst $58 at 116..118: TrailingWhitespace:
+            child:Cst $59 at 116..117: EqualsSign
+            whitespace: 
+              Cst $60 at 117..118: Whitespace " "
+          body: 
+            Cst $61 at 118..144: Call:
+              receiver:Cst $62 at 118..137: TrailingWhitespace:
+                child:Cst $63 at 118..136: StructAccess:
+                  struct:Cst $64 at 118..129: Identifier "environment"
+                  dot:Cst $65 at 129..130: Dot
+                  key:Cst $66 at 130..136: Identifier "stdout"
+                whitespace: 
+                  Cst $67 at 136..137: Whitespace " "
+              arguments: 
+                Cst $68 at 137..144: Identifier "message"
+        Cst $69 at 144..145: Newline "\n"
+        Cst $70 at 145..147: Whitespace "  "
+        Cst $71 at 147..171: Assignment:
+          left:Cst $72 at 147..152: TrailingWhitespace:
+            child:Cst $73 at 147..151: Identifier "read"
+            whitespace: 
+              Cst $74 at 151..152: Whitespace " "
+          assignment_sign:Cst $75 at 152..154: TrailingWhitespace:
+            child:Cst $76 at 152..153: EqualsSign
+            whitespace: 
+              Cst $77 at 153..154: Whitespace " "
+          body: 
+            Cst $78 at 154..171: StructAccess:
+              struct:Cst $79 at 154..165: Identifier "environment"
+              dot:Cst $80 at 165..166: Dot
+              key:Cst $81 at 166..171: Identifier "stdin"
+        Cst $82 at 171..172: Newline "\n"
+        Cst $83 at 172..173: Newline "\n"
+        Cst $84 at 173..175: Whitespace "  "
+        Cst $85 at 175..196: Call:
+          receiver:Cst $86 at 175..181: TrailingWhitespace:
+            child:Cst $87 at 175..180: Identifier "print"
+            whitespace: 
+              Cst $88 at 180..181: Whitespace " "
+          arguments: 
+            Cst $89 at 181..196: Text:
+              opening:Cst $90 at 181..182: OpeningText:
+                opening_single_quotes: 
+                opening_double_quote:Cst $91 at 181..182: DoubleQuote
+              parts: 
+                Cst $92 at 182..195: TextPart "Hello, world!"
+              closing:Cst $93 at 195..196: ClosingText:
+                closing_double_quote:Cst $94 at 195..196: DoubleQuote
+                closing_single_quotes: 
+        Cst $95 at 196..197: Newline "\n"
+        Cst $96 at 197..199: Whitespace "  "
+        Cst $97 at 199..222: Assignment:
+          left:Cst $98 at 199..203: TrailingWhitespace:
+            child:Cst $99 at 199..202: Identifier "foo"
+            whitespace: 
+              Cst $100 at 202..203: Whitespace " "
+          assignment_sign:Cst $101 at 203..205: TrailingWhitespace:
+            child:Cst $102 at 203..204: EqualsSign
+            whitespace: 
+              Cst $103 at 204..205: Whitespace " "
+          body: 
+            Cst $104 at 205..222: Call:
+              receiver:Cst $105 at 205..218: TrailingWhitespace:
+                child:Cst $106 at 205..217: StructAccess:
+                  struct:Cst $107 at 205..213: Identifier "function"
+                  dot:Cst $108 at 213..214: Dot
+                  key:Cst $109 at 214..217: Identifier "run"
+                whitespace: 
+                  Cst $110 at 217..218: Whitespace " "
+              arguments: 
+                Cst $111 at 218..222: Identifier "read"
+        Cst $112 at 222..223: Newline "\n"
+        Cst $113 at 223..225: Whitespace "  "
+        Cst $114 at 225..238: Call:
+          receiver:Cst $115 at 225..231: TrailingWhitespace:
+            child:Cst $116 at 225..230: Identifier "print"
+            whitespace: 
+              Cst $117 at 230..231: Whitespace " "
+          arguments: 
+            Cst $118 at 231..238: Text:
+              opening:Cst $119 at 231..232: OpeningText:
+                opening_single_quotes: 
+                opening_double_quote:Cst $120 at 231..232: DoubleQuote
+              parts: 
+                Cst $121 at 232..237: TextPart "Echo:"
+              closing:Cst $122 at 237..238: ClosingText:
+                closing_double_quote:Cst $123 at 237..238: DoubleQuote
+                closing_single_quotes: 
+        Cst $124 at 238..239: Newline "\n"
+        Cst $125 at 239..241: Whitespace "  "
+        Cst $126 at 241..250: Call:
+          receiver:Cst $127 at 241..247: TrailingWhitespace:
+            child:Cst $128 at 241..246: Identifier "print"
+            whitespace: 
+              Cst $129 at 246..247: Whitespace " "
+          arguments: 
+            Cst $130 at 247..250: Identifier "foo"
+        Cst $131 at 250..251: Newline "\n"
+      closing_curly_brace:Cst $132 at 251..252: ClosingCurlyBrace
+Cst $133 at 252..253: Newline "\n"

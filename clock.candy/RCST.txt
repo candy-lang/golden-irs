@@ -1,0 +1,241 @@
+# RCST for module Examples:clock
+Assignment:
+  left:TrailingWhitespace:
+    child:Struct:
+      opening_bracket:OpeningBracket
+      fields: 
+        TrailingWhitespace:
+          child:StructField:
+            key_and_colon: None
+            value:Identifier "clock"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        TrailingWhitespace:
+          child:StructField:
+            key_and_colon: None
+            value:Identifier "duration"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        StructField:
+          key_and_colon: None
+          value:Identifier "instant"
+          comma: None
+      closing_bracket:ClosingBracket
+    whitespace: 
+      Whitespace " "
+  assignment_sign:TrailingWhitespace:
+    child:EqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Call:
+      receiver:TrailingWhitespace:
+        child:Identifier "use"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Text:
+          opening:OpeningText:
+            opening_single_quotes: 
+            opening_double_quote:DoubleQuote
+          parts: 
+            TextPart "Chrono"
+          closing:ClosingText:
+            closing_double_quote:DoubleQuote
+            closing_single_quotes: 
+Newline "\n"
+Assignment:
+  left:TrailingWhitespace:
+    child:Struct:
+      opening_bracket:OpeningBracket
+      fields: 
+        TrailingWhitespace:
+          child:StructField:
+            key_and_colon: None
+            value:Identifier "tag"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        StructField:
+          key_and_colon: None
+          value:Identifier "fixedDecimal"
+          comma: None
+      closing_bracket:ClosingBracket
+    whitespace: 
+      Whitespace " "
+  assignment_sign:TrailingWhitespace:
+    child:EqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Call:
+      receiver:TrailingWhitespace:
+        child:Identifier "use"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Text:
+          opening:OpeningText:
+            opening_single_quotes: 
+            opening_double_quote:DoubleQuote
+          parts: 
+            TextPart "Core"
+          closing:ClosingText:
+            closing_double_quote:DoubleQuote
+            closing_single_quotes: 
+Newline "\n"
+Newline "\n"
+Assignment:
+  left:TrailingWhitespace:
+    child:Identifier "main"
+    whitespace: 
+      Whitespace " "
+  assignment_sign:TrailingWhitespace:
+    child:ColonEqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Function:
+      opening_curly_brace:TrailingWhitespace:
+        child:OpeningCurlyBrace
+        whitespace: 
+          Whitespace " "
+      parameters_and_arrow: 
+        parameters: 
+          TrailingWhitespace:
+            child:Identifier "environment"
+            whitespace: 
+              Whitespace " "
+        arrow:TrailingWhitespace:
+          child:Arrow
+          whitespace: 
+            Newline "\n"
+            Whitespace "  "
+      body: 
+        Assignment:
+          left:TrailingWhitespace:
+            child:Call:
+              receiver:TrailingWhitespace:
+                child:Identifier "print"
+                whitespace: 
+                  Whitespace " "
+              arguments: 
+                Identifier "message"
+            whitespace: 
+              Whitespace " "
+          assignment_sign:TrailingWhitespace:
+            child:EqualsSign
+            whitespace: 
+              Whitespace " "
+          body: 
+            Call:
+              receiver:TrailingWhitespace:
+                child:StructAccess:
+                  struct:Identifier "environment"
+                  dot:Dot
+                  key:Identifier "stdout"
+                whitespace: 
+                  Whitespace " "
+              arguments: 
+                Identifier "message"
+        Newline "\n"
+        Newline "\n"
+        Whitespace "  "
+        Assignment:
+          left:TrailingWhitespace:
+            child:Identifier "c"
+            whitespace: 
+              Whitespace " "
+          assignment_sign:TrailingWhitespace:
+            child:EqualsSign
+            whitespace: 
+              Whitespace " "
+          body: 
+            Call:
+              receiver:TrailingWhitespace:
+                child:StructAccess:
+                  struct:Identifier "clock"
+                  dot:Dot
+                  key:Identifier "fromSystemClock"
+                whitespace: 
+                  Whitespace " "
+              arguments: 
+                StructAccess:
+                  struct:Identifier "environment"
+                  dot:Dot
+                  key:Identifier "systemClock"
+        Newline "\n"
+        Whitespace "  "
+        Assignment:
+          left:TrailingWhitespace:
+            child:Identifier "now"
+            whitespace: 
+              Whitespace " "
+          assignment_sign:TrailingWhitespace:
+            child:EqualsSign
+            whitespace: 
+              Whitespace " "
+          body: 
+            Call:
+              receiver:TrailingWhitespace:
+                child:StructAccess:
+                  struct:Identifier "clock"
+                  dot:Dot
+                  key:Identifier "now"
+                whitespace: 
+                  Whitespace " "
+              arguments: 
+                Identifier "c"
+        Newline "\n"
+        Whitespace "  "
+        Call:
+          receiver:TrailingWhitespace:
+            child:Identifier "print"
+            whitespace: 
+              Whitespace " "
+          arguments: 
+            Text:
+              opening:OpeningText:
+                opening_single_quotes: 
+                opening_double_quote:DoubleQuote
+              parts: 
+                TextPart "It has been "
+                TextInterpolation:
+                  opening_curly_braces: 
+                    OpeningCurlyBrace
+                  expression:BinaryBar:
+                    left:TrailingWhitespace:
+                      child:BinaryBar:
+                        left:TrailingWhitespace:
+                          child:Identifier "now"
+                          whitespace: 
+                            Whitespace " "
+                        bar:TrailingWhitespace:
+                          child:Bar
+                          whitespace: 
+                            Whitespace " "
+                        right:StructAccess:
+                          struct:Identifier "instant"
+                          dot:Dot
+                          key:Identifier "toUnixTimeDuration"
+                      whitespace: 
+                        Whitespace " "
+                    bar:TrailingWhitespace:
+                      child:Bar
+                      whitespace: 
+                        Whitespace " "
+                    right:StructAccess:
+                      struct:Identifier "duration"
+                      dot:Dot
+                      key:Identifier "toText"
+                  closing_curly_braces: 
+                    ClosingCurlyBrace
+                TextPart " since the start the of Unix epoch"
+              closing:ClosingText:
+                closing_double_quote:DoubleQuote
+                closing_single_quotes: 
+        Newline "\n"
+      closing_curly_brace:ClosingCurlyBrace
+Newline "\n"

@@ -1,0 +1,718 @@
+# RCST for module Examples:fibonacci
+Assignment:
+  left:TrailingWhitespace:
+    child:Identifier "builtins"
+    whitespace: 
+      Whitespace " "
+  assignment_sign:TrailingWhitespace:
+    child:EqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Call:
+      receiver:TrailingWhitespace:
+        child:Identifier "use"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Text:
+          opening:OpeningText:
+            opening_single_quotes: 
+            opening_double_quote:DoubleQuote
+          parts: 
+            TextPart "Builtins"
+          closing:ClosingText:
+            closing_double_quote:DoubleQuote
+            closing_single_quotes: 
+Newline "\n"
+Assignment:
+  left:TrailingWhitespace:
+    child:Struct:
+      opening_bracket:OpeningBracket
+      fields: 
+        TrailingWhitespace:
+          child:StructField:
+            key_and_colon: None
+            value:Identifier "int"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        TrailingWhitespace:
+          child:StructField:
+            key_and_colon: None
+            value:Identifier "result"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        StructField:
+          key_and_colon: None
+          value:Identifier "toDebugText"
+          comma: None
+      closing_bracket:ClosingBracket
+    whitespace: 
+      Whitespace " "
+  assignment_sign:TrailingWhitespace:
+    child:EqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Call:
+      receiver:TrailingWhitespace:
+        child:Identifier "use"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Text:
+          opening:OpeningText:
+            opening_single_quotes: 
+            opening_double_quote:DoubleQuote
+          parts: 
+            TextPart "Core"
+          closing:ClosingText:
+            closing_double_quote:DoubleQuote
+            closing_single_quotes: 
+Newline "\n"
+Newline "\n"
+Assignment:
+  left:TrailingWhitespace:
+    child:Call:
+      receiver:TrailingWhitespace:
+        child:Identifier "recursive"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        TrailingWhitespace:
+          child:Identifier "initialArg"
+          whitespace: 
+            Whitespace " "
+        Identifier "body"
+    whitespace: 
+      Whitespace " "
+  assignment_sign:TrailingWhitespace:
+    child:EqualsSign
+    whitespace: 
+      Newline "\n"
+      Whitespace "  "
+  body: 
+    Comment:
+      octothorpe:Octothorpe
+      comment:" needs"
+    Newline "\n"
+    Whitespace "  "
+    Comment:
+      octothorpe:Octothorpe
+      comment:"   function.is2 body"
+    Newline "\n"
+    Whitespace "  "
+    Comment:
+      octothorpe:Octothorpe
+      comment:"   "The `body` should take the recursive function and the argument.""
+    Newline "\n"
+    Whitespace "  "
+    Assignment:
+      left:TrailingWhitespace:
+        child:Identifier "recurse"
+        whitespace: 
+          Whitespace " "
+      assignment_sign:TrailingWhitespace:
+        child:EqualsSign
+        whitespace: 
+          Whitespace " "
+      body: 
+        Function:
+          opening_curly_brace:TrailingWhitespace:
+            child:OpeningCurlyBrace
+            whitespace: 
+              Whitespace " "
+          parameters_and_arrow: 
+            parameters: 
+              TrailingWhitespace:
+                child:Identifier "recurse"
+                whitespace: 
+                  Whitespace " "
+              TrailingWhitespace:
+                child:Identifier "arg"
+                whitespace: 
+                  Whitespace " "
+            arrow:TrailingWhitespace:
+              child:Arrow
+              whitespace: 
+                Newline "\n"
+                Whitespace "    "
+          body: 
+            Assignment:
+              left:TrailingWhitespace:
+                child:Identifier "rec"
+                whitespace: 
+                  Whitespace " "
+              assignment_sign:TrailingWhitespace:
+                child:EqualsSign
+                whitespace: 
+                  Whitespace " "
+              body: 
+                Function:
+                  opening_curly_brace:TrailingWhitespace:
+                    child:OpeningCurlyBrace
+                    whitespace: 
+                      Whitespace " "
+                  parameters_and_arrow: 
+                    parameters: 
+                      TrailingWhitespace:
+                        child:Identifier "arg"
+                        whitespace: 
+                          Whitespace " "
+                    arrow:TrailingWhitespace:
+                      child:Arrow
+                      whitespace: 
+                        Whitespace " "
+                  body: 
+                    TrailingWhitespace:
+                      child:Call:
+                        receiver:TrailingWhitespace:
+                          child:Identifier "recurse"
+                          whitespace: 
+                            Whitespace " "
+                        arguments: 
+                          TrailingWhitespace:
+                            child:Identifier "recurse"
+                            whitespace: 
+                              Whitespace " "
+                          Identifier "arg"
+                      whitespace: 
+                        Whitespace " "
+                  closing_curly_brace:ClosingCurlyBrace
+            Newline "\n"
+            Whitespace "    "
+            Call:
+              receiver:TrailingWhitespace:
+                child:Identifier "body"
+                whitespace: 
+                  Whitespace " "
+              arguments: 
+                TrailingWhitespace:
+                  child:Identifier "rec"
+                  whitespace: 
+                    Whitespace " "
+                Identifier "arg"
+            Newline "\n"
+            Whitespace "  "
+          closing_curly_brace:ClosingCurlyBrace
+    Newline "\n"
+    Whitespace "  "
+    Call:
+      receiver:TrailingWhitespace:
+        child:Identifier "recurse"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        TrailingWhitespace:
+          child:Identifier "recurse"
+          whitespace: 
+            Whitespace " "
+        Identifier "initialArg"
+Newline "\n"
+Newline "\n"
+Assignment:
+  left:TrailingWhitespace:
+    child:Call:
+      receiver:TrailingWhitespace:
+        child:Identifier "compareTo"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        TrailingWhitespace:
+          child:Identifier "valueA"
+          whitespace: 
+            Whitespace " "
+        Identifier "valueB"
+    whitespace: 
+      Whitespace " "
+  assignment_sign:TrailingWhitespace:
+    child:EqualsSign
+    whitespace: 
+      Newline "\n"
+      Whitespace "  "
+  body: 
+    Comment:
+      octothorpe:Octothorpe
+      comment:" needs (is valueA)"
+    Newline "\n"
+    Whitespace "  "
+    Comment:
+      octothorpe:Octothorpe
+      comment:" needs (is valueB)"
+    Newline "\n"
+    Whitespace "  "
+    Assignment:
+      left:TrailingWhitespace:
+        child:Identifier "result"
+        whitespace: 
+          Whitespace " "
+      assignment_sign:TrailingWhitespace:
+        child:EqualsSign
+        whitespace: 
+          Whitespace " "
+      body: 
+        BinaryBar:
+          left:TrailingWhitespace:
+            child:Identifier "valueA"
+            whitespace: 
+              Whitespace " "
+          bar:TrailingWhitespace:
+            child:Bar
+            whitespace: 
+              Whitespace " "
+          right:Call:
+            receiver:TrailingWhitespace:
+              child:StructAccess:
+                struct:Identifier "builtins"
+                dot:Dot
+                key:Identifier "intCompareTo"
+              whitespace: 
+                Whitespace " "
+            arguments: 
+              Identifier "valueB"
+    Newline "\n"
+    Whitespace "  "
+    Comment:
+      octothorpe:Octothorpe
+      comment:" check (equals result Equal | bool.implies (equals valueA valueB))"
+    Newline "\n"
+    Whitespace "  "
+    Comment:
+      octothorpe:Octothorpe
+      comment:" check ((equals result Equal) | bool.implies (equals valueA valueB))"
+    Newline "\n"
+    Whitespace "  "
+    Identifier "result"
+Newline "\n"
+Assignment:
+  left:TrailingWhitespace:
+    child:Call:
+      receiver:TrailingWhitespace:
+        child:Identifier "isLessThan"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        TrailingWhitespace:
+          child:Identifier "valueA"
+          whitespace: 
+            Whitespace " "
+        Identifier "valueB"
+    whitespace: 
+      Whitespace " "
+  assignment_sign:TrailingWhitespace:
+    child:EqualsSign
+    whitespace: 
+      Newline "\n"
+      Whitespace "  "
+  body: 
+    Comment:
+      octothorpe:Octothorpe
+      comment:" needs (is valueA)"
+    Newline "\n"
+    Whitespace "  "
+    Comment:
+      octothorpe:Octothorpe
+      comment:" needs (is valueB)"
+    Newline "\n"
+    Whitespace "  "
+    Call:
+      receiver:TrailingWhitespace:
+        child:StructAccess:
+          struct:Identifier "builtins"
+          dot:Dot
+          key:Identifier "equals"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        TrailingWhitespace:
+          child:Parenthesized:
+            opening_parenthesis:OpeningParenthesis
+            inner:Call:
+              receiver:TrailingWhitespace:
+                child:Identifier "compareTo"
+                whitespace: 
+                  Whitespace " "
+              arguments: 
+                TrailingWhitespace:
+                  child:Identifier "valueA"
+                  whitespace: 
+                    Whitespace " "
+                Identifier "valueB"
+            closing_parenthesis:ClosingParenthesis
+          whitespace: 
+            Whitespace " "
+        Symbol "Less"
+Newline "\n"
+Newline "\n"
+Assignment:
+  left:TrailingWhitespace:
+    child:Call:
+      receiver:TrailingWhitespace:
+        child:Identifier "fibonacci"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Identifier "n"
+    whitespace: 
+      Whitespace " "
+  assignment_sign:TrailingWhitespace:
+    child:EqualsSign
+    whitespace: 
+      Newline "\n"
+      Whitespace "  "
+  body: 
+    Comment:
+      octothorpe:Octothorpe
+      comment:" needs (int.is n)"
+    Newline "\n"
+    Whitespace "  "
+    Call:
+      receiver:TrailingWhitespace:
+        child:Identifier "recursive"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        TrailingWhitespace:
+          child:Identifier "n"
+          whitespace: 
+            Whitespace " "
+        Function:
+          opening_curly_brace:TrailingWhitespace:
+            child:OpeningCurlyBrace
+            whitespace: 
+              Whitespace " "
+          parameters_and_arrow: 
+            parameters: 
+              TrailingWhitespace:
+                child:Identifier "recurse"
+                whitespace: 
+                  Whitespace " "
+              TrailingWhitespace:
+                child:Identifier "n"
+                whitespace: 
+                  Whitespace " "
+            arrow:TrailingWhitespace:
+              child:Arrow
+              whitespace: 
+                Newline "\n"
+                Whitespace "    "
+          body: 
+            Call:
+              receiver:TrailingWhitespace:
+                child:StructAccess:
+                  struct:Identifier "builtins"
+                  dot:Dot
+                  key:Identifier "ifElse"
+                whitespace: 
+                  Whitespace " "
+              arguments: 
+                TrailingWhitespace:
+                  child:Parenthesized:
+                    opening_parenthesis:OpeningParenthesis
+                    inner:BinaryBar:
+                      left:TrailingWhitespace:
+                        child:Identifier "n"
+                        whitespace: 
+                          Whitespace " "
+                      bar:TrailingWhitespace:
+                        child:Bar
+                        whitespace: 
+                          Whitespace " "
+                      right:Call:
+                        receiver:TrailingWhitespace:
+                          child:Identifier "isLessThan"
+                          whitespace: 
+                            Whitespace " "
+                        arguments: 
+                          Int:
+                            radix_prefix: None
+                            value: 2
+                            string:"2"
+                    closing_parenthesis:ClosingParenthesis
+                  whitespace: 
+                    Whitespace " "
+                TrailingWhitespace:
+                  child:Function:
+                    opening_curly_brace:TrailingWhitespace:
+                      child:OpeningCurlyBrace
+                      whitespace: 
+                        Whitespace " "
+                    parameters_and_arrow: None
+                    body: 
+                      Identifier "n"
+                      Whitespace " "
+                    closing_curly_brace:ClosingCurlyBrace
+                  whitespace: 
+                    Whitespace " "
+                Function:
+                  opening_curly_brace:TrailingWhitespace:
+                    child:OpeningCurlyBrace
+                    whitespace: 
+                      Newline "\n"
+                      Whitespace "      "
+                  parameters_and_arrow: None
+                  body: 
+                    BinaryBar:
+                      left:TrailingWhitespace:
+                        child:Call:
+                          receiver:TrailingWhitespace:
+                            child:Identifier "recurse"
+                            whitespace: 
+                              Whitespace " "
+                          arguments: 
+                            Parenthesized:
+                              opening_parenthesis:OpeningParenthesis
+                              inner:BinaryBar:
+                                left:TrailingWhitespace:
+                                  child:Identifier "n"
+                                  whitespace: 
+                                    Whitespace " "
+                                bar:TrailingWhitespace:
+                                  child:Bar
+                                  whitespace: 
+                                    Whitespace " "
+                                right:Call:
+                                  receiver:TrailingWhitespace:
+                                    child:StructAccess:
+                                      struct:Identifier "builtins"
+                                      dot:Dot
+                                      key:Identifier "intSubtract"
+                                    whitespace: 
+                                      Whitespace " "
+                                  arguments: 
+                                    Int:
+                                      radix_prefix: None
+                                      value: 1
+                                      string:"1"
+                              closing_parenthesis:ClosingParenthesis
+                        whitespace: 
+                          Whitespace " "
+                      bar:TrailingWhitespace:
+                        child:Bar
+                        whitespace: 
+                          Whitespace " "
+                      right:Call:
+                        receiver:TrailingWhitespace:
+                          child:StructAccess:
+                            struct:Identifier "builtins"
+                            dot:Dot
+                            key:Identifier "intAdd"
+                          whitespace: 
+                            Whitespace " "
+                        arguments: 
+                          Parenthesized:
+                            opening_parenthesis:OpeningParenthesis
+                            inner:Call:
+                              receiver:TrailingWhitespace:
+                                child:Identifier "recurse"
+                                whitespace: 
+                                  Whitespace " "
+                              arguments: 
+                                Parenthesized:
+                                  opening_parenthesis:OpeningParenthesis
+                                  inner:BinaryBar:
+                                    left:TrailingWhitespace:
+                                      child:Identifier "n"
+                                      whitespace: 
+                                        Whitespace " "
+                                    bar:TrailingWhitespace:
+                                      child:Bar
+                                      whitespace: 
+                                        Whitespace " "
+                                    right:Call:
+                                      receiver:TrailingWhitespace:
+                                        child:StructAccess:
+                                          struct:Identifier "builtins"
+                                          dot:Dot
+                                          key:Identifier "intSubtract"
+                                        whitespace: 
+                                          Whitespace " "
+                                      arguments: 
+                                        Int:
+                                          radix_prefix: None
+                                          value: 2
+                                          string:"2"
+                                  closing_parenthesis:ClosingParenthesis
+                            closing_parenthesis:ClosingParenthesis
+                    Newline "\n"
+                    Whitespace "    "
+                  closing_curly_brace:ClosingCurlyBrace
+            Newline "\n"
+            Whitespace "  "
+          closing_curly_brace:ClosingCurlyBrace
+Newline "\n"
+Newline "\n"
+Assignment:
+  left:TrailingWhitespace:
+    child:Identifier "main"
+    whitespace: 
+      Whitespace " "
+  assignment_sign:TrailingWhitespace:
+    child:ColonEqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Function:
+      opening_curly_brace:TrailingWhitespace:
+        child:OpeningCurlyBrace
+        whitespace: 
+          Whitespace " "
+      parameters_and_arrow: 
+        parameters: 
+          TrailingWhitespace:
+            child:Identifier "environment"
+            whitespace: 
+              Whitespace " "
+        arrow:TrailingWhitespace:
+          child:Arrow
+          whitespace: 
+            Newline "\n"
+            Whitespace "  "
+      body: 
+        BinaryBar:
+          left:TrailingWhitespace:
+            child:Match:
+              expression:TrailingWhitespace:
+                child:StructAccess:
+                  struct:Identifier "environment"
+                  dot:Dot
+                  key:Identifier "arguments"
+                whitespace: 
+                  Whitespace " "
+              percent:TrailingWhitespace:
+                child:Percent
+                whitespace: 
+                  Newline "\n"
+                  Whitespace "    "
+              cases: 
+                TrailingWhitespace:
+                  child:MatchCase:
+                    pattern:TrailingWhitespace:
+                      child:List:
+                        opening_parenthesis:OpeningParenthesis
+                        items: 
+                          ListItem:
+                            value:Identifier "n"
+                            comma: Comma
+                        closing_parenthesis:ClosingParenthesis
+                      whitespace: 
+                        Whitespace " "
+                    arrow:TrailingWhitespace:
+                      child:Arrow
+                      whitespace: 
+                        Whitespace " "
+                    body: 
+                      BinaryBar:
+                        left:BinaryBar:
+                          left:TrailingWhitespace:
+                            child:BinaryBar:
+                              left:TrailingWhitespace:
+                                child:Identifier "n"
+                                whitespace: 
+                                  Whitespace " "
+                              bar:TrailingWhitespace:
+                                child:Bar
+                                whitespace: 
+                                  Whitespace " "
+                              right:StructAccess:
+                                struct:Identifier "int"
+                                dot:Dot
+                                key:Identifier "parse"
+                            whitespace: 
+                              Whitespace " "
+                          bar:TrailingWhitespace:
+                            child:Bar
+                            whitespace: 
+                              Whitespace " "
+                          right:TrailingWhitespace:
+                            child:Call:
+                              receiver:TrailingWhitespace:
+                                child:StructAccess:
+                                  struct:Identifier "result"
+                                  dot:Dot
+                                  key:Identifier "map"
+                                whitespace: 
+                                  Whitespace " "
+                              arguments: 
+                                Function:
+                                  opening_curly_brace:TrailingWhitespace:
+                                    child:OpeningCurlyBrace
+                                    whitespace: 
+                                      Whitespace " "
+                                  parameters_and_arrow: 
+                                    parameters: 
+                                      TrailingWhitespace:
+                                        child:Identifier "it"
+                                        whitespace: 
+                                          Whitespace " "
+                                    arrow:TrailingWhitespace:
+                                      child:Arrow
+                                      whitespace: 
+                                        Whitespace " "
+                                  body: 
+                                    BinaryBar:
+                                      left:TrailingWhitespace:
+                                        child:Call:
+                                          receiver:TrailingWhitespace:
+                                            child:Identifier "fibonacci"
+                                            whitespace: 
+                                              Whitespace " "
+                                          arguments: 
+                                            Identifier "it"
+                                        whitespace: 
+                                          Whitespace " "
+                                      bar:TrailingWhitespace:
+                                        child:Bar
+                                        whitespace: 
+                                          Whitespace " "
+                                      right:Identifier "toDebugText"
+                                    Whitespace " "
+                                  closing_curly_brace:ClosingCurlyBrace
+                            whitespace: 
+                              Whitespace " "
+                        bar:TrailingWhitespace:
+                          child:Bar
+                          whitespace: 
+                            Whitespace " "
+                        right:StructAccess:
+                          struct:Identifier "result"
+                          dot:Dot
+                          key:Identifier "getValue"
+                  whitespace: 
+                    Newline "\n"
+                    Whitespace "    "
+                MatchCase:
+                  pattern:TrailingWhitespace:
+                    child:Identifier "_"
+                    whitespace: 
+                      Whitespace " "
+                  arrow:TrailingWhitespace:
+                    child:Arrow
+                    whitespace: 
+                      Whitespace " "
+                  body: 
+                    Text:
+                      opening:OpeningText:
+                        opening_single_quotes: 
+                        opening_double_quote:DoubleQuote
+                      parts: 
+                        TextPart "Usage: `cargo run -- run fibonacci.candy -- <number>`"
+                      closing:ClosingText:
+                        closing_double_quote:DoubleQuote
+                        closing_single_quotes: 
+            whitespace: 
+              Newline "\n"
+              Whitespace "  "
+          bar:TrailingWhitespace:
+            child:Bar
+            whitespace: 
+              Whitespace " "
+          right:StructAccess:
+            struct:Identifier "environment"
+            dot:Dot
+            key:Identifier "stdout"
+        Newline "\n"
+      closing_curly_brace:ClosingCurlyBrace
+Newline "\n"

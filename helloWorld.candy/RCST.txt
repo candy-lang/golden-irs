@@ -1,0 +1,54 @@
+# RCST for module Examples:helloWorld
+Comment:
+  octothorpe:Octothorpe
+  comment:" A self-contained hello world example that doesn't even use the Core library."
+Newline "\n"
+Newline "\n"
+Assignment:
+  left:TrailingWhitespace:
+    child:Identifier "main"
+    whitespace: 
+      Whitespace " "
+  assignment_sign:TrailingWhitespace:
+    child:ColonEqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Function:
+      opening_curly_brace:TrailingWhitespace:
+        child:OpeningCurlyBrace
+        whitespace: 
+          Whitespace " "
+      parameters_and_arrow: 
+        parameters: 
+          TrailingWhitespace:
+            child:Identifier "environment"
+            whitespace: 
+              Whitespace " "
+        arrow:TrailingWhitespace:
+          child:Arrow
+          whitespace: 
+            Newline "\n"
+            Whitespace "  "
+      body: 
+        Call:
+          receiver:TrailingWhitespace:
+            child:StructAccess:
+              struct:Identifier "environment"
+              dot:Dot
+              key:Identifier "stdout"
+            whitespace: 
+              Whitespace " "
+          arguments: 
+            Text:
+              opening:OpeningText:
+                opening_single_quotes: 
+                opening_double_quote:DoubleQuote
+              parts: 
+                TextPart "Hello, world!"
+              closing:ClosingText:
+                closing_double_quote:DoubleQuote
+                closing_single_quotes: 
+        Newline "\n"
+      closing_curly_brace:ClosingCurlyBrace
+Newline "\n"
