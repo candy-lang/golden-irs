@@ -1,0 +1,533 @@
+# RCST for module Examples:higherLower
+Comment:
+  octothorpe: Octothorpe
+  comment: " Repeatedly asks you for a guess and tells you whether the secret number is"
+Newline "\n"
+Comment:
+  octothorpe: Octothorpe
+  comment: " higher or lower. Exits once you found the secret number."
+Newline "\n"
+Newline "\n"
+Assignment:
+  left: TrailingWhitespace:
+    child: Struct:
+      opening_bracket: OpeningBracket
+      fields: 
+        TrailingWhitespace:
+          child: StructField:
+            key_and_colon: None
+            value: Identifier "equals"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        TrailingWhitespace:
+          child: StructField:
+            key_and_colon: None
+            value: Identifier "ifElse"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        TrailingWhitespace:
+          child: StructField:
+            key_and_colon: None
+            value: Identifier "int"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        TrailingWhitespace:
+          child: StructField:
+            key_and_colon: None
+            value: Identifier "loop"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        TrailingWhitespace:
+          child: StructField:
+            key_and_colon: None
+            value: Identifier "result"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        TrailingWhitespace:
+          child: StructField:
+            key_and_colon: None
+            value: Identifier "function"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        StructField:
+          key_and_colon: None
+          value: Identifier "text"
+          comma: None
+      closing_bracket: ClosingBracket
+    whitespace: 
+      Whitespace " "
+  assignment_sign: TrailingWhitespace:
+    child: EqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Call:
+      receiver: TrailingWhitespace:
+        child: Identifier "use"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Text:
+          opening: OpeningText:
+            opening_single_quotes: 
+            opening_double_quote: DoubleQuote
+          parts: 
+            TextPart "Core"
+          closing: ClosingText:
+            closing_double_quote: DoubleQuote
+            closing_single_quotes: 
+Newline "\n"
+Assignment:
+  left: TrailingWhitespace:
+    child: Struct:
+      opening_bracket: OpeningBracket
+      fields: 
+        StructField:
+          key_and_colon: None
+          value: Identifier "run"
+          comma: None
+      closing_bracket: ClosingBracket
+    whitespace: 
+      Whitespace " "
+  assignment_sign: TrailingWhitespace:
+    child: EqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Identifier "function"
+Newline "\n"
+Newline "\n"
+Assignment:
+  left: TrailingWhitespace:
+    child: Identifier "main"
+    whitespace: 
+      Whitespace " "
+  assignment_sign: TrailingWhitespace:
+    child: ColonEqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Function:
+      opening_curly_brace: TrailingWhitespace:
+        child: OpeningCurlyBrace
+        whitespace: 
+          Whitespace " "
+      parameters_and_arrow: 
+        parameters: 
+          TrailingWhitespace:
+            child: Identifier "environment"
+            whitespace: 
+              Whitespace " "
+        arrow: TrailingWhitespace:
+          child: Arrow
+          whitespace: 
+            Newline "\n"
+            Whitespace "  "
+      body: 
+        Assignment:
+          left: TrailingWhitespace:
+            child: Call:
+              receiver: TrailingWhitespace:
+                child: Identifier "print"
+                whitespace: 
+                  Whitespace " "
+              arguments: 
+                Identifier "message"
+            whitespace: 
+              Whitespace " "
+          assignment_sign: TrailingWhitespace:
+            child: EqualsSign
+            whitespace: 
+              Whitespace " "
+          body: 
+            Call:
+              receiver: TrailingWhitespace:
+                child: StructAccess:
+                  struct: Identifier "environment"
+                  dot: Dot
+                  key: Identifier "stdout"
+                whitespace: 
+                  Whitespace " "
+              arguments: 
+                Identifier "message"
+        Newline "\n"
+        Whitespace "  "
+        Assignment:
+          left: TrailingWhitespace:
+            child: Identifier "read"
+            whitespace: 
+              Whitespace " "
+          assignment_sign: TrailingWhitespace:
+            child: EqualsSign
+            whitespace: 
+              Whitespace " "
+          body: 
+            Function:
+              opening_curly_brace: TrailingWhitespace:
+                child: OpeningCurlyBrace
+                whitespace: 
+                  Whitespace " "
+              parameters_and_arrow: None
+              body: 
+                TrailingWhitespace:
+                  child: Call:
+                    receiver: TrailingWhitespace:
+                      child: Identifier "run"
+                      whitespace: 
+                        Whitespace " "
+                    arguments: 
+                      StructAccess:
+                        struct: Identifier "environment"
+                        dot: Dot
+                        key: Identifier "stdin"
+                  whitespace: 
+                    Whitespace " "
+              closing_curly_brace: ClosingCurlyBrace
+        Newline "\n"
+        Newline "\n"
+        Whitespace "  "
+        Call:
+          receiver: TrailingWhitespace:
+            child: Identifier "print"
+            whitespace: 
+              Whitespace " "
+          arguments: 
+            Text:
+              opening: OpeningText:
+                opening_single_quotes: 
+                opening_double_quote: DoubleQuote
+              parts: 
+                TextPart "Welcome to the number guessing game!"
+              closing: ClosingText:
+                closing_double_quote: DoubleQuote
+                closing_single_quotes: 
+        Newline "\n"
+        Newline "\n"
+        Whitespace "  "
+        Assignment:
+          left: TrailingWhitespace:
+            child: Identifier "correct"
+            whitespace: 
+              Whitespace " "
+          assignment_sign: TrailingWhitespace:
+            child: EqualsSign
+            whitespace: 
+              Whitespace " "
+          body: 
+            Int:
+              radix_prefix: None
+              value: 42
+              string: "42"
+        Newline "\n"
+        Whitespace "  "
+        Call:
+          receiver: TrailingWhitespace:
+            child: Identifier "loop"
+            whitespace: 
+              Whitespace " "
+          arguments: 
+            Function:
+              opening_curly_brace: TrailingWhitespace:
+                child: OpeningCurlyBrace
+                whitespace: 
+                  Newline "\n"
+                  Whitespace "    "
+              parameters_and_arrow: None
+              body: 
+                Call:
+                  receiver: TrailingWhitespace:
+                    child: Identifier "print"
+                    whitespace: 
+                      Whitespace " "
+                  arguments: 
+                    Text:
+                      opening: OpeningText:
+                        opening_single_quotes: 
+                        opening_double_quote: DoubleQuote
+                      parts: 
+                        TextPart "What's your guess?"
+                      closing: ClosingText:
+                        closing_double_quote: DoubleQuote
+                        closing_single_quotes: 
+                Newline "\n"
+                Whitespace "    "
+                Assignment:
+                  left: TrailingWhitespace:
+                    child: Identifier "guess"
+                    whitespace: 
+                      Whitespace " "
+                  assignment_sign: TrailingWhitespace:
+                    child: EqualsSign
+                    whitespace: 
+                      Whitespace " "
+                  body: 
+                    BinaryBar:
+                      left: TrailingWhitespace:
+                        child: BinaryBar:
+                          left: TrailingWhitespace:
+                            child: Call:
+                              receiver: TrailingWhitespace:
+                                child: Identifier "run"
+                                whitespace: 
+                                  Whitespace " "
+                              arguments: 
+                                Identifier "read"
+                            whitespace: 
+                              Whitespace " "
+                          bar: TrailingWhitespace:
+                            child: Bar
+                            whitespace: 
+                              Whitespace " "
+                          right: StructAccess:
+                            struct: Identifier "text"
+                            dot: Dot
+                            key: Identifier "trim"
+                        whitespace: 
+                          Whitespace " "
+                      bar: TrailingWhitespace:
+                        child: Bar
+                        whitespace: 
+                          Whitespace " "
+                      right: StructAccess:
+                        struct: Identifier "int"
+                        dot: Dot
+                        key: Identifier "parse"
+                Newline "\n"
+                Newline "\n"
+                Whitespace "    "
+                BinaryBar:
+                  left: TrailingWhitespace:
+                    child: Identifier "guess"
+                    whitespace: 
+                      Whitespace " "
+                  bar: TrailingWhitespace:
+                    child: Bar
+                    whitespace: 
+                      Whitespace " "
+                  right: Call:
+                    receiver: TrailingWhitespace:
+                      child: StructAccess:
+                        struct: Identifier "result"
+                        dot: Dot
+                        key: Identifier "mapOrElse"
+                      whitespace: 
+                        Newline "\n"
+                        Whitespace "      "
+                    arguments: 
+                      TrailingWhitespace:
+                        child: Function:
+                          opening_curly_brace: TrailingWhitespace:
+                            child: OpeningCurlyBrace
+                            whitespace: 
+                              Whitespace " "
+                          parameters_and_arrow: 
+                            parameters: 
+                              TrailingWhitespace:
+                                child: Identifier "guess"
+                                whitespace: 
+                                  Whitespace " "
+                            arrow: TrailingWhitespace:
+                              child: Arrow
+                              whitespace: 
+                                Newline "\n"
+                                Whitespace "        "
+                          body: 
+                            Call:
+                              receiver: TrailingWhitespace:
+                                child: Identifier "ifElse"
+                                whitespace: 
+                                  Newline "\n"
+                                  Whitespace "          "
+                              arguments: 
+                                TrailingWhitespace:
+                                  child: Call:
+                                    receiver: TrailingWhitespace:
+                                      child: Identifier "equals"
+                                      whitespace: 
+                                        Whitespace " "
+                                    arguments: 
+                                      TrailingWhitespace:
+                                        child: Identifier "guess"
+                                        whitespace: 
+                                          Whitespace " "
+                                      Identifier "correct"
+                                  whitespace: 
+                                    Newline "\n"
+                                    Whitespace "          "
+                                TrailingWhitespace:
+                                  child: Function:
+                                    opening_curly_brace: TrailingWhitespace:
+                                      child: OpeningCurlyBrace
+                                      whitespace: 
+                                        Newline "\n"
+                                        Whitespace "            "
+                                    parameters_and_arrow: None
+                                    body: 
+                                      Call:
+                                        receiver: TrailingWhitespace:
+                                          child: Identifier "print"
+                                          whitespace: 
+                                            Whitespace " "
+                                        arguments: 
+                                          Text:
+                                            opening: OpeningText:
+                                              opening_single_quotes: 
+                                              opening_double_quote: DoubleQuote
+                                            parts: 
+                                              TextPart "You did it!"
+                                            closing: ClosingText:
+                                              closing_double_quote: DoubleQuote
+                                              closing_single_quotes: 
+                                      Newline "\n"
+                                      Whitespace "            "
+                                      Symbol "Break"
+                                      Newline "\n"
+                                      Whitespace "          "
+                                    closing_curly_brace: ClosingCurlyBrace
+                                  whitespace: 
+                                    Newline "\n"
+                                    Whitespace "          "
+                                Function:
+                                  opening_curly_brace: TrailingWhitespace:
+                                    child: OpeningCurlyBrace
+                                    whitespace: 
+                                      Newline "\n"
+                                      Whitespace "            "
+                                  parameters_and_arrow: None
+                                  body: 
+                                    Call:
+                                      receiver: TrailingWhitespace:
+                                        child: Identifier "print"
+                                        whitespace: 
+                                          Whitespace " "
+                                      arguments: 
+                                        Parenthesized:
+                                          opening_parenthesis: OpeningParenthesis
+                                          inner: Call:
+                                            receiver: TrailingWhitespace:
+                                              child: Identifier "ifElse"
+                                              whitespace: 
+                                                Whitespace " "
+                                            arguments: 
+                                              TrailingWhitespace:
+                                                child: Parenthesized:
+                                                  opening_parenthesis: OpeningParenthesis
+                                                  inner: Call:
+                                                    receiver: TrailingWhitespace:
+                                                      child: StructAccess:
+                                                        struct: Identifier "int"
+                                                        dot: Dot
+                                                        key: Identifier "isLessThan"
+                                                      whitespace: 
+                                                        Whitespace " "
+                                                    arguments: 
+                                                      TrailingWhitespace:
+                                                        child: Identifier "correct"
+                                                        whitespace: 
+                                                          Whitespace " "
+                                                      Identifier "guess"
+                                                  closing_parenthesis: ClosingParenthesis
+                                                whitespace: 
+                                                  Whitespace " "
+                                              TrailingWhitespace:
+                                                child: Function:
+                                                  opening_curly_brace: TrailingWhitespace:
+                                                    child: OpeningCurlyBrace
+                                                    whitespace: 
+                                                      Whitespace " "
+                                                  parameters_and_arrow: None
+                                                  body: 
+                                                    Text:
+                                                      opening: OpeningText:
+                                                        opening_single_quotes: 
+                                                        opening_double_quote: DoubleQuote
+                                                      parts: 
+                                                        TextPart "Lower!"
+                                                      closing: ClosingText:
+                                                        closing_double_quote: DoubleQuote
+                                                        closing_single_quotes: 
+                                                    Whitespace " "
+                                                  closing_curly_brace: ClosingCurlyBrace
+                                                whitespace: 
+                                                  Whitespace " "
+                                              Function:
+                                                opening_curly_brace: TrailingWhitespace:
+                                                  child: OpeningCurlyBrace
+                                                  whitespace: 
+                                                    Whitespace " "
+                                                parameters_and_arrow: None
+                                                body: 
+                                                  Text:
+                                                    opening: OpeningText:
+                                                      opening_single_quotes: 
+                                                      opening_double_quote: DoubleQuote
+                                                    parts: 
+                                                      TextPart "Higher!"
+                                                    closing: ClosingText:
+                                                      closing_double_quote: DoubleQuote
+                                                      closing_single_quotes: 
+                                                  Whitespace " "
+                                                closing_curly_brace: ClosingCurlyBrace
+                                          closing_parenthesis: ClosingParenthesis
+                                    Newline "\n"
+                                    Whitespace "            "
+                                    Symbol "Continue"
+                                    Newline "\n"
+                                    Whitespace "          "
+                                  closing_curly_brace: ClosingCurlyBrace
+                            Newline "\n"
+                            Whitespace "      "
+                          closing_curly_brace: ClosingCurlyBrace
+                        whitespace: 
+                          Newline "\n"
+                          Whitespace "      "
+                      Function:
+                        opening_curly_brace: TrailingWhitespace:
+                          child: OpeningCurlyBrace
+                          whitespace: 
+                            Whitespace " "
+                        parameters_and_arrow: 
+                          parameters: 
+                            TrailingWhitespace:
+                              child: Identifier "error"
+                              whitespace: 
+                                Whitespace " "
+                          arrow: TrailingWhitespace:
+                            child: Arrow
+                            whitespace: 
+                              Newline "\n"
+                              Whitespace "        "
+                        body: 
+                          Call:
+                            receiver: TrailingWhitespace:
+                              child: Identifier "print"
+                              whitespace: 
+                                Whitespace " "
+                            arguments: 
+                              Text:
+                                opening: OpeningText:
+                                  opening_single_quotes: 
+                                  opening_double_quote: DoubleQuote
+                                parts: 
+                                  TextPart "Your guess must be a number."
+                                closing: ClosingText:
+                                  closing_double_quote: DoubleQuote
+                                  closing_single_quotes: 
+                          Newline "\n"
+                          Whitespace "        "
+                          Symbol "Continue"
+                          Newline "\n"
+                          Whitespace "      "
+                        closing_curly_brace: ClosingCurlyBrace
+                Newline "\n"
+                Whitespace "  "
+              closing_curly_brace: ClosingCurlyBrace
+        Newline "\n"
+      closing_curly_brace: ClosingCurlyBrace
+Newline "\n"

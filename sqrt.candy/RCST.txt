@@ -1,0 +1,583 @@
+# RCST for module Examples:sqrt
+Assignment:
+  left: TrailingWhitespace:
+    child: Identifier "builtins"
+    whitespace: 
+      Whitespace " "
+  assignment_sign: TrailingWhitespace:
+    child: EqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Call:
+      receiver: TrailingWhitespace:
+        child: Identifier "use"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Text:
+          opening: OpeningText:
+            opening_single_quotes: 
+            opening_double_quote: DoubleQuote
+          parts: 
+            TextPart "Builtins"
+          closing: ClosingText:
+            closing_double_quote: DoubleQuote
+            closing_single_quotes: 
+Newline "\n"
+Assignment:
+  left: TrailingWhitespace:
+    child: Struct:
+      opening_bracket: OpeningBracket
+      fields: 
+        TrailingWhitespace:
+          child: StructField:
+            key_and_colon: None
+            value: Identifier "equals"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        TrailingWhitespace:
+          child: StructField:
+            key_and_colon: None
+            value: Identifier "fixedDecimal"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        TrailingWhitespace:
+          child: StructField:
+            key_and_colon: None
+            value: Identifier "ifElse"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        TrailingWhitespace:
+          child: StructField:
+            key_and_colon: None
+            value: Identifier "int"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        StructField:
+          key_and_colon: None
+          value: Identifier "recursive"
+          comma: None
+      closing_bracket: ClosingBracket
+    whitespace: 
+      Whitespace " "
+  assignment_sign: TrailingWhitespace:
+    child: EqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Call:
+      receiver: TrailingWhitespace:
+        child: Identifier "use"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Text:
+          opening: OpeningText:
+            opening_single_quotes: 
+            opening_double_quote: DoubleQuote
+          parts: 
+            TextPart "Core"
+          closing: ClosingText:
+            closing_double_quote: DoubleQuote
+            closing_single_quotes: 
+Newline "\n"
+Newline "\n"
+Assignment:
+  left: TrailingWhitespace:
+    child: Call:
+      receiver: TrailingWhitespace:
+        child: Identifier "sqrt"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        TrailingWhitespace:
+          child: Identifier "x"
+          whitespace: 
+            Whitespace " "
+        Identifier "precision"
+    whitespace: 
+      Whitespace " "
+  assignment_sign: TrailingWhitespace:
+    child: ColonEqualsSign
+    whitespace: 
+      Newline "\n"
+      Whitespace "  "
+  body: 
+    Call:
+      receiver: TrailingWhitespace:
+        child: Identifier "needs"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Parenthesized:
+          opening_parenthesis: OpeningParenthesis
+          inner: Call:
+            receiver: TrailingWhitespace:
+              child: StructAccess:
+                struct: Identifier "fixedDecimal"
+                dot: Dot
+                key: Identifier "is"
+              whitespace: 
+                Whitespace " "
+            arguments: 
+              Identifier "x"
+          closing_parenthesis: ClosingParenthesis
+    Newline "\n"
+    Whitespace "  "
+    Call:
+      receiver: TrailingWhitespace:
+        child: Identifier "needs"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Parenthesized:
+          opening_parenthesis: OpeningParenthesis
+          inner: Call:
+            receiver: TrailingWhitespace:
+              child: StructAccess:
+                struct: Identifier "fixedDecimal"
+                dot: Dot
+                key: Identifier "isNonNegative"
+              whitespace: 
+                Whitespace " "
+            arguments: 
+              Identifier "x"
+          closing_parenthesis: ClosingParenthesis
+    Newline "\n"
+    Whitespace "  "
+    Call:
+      receiver: TrailingWhitespace:
+        child: Identifier "needs"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Parenthesized:
+          opening_parenthesis: OpeningParenthesis
+          inner: Call:
+            receiver: TrailingWhitespace:
+              child: StructAccess:
+                struct: Identifier "int"
+                dot: Dot
+                key: Identifier "is"
+              whitespace: 
+                Whitespace " "
+            arguments: 
+              Identifier "precision"
+          closing_parenthesis: ClosingParenthesis
+    Newline "\n"
+    Whitespace "  "
+    Call:
+      receiver: TrailingWhitespace:
+        child: Identifier "needs"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Parenthesized:
+          opening_parenthesis: OpeningParenthesis
+          inner: Call:
+            receiver: TrailingWhitespace:
+              child: StructAccess:
+                struct: Identifier "int"
+                dot: Dot
+                key: Identifier "isNonNegative"
+              whitespace: 
+                Whitespace " "
+            arguments: 
+              Identifier "precision"
+          closing_parenthesis: ClosingParenthesis
+    Newline "\n"
+    Newline "\n"
+    Whitespace "  "
+    Assignment:
+      left: TrailingWhitespace:
+        child: Identifier "delta"
+        whitespace: 
+          Whitespace " "
+      assignment_sign: TrailingWhitespace:
+        child: EqualsSign
+        whitespace: 
+          Whitespace " "
+      body: 
+        BinaryBar:
+          left: TrailingWhitespace:
+            child: Int:
+              radix_prefix: None
+              value: 10
+              string: "10"
+            whitespace: 
+              Whitespace " "
+          bar: TrailingWhitespace:
+            child: Bar
+            whitespace: 
+              Whitespace " "
+          right: Call:
+            receiver: TrailingWhitespace:
+              child: StructAccess:
+                struct: Identifier "fixedDecimal"
+                dot: Dot
+                key: Identifier "fromIntScaled"
+              whitespace: 
+                Whitespace " "
+            arguments: 
+              Identifier "precision"
+    Newline "\n"
+    Newline "\n"
+    Whitespace "  "
+    Call:
+      receiver: TrailingWhitespace:
+        child: Identifier "recursive"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        TrailingWhitespace:
+          child: Parenthesized:
+            opening_parenthesis: OpeningParenthesis
+            inner: BinaryBar:
+              left: TrailingWhitespace:
+                child: Identifier "x"
+                whitespace: 
+                  Whitespace " "
+              bar: TrailingWhitespace:
+                child: Bar
+                whitespace: 
+                  Whitespace " "
+              right: Call:
+                receiver: TrailingWhitespace:
+                  child: StructAccess:
+                    struct: Identifier "fixedDecimal"
+                    dot: Dot
+                    key: Identifier "divideTruncatingAtScale"
+                  whitespace: 
+                    Whitespace " "
+                arguments: 
+                  TrailingWhitespace:
+                    child: Parenthesized:
+                      opening_parenthesis: OpeningParenthesis
+                      inner: BinaryBar:
+                        left: TrailingWhitespace:
+                          child: Int:
+                            radix_prefix: None
+                            value: 2
+                            string: "2"
+                          whitespace: 
+                            Whitespace " "
+                        bar: TrailingWhitespace:
+                          child: Bar
+                          whitespace: 
+                            Whitespace " "
+                        right: StructAccess:
+                          struct: Identifier "fixedDecimal"
+                          dot: Dot
+                          key: Identifier "fromInt"
+                      closing_parenthesis: ClosingParenthesis
+                    whitespace: 
+                      Whitespace " "
+                  Identifier "precision"
+            closing_parenthesis: ClosingParenthesis
+          whitespace: 
+            Whitespace " "
+        Function:
+          opening_curly_brace: TrailingWhitespace:
+            child: OpeningCurlyBrace
+            whitespace: 
+              Newline "\n"
+              Whitespace "    "
+          parameters_and_arrow: 
+            parameters: 
+              TrailingWhitespace:
+                child: Identifier "recurse"
+                whitespace: 
+                  Whitespace " "
+              TrailingWhitespace:
+                child: Identifier "guess"
+                whitespace: 
+                  Whitespace " "
+            arrow: TrailingWhitespace:
+              child: Arrow
+              whitespace: 
+                Newline "\n"
+                Whitespace "    "
+          body: 
+            Assignment:
+              left: TrailingWhitespace:
+                child: Identifier "refinedGuess"
+                whitespace: 
+                  Whitespace " "
+              assignment_sign: TrailingWhitespace:
+                child: EqualsSign
+                whitespace: 
+                  Newline "\n"
+                  Whitespace "      "
+              body: 
+                Call:
+                  receiver: TrailingWhitespace:
+                    child: StructAccess:
+                      struct: Identifier "fixedDecimal"
+                      dot: Dot
+                      key: Identifier "divideTruncatingAtScale"
+                    whitespace: 
+                      Newline "\n"
+                      Whitespace "        "
+                  arguments: 
+                    TrailingWhitespace:
+                      child: BinaryBar:
+                        left: TrailingWhitespace:
+                          child: Identifier "guess"
+                          whitespace: 
+                            Whitespace " "
+                        bar: TrailingWhitespace:
+                          child: Bar
+                          whitespace: 
+                            Whitespace " "
+                        right: Call:
+                          receiver: TrailingWhitespace:
+                            child: StructAccess:
+                              struct: Identifier "fixedDecimal"
+                              dot: Dot
+                              key: Identifier "add"
+                            whitespace: 
+                              Whitespace " "
+                          arguments: 
+                            Parenthesized:
+                              opening_parenthesis: OpeningParenthesis
+                              inner: BinaryBar:
+                                left: TrailingWhitespace:
+                                  child: Identifier "x"
+                                  whitespace: 
+                                    Whitespace " "
+                                bar: TrailingWhitespace:
+                                  child: Bar
+                                  whitespace: 
+                                    Whitespace " "
+                                right: Call:
+                                  receiver: TrailingWhitespace:
+                                    child: StructAccess:
+                                      struct: Identifier "fixedDecimal"
+                                      dot: Dot
+                                      key: Identifier "divideTruncatingAtScale"
+                                    whitespace: 
+                                      Whitespace " "
+                                  arguments: 
+                                    TrailingWhitespace:
+                                      child: Identifier "guess"
+                                      whitespace: 
+                                        Whitespace " "
+                                    Identifier "precision"
+                              closing_parenthesis: ClosingParenthesis
+                      whitespace: 
+                        Newline "\n"
+                        Whitespace "        "
+                    TrailingWhitespace:
+                      child: BinaryBar:
+                        left: TrailingWhitespace:
+                          child: Int:
+                            radix_prefix: None
+                            value: 2
+                            string: "2"
+                          whitespace: 
+                            Whitespace " "
+                        bar: TrailingWhitespace:
+                          child: Bar
+                          whitespace: 
+                            Whitespace " "
+                        right: StructAccess:
+                          struct: Identifier "fixedDecimal"
+                          dot: Dot
+                          key: Identifier "fromInt"
+                      whitespace: 
+                        Newline "\n"
+                        Whitespace "        "
+                    Identifier "precision"
+            Newline "\n"
+            Whitespace "    "
+            Call:
+              receiver: TrailingWhitespace:
+                child: Identifier "ifElse"
+                whitespace: 
+                  Whitespace " "
+              arguments: 
+                TrailingWhitespace:
+                  child: Parenthesized:
+                    opening_parenthesis: OpeningParenthesis
+                    inner: Call:
+                      receiver: TrailingWhitespace:
+                        child: StructAccess:
+                          struct: Identifier "fixedDecimal"
+                          dot: Dot
+                          key: Identifier "approxEquals"
+                        whitespace: 
+                          Whitespace " "
+                      arguments: 
+                        TrailingWhitespace:
+                          child: Identifier "guess"
+                          whitespace: 
+                            Whitespace " "
+                        TrailingWhitespace:
+                          child: Identifier "refinedGuess"
+                          whitespace: 
+                            Whitespace " "
+                        Identifier "delta"
+                    closing_parenthesis: ClosingParenthesis
+                  whitespace: 
+                    Whitespace " "
+                TrailingWhitespace:
+                  child: Function:
+                    opening_curly_brace: TrailingWhitespace:
+                      child: OpeningCurlyBrace
+                      whitespace: 
+                        Whitespace " "
+                    parameters_and_arrow: None
+                    body: 
+                      Identifier "guess"
+                      Whitespace " "
+                    closing_curly_brace: ClosingCurlyBrace
+                  whitespace: 
+                    Whitespace " "
+                Function:
+                  opening_curly_brace: TrailingWhitespace:
+                    child: OpeningCurlyBrace
+                    whitespace: 
+                      Whitespace " "
+                  parameters_and_arrow: None
+                  body: 
+                    TrailingWhitespace:
+                      child: Call:
+                        receiver: TrailingWhitespace:
+                          child: Identifier "recurse"
+                          whitespace: 
+                            Whitespace " "
+                        arguments: 
+                          Identifier "refinedGuess"
+                      whitespace: 
+                        Whitespace " "
+                  closing_curly_brace: ClosingCurlyBrace
+            Newline "\n"
+            Whitespace "  "
+          closing_curly_brace: ClosingCurlyBrace
+Newline "\n"
+Newline "\n"
+Assignment:
+  left: TrailingWhitespace:
+    child: Call:
+      receiver: TrailingWhitespace:
+        child: Identifier "main"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Identifier "_"
+    whitespace: 
+      Whitespace " "
+  assignment_sign: TrailingWhitespace:
+    child: ColonEqualsSign
+    whitespace: 
+      Newline "\n"
+      Whitespace "  "
+  body: 
+    Assignment:
+      left: TrailingWhitespace:
+        child: Identifier "input"
+        whitespace: 
+          Whitespace " "
+      assignment_sign: TrailingWhitespace:
+        child: EqualsSign
+        whitespace: 
+          Whitespace " "
+      body: 
+        Int:
+          radix_prefix: None
+          value: 2
+          string: "2"
+    Newline "\n"
+    Whitespace "  "
+    Assignment:
+      left: TrailingWhitespace:
+        child: Identifier "result"
+        whitespace: 
+          Whitespace " "
+      assignment_sign: TrailingWhitespace:
+        child: EqualsSign
+        whitespace: 
+          Whitespace " "
+      body: 
+        BinaryBar:
+          left: TrailingWhitespace:
+            child: BinaryBar:
+              left: TrailingWhitespace:
+                child: Identifier "input"
+                whitespace: 
+                  Whitespace " "
+              bar: TrailingWhitespace:
+                child: Bar
+                whitespace: 
+                  Whitespace " "
+              right: StructAccess:
+                struct: Identifier "fixedDecimal"
+                dot: Dot
+                key: Identifier "fromInt"
+            whitespace: 
+              Whitespace " "
+          bar: TrailingWhitespace:
+            child: Bar
+            whitespace: 
+              Whitespace " "
+          right: Call:
+            receiver: TrailingWhitespace:
+              child: Identifier "sqrt"
+              whitespace: 
+                Whitespace " "
+            arguments: 
+              Int:
+                radix_prefix: None
+                value: 65
+                string: "65"
+    Newline "\n"
+    Whitespace "  "
+    Call:
+      receiver: TrailingWhitespace:
+        child: StructAccess:
+          struct: Identifier "builtins"
+          dot: Dot
+          key: Identifier "print"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Text:
+          opening: OpeningText:
+            opening_single_quotes: 
+            opening_double_quote: DoubleQuote
+          parts: 
+            TextPart "The root of "
+            TextInterpolation:
+              opening_curly_braces: 
+                OpeningCurlyBrace
+              expression: Identifier "input"
+              closing_curly_braces: 
+                ClosingCurlyBrace
+            TextPart " is "
+            TextInterpolation:
+              opening_curly_braces: 
+                OpeningCurlyBrace
+              expression: BinaryBar:
+                left: TrailingWhitespace:
+                  child: Identifier "result"
+                  whitespace: 
+                    Whitespace " "
+                bar: TrailingWhitespace:
+                  child: Bar
+                  whitespace: 
+                    Whitespace " "
+                right: StructAccess:
+                  struct: Identifier "fixedDecimal"
+                  dot: Dot
+                  key: Identifier "toText"
+              closing_curly_braces: 
+                ClosingCurlyBrace
+          closing: ClosingText:
+            closing_double_quote: DoubleQuote
+            closing_single_quotes: 
+Newline "\n"
