@@ -1,0 +1,611 @@
+# RCST for module Examples:iterator
+Assignment:
+  left: TrailingWhitespace:
+    child: Identifier "builtins"
+    whitespace: 
+      Whitespace " "
+  assignment_sign: TrailingWhitespace:
+    child: EqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Call:
+      receiver: TrailingWhitespace:
+        child: Identifier "use"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Text:
+          opening: OpeningText:
+            opening_single_quotes: 
+            opening_double_quote: DoubleQuote
+          parts: 
+            TextPart "Builtins"
+          closing: ClosingText:
+            closing_double_quote: DoubleQuote
+            closing_single_quotes: 
+Newline "\n"
+Assignment:
+  left: TrailingWhitespace:
+    child: Struct:
+      opening_bracket: OpeningBracket
+      fields: 
+        TrailingWhitespace:
+          child: StructField:
+            key_and_colon: None
+            value: Identifier "bool"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        TrailingWhitespace:
+          child: StructField:
+            key_and_colon: None
+            value: Identifier "equals"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        TrailingWhitespace:
+          child: StructField:
+            key_and_colon: None
+            value: Identifier "ifElse"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        TrailingWhitespace:
+          child: StructField:
+            key_and_colon: None
+            value: Identifier "iterator"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        TrailingWhitespace:
+          child: StructField:
+            key_and_colon: None
+            value: Identifier "list"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        TrailingWhitespace:
+          child: StructField:
+            key_and_colon: None
+            value: Identifier "result"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        StructField:
+          key_and_colon: None
+          value: Identifier "text"
+          comma: None
+      closing_bracket: ClosingBracket
+    whitespace: 
+      Whitespace " "
+  assignment_sign: TrailingWhitespace:
+    child: EqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Call:
+      receiver: TrailingWhitespace:
+        child: Identifier "use"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Text:
+          opening: OpeningText:
+            opening_single_quotes: 
+            opening_double_quote: DoubleQuote
+          parts: 
+            TextPart "Core"
+          closing: ClosingText:
+            closing_double_quote: DoubleQuote
+            closing_single_quotes: 
+Newline "\n"
+Newline "\n"
+Assignment:
+  left: TrailingWhitespace:
+    child: Call:
+      receiver: TrailingWhitespace:
+        child: Identifier "splitWhereFirst"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        TrailingWhitespace:
+          child: Identifier "iter"
+          whitespace: 
+            Whitespace " "
+        Identifier "checker"
+    whitespace: 
+      Whitespace " "
+  assignment_sign: TrailingWhitespace:
+    child: EqualsSign
+    whitespace: 
+      Newline "\n"
+      Whitespace "  "
+  body: 
+    Comment:
+      octothorpe: Octothorpe
+      comment: " Splits the iterator into a list and an iterator of the remaining items. The"
+    Newline "\n"
+    Whitespace "  "
+    Comment:
+      octothorpe: Octothorpe
+      comment: " matching item itself is still the first item of the remaining iterator."
+    Newline "\n"
+    Whitespace "  "
+    Call:
+      receiver: TrailingWhitespace:
+        child: StructAccess:
+          struct: Identifier "builtins"
+          dot: Dot
+          key: Identifier "print"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Text:
+          opening: OpeningText:
+            opening_single_quotes: 
+            opening_double_quote: DoubleQuote
+          parts: 
+            TextPart "Getting leading items"
+          closing: ClosingText:
+            closing_double_quote: DoubleQuote
+            closing_single_quotes: 
+    Newline "\n"
+    Whitespace "  "
+    Assignment:
+      left: TrailingWhitespace:
+        child: Identifier "firstPart"
+        whitespace: 
+          Whitespace " "
+      assignment_sign: TrailingWhitespace:
+        child: EqualsSign
+        whitespace: 
+          Whitespace " "
+      body: 
+        BinaryBar:
+          left: BinaryBar:
+            left: TrailingWhitespace:
+              child: Identifier "iter"
+              whitespace: 
+                Whitespace " "
+            bar: TrailingWhitespace:
+              child: Bar
+              whitespace: 
+                Whitespace " "
+            right: TrailingWhitespace:
+              child: Call:
+                receiver: TrailingWhitespace:
+                  child: StructAccess:
+                    struct: Identifier "iterator"
+                    dot: Dot
+                    key: Identifier "takeUntil"
+                  whitespace: 
+                    Whitespace " "
+                arguments: 
+                  Function:
+                    opening_curly_brace: TrailingWhitespace:
+                      child: OpeningCurlyBrace
+                      whitespace: 
+                        Whitespace " "
+                    parameters_and_arrow: 
+                      parameters: 
+                        TrailingWhitespace:
+                          child: Identifier "item"
+                          whitespace: 
+                            Whitespace " "
+                      arrow: TrailingWhitespace:
+                        child: Arrow
+                        whitespace: 
+                          Whitespace " "
+                    body: 
+                      TrailingWhitespace:
+                        child: Call:
+                          receiver: TrailingWhitespace:
+                            child: Identifier "checker"
+                            whitespace: 
+                              Whitespace " "
+                          arguments: 
+                            Identifier "item"
+                        whitespace: 
+                          Whitespace " "
+                    closing_curly_brace: ClosingCurlyBrace
+              whitespace: 
+                Whitespace " "
+          bar: TrailingWhitespace:
+            child: Bar
+            whitespace: 
+              Whitespace " "
+          right: StructAccess:
+            struct: Identifier "iterator"
+            dot: Dot
+            key: Identifier "toList"
+    Newline "\n"
+    Whitespace "  "
+    Call:
+      receiver: TrailingWhitespace:
+        child: StructAccess:
+          struct: Identifier "builtins"
+          dot: Dot
+          key: Identifier "print"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Text:
+          opening: OpeningText:
+            opening_single_quotes: 
+            opening_double_quote: DoubleQuote
+          parts: 
+            TextPart "Turned into list"
+          closing: ClosingText:
+            closing_double_quote: DoubleQuote
+            closing_single_quotes: 
+    Newline "\n"
+    Whitespace "  "
+    List:
+      opening_parenthesis: OpeningParenthesis
+      items: 
+        TrailingWhitespace:
+          child: ListItem:
+            value: Identifier "firstPart"
+            comma: Comma
+          whitespace: 
+            Whitespace " "
+        ListItem:
+          value: BinaryBar:
+            left: TrailingWhitespace:
+              child: Identifier "iter"
+              whitespace: 
+                Whitespace " "
+            bar: TrailingWhitespace:
+              child: Bar
+              whitespace: 
+                Whitespace " "
+            right: Call:
+              receiver: TrailingWhitespace:
+                child: StructAccess:
+                  struct: Identifier "iterator"
+                  dot: Dot
+                  key: Identifier "skip"
+                whitespace: 
+                  Whitespace " "
+              arguments: 
+                Parenthesized:
+                  opening_parenthesis: OpeningParenthesis
+                  inner: BinaryBar:
+                    left: TrailingWhitespace:
+                      child: Identifier "firstPart"
+                      whitespace: 
+                        Whitespace " "
+                    bar: TrailingWhitespace:
+                      child: Bar
+                      whitespace: 
+                        Whitespace " "
+                    right: StructAccess:
+                      struct: Identifier "list"
+                      dot: Dot
+                      key: Identifier "length"
+                  closing_parenthesis: ClosingParenthesis
+          comma: None
+      closing_parenthesis: ClosingParenthesis
+Newline "\n"
+Newline "\n"
+Assignment:
+  left: TrailingWhitespace:
+    child: Call:
+      receiver: TrailingWhitespace:
+        child: Identifier "split"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        TrailingWhitespace:
+          child: Identifier "iter"
+          whitespace: 
+            Whitespace " "
+        Identifier "delimeter"
+    whitespace: 
+      Whitespace " "
+  assignment_sign: TrailingWhitespace:
+    child: EqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Call:
+      receiver: TrailingWhitespace:
+        child: StructAccess:
+          struct: Identifier "iterator"
+          dot: Dot
+          key: Identifier "generateWithState"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        TrailingWhitespace:
+          child: Identifier "iter"
+          whitespace: 
+            Whitespace " "
+        Function:
+          opening_curly_brace: TrailingWhitespace:
+            child: OpeningCurlyBrace
+            whitespace: 
+              Whitespace " "
+          parameters_and_arrow: 
+            parameters: 
+              TrailingWhitespace:
+                child: Identifier "state"
+                whitespace: 
+                  Whitespace " "
+            arrow: TrailingWhitespace:
+              child: Arrow
+              whitespace: 
+                Newline "\n"
+                Whitespace "  "
+          body: 
+            BinaryBar:
+              left: TrailingWhitespace:
+                child: Identifier "state"
+                whitespace: 
+                  Whitespace " "
+              bar: TrailingWhitespace:
+                child: Bar
+                whitespace: 
+                  Whitespace " "
+              right: Call:
+                receiver: TrailingWhitespace:
+                  child: StructAccess:
+                    struct: Identifier "iterator"
+                    dot: Dot
+                    key: Identifier "takeUntil"
+                  whitespace: 
+                    Whitespace " "
+                arguments: 
+                  Function:
+                    opening_curly_brace: TrailingWhitespace:
+                      child: OpeningCurlyBrace
+                      whitespace: 
+                        Whitespace " "
+                    parameters_and_arrow: 
+                      parameters: 
+                        TrailingWhitespace:
+                          child: Identifier "item"
+                          whitespace: 
+                            Whitespace " "
+                      arrow: TrailingWhitespace:
+                        child: Arrow
+                        whitespace: 
+                          Whitespace " "
+                    body: 
+                      TrailingWhitespace:
+                        child: Call:
+                          receiver: TrailingWhitespace:
+                            child: Identifier "equals"
+                            whitespace: 
+                              Whitespace " "
+                          arguments: 
+                            TrailingWhitespace:
+                              child: Identifier "item"
+                              whitespace: 
+                                Whitespace " "
+                            Identifier "delimeter"
+                        whitespace: 
+                          Whitespace " "
+                    closing_curly_brace: ClosingCurlyBrace
+            Newline "\n"
+            Whitespace "  "
+            BinaryBar:
+              left: TrailingWhitespace:
+                child: BinaryBar:
+                  left: TrailingWhitespace:
+                    child: Identifier "state"
+                    whitespace: 
+                      Whitespace " "
+                  bar: TrailingWhitespace:
+                    child: Bar
+                    whitespace: 
+                      Whitespace " "
+                  right: StructAccess:
+                    struct: Identifier "iterator"
+                    dot: Dot
+                    key: Identifier "next"
+                whitespace: 
+                  Whitespace " "
+              bar: TrailingWhitespace:
+                child: Bar
+                whitespace: 
+                  Whitespace " "
+              right: Call:
+                receiver: TrailingWhitespace:
+                  child: StructAccess:
+                    struct: Identifier "result"
+                    dot: Dot
+                    key: Identifier "map"
+                  whitespace: 
+                    Whitespace " "
+                arguments: 
+                  Function:
+                    opening_curly_brace: TrailingWhitespace:
+                      child: OpeningCurlyBrace
+                      whitespace: 
+                        Whitespace " "
+                    parameters_and_arrow: None
+                    body: 
+                    closing_curly_brace: ClosingCurlyBrace
+            Newline "\n"
+          closing_curly_brace: ClosingCurlyBrace
+Newline "\n"
+Newline "\n"
+Assignment:
+  left: TrailingWhitespace:
+    child: Identifier "main"
+    whitespace: 
+      Whitespace " "
+  assignment_sign: TrailingWhitespace:
+    child: ColonEqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Function:
+      opening_curly_brace: TrailingWhitespace:
+        child: OpeningCurlyBrace
+        whitespace: 
+          Whitespace " "
+      parameters_and_arrow: 
+        parameters: 
+          TrailingWhitespace:
+            child: Identifier "env"
+            whitespace: 
+              Whitespace " "
+        arrow: TrailingWhitespace:
+          child: Arrow
+          whitespace: 
+            Newline "\n"
+            Whitespace "  "
+      body: 
+        Assignment:
+          left: TrailingWhitespace:
+            child: Call:
+              receiver: TrailingWhitespace:
+                child: Identifier "print"
+                whitespace: 
+                  Whitespace " "
+              arguments: 
+                Identifier "message"
+            whitespace: 
+              Whitespace " "
+          assignment_sign: TrailingWhitespace:
+            child: EqualsSign
+            whitespace: 
+              Whitespace " "
+          body: 
+            Call:
+              receiver: TrailingWhitespace:
+                child: StructAccess:
+                  struct: Identifier "env"
+                  dot: Dot
+                  key: Identifier "stdout"
+                whitespace: 
+                  Whitespace " "
+              arguments: 
+                Identifier "message"
+        Newline "\n"
+        Newline "\n"
+        Whitespace "  "
+        Assignment:
+          left: TrailingWhitespace:
+            child: Identifier "foo"
+            whitespace: 
+              Whitespace " "
+          assignment_sign: TrailingWhitespace:
+            child: EqualsSign
+            whitespace: 
+              Whitespace " "
+          body: 
+            BinaryBar:
+              left: TrailingWhitespace:
+                child: BinaryBar:
+                  left: TrailingWhitespace:
+                    child: BinaryBar:
+                      left: TrailingWhitespace:
+                        child: Text:
+                          opening: OpeningText:
+                            opening_single_quotes: 
+                            opening_double_quote: DoubleQuote
+                          parts: 
+                            TextPart "Hello, world! This is some long text. Bla bla blub."
+                          closing: ClosingText:
+                            closing_double_quote: DoubleQuote
+                            closing_single_quotes: 
+                        whitespace: 
+                          Whitespace " "
+                      bar: TrailingWhitespace:
+                        child: Bar
+                        whitespace: 
+                          Whitespace " "
+                      right: StructAccess:
+                        struct: Identifier "text"
+                        dot: Dot
+                        key: Identifier "characters"
+                    whitespace: 
+                      Whitespace " "
+                  bar: TrailingWhitespace:
+                    child: Bar
+                    whitespace: 
+                      Whitespace " "
+                  right: StructAccess:
+                    struct: Identifier "iterator"
+                    dot: Dot
+                    key: Identifier "fromList"
+                whitespace: 
+                  Newline "\n"
+                  Whitespace "  "
+                  Comment:
+                    octothorpe: Octothorpe
+                    comment: "| splitWhereFirst { c ->"
+                  Newline "\n"
+                  Whitespace "  "
+                  Comment:
+                    octothorpe: Octothorpe
+                    comment: "  builtins.print c"
+                  Newline "\n"
+                  Whitespace "  "
+                  Comment:
+                    octothorpe: Octothorpe
+                    comment: "  equals c ",""
+                  Newline "\n"
+                  Whitespace "  "
+                  Comment:
+                    octothorpe: Octothorpe
+                    comment: "}"
+                  Newline "\n"
+                  Whitespace "  "
+                  Comment:
+                    octothorpe: Octothorpe
+                    comment: "builtins.print "Hi""
+                  Newline "\n"
+                  Whitespace "  "
+                  Comment:
+                    octothorpe: Octothorpe
+                    comment: "builtins.print foo"
+                  Newline "\n"
+                  Whitespace "  "
+              bar: TrailingWhitespace:
+                child: Bar
+                whitespace: 
+                  Whitespace " "
+              right: Call:
+                receiver: TrailingWhitespace:
+                  child: StructAccess:
+                    struct: Identifier "iterator"
+                    dot: Dot
+                    key: Identifier "forEach"
+                  whitespace: 
+                    Whitespace " "
+                arguments: 
+                  Function:
+                    opening_curly_brace: TrailingWhitespace:
+                      child: OpeningCurlyBrace
+                      whitespace: 
+                        Whitespace " "
+                    parameters_and_arrow: 
+                      parameters: 
+                        TrailingWhitespace:
+                          child: Identifier "item"
+                          whitespace: 
+                            Whitespace " "
+                      arrow: TrailingWhitespace:
+                        child: Arrow
+                        whitespace: 
+                          Whitespace " "
+                    body: 
+                      TrailingWhitespace:
+                        child: Call:
+                          receiver: TrailingWhitespace:
+                            child: Identifier "print"
+                            whitespace: 
+                              Whitespace " "
+                          arguments: 
+                            Identifier "item"
+                        whitespace: 
+                          Whitespace " "
+                    closing_curly_brace: ClosingCurlyBrace
+        Newline "\n"
+      closing_curly_brace: ClosingCurlyBrace
+Newline "\n"
