@@ -1,0 +1,147 @@
+# RCST for module Examples:
+Comment:
+  octothorpe: Octothorpe
+  comment: " Run or benchmark by navigating into this folder and then running one of these commands:"
+Newline "\n"
+Comment:
+  octothorpe: Octothorpe
+  comment: " `cargo build --release -- run`"
+Newline "\n"
+Comment:
+  octothorpe: Octothorpe
+  comment: " `cargo build --release && time target/release/candy run`"
+Newline "\n"
+Newline "\n"
+Assignment:
+  left: TrailingWhitespace:
+    child: Identifier "builtins"
+    whitespace: 
+      Whitespace " "
+  assignment_sign: TrailingWhitespace:
+    child: EqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Call:
+      receiver: TrailingWhitespace:
+        child: Identifier "use"
+        whitespace: 
+          Whitespace " "
+      arguments: 
+        Text:
+          opening: OpeningText:
+            opening_single_quotes: 
+            opening_double_quote: DoubleQuote
+          parts: 
+            TextPart "Builtins"
+          closing: ClosingText:
+            closing_double_quote: DoubleQuote
+            closing_single_quotes: 
+Newline "\n"
+Comment:
+  octothorpe: Octothorpe
+  comment: " echo = use ".echo""
+Newline "\n"
+Comment:
+  octothorpe: Octothorpe
+  comment: " fibonacci = use ".fibonacci""
+Newline "\n"
+Newline "\n"
+Assignment:
+  left: TrailingWhitespace:
+    child: Identifier "main"
+    whitespace: 
+      Whitespace " "
+  assignment_sign: TrailingWhitespace:
+    child: ColonEqualsSign
+    whitespace: 
+      Whitespace " "
+  body: 
+    Function:
+      opening_curly_brace: TrailingWhitespace:
+        child: OpeningCurlyBrace
+        whitespace: 
+          Whitespace " "
+      parameters_and_arrow: 
+        parameters: 
+          TrailingWhitespace:
+            child: Identifier "environment"
+            whitespace: 
+              Whitespace " "
+        arrow: TrailingWhitespace:
+          child: Arrow
+          whitespace: 
+            Newline "\n"
+            Whitespace "  "
+            Comment:
+              octothorpe: Octothorpe
+              comment: " print message = environment.stdout message"
+            Newline "\n"
+            Newline "\n"
+            Whitespace "  "
+      body: 
+        Assignment:
+          left: TrailingWhitespace:
+            child: Identifier "result"
+            whitespace: 
+              Whitespace " "
+          assignment_sign: TrailingWhitespace:
+            child: EqualsSign
+            whitespace: 
+              Whitespace " "
+          body: 
+            BinaryBar:
+              left: TrailingWhitespace:
+                child: Int:
+                  radix_prefix: None
+                  value: 1
+                  string: "1"
+                whitespace: 
+                  Whitespace " "
+              bar: TrailingWhitespace:
+                child: Bar
+                whitespace: 
+                  Whitespace " "
+              right: Call:
+                receiver: TrailingWhitespace:
+                  child: StructAccess:
+                    struct: Identifier "builtins"
+                    dot: Dot
+                    key: Identifier "intAdd"
+                  whitespace: 
+                    Whitespace " "
+                arguments: 
+                  Int:
+                    radix_prefix: None
+                    value: 2
+                    string: "2"
+        Newline "\n"
+        Whitespace "  "
+        BinaryBar:
+          left: TrailingWhitespace:
+            child: BinaryBar:
+              left: TrailingWhitespace:
+                child: Identifier "result"
+                whitespace: 
+                  Whitespace " "
+              bar: TrailingWhitespace:
+                child: Bar
+                whitespace: 
+                  Whitespace " "
+              right: StructAccess:
+                struct: Identifier "builtins"
+                dot: Dot
+                key: Identifier "toDebugText"
+            whitespace: 
+              Whitespace " "
+          bar: TrailingWhitespace:
+            child: Bar
+            whitespace: 
+              Whitespace " "
+          right: StructAccess:
+            struct: Identifier "builtins"
+            dot: Dot
+            key: Identifier "print"
+        Newline "\n"
+      closing_curly_brace: ClosingCurlyBrace
+Newline "\n"
